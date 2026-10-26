@@ -139,6 +139,7 @@ Optimize images and other assets to improve loading speed and user experience.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
+| [File Converter](images-optimization/file-converter.md) | Windows context-menu tool to convert and compress images (Windows 11 supported) | <a href="https://github.com/Tichau/FileConverter" target="_blank" rel="noopener noreferrer">github.com/Tichau/FileConverter</a> |
 | [Squoosh](images-optimization/squoosh.md) | Compress and convert images in your browser | <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">squoosh.app</a> |
 | [SVG Repo](images-optimization/svg-repo.md) | Browse and download SVG icons and illustrations | <a href="https://svgrepo.com/" target="_blank" rel="noopener noreferrer">svgrepo.com</a> |
 | [TinyPNG](images-optimization/tinypng.md) | Compress PNG, JPEG, WebP, and other supported image formats | <a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">tinypng.com</a> |
