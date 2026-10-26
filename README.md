@@ -271,6 +271,12 @@ Add user login, member areas, and gated content to static sites without backend 
     <td><a href="https://outseta.com/" target="_blank" rel="noopener noreferrer">outseta.com</a></td>
   </tr>
   <tr>
+    <td><a href="payments-ecommerce/reflow.md">Reflow</a></td>
+    <td>User sign-in, session auth, and subscriber management for static frontends</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a></td>
+  </tr>
+  <tr>
     <td><a href="authentication-users/supabase-auth.md">Supabase Auth</a></td>
     <td>Open-source auth supporting passwordless logins, OAuth, and JWTs</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
@@ -895,6 +901,12 @@ Sell digital downloads, services, memberships, and other products from static we
     <td>Create custom checkout forms to accept payments, tickets, and donations</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">paymentform.io</a></td>
+  </tr>
+  <tr>
+    <td><a href="payments-ecommerce/reflow.md">Reflow</a></td>
+    <td>Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a></td>
   </tr>
   <tr>
     <td><a href="payments-ecommerce/stripe-payment-links.md">Stripe Payment Links</a></td>
