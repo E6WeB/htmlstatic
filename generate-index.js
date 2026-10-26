@@ -2,7 +2,8 @@
  * Generator for root index.html
  * Creates a standalone, zero-dependency, rich static HTML file
  * featuring all 25 categories and 94 tools with instant search,
- * filtering, dark/light theme, and quick-view modals.
+ * filtering, light/dark segmented theme switcher (default Light),
+ * floating Back to Top button, and quick-view modals.
  */
 
 const fs = require('fs');
@@ -17,8 +18,9 @@ const ICONS = {
   search: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
   external: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
   arrowRight: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`,
-  sun: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
-  moon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
+  arrowUp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>`,
+  sun: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
+  moon: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
   close: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
   github: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>`,
   check: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
@@ -165,9 +167,9 @@ for (const section of sections) {
 
 console.log(`Parsed ${categories.length} categories and ${allTools.length} tools.`);
 
-// Build HTML
+// Build HTML (Default Light Theme)
 const html = `<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -178,28 +180,28 @@ const html = `<!DOCTYPE html>
   <meta property="og:title" content="Static Website Toolkit - 94+ Tools for Modern Static Sites">
   <meta property="og:description" content="Discover 94 curated tools across 25 categories for building high-performance static websites with HTML, CSS, and JS.">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       CSS Design System - Light & Dark Modes
+       CSS Design System - Default Light Theme & Dark Theme
        ========================================================================== */
     :root {
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-      /* Light Theme Palette */
+      /* Light Theme Palette (DEFAULT) */
       --bg-body: #f8fafc;
       --bg-surface: #ffffff;
       --bg-surface-elevated: #ffffff;
       --bg-muted: #f1f5f9;
-      --bg-glass: rgba(255, 255, 255, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.88);
       --border-color: #e2e8f0;
       --border-hover: #cbd5e1;
-      --border-focus: #3b82f6;
+      --border-focus: #2563eb;
       --text-main: #0f172a;
       --text-muted: #475569;
       --text-subtle: #64748b;
@@ -238,7 +240,7 @@ const html = `<!DOCTYPE html>
       --bg-surface: #111827;
       --bg-surface-elevated: #1a2234;
       --bg-muted: #1e293b;
-      --bg-glass: rgba(17, 24, 39, 0.85);
+      --bg-glass: rgba(17, 24, 39, 0.88);
       --border-color: #1f293d;
       --border-hover: #334155;
       --border-focus: #60a5fa;
@@ -413,7 +415,7 @@ const html = `<!DOCTYPE html>
       display: flex;
       align-items: center;
       list-style: none;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .nav-link {
@@ -433,27 +435,84 @@ const html = `<!DOCTYPE html>
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
-    .theme-btn {
+    /* Header Search Trigger Button */
+    .header-search-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.425rem 0.9rem;
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
-      color: var(--text-main);
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+      font-size: 0.825rem;
+      font-weight: 500;
       cursor: pointer;
+      font-family: inherit;
       transition: all 0.2s ease;
     }
 
-    .theme-btn:hover {
-      background-color: var(--bg-muted);
-      border-color: var(--border-focus);
-      color: var(--accent);
+    .header-search-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      background: var(--bg-muted);
+    }
+
+    .kbd-shortcut {
+      background: var(--bg-muted);
+      border: 1px solid var(--border-color);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.725rem;
+      font-family: var(--font-mono);
+      color: var(--text-subtle);
+    }
+
+    /* Segmented Theme Switcher */
+    .theme-segmented-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-muted);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 3px;
+      gap: 2px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .theme-seg-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .theme-seg-btn:hover {
+      color: var(--text-main);
+    }
+
+    .theme-seg-btn.active {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border-color: var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .theme-seg-btn .seg-icon {
+      display: flex;
+      align-items: center;
     }
 
     /* Hero Section */
@@ -498,8 +557,84 @@ const html = `<!DOCTYPE html>
       font-size: clamp(1.05rem, 2vw, 1.25rem);
       color: var(--text-muted);
       max-width: 740px;
-      margin: 0 auto 2.25rem;
+      margin: 0 auto 2rem;
       line-height: 1.6;
+    }
+
+    /* Hero Command Search Hub */
+    .hero-search-container {
+      max-width: 660px;
+      margin: 0 auto 2.5rem;
+      position: relative;
+    }
+
+    .hero-search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 0.4rem 0.75rem 0.4rem 1.25rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    .hero-search-box:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-light), 0 12px 30px -8px rgba(37, 99, 235, 0.2);
+    }
+
+    .hero-search-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 1.05rem;
+      font-family: inherit;
+      color: var(--text-main);
+      padding: 0.45rem 0.5rem;
+    }
+
+    .hero-search-icon {
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      margin-right: 0.5rem;
+    }
+
+    .quick-tags {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      font-size: 0.825rem;
+    }
+
+    .quick-tags-label {
+      color: var(--text-subtle);
+      font-weight: 500;
+    }
+
+    .quick-tag-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-size: 0.775rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .quick-tag-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-1px);
     }
 
     .hero-actions {
@@ -636,6 +771,7 @@ const html = `<!DOCTYPE html>
       font-size: 0.825rem;
       font-weight: 600;
       cursor: pointer;
+      font-family: inherit;
       transition: all 0.15s ease;
     }
 
@@ -1064,23 +1200,62 @@ const html = `<!DOCTYPE html>
       font-size: 0.85rem;
     }
 
-    /* Mobile Nav Drawer */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: 1px solid var(--border-color);
+    /* Floating Back to Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.05rem;
+      background: var(--bg-surface);
       color: var(--text-main);
-      padding: 0.4rem;
-      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .back-to-top-btn .btt-icon {
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    .back-to-top-btn:hover .btt-icon {
+      transform: translateY(-2px);
     }
 
     @media (max-width: 860px) {
       .nav-links {
         display: none;
       }
-      .mobile-menu-btn {
-        display: flex;
+      .header-search-btn span:first-of-type {
+        display: none;
       }
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
@@ -1089,6 +1264,11 @@ const html = `<!DOCTYPE html>
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 2rem;
+      }
+      .back-to-top-btn {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        padding: 0.6rem 0.85rem;
       }
     }
   </style>
@@ -1113,9 +1293,24 @@ const html = `<!DOCTYPE html>
       </nav>
 
       <div class="header-actions">
-        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-          <span id="theme-icon">${ICONS.sun}</span>
+        <!-- Quick Search Trigger -->
+        <button class="header-search-btn" onclick="focusSearch()" aria-label="Search tools">
+          ${ICONS.search}
+          <span>Search tools...</span>
+          <span class="kbd-shortcut">⌘K</span>
         </button>
+
+        <!-- Segmented Theme Switcher (Default: Light) -->
+        <div class="theme-segmented-switch" role="radiogroup" aria-label="Color Theme">
+          <button class="theme-seg-btn active" data-theme-val="light" aria-label="Light Mode" title="Light Mode">
+            <span class="seg-icon">${ICONS.sun}</span>
+            <span>Light</span>
+          </button>
+          <button class="theme-seg-btn" data-theme-val="dark" aria-label="Dark Mode" title="Dark Mode">
+            <span class="seg-icon">${ICONS.moon}</span>
+            <span>Dark</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -1132,6 +1327,26 @@ const html = `<!DOCTYPE html>
       <p class="hero-subtitle">
         You don't need WordPress, a monolithic CMS, or expensive cloud servers. Discover 94+ curated tools, services, and APIs for building modern static sites with HTML, CSS, and JavaScript.
       </p>
+
+      <!-- Command Hero Search Hub -->
+      <div class="hero-search-container">
+        <div class="hero-search-box">
+          <span class="hero-search-icon">${ICONS.search}</span>
+          <input type="text" id="hero-search-input" class="hero-search-input" placeholder="Search 94+ static tools, APIs, forms, auth..." autocomplete="off">
+          <span class="kbd-shortcut" style="display:flex;align-items:center;padding:0.15rem 0.5rem;font-size:0.75rem;">/</span>
+        </div>
+        <div class="quick-tags">
+          <span class="quick-tags-label">Popular tools:</span>
+          <button class="quick-tag-btn" onclick="quickSearchTag('Reflow')">Reflow</button>
+          <button class="quick-tag-btn" onclick="quickSearchTag('Clerk')">Clerk</button>
+          <button class="quick-tag-btn" onclick="quickSearchTag('Pagefind')">Pagefind</button>
+          <button class="quick-tag-btn" onclick="quickSearchTag('Astro')">Astro</button>
+          <button class="quick-tag-btn" onclick="quickSearchTag('Formspree')">Formspree</button>
+          <button class="quick-tag-btn" onclick="quickSearchTag('Pico CSS')">Pico CSS</button>
+          <button class="quick-tag-btn" onclick="quickSearchTag('Supabase')">Supabase</button>
+          <button class="quick-tag-btn" onclick="quickSearchTag('TinyPNG')">TinyPNG</button>
+        </div>
+      </div>
 
       <div class="hero-actions">
         <a href="#catalog" class="btn btn-primary">
@@ -1226,7 +1441,7 @@ const html = `<!DOCTYPE html>
       <div class="section-header">
         <div>
           <h2 class="section-title">Master Tools Directory</h2>
-          <p class="section-subtitle">Click any tool to view its integration details or visit the official website.</p>
+          <p class="section-subtitle">Click any tool card to view its integration details or visit the official website.</p>
         </div>
       </div>
 
@@ -1386,40 +1601,59 @@ const html = `<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()">
+    <span class="btt-icon">${ICONS.arrowUp}</span>
+    <span>Back to Top</span>
+  </button>
+
   <!-- Embedded Client Logic & Data -->
   <script>
     const TOOLS_DATA = ${JSON.stringify(allTools)};
 
-    // Dark / Light Mode Toggle
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const sunSvg = \`${ICONS.sun}\`;
-    const moonSvg = \`${ICONS.moon}\`;
+    // Segmented Theme Switcher (DEFAULT: LIGHT)
+    const themeSegButtons = document.querySelectorAll('.theme-seg-btn');
 
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('swt-theme', theme);
-      if (themeIcon) {
-        themeIcon.innerHTML = theme === 'dark' ? sunSvg : moonSvg;
-      }
-    }
-
-    const savedTheme = localStorage.getItem('swt-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    setTheme(savedTheme);
-
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
-        const cur = document.documentElement.getAttribute('data-theme');
-        setTheme(cur === 'dark' ? 'light' : 'dark');
+      themeSegButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-theme-val') === theme);
       });
     }
+
+    // Default to 'light' theme
+    const savedTheme = localStorage.getItem('swt-theme') || 'light';
+    setTheme(savedTheme);
+
+    themeSegButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selected = btn.getAttribute('data-theme-val');
+        setTheme(selected);
+      });
+    });
 
     // Dynamic Year
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Search and Filtering
-    const searchInput = document.getElementById('tool-search');
+    // Floating Back to Top Logic
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Synchronized Search (Hero Search & Sticky Filter Search)
+    const heroSearchInput = document.getElementById('hero-search-input');
+    const catalogSearchInput = document.getElementById('tool-search');
     const clearBtn = document.getElementById('search-clear-btn');
     const filterBtns = document.querySelectorAll('.filter-btn');
     const categorySelect = document.getElementById('category-filter-select');
@@ -1472,30 +1706,64 @@ const html = `<!DOCTYPE html>
       }
     }
 
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value;
-        if (clearBtn) clearBtn.style.display = searchQuery ? 'flex' : 'none';
-        applyFilters();
-      });
+    function syncSearch(query, scrollDown = false) {
+      searchQuery = query;
+      if (heroSearchInput && heroSearchInput.value !== query) heroSearchInput.value = query;
+      if (catalogSearchInput && catalogSearchInput.value !== query) catalogSearchInput.value = query;
+      if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+      applyFilters();
 
-      // Shortcut '/' or 'Ctrl+K'
-      document.addEventListener('keydown', (e) => {
-        if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== searchInput) {
-          e.preventDefault();
-          searchInput.focus();
-          searchInput.select();
+      if (scrollDown && query) {
+        const catalogEl = document.getElementById('catalog-controls');
+        if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    if (heroSearchInput) {
+      heroSearchInput.addEventListener('input', (e) => {
+        syncSearch(e.target.value, false);
+      });
+      heroSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const catalogEl = document.getElementById('catalog-controls');
+          if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
         }
       });
     }
 
+    if (catalogSearchInput) {
+      catalogSearchInput.addEventListener('input', (e) => {
+        syncSearch(e.target.value, false);
+      });
+    }
+
+    // Global Shortcut '/' or 'Ctrl+K'
+    document.addEventListener('keydown', (e) => {
+      if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        focusSearch();
+      }
+    });
+
+    function focusSearch() {
+      const catalogEl = document.getElementById('catalog-controls');
+      if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+      if (catalogSearchInput) {
+        setTimeout(() => {
+          catalogSearchInput.focus();
+          catalogSearchInput.select();
+        }, 150);
+      }
+    }
+
+    function quickSearchTag(tag) {
+      syncSearch(tag, true);
+    }
+
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        searchQuery = '';
-        clearBtn.style.display = 'none';
-        applyFilters();
-        searchInput.focus();
+        syncSearch('', false);
+        if (catalogSearchInput) catalogSearchInput.focus();
       });
     }
 
@@ -1526,13 +1794,9 @@ const html = `<!DOCTYPE html>
     }
 
     function resetFilters() {
-      searchQuery = '';
+      syncSearch('', false);
       currentFilter = 'all';
       currentCategory = 'all';
-      if (searchInput) {
-        searchInput.value = '';
-        if (clearBtn) clearBtn.style.display = 'none';
-      }
       if (categorySelect) categorySelect.value = 'all';
       filterBtns.forEach(b => {
         b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
@@ -1602,4 +1866,4 @@ const html = `<!DOCTYPE html>
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), html);
-console.log('Successfully generated root index.html!');
+console.log('Successfully generated root index.html with Back to Top, Light Theme default, and enhanced Search/Theme switcher!');
