@@ -240,41 +240,7 @@ const BASE_CSS = `
     --radius-md: 10px;
     --radius-lg: 16px;
     --radius-full: 9999px;
-    --container-max: 1240px;
-  }
-
-  [data-theme="dark"] {
-    --bg-body: #0b0f19;
-    --bg-surface: #111827;
-    --bg-surface-elevated: #1a2234;
-    --bg-muted: #1e293b;
-    --bg-glass: rgba(17, 24, 39, 0.88);
-    --border-color: #1f293d;
-    --border-hover: #334155;
-    --border-focus: #60a5fa;
-    --text-main: #f9fafb;
-    --text-muted: #94a3b8;
-    --text-subtle: #64748b;
-
-    --accent: #3b82f6;
-    --accent-hover: #60a5fa;
-    --accent-light: rgba(59, 130, 246, 0.12);
-    --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-
-    --badge-open-source-bg: rgba(34, 197, 94, 0.15);
-    --badge-open-source-text: #4ade80;
-    --badge-free-bg: rgba(34, 197, 94, 0.15);
-    --badge-free-text: #4ade80;
-    --badge-freemium-bg: rgba(59, 130, 246, 0.15);
-    --badge-freemium-text: #93c5fd;
-    --badge-paid-bg: rgba(245, 158, 11, 0.15);
-    --badge-paid-text: #fcd34d;
-
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
-    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
-    --shadow-card-hover: 0 14px 28px -6px rgba(0, 0, 0, 0.7);
+    --container-max: 1440px;
   }
 
   *, *::before, *::after {
@@ -445,56 +411,6 @@ const BASE_CSS = `
     color: var(--accent);
     background-color: var(--accent-light);
     font-weight: 700;
-  }
-
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-  }
-
-  /* Segmented Theme Switcher */
-  .theme-segmented-switch {
-    display: inline-flex;
-    align-items: center;
-    background: var(--bg-muted);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    padding: 3px;
-    gap: 2px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-  }
-
-  .theme-seg-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-full);
-    border: 1px solid transparent;
-    background: transparent;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .theme-seg-btn:hover {
-    color: var(--text-main);
-  }
-
-  .theme-seg-btn.active {
-    background: var(--bg-surface);
-    color: var(--text-main);
-    border-color: var(--border-color);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .theme-seg-btn .seg-icon {
-    display: flex;
-    align-items: center;
   }
 
   /* Floating Back to Top Button */
@@ -724,34 +640,30 @@ const BASE_CSS = `
     font-weight: 700;
   }
 
-  /* Wider Archive Layout Styles (320px sidebar) */
+  /* Archive Layout Styles (sidebar scrolls with page) */
   .archive-layout {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 440px 1fr;
     gap: 2.5rem;
     align-items: start;
   }
 
   .archive-sidebar {
-    position: sticky;
-    top: 5.5rem;
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 1.25rem;
-    max-height: calc(100vh - 7rem);
-    overflow-y: auto;
+    padding: 1.25rem 1rem;
     box-shadow: var(--shadow-card);
   }
 
   .archive-cat-link {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
-    font-size: 0.875rem;
+    gap: 0.55rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-muted);
-    padding: 0.45rem 0.65rem;
+    padding: 0.45rem 0.55rem;
     border-radius: var(--radius-sm);
     transition: all 0.15s ease;
     text-decoration: none;
@@ -786,15 +698,12 @@ const BASE_CSS = `
     padding: 0.1rem 0.45rem;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
+    flex-shrink: 0;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1040px) {
     .archive-layout {
       grid-template-columns: 1fr;
-    }
-    .archive-sidebar {
-      position: static;
-      max-height: 280px;
     }
   }
 
@@ -833,7 +742,7 @@ function renderLayout({
   ` : '';
 
   return `<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -865,20 +774,6 @@ function renderLayout({
           <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">${ICONS.github} GitHub</a></li>
         </ul>
       </nav>
-
-      <div class="header-actions">
-        <!-- Segmented Theme Switcher (Default Light) -->
-        <div class="theme-segmented-switch" role="radiogroup" aria-label="Color Theme">
-          <button class="theme-seg-btn active" data-theme-val="light" aria-label="Light Mode" title="Light Mode">
-            <span class="seg-icon">${ICONS.sun}</span>
-            <span>Light</span>
-          </button>
-          <button class="theme-seg-btn" data-theme-val="dark" aria-label="Dark Mode" title="Dark Mode">
-            <span class="seg-icon">${ICONS.moon}</span>
-            <span>Dark</span>
-          </button>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -935,25 +830,6 @@ function renderLayout({
   </button>
 
   <script>
-    // Theme Management (DEFAULT LIGHT)
-    const themeSegButtons = document.querySelectorAll('.theme-seg-btn');
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('swt-theme', theme);
-      themeSegButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-theme-val') === theme);
-      });
-    }
-
-    const savedTheme = localStorage.getItem('swt-theme') || 'light';
-    setTheme(savedTheme);
-
-    themeSegButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setTheme(btn.getAttribute('data-theme-val'));
-      });
-    });
-
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -1164,7 +1040,7 @@ const archiveContent = `
       <ul style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
         ${categories.map(c => `
           <li>
-            <a href="#${c.slug}" class="archive-cat-link">
+            <a href="#${c.slug}" class="archive-cat-link" title="${escapeHtml(c.title)}">
               <span class="archive-cat-icon">${CATEGORY_ICONS[c.slug] || ICONS.zap}</span>
               <span class="archive-cat-name">${escapeHtml(c.title)}</span>
               <span class="archive-cat-count">${c.tools.length}</span>
@@ -1194,7 +1070,7 @@ const archiveContent = `
                   <th style="padding:0.75rem 1rem; width:22%;">Tool</th>
                   <th style="padding:0.75rem 1rem; width:45%;">Description</th>
                   <th style="padding:0.75rem 1rem; width:18%;">Pricing</th>
-                  <th style="padding:0.75rem 1rem; width:15%;">Overview</th>
+                  <th style="padding:0.75rem 1rem; width:15%;">Link</th>
                 </tr>
               </thead>
               <tbody>
@@ -1216,7 +1092,7 @@ const archiveContent = `
                     </td>
                     <td style="padding:0.85rem 1rem;">
                       <a href="tools/${tool.categorySlug}/${tool.slug}.html" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.25rem;">
-                        View Page ${ICONS.arrowRight}
+                        Link ${ICONS.arrowRight}
                       </a>
                     </td>
                   </tr>

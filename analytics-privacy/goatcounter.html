@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,41 +53,7 @@
     --radius-md: 10px;
     --radius-lg: 16px;
     --radius-full: 9999px;
-    --container-max: 1240px;
-  }
-
-  [data-theme="dark"] {
-    --bg-body: #0b0f19;
-    --bg-surface: #111827;
-    --bg-surface-elevated: #1a2234;
-    --bg-muted: #1e293b;
-    --bg-glass: rgba(17, 24, 39, 0.88);
-    --border-color: #1f293d;
-    --border-hover: #334155;
-    --border-focus: #60a5fa;
-    --text-main: #f9fafb;
-    --text-muted: #94a3b8;
-    --text-subtle: #64748b;
-
-    --accent: #3b82f6;
-    --accent-hover: #60a5fa;
-    --accent-light: rgba(59, 130, 246, 0.12);
-    --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-
-    --badge-open-source-bg: rgba(34, 197, 94, 0.15);
-    --badge-open-source-text: #4ade80;
-    --badge-free-bg: rgba(34, 197, 94, 0.15);
-    --badge-free-text: #4ade80;
-    --badge-freemium-bg: rgba(59, 130, 246, 0.15);
-    --badge-freemium-text: #93c5fd;
-    --badge-paid-bg: rgba(245, 158, 11, 0.15);
-    --badge-paid-text: #fcd34d;
-
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
-    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
-    --shadow-card-hover: 0 14px 28px -6px rgba(0, 0, 0, 0.7);
+    --container-max: 1440px;
   }
 
   *, *::before, *::after {
@@ -258,56 +224,6 @@
     color: var(--accent);
     background-color: var(--accent-light);
     font-weight: 700;
-  }
-
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-  }
-
-  /* Segmented Theme Switcher */
-  .theme-segmented-switch {
-    display: inline-flex;
-    align-items: center;
-    background: var(--bg-muted);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    padding: 3px;
-    gap: 2px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-  }
-
-  .theme-seg-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-full);
-    border: 1px solid transparent;
-    background: transparent;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .theme-seg-btn:hover {
-    color: var(--text-main);
-  }
-
-  .theme-seg-btn.active {
-    background: var(--bg-surface);
-    color: var(--text-main);
-    border-color: var(--border-color);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .theme-seg-btn .seg-icon {
-    display: flex;
-    align-items: center;
   }
 
   /* Floating Back to Top Button */
@@ -537,34 +453,30 @@
     font-weight: 700;
   }
 
-  /* Wider Archive Layout Styles (320px sidebar) */
+  /* Archive Layout Styles (sidebar scrolls with page) */
   .archive-layout {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 440px 1fr;
     gap: 2.5rem;
     align-items: start;
   }
 
   .archive-sidebar {
-    position: sticky;
-    top: 5.5rem;
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 1.25rem;
-    max-height: calc(100vh - 7rem);
-    overflow-y: auto;
+    padding: 1.25rem 1rem;
     box-shadow: var(--shadow-card);
   }
 
   .archive-cat-link {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
-    font-size: 0.875rem;
+    gap: 0.55rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-muted);
-    padding: 0.45rem 0.65rem;
+    padding: 0.45rem 0.55rem;
     border-radius: var(--radius-sm);
     transition: all 0.15s ease;
     text-decoration: none;
@@ -599,15 +511,12 @@
     padding: 0.1rem 0.45rem;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
+    flex-shrink: 0;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1040px) {
     .archive-layout {
       grid-template-columns: 1fr;
-    }
-    .archive-sidebar {
-      position: static;
-      max-height: 280px;
     }
   }
 
@@ -648,20 +557,6 @@
           <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg> GitHub</a></li>
         </ul>
       </nav>
-
-      <div class="header-actions">
-        <!-- Segmented Theme Switcher (Default Light) -->
-        <div class="theme-segmented-switch" role="radiogroup" aria-label="Color Theme">
-          <button class="theme-seg-btn active" data-theme-val="light" aria-label="Light Mode" title="Light Mode">
-            <span class="seg-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
-            <span>Light</span>
-          </button>
-          <button class="theme-seg-btn" data-theme-val="dark" aria-label="Dark Mode" title="Dark Mode">
-            <span class="seg-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
-            <span>Dark</span>
-          </button>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -808,25 +703,6 @@
   </button>
 
   <script>
-    // Theme Management (DEFAULT LIGHT)
-    const themeSegButtons = document.querySelectorAll('.theme-seg-btn');
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('swt-theme', theme);
-      themeSegButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-theme-val') === theme);
-      });
-    }
-
-    const savedTheme = localStorage.getItem('swt-theme') || 'light';
-    setTheme(savedTheme);
-
-    themeSegButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setTheme(btn.getAttribute('data-theme-val'));
-      });
-    });
-
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
