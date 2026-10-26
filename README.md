@@ -15,47 +15,31 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 
 ### Categories
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%; border: none !important; border-collapse: collapse; background: transparent !important;">
-<tr style="border: none !important; background: transparent !important;">
-<td width="50%" valign="top" style="width: 50%; border: none !important; vertical-align: top; padding: 0; background: transparent !important;">
-
-<ol>
-  <li><a href="#ai--content-creation">AI &amp; Content Creation</a></li>
-  <li><a href="#ai-models">AI Models</a></li>
-  <li><a href="#analytics--privacy">Analytics &amp; Privacy</a></li>
-  <li><a href="#authentication--user-management">Authentication &amp; User Management</a></li>
-  <li><a href="#booking--scheduling">Booking &amp; Scheduling</a></li>
-  <li><a href="#comments--community">Comments &amp; Community</a></li>
-  <li><a href="#contact-forms">Contact Forms</a></li>
-  <li><a href="#content-management">Content Management</a></li>
-  <li><a href="#css--ui-component-libraries">CSS &amp; UI Component Libraries</a></li>
-  <li><a href="#database--backend-as-a-service">Database &amp; Backend-as-a-Service</a></li>
-  <li><a href="#development-tools">Development Tools</a></li>
-  <li><a href="#hosting--deployment">Hosting &amp; Deployment</a></li>
-  <li><a href="#images--optimization">Images &amp; Optimization</a></li>
-</ol>
-
-</td>
-<td width="50%" valign="top" style="width: 50%; border: none !important; vertical-align: top; padding: 0; background: transparent !important;">
-
-<ol start="14">
-  <li><a href="#interactive-maps--geolocation">Interactive Maps &amp; Geolocation</a></li>
-  <li><a href="#interactive-scripts--animation">Interactive Scripts &amp; Animation</a></li>
-  <li><a href="#live-chat--support">Live Chat &amp; Support</a></li>
-  <li><a href="#media--video-players">Media &amp; Video Players</a></li>
-  <li><a href="#monitoring--error-tracking">Monitoring &amp; Error Tracking</a></li>
-  <li><a href="#newsletters--email">Newsletters &amp; Email</a></li>
-  <li><a href="#payments--e-commerce">Payments &amp; E-commerce</a></li>
-  <li><a href="#search">Search</a></li>
-  <li><a href="#security--spam-protection">Security &amp; Spam Protection</a></li>
-  <li><a href="#static-site-generators">Static Site Generators</a></li>
-  <li><a href="#surveys--feedback">Surveys &amp; Feedback</a></li>
-  <li><a href="#typography--web-fonts">Typography &amp; Web Fonts</a></li>
-</ol>
-
-</td>
-</tr>
-</table>
+1. [AI & Content Creation](#ai--content-creation)
+2. [AI Models](#ai-models)
+3. [Analytics & Privacy](#analytics--privacy)
+4. [Authentication & User Management](#authentication--user-management)
+5. [Booking & Scheduling](#booking--scheduling)
+6. [Comments & Community](#comments--community)
+7. [Contact Forms](#contact-forms)
+8. [Content Management](#content-management)
+9. [CSS & UI Component Libraries](#css--ui-component-libraries)
+10. [Database & Backend-as-a-Service](#database--backend-as-a-service)
+11. [Development Tools](#development-tools)
+12. [Hosting & Deployment](#hosting--deployment)
+13. [Images & Optimization](#images--optimization)
+14. [Interactive Maps & Geolocation](#interactive-maps--geolocation)
+15. [Interactive Scripts & Animation](#interactive-scripts--animation)
+16. [Live Chat & Support](#live-chat--support)
+17. [Media & Video Players](#media--video-players)
+18. [Monitoring & Error Tracking](#monitoring--error-tracking)
+19. [Newsletters & Email](#newsletters--email)
+20. [Payments & E-commerce](#payments--e-commerce)
+21. [Search](#search)
+22. [Security & Spam Protection](#security--spam-protection)
+23. [Static Site Generators](#static-site-generators)
+24. [Surveys & Feedback](#surveys--feedback)
+25. [Typography & Web Fonts](#typography--web-fonts)
 
 ### Contributing & Community
 
@@ -554,6 +538,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>Find and fix problems in JavaScript code</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="development-tools/github-desktop.md">GitHub Desktop</a></td>
+    <td>Visual Git GUI client to stage changes, manage branches, and sync repositories</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">desktop.github.com</a></td>
   </tr>
   <tr>
     <td><a href="development-tools/google-lighthouse.md">Google Lighthouse</a></td>

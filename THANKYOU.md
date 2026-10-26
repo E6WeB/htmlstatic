@@ -16,6 +16,15 @@ We want to extend our heartfelt gratitude to:
 
 ---
 
+## Built With 🛠️
+
+This project was created and is maintained with:
+
+- **<a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">Antigravity IDE</a>** ([Overview](development-tools/antigravity-ide.md)): Google's AI-first development environment for autonomous agent workflows, coding, and documentation curation.
+- **<a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">GitHub Desktop</a>** ([Overview](development-tools/github-desktop.md)): Visual Git version control application for streamlined branch management, staging, and commits.
+
+---
+
 ## Join the Community 🌐
 
 Want to connect with other web creators, discuss static and dynamic website architecture, or get advice on tools and integrations?
