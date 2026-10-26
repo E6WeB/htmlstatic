@@ -335,6 +335,18 @@ Let visitors comment on blog posts and interact with your content.
     <td><a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">disqus.com</a></td>
   </tr>
   <tr>
+    <td><a href="comments-community/flarum.md">Flarum</a></td>
+    <td>Modern, lightweight open-source community forum platform</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://flarum.org/" target="_blank" rel="noopener noreferrer">flarum.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="comments-community/github-discussions.md">GitHub Discussions</a></td>
+    <td>Collaborative community forums and Q&amp;A hosted on GitHub</td>
+    <td><img src="https://img.shields.io/badge/Free-238636?style=flat-square" alt="Free"></td>
+    <td><a href="https://docs.github.com/en/discussions" target="_blank" rel="noopener noreferrer">docs.github.com</a></td>
+  </tr>
+  <tr>
     <td><a href="comments-community/giscus.md">Giscus</a></td>
     <td>GitHub Discussions-powered comments using GitHub Discussions</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
