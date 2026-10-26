@@ -13,6 +13,8 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 
 ## Table of Contents
 
+- [AI & Content Creation](#ai--content-creation)
+- [AI Models](#ai-models)
 - [Analytics & Privacy](#analytics--privacy)
 - [Authentication & User Management](#authentication--user-management)
 - [Booking & Scheduling](#booking--scheduling)
@@ -74,6 +76,130 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 
 
 ---
+
+## AI & Content Creation
+
+AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="ai-content-creation/chatgpt.md">ChatGPT</a></td>
+    <td>Conversational AI model for drafting blog posts, website copy, and HTML/markdown content</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">chatgpt.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-content-creation/claude.md">Claude</a></td>
+    <td>Advanced AI assistant with large context windows for writing long-form articles and documentation</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">claude.ai</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-content-creation/google-gemini.md">Google Gemini</a></td>
+    <td>Multimodal AI assistant for research, drafting website copy, and generating structured content</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">gemini.google.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-content-creation/perplexity.md">Perplexity</a></td>
+    <td>AI-powered research and citation engine for writing factual, accurate blog posts and documentation</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">perplexity.ai</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-content-creation/recraft.md">Recraft</a></td>
+    <td>AI design tool for generating vector SVGs, 3D graphics, and icons for web pages</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.recraft.ai/" target="_blank" rel="noopener noreferrer">recraft.ai</a></td>
+  </tr>
+</tbody>
+</table>
+
+## AI Models
+
+Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="ai-models/chatgpt-openai.md">ChatGPT (OpenAI)</a></td>
+    <td>OpenAI's flagship multimodal foundation model family (GPT-4o / o-series)</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://openai.com/" target="_blank" rel="noopener noreferrer">openai.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/claude-anthropic.md">Claude (Anthropic)</a></td>
+    <td>Frontier reasoning and coding models with 200k+ token context windows</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://anthropic.com/" target="_blank" rel="noopener noreferrer">anthropic.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/cohere-command.md">Cohere Command</a></td>
+    <td>Enterprise foundation model optimized for search, RAG, and document grounding</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://cohere.com/" target="_blank" rel="noopener noreferrer">cohere.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/deepseek.md">DeepSeek</a></td>
+    <td>High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/google-gemini-model.md">Google Gemini</a></td>
+    <td>Multimodal frontier model family with up to 2M token context windows</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">ai.google.dev</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/grok-xai.md">Grok (xAI)</a></td>
+    <td>Frontier reasoning and coding model with real-time web knowledge integration</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://x.ai/" target="_blank" rel="noopener noreferrer">x.ai</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/meta-llama.md">Meta Llama</a></td>
+    <td>Leading open-weights foundation model family for local and cloud deployment</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://llama.meta.com/" target="_blank" rel="noopener noreferrer">llama.meta.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/microsoft-phi.md">Microsoft Phi</a></td>
+    <td>High-efficiency small language models (SLMs) built for edge and browser execution</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer">azure.microsoft.com/.../phi</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/mistral-ai.md">Mistral AI</a></td>
+    <td>High-speed open and commercial models including Codestral and Mistral Large</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">mistral.ai</a></td>
+  </tr>
+  <tr>
+    <td><a href="ai-models/qwen.md">Qwen</a></td>
+    <td>Alibaba Cloud's open-weights model family (Qwen 2.5) with advanced coding mastery</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://qwenlm.github.io/" target="_blank" rel="noopener noreferrer">qwenlm.github.io</a></td>
+  </tr>
+</tbody>
+</table>
 
 ## Analytics & Privacy
 
@@ -364,10 +490,28 @@ Tools that make building, testing, and maintaining static websites easier.
 </thead>
 <tbody>
   <tr>
+    <td><a href="development-tools/antigravity-cli.md">Antigravity CLI</a></td>
+    <td>Terminal-native AI coding agent with slash commands and workflow automation</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://antigravity.google/docs/cli" target="_blank" rel="noopener noreferrer">antigravity.google/docs/cli</a></td>
+  </tr>
+  <tr>
+    <td><a href="development-tools/antigravity-ide.md">Antigravity IDE</a></td>
+    <td>AI-first development environment with pair programming and browser automation</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a></td>
+  </tr>
+  <tr>
     <td><a href="development-tools/brickstatic.md">Brickstatic</a></td>
     <td>Export and publish WordPress Bricks sites as static HTML to GitHub or any host</td>
     <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
     <td><a href="https://builtforbricks.com/brickstatic/" target="_blank" rel="noopener noreferrer">builtforbricks.com/brickstatic</a></td>
+  </tr>
+  <tr>
+    <td><a href="development-tools/cursor.md">Cursor</a></td>
+    <td>AI-powered code editor with multi-file Composer and predictive completions</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://cursor.com/" target="_blank" rel="noopener noreferrer">cursor.com</a></td>
   </tr>
   <tr>
     <td><a href="development-tools/eslint.md">ESLint</a></td>
@@ -382,6 +526,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td><a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/lighthouse</a></td>
   </tr>
   <tr>
+    <td><a href="development-tools/opencode.md">OpenCode</a></td>
+    <td>Open-source AI coding agent with a terminal TUI and editor extensions</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer">opencode.ai</a></td>
+  </tr>
+  <tr>
     <td><a href="development-tools/prettier.md">Prettier</a></td>
     <td>Code formatter for HTML, CSS, JavaScript, and more</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
@@ -392,6 +542,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>Code editor with extensions for web development</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="development-tools/zed.md">Zed</a></td>
+    <td>High-performance, GPU-accelerated code editor with built-in multiplayer and AI</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://zed.dev/" target="_blank" rel="noopener noreferrer">zed.dev</a></td>
   </tr>
 </tbody>
 </table>

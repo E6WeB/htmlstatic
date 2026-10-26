@@ -34,6 +34,8 @@ body:
       label: "Category"
       description: "Which category does this tool belong in?"
       options:
+        - "AI & Content Creation"
+        - "AI Models"
         - "Analytics & Privacy"
         - "Authentication & User Management"
         - "Booking & Scheduling"
