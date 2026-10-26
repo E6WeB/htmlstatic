@@ -1806,29 +1806,10 @@ allTools.forEach(tool => {
                   data-reactions-enabled="0"
                   data-emit-metadata="0"
                   data-input-position="bottom"
-                  data-theme="https://staticstack.app/css/giscus-theme.css"
+                  data-theme="light"
                   data-lang="en"
                   crossorigin="anonymous"
                   async>
-          </script>
-          <script>
-            (function() {
-              function syncTheme() {
-                var iframe = document.querySelector('iframe.giscus-frame');
-                if (!iframe || !iframe.contentWindow) return;
-                var themeUrl = (window.location.protocol === 'https:' && window.location.hostname)
-                  ? window.location.origin + '/css/giscus-theme.css'
-                  : 'https://staticstack.app/css/giscus-theme.css';
-                iframe.contentWindow.postMessage({
-                  giscus: { setConfig: { theme: themeUrl } }
-                }, 'https://giscus.app');
-              }
-              window.addEventListener('message', function(e) {
-                if (e.origin === 'https://giscus.app' && typeof e.data === 'object' && e.data.giscus) {
-                  syncTheme();
-                }
-              });
-            })();
           </script>
         </section>
 
@@ -1918,14 +1899,5 @@ fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'tha
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thankyou', 'index.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thank-you.html'), path.join(PUBLIC_DIR, 'thank-you.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thank-you', 'index.html'));
-
-// Sync Giscus custom theme assets
-ensureDir(path.join(ROOT_DIR, 'css'));
-ensureDir(path.join(PUBLIC_DIR, 'css'));
-if (fs.existsSync(path.join(ROOT_DIR, 'css', 'giscus-theme.css'))) {
-  fs.copyFileSync(path.join(ROOT_DIR, 'css', 'giscus-theme.css'), path.join(ROOT_DIR, 'giscus-theme.css'));
-  fs.copyFileSync(path.join(ROOT_DIR, 'css', 'giscus-theme.css'), path.join(PUBLIC_DIR, 'css', 'giscus-theme.css'));
-  fs.copyFileSync(path.join(ROOT_DIR, 'css', 'giscus-theme.css'), path.join(PUBLIC_DIR, 'giscus-theme.css'));
-}
 
 console.log(`🎉 Complete! Generated all main pages with wider 320px archive sidebar + dedicated HTML pages for all ${allTools.length} tools!`);
