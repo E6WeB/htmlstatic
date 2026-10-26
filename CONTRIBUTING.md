@@ -39,9 +39,10 @@ To keep this collection high-quality, practical, and spam-free, please adhere to
 - It should enable features typically requiring a backend (e.g., forms, comments, payments, search, auth) via APIs, widgets, edge functions, or client-side scripts.
 - General web tools that are not particularly relevant to static site development may be declined.
 
-### 2. Quality & Working Links
-- Always link directly to the **official website** or official repository using secure HTTPS URLs.
-- Avoid link shorteners, redirectors, referral codes, or affiliate links. Any pull request containing affiliate tags will be rejected.
+### 2. Zero Advertising & No Affiliate Links
+- **Zero advertisement and no affiliate links are allowed.**
+- Always link directly to the **official website** or official repository using clean, secure HTTPS URLs.
+- Submissions containing sponsored promotions, advertisements, referral parameters, or affiliate tags will be rejected immediately.
 
 ### 3. Clear, Objective Descriptions
 - Write a concise, one-sentence description explaining **what the tool does**, not how great it is.
@@ -135,7 +136,7 @@ Before opening your pull request, please make sure:
 
 - [ ] The tool is relevant to static websites and frontend development.
 - [ ] You searched [`README.md`](README.md) to ensure it is not already listed.
-- [ ] The URL is official, uses HTTPS, and contains no affiliate/referral parameters.
+- [ ] Zero advertisement and no affiliate links (official HTTPS URL with no tracking/referral parameters).
 - [ ] The description is concise, objective, and one sentence long.
 - [ ] The entry follows the table format with `target="_blank" rel="noopener noreferrer"`.
 - [ ] All existing tables and markdown formatting remain valid.

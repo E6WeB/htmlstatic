@@ -26,6 +26,7 @@ Know a useful tool? Add it to the list and share it with the community!
 - [Images & Optimization](#images--optimization)
 - [How to Contribute](#how-to-contribute)
 - [Submission Guidelines](#submission-guidelines)
+- [Community & Discussion](#community--discussion)
 - [License](#license)
 
 ---
@@ -87,6 +88,7 @@ Sell digital downloads, services, memberships, and other products from static we
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
+| <a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">PaymentForm</a> | Create custom checkout forms to accept payments, tickets, and donations | <a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">paymentform.io</a> |
 | <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">Stripe Payment Links</a> | Accept payments through hosted checkout links | <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a> |
 | <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">Lemon Squeezy</a> | Sell digital products and manage online payments | <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a> |
 | <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">Payhip</a> | Sell digital downloads, memberships, and other products | <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a> |
@@ -177,7 +179,7 @@ To keep this resource useful and organized:
 - **Working links**: Submit the official website whenever possible.
 - **Clear descriptions**: Explain what the tool does in one sentence.
 - **Honest listings**: Clearly identify free, freemium, paid, and open-source options when known.
-- **No spam**: No link schemes, promotional submissions disguised as recommendations, or unrelated services.
+- **Zero advertisement & no affiliate links**: Zero advertisement and no affiliate links are allowed. No link schemes, promotional campaigns disguised as recommendations, or affiliate tags.
 - **No duplicates**: Check the existing list before submitting a new entry.
 - **No affiliation required**: You can submit a tool you use or one you have discovered, whether or not you are affiliated with its creators.
 - **Community first**: Favor useful information over advertising or self-promotion.
@@ -193,6 +195,15 @@ Building static websites doesn't mean giving up the features available on larger
 
 If you know a service that belongs here, share it!  
 Star this repository, contribute a tool, and help make static website development easier for everyone.
+
+---
+
+## Community & Discussion
+
+Looking to connect with other developers and learn how to make static websites dynamic?  
+Join our community on Facebook: **<a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Facebook Group</a>**
+
+Check out our [Thank You page](THANKYOU.md) for community acknowledgments and appreciation!
 
 ---
 
