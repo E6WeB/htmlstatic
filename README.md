@@ -522,6 +522,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td><a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a></td>
   </tr>
   <tr>
+    <td><a href="development-tools/bootstrap-studio.md">Bootstrap Studio</a></td>
+    <td>Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a></td>
+  </tr>
+  <tr>
     <td><a href="development-tools/brickstatic.md">Brickstatic</a></td>
     <td>Export and publish WordPress Bricks sites as static HTML to GitHub or any host</td>
     <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
