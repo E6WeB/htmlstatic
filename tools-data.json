@@ -338,7 +338,7 @@
     "title": "Comments & Community",
     "slug": "comments-community",
     "description": "Let visitors comment on blog posts and interact with your content.",
-    "toolsCount": 3,
+    "toolsCount": 5,
     "tools": [
       {
         "name": "Disqus",
@@ -351,6 +351,30 @@
         ],
         "websiteUrl": "https://disqus.com/",
         "websiteLabel": "disqus.com"
+      },
+      {
+        "name": "Flarum",
+        "slug": "flarum",
+        "relPath": "comments-community/flarum.md",
+        "folder": "comments-community",
+        "description": "Modern, lightweight open-source community forum platform",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://flarum.org/",
+        "websiteLabel": "flarum.org"
+      },
+      {
+        "name": "GitHub Discussions",
+        "slug": "github-discussions",
+        "relPath": "comments-community/github-discussions.md",
+        "folder": "comments-community",
+        "description": "Collaborative community forums and Q&amp;A hosted on GitHub",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://docs.github.com/en/discussions",
+        "websiteLabel": "docs.github.com"
       },
       {
         "name": "Giscus",

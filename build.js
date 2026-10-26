@@ -377,7 +377,7 @@ function renderLayout({
     <div class="search-box">
       <div class="search-input-wrapper">
         <span style="display:flex;align-items:center;color:var(--text-muted)">${ICONS.search}</span>
-        <input type="text" id="search-input" class="search-input" placeholder="Search 94+ tools, categories, or keywords..." autocomplete="off">
+        <input type="text" id="search-input" class="search-input" placeholder="Search ${allTools.length}+ tools, categories, or keywords..." autocomplete="off">
         <button id="search-close" style="background:none;border:none;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;">${ICONS.close}</button>
       </div>
       <div id="search-results" class="search-results"></div>

@@ -1,7 +1,7 @@
 /**
  * Generator for root index.html
  * Creates a standalone, zero-dependency, rich static HTML file
- * featuring all 25 categories and 94 tools with instant search,
+ * featuring all 25 categories and tools with instant search,
  * filtering, light/dark segmented theme switcher (default Light),
  * floating Back to Top button, and quick-view modals.
  */
@@ -174,11 +174,11 @@ const html = `<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Static Website Toolkit - Modern Tools &amp; APIs for Static Sites</title>
-  <meta name="description" content="A community-curated collection of 94+ tools, services, and APIs for building, hosting, and improving static websites with HTML, CSS, and JavaScript—zero backend servers required.">
+  <meta name="description" content="A community-curated collection of ${allTools.length}+ tools, services, and APIs for building, hosting, and improving static websites with HTML, CSS, and JavaScript—zero backend servers required.">
   <meta name="keywords" content="static website, jamstack, html, css, javascript, static tools, serverless, web development">
   <meta name="theme-color" content="#2563eb">
-  <meta property="og:title" content="Static Website Toolkit - 94+ Tools for Modern Static Sites">
-  <meta property="og:description" content="Discover 94 curated tools across 25 categories for building high-performance static websites with HTML, CSS, and JS.">
+  <meta property="og:title" content="Static Website Toolkit - ${allTools.length}+ Tools for Modern Static Sites">
+  <meta property="og:description" content="Discover ${allTools.length} curated tools across ${categories.length} categories for building high-performance static websites with HTML, CSS, and JS.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1286,7 +1286,7 @@ const html = `<!DOCTYPE html>
 
       <nav class="nav-links">
         <li><a href="#categories" class="nav-link">Categories</a></li>
-        <li><a href="#catalog" class="nav-link">All 94 Tools</a></li>
+        <li><a href="#catalog" class="nav-link">All ${allTools.length} Tools</a></li>
         <li><a href="#why-static" class="nav-link">Why Static?</a></li>
         <li><a href="#contribute" class="nav-link">Submit a Tool</a></li>
         <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">${ICONS.github} GitHub</a></li>
@@ -1325,14 +1325,14 @@ const html = `<!DOCTYPE html>
         Empower Static Websites with <span class="gradient-text">Zero Backend Servers</span>
       </h1>
       <p class="hero-subtitle">
-        You don't need WordPress, a monolithic CMS, or expensive cloud servers. Discover 94+ curated tools, services, and APIs for building modern static sites with HTML, CSS, and JavaScript.
+        You don't need WordPress, a monolithic CMS, or expensive cloud servers. Discover ${allTools.length}+ curated tools, services, and APIs for building modern static sites with HTML, CSS, and JavaScript.
       </p>
 
       <!-- Command Hero Search Hub -->
       <div class="hero-search-container">
         <div class="hero-search-box">
           <span class="hero-search-icon">${ICONS.search}</span>
-          <input type="text" id="hero-search-input" class="hero-search-input" placeholder="Search 94+ static tools, APIs, forms, auth..." autocomplete="off">
+          <input type="text" id="hero-search-input" class="hero-search-input" placeholder="Search ${allTools.length}+ static tools, APIs, forms, auth..." autocomplete="off">
           <span class="kbd-shortcut" style="display:flex;align-items:center;padding:0.15rem 0.5rem;font-size:0.75rem;">/</span>
         </div>
         <div class="quick-tags">
@@ -1350,7 +1350,7 @@ const html = `<!DOCTYPE html>
 
       <div class="hero-actions">
         <a href="#catalog" class="btn btn-primary">
-          Explore All 94 Tools ${ICONS.arrowRight}
+          Explore All ${allTools.length} Tools ${ICONS.arrowRight}
         </a>
         <a href="#categories" class="btn btn-secondary">
           Browse 25 Categories
@@ -1366,7 +1366,7 @@ const html = `<!DOCTYPE html>
           <div class="stat-label">Curated Categories</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">94</div>
+          <div class="stat-value">${allTools.length}</div>
           <div class="stat-label">Hand-Picked Tools</div>
         </div>
         <div class="stat-item">
@@ -1415,12 +1415,12 @@ const html = `<!DOCTYPE html>
       <div class="container control-inner">
         <div class="search-wrapper">
           <span class="search-icon">${ICONS.search}</span>
-          <input type="text" id="tool-search" class="search-input" placeholder="Search 94+ tools by name, category, or features... (Press / to focus)" autocomplete="off">
+          <input type="text" id="tool-search" class="search-input" placeholder="Search ${allTools.length}+ tools by name, category, or features... (Press / to focus)" autocomplete="off">
           <button id="search-clear-btn" class="search-clear" aria-label="Clear search">${ICONS.close}</button>
         </div>
 
         <div class="filter-group">
-          <button class="filter-btn active" data-filter="all">All (94)</button>
+          <button class="filter-btn active" data-filter="all">All (${allTools.length})</button>
           <button class="filter-btn" data-filter="open-source">Open Source</button>
           <button class="filter-btn" data-filter="free">Free</button>
           <button class="filter-btn" data-filter="freemium">Freemium</button>
@@ -1428,11 +1428,11 @@ const html = `<!DOCTYPE html>
         </div>
 
         <select id="category-filter-select" class="category-select" aria-label="Filter by category">
-          <option value="all">All 25 Categories</option>
+          <option value="all">All ${categories.length} Categories</option>
           ${categories.map(c => `<option value="${c.slug}">${escapeHtml(c.title)} (${c.tools.length})</option>`).join('')}
         </select>
 
-        <div id="results-count" class="results-count">Showing 94 of 94 tools</div>
+        <div id="results-count" class="results-count">Showing ${allTools.length} of ${allTools.length} tools</div>
       </div>
     </div>
 

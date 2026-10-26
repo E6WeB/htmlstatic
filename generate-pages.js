@@ -6,7 +6,7 @@
  * - submit.html (Submit a Tool)
  * - contribute.html (Contributing Guide)
  * - thankyou.html (Thank You & Credits)
- * - tools/<category>/<tool>.html (Dedicated page for all 94 tools!)
+ * - tools/<category>/<tool>.html (Dedicated page for all tools!)
  *
  * All pages feature:
  * - Pure system-style font stack (no Google Fonts)
@@ -198,6 +198,25 @@ for (const section of sections) {
 }
 
 console.log(`Parsed ${categories.length} categories and ${allTools.length} tools.`);
+
+// Export tools-data.json so metadata is always in sync with all parsed tools
+const toolsData = categories.map(c => ({
+  title: c.title,
+  slug: c.slug,
+  description: c.description,
+  toolsCount: c.tools.length,
+  tools: c.tools.map(t => ({
+    name: t.name,
+    slug: t.slug,
+    relPath: t.relPath,
+    folder: t.folder,
+    description: t.description,
+    badges: t.badges,
+    websiteUrl: t.websiteUrl,
+    websiteLabel: t.websiteLabel
+  }))
+}));
+fs.writeFileSync(path.join(ROOT_DIR, 'tools-data.json'), JSON.stringify(toolsData, null, 2) + '\n');
 
 // ==========================================================================
 // Base CSS using Native System Font Stack (NO Google Fonts)
@@ -1610,8 +1629,8 @@ const archiveContent = `
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
-  title: 'Master Archive - 94+ Tools for Static Websites',
-  description: 'Explore the complete directory of 94 curated tools across 25 static website categories with our expanded navigation sidebar.',
+  title: `Master Archive - ${allTools.length}+ Tools for Static Websites`,
+  description: `Explore the complete directory of ${allTools.length} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
   currentNav: 'archive',
   miniHero: {
     breadcrumbs: [
@@ -1620,12 +1639,12 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
     ],
     icon: ICONS.archive,
     title: 'Master Directory',
-    subtext: 'Complete catalog of all 94 tools across 25 categories for static websites. Filter by pricing or jump directly to any category section.',
+    subtext: `Complete catalog of all ${allTools.length} tools across ${categories.length} categories for static websites. Filter by pricing or jump directly to any category section.`,
     extraHtml: `
       <!-- Archive Search & Filter Controls -->
       <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.25rem;">
         <div style="flex:1 1 300px; position:relative; max-width:480px;">
-          <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all 94 tools by name, description, keyword...">
+          <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all ${allTools.length} tools by name, description, keyword...">
           <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
           <button id="archive-search-clear" onclick="clearArchiveSearch()" style="position:absolute; right:0.75rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px;" title="Clear search" aria-label="Clear search">
             ${ICONS.close}
@@ -1634,14 +1653,14 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
 
         <!-- Filter Buttons -->
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-          <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (94)</button>
+          <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (${allTools.length})</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
         </div>
       </div>
-      <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all 94 tools across 25 categories</div>
+      <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all ${allTools.length} tools across ${categories.length} categories</div>
     `
   },
   content: archiveContent
@@ -1846,7 +1865,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
 }));
 
 // ==========================================================================
-// 6. Generate Dedicated HTML Pages for ALL 94 Tools!
+// 6. Generate Dedicated HTML Pages for ALL Tools!
 // ==========================================================================
 // Helper to select deterministic diverse random tools for sidebar
 function getRandomTools(currentSlug, count = 4) {
