@@ -1,0 +1,1339 @@
+[
+  {
+    "title": "AI & Content Creation",
+    "slug": "ai-content-creation",
+    "description": "AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.",
+    "toolsCount": 5,
+    "tools": [
+      {
+        "name": "ChatGPT",
+        "slug": "chatgpt",
+        "relPath": "ai-content-creation/chatgpt.md",
+        "folder": "ai-content-creation",
+        "description": "Conversational AI model for drafting blog posts, website copy, and HTML/markdown content",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://chatgpt.com/",
+        "websiteLabel": "chatgpt.com"
+      },
+      {
+        "name": "Claude",
+        "slug": "claude",
+        "relPath": "ai-content-creation/claude.md",
+        "folder": "ai-content-creation",
+        "description": "Advanced AI assistant with large context windows for writing long-form articles and documentation",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://claude.ai/",
+        "websiteLabel": "claude.ai"
+      },
+      {
+        "name": "Google Gemini",
+        "slug": "google-gemini",
+        "relPath": "ai-content-creation/google-gemini.md",
+        "folder": "ai-content-creation",
+        "description": "Multimodal AI assistant for research, drafting website copy, and generating structured content",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://gemini.google.com/",
+        "websiteLabel": "gemini.google.com"
+      },
+      {
+        "name": "Perplexity",
+        "slug": "perplexity",
+        "relPath": "ai-content-creation/perplexity.md",
+        "folder": "ai-content-creation",
+        "description": "AI-powered research and citation engine for writing factual, accurate blog posts and documentation",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.perplexity.ai/",
+        "websiteLabel": "perplexity.ai"
+      },
+      {
+        "name": "Recraft",
+        "slug": "recraft",
+        "relPath": "ai-content-creation/recraft.md",
+        "folder": "ai-content-creation",
+        "description": "AI design tool for generating vector SVGs, 3D graphics, and icons for web pages",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.recraft.ai/",
+        "websiteLabel": "recraft.ai"
+      }
+    ]
+  },
+  {
+    "title": "AI Models",
+    "slug": "ai-models",
+    "description": "Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.",
+    "toolsCount": 10,
+    "tools": [
+      {
+        "name": "ChatGPT (OpenAI)",
+        "slug": "chatgpt-openai",
+        "relPath": "ai-models/chatgpt-openai.md",
+        "folder": "ai-models",
+        "description": "OpenAI's flagship multimodal foundation model family (GPT-4o / o-series)",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://openai.com/",
+        "websiteLabel": "openai.com"
+      },
+      {
+        "name": "Claude (Anthropic)",
+        "slug": "claude-anthropic",
+        "relPath": "ai-models/claude-anthropic.md",
+        "folder": "ai-models",
+        "description": "Frontier reasoning and coding models with 200k+ token context windows",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://anthropic.com/",
+        "websiteLabel": "anthropic.com"
+      },
+      {
+        "name": "Cohere Command",
+        "slug": "cohere-command",
+        "relPath": "ai-models/cohere-command.md",
+        "folder": "ai-models",
+        "description": "Enterprise foundation model optimized for search, RAG, and document grounding",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://cohere.com/",
+        "websiteLabel": "cohere.com"
+      },
+      {
+        "name": "DeepSeek",
+        "slug": "deepseek",
+        "relPath": "ai-models/deepseek.md",
+        "folder": "ai-models",
+        "description": "High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)",
+        "badges": [
+          "Open Source",
+          "Freemium"
+        ],
+        "websiteUrl": "https://deepseek.com/",
+        "websiteLabel": "deepseek.com"
+      },
+      {
+        "name": "Google Gemini",
+        "slug": "google-gemini-model",
+        "relPath": "ai-models/google-gemini-model.md",
+        "folder": "ai-models",
+        "description": "Multimodal frontier model family with up to 2M token context windows",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://ai.google.dev/",
+        "websiteLabel": "ai.google.dev"
+      },
+      {
+        "name": "Grok (xAI)",
+        "slug": "grok-xai",
+        "relPath": "ai-models/grok-xai.md",
+        "folder": "ai-models",
+        "description": "Frontier reasoning and coding model with real-time web knowledge integration",
+        "badges": [
+          "Paid"
+        ],
+        "websiteUrl": "https://x.ai/",
+        "websiteLabel": "x.ai"
+      },
+      {
+        "name": "Meta Llama",
+        "slug": "meta-llama",
+        "relPath": "ai-models/meta-llama.md",
+        "folder": "ai-models",
+        "description": "Leading open-weights foundation model family for local and cloud deployment",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://llama.meta.com/",
+        "websiteLabel": "llama.meta.com"
+      },
+      {
+        "name": "Microsoft Phi",
+        "slug": "microsoft-phi",
+        "relPath": "ai-models/microsoft-phi.md",
+        "folder": "ai-models",
+        "description": "High-efficiency small language models (SLMs) built for edge and browser execution",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://azure.microsoft.com/en-us/products/phi/",
+        "websiteLabel": "azure.microsoft.com/.../phi"
+      },
+      {
+        "name": "Mistral AI",
+        "slug": "mistral-ai",
+        "relPath": "ai-models/mistral-ai.md",
+        "folder": "ai-models",
+        "description": "High-speed open and commercial models including Codestral and Mistral Large",
+        "badges": [
+          "Open Source",
+          "Freemium"
+        ],
+        "websiteUrl": "https://mistral.ai/",
+        "websiteLabel": "mistral.ai"
+      },
+      {
+        "name": "Qwen",
+        "slug": "qwen",
+        "relPath": "ai-models/qwen.md",
+        "folder": "ai-models",
+        "description": "Alibaba Cloud's open-weights model family (Qwen 2.5) with advanced coding mastery",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://qwenlm.github.io/",
+        "websiteLabel": "qwenlm.github.io"
+      }
+    ]
+  },
+  {
+    "title": "Analytics & Privacy",
+    "slug": "analytics-privacy",
+    "description": "Understand website traffic, visitor behavior, and page performance.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "GoatCounter",
+        "slug": "goatcounter",
+        "relPath": "analytics-privacy/goatcounter.md",
+        "folder": "analytics-privacy",
+        "description": "Lightweight, privacy-friendly web analytics",
+        "badges": [
+          "Open Source",
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.goatcounter.com/",
+        "websiteLabel": "goatcounter.com"
+      },
+      {
+        "name": "Plausible",
+        "slug": "plausible",
+        "relPath": "analytics-privacy/plausible.md",
+        "folder": "analytics-privacy",
+        "description": "Privacy-focused website analytics",
+        "badges": [
+          "Open Source",
+          "Paid"
+        ],
+        "websiteUrl": "https://plausible.io/",
+        "websiteLabel": "plausible.io"
+      },
+      {
+        "name": "Umami",
+        "slug": "umami",
+        "relPath": "analytics-privacy/umami.md",
+        "folder": "analytics-privacy",
+        "description": "Open-source website analytics",
+        "badges": [
+          "Open Source",
+          "Freemium"
+        ],
+        "websiteUrl": "https://umami.is/",
+        "websiteLabel": "umami.is"
+      }
+    ]
+  },
+  {
+    "title": "Authentication & User Management",
+    "slug": "authentication-users",
+    "description": "Add user login, member areas, and gated content to static sites without backend code.",
+    "toolsCount": 4,
+    "tools": [
+      {
+        "name": "Clerk",
+        "slug": "clerk",
+        "relPath": "authentication-users/clerk.md",
+        "folder": "authentication-users",
+        "description": "User management and auth with drop-in UI and vanilla JS SDK",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://clerk.com/",
+        "websiteLabel": "clerk.com"
+      },
+      {
+        "name": "Outseta",
+        "slug": "outseta",
+        "relPath": "authentication-users/outseta.md",
+        "folder": "authentication-users",
+        "description": "All-in-one membership, authentication, payments, and CRM",
+        "badges": [
+          "Paid"
+        ],
+        "websiteUrl": "https://outseta.com/",
+        "websiteLabel": "outseta.com"
+      },
+      {
+        "name": "Reflow",
+        "slug": "reflow",
+        "relPath": "payments-ecommerce/reflow.md",
+        "folder": "payments-ecommerce",
+        "description": "User sign-in, session auth, and subscriber management for static frontends",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://reflowhq.com/",
+        "websiteLabel": "reflowhq.com"
+      },
+      {
+        "name": "Supabase Auth",
+        "slug": "supabase-auth",
+        "relPath": "authentication-users/supabase-auth.md",
+        "folder": "authentication-users",
+        "description": "Open-source auth supporting passwordless logins, OAuth, and JWTs",
+        "badges": [
+          "Open Source",
+          "Free"
+        ],
+        "websiteUrl": "https://supabase.com/auth",
+        "websiteLabel": "supabase.com/auth"
+      }
+    ]
+  },
+  {
+    "title": "Booking & Scheduling",
+    "slug": "booking-scheduling",
+    "description": "Allow visitors to book appointments and discovery calls directly from static pages.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "Cal.com",
+        "slug": "cal-com",
+        "relPath": "booking-scheduling/cal-com.md",
+        "folder": "booking-scheduling",
+        "description": "Open-source, embeddable meeting scheduling infrastructure",
+        "badges": [
+          "Open Source",
+          "Freemium"
+        ],
+        "websiteUrl": "https://cal.com/",
+        "websiteLabel": "cal.com"
+      },
+      {
+        "name": "Calendly",
+        "slug": "calendly",
+        "relPath": "booking-scheduling/calendly.md",
+        "folder": "booking-scheduling",
+        "description": "Industry-standard appointment scheduling with embeddable widgets",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://calendly.com/",
+        "websiteLabel": "calendly.com"
+      }
+    ]
+  },
+  {
+    "title": "Comments & Community",
+    "slug": "comments-community",
+    "description": "Let visitors comment on blog posts and interact with your content.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "Disqus",
+        "slug": "disqus",
+        "relPath": "comments-community/disqus.md",
+        "folder": "comments-community",
+        "description": "Hosted commenting system for websites",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://disqus.com/",
+        "websiteLabel": "disqus.com"
+      },
+      {
+        "name": "Giscus",
+        "slug": "giscus",
+        "relPath": "comments-community/giscus.md",
+        "folder": "comments-community",
+        "description": "GitHub Discussions-powered comments using GitHub Discussions",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://giscus.app/",
+        "websiteLabel": "giscus.app"
+      },
+      {
+        "name": "Utterances",
+        "slug": "utterances",
+        "relPath": "comments-community/utterances.md",
+        "folder": "comments-community",
+        "description": "Lightweight commenting powered by GitHub issues",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://utteranc.es/",
+        "websiteLabel": "utteranc.es"
+      }
+    ]
+  },
+  {
+    "title": "Contact Forms",
+    "slug": "contact-forms",
+    "description": "Add contact forms to static websites without building your own form-processing backend.",
+    "toolsCount": 4,
+    "tools": [
+      {
+        "name": "Basin",
+        "slug": "basin",
+        "relPath": "contact-forms/basin.md",
+        "folder": "contact-forms",
+        "description": "Hosted form backend for static websites",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://usebasin.com/",
+        "websiteLabel": "usebasin.com"
+      },
+      {
+        "name": "CraftForms",
+        "slug": "craftforms",
+        "relPath": "contact-forms/craftforms.md",
+        "folder": "contact-forms",
+        "description": "Booking, quote, and contact form builder with payment support",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://craftforms.app/",
+        "websiteLabel": "craftforms.app"
+      },
+      {
+        "name": "Formspree",
+        "slug": "formspree",
+        "relPath": "contact-forms/formspree.md",
+        "folder": "contact-forms",
+        "description": "Form submissions and email notifications",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://formspree.io/",
+        "websiteLabel": "formspree.io"
+      },
+      {
+        "name": "Splitform",
+        "slug": "splitform",
+        "relPath": "contact-forms/splitform.md",
+        "folder": "contact-forms",
+        "description": "Contact forms and form handling for websites",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://splitforms.com/",
+        "websiteLabel": "splitforms.com"
+      }
+    ]
+  },
+  {
+    "title": "Content Management",
+    "slug": "content-management",
+    "description": "Manage content on static websites without adopting a traditional, full-featured CMS.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "CraftPages",
+        "slug": "craftpages",
+        "relPath": "content-management/craftpages.md",
+        "folder": "content-management",
+        "description": "Open-source desktop CMS for plain-HTML websites",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://craftpages.app/",
+        "websiteLabel": "craftpages.app"
+      },
+      {
+        "name": "Decap CMS",
+        "slug": "decap-cms",
+        "relPath": "content-management/decap-cms.md",
+        "folder": "content-management",
+        "description": "Open-source content management for Git-based websites",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://decapcms.org/",
+        "websiteLabel": "decapcms.org"
+      },
+      {
+        "name": "Pages CMS",
+        "slug": "pages-cms",
+        "relPath": "content-management/pages-cms.md",
+        "folder": "content-management",
+        "description": "Git-based content management with a browser interface",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://pagescms.org/",
+        "websiteLabel": "pagescms.org"
+      }
+    ]
+  },
+  {
+    "title": "CSS & UI Component Libraries",
+    "slug": "css-components",
+    "description": "Build responsive, accessible user interfaces without complex build steps or heavy frameworks.",
+    "toolsCount": 4,
+    "tools": [
+      {
+        "name": "Bulma",
+        "slug": "bulma",
+        "relPath": "css-components/bulma.md",
+        "folder": "css-components",
+        "description": "Modern Flexbox CSS framework with zero JavaScript dependencies",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://bulma.io/",
+        "websiteLabel": "bulma.io"
+      },
+      {
+        "name": "Lucide Icons",
+        "slug": "lucide-icons",
+        "relPath": "css-components/lucide-icons.md",
+        "folder": "css-components",
+        "description": "Clean, customizable open-source icon set with vanilla JS & SVG support",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://lucide.dev/",
+        "websiteLabel": "lucide.dev"
+      },
+      {
+        "name": "Pico CSS",
+        "slug": "pico-css",
+        "relPath": "css-components/pico-css.md",
+        "folder": "css-components",
+        "description": "Minimal, semantic classless CSS framework styling pure HTML",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://picocss.com/",
+        "websiteLabel": "picocss.com"
+      },
+      {
+        "name": "Shoelace",
+        "slug": "shoelace",
+        "relPath": "css-components/shoelace.md",
+        "folder": "css-components",
+        "description": "Professional library of framework-agnostic web components",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://shoelace.style/",
+        "websiteLabel": "shoelace.style"
+      }
+    ]
+  },
+  {
+    "title": "Database & Backend-as-a-Service",
+    "slug": "database-storage",
+    "description": "Store, query, and synchronize data from static frontends without maintaining servers.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "Firebase Firestore",
+        "slug": "firebase-firestore",
+        "relPath": "database-storage/firebase-firestore.md",
+        "folder": "database-storage",
+        "description": "Real-time cloud NoSQL database that static frontends can query directly",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://firebase.google.com/",
+        "websiteLabel": "firebase.google.com"
+      },
+      {
+        "name": "JSONbin.io",
+        "slug": "jsonbin",
+        "relPath": "database-storage/jsonbin.md",
+        "folder": "database-storage",
+        "description": "Cloud JSON document store for saving and fetching data via REST APIs",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://jsonbin.io/",
+        "websiteLabel": "jsonbin.io"
+      },
+      {
+        "name": "Supabase",
+        "slug": "supabase",
+        "relPath": "database-storage/supabase.md",
+        "folder": "database-storage",
+        "description": "Open-source Firebase alternative with real-time Postgres and REST APIs",
+        "badges": [
+          "Open Source",
+          "Freemium"
+        ],
+        "websiteUrl": "https://supabase.com/",
+        "websiteLabel": "supabase.com"
+      }
+    ]
+  },
+  {
+    "title": "Development Tools",
+    "slug": "development-tools",
+    "description": "Tools that make building, testing, and maintaining static websites easier.",
+    "toolsCount": 12,
+    "tools": [
+      {
+        "name": "Antigravity CLI",
+        "slug": "antigravity-cli",
+        "relPath": "development-tools/antigravity-cli.md",
+        "folder": "development-tools",
+        "description": "Terminal-native AI coding agent with slash commands and workflow automation",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://antigravity.google/docs/cli",
+        "websiteLabel": "antigravity.google/docs/cli"
+      },
+      {
+        "name": "Antigravity IDE",
+        "slug": "antigravity-ide",
+        "relPath": "development-tools/antigravity-ide.md",
+        "folder": "development-tools",
+        "description": "AI-first development environment with pair programming and browser automation",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://antigravity.google/",
+        "websiteLabel": "antigravity.google"
+      },
+      {
+        "name": "Bootstrap Studio",
+        "slug": "bootstrap-studio",
+        "relPath": "development-tools/bootstrap-studio.md",
+        "folder": "development-tools",
+        "description": "Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML",
+        "badges": [
+          "Paid"
+        ],
+        "websiteUrl": "https://bootstrapstudio.io/",
+        "websiteLabel": "bootstrapstudio.io"
+      },
+      {
+        "name": "Brickstatic",
+        "slug": "brickstatic",
+        "relPath": "development-tools/brickstatic.md",
+        "folder": "development-tools",
+        "description": "Export and publish WordPress Bricks sites as static HTML to GitHub or any host",
+        "badges": [
+          "Paid"
+        ],
+        "websiteUrl": "https://builtforbricks.com/brickstatic/",
+        "websiteLabel": "builtforbricks.com/brickstatic"
+      },
+      {
+        "name": "Cursor",
+        "slug": "cursor",
+        "relPath": "development-tools/cursor.md",
+        "folder": "development-tools",
+        "description": "AI-powered code editor with multi-file Composer and predictive completions",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://cursor.com/",
+        "websiteLabel": "cursor.com"
+      },
+      {
+        "name": "ESLint",
+        "slug": "eslint",
+        "relPath": "development-tools/eslint.md",
+        "folder": "development-tools",
+        "description": "Find and fix problems in JavaScript code",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://eslint.org/",
+        "websiteLabel": "eslint.org"
+      },
+      {
+        "name": "GitHub Desktop",
+        "slug": "github-desktop",
+        "relPath": "development-tools/github-desktop.md",
+        "folder": "development-tools",
+        "description": "Visual Git GUI client to stage changes, manage branches, and sync repositories",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://desktop.github.com/",
+        "websiteLabel": "desktop.github.com"
+      },
+      {
+        "name": "Google Lighthouse",
+        "slug": "google-lighthouse",
+        "relPath": "development-tools/google-lighthouse.md",
+        "folder": "development-tools",
+        "description": "Audit performance, accessibility, SEO, and best practices",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://developer.chrome.com/docs/lighthouse/",
+        "websiteLabel": "developer.chrome.com/docs/lighthouse"
+      },
+      {
+        "name": "OpenCode",
+        "slug": "opencode",
+        "relPath": "development-tools/opencode.md",
+        "folder": "development-tools",
+        "description": "Open-source AI coding agent with a terminal TUI and editor extensions",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://opencode.ai/",
+        "websiteLabel": "opencode.ai"
+      },
+      {
+        "name": "Prettier",
+        "slug": "prettier",
+        "relPath": "development-tools/prettier.md",
+        "folder": "development-tools",
+        "description": "Code formatter for HTML, CSS, JavaScript, and more",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://prettier.io/",
+        "websiteLabel": "prettier.io"
+      },
+      {
+        "name": "Visual Studio Code",
+        "slug": "visual-studio-code",
+        "relPath": "development-tools/visual-studio-code.md",
+        "folder": "development-tools",
+        "description": "Code editor with extensions for web development",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://code.visualstudio.com/",
+        "websiteLabel": "code.visualstudio.com"
+      },
+      {
+        "name": "Zed",
+        "slug": "zed",
+        "relPath": "development-tools/zed.md",
+        "folder": "development-tools",
+        "description": "High-performance, GPU-accelerated code editor with built-in multiplayer and AI",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://zed.dev/",
+        "websiteLabel": "zed.dev"
+      }
+    ]
+  },
+  {
+    "title": "Hosting & Deployment",
+    "slug": "hosting-deployment",
+    "description": "Services for publishing static HTML, CSS, and JavaScript websites online.",
+    "toolsCount": 5,
+    "tools": [
+      {
+        "name": "Cloudflare Pages",
+        "slug": "cloudflare-pages",
+        "relPath": "hosting-deployment/cloudflare-pages.md",
+        "folder": "hosting-deployment",
+        "description": "Deploy static sites with Git integration and edge services",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://pages.cloudflare.com/",
+        "websiteLabel": "pages.cloudflare.com"
+      },
+      {
+        "name": "GitHub Pages",
+        "slug": "github-pages",
+        "relPath": "hosting-deployment/github-pages.md",
+        "folder": "hosting-deployment",
+        "description": "Host websites directly from GitHub repositories",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://pages.github.com/",
+        "websiteLabel": "pages.github.com"
+      },
+      {
+        "name": "Netlify",
+        "slug": "netlify",
+        "relPath": "hosting-deployment/netlify.md",
+        "folder": "hosting-deployment",
+        "description": "Static hosting with deployment automation and additional services",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.netlify.com/",
+        "websiteLabel": "netlify.com"
+      },
+      {
+        "name": "Vercel",
+        "slug": "vercel",
+        "relPath": "hosting-deployment/vercel.md",
+        "folder": "hosting-deployment",
+        "description": "Deploy static websites and frontend applications",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://vercel.com/",
+        "websiteLabel": "vercel.com"
+      },
+      {
+        "name": "Wasmer",
+        "slug": "wasmer",
+        "relPath": "hosting-deployment/wasmer.md",
+        "folder": "hosting-deployment",
+        "description": "Host and deploy static websites and web applications",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://wasmer.io/",
+        "websiteLabel": "wasmer.io"
+      }
+    ]
+  },
+  {
+    "title": "Images & Optimization",
+    "slug": "images-optimization",
+    "description": "Optimize images and other assets to improve loading speed and user experience.",
+    "toolsCount": 4,
+    "tools": [
+      {
+        "name": "File Converter",
+        "slug": "file-converter",
+        "relPath": "images-optimization/file-converter.md",
+        "folder": "images-optimization",
+        "description": "Windows context-menu tool to convert and compress images (Windows 11 supported)",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://github.com/Tichau/FileConverter",
+        "websiteLabel": "github.com/Tichau/FileConverter"
+      },
+      {
+        "name": "Squoosh",
+        "slug": "squoosh",
+        "relPath": "images-optimization/squoosh.md",
+        "folder": "images-optimization",
+        "description": "Compress and convert images in your browser",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://squoosh.app/",
+        "websiteLabel": "squoosh.app"
+      },
+      {
+        "name": "SVG Repo",
+        "slug": "svg-repo",
+        "relPath": "images-optimization/svg-repo.md",
+        "folder": "images-optimization",
+        "description": "Browse and download SVG icons and illustrations",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://svgrepo.com/",
+        "websiteLabel": "svgrepo.com"
+      },
+      {
+        "name": "TinyPNG",
+        "slug": "tinypng",
+        "relPath": "images-optimization/tinypng.md",
+        "folder": "images-optimization",
+        "description": "Compress PNG, JPEG, WebP, and other supported image formats",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://tinypng.com/",
+        "websiteLabel": "tinypng.com"
+      }
+    ]
+  },
+  {
+    "title": "Interactive Maps & Geolocation",
+    "slug": "maps-geolocation",
+    "description": "Add mobile-friendly, interactive vector and raster maps without API billing hurdles.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "Leaflet.js",
+        "slug": "leaflet",
+        "relPath": "maps-geolocation/leaflet.md",
+        "folder": "maps-geolocation",
+        "description": "Lightweight open-source JavaScript library for mobile-friendly interactive maps",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://leafletjs.com/",
+        "websiteLabel": "leafletjs.com"
+      },
+      {
+        "name": "Mapbox GL JS",
+        "slug": "mapbox-gl-js",
+        "relPath": "maps-geolocation/mapbox-gl-js.md",
+        "folder": "maps-geolocation",
+        "description": "Interactive WebGL vector maps with custom styles and smooth rendering",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.mapbox.com/mapbox-gl-js",
+        "websiteLabel": "mapbox.com/mapbox-gl-js"
+      }
+    ]
+  },
+  {
+    "title": "Interactive Scripts & Animation",
+    "slug": "interactive-scripts",
+    "description": "Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "AOS (Animate On Scroll)",
+        "slug": "aos",
+        "relPath": "interactive-scripts/aos.md",
+        "folder": "interactive-scripts",
+        "description": "Animate elements on scroll using simple HTML data attributes",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://michalsnik.github.io/aos/",
+        "websiteLabel": "michalsnik.github.io/aos"
+      },
+      {
+        "name": "PhotoSwipe",
+        "slug": "photoswipe",
+        "relPath": "interactive-scripts/photoswipe.md",
+        "folder": "interactive-scripts",
+        "description": "Lightweight JavaScript image gallery and lightbox with smooth zoom",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://photoswipe.com/",
+        "websiteLabel": "photoswipe.com"
+      },
+      {
+        "name": "Swiper.js",
+        "slug": "swiper",
+        "relPath": "interactive-scripts/swiper.md",
+        "folder": "interactive-scripts",
+        "description": "Mobile touch slider with hardware-accelerated transitions",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://swiperjs.com/",
+        "websiteLabel": "swiperjs.com"
+      }
+    ]
+  },
+  {
+    "title": "Live Chat & Support",
+    "slug": "live-chat",
+    "description": "Engage visitors and answer questions in real time with lightweight chat widgets.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "Crisp",
+        "slug": "crisp",
+        "relPath": "live-chat/crisp.md",
+        "folder": "live-chat",
+        "description": "Multichannel customer messaging and live chat widget",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://crisp.chat/",
+        "websiteLabel": "crisp.chat"
+      },
+      {
+        "name": "Tawk.to",
+        "slug": "tawk-to",
+        "relPath": "live-chat/tawk-to.md",
+        "folder": "live-chat",
+        "description": "100% free live chat application to monitor and chat with visitors",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://www.tawk.to/",
+        "websiteLabel": "tawk.to"
+      }
+    ]
+  },
+  {
+    "title": "Media & Video Players",
+    "slug": "media-players",
+    "description": "Embed audio, video, and streaming media without intrusive third-party ads or trackers.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "Mux Player",
+        "slug": "mux-player",
+        "relPath": "media-players/mux-player.md",
+        "folder": "media-players",
+        "description": "Responsive, high-performance web video player with automatic HLS streaming",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://mux.com/player",
+        "websiteLabel": "mux.com/player"
+      },
+      {
+        "name": "Plyr",
+        "slug": "plyr",
+        "relPath": "media-players/plyr.md",
+        "folder": "media-players",
+        "description": "Simple, lightweight, accessible HTML5 media player for video, audio, and YouTube",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://plyr.io/",
+        "websiteLabel": "plyr.io"
+      },
+      {
+        "name": "Wavesurfer.js",
+        "slug": "wavesurfer",
+        "relPath": "media-players/wavesurfer.md",
+        "folder": "media-players",
+        "description": "Customizable interactive audio waveform visualizer and player in vanilla JS",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://wavesurfer.xyz/",
+        "websiteLabel": "wavesurfer.xyz"
+      }
+    ]
+  },
+  {
+    "title": "Monitoring & Error Tracking",
+    "slug": "monitoring-errors",
+    "description": "Detect client-side JavaScript crashes and monitor performance in production.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "LogRocket",
+        "slug": "logrocket",
+        "relPath": "monitoring-errors/logrocket.md",
+        "folder": "monitoring-errors",
+        "description": "Session replay and frontend telemetry to reproduce user-facing issues",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://logrocket.com/",
+        "websiteLabel": "logrocket.com"
+      },
+      {
+        "name": "Sentry",
+        "slug": "sentry",
+        "relPath": "monitoring-errors/sentry.md",
+        "folder": "monitoring-errors",
+        "description": "Frontend JavaScript error monitoring and performance tracing",
+        "badges": [
+          "Open Source",
+          "Freemium"
+        ],
+        "websiteUrl": "https://sentry.io/",
+        "websiteLabel": "sentry.io"
+      }
+    ]
+  },
+  {
+    "title": "Newsletters & Email",
+    "slug": "newsletters-email",
+    "description": "Collect subscribers, send newsletters, and handle email delivery from static websites.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "Brevo",
+        "slug": "brevo",
+        "relPath": "newsletters-email/brevo.md",
+        "folder": "newsletters-email",
+        "description": "Email marketing and transactional email services",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://brevo.com/",
+        "websiteLabel": "brevo.com"
+      },
+      {
+        "name": "Buttondown",
+        "slug": "buttondown",
+        "relPath": "newsletters-email/buttondown.md",
+        "folder": "newsletters-email",
+        "description": "Newsletter publishing and subscriber management",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://buttondown.com/",
+        "websiteLabel": "buttondown.com"
+      },
+      {
+        "name": "Emailit",
+        "slug": "emailit",
+        "relPath": "newsletters-email/emailit.md",
+        "folder": "newsletters-email",
+        "description": "Email API for sending messages from applications and websites",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://emailit.com/",
+        "websiteLabel": "emailit.com"
+      }
+    ]
+  },
+  {
+    "title": "Payments & E-commerce",
+    "slug": "payments-ecommerce",
+    "description": "Sell digital downloads, services, memberships, and other products from static websites.",
+    "toolsCount": 5,
+    "tools": [
+      {
+        "name": "Lemon Squeezy",
+        "slug": "lemon-squeezy",
+        "relPath": "payments-ecommerce/lemon-squeezy.md",
+        "folder": "payments-ecommerce",
+        "description": "Sell digital products and manage online payments",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://www.lemonsqueezy.com/",
+        "websiteLabel": "lemonsqueezy.com"
+      },
+      {
+        "name": "Payhip",
+        "slug": "payhip",
+        "relPath": "payments-ecommerce/payhip.md",
+        "folder": "payments-ecommerce",
+        "description": "Sell digital downloads, memberships, and other products",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://payhip.com/",
+        "websiteLabel": "payhip.com"
+      },
+      {
+        "name": "PaymentForm",
+        "slug": "paymentform",
+        "relPath": "payments-ecommerce/paymentform.md",
+        "folder": "payments-ecommerce",
+        "description": "Create custom checkout forms to accept payments, tickets, and donations",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://paymentform.io/",
+        "websiteLabel": "paymentform.io"
+      },
+      {
+        "name": "Reflow",
+        "slug": "reflow",
+        "relPath": "payments-ecommerce/reflow.md",
+        "folder": "payments-ecommerce",
+        "description": "Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://reflowhq.com/",
+        "websiteLabel": "reflowhq.com"
+      },
+      {
+        "name": "Stripe Payment Links",
+        "slug": "stripe-payment-links",
+        "relPath": "payments-ecommerce/stripe-payment-links.md",
+        "folder": "payments-ecommerce",
+        "description": "Accept payments through hosted checkout links",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://stripe.com/payments/payment-links",
+        "websiteLabel": "stripe.com/payments/payment-links"
+      }
+    ]
+  },
+  {
+    "title": "Search",
+    "slug": "search",
+    "description": "Add search functionality to static websites, documentation, and blogs.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "Algolia",
+        "slug": "algolia",
+        "relPath": "search/algolia.md",
+        "folder": "search",
+        "description": "Hosted search service with frontend integrations",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.algolia.com/",
+        "websiteLabel": "algolia.com"
+      },
+      {
+        "name": "Pagefind",
+        "slug": "pagefind",
+        "relPath": "search/pagefind.md",
+        "folder": "search",
+        "description": "Static search indexing designed for static websites",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://pagefind.app/",
+        "websiteLabel": "pagefind.app"
+      }
+    ]
+  },
+  {
+    "title": "Security & Spam Protection",
+    "slug": "security-spam-protection",
+    "description": "Protect forms and websites against automated spam and abuse.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "Cloudflare Turnstile",
+        "slug": "cloudflare-turnstile",
+        "relPath": "security-spam-protection/cloudflare-turnstile.md",
+        "folder": "security-spam-protection",
+        "description": "Privacy-friendly CAPTCHA alternative",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://developers.cloudflare.com/turnstile/",
+        "websiteLabel": "developers.cloudflare.com/turnstile"
+      },
+      {
+        "name": "Google reCAPTCHA",
+        "slug": "google-recaptcha",
+        "relPath": "security-spam-protection/google-recaptcha.md",
+        "folder": "security-spam-protection",
+        "description": "Bot detection and abuse prevention",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://cloud.google.com/security/products/recaptcha",
+        "websiteLabel": "cloud.google.com/security/products/recaptcha"
+      },
+      {
+        "name": "hCaptcha",
+        "slug": "hcaptcha",
+        "relPath": "security-spam-protection/hcaptcha.md",
+        "folder": "security-spam-protection",
+        "description": "Challenge-based bot and abuse protection",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.hcaptcha.com/",
+        "websiteLabel": "hcaptcha.com"
+      }
+    ]
+  },
+  {
+    "title": "Static Site Generators",
+    "slug": "static-site-generators",
+    "description": "Build fast, pre-rendered static HTML websites from templates and Markdown.",
+    "toolsCount": 3,
+    "tools": [
+      {
+        "name": "Astro",
+        "slug": "astro",
+        "relPath": "static-site-generators/astro.md",
+        "folder": "static-site-generators",
+        "description": "Content-driven static web framework that ships zero JS by default",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://astro.build/",
+        "websiteLabel": "astro.build"
+      },
+      {
+        "name": "Eleventy (11ty)",
+        "slug": "eleventy",
+        "relPath": "static-site-generators/eleventy.md",
+        "folder": "static-site-generators",
+        "description": "Simple, flexible static generator converting templates to fast HTML",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://www.11ty.dev/",
+        "websiteLabel": "11ty.dev"
+      },
+      {
+        "name": "Hugo",
+        "slug": "hugo",
+        "relPath": "static-site-generators/hugo.md",
+        "folder": "static-site-generators",
+        "description": "Extremely fast static site generator rendering pages in milliseconds",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://gohugo.io/",
+        "websiteLabel": "gohugo.io"
+      }
+    ]
+  },
+  {
+    "title": "Surveys & Feedback",
+    "slug": "surveys-feedback",
+    "description": "Gather visitor responses, run interactive polls, and publish product roadmaps.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "Sleekplan",
+        "slug": "sleekplan",
+        "relPath": "surveys-feedback/sleekplan.md",
+        "folder": "surveys-feedback",
+        "description": "All-in-one user feedback board, public roadmap, and changelog widget",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://sleekplan.com/",
+        "websiteLabel": "sleekplan.com"
+      },
+      {
+        "name": "Tally",
+        "slug": "tally",
+        "relPath": "surveys-feedback/tally.md",
+        "folder": "surveys-feedback",
+        "description": "Intuitive form and survey builder with unlimited free forms and embeds",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://tally.so/",
+        "websiteLabel": "tally.so"
+      }
+    ]
+  },
+  {
+    "title": "Typography & Web Fonts",
+    "slug": "typography-fonts",
+    "description": "Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "Bunny Fonts",
+        "slug": "bunny-fonts",
+        "relPath": "typography-fonts/bunny-fonts.md",
+        "folder": "typography-fonts",
+        "description": "Privacy-first, GDPR-compliant drop-in alternative to Google Fonts",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://fonts.bunny.net/",
+        "websiteLabel": "fonts.bunny.net"
+      },
+      {
+        "name": "Fontsource",
+        "slug": "fontsource",
+        "relPath": "typography-fonts/fontsource.md",
+        "folder": "typography-fonts",
+        "description": "Self-host open-source fonts locally with zero external network requests",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://fontsource.org/",
+        "websiteLabel": "fontsource.org"
+      }
+    ]
+  }
+]

@@ -9,7 +9,7 @@ const path = require('path');
 const url = require('url');
 
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const SERVE_DIR = fs.existsSync(path.join(__dirname, 'index.html')) ? __dirname : path.join(__dirname, 'public');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
   let pathname = decodeURIComponent(parsedUrl.pathname);
 
   // Normalize path
-  let filePath = path.join(PUBLIC_DIR, pathname);
+  let filePath = path.join(SERVE_DIR, pathname);
 
   // If directory, check for index.html
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
@@ -81,7 +81,7 @@ function startServer(port) {
 
   server.listen(port, () => {
     console.log(`🚀 Static server running at http://localhost:${port}`);
-    console.log(`📁 Serving directory: ${PUBLIC_DIR}`);
+    console.log(`📁 Serving directory: ${SERVE_DIR}`);
   });
 }
 

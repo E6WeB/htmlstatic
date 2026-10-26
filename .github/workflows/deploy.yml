@@ -1,4 +1,4 @@
-name: Build and Deploy to Wasmer
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,8 +6,20 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,19 +29,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies & Build
+        run: |
+          npm ci
+          npm run build
 
-      - name: Build static HTML website
-        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-      - name: Setup Wasmer CLI
-        uses: wasmerio/setup-wasmer@v3.1
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
 
-      - name: Login to Wasmer
-        run: wasmer login --token ${{ secrets.WASMER_TOKEN }}
-
-      - name: Deploy to Wasmer Edge
-        run: wasmer deploy
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
