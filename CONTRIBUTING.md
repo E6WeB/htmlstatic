@@ -62,20 +62,30 @@ To keep this collection high-quality, practical, and spam-free, please adhere to
 
 ## Entry Format & Template
 
-All tools in [`README.md`](README.md) are listed in Markdown tables with three columns: **Tool**, **Description**, and **Website**.
+All tools in [`README.md`](README.md) are organized in full-width tables (`<table width="100%">`) with four columns: **Tool**, **Description**, **Pricing / License**, and **Website**.
 
 External links use HTML anchor tags formatted with `target="_blank" rel="noopener noreferrer"`.
 
 ### Template:
 
-```markdown
-| <a href="https://example.com/" target="_blank" rel="noopener noreferrer">Tool Name</a> | Clear one-sentence description of what it does | <a href="https://example.com/" target="_blank" rel="noopener noreferrer">example.com</a> |
+```html
+  <tr>
+    <td><a href="category-folder/tool-name.md">Tool Name</a></td>
+    <td>Clear one-sentence description of what it does.</td>
+    <td><img src="https://img.shields.io/badge/Pricing-Color?style=flat-square" alt="Pricing"></td>
+    <td><a href="https://example.com/" target="_blank" rel="noopener noreferrer">example.com</a></td>
+  </tr>
 ```
 
 ### Example:
 
-```markdown
-| <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">Pagefind</a> | Static search indexing designed for static websites | <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a> |
+```html
+  <tr>
+    <td><a href="search/pagefind.md">Pagefind</a></td>
+    <td>Static search indexing designed for static websites</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a></td>
+  </tr>
 ```
 
 ---
