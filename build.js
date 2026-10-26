@@ -1310,6 +1310,41 @@ fs.writeFileSync(
   })
 );
 
+// Generate 404 Not Found Page
+const notFoundContent = `
+  <div style="text-align:center;padding:5rem 1rem 4rem;max-width:600px;margin:0 auto;">
+    <div style="font-size:5rem;font-weight:900;line-height:1;margin-bottom:1rem;background:linear-gradient(135deg, var(--accent), #06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+      404
+    </div>
+    <h1 style="font-size:2rem;margin-bottom:1rem;color:var(--text-main);">Page Not Found</h1>
+    <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.6;margin-bottom:2rem;">
+      The page or directory you are looking for does not exist or may have moved.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="/" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.4rem;">
+        Back to Home ${ICONS.arrowRight}
+      </a>
+      <a href="/archive/" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:0.4rem;">
+        Explore Directory
+      </a>
+    </div>
+  </div>
+`;
+
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, '404.html'),
+  renderLayout({
+    title: '404 - Page Not Found | StaticStack',
+    description: 'The requested page could not be found on StaticStack.',
+    canonicalPath: '/404.html',
+    content: notFoundContent,
+    breadcrumbs: [
+      { label: 'Home', url: '/' },
+      { label: '404 Not Found', url: '/404.html' }
+    ]
+  })
+);
+
 // ==========================================================================
 // 9. Generate XML Sitemap & Robots.txt for Super SEO
 // ==========================================================================

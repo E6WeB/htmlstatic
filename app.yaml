@@ -1,0 +1,8 @@
+kind: wasmer.io/App.v0
+owner: e6web
+name: staticstack
+package: .
+debug: true
+capabilities:
+  cdn_cache:
+    enabled: true
