@@ -13,6 +13,8 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 
 ## Table of Contents
 
+### Categories
+
 - [AI & Content Creation](#ai--content-creation)
 - [AI Models](#ai-models)
 - [Analytics & Privacy](#analytics--privacy)
@@ -38,6 +40,9 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 - [Static Site Generators](#static-site-generators)
 - [Surveys & Feedback](#surveys--feedback)
 - [Typography & Web Fonts](#typography--web-fonts)
+
+### Contributing & Community
+
 - [How to Contribute](#how-to-contribute)
 - [Submission Guidelines](#submission-guidelines)
 - [Community & Discussion](#community--discussion)
@@ -46,6 +51,9 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 ---
 
 ### Pricing & License Legend
+
+> [!NOTE]
+> **Tool Overview Pages**: Clicking any tool name in the **Tool** column takes you to a dedicated overview page with key features, static site integration guides, and code examples. To visit the tool's external homepage directly, use the link in the **Website** column.
 
 <table width="100%">
 <thead>
