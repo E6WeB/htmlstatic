@@ -67,7 +67,3 @@ Add Clerk to any static HTML page using the JavaScript SDK:
 - Adding gated content, member portals, or user dashboards to static sites.
 - Websites needing secure social logins and passkeys with zero backend maintenance.
 - Client portals that require complete user profile management.
-
----
-
-[← Back to Authentication & User Management](../README.md#authentication--user-management) | [← Back to Static Website Toolkit](../README.md)

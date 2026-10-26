@@ -60,7 +60,3 @@ jobs:
 - Open-source project documentation and personal portfolios.
 - Websites version-controlled in GitHub repositories.
 - Zero-cost hosting with simple continuous deployment.
-
----
-
-[← Back to Hosting & Deployment](../README.md#hosting--deployment) | [← Back to Static Website Toolkit](../README.md)

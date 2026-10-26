@@ -64,7 +64,3 @@ Include Swiper via CDN in your static HTML:
 
 - Image galleries, testimonial sliders, and product showcases on static sites.
 - Touch-friendly mobile carousels with smooth hardware-accelerated transitions.
-
----
-
-[← Back to Interactive Scripts & Animation](../README.md#interactive-scripts--animation) | [← Back to Static Website Toolkit](../README.md)

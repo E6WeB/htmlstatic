@@ -51,7 +51,3 @@ Load Shoelace from CDN and use custom elements directly in HTML:
 - Adding advanced UI components (drawers, modals, tabs, tooltips) to static HTML.
 - Building web applications without bundlers, webpack, or framework dependencies.
 - Teams wanting accessible, enterprise-grade UI components in pure HTML.
-
----
-
-[← Back to CSS & UI Component Libraries](../README.md#css--ui-component-libraries) | [← Back to Static Website Toolkit](../README.md)

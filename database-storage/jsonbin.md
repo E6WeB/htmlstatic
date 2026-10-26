@@ -48,7 +48,3 @@ async function getStoredData() {
 - Prototypes, demos, and lightweight static applications.
 - Storing simple site counters, guestbooks, or user-submitted feedback.
 - Projects where setting up a full SQL or NoSQL database is overkill.
-
----
-
-[← Back to Database & Backend-as-a-Service](../README.md#database--backend-as-a-service) | [← Back to Static Website Toolkit](../README.md)

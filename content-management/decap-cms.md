@@ -70,7 +70,3 @@ collections:
 - Client websites where non-technical editors need a friendly UI to publish posts.
 - Static sites built with Astro, Hugo, Jekyll, or 11ty wanting Git-backed content.
 - Projects avoiding the ongoing expense and hosting of database CMSs like WordPress.
-
----
-
-[← Back to Content Management](../README.md#content-management) | [← Back to Static Website Toolkit](../README.md)

@@ -51,7 +51,3 @@ s0.parentNode.insertBefore(s1,s0);
 
 - Small businesses and freelancers who need live chat without ongoing monthly costs.
 - Static sites wanting to offer instant customer support and gather real-time feedback.
-
----
-
-[← Back to Live Chat & Support](../README.md#live-chat--support) | [← Back to Static Website Toolkit](../README.md)

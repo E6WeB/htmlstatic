@@ -44,7 +44,3 @@ CraftForms handles user interactions, availability checks, formula calculations,
 - Static websites for rentals, tours, services, and appointment bookings that require deposits.
 - Custom product or quote forms needing real-time calculation and confirmation PDFs.
 - Portfolios and business landing pages that need robust form handling without third-party submission caps.
-
----
-
-[← Back to Contact Forms](../README.md#contact-forms) | [← Back to Static Website Toolkit](../README.md)

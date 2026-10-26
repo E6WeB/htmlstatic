@@ -52,7 +52,3 @@ const res = await fetch("https://api.anthropic.com/v1/messages", {
 - Adding intelligent search, summarization, or interactive chat widgets to static websites.
 - Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
 - Powering local, privacy-first developer tools and offline client-side web applications.
-
----
-
-[← Back to AI Models](../README.md#ai-models) | [← Back to Static Website Toolkit](../README.md)

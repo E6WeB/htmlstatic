@@ -58,7 +58,3 @@ Link Pico CSS via CDN in your HTML document:
 - Static documentation, portfolios, blogs, and landing pages with clean typography.
 - Developers who prefer writing semantic HTML over endless utility class strings.
 - Fast prototypes and MVPs where styling speed is a top priority.
-
----
-
-[← Back to CSS & UI Component Libraries](../README.md#css--ui-component-libraries) | [← Back to Static Website Toolkit](../README.md)

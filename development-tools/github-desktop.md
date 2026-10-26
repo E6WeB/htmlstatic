@@ -40,7 +40,3 @@ For static website creators, designers, and developers, GitHub Desktop makes it 
 - Developers, designers, and writers who prefer an intuitive graphical interface over command-line Git.
 - Managing static websites deployed on GitHub Pages, Cloudflare Pages, or Netlify via Git commits.
 - Quickly reviewing visual diffs and handling partial line-staging before publishing updates.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

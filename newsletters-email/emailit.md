@@ -52,7 +52,3 @@ const response = await fetch("https://api.emailit.com/v1/emails", {
 - Sending order confirmations, receipts, and user notifications.
 - Static sites paired with edge functions (Cloudflare Workers, Netlify Functions).
 - Developers seeking a dependable transactional email service.
-
----
-
-[← Back to Newsletters & Email](../README.md#newsletters--email) | [← Back to Static Website Toolkit](../README.md)

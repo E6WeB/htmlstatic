@@ -40,7 +40,3 @@ Embed the script in the `<head>` of your HTML document:
 - High-performance static websites focused on speed and Core Web Vitals.
 - Sites requiring privacy compliance without cookie consent popups.
 - Agencies looking to share clean analytics dashboards with clients.
-
----
-
-[← Back to Analytics & Privacy](../README.md#analytics--privacy) | [← Back to Static Website Toolkit](../README.md)

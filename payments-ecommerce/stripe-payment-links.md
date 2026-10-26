@@ -45,7 +45,3 @@ Add a Stripe Payment Link to your static site HTML:
 - Selling single products, consulting sessions, or digital goods from a static site.
 - Setting up subscription or membership billing without building a customer portal.
 - Developers wanting the reliability and security of Stripe with zero backend.
-
----
-
-[← Back to Payments & E-commerce](../README.md#payments--e-commerce) | [← Back to Static Website Toolkit](../README.md)

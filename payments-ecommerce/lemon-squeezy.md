@@ -47,7 +47,3 @@ Add Lemon.js to your static HTML page for an overlay checkout modal:
 - Selling digital downloads, software licenses, presets, and courses.
 - Sellers who want someone else to handle worldwide VAT and sales tax compliance.
 - Static product landing pages needing a smooth popup checkout experience.
-
----
-
-[← Back to Payments & E-commerce](../README.md#payments--e-commerce) | [← Back to Static Website Toolkit](../README.md)

@@ -45,7 +45,3 @@ Example form integration pointing to Basin:
 - Agency projects delivering static websites to clients with reliable form handling.
 - Forms that require file attachment support and custom thank-you redirects.
 - Sites requiring custom anti-spam rules and webhook automation.
-
----
-
-[← Back to Contact Forms](../README.md#contact-forms) | [← Back to Static Website Toolkit](../README.md)

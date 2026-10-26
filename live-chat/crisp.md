@@ -49,7 +49,3 @@ Embed the Crisp chat widget into the `<head>` of your static HTML:
 
 - Static e-commerce stores and product landing pages requiring real-time presale support.
 - SaaS landing pages and portfolios wanting direct communication with potential clients.
-
----
-
-[← Back to Live Chat & Support](../README.md#live-chat--support) | [← Back to Static Website Toolkit](../README.md)

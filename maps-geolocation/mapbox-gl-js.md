@@ -57,7 +57,3 @@ Embed a Mapbox GL vector map in static HTML:
 - Modern dark-mode landing pages requiring custom-branded vector maps.
 - Real estate, travel, or data visualization static websites.
 - Applications needing smooth rotation, tilting, or 3D terrain.
-
----
-
-[← Back to Interactive Maps & Geolocation](../README.md#interactive-maps--geolocation) | [← Back to Static Website Toolkit](../README.md)

@@ -60,7 +60,3 @@ Then log in to [pagescms.org](https://pagescms.org/) with GitHub to manage your 
 - Static websites where clients or content writers need a modern editing interface.
 - Content management without hosting or maintaining servers, databases, or plugins.
 - Repositories seeking a lighter, more modern alternative to legacy Git CMSs.
-
----
-
-[← Back to Content Management](../README.md#content-management) | [← Back to Static Website Toolkit](../README.md)

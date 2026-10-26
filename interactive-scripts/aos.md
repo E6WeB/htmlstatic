@@ -57,7 +57,3 @@ Add AOS to your static HTML:
 
 - Marketing landing pages and portfolios needing subtle entrance animations.
 - Highlighting features, cards, and testimonials as users scroll down static pages.
-
----
-
-[← Back to Interactive Scripts & Animation](../README.md#interactive-scripts--animation) | [← Back to Static Website Toolkit](../README.md)

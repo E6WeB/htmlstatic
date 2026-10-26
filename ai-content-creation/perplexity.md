@@ -49,7 +49,3 @@ and link to the official MDN documentation."
 - Writing research-heavy static site articles that require accurate source citations.
 - Fact-checking claims, benchmarks, and technical assertions before publishing.
 - Compiling lists of curated tools, libraries, and external resources.
-
----
-
-[← Back to AI & Content Creation](../README.md#ai--content-creation) | [← Back to Static Website Toolkit](../README.md)

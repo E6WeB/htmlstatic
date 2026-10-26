@@ -1,0 +1,35 @@
+name: Build and Deploy to Wasmer
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static HTML website
+        run: npm run build
+
+      - name: Setup Wasmer CLI
+        uses: wasmerio/setup-wasmer@v3.1
+
+      - name: Login to Wasmer
+        run: wasmer login --token ${{ secrets.WASMER_TOKEN }}
+
+      - name: Deploy to Wasmer Edge
+        run: wasmer deploy

@@ -40,7 +40,3 @@ It operates entirely offline on the client's computer (macOS, Windows, or Linux)
 - Freelancers and agencies delivering static HTML websites to non-technical clients who need visual editing.
 - Websites that need simple blog management and content edits without setting up a headless CMS or database.
 - Developers looking for a lightweight, zero-maintenance CMS workflow that avoids ongoing hosting fees and security updates.
-
----
-
-[← Back to Content Management](../README.md#content-management) | [← Back to Static Website Toolkit](../README.md)

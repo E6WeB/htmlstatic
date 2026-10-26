@@ -1,0 +1,28 @@
+{
+  "name": "html-static",
+  "version": "1.0.0",
+  "description": "Static Website Toolkit - Static website generator for Wasmer Edge",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node serve.js",
+    "dev": "node build.js && node serve.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/E6WeB/htmlstatic.git"
+  },
+  "keywords": [
+    "static-site",
+    "jamstack",
+    "html",
+    "css",
+    "javascript",
+    "wasmer"
+  ],
+  "author": "E6WeB",
+  "license": "CC0-1.0"
+}

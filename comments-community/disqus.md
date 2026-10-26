@@ -52,7 +52,3 @@ Embed Disqus into your static article page:
 - High-traffic lifestyle, news, or general-interest blogs.
 - Websites where visitors prefer standard social network logins.
 - Publishers wanting automated comment moderation and user notifications.
-
----
-
-[← Back to Comments & Community](../README.md#comments--community) | [← Back to Static Website Toolkit](../README.md)

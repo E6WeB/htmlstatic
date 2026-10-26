@@ -54,7 +54,3 @@ Example `.prettierrc` configuration:
 
 - Maintaining clean, uniform code styles across HTML, CSS, and JS files.
 - Open-source projects accepting contributions to avoid style discrepancies in PRs.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

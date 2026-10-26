@@ -58,7 +58,3 @@ Embed Algolia InstantSearch in a static HTML page:
 - Large ecommerce catalogs and documentation portals requiring instant faceted search.
 - Open-source projects qualifying for the free Algolia DocSearch program.
 - Websites demanding advanced search ranking, analytics, and query personalization.
-
----
-
-[← Back to Search](../README.md#search) | [← Back to Static Website Toolkit](../README.md)

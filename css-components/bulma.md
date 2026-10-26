@@ -52,7 +52,3 @@ Include Bulma via CDN in your static HTML:
 - Static websites wanting clean responsive styling without complex CSS preprocessors.
 - Projects where you want full control over your JavaScript without framework interference.
 - Landing pages, blogs, and admin dashboards.
-
----
-
-[← Back to CSS & UI Component Libraries](../README.md#css--ui-component-libraries) | [← Back to Static Website Toolkit](../README.md)

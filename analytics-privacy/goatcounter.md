@@ -41,7 +41,3 @@ Add the tracking snippet just before the closing `</body>` tag of your HTML page
 - Static blogs, documentation, portfolios, and small business sites.
 - Websites that want clean traffic metrics without annoying cookie banners.
 - Developers who value open source and user privacy.
-
----
-
-[← Back to Analytics & Privacy](../README.md#analytics--privacy) | [← Back to Static Website Toolkit](../README.md)

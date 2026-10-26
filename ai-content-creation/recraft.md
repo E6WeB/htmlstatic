@@ -46,7 +46,3 @@ For static website creators, SVG illustrations are the gold standard: they have 
 - Generating hero section illustrations, feature section graphics, and custom icon sets.
 - Creating lightweight, crisp SVG graphics for static websites without designer overhead.
 - Keeping visual assets consistent with a defined color palette and illustration style.
-
----
-
-[← Back to AI & Content Creation](../README.md#ai--content-creation) | [← Back to Static Website Toolkit](../README.md)

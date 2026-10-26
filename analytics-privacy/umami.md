@@ -47,7 +47,3 @@ Track custom events on buttons or links:
 - Developers seeking an intuitive, privacy-respecting Google Analytics replacement.
 - Static websites needing custom event and conversion tracking without heavy scripts.
 - Teams who want the option to self-host their analytics data.
-
----
-
-[← Back to Analytics & Privacy](../README.md#analytics--privacy) | [← Back to Static Website Toolkit](../README.md)

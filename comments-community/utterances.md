@@ -46,7 +46,3 @@ Embed Utterances into your HTML template:
 - Minimalist developer blogs and portfolios.
 - Static sites built with Hugo, Eleventy, Jekyll, or Astro.
 - Creators who want simple, bloat-free commenting powered by GitHub.
-
----
-
-[← Back to Comments & Community](../README.md#comments--community) | [← Back to Static Website Toolkit](../README.md)

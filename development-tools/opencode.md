@@ -47,7 +47,3 @@ opencode run "Extract all inline CSS styles from index.html into a clean styles.
 - Developers seeking an open-source, privacy-first alternative to proprietary AI coding tools.
 - Those who want to use local or specialized LLMs for code editing without cloud lock-in.
 - Teams wanting both a fast terminal agent and editor extension integration.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

@@ -53,7 +53,3 @@ Initialize Sentry via CDN in the `<head>` of your static HTML:
 - Static sites with interactive vanilla JavaScript or third-party API integrations.
 - Tracking frontend errors that only occur on specific devices or legacy browsers.
 - Monitoring site reliability and performance metrics in production.
-
----
-
-[← Back to Monitoring & Error Tracking](../README.md#monitoring--error-tracking) | [← Back to Static Website Toolkit](../README.md)

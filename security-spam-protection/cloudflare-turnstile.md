@@ -48,7 +48,3 @@ Add Turnstile to your static HTML form:
 - Protecting contact forms, comments, and signup forms from spam bots.
 - Websites that want to ditch frustrating image selection puzzles.
 - Privacy-conscious projects seeking an ethical anti-abuse solution.
-
----
-
-[← Back to Security & Spam Protection](../README.md#security--spam-protection) | [← Back to Static Website Toolkit](../README.md)

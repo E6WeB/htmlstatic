@@ -48,7 +48,3 @@ Embed hCaptcha into your static form:
 - Protecting static forms and sensitive endpoints from bot attacks.
 - Websites requiring privacy-friendly verification compliant with international laws.
 - Sites using form backends that natively verify hCaptcha tokens.
-
----
-
-[← Back to Security & Spam Protection](../README.md#security--spam-protection) | [← Back to Static Website Toolkit](../README.md)

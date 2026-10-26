@@ -45,7 +45,3 @@ The agent will scaffold the markup, generate accessible styling, launch the loca
 - Building static sites and web applications with AI pair programming.
 - Automated testing and visual verification of responsive web interfaces.
 - Rapid prototyping of components, landing pages, and interactive scripts.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

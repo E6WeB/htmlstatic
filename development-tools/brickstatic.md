@@ -47,7 +47,3 @@ Configure your contact forms to post directly to third-party form services (such
 - Designers and agencies who prefer the visual workflow of Bricks Builder but want the security, zero maintenance, and speed of static HTML hosting.
 - Hosting client websites on free or low-cost static platforms (Cloudflare Pages, GitHub Pages) without ongoing WordPress hosting expenses.
 - Hardening public web presence by keeping WordPress behind a local or private staging server.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

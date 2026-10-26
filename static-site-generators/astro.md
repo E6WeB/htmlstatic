@@ -62,7 +62,3 @@ const pageTitle = "My Static Site";
 - Content-rich blogs, portfolios, marketing websites, and documentation portals.
 - Achieving flawless 100/100 Google Lighthouse and Core Web Vitals performance scores.
 - Projects that need clean Markdown publishing with optional interactive components.
-
----
-
-[← Back to Static Site Generators](../README.md#static-site-generators) | [← Back to Static Website Toolkit](../README.md)

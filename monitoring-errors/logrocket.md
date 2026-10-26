@@ -44,7 +44,3 @@ Initialize LogRocket in your static HTML:
 - Debugging checkout errors or form submission bugs on static sites.
 - Observing real user behavior, UX bottlenecks, and navigation friction.
 - Static web apps with complex client-side states.
-
----
-
-[← Back to Monitoring & Error Tracking](../README.md#monitoring--error-tracking) | [← Back to Static Website Toolkit](../README.md)

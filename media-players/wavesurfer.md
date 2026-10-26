@@ -55,7 +55,3 @@ Add an interactive audio waveform to static HTML:
 
 - Podcast episode players, voice memo portfolios, and music production static sites.
 - Adding an engaging, interactive audio player experience to blog posts.
-
----
-
-[← Back to Media & Video Players](../README.md#media--video-players) | [← Back to Static Website Toolkit](../README.md)

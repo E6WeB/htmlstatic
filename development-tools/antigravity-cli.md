@@ -51,7 +51,3 @@ agy "Convert all raw JPEG images in assets/images to optimized WebP format and u
 - Developers who live in the terminal and want keyboard-driven AI coding assistance.
 - Scripting repetitive web maintenance, formatting, and file refactoring.
 - Automating static site deployment prep and validation in CI/CD pipelines.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

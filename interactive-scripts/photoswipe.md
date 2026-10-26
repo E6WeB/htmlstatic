@@ -59,7 +59,3 @@ Include PhotoSwipe via modern ES modules in static HTML:
 
 - Photography portfolios, art showcases, and product image zoom galleries.
 - Static blogs and travel sites wanting rich lightbox image viewing.
-
----
-
-[← Back to Interactive Scripts & Animation](../README.md#interactive-scripts--animation) | [← Back to Static Website Toolkit](../README.md)

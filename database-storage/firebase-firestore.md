@@ -53,7 +53,3 @@ Include Firebase in your static HTML:
 
 - Static apps needing real-time updates like live voting, polls, or status dashboards.
 - Projects requiring reliable global database infrastructure backed by Google Cloud.
-
----
-
-[← Back to Database & Backend-as-a-Service](../README.md#database--backend-as-a-service) | [← Back to Static Website Toolkit](../README.md)

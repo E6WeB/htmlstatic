@@ -46,7 +46,3 @@ Embed a Brevo subscription widget onto your static site:
 - Growing businesses needing email marketing campaigns and automated sequences.
 - Landing pages requiring lead capture forms with automatic contact list tagging.
 - Projects needing both transactional email delivery and marketing newsletters.
-
----
-
-[← Back to Newsletters & Email](../README.md#newsletters--email) | [← Back to Static Website Toolkit](../README.md)

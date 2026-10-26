@@ -1,0 +1,16 @@
+[package]
+name = "e6web/staticstack"
+version = "0.1.0"
+description = "StaticStack (staticstack.app) - Static Website Toolkit on Wasmer Edge"
+license = "CC0-1.0"
+
+[dependencies]
+"wasmer/static-web-server" = "1"
+
+[fs]
+"/public" = "public"
+
+[[command]]
+name = "serve-static"
+module = "wasmer/static-web-server:webserver"
+runner = "wasi"

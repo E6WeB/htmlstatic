@@ -50,7 +50,3 @@ Ensure code snippets follow best practices and format the output in clean Markdo
 - Writing long-form technical guides, documentation, and static blog essays.
 - Ingesting large API specs or documents to generate static documentation sites.
 - Maintaining consistent editorial tone across large static websites.
-
----
-
-[← Back to AI & Content Creation](../README.md#ai--content-creation) | [← Back to Static Website Toolkit](../README.md)

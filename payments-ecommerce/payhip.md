@@ -48,7 +48,3 @@ Embed Payhip checkout onto your static site:
 - Selling ebooks, design assets, icon packs, and templates directly from a portfolio.
 - Websites needing instant secure file delivery to buyers.
 - Creators seeking a simple checkout overlay with low transaction fees.
-
----
-
-[← Back to Payments & E-commerce](../README.md#payments--e-commerce) | [← Back to Static Website Toolkit](../README.md)

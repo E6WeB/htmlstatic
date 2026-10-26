@@ -56,7 +56,3 @@ Add the Outseta script to your static HTML `<head>`:
 - Monetizing static websites with paid memberships or premium gated content.
 - Creators who want authentication, Stripe payments, and email marketing in one embed.
 - Agencies building client membership sites without WordPress membership plugins.
-
----
-
-[← Back to Authentication & User Management](../README.md#authentication--user-management) | [← Back to Static Website Toolkit](../README.md)

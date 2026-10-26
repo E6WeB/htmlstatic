@@ -45,7 +45,3 @@ Add a Calendly inline scheduling widget to your static page:
 
 - Agency and service business sites that need clients to book consultations.
 - Job application or interview scheduling pages on static company sites.
-
----
-
-[← Back to Booking & Scheduling](../README.md#booking--scheduling) | [← Back to Static Website Toolkit](../README.md)

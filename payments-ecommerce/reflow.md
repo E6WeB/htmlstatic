@@ -77,7 +77,3 @@ Add customer authentication buttons with custom triggers:
 - Projects built with Bootstrap Studio that want plug-and-play e-commerce and customer accounts.
 - Creators selling physical items or digital downloads without paying high 2%–5% platform commissions.
 - Membership sites and SaaS apps that need customer authentication and subscription management without backend servers.
-
----
-
-[← Back to Payments & E-commerce](../README.md#payments--e-commerce) | [← Back to Authentication & User Management](../README.md#authentication--user-management) | [← Back to Static Website Toolkit](../README.md)

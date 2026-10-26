@@ -51,7 +51,3 @@ body {
 - High-performance static websites aiming for maximum Google PageSpeed and Lighthouse scores.
 - Offline-capable static sites and Progressive Web Apps (PWAs).
 - Projects requiring strict privacy standards with zero external third-party requests.
-
----
-
-[← Back to Typography & Web Fonts](../README.md#typography--web-fonts) | [← Back to Static Website Toolkit](../README.md)

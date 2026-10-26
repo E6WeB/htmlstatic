@@ -47,7 +47,3 @@ tinify.fromFile("unoptimized.png").toFile("optimized.png");
 - Shrinking hero images, photography, and illustrations on static pages to speed up load times.
 - Optimizing transparent PNG logos and graphics to lower bandwidth usage.
 - Automating image compression in static site build scripts.
-
----
-
-[← Back to Images & Optimization](../README.md#images--optimization) | [← Back to Static Website Toolkit](../README.md)

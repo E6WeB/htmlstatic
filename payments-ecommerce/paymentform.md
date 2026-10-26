@@ -46,7 +46,3 @@ Create your form on PaymentForm.io and link to it from any button on your static
 - Selling products, event tickets, or services directly from static landing pages.
 - Accepting donations for nonprofits or open-source projects without a shopping cart system.
 - Fast checkout setup connecting directly to Stripe or PayPal.
-
----
-
-[← Back to Payments & E-commerce](../README.md#payments--e-commerce) | [← Back to Static Website Toolkit](../README.md)

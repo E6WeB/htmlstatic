@@ -46,7 +46,3 @@ Switch from Google Fonts to Bunny Fonts with a one-word URL change:
 - Any static website serving European visitors that needs strict GDPR compliance.
 - Site creators who want beautiful typography without Google tracking their audience.
 - Fast, reliable web font hosting without legal risks.
-
----
-
-[← Back to Typography & Web Fonts](../README.md#typography--web-fonts) | [← Back to Static Website Toolkit](../README.md)

@@ -61,7 +61,3 @@ Integrate Supabase Auth with vanilla JavaScript:
 - Static applications needing social login and user session persistence.
 - Projects using Supabase as their backend database for row-level security.
 - Open-source projects prioritizing privacy and data sovereignty.
-
----
-
-[← Back to Authentication & User Management](../README.md#authentication--user-management) | [← Back to Static Website Toolkit](../README.md)

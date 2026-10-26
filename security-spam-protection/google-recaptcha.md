@@ -46,7 +46,3 @@ Example reCAPTCHA v2 checkbox widget in an HTML form:
 
 - Forms experiencing heavy automated spam or credential stuffing.
 - Sites integrated with hosted form services with built-in reCAPTCHA secret verification.
-
----
-
-[← Back to Security & Spam Protection](../README.md#security--spam-protection) | [← Back to Static Website Toolkit](../README.md)

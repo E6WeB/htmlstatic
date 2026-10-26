@@ -72,7 +72,3 @@ Because the exported files are 100% static HTML, CSS, and JS, deploy them instan
 - Designers and developers who want a visual, responsive layout builder without sacrificing clean code output.
 - Teams prototyping and building production static websites, landing pages, and portfolios based on Bootstrap.
 - Anyone looking for an offline, one-time purchase alternative to SaaS website builders and complex CMS platforms.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

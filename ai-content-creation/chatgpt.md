@@ -50,7 +50,3 @@ and best use case. Format it for GitHub-flavored Markdown."
 - Drafting and outlining static blog posts and articles.
 - Generating SEO meta descriptions, open graph tags, and FAQ schemas.
 - Translating static website content into multiple languages.
-
----
-
-[← Back to AI & Content Creation](../README.md#ai--content-creation) | [← Back to Static Website Toolkit](../README.md)

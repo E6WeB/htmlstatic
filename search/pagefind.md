@@ -54,7 +54,3 @@ npx pagefind --site dist
 - Documentation sites, technical blogs, and large static knowledge bases.
 - Websites that want fast, robust full-text search with zero ongoing server costs.
 - Static sites deployed on GitHub Pages, Cloudflare Pages, Netlify, or Vercel.
-
----
-
-[← Back to Search](../README.md#search) | [← Back to Static Website Toolkit](../README.md)

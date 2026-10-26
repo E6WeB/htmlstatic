@@ -61,7 +61,3 @@ Embed a working map in static HTML in seconds:
 - Displaying business locations, event venues, or contact page maps on static sites.
 - Mapping projects that want to avoid Google Maps API billing surprises and quotas.
 - Mobile-optimized websites needing fast-loading interactive maps.
-
----
-
-[← Back to Interactive Maps & Geolocation](../README.md#interactive-maps--geolocation) | [← Back to Static Website Toolkit](../README.md)

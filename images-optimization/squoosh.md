@@ -43,7 +43,3 @@ npx @squoosh/cli --webp auto images/*.png
 - Optimizing hero banners, screenshots, and illustrations before publishing static pages.
 - Converting heavy JPEG and PNG files into high-efficiency WebP and AVIF formats.
 - Quick manual image compression without installing desktop software.
-
----
-
-[← Back to Images & Optimization](../README.md#images--optimization) | [← Back to Static Website Toolkit](../README.md)

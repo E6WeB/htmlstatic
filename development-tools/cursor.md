@@ -43,7 +43,3 @@ Because it is built on VS Code, Cursor supports your existing extensions, themes
 - Developers wanting an AI-first code editor that feels familiar to VS Code.
 - Scaffolding components that touch multiple static files simultaneously.
 - Rapidly iterating on styling and interactive JavaScript with AI completions.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

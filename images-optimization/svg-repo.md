@@ -45,7 +45,3 @@ Use downloaded SVGs directly inline in your HTML for optimal styling control:
 
 - Finding UI icons, navigation buttons, and decorative illustrations for static websites.
 - Embedding lightweight scalable vectors that look crisp on high-DPI screens without heavy icon fonts.
-
----
-
-[← Back to Images & Optimization](../README.md#images--optimization) | [← Back to Static Website Toolkit](../README.md)

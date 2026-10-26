@@ -49,7 +49,3 @@ Ensure the translation uses natural, idiomatic phrasing suitable for a modern te
 - Writing content that relies on up-to-date facts, current industry statistics, or live web research.
 - Translating and localizing static websites into multiple languages.
 - Brainstorming headlines, value propositions, and SEO copy.
-
----
-
-[← Back to AI & Content Creation](../README.md#ai--content-creation) | [← Back to Static Website Toolkit](../README.md)

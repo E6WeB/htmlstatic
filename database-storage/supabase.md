@@ -64,7 +64,3 @@ Query data directly from static HTML/JavaScript:
 - Static sites needing user-generated content (reviews, job boards, community listings).
 - Applications needing real-time collaborative updates or chat feeds.
 - Developers wanting the reliability of Postgres without maintaining database servers.
-
----
-
-[← Back to Database & Backend-as-a-Service](../README.md#database--backend-as-a-service) | [← Back to Static Website Toolkit](../README.md)

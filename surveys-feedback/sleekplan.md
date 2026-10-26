@@ -51,7 +51,3 @@ Embed the Sleekplan widget onto any static HTML page:
 - Static product websites wanting to collect feature suggestions and bug reports.
 - Showcasing a live public roadmap and changelog to visitors.
 - Measuring customer satisfaction (CSAT) directly on static pages.
-
----
-
-[← Back to Surveys & Feedback](../README.md#surveys--feedback) | [← Back to Static Website Toolkit](../README.md)

@@ -48,7 +48,3 @@ Embed Mux Player in static HTML:
 
 - High-quality video streaming on static sites without YouTube ads or suggested videos.
 - Video-first landing pages that need instant playback and adaptive streaming on mobile.
-
----
-
-[← Back to Media & Video Players](../README.md#media--video-players) | [← Back to Static Website Toolkit](../README.md)

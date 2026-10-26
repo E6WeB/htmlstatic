@@ -49,7 +49,3 @@ Embed a Cal.com booking widget onto your static site:
 - Consultant, freelancer, and agency portfolios that book discovery calls.
 - Static business landing pages requiring automated appointment scheduling.
 - Privacy-conscious projects looking for an open-source scheduling alternative.
-
----
-
-[← Back to Booking & Scheduling](../README.md#booking--scheduling) | [← Back to Static Website Toolkit](../README.md)

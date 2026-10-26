@@ -50,7 +50,3 @@ Embed a Tally survey or waitlist into your static HTML:
 - Customer feedback surveys, NPS scores, and event registration on static websites.
 - Lead capture and waitlists for upcoming static product launches.
 - Complex multi-step surveys requiring conditional logic without building custom forms.
-
----
-
-[← Back to Surveys & Feedback](../README.md#surveys--feedback) | [← Back to Static Website Toolkit](../README.md)

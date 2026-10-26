@@ -48,7 +48,3 @@ Add a lightweight subscription form to your static website:
 - Developer blogs, engineering newsletters, and personal sites.
 - Static sites prioritizing fast load times with pure HTML form embeds.
 - Writers who prefer drafting in Markdown without bulky WYSIWYG editors.
-
----
-
-[← Back to Newsletters & Email](../README.md#newsletters--email) | [← Back to Static Website Toolkit](../README.md)

@@ -45,7 +45,3 @@ npx lighthouse https://example.com --view --output html
 - Benchmarking and optimizing static website load speed and Core Web Vitals.
 - Ensuring WCAG accessibility standards and color contrast compliance.
 - Verifying meta tags, headings, and SEO essentials before launching a static site.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

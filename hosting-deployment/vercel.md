@@ -44,7 +44,3 @@ npx vercel --prod
 - Static sites and modern JavaScript frameworks requiring optimal performance.
 - Teams that value collaborative preview workflows and pull request previews.
 - Projects aiming for seamless transition from static pages to edge functions.
-
----
-
-[← Back to Hosting & Deployment](../README.md#hosting--deployment) | [← Back to Static Website Toolkit](../README.md)

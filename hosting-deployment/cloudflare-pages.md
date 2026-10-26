@@ -41,7 +41,3 @@ npx wrangler pages deploy ./dist --project-name my-static-site
 - High-traffic static websites needing fast global delivery without bandwidth worries.
 - Static sites that occasionally need edge functions, redirects, or header rules.
 - Teams wanting automatic branch preview URLs for collaborative development.
-
----
-
-[← Back to Hosting & Deployment](../README.md#hosting--deployment) | [← Back to Static Website Toolkit](../README.md)

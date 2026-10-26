@@ -51,7 +51,3 @@ Use Lucide in static HTML with the CDN script:
 - Adding clean, consistent icons to buttons, headers, and feature lists on static pages.
 - Developers avoiding heavy icon fonts like FontAwesome that slow down load times.
 - Projects looking for scalable, responsive icons that match modern design trends.
-
----
-
-[← Back to CSS & UI Component Libraries](../README.md#css--ui-component-libraries) | [← Back to Static Website Toolkit](../README.md)

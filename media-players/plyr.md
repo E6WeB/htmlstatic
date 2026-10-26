@@ -53,7 +53,3 @@ Use Plyr on a static HTML page:
 - Hosting product demo videos, course content, or portfolio videos on static sites.
 - Wrapping YouTube/Vimeo embeds to remove distracting branding and player clutter.
 - Podcasts and music portfolios requiring a clean, custom HTML5 audio player.
-
----
-
-[← Back to Media & Video Players](../README.md#media--video-players) | [← Back to Static Website Toolkit](../README.md)

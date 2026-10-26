@@ -33,7 +33,3 @@ Zed includes built-in multiplayer editing, letting multiple developers work in t
 - Developers looking for a lightweight, ultra-responsive editor with minimal memory footprint.
 - Real-time pair programming on static websites with remote colleagues.
 - Modern keyboard-centric workflows with built-in Vim mode and AI support.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

@@ -55,7 +55,3 @@ version = "1.0.0"
 - Deploying lightweight static sites alongside WebAssembly modules.
 - Projects requiring instant global deployment and distributed edge execution.
 - Teams looking for an alternative to traditional container and server hosting.
-
----
-
-[← Back to Hosting & Deployment](../README.md#hosting--deployment) | [← Back to Static Website Toolkit](../README.md)

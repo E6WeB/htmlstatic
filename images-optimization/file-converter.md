@@ -64,7 +64,3 @@ Right-click your brand logo (PNG) → **File Converter** → **To Ico** to insta
 - Batch converting static website images to WebP format directly on Windows 11.
 - Generating favicons (`favicon.ico`) quickly without using third-party web tools.
 - Compressing screenshots and blog post illustrations offline with full privacy.
-
----
-
-[← Back to Images & Optimization](../README.md#images--optimization) | [← Back to Static Website Toolkit](../README.md)

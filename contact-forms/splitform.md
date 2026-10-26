@@ -51,7 +51,3 @@ Connect your HTML form by setting the `action` attribute to your Splitform endpo
 - Contact pages, lead capture forms, and survey pages on static sites.
 - Portfolios and business landing pages that need clean email alerts.
 - Developers who want a quick, backend-free form processing solution.
-
----
-
-[← Back to Contact Forms](../README.md#contact-forms) | [← Back to Static Website Toolkit](../README.md)

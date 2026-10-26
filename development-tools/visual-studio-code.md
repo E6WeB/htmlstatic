@@ -46,7 +46,3 @@ Recommended `.vscode/extensions.json` for static site projects:
 
 - Daily code editing, file management, and static site development.
 - Developers who want a fast, customizable environment with extensive extension support.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

@@ -54,7 +54,3 @@ const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
 - Static blogs, documentation sites, and client websites needing robust forms.
 - Forms requiring third-party integrations (Slack, Google Sheets, Zapier).
 - Advanced forms requiring file attachment handling.
-
----
-
-[← Back to Contact Forms](../README.md#contact-forms) | [← Back to Static Website Toolkit](../README.md)

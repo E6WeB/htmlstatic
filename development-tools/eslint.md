@@ -43,7 +43,3 @@ npx eslint . --fix
 
 - Static websites with client-side JavaScript logic, forms, or interactive components.
 - Preventing subtle browser bugs and maintaining modern JavaScript best practices.
-
----
-
-[← Back to Development Tools](../README.md#development-tools) | [← Back to Static Website Toolkit](../README.md)

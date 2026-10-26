@@ -47,7 +47,3 @@ hugo
 - Large websites, massive documentation archives, and blogs with thousands of articles.
 - Developers wanting a single standalone binary with zero npm/node configuration.
 - Rapid continuous integration builds that finish in seconds.
-
----
-
-[← Back to Static Site Generators](../README.md#static-site-generators) | [← Back to Static Website Toolkit](../README.md)

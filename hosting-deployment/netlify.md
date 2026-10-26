@@ -47,7 +47,3 @@ Configure build settings in a `netlify.toml` file at the root of your project:
 - Production static websites and web applications with automated CI/CD.
 - Websites needing built-in forms and edge redirects without third-party services.
 - Cross-functional teams that rely on Deploy Previews for visual QA.
-
----
-
-[← Back to Hosting & Deployment](../README.md#hosting--deployment) | [← Back to Static Website Toolkit](../README.md)

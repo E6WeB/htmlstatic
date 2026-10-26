@@ -47,7 +47,3 @@ npx @11ty/eleventy
 - Personal blogs, documentation, and simple multi-page websites.
 - Web developers who want to write standard HTML and CSS without framework compilation.
 - Fast, dependency-light static generation.
-
----
-
-[← Back to Static Site Generators](../README.md#static-site-generators) | [← Back to Static Website Toolkit](../README.md)

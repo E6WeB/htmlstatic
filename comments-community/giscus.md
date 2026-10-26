@@ -56,7 +56,3 @@ Include the Giscus script tag on your blog post page:
 - Technical blogs, developer documentation, and open-source websites.
 - Communities where visitors already have GitHub accounts.
 - Site owners who want zero maintenance and full data ownership.
-
----
-
-[← Back to Comments & Community](../README.md#comments--community) | [← Back to Static Website Toolkit](../README.md)
