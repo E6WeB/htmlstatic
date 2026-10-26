@@ -9,6 +9,7 @@ entrypoint = "script"
 "wasmer/static-web-server" = "^1"
 
 [fs]
+"/app" = "."
 "/public" = "public"
 "/settings" = "settings"
 

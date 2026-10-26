@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Studio - Development Tools | StaticStack</title>
+  <meta name="description" content="Bootstrap Studio: Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML. Guide, features, and static site integration overview.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://staticstack.app/tools/development-tools/bootstrap-studio/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="StaticStack">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://staticstack.app/tools/development-tools/bootstrap-studio/">
+  <meta property="og:title" content="Bootstrap Studio - Development Tools | StaticStack">
+  <meta property="og:description" content="Bootstrap Studio: Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML. Guide, features, and static site integration overview.">
+  <meta property="og:image" content="https://staticstack.app/og-image.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bootstrap Studio - Development Tools | StaticStack">
+  <meta name="twitter:description" content="Bootstrap Studio: Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML. Guide, features, and static site integration overview.">
+  <meta name="twitter:image" content="https://staticstack.app/og-image.png">
+
+  <!-- Stylesheet & Favicon -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Bootstrap Studio","description":"Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML","applicationCategory":"Development Tools","operatingSystem":"Web","url":"https://bootstrapstudio.io/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://staticstack.app/archive/"},{"@type":"ListItem","position":3,"name":"Development Tools","item":"https://staticstack.app/categories/development-tools/"},{"@type":"ListItem","position":4,"name":"Bootstrap Studio","item":"https://staticstack.app/tools/development-tools/bootstrap-studio/"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+        <span>StaticStack</span>
+        <span style="font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 0.15rem 0.5rem; border-radius: var(--radius-full); font-weight: 600; margin-left: 0.2rem;">.app</span>
+      </a>
+
+      <!-- Desktop Nav & Mobile Menu Drawer -->
+      <nav id="nav-drawer" class="nav-drawer">
+        <ul id="nav-links" class="nav-links">
+          <li><a href="/" class="nav-link ">Home</a></li>
+          <li><a href="/archive/" class="nav-link ">Archive</a></li>
+          <li><a href="/submit/" class="nav-link ">Submit</a></li>
+          <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+        </ul>
+
+        <!-- Mobile Menu Tools (Search & Theme Switcher below header-inner) -->
+        <div class="mobile-menu-tools">
+          <button class="search-trigger mobile-search-btn" aria-label="Open search">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Search Directory...</span>
+            <span class="search-shortcut">/</span>
+          </button>
+          <button class="theme-toggle-btn mobile-theme-btn" aria-label="Toggle theme">
+            <span class="theme-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+            <span class="theme-label">Dark Mode</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Desktop Header Actions (Hidden on mobile) -->
+      <div class="header-actions">
+        <button class="search-trigger" aria-label="Open search">
+          <span style="display:flex;align-items:center;gap:0.35rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Search</span>
+          <span class="search-shortcut">/</span>
+        </button>
+        <button id="theme-toggle" class="theme-btn theme-toggle-btn" aria-label="Toggle theme">
+          <span class="theme-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger / Close Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="menu-icon-open" style="display:flex;align-items:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></span>
+        <span class="menu-icon-close" style="display:none;align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="/">Home</a><span>/</span><a href="/archive/">Archive</a><span>/</span><a href="/categories/development-tools/">Development Tools</a><span>/</span><span>Bootstrap Studio</span>
+    </nav>
+  
+      
+    <article class="tool-detail-page">
+      <div class="tool-detail-hero">
+        <div class="tool-title-row">
+          <h1>Bootstrap Studio</h1>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <span class="badge badge-paid"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Paid</span>
+            <a href="/categories/development-tools/" class="badge badge-freemium" style="text-decoration: none; display:inline-flex; align-items:center; gap:0.3rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <span>Category: Development Tools</span>
+            </a>
+          </div>
+        </div>
+        
+        <p class="tool-quote">Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML</p>
+
+        <div class="tool-meta-bar">
+          <div><strong>Official Website:</strong> <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;">bootstrapstudio.io <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div>
+          <div><strong>Category:</strong> <a href="/categories/development-tools/">Development Tools</a></div>
+          <div style="margin-left: auto;">
+            <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem; display:inline-flex; align-items:center; gap:0.35rem;">
+              Visit Bootstrap Studio <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="markdown-body">
+        <h1>Bootstrap Studio</h1>
+<blockquote>
+<p>Visual desktop web design application for creating responsive websites using the Bootstrap framework and exporting clean HTML.</p>
+</blockquote>
+<ul>
+<li><strong>Official Website</strong>: <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a></li>
+<li><strong>Category</strong>: <a href="/categories/development-tools/">Development Tools</a></li>
+<li><strong>Type</strong>: Visual Web Design Editor</li>
+<li><strong>Pricing / License</strong>: Paid (One-time purchase)</li>
+</ul>
+<hr>
+<h2>Overview</h2>
+<p>Bootstrap Studio is a powerful desktop application tailored for web designers and developers to build responsive websites visually using the Bootstrap framework. Available for Windows, macOS, and Linux, it brings together drag-and-drop visual design tools with full-featured code editing (HTML, CSS, SASS, and JavaScript).</p>
+<p>Unlike online website builders or proprietary platforms, Bootstrap Studio runs entirely offline on your computer and requires no ongoing monthly subscriptions. It generates clean, semantic HTML and standard CSS/JS that feels hand-written by a professional developer, making it easy to export and host on any static hosting provider, CDN, or server.</p>
+<hr>
+<h2>Key Highlights &amp; Features</h2>
+<ul>
+<li><strong>Visual Drag-and-Drop Canvas</strong>: Assemble responsive web pages with a vast library of built-in Bootstrap components (navbars, grids, cards, modals, carousels, and forms).</li>
+<li><strong>Clean Code Export</strong>: Generates production-ready, clean, and semantic static HTML, CSS, and JavaScript with zero proprietary scripts or vendor lock-in.</li>
+<li><strong>Advanced Code Editing</strong>: Built-in VS Code-style editor for CSS, SASS, JavaScript, and custom HTML with syntax highlighting, auto-completion, and real-time preview sync.</li>
+<li><strong>Real-Time Multi-Device Preview</strong>: Connect phones, tablets, or other desktop browsers over local Wi-Fi to test responsive layouts and interactions live as you edit.</li>
+<li><strong>Smart Forms Integration</strong>: Built-in form backend capability that routes form submissions directly to your email without writing backend code.</li>
+<li><strong>One-Click Publishing &amp; Hosting</strong>: Includes 5 free hosting slots on Bootstrap Studio Sites with custom domain support and SSL, or direct export via SFTP / ZIP download.</li>
+<li><strong>Offline &amp; One-Time Purchase</strong>: A native desktop application that you own forever with no mandatory monthly recurring fees.</li>
+</ul>
+<hr>
+<h2>How It Works with Static Websites</h2>
+<h3>1. Visual Drag-and-Drop Assembly</h3>
+<p>Drag and drop Bootstrap components into the visual canvas or DOM component tree. Customize properties, typography, layouts, and responsive breakpoints using visual controls.</p>
+<h3>2. Code Editing &amp; Custom Logic</h3>
+<p>Seamlessly switch to code view to write custom CSS or SASS rules, link external JavaScript libraries, or embed custom HTML snippets.</p>
+<h3>3. Static Site Export</h3>
+<p>Export your completed design into a clean directory of static assets ready for deployment:</p>
+<pre><code class="language-bash"># Exported folder structure
+my-website/
+├── index.html
+├── about.html
+├── contact.html
+├── assets/
+│   ├── bootstrap/
+│   │   ├── css/bootstrap.min.css
+│   │   └── js/bootstrap.bundle.min.js
+│   ├── css/
+│   │   └── styles.min.css
+│   ├── js/
+│   │   └── main.js
+│   └── img/
+</code></pre>
+<h3>4. Deploy Anywhere</h3>
+<p>Because the exported files are 100% static HTML, CSS, and JS, deploy them instantly to platforms such as:</p>
+<ul>
+<li><strong>Cloudflare Pages</strong></li>
+<li><strong>GitHub Pages</strong></li>
+<li><strong>Netlify</strong></li>
+<li><strong>Vercel</strong></li>
+<li>Any shared hosting or VPS via SFTP</li>
+</ul>
+<hr>
+<h2>When to Use It</h2>
+<ul>
+<li>Designers and developers who want a visual, responsive layout builder without sacrificing clean code output.</li>
+<li>Teams prototyping and building production static websites, landing pages, and portfolios based on Bootstrap.</li>
+<li>Anyone looking for an offline, one-time purchase alternative to SaaS website builders and complex CMS platforms.</li>
+</ul>
+
+      </div>
+
+      <div style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <a href="/categories/development-tools/" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:0.35rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to Development Tools
+        </a>
+        <a href="/archive/" class="btn btn-secondary">Browse Full Archive</a>
+        <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.35rem;">
+          Visit Bootstrap Studio <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </article>
+  
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="brand" style="margin-bottom: 0.75rem;">
+            <span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+            <span>StaticStack</span>
+            <span style="font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 0.15rem 0.5rem; border-radius: var(--radius-full); font-weight: 600; margin-left: 0.2rem;">.app</span>
+          </a>
+          <p>A community-curated collection of tools, services, and resources for building, hosting, and enhancing static websites with HTML, CSS, and JavaScript—zero backend servers required.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/archive/">Master Archive</a></li>
+            <li><a href="/submit/">Submit a Tool</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Community & Project</h4>
+          <ul>
+            <li><a href="/contributing/">Contributing Guide</a></li>
+            <li><a href="/thank-you/">Thank You & Credits</a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="copyright-year">2026</span> StaticStack. Built with native system typography &amp; Vanilla CSS. Deployed on <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">Wasmer Edge</a> at <a href="https://staticstack.app">staticstack.app</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search Tools">
+    <div class="search-box">
+      <div class="search-input-wrapper">
+        <span style="display:flex;align-items:center;color:var(--text-muted)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+        <input type="text" id="search-input" class="search-input" placeholder="Search 94+ tools, categories, or keywords..." autocomplete="off">
+        <button id="search-close" style="background:none;border:none;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

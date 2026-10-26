@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributing Guide - How to Add Tools &amp; Resources | StaticStack</title>
+  <meta name="description" content="Learn how to contribute to StaticStack. Guidelines for proposing new static web tools, submitting pull requests, and maintaining data accuracy.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://staticstack.app/contributing/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="StaticStack">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://staticstack.app/contributing/">
+  <meta property="og:title" content="Contributing Guide - How to Add Tools &amp; Resources | StaticStack">
+  <meta property="og:description" content="Learn how to contribute to StaticStack. Guidelines for proposing new static web tools, submitting pull requests, and maintaining data accuracy.">
+  <meta property="og:image" content="https://staticstack.app/og-image.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contributing Guide - How to Add Tools &amp; Resources | StaticStack">
+  <meta name="twitter:description" content="Learn how to contribute to StaticStack. Guidelines for proposing new static web tools, submitting pull requests, and maintaining data accuracy.">
+  <meta name="twitter:image" content="https://staticstack.app/og-image.png">
+
+  <!-- Stylesheet & Favicon -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://staticstack.app/"},{"@type":"ListItem","position":2,"name":"Contributing Guide","item":"https://staticstack.app/contributing/"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+        <span>StaticStack</span>
+        <span style="font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 0.15rem 0.5rem; border-radius: var(--radius-full); font-weight: 600; margin-left: 0.2rem;">.app</span>
+      </a>
+
+      <!-- Desktop Nav & Mobile Menu Drawer -->
+      <nav id="nav-drawer" class="nav-drawer">
+        <ul id="nav-links" class="nav-links">
+          <li><a href="/" class="nav-link ">Home</a></li>
+          <li><a href="/archive/" class="nav-link ">Archive</a></li>
+          <li><a href="/submit/" class="nav-link ">Submit</a></li>
+          <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+        </ul>
+
+        <!-- Mobile Menu Tools (Search & Theme Switcher below header-inner) -->
+        <div class="mobile-menu-tools">
+          <button class="search-trigger mobile-search-btn" aria-label="Open search">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Search Directory...</span>
+            <span class="search-shortcut">/</span>
+          </button>
+          <button class="theme-toggle-btn mobile-theme-btn" aria-label="Toggle theme">
+            <span class="theme-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+            <span class="theme-label">Dark Mode</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Desktop Header Actions (Hidden on mobile) -->
+      <div class="header-actions">
+        <button class="search-trigger" aria-label="Open search">
+          <span style="display:flex;align-items:center;gap:0.35rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Search</span>
+          <span class="search-shortcut">/</span>
+        </button>
+        <button id="theme-toggle" class="theme-btn theme-toggle-btn" aria-label="Toggle theme">
+          <span class="theme-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger / Close Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="menu-icon-open" style="display:flex;align-items:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></span>
+        <span class="menu-icon-close" style="display:none;align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="/">Home</a><span>/</span><span>Contributing Guide</span>
+    </nav>
+  
+      
+  <div style="padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+      <span class="hero-badge" style="margin-bottom:0;">Community Collaboration</span>
+    </div>
+    <h1>Contributing to StaticStack</h1>
+    <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 800px; line-height: 1.6;">
+      Thank you for helping keep StaticStack accurate, comprehensive, and valuable! Learn how to submit new tools, suggest categories, report changes, or open pull requests.
+    </p>
+    <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+      <a href="https://github.com/E6WeB/htmlstatic/issues/new/choose" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.4rem;">
+        Submit an Issue on GitHub <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+      <a href="/submit/" class="btn btn-secondary">
+        Use Web Submission Form
+      </a>
+      <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:0.4rem;">
+        Fork Repository <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="markdown-body">
+    <h1>Contributing to Static Website Toolkit</h1>
+<p>Thank you for your interest in contributing to the <strong>Static Website Toolkit</strong>! 🎉</p>
+<p>This is an open, community-curated collection of tools, services, and resources that help people build, host, and enhance static websites with HTML, CSS, and JavaScript. Every contribution—whether adding a new tool, fixing a broken link, or suggesting a new category—helps keep this resource accurate and valuable for everyone.</p>
+<hr>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#ways-to-contribute">Ways to Contribute</a></li>
+<li><a href="#submission-guidelines">Submission Guidelines</a></li>
+<li><a href="#entry-format--template">Entry Format &amp; Template</a></li>
+<li><a href="#how-to-submit-a-pull-request">How to Submit a Pull Request</a></li>
+<li><a href="#how-to-submit-via-an-issue">How to Submit via an Issue</a></li>
+<li><a href="#pull-request-checklist">Pull Request Checklist</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<hr>
+<h2>Ways to Contribute</h2>
+<p>You can help improve this list in several ways:</p>
+<ol>
+<li><strong>Add a new tool</strong>: Introduce a service or tool that helps static websites operate without a traditional CMS or dedicated backend.</li>
+<li><strong>Suggest a new category</strong>: If you know of valuable tools that don&#39;t fit into existing sections (e.g., Auth, A/B Testing, Video Hosting), suggest a new category.</li>
+<li><strong>Fix outdated entries</strong>: Report or fix broken links, outdated descriptions, pricing model changes, or discontinued services.</li>
+<li><strong>Share open-source / free alternatives</strong>: We love highlighting accessible, privacy-respecting, and open-source solutions.</li>
+<li><strong>Improve documentation</strong>: Refine descriptions for clarity and accuracy.</li>
+</ol>
+<hr>
+<h2>Submission Guidelines</h2>
+<p>To keep this collection high-quality, practical, and spam-free, please adhere to these guidelines:</p>
+<h3>1. Relevance</h3>
+<ul>
+<li>The tool must directly benefit <strong>static HTML, CSS, and JavaScript websites</strong> or Jamstack/frontend architectures.</li>
+<li>It should enable features typically requiring a backend (e.g., forms, comments, payments, search, auth) via APIs, widgets, edge functions, or client-side scripts.</li>
+<li>General web tools that are not particularly relevant to static site development may be declined.</li>
+</ul>
+<h3>2. Zero Advertising &amp; No Affiliate Links</h3>
+<ul>
+<li><strong>Zero advertisement and no affiliate links are allowed.</strong></li>
+<li>Always link directly to the <strong>official website</strong> or official repository using clean, secure HTTPS URLs.</li>
+<li>Submissions containing sponsored promotions, advertisements, referral parameters, or affiliate tags will be rejected immediately.</li>
+</ul>
+<h3>3. Clear, Objective Descriptions</h3>
+<ul>
+<li>Write a concise, one-sentence description explaining <strong>what the tool does</strong>, not how great it is.</li>
+<li>Avoid marketing hype, buzzwords, or unverified claims (e.g., avoid <em>&quot;The #1 blazing-fast ultimate solution&quot;</em>).</li>
+<li>Good example: <code>Static search indexing designed for static websites</code></li>
+<li>Bad example: <code>The best, most powerful search engine on the planet!</code></li>
+</ul>
+<h3>4. No Duplicates</h3>
+<ul>
+<li>Before submitting, search <a href="README.md"><code>README.md</code></a> (<code>Ctrl</code>+<code>F</code> or <code>Cmd</code>+<code>F</code>) to verify that the tool has not already been listed under another category.</li>
+</ul>
+<h3>5. Transparency &amp; Affiliation</h3>
+<ul>
+<li>Creators and maintainers are welcome to submit their own tools!</li>
+<li>Please be transparent if you are affiliated with the product or service you are submitting.</li>
+<li>Submissions must prioritize usefulness to the community over advertising or self-promotion.</li>
+</ul>
+<hr>
+<h2>Entry Format &amp; Template</h2>
+<p>All tools in <a href="README.md"><code>README.md</code></a> are organized in full-width tables (<code>&lt;table width=&quot;100%&quot;&gt;</code>) with four columns: <strong>Tool</strong>, <strong>Description</strong>, <strong>Pricing / License</strong>, and <strong>Website</strong>.</p>
+<p>External links use HTML anchor tags formatted with <code>target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;</code>.</p>
+<h3>Template:</h3>
+<pre><code class="language-html">  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&quot;category-folder/tool-name.md&quot;&gt;Tool Name&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;Clear one-sentence description of what it does.&lt;/td&gt;
+    &lt;td&gt;&lt;img src=&quot;https://img.shields.io/badge/Pricing-Color?style=flat-square&quot; alt=&quot;Pricing&quot;&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://example.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;example.com&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+</code></pre>
+<h3>Example:</h3>
+<pre><code class="language-html">  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&quot;search/pagefind.md&quot;&gt;Pagefind&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;Static search indexing designed for static websites&lt;/td&gt;
+    &lt;td&gt;&lt;img src=&quot;https://img.shields.io/badge/Open_Source-238636?style=flat-square&quot; alt=&quot;Open Source&quot;&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://pagefind.app/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;pagefind.app&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+</code></pre>
+<hr>
+<h2>How to Submit a Pull Request</h2>
+<p>If you are comfortable using Git and GitHub:</p>
+<ol>
+<li><strong>Fork the Repository</strong>: Click the <strong>Fork</strong> button at the top right of this repository to create your own copy.</li>
+<li><strong>Clone your Fork</strong>:<pre><code class="language-bash">git clone https://github.com/&lt;your-username&gt;/htmlstatic.git
+cd htmlstatic
+</code></pre>
+</li>
+<li><strong>Create a Feature Branch</strong>:<pre><code class="language-bash">git checkout -b add-tool-name
+</code></pre>
+</li>
+<li><strong>Edit <a href="README.md"><code>README.md</code></a></strong>:<ul>
+<li>Locate the most relevant category table.</li>
+<li>Insert your new entry following the <a href="#entry-format--template">Entry Format</a>.</li>
+<li>Ensure the table syntax remains properly aligned and valid markdown.</li>
+</ul>
+</li>
+<li><strong>Commit your Changes</strong>:
+Write a clear, descriptive commit message:<pre><code class="language-bash">git commit -m &quot;Add ToolName to Contact Forms category&quot;
+</code></pre>
+</li>
+<li><strong>Push to GitHub</strong>:<pre><code class="language-bash">git push origin add-tool-name
+</code></pre>
+</li>
+<li><strong>Open a Pull Request</strong>:<ul>
+<li>Go to your fork on GitHub and click <strong>Compare &amp; pull request</strong>.</li>
+<li>Provide a brief description explaining what the tool is and why it belongs in this collection.</li>
+<li>Submit the PR for review!</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>How to Submit via an Issue (Recommended)</h2>
+<p>Submitting via GitHub Issues is the quickest and easiest way to propose a tool, service, or resource:</p>
+<ol>
+<li>Go to the <strong><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">GitHub Issues Section</a></strong> and click <strong><a href="https://github.com/E6WeB/htmlstatic/issues/new/choose" target="_blank" rel="noopener noreferrer">New Issue</a></strong>.</li>
+<li>Select the <strong>Submit a Tool or Site</strong> template.</li>
+<li>Fill out the form fields:<ul>
+<li><strong>Tool or Site Name</strong>: Official name</li>
+<li><strong>Official Website URL</strong>: Clean HTTPS link (no tracking or affiliate codes)</li>
+<li><strong>Category</strong>: Select the best category match (or suggest a new one)</li>
+<li><strong>Short Description</strong>: One objective sentence explaining what it does</li>
+</ul>
+</li>
+<li>Submit the issue! Once the site is verified, it will be added to <code>README.md</code>.</li>
+</ol>
+<hr>
+<h2>Pull Request Checklist</h2>
+<p>Before opening your pull request, please make sure:</p>
+<ul>
+<li><input disabled="" type="checkbox"> The tool is relevant to static websites and frontend development.</li>
+<li><input disabled="" type="checkbox"> You searched <a href="README.md"><code>README.md</code></a> to ensure it is not already listed.</li>
+<li><input disabled="" type="checkbox"> Zero advertisement and no affiliate links (official HTTPS URL with no tracking/referral parameters).</li>
+<li><input disabled="" type="checkbox"> The description is concise, objective, and one sentence long.</li>
+<li><input disabled="" type="checkbox"> The entry follows the table format with <code>target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;</code>.</li>
+<li><input disabled="" type="checkbox"> All existing tables and markdown formatting remain valid.</li>
+</ul>
+<hr>
+<h2>License</h2>
+<p>By contributing to this repository, you agree that your contributions will be licensed under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero (CC0 1.0 Universal) Public Domain Dedication</a>.</p>
+
+  </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="brand" style="margin-bottom: 0.75rem;">
+            <span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+            <span>StaticStack</span>
+            <span style="font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 0.15rem 0.5rem; border-radius: var(--radius-full); font-weight: 600; margin-left: 0.2rem;">.app</span>
+          </a>
+          <p>A community-curated collection of tools, services, and resources for building, hosting, and enhancing static websites with HTML, CSS, and JavaScript—zero backend servers required.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/archive/">Master Archive</a></li>
+            <li><a href="/submit/">Submit a Tool</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Community & Project</h4>
+          <ul>
+            <li><a href="/contributing/">Contributing Guide</a></li>
+            <li><a href="/thank-you/">Thank You & Credits</a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="copyright-year">2026</span> StaticStack. Built with native system typography &amp; Vanilla CSS. Deployed on <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">Wasmer Edge</a> at <a href="https://staticstack.app">staticstack.app</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search Tools">
+    <div class="search-box">
+      <div class="search-input-wrapper">
+        <span style="display:flex;align-items:center;color:var(--text-muted)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+        <input type="text" id="search-input" class="search-input" placeholder="Search 94+ tools, categories, or keywords..." autocomplete="off">
+        <button id="search-close" style="background:none;border:none;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

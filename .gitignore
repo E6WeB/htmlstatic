@@ -4,14 +4,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Compiled static website output (kept separate from GitHub repo)
-public/
-dist/
-
-# Wasmer configuration and cache
-.wasmer/
-*.wasmer
-
 # OS temporary files
 .DS_Store
 Thumbs.db
