@@ -2,17 +2,17 @@
  * Unified HTML Site Generator
  * Generates standalone, zero-dependency HTML pages using pure native system typography:
  * - index.html (Home)
- * - archive.html (Master Archive)
+ * - archive.html (Master Archive with wider 320px sidebar)
  * - submit.html (Submit a Tool)
  * - contribute.html (Contributing Guide)
  * - thankyou.html (Thank You & Credits)
+ * - tools/<category>/<tool>.html (Dedicated page for all 94 tools!)
  *
  * All pages feature:
  * - Pure system-style font stack (no Google Fonts)
  * - Light theme default with segmented [ ☀️ Light | 🌙 Dark ] switcher
  * - Proper original navigation menu (Home | Archive | Submit | GitHub)
  * - Floating Back to Top button
- * - In-page modals and client-side instant search
  */
 
 const fs = require('fs');
@@ -39,6 +39,7 @@ const ICONS = {
   search: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
   external: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
   arrowRight: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`,
+  arrowLeft: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`,
   arrowUp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>`,
   sun: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
   moon: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
@@ -57,31 +58,31 @@ const ICONS = {
 
 // Category Icons
 const CATEGORY_ICONS = {
-  'ai-content-creation': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>`,
-  'ai-models': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>`,
-  'analytics-privacy': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
-  'authentication-users': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
-  'booking-scheduling': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`,
-  'comments-community': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
-  'contact-forms': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`,
-  'content-management': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
-  'css-components': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
-  'database-storage': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
-  'development-tools': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
-  'hosting-deployment': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`,
-  'images-optimization': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`,
-  'interactive-scripts': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`,
-  'live-chat': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>`,
-  'maps-geolocation': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>`,
-  'media-players': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>`,
-  'monitoring-errors': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`,
-  'newsletters-email': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`,
-  'payments-ecommerce': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>`,
-  'search': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
-  'security-spam-protection': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
-  'static-site-generators': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
-  'surveys-feedback': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
-  'typography-fonts': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>`
+  'ai-content-creation': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>`,
+  'ai-models': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>`,
+  'analytics-privacy': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+  'authentication-users': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
+  'booking-scheduling': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`,
+  'comments-community': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
+  'contact-forms': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`,
+  'content-management': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
+  'css-components': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
+  'database-storage': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
+  'development-tools': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+  'hosting-deployment': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`,
+  'images-optimization': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`,
+  'interactive-scripts': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`,
+  'live-chat': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>`,
+  'maps-geolocation': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>`,
+  'media-players': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>`,
+  'monitoring-errors': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`,
+  'newsletters-email': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`,
+  'payments-ecommerce': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>`,
+  'search': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
+  'security-spam-protection': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+  'static-site-generators': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
+  'surveys-feedback': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
+  'typography-fonts': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>`
 };
 
 function parseBadges(badgeHtml) {
@@ -145,11 +146,12 @@ for (const section of sections) {
 
     let tagline = toolDesc;
     let overview = '';
+    let rawMd = '';
     if (fs.existsSync(path.join(ROOT_DIR, rawPath))) {
-      const mdContent = fs.readFileSync(path.join(ROOT_DIR, rawPath), 'utf8');
-      const quoteMatch = mdContent.match(/>\s*([^\n\r]+)/);
+      rawMd = fs.readFileSync(path.join(ROOT_DIR, rawPath), 'utf8');
+      const quoteMatch = rawMd.match(/>\s*([^\n\r]+)/);
       if (quoteMatch) tagline = quoteMatch[1].trim();
-      const overviewMatch = mdContent.match(/##\s+Overview\s*\n+([\s\S]*?)(?=\n+---|\n+##|$)/);
+      const overviewMatch = rawMd.match(/##\s+Overview\s*\n+([\s\S]*?)(?=\n+---|\n+##|$)/);
       if (overviewMatch) overview = overviewMatch[1].trim().replace(/\n+/g, ' ');
     }
 
@@ -161,10 +163,12 @@ for (const section of sections) {
       slug: toolSlug,
       relPath: rawPath,
       folder: folder,
+      categorySlug: folder,
       categoryTitle: title,
       description: toolDesc,
       tagline: tagline,
       overview: overview,
+      rawMd: rawMd,
       badges: badges,
       primaryBadge: primaryBadge,
       websiteUrl: websiteUrl,
@@ -358,7 +362,7 @@ const BASE_CSS = `
   }
 
   .btn-sm {
-    padding: 0.4rem 0.75rem;
+    padding: 0.35rem 0.75rem;
     font-size: 0.825rem;
   }
 
@@ -551,6 +555,7 @@ const BASE_CSS = `
     font-size: 0.85rem;
     color: var(--text-subtle);
     padding: 1.5rem 0 0.5rem;
+    flex-wrap: wrap;
   }
 
   .breadcrumbs a {
@@ -667,12 +672,36 @@ const BASE_CSS = `
   }
 
   .markdown-body h1 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 0; }
-  .markdown-body h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; }
-  .markdown-body h3 { font-size: 1.25rem; }
+  .markdown-body h2 { font-size: 1.45rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; }
+  .markdown-body h3 { font-size: 1.2rem; }
   .markdown-body p { margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.7; }
   .markdown-body ul, .markdown-body ol { margin-bottom: 1.25rem; padding-left: 1.75rem; }
   .markdown-body li { margin-bottom: 0.4rem; color: var(--text-main); line-height: 1.6; }
   .markdown-body hr { border: none; border-top: 1px solid var(--border-color); margin: 2rem 0; }
+  .markdown-body pre {
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  .markdown-body code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--bg-muted);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+  }
+  .markdown-body pre code {
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
   .markdown-body blockquote {
     border-left: 4px solid var(--accent);
     padding: 0.75rem 1.25rem;
@@ -695,6 +724,80 @@ const BASE_CSS = `
     font-weight: 700;
   }
 
+  /* Wider Archive Layout Styles (320px sidebar) */
+  .archive-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .archive-sidebar {
+    position: sticky;
+    top: 5.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    box-shadow: var(--shadow-card);
+  }
+
+  .archive-cat-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 0.45rem 0.65rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+    text-decoration: none;
+  }
+
+  .archive-cat-link:hover {
+    color: var(--accent);
+    background: var(--accent-light);
+    transform: translateX(2px);
+  }
+
+  .archive-cat-icon {
+    display: flex;
+    align-items: center;
+    color: var(--accent);
+    width: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .archive-cat-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .archive-cat-count {
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: var(--text-subtle);
+    background: var(--bg-muted);
+    padding: 0.1rem 0.45rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+  }
+
+  @media (max-width: 960px) {
+    .archive-layout {
+      grid-template-columns: 1fr;
+    }
+    .archive-sidebar {
+      position: static;
+      max-height: 280px;
+    }
+  }
+
   @media (max-width: 860px) {
     .nav-links {
       gap: 0.25rem;
@@ -711,13 +814,14 @@ const BASE_CSS = `
   }
 `;
 
-// Shared Layout Wrapper
+// Shared Layout Wrapper supporting depth rootPath
 function renderLayout({
   title,
   description,
   currentNav = '',
   content,
-  breadcrumbs = []
+  breadcrumbs = [],
+  rootPath = ''
 }) {
   const cleanDescription = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
   const pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
@@ -746,7 +850,7 @@ function renderLayout({
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">
+      <a href="${rootPath}index.html" class="brand">
         <span class="brand-icon">${ICONS.logo}</span>
         <span>StaticStack</span>
         <span class="brand-badge">Toolkit</span>
@@ -755,9 +859,9 @@ function renderLayout({
       <!-- Original Clean Nav Menu -->
       <nav class="nav-drawer">
         <ul id="nav-links" class="nav-links">
-          <li><a href="index.html" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
-          <li><a href="archive.html" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
-          <li><a href="submit.html" class="nav-link ${currentNav === 'submit' ? 'active' : ''}">Submit</a></li>
+          <li><a href="${rootPath}index.html" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
+          <li><a href="${rootPath}archive.html" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
+          <li><a href="${rootPath}submit.html" class="nav-link ${currentNav === 'submit' ? 'active' : ''}">Submit</a></li>
           <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">${ICONS.github} GitHub</a></li>
         </ul>
       </nav>
@@ -788,7 +892,7 @@ function renderLayout({
     <div class="container">
       <div class="footer-inner">
         <div>
-          <a href="index.html" class="brand" style="margin-bottom: 0.75rem;">
+          <a href="${rootPath}index.html" class="brand" style="margin-bottom: 0.75rem;">
             <span class="brand-icon">${ICONS.logo}</span>
             <span>StaticStack</span>
           </a>
@@ -800,17 +904,17 @@ function renderLayout({
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="archive.html">Master Archive</a></li>
-            <li><a href="submit.html">Submit a Tool</a></li>
+            <li><a href="${rootPath}index.html">Home</a></li>
+            <li><a href="${rootPath}archive.html">Master Archive</a></li>
+            <li><a href="${rootPath}submit.html">Submit a Tool</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Community &amp; Project</h4>
           <ul class="footer-links">
-            <li><a href="contribute.html">Contributing Guide</a></li>
-            <li><a href="thankyou.html">Thank You &amp; Credits</a></li>
+            <li><a href="${rootPath}contribute.html">Contributing Guide</a></li>
+            <li><a href="${rootPath}thankyou.html">Thank You &amp; Credits</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue</a></li>
             <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
@@ -971,207 +1075,42 @@ const homeContent = `
     </div>
   </section>
 
-  <!-- Featured / Quick Search Results Container -->
-  <section id="search-section" style="padding: 2rem 0 4rem;">
-    <div id="catalog-controls" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.25rem; margin-bottom:2rem; box-shadow:var(--shadow-card);">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-        <div style="flex:1 1 300px; position:relative;">
-          <input type="text" id="tool-search" style="width:100%; padding:0.6rem 2rem 0.6rem 2.5rem; background:var(--bg-body); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter tools below by name, category, or keyword...">
-          <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
-        </div>
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-          <button class="btn btn-sm btn-secondary filter-btn active" data-filter="all">All (94)</button>
-          <button class="btn btn-sm btn-secondary filter-btn" data-filter="open-source">Open Source</button>
-          <button class="btn btn-sm btn-secondary filter-btn" data-filter="free">Free</button>
-          <button class="btn btn-sm btn-secondary filter-btn" data-filter="freemium">Freemium</button>
-          <button class="btn btn-sm btn-secondary filter-btn" data-filter="paid">Paid</button>
-        </div>
-        <select id="category-filter-select" style="padding:0.5rem 0.85rem; background:var(--bg-body); border:1px solid var(--border-color); color:var(--text-main); border-radius:var(--radius-md); font-family:inherit; font-size:0.85rem;">
-          <option value="all">All Categories</option>
-          ${categories.map(c => `<option value="${c.slug}">${escapeHtml(c.title)} (${c.tools.length})</option>`).join('')}
-        </select>
-      </div>
-      <div id="results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing 94 of 94 tools</div>
-    </div>
-
-    <div id="tools-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:1.5rem;">
-      ${allTools.map(t => {
-        let badgeClass = 'badge-freemium';
-        let badgeIcon = ICONS.star;
-        const pBadge = t.primaryBadge.toLowerCase();
-        if (pBadge.includes('open source')) {
-          badgeClass = 'badge-open-source';
-          badgeIcon = ICONS.branch;
-        } else if (pBadge.includes('free')) {
-          badgeClass = 'badge-free';
-          badgeIcon = ICONS.check;
-        } else if (pBadge.includes('paid')) {
-          badgeClass = 'badge-paid';
-          badgeIcon = ICONS.tag;
-        }
-
-        return `
-        <div class="tool-card"
-             onclick="openToolModal('${escapeHtml(t.slug)}')"
-             style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; box-shadow:var(--shadow-card); cursor:pointer; transition:all 0.2s ease;"
-             data-name="${escapeHtml(t.name.toLowerCase())}"
-             data-category="${escapeHtml(t.folder)}"
-             data-badge="${escapeHtml(pBadge)}"
-             data-desc="${escapeHtml(t.description.toLowerCase())}"
-             data-slug="${escapeHtml(t.slug)}">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.6rem; gap:0.5rem;">
-            <h3 style="font-size:1.2rem; font-weight:700; margin:0;">${escapeHtml(t.name)}</h3>
-            <span class="badge ${badgeClass}">${badgeIcon} ${escapeHtml(t.primaryBadge)}</span>
-          </div>
-          <div style="font-size:0.75rem; color:var(--text-subtle); font-weight:600; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.65rem;">${escapeHtml(t.categoryTitle)}</div>
-          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.55; margin-bottom:1.25rem; flex-grow:1;">${escapeHtml(t.description)}</p>
-          <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1rem; border-top:1px solid var(--border-color); gap:0.5rem;">
-            <a href="${escapeHtml(t.websiteUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" onclick="event.stopPropagation()">
-              Visit Site ${ICONS.external}
-            </a>
-            <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); openToolModal('${escapeHtml(t.slug)}')">
-              ${ICONS.info} Details
-            </button>
-          </div>
-        </div>
-        `;
-      }).join('')}
-    </div>
-  </section>
-
-  <!-- Quick View Modal -->
-  <div id="tool-modal-backdrop" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.65); backdrop-filter:blur(8px); z-index:1000; display:none; align-items:center; justify-content:center; padding:1.5rem;" onclick="handleBackdropClick(event)">
-    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); width:100%; max-width:600px; max-height:85vh; overflow-y:auto; padding:2rem; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5); position:relative;">
-      <button onclick="closeToolModal()" style="position:absolute; top:1.25rem; right:1.25rem; background:var(--bg-muted); border:1px solid var(--border-color); color:var(--text-muted); width:2rem; height:2rem; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; cursor:pointer;" aria-label="Close dialog">${ICONS.close}</button>
-      <div id="modal-content"></div>
-    </div>
-  </div>
-
   <script>
-    const TOOLS_DATA = ${JSON.stringify(allTools)};
-
     const heroSearchInput = document.getElementById('hero-search-input');
-    const catalogSearchInput = document.getElementById('tool-search');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const categorySelect = document.getElementById('category-filter-select');
-    const toolCards = document.querySelectorAll('.tool-card');
-    const resultsCountEl = document.getElementById('results-count');
+    const categoryCards = document.querySelectorAll('#categories a');
 
-    let currentFilter = 'all';
-    let currentCategory = 'all';
-    let searchQuery = '';
-
-    function applyFilters() {
-      let count = 0;
-      const q = searchQuery.trim().toLowerCase();
-      toolCards.forEach(c => {
-        const name = c.getAttribute('data-name');
-        const cat = c.getAttribute('data-category');
-        const badge = c.getAttribute('data-badge');
-        const desc = c.getAttribute('data-desc');
-
-        const matchSearch = !q || name.includes(q) || desc.includes(q) || cat.includes(q);
-        const matchBadge = currentFilter === 'all' || badge.includes(currentFilter.replace('-', ' '));
-        const matchCat = currentCategory === 'all' || cat === currentCategory;
-
-        if (matchSearch && matchBadge && matchCat) {
-          c.style.display = 'flex';
-          count++;
+    function searchHomeCategories(query) {
+      const q = query.trim().toLowerCase();
+      categoryCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          card.style.display = 'flex';
         } else {
-          c.style.display = 'none';
+          card.style.display = 'none';
         }
       });
-      if (resultsCountEl) resultsCountEl.textContent = \`Showing \${count} of \${toolCards.length} tools\`;
-    }
-
-    function syncSearch(query, scroll = false) {
-      searchQuery = query;
-      if (heroSearchInput && heroSearchInput.value !== query) heroSearchInput.value = query;
-      if (catalogSearchInput && catalogSearchInput.value !== query) catalogSearchInput.value = query;
-      applyFilters();
-      if (scroll) {
-        document.getElementById('search-section').scrollIntoView({ behavior: 'smooth' });
-      }
     }
 
     if (heroSearchInput) {
-      heroSearchInput.addEventListener('input', e => syncSearch(e.target.value, false));
-    }
-    if (catalogSearchInput) {
-      catalogSearchInput.addEventListener('input', e => syncSearch(e.target.value, false));
+      heroSearchInput.addEventListener('input', e => {
+        searchHomeCategories(e.target.value);
+      });
+      heroSearchInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const val = heroSearchInput.value.trim();
+          if (val) {
+            window.location.href = 'archive.html?q=' + encodeURIComponent(val);
+          }
+        }
+      });
     }
 
     function quickSearchTag(tag) {
-      syncSearch(tag, true);
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.getAttribute('data-filter');
-        applyFilters();
-      });
-    });
-
-    if (categorySelect) {
-      categorySelect.addEventListener('change', e => {
-        currentCategory = e.target.value;
-        applyFilters();
-      });
-    }
-
-    // Modal
-    const modalBackdrop = document.getElementById('tool-modal-backdrop');
-    const modalContent = document.getElementById('modal-content');
-
-    function openToolModal(slug) {
-      const tool = TOOLS_DATA.find(t => t.slug === slug);
-      if (!tool || !modalContent) return;
-
-      modalContent.innerHTML = \`
-        <div style="font-size:0.8rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.4rem;">
-          \${tool.categoryTitle}
-        </div>
-        <h2 style="font-size:1.75rem; margin-bottom:0.75rem;">\${tool.name}</h2>
-        <div style="margin-bottom:1.25rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-          \${tool.badges.map(b => \`<span class="badge badge-freemium">\${b}</span>\`).join('')}
-        </div>
-        <p style="font-size:1.05rem; line-height:1.6; margin-bottom:1.25rem; color:var(--text-main);">
-          \${tool.tagline || tool.description}
-        </p>
-        \${tool.overview ? \`
-          <div style="background:var(--bg-muted); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1rem 1.25rem; margin-bottom:1.5rem; font-size:0.9rem; line-height:1.6; color:var(--text-muted);">
-            <div style="font-weight:700; color:var(--text-main); margin-bottom:0.4rem;">Overview:</div>
-            \${tool.overview}
-          </div>
-        \` : ''}
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
-          <a href="\${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            Visit Website ${ICONS.external}
-          </a>
-          <a href="\${tool.relPath}" class="btn btn-secondary">
-            ${ICONS.book} Markdown Guide
-          </a>
-        </div>
-      \`;
-      modalBackdrop.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeToolModal() {
-      if (!modalBackdrop) return;
-      modalBackdrop.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    function handleBackdropClick(e) {
-      if (e.target === modalBackdrop) closeToolModal();
+      window.location.href = 'archive.html?q=' + encodeURIComponent(tag);
     }
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeToolModal();
-      if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== heroSearchInput && document.activeElement !== catalogSearchInput) {
+      if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== heroSearchInput) {
         e.preventDefault();
         if (heroSearchInput) heroSearchInput.focus();
       }
@@ -1187,9 +1126,9 @@ fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
 }));
 
 // ==========================================================================
-// 2. Generate archive.html (Master Archive Page)
+// 2. Generate archive.html (Master Archive Page with Wider 320px Sidebar)
 // ==========================================================================
-console.log('📚 Generating Archive Page (archive.html)...');
+console.log('📚 Generating Archive Page with wider sidebar (archive.html)...');
 
 const archiveContent = `
   <div style="padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
@@ -1198,26 +1137,37 @@ const archiveContent = `
       Complete catalog of all 94 tools across 25 categories for static websites. Filter by pricing or jump directly to any category section.
     </p>
 
-    <!-- Filter Buttons -->
-    <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:1.5rem;">
-      <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (94)</button>
-      <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
-      <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
-      <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
-      <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
+    <!-- Archive Search & Filter Controls -->
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
+      <div style="flex:1 1 300px; position:relative; max-width:480px;">
+        <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all 94 tools by name, description, keyword...">
+        <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (94)</button>
+        <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
+        <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
+        <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
+        <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
+      </div>
     </div>
+    <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all 94 tools</div>
   </div>
 
-  <div style="display:grid; grid-template-columns: 240px 1fr; gap:2.5rem; align-items:start;">
+  <!-- Wider 320px Sidebar Layout -->
+  <div class="archive-layout">
     <!-- Sticky Sidebar Category Links -->
-    <aside style="position:sticky; top:5.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.25rem; max-height:calc(100vh - 7rem); overflow-y:auto;">
-      <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-subtle); margin-bottom:0.75rem;">Categories</div>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.35rem;">
+    <aside class="archive-sidebar">
+      <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-subtle); margin-bottom:0.85rem; padding-left:0.5rem;">Categories (25)</div>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
         ${categories.map(c => `
           <li>
-            <a href="#${c.slug}" style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; color:var(--text-muted); padding:0.3rem 0.5rem; border-radius:var(--radius-sm);">
-              <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(c.title)}</span>
-              <span style="font-size:0.75rem; color:var(--text-subtle);">${c.tools.length}</span>
+            <a href="#${c.slug}" class="archive-cat-link">
+              <span class="archive-cat-icon">${CATEGORY_ICONS[c.slug] || ICONS.zap}</span>
+              <span class="archive-cat-name">${escapeHtml(c.title)}</span>
+              <span class="archive-cat-count">${c.tools.length}</span>
             </a>
           </li>
         `).join('')}
@@ -1241,10 +1191,10 @@ const archiveContent = `
             <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem;">
               <thead>
                 <tr style="background:var(--bg-muted); border-bottom:1px solid var(--border-color);">
-                  <th style="padding:0.75rem 1rem; width:20%;">Tool</th>
+                  <th style="padding:0.75rem 1rem; width:22%;">Tool</th>
                   <th style="padding:0.75rem 1rem; width:45%;">Description</th>
-                  <th style="padding:0.75rem 1rem; width:20%;">Pricing</th>
-                  <th style="padding:0.75rem 1rem; width:15%;">Website</th>
+                  <th style="padding:0.75rem 1rem; width:18%;">Pricing</th>
+                  <th style="padding:0.75rem 1rem; width:15%;">Overview</th>
                 </tr>
               </thead>
               <tbody>
@@ -1256,17 +1206,17 @@ const archiveContent = `
                   else if (pBadge.includes('paid')) badgeClass = 'badge-paid';
 
                   return `
-                  <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" style="border-bottom:1px solid var(--border-color);">
+                  <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
-                      <a href="${tool.relPath}">${escapeHtml(tool.name)}</a>
+                      <a href="tools/${tool.categorySlug}/${tool.slug}.html">${escapeHtml(tool.name)}</a>
                     </td>
                     <td style="padding:0.85rem 1rem; color:var(--text-muted); line-height:1.5;">${escapeHtml(tool.description)}</td>
                     <td style="padding:0.85rem 1rem;">
                       <span class="badge ${badgeClass}">${escapeHtml(tool.primaryBadge)}</span>
                     </td>
                     <td style="padding:0.85rem 1rem;">
-                      <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.25rem;">
-                        ${escapeHtml(tool.websiteLabel)} ${ICONS.external}
+                      <a href="tools/${tool.categorySlug}/${tool.slug}.html" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.25rem;">
+                        View Page ${ICONS.arrowRight}
                       </a>
                     </td>
                   </tr>
@@ -1284,29 +1234,73 @@ const archiveContent = `
   <script>
     const archiveFilters = document.querySelectorAll('.archive-filter');
     const archiveRows = document.querySelectorAll('.archive-row');
+    const archiveSearchInput = document.getElementById('archive-search-input');
+    const archiveCountEl = document.getElementById('archive-results-count');
+
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    function applyArchiveFilter() {
+      let count = 0;
+      const q = currentSearch.trim().toLowerCase();
+
+      archiveRows.forEach(row => {
+        const badge = row.getAttribute('data-badge') || '';
+        const searchTxt = row.getAttribute('data-search') || '';
+
+        const matchFilter = currentFilter === 'all' || badge.includes(currentFilter.replace('-', ' '));
+        const matchSearch = !q || searchTxt.includes(q);
+
+        if (matchFilter && matchSearch) {
+          row.style.display = '';
+          count++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (archiveCountEl) {
+        archiveCountEl.textContent = 'Showing ' + count + ' of 94 tools';
+      }
+    }
 
     archiveFilters.forEach(btn => {
       btn.addEventListener('click', () => {
         archiveFilters.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-
-        archiveRows.forEach(row => {
-          const badge = row.getAttribute('data-badge');
-          if (filter === 'all' || badge.includes(filter.replace('-', ' '))) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
+        currentFilter = btn.getAttribute('data-filter');
+        applyArchiveFilter();
       });
+    });
+
+    if (archiveSearchInput) {
+      archiveSearchInput.addEventListener('input', e => {
+        currentSearch = e.target.value;
+        applyArchiveFilter();
+      });
+
+      // Handle ?q= query param
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryParam = urlParams.get('q');
+      if (queryParam) {
+        archiveSearchInput.value = queryParam;
+        currentSearch = queryParam;
+        applyArchiveFilter();
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== archiveSearchInput) {
+        e.preventDefault();
+        if (archiveSearchInput) archiveSearchInput.focus();
+      }
     });
   </script>
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
   title: 'Master Archive - 94+ Tools for Static Websites',
-  description: 'Explore the complete directory of 94 curated tools across 25 static website categories.',
+  description: 'Explore the complete directory of 94 curated tools across 25 static website categories with our expanded navigation sidebar.',
   currentNav: 'archive',
   breadcrumbs: [{ label: 'Home', url: 'index.html' }, { label: 'Archive', url: 'archive.html' }],
   content: archiveContent
@@ -1503,13 +1497,139 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
 }));
 
 // ==========================================================================
-// 6. Synchronize Alias Files & Mirror to public/
+// 6. Generate Dedicated HTML Pages for ALL 94 Tools!
 // ==========================================================================
-// Also write contributing.html and thank-you.html aliases in root
+console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
+
+allTools.forEach(tool => {
+  let cleanMd = tool.rawMd || `# ${tool.name}\n\n> ${tool.description}\n\n- **Website**: ${tool.websiteUrl}`;
+  // Strip trailing markdown navigation links
+  cleanMd = cleanMd.replace(/\n+---\s*\n+\[.*?Back to[\s\S]*$/i, '').trimEnd();
+
+  // Render markdown with relative link rewriting
+  let parsedHtml = marked.parse(cleanMd);
+  parsedHtml = parsedHtml
+    .replace(/href="(?:\.\.\/)+README\.md#([^"]+)"/g, 'href="../../archive.html#$1"')
+    .replace(/href="(?:\.\.\/)+README\.md"/g, 'href="../../archive.html"')
+    .replace(/href="(?:\.\.\/)+([a-z0-9\-]+)\/([a-z0-9\-]+)\.md"/g, 'href="../../tools/$1/$2.html"')
+    .replace(/href="([a-z0-9\-]+)\.md"/g, 'href="../../tools/' + tool.categorySlug + '/$1.html"');
+
+  let badgeClass = 'badge-freemium';
+  let badgeIcon = ICONS.star;
+  const pBadge = tool.primaryBadge.toLowerCase();
+  if (pBadge.includes('open source')) {
+    badgeClass = 'badge-open-source';
+    badgeIcon = ICONS.branch;
+  } else if (pBadge.includes('free')) {
+    badgeClass = 'badge-free';
+    badgeIcon = ICONS.check;
+  } else if (pBadge.includes('paid')) {
+    badgeClass = 'badge-paid';
+    badgeIcon = ICONS.tag;
+  }
+
+  const toolPageContent = `
+    <article style="padding: 1.5rem 0 3rem;">
+      <!-- Tool Hero Card -->
+      <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:2rem; box-shadow:var(--shadow-card);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; margin-bottom:1rem;">
+          <div>
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+              <span class="badge ${badgeClass}">${badgeIcon} ${escapeHtml(tool.primaryBadge)}</span>
+              <a href="../../archive.html#${tool.categorySlug}" class="badge badge-freemium" style="text-decoration:none;">
+                ${escapeHtml(tool.categoryTitle)}
+              </a>
+            </div>
+            <h1 style="font-size:2.5rem; font-weight:800; margin:0 0 0.5rem 0;">${escapeHtml(tool.name)}</h1>
+          </div>
+          <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:1rem; padding:0.65rem 1.25rem;">
+            Visit ${escapeHtml(tool.name)} ${ICONS.external}
+          </a>
+        </div>
+
+        <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem; max-width:850px;">
+          ${escapeHtml(tool.tagline || tool.description)}
+        </p>
+
+        <div style="display:flex; align-items:center; gap:1.5rem; font-size:0.9rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:1.25rem; flex-wrap:wrap;">
+          <div><strong>Official Website:</strong> <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(tool.websiteLabel)} ${ICONS.external}</a></div>
+          <div><strong>Category:</strong> <a href="../../archive.html#${tool.categorySlug}">${escapeHtml(tool.categoryTitle)}</a></div>
+          <div style="margin-left:auto;">
+            <a href="https://github.com/E6WeB/htmlstatic/blob/main/${tool.relPath}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              ${ICONS.github} Edit Markdown Guide
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rendered Documentation -->
+      <div class="markdown-body">
+        ${parsedHtml}
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
+        <a href="../../archive.html#${tool.categorySlug}" class="btn btn-secondary">
+          ${ICONS.arrowLeft} Back to ${escapeHtml(tool.categoryTitle)}
+        </a>
+        <a href="../../archive.html" class="btn btn-secondary">
+          Browse Full Archive
+        </a>
+        <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Visit Official Site ${ICONS.external}
+        </a>
+      </div>
+    </article>
+  `;
+
+  const renderedToolHtml = renderLayout({
+    title: `${tool.name} - ${tool.categoryTitle}`,
+    description: `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`,
+    currentNav: 'archive',
+    breadcrumbs: [
+      { label: 'Home', url: '../../index.html' },
+      { label: 'Archive', url: '../../archive.html' },
+      { label: tool.categoryTitle, url: `../../archive.html#${tool.categorySlug}` },
+      { label: tool.name, url: '#' }
+    ],
+    rootPath: '../../',
+    content: toolPageContent
+  });
+
+  // Write tool page: tools/<category>/<tool>.html and tools/<category>/<tool>/index.html
+  const toolCatDir = path.join(ROOT_DIR, 'tools', tool.categorySlug);
+  ensureDir(toolCatDir);
+  fs.writeFileSync(path.join(toolCatDir, `${tool.slug}.html`), renderedToolHtml);
+
+  const toolSubDir = path.join(toolCatDir, tool.slug);
+  ensureDir(toolSubDir);
+  fs.writeFileSync(path.join(toolSubDir, 'index.html'), renderedToolHtml);
+
+  // Also write into the category directory directly: e.g. payments-ecommerce/reflow.html
+  const directCatDir = path.join(ROOT_DIR, tool.folder);
+  ensureDir(directCatDir);
+  fs.writeFileSync(path.join(directCatDir, `${tool.slug}.html`), renderedToolHtml);
+
+  // Mirror to public/
+  const pubToolCatDir = path.join(PUBLIC_DIR, 'tools', tool.categorySlug);
+  ensureDir(pubToolCatDir);
+  fs.writeFileSync(path.join(pubToolCatDir, `${tool.slug}.html`), renderedToolHtml);
+
+  const pubToolSubDir = path.join(pubToolCatDir, tool.slug);
+  ensureDir(pubToolSubDir);
+  fs.writeFileSync(path.join(pubToolSubDir, 'index.html'), renderedToolHtml);
+
+  const pubDirectCatDir = path.join(PUBLIC_DIR, tool.folder);
+  ensureDir(pubDirectCatDir);
+  fs.writeFileSync(path.join(pubDirectCatDir, `${tool.slug}.html`), renderedToolHtml);
+});
+
+// ==========================================================================
+// 7. Synchronize Aliases in Root & Mirror to public/
+// ==========================================================================
 fs.copyFileSync(path.join(ROOT_DIR, 'contribute.html'), path.join(ROOT_DIR, 'contributing.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(ROOT_DIR, 'thank-you.html'));
 
-// Directory-based routes in root (so /archive/, /submit/, etc. work if hosted on static servers)
 ensureDir(path.join(ROOT_DIR, 'archive'));
 ensureDir(path.join(ROOT_DIR, 'submit'));
 ensureDir(path.join(ROOT_DIR, 'contribute'));
@@ -1547,4 +1667,4 @@ fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'tha
 fs.copyFileSync(path.join(ROOT_DIR, 'thank-you.html'), path.join(PUBLIC_DIR, 'thank-you.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thank-you', 'index.html'));
 
-console.log('🎉 All 5 pages successfully generated with system typography, original nav menu, and default light theme!');
+console.log(`🎉 Complete! Generated all main pages with wider 320px archive sidebar + dedicated HTML pages for all ${allTools.length} tools!`);
