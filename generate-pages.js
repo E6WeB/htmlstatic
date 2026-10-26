@@ -1786,6 +1786,33 @@ allTools.forEach(tool => {
           ${parsedHtml}
         </div>
 
+        <!-- Community Comments via Giscus -->
+        <section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
+            <span style="color:var(--accent); display:flex; align-items:center;">${CATEGORY_ICONS['comments-community']}</span>
+            <div>
+              <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Community Discussion</h3>
+              <p style="font-size:0.875rem; color:var(--text-muted); margin:0.25rem 0 0 0;">Ask questions, share integration tips, or leave feedback for ${escapeHtml(tool.name)}.</p>
+            </div>
+          </div>
+          <div class="giscus"></div>
+          <script src="https://giscus.app/client.js"
+                  data-repo="E6WeB/static-comment"
+                  data-repo-id="R_kgDOVYc0DQ"
+                  data-category="General"
+                  data-category-id="DIC_kwDOVYc0Dc4DJsXu"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </section>
+
         <!-- Bottom Navigation -->
         <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
           <a href="../../archive.html#${tool.categorySlug}" class="btn btn-secondary">
