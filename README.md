@@ -37,11 +37,11 @@ Services for publishing static HTML, CSS, and JavaScript websites online.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">Wasmer</a> | Host and deploy static websites and web applications | <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">wasmer.io</a> |
-| <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> | Host websites directly from GitHub repositories | <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">pages.github.com</a> |
-| <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a> | Deploy static sites with Git integration and edge services | <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">pages.cloudflare.com</a> |
-| <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a> | Static hosting with deployment automation and additional services | <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify.com</a> |
-| <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a> | Deploy static websites and frontend applications | <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">vercel.com</a> |
+| [Wasmer](hosting-deployment/wasmer.md) | Host and deploy static websites and web applications | <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">wasmer.io</a> |
+| [GitHub Pages](hosting-deployment/github-pages.md) | Host websites directly from GitHub repositories | <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">pages.github.com</a> |
+| [Cloudflare Pages](hosting-deployment/cloudflare-pages.md) | Deploy static sites with Git integration and edge services | <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">pages.cloudflare.com</a> |
+| [Netlify](hosting-deployment/netlify.md) | Static hosting with deployment automation and additional services | <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify.com</a> |
+| [Vercel](hosting-deployment/vercel.md) | Deploy static websites and frontend applications | <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">vercel.com</a> |
 
 ## Contact Forms
 
@@ -49,9 +49,9 @@ Add contact forms to static websites without building your own form-processing b
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://splitforms.com/" target="_blank" rel="noopener noreferrer">Splitform</a> | Contact forms and form handling for websites | <a href="https://splitforms.com/" target="_blank" rel="noopener noreferrer">splitforms.com</a> |
-| <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a> | Form submissions and email notifications | <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">formspree.io</a> |
-| <a href="https://usebasin.com/" target="_blank" rel="noopener noreferrer">Basin</a> | Hosted form backend for static websites | <a href="https://usebasin.com/" target="_blank" rel="noopener noreferrer">usebasin.com</a> |
+| [Splitform](contact-forms/splitform.md) | Contact forms and form handling for websites | <a href="https://splitforms.com/" target="_blank" rel="noopener noreferrer">splitforms.com</a> |
+| [Formspree](contact-forms/formspree.md) | Form submissions and email notifications | <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">formspree.io</a> |
+| [Basin](contact-forms/basin.md) | Hosted form backend for static websites | <a href="https://usebasin.com/" target="_blank" rel="noopener noreferrer">usebasin.com</a> |
 
 ## Comments & Community
 
@@ -59,9 +59,9 @@ Let visitors comment on blog posts and interact with your content.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">Giscus</a> | GitHub Discussions-powered comments using GitHub Discussions | <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">giscus.app</a> |
-| <a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">Disqus</a> | Hosted commenting system for websites | <a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">disqus.com</a> |
-| <a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">Utterances</a> | Lightweight commenting powered by GitHub issues | <a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utteranc.es</a> |
+| [Giscus](comments-community/giscus.md) | GitHub Discussions-powered comments using GitHub Discussions | <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">giscus.app</a> |
+| [Disqus](comments-community/disqus.md) | Hosted commenting system for websites | <a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">disqus.com</a> |
+| [Utterances](comments-community/utterances.md) | Lightweight commenting powered by GitHub issues | <a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utteranc.es</a> |
 
 ## Content Management
 
@@ -69,8 +69,8 @@ Manage content on static websites without adopting a traditional, full-featured 
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://decapcms.org/" target="_blank" rel="noopener noreferrer">Decap CMS</a> | Open-source content management for Git-based websites | <a href="https://decapcms.org/" target="_blank" rel="noopener noreferrer">decapcms.org</a> |
-| <a href="https://pagescms.org/" target="_blank" rel="noopener noreferrer">Pages CMS</a> | Git-based content management with a browser interface | <a href="https://pagescms.org/" target="_blank" rel="noopener noreferrer">pagescms.org</a> |
+| [Decap CMS](content-management/decap-cms.md) | Open-source content management for Git-based websites | <a href="https://decapcms.org/" target="_blank" rel="noopener noreferrer">decapcms.org</a> |
+| [Pages CMS](content-management/pages-cms.md) | Git-based content management with a browser interface | <a href="https://pagescms.org/" target="_blank" rel="noopener noreferrer">pagescms.org</a> |
 
 ## Analytics & Privacy
 
@@ -78,9 +78,9 @@ Understand website traffic, visitor behavior, and page performance.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">GoatCounter</a> | Lightweight, privacy-friendly web analytics | <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">goatcounter.com</a> |
-| <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">Umami</a> | Open-source website analytics | <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a> |
-| <a href="https://plausible.io/" target="_blank" rel="noopener noreferrer">Plausible</a> | Privacy-focused website analytics | <a href="https://plausible.io/" target="_blank" rel="noopener noreferrer">plausible.io</a> |
+| [GoatCounter](analytics-privacy/goatcounter.md) | Lightweight, privacy-friendly web analytics | <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">goatcounter.com</a> |
+| [Umami](analytics-privacy/umami.md) | Open-source website analytics | <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a> |
+| [Plausible](analytics-privacy/plausible.md) | Privacy-focused website analytics | <a href="https://plausible.io/" target="_blank" rel="noopener noreferrer">plausible.io</a> |
 
 ## Payments & E-commerce
 
@@ -88,10 +88,10 @@ Sell digital downloads, services, memberships, and other products from static we
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">PaymentForm</a> | Create custom checkout forms to accept payments, tickets, and donations | <a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">paymentform.io</a> |
-| <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">Stripe Payment Links</a> | Accept payments through hosted checkout links | <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a> |
-| <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">Lemon Squeezy</a> | Sell digital products and manage online payments | <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a> |
-| <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">Payhip</a> | Sell digital downloads, memberships, and other products | <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a> |
+| [PaymentForm](payments-ecommerce/paymentform.md) | Create custom checkout forms to accept payments, tickets, and donations | <a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">paymentform.io</a> |
+| [Stripe Payment Links](payments-ecommerce/stripe-payment-links.md) | Accept payments through hosted checkout links | <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a> |
+| [Lemon Squeezy](payments-ecommerce/lemon-squeezy.md) | Sell digital products and manage online payments | <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a> |
+| [Payhip](payments-ecommerce/payhip.md) | Sell digital downloads, memberships, and other products | <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a> |
 
 ## Newsletters & Email
 
@@ -99,9 +99,9 @@ Collect subscribers, send newsletters, and handle email delivery from static web
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">Emailit</a> | Email API for sending messages from applications and websites | <a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">emailit.com</a> |
-| <a href="https://buttondown.com/" target="_blank" rel="noopener noreferrer">Buttondown</a> | Newsletter publishing and subscriber management | <a href="https://buttondown.com/" target="_blank" rel="noopener noreferrer">buttondown.com</a> |
-| <a href="https://brevo.com/" target="_blank" rel="noopener noreferrer">Brevo</a> | Email marketing and transactional email services | <a href="https://brevo.com/" target="_blank" rel="noopener noreferrer">brevo.com</a> |
+| [Emailit](newsletters-email/emailit.md) | Email API for sending messages from applications and websites | <a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">emailit.com</a> |
+| [Buttondown](newsletters-email/buttondown.md) | Newsletter publishing and subscriber management | <a href="https://buttondown.com/" target="_blank" rel="noopener noreferrer">buttondown.com</a> |
+| [Brevo](newsletters-email/brevo.md) | Email marketing and transactional email services | <a href="https://brevo.com/" target="_blank" rel="noopener noreferrer">brevo.com</a> |
 
 ## Search
 
@@ -109,8 +109,8 @@ Add search functionality to static websites, documentation, and blogs.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">Pagefind</a> | Static search indexing designed for static websites | <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a> |
-| <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">Algolia</a> | Hosted search service with frontend integrations | <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">algolia.com</a> |
+| [Pagefind](search/pagefind.md) | Static search indexing designed for static websites | <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a> |
+| [Algolia](search/algolia.md) | Hosted search service with frontend integrations | <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">algolia.com</a> |
 
 ## Development Tools
 
@@ -118,10 +118,10 @@ Tools that make building, testing, and maintaining static websites easier.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a> | Code editor with extensions for web development | <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a> |
-| <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">Prettier</a> | Code formatter for HTML, CSS, JavaScript, and more | <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a> |
-| <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">ESLint</a> | Find and fix problems in JavaScript code | <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a> |
-| <a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">Google Lighthouse</a> | Audit performance, accessibility, SEO, and best practices | <a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/lighthouse</a> |
+| [Visual Studio Code](development-tools/visual-studio-code.md) | Code editor with extensions for web development | <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a> |
+| [Prettier](development-tools/prettier.md) | Code formatter for HTML, CSS, JavaScript, and more | <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a> |
+| [ESLint](development-tools/eslint.md) | Find and fix problems in JavaScript code | <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a> |
+| [Google Lighthouse](development-tools/google-lighthouse.md) | Audit performance, accessibility, SEO, and best practices | <a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/lighthouse</a> |
 
 ## Security & Spam Protection
 
@@ -129,9 +129,9 @@ Protect forms and websites against automated spam and abuse.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile</a> | Privacy-friendly CAPTCHA alternative | <a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">developers.cloudflare.com/turnstile</a> |
-| <a href="https://www.hcaptcha.com/" target="_blank" rel="noopener noreferrer">hCaptcha</a> | Challenge-based bot and abuse protection | <a href="https://www.hcaptcha.com/" target="_blank" rel="noopener noreferrer">hcaptcha.com</a> |
-| <a href="https://cloud.google.com/security/products/recaptcha" target="_blank" rel="noopener noreferrer">Google reCAPTCHA</a> | Bot detection and abuse prevention | <a href="https://cloud.google.com/security/products/recaptcha" target="_blank" rel="noopener noreferrer">cloud.google.com/security/products/recaptcha</a> |
+| [Cloudflare Turnstile](security-spam-protection/cloudflare-turnstile.md) | Privacy-friendly CAPTCHA alternative | <a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">developers.cloudflare.com/turnstile</a> |
+| [hCaptcha](security-spam-protection/hcaptcha.md) | Challenge-based bot and abuse protection | <a href="https://www.hcaptcha.com/" target="_blank" rel="noopener noreferrer">hcaptcha.com</a> |
+| [Google reCAPTCHA](security-spam-protection/google-recaptcha.md) | Bot detection and abuse prevention | <a href="https://cloud.google.com/security/products/recaptcha" target="_blank" rel="noopener noreferrer">cloud.google.com/security/products/recaptcha</a> |
 
 ## Images & Optimization
 
@@ -139,9 +139,9 @@ Optimize images and other assets to improve loading speed and user experience.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
-| <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">Squoosh</a> | Compress and convert images in your browser | <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">squoosh.app</a> |
-| <a href="https://www.svgrepo.com/" target="_blank" rel="noopener noreferrer">SVG Repo</a> | Browse and download SVG icons and illustrations | <a href="https://www.svgrepo.com/" target="_blank" rel="noopener noreferrer">svgrepo.com</a> |
-| <a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">TinyPNG</a> | Compress PNG, JPEG, WebP, and other supported image formats | <a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">tinypng.com</a> |
+| [Squoosh](images-optimization/squoosh.md) | Compress and convert images in your browser | <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">squoosh.app</a> |
+| [SVG Repo](images-optimization/svg-repo.md) | Browse and download SVG icons and illustrations | <a href="https://svgrepo.com/" target="_blank" rel="noopener noreferrer">svgrepo.com</a> |
+| [TinyPNG](images-optimization/tinypng.md) | Compress PNG, JPEG, WebP, and other supported image formats | <a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">tinypng.com</a> |
 
 ---
 
