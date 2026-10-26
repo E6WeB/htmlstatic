@@ -356,6 +356,12 @@ Add contact forms to static websites without building your own form-processing b
     <td><a href="https://usebasin.com/" target="_blank" rel="noopener noreferrer">usebasin.com</a></td>
   </tr>
   <tr>
+    <td><a href="contact-forms/craftforms.md">CraftForms</a></td>
+    <td>Booking, quote, and contact form builder with payment support</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://craftforms.app/" target="_blank" rel="noopener noreferrer">craftforms.app</a></td>
+  </tr>
+  <tr>
     <td><a href="contact-forms/formspree.md">Formspree</a></td>
     <td>Form submissions and email notifications</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
@@ -384,6 +390,12 @@ Manage content on static websites without adopting a traditional, full-featured 
   </tr>
 </thead>
 <tbody>
+  <tr>
+    <td><a href="content-management/craftpages.md">CraftPages</a></td>
+    <td>Open-source desktop CMS for plain-HTML websites</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://craftpages.app/" target="_blank" rel="noopener noreferrer">craftpages.app</a></td>
+  </tr>
   <tr>
     <td><a href="content-management/decap-cms.md">Decap CMS</a></td>
     <td>Open-source content management for Git-based websites</td>
