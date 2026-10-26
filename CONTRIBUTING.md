@@ -114,19 +114,18 @@ If you are comfortable using Git and GitHub:
 
 ---
 
-## How to Submit via an Issue
+## How to Submit via an Issue (Recommended)
 
-If you prefer not to edit Markdown directly or don't use Git, you can propose a tool by opening an issue:
+Submitting via GitHub Issues is the quickest and easiest way to propose a tool, service, or resource:
 
-1. Go to the [Issues tab](https://github.com/E6WeB/htmlstatic/issues) and click **New Issue**.
-2. Include the following details:
-   - **Tool Name**: Name of the tool or service
-   - **Website URL**: Official HTTPS link
-   - **Suggested Category**: Where it belongs (or suggest a new one)
-   - **Description**: A short, one-sentence summary of what it does
-   - **Pricing / License**: (Optional) Free, Freemium, Paid, Open Source
-   - **Affiliation**: Mention if you are the author or maintainer
-3. A maintainer or community member will review and add it for you.
+1. Go to the **<a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">GitHub Issues Section</a>** and click **<a href="https://github.com/E6WeB/htmlstatic/issues/new/choose" target="_blank" rel="noopener noreferrer">New Issue</a>**.
+2. Select the **Submit a Tool or Site** template.
+3. Fill out the form fields:
+   - **Tool or Site Name**: Official name
+   - **Official Website URL**: Clean HTTPS link (no tracking or affiliate codes)
+   - **Category**: Select the best category match (or suggest a new one)
+   - **Short Description**: One objective sentence explaining what it does
+4. Submit the issue! Once the site is verified, it will be added to `README.md`.
 
 ---
 

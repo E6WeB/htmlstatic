@@ -7,7 +7,7 @@
 
 You don't need WordPress or a traditional CMS to build a great website. From contact forms and blog comments to hosting, analytics, payments, and newsletters, there are tools that let you add useful features to a static website without managing a full backend.
 
-Know a useful tool? Add it to the list and share it with the community!
+Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issues/new/choose" target="_blank" rel="noopener noreferrer">Submit it via GitHub Issues</a>** to share it with the community!
 
 ---
 
@@ -157,17 +157,23 @@ You can contribute by:
 - Sharing a free or open-source alternative.
 - Updating information about a tool that has changed.
 
-### Option 1: Submit a Pull Request
+### Option 1: Submit via GitHub Issues (Recommended)
+
+The easiest way to submit new sites, tools, and links is directly through our GitHub Issues:
+
+1. Go to the **<a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">GitHub Issues Section</a>** and click **<a href="https://github.com/E6WeB/htmlstatic/issues/new/choose" target="_blank" rel="noopener noreferrer">New Issue</a>**.
+2. Use the **Submit a Tool or Site** template.
+3. Provide the tool name, official HTTPS website, category, and a one-sentence description.
+4. Submit the issue! Once the site is verified, it will be added to `README.md`.
+
+### Option 2: Submit a Pull Request
+
+If you prefer to edit Markdown directly:
 
 1. Fork this repository.
-2. Edit `README.md`.
-3. Add your tool to the most appropriate category.
-4. Keep the entry consistent with the existing format.
-5. Submit a pull request explaining what the tool does and why it belongs on the list.
-
-### Option 2: Open an Issue
-
-Not comfortable editing Markdown? Open a GitHub issue with the tool name, website URL, category, and a short description. Someone from the community can help add it.
+2. Edit `README.md` and add your entry to the most appropriate category table.
+3. Keep the entry consistent with the existing format (see [CONTRIBUTING.md](CONTRIBUTING.md)).
+4. Submit a pull request explaining what the tool does and why it belongs on the list.
 
 ---
 

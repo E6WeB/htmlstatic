@@ -1,0 +1,71 @@
+name: "Submit a Tool or Site"
+description: "Suggest a new tool, service, or resource for the Static Website Toolkit"
+title: "[Submission]: "
+labels: ["tool-submission", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thanks for contributing! 🎉
+        Use this form to submit a new tool, service, or resource to the **Static Website Toolkit**.
+        *Reminder: Zero advertisement and no affiliate links are allowed. Once the site is verified, it will be added to `README.md`.*
+
+  - type: input
+    id: tool_name
+    attributes:
+      label: "Tool or Site Name"
+      description: "What is the official name of the tool or service?"
+      placeholder: "e.g. Pagefind"
+    validations:
+      required: true
+
+  - type: input
+    id: website_url
+    attributes:
+      label: "Official Website URL"
+      description: "Must be a direct, secure HTTPS URL (no affiliate codes, referral parameters, or link shorteners)."
+      placeholder: "https://example.com/"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Category"
+      description: "Which category does this tool belong in?"
+      options:
+        - "Hosting & Deployment"
+        - "Contact Forms"
+        - "Comments & Community"
+        - "Content Management"
+        - "Analytics & Privacy"
+        - "Payments & E-commerce"
+        - "Newsletters & Email"
+        - "Search"
+        - "Development Tools"
+        - "Security & Spam Protection"
+        - "Images & Optimization"
+        - "Suggest a New Category"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Short Description"
+      description: "Explain what the tool does in one objective sentence (avoid marketing hype)."
+      placeholder: "e.g. Static search indexing designed for static websites."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklists
+    attributes:
+      label: "Submission Verification"
+      options:
+        - label: "This submission is relevant to building, hosting, or enhancing static websites."
+          required: true
+        - label: "Zero advertisement & no affiliate links: this is an official link with no tracking or affiliate tags."
+          required: true
+        - label: "I searched README.md and verified this tool is not already listed."
+          required: true
