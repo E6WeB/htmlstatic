@@ -1792,7 +1792,7 @@ allTools.forEach(tool => {
             <span style="color:var(--accent); display:flex; align-items:center;">${CATEGORY_ICONS['comments-community']}</span>
             <div>
               <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Community Discussion</h3>
-              <p style="font-size:0.875rem; color:var(--text-muted); margin:0.25rem 0 0 0;">Ask questions, share integration tips, or leave feedback for ${escapeHtml(tool.name)}.</p>
+              <p style="font-size:0.875rem; color:var(--text-muted); margin:0.25rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p>
             </div>
           </div>
           <div class="giscus"></div>
@@ -1803,7 +1803,7 @@ allTools.forEach(tool => {
                   data-category-id="DIC_kwDOVYc0Dc4DJsXu"
                   data-mapping="pathname"
                   data-strict="0"
-                  data-reactions-enabled="1"
+                  data-reactions-enabled="0"
                   data-emit-metadata="0"
                   data-input-position="bottom"
                   data-theme="light"
