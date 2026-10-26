@@ -15,9 +15,9 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 
 ### Categories
 
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%; border: none !important; border-collapse: collapse; background: transparent !important;">
+<tr style="border: none !important; background: transparent !important;">
+<td width="50%" valign="top" style="width: 50%; border: none !important; vertical-align: top; padding: 0; background: transparent !important;">
 
 <ol>
   <li><a href="#ai--content-creation">AI &amp; Content Creation</a></li>
@@ -36,7 +36,7 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 </ol>
 
 </td>
-<td width="50%" valign="top">
+<td width="50%" valign="top" style="width: 50%; border: none !important; vertical-align: top; padding: 0; background: transparent !important;">
 
 <ol start="14">
   <li><a href="#interactive-maps--geolocation">Interactive Maps &amp; Geolocation</a></li>
