@@ -4,11 +4,11 @@
   "description": "Static Website Toolkit - Static website generator for Wasmer Edge",
   "main": "build.js",
   "scripts": {
-    "build": "node generate-index.js && node build.js",
-    "generate": "node generate-index.js",
+    "build": "node generate-pages.js",
+    "generate": "node generate-pages.js",
     "serve": "node serve.js",
     "start": "node serve.js",
-    "dev": "node generate-index.js && node serve.js"
+    "dev": "node generate-pages.js && node serve.js"
   },
   "dependencies": {
     "marked": "^15.0.7"
