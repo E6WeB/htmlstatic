@@ -53,7 +53,14 @@ const ICONS = {
   sparkles: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
   shield: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
   zap: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
-  info: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`
+  info: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`,
+  home: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
+  chevronRight: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`,
+  archive: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>`,
+  plusCircle: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>`,
+  gitPullRequest: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>`,
+  heart: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`,
+  globe: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`
 };
 
 // Category Icons
@@ -463,7 +470,128 @@ const BASE_CSS = `
     transform: translateY(-2px);
   }
 
-  /* Breadcrumbs */
+  /* Mini Hero Section */
+  .mini-hero {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2.25rem 0 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  }
+
+  .mini-hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  /* Breadcrumbs inside Mini Hero */
+  .mini-hero-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+
+  .mini-hero-breadcrumbs a {
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .mini-hero-breadcrumbs a:hover {
+    color: var(--accent);
+  }
+
+  .mini-hero-breadcrumbs .crumb-sep {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-subtle);
+    opacity: 0.6;
+  }
+
+  .mini-hero-breadcrumbs .crumb-current {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  .mini-hero-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.15rem;
+  }
+
+  .mini-hero-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .mini-hero-header-main {
+    flex: 1 1 500px;
+  }
+
+  .mini-hero-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mini-hero-icon-box {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+  }
+
+  .mini-hero-title {
+    font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .mini-hero-subtext {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 820px;
+    margin: 0;
+  }
+
+  .mini-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    align-self: flex-start;
+  }
+
+  .mini-hero-extra {
+    margin-top: 0.25rem;
+  }
+
   .breadcrumbs {
     display: flex;
     align-items: center;
@@ -707,6 +835,13 @@ const BASE_CSS = `
     }
   }
 
+  @media (max-width: 900px) {
+    .submit-layout {
+      grid-template-columns: 1fr !important;
+      margin-bottom: 3.5rem !important;
+    }
+  }
+
   @media (max-width: 860px) {
     .nav-links {
       gap: 0.25rem;
@@ -721,7 +856,78 @@ const BASE_CSS = `
       padding: 0.6rem 0.85rem;
     }
   }
+
+  @media (max-width: 640px) {
+    .mini-hero {
+      padding: 1.75rem 0 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .mini-hero-title-row {
+      gap: 0.65rem;
+    }
+    .mini-hero-icon-box {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+    .mini-hero-title {
+      font-size: 1.5rem;
+    }
+    .mini-hero-subtext {
+      font-size: 0.95rem;
+    }
+  }
 `;
+
+function renderBreadcrumbs(crumbs, rootPath = '') {
+  if (!crumbs || crumbs.length === 0) return '';
+  return `
+    <nav class="mini-hero-breadcrumbs" aria-label="Breadcrumbs">
+      ${crumbs.map((crumb, idx) => {
+        const isFirst = idx === 0;
+        const isLast = idx === crumbs.length - 1;
+        const homeIconHtml = isFirst ? `<span style="display:inline-flex;align-items:center;">${ICONS.home}</span> ` : '';
+        if (isLast) {
+          return `<span class="crumb-current" aria-current="page">${escapeHtml(crumb.label)}</span>`;
+        }
+        return `
+          <a href="${crumb.url}">${homeIconHtml}<span>${escapeHtml(crumb.label)}</span></a>
+          <span class="crumb-sep" aria-hidden="true">${ICONS.chevronRight}</span>
+        `;
+      }).join('')}
+    </nav>
+  `;
+}
+
+function renderMiniHero(miniHero, rootPath = '') {
+  if (!miniHero) return '';
+
+  const breadcrumbsHtml = renderBreadcrumbs(miniHero.breadcrumbs, rootPath);
+  const iconHtml = miniHero.icon ? `<div class="mini-hero-icon-box" aria-hidden="true">${miniHero.icon}</div>` : '';
+  const badgeRowHtml = miniHero.badgeRow ? `<div class="mini-hero-badge-row">${miniHero.badgeRow}</div>` : '';
+  const actionsHtml = miniHero.actions ? `<div class="mini-hero-actions">${miniHero.actions}</div>` : '';
+  const extraHtml = miniHero.extraHtml ? `<div class="mini-hero-extra">${miniHero.extraHtml}</div>` : '';
+
+  return `
+  <!-- Mini Hero Section -->
+  <section class="mini-hero">
+    <div class="container mini-hero-inner">
+      ${breadcrumbsHtml}
+      ${badgeRowHtml}
+      <div class="mini-hero-header">
+        <div class="mini-hero-header-main">
+          <div class="mini-hero-title-row">
+            ${iconHtml}
+            <h1 class="mini-hero-title">${miniHero.title}</h1>
+          </div>
+          ${miniHero.subtext ? `<p class="mini-hero-subtext">${miniHero.subtext}</p>` : ''}
+        </div>
+        ${actionsHtml}
+      </div>
+      ${extraHtml}
+    </div>
+  </section>
+  `;
+}
 
 // Shared Layout Wrapper supporting depth rootPath
 function renderLayout({
@@ -729,13 +935,15 @@ function renderLayout({
   description,
   currentNav = '',
   content,
+  miniHero = null,
   breadcrumbs = [],
   rootPath = ''
 }) {
   const cleanDescription = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
   const pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
 
-  const breadcrumbHtml = breadcrumbs.length > 0 ? `
+  const miniHeroHtml = miniHero ? renderMiniHero(miniHero, rootPath) : '';
+  const breadcrumbFallbackHtml = (!miniHero && breadcrumbs.length > 0) ? `
     <nav class="breadcrumbs" aria-label="Breadcrumbs">
       ${breadcrumbs.map((b, i) => i === breadcrumbs.length - 1 ? `<span>${escapeHtml(b.label)}</span>` : `<a href="${b.url}">${escapeHtml(b.label)}</a><span>/</span>`).join('')}
     </nav>
@@ -777,8 +985,10 @@ function renderLayout({
     </div>
   </header>
 
+  ${miniHeroHtml}
+
   <main class="site-main container">
-    ${breadcrumbHtml}
+    ${breadcrumbFallbackHtml}
     ${content}
   </main>
 
@@ -871,10 +1081,13 @@ const homeContent = `
 
     <!-- Command Hero Search Hub -->
     <div style="max-width:660px; margin:0 auto 2.5rem;">
-      <div style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.4rem 0.75rem 0.4rem 1.25rem; box-shadow:0 10px 25px -5px rgba(0,0,0,0.08);">
-        <span style="color:var(--accent); display:flex; align-items:center; margin-right:0.5rem;">${ICONS.search}</span>
-        <input type="text" id="hero-search-input" style="flex:1; border:none; background:transparent; outline:none; font-size:1.05rem; font-family:inherit; color:var(--text-main); padding:0.45rem 0.5rem;" placeholder="Search 94+ static tools, APIs, forms, auth..." autocomplete="off">
+      <div style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.35rem 0.5rem 0.35rem 1.15rem; box-shadow:0 10px 25px -5px rgba(0,0,0,0.08); gap:0.5rem;">
+        <span style="color:var(--accent); display:flex; align-items:center;">${ICONS.search}</span>
+        <input type="text" id="hero-search-input" style="flex:1; border:none; background:transparent; outline:none; font-size:1.05rem; font-family:inherit; color:var(--text-main); padding:0.45rem 0.25rem;" placeholder="Search 94+ static tools, APIs, forms, auth..." autocomplete="off">
         <span style="background:var(--bg-muted); border:1px solid var(--border-color); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-family:var(--font-mono); color:var(--text-subtle);">/</span>
+        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary btn-sm" style="border-radius:var(--radius-full); padding:0.45rem 1rem; font-size:0.85rem;">
+          Search
+        </button>
       </div>
       <div style="display:flex; align-items:center; justify-content:center; gap:0.45rem; flex-wrap:wrap; margin-top:1rem; font-size:0.825rem;">
         <span style="color:var(--text-subtle); font-weight:500;">Popular:</span>
@@ -930,11 +1143,12 @@ const homeContent = `
       <a href="archive.html" class="btn btn-secondary" style="font-size:0.85rem;">View Full Archive →</a>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:1.25rem;">
+    <div id="category-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:1.25rem;">
       ${categories.map(cat => {
         const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
+        const searchTerms = (cat.title + ' ' + cat.description + ' ' + cat.tools.map(t => t.name).join(' ')).toLowerCase();
         return `
-        <a href="archive.html#${cat.slug}" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive.html#${cat.slug}" class="category-card" data-search="${escapeHtml(searchTerms)}" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;">${icon}</div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">${cat.tools.length} Tools</span>
@@ -948,23 +1162,46 @@ const homeContent = `
         </a>
         `;
       }).join('')}
+
+      <div id="home-no-categories" style="display:none; grid-column:1/-1; text-align:center; padding:3rem 1.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg);">
+        <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:0.5rem;">No matching categories on home page</h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">Try searching the Master Archive directly for all 94 tools, APIs, and services.</p>
+        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary">Search in Master Archive</button>
+      </div>
     </div>
   </section>
 
   <script>
     const heroSearchInput = document.getElementById('hero-search-input');
-    const categoryCards = document.querySelectorAll('#categories a');
 
     function searchHomeCategories(query) {
       const q = query.trim().toLowerCase();
+      const qWords = q.split(/\\s+/).filter(Boolean);
+      const categoryCards = document.querySelectorAll('.category-card');
+      let visibleCount = 0;
       categoryCards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        if (!q || text.includes(q)) {
+        const text = card.getAttribute('data-search') || card.textContent.toLowerCase();
+        const matches = qWords.length === 0 || qWords.every(w => text.includes(w));
+        if (matches) {
           card.style.display = 'flex';
+          visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
+      const noResults = document.getElementById('home-no-categories');
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    function submitHeroSearch() {
+      const val = heroSearchInput ? heroSearchInput.value.trim() : '';
+      if (val) {
+        window.location.href = 'archive.html?q=' + encodeURIComponent(val);
+      } else {
+        window.location.href = 'archive.html';
+      }
     }
 
     if (heroSearchInput) {
@@ -973,10 +1210,7 @@ const homeContent = `
       });
       heroSearchInput.addEventListener('keydown', e => {
         if (e.key === 'Enter') {
-          const val = heroSearchInput.value.trim();
-          if (val) {
-            window.location.href = 'archive.html?q=' + encodeURIComponent(val);
-          }
+          submitHeroSearch();
         }
       });
     }
@@ -1007,37 +1241,15 @@ fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
 console.log('📚 Generating Archive Page with wider sidebar (archive.html)...');
 
 const archiveContent = `
-  <div style="padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
-    <h1 style="font-size:2.25rem; font-weight:800; margin-bottom:0.5rem;">Master Directory Archive</h1>
-    <p style="font-size:1.15rem; color:var(--text-muted); max-width:760px; line-height:1.6;">
-      Complete catalog of all 94 tools across 25 categories for static websites. Filter by pricing or jump directly to any category section.
-    </p>
-
-    <!-- Archive Search & Filter Controls -->
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
-      <div style="flex:1 1 300px; position:relative; max-width:480px;">
-        <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all 94 tools by name, description, keyword...">
-        <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
-      </div>
-
-      <!-- Filter Buttons -->
-      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-        <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (94)</button>
-        <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
-        <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
-        <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
-        <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
-      </div>
-    </div>
-    <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all 94 tools</div>
-  </div>
-
-  <!-- Wider 320px Sidebar Layout -->
-  <div class="archive-layout">
-    <!-- Sticky Sidebar Category Links -->
+  <!-- Archive Layout -->
+  <div class="archive-layout" style="padding-bottom: 4rem;">
+    <!-- Sidebar Category Links (scrolls with page) -->
     <aside class="archive-sidebar">
-      <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-subtle); margin-bottom:0.85rem; padding-left:0.5rem;">Categories (25)</div>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem; padding:0 0.5rem;">
+        <span style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-subtle);">Categories (25)</span>
+        <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">Show All</a>
+      </div>
+      <ul id="archive-sidebar-list" style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
         ${categories.map(c => `
           <li>
             <a href="#${c.slug}" class="archive-cat-link" title="${escapeHtml(c.title)}">
@@ -1052,10 +1264,16 @@ const archiveContent = `
 
     <!-- Category Sections & Tool Tables -->
     <div>
+      <div id="archive-no-results" style="display:none; text-align:center; padding:3.5rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); margin-bottom:3rem; box-shadow:var(--shadow-card);">
+        <div style="font-size:1.35rem; font-weight:700; margin-bottom:0.5rem;">No tools found</div>
+        <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">No tools match your current filter or search criteria.</p>
+        <button class="btn btn-primary" onclick="resetArchiveFilters()">Reset Filters &amp; Show All 94 Tools</button>
+      </div>
+
       ${categories.map(cat => {
         const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
         return `
-        <section id="${cat.slug}" style="margin-bottom:3.5rem; scroll-margin-top:6rem;">
+        <section id="${cat.slug}" class="archive-cat-section" style="margin-bottom:3.5rem; scroll-margin-top:6rem;">
           <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
             <div style="color:var(--accent);">${icon}</div>
             <h2 style="font-size:1.6rem; font-weight:800; margin:0;">${escapeHtml(cat.title)}</h2>
@@ -1082,17 +1300,17 @@ const archiveContent = `
                   else if (pBadge.includes('paid')) badgeClass = 'badge-paid';
 
                   return `
-                  <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
+                  <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
-                      <a href="tools/${tool.categorySlug}/${tool.slug}.html">${escapeHtml(tool.name)}</a>
+                      <a href="tools/${tool.categorySlug}/${tool.slug}.html" title="View documentation and guide for ${escapeHtml(tool.name)}">${escapeHtml(tool.name)}</a>
                     </td>
                     <td style="padding:0.85rem 1rem; color:var(--text-muted); line-height:1.5;">${escapeHtml(tool.description)}</td>
                     <td style="padding:0.85rem 1rem;">
                       <span class="badge ${badgeClass}">${escapeHtml(tool.primaryBadge)}</span>
                     </td>
                     <td style="padding:0.85rem 1rem;">
-                      <a href="tools/${tool.categorySlug}/${tool.slug}.html" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.25rem;">
-                        Link ${ICONS.arrowRight}
+                      <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.35rem;" title="Visit ${escapeHtml(tool.name)} official website">
+                        Link ${ICONS.external}
                       </a>
                     </td>
                   </tr>
@@ -1110,8 +1328,11 @@ const archiveContent = `
   <script>
     const archiveFilters = document.querySelectorAll('.archive-filter');
     const archiveRows = document.querySelectorAll('.archive-row');
+    const archiveSections = document.querySelectorAll('.archive-cat-section');
     const archiveSearchInput = document.getElementById('archive-search-input');
+    const archiveClearBtn = document.getElementById('archive-search-clear');
     const archiveCountEl = document.getElementById('archive-results-count');
+    const archiveNoResultsEl = document.getElementById('archive-no-results');
 
     let currentFilter = 'all';
     let currentSearch = '';
@@ -1119,25 +1340,75 @@ const archiveContent = `
     function applyArchiveFilter() {
       let count = 0;
       const q = currentSearch.trim().toLowerCase();
+      const qWords = q.split(/\\s+/).filter(Boolean);
 
-      archiveRows.forEach(row => {
-        const badge = row.getAttribute('data-badge') || '';
-        const searchTxt = row.getAttribute('data-search') || '';
+      if (archiveClearBtn) {
+        archiveClearBtn.style.display = q ? 'inline-flex' : 'none';
+      }
 
-        const matchFilter = currentFilter === 'all' || badge.includes(currentFilter.replace('-', ' '));
-        const matchSearch = !q || searchTxt.includes(q);
+      archiveSections.forEach(section => {
+        let secMatches = 0;
+        const rows = section.querySelectorAll('.archive-row');
+        rows.forEach(row => {
+          const badge = row.getAttribute('data-badge') || '';
+          const searchTxt = row.getAttribute('data-search') || '';
 
-        if (matchFilter && matchSearch) {
-          row.style.display = '';
-          count++;
-        } else {
-          row.style.display = 'none';
+          const matchFilter = currentFilter === 'all' || badge.includes(currentFilter.replace('-', ' '));
+          const matchSearch = qWords.length === 0 || qWords.every(w => searchTxt.includes(w));
+
+          if (matchFilter && matchSearch) {
+            row.style.display = '';
+            secMatches++;
+            count++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        // Hide category section if 0 matches
+        section.style.display = secMatches > 0 ? '' : 'none';
+
+        // Update sidebar item opacity without hiding it completely
+        const secId = section.getAttribute('id');
+        const sideLink = document.querySelector('.archive-cat-link[href="#' + secId + '"]');
+        if (sideLink) {
+          sideLink.style.opacity = secMatches > 0 ? '1' : '0.45';
         }
       });
 
-      if (archiveCountEl) {
-        archiveCountEl.textContent = 'Showing ' + count + ' of 94 tools';
+      if (archiveNoResultsEl) {
+        archiveNoResultsEl.style.display = count === 0 ? 'block' : 'none';
       }
+
+      if (archiveCountEl) {
+        if (q) {
+          archiveCountEl.innerHTML = 'Showing ' + count + ' of 94 tools matching &ldquo;<strong>' + q.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>&rdquo; &bull; <a href="javascript:void(0)" onclick="clearArchiveSearch()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all 94 tools</a>';
+        } else if (currentFilter !== 'all') {
+          archiveCountEl.innerHTML = 'Showing ' + count + ' ' + currentFilter + ' tools &bull; <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all 94 tools</a>';
+        } else {
+          archiveCountEl.textContent = 'Showing all 94 tools across 25 categories';
+        }
+      }
+    }
+
+    function clearArchiveSearch() {
+      if (archiveSearchInput) archiveSearchInput.value = '';
+      currentSearch = '';
+      try {
+        if (window.history && window.history.replaceState && window.location.protocol !== 'file:') {
+          const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+          window.history.replaceState({path: cleanUrl}, '', cleanUrl);
+        }
+      } catch (err) {
+        // Safe failover for file protocol or restricted contexts
+      }
+      applyArchiveFilter();
+    }
+
+    function resetArchiveFilters() {
+      currentFilter = 'all';
+      archiveFilters.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === 'all'));
+      clearArchiveSearch();
     }
 
     archiveFilters.forEach(btn => {
@@ -1162,8 +1433,27 @@ const archiveContent = `
         archiveSearchInput.value = queryParam;
         currentSearch = queryParam;
         applyArchiveFilter();
+
+        // Scroll to the first matching category section smoothly
+        setTimeout(() => {
+          const firstVisible = document.querySelector('.archive-cat-section:not([style*="display: none"])');
+          if (firstVisible) {
+            firstVisible.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
       }
     }
+
+    // Sidebar Category Click: clear search or filter so that all tools in the category are pulled up immediately!
+    document.querySelectorAll('.archive-cat-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (currentSearch || currentFilter !== 'all') {
+          currentFilter = 'all';
+          archiveFilters.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === 'all'));
+          clearArchiveSearch();
+        }
+      });
+    });
 
     document.addEventListener('keydown', e => {
       if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== archiveSearchInput) {
@@ -1178,7 +1468,37 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
   title: 'Master Archive - 94+ Tools for Static Websites',
   description: 'Explore the complete directory of 94 curated tools across 25 static website categories with our expanded navigation sidebar.',
   currentNav: 'archive',
-  breadcrumbs: [{ label: 'Home', url: 'index.html' }, { label: 'Archive', url: 'archive.html' }],
+  miniHero: {
+    breadcrumbs: [
+      { label: 'Home', url: 'index.html' },
+      { label: 'Archive', url: 'archive.html' }
+    ],
+    icon: ICONS.archive,
+    title: 'Master Directory',
+    subtext: 'Complete catalog of all 94 tools across 25 categories for static websites. Filter by pricing or jump directly to any category section.',
+    extraHtml: `
+      <!-- Archive Search & Filter Controls -->
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.25rem;">
+        <div style="flex:1 1 300px; position:relative; max-width:480px;">
+          <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all 94 tools by name, description, keyword...">
+          <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
+          <button id="archive-search-clear" onclick="clearArchiveSearch()" style="position:absolute; right:0.75rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px;" title="Clear search" aria-label="Clear search">
+            ${ICONS.close}
+          </button>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (94)</button>
+          <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
+          <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
+          <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
+          <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
+        </div>
+      </div>
+      <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all 94 tools across 25 categories</div>
+    `
+  },
   content: archiveContent
 }));
 
@@ -1188,22 +1508,15 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
 console.log('✉️ Generating Submit Page (submit.html)...');
 
 const submitContent = `
-  <div style="padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
-    <h1 style="font-size:2.25rem; font-weight:800; margin-bottom:0.5rem;">Submit a Tool</h1>
-    <p style="font-size:1.15rem; color:var(--text-muted); max-width:760px; line-height:1.6;">
-      StaticStack is 100% community-curated and maintained on GitHub. Submissions are processed through <strong>GitHub Issues</strong> to ensure transparency, security, and spam prevention.
-    </p>
-  </div>
-
-  <div style="display:grid; grid-template-columns: 3fr 2fr; gap:2.5rem; align-items:start;">
+  <div class="submit-layout" style="display:grid; grid-template-columns: 3fr 2fr; gap:2.5rem; align-items:start; margin-bottom: 5.5rem;">
     <!-- Form Card -->
-    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.25rem; box-shadow:var(--shadow-card); margin-bottom: 2rem;">
       <h2 style="font-size:1.35rem; font-weight:700; margin-bottom:0.5rem;">Propose a Tool or Service</h2>
       <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
         Fill out the details below. Clicking <strong>"Continue to GitHub"</strong> will securely pre-fill an issue template on our official repository.
       </p>
 
-      <form id="submission-form" onsubmit="handleFormSubmit(event)">
+      <form id="submission-form" onsubmit="handleFormSubmit(event)" style="margin-bottom: 1rem;">
         <div style="margin-bottom:1.25rem;">
           <label style="display:block; font-size:0.875rem; font-weight:600; margin-bottom:0.4rem;" for="tool-name">Tool or Service Name *</label>
           <input type="text" id="tool-name" required placeholder="e.g. Bootstrap Studio, Pagefind, Reflow" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; font-size:0.95rem; background:var(--bg-body); color:var(--text-main);">
@@ -1301,7 +1614,15 @@ fs.writeFileSync(path.join(ROOT_DIR, 'submit.html'), renderLayout({
   title: 'Submit a Tool - StaticStack',
   description: 'Propose a new static website tool, API, or service to include in the StaticStack directory.',
   currentNav: 'submit',
-  breadcrumbs: [{ label: 'Home', url: 'index.html' }, { label: 'Submit a Tool', url: 'submit.html' }],
+  miniHero: {
+    breadcrumbs: [
+      { label: 'Home', url: 'index.html' },
+      { label: 'Submit a Tool', url: 'submit.html' }
+    ],
+    icon: ICONS.plusCircle,
+    title: 'Submit a Tool',
+    subtext: 'StaticStack is 100% community-curated and maintained on GitHub. Submissions are processed through <strong>GitHub Issues</strong> to ensure transparency, security, and spam prevention.'
+  },
   content: submitContent
 }));
 
@@ -1314,22 +1635,6 @@ const contributingMd = fs.readFileSync(path.join(ROOT_DIR, 'CONTRIBUTING.md'), '
 const renderedContributing = marked.parse(contributingMd);
 
 const contributeContent = `
-  <div style="padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
-    <h1 style="font-size:2.25rem; font-weight:800; margin-bottom:0.5rem;">Contributing Guide</h1>
-    <p style="font-size:1.15rem; color:var(--text-muted); max-width:760px; line-height:1.6;">
-      Thank you for helping keep the Static Website Toolkit accurate, comprehensive, and valuable! Learn how to propose tools, improve docs, or open pull requests.
-    </p>
-    <div style="display:flex; gap:0.75rem; margin-top:1.25rem; flex-wrap:wrap;">
-      <a href="submit.html" class="btn btn-primary btn-sm">Use Web Submit Form →</a>
-      <a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-        GitHub Issues ${ICONS.external}
-      </a>
-      <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-        ${ICONS.github} View Repository
-      </a>
-    </div>
-  </div>
-
   <div class="markdown-body">
     ${renderedContributing}
   </div>
@@ -1339,7 +1644,24 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contribute.html'), renderLayout({
   title: 'Contributing Guide - Static Website Toolkit',
   description: 'Learn how to contribute new tools, report updates, and submit pull requests to the Static Website Toolkit.',
   currentNav: '',
-  breadcrumbs: [{ label: 'Home', url: 'index.html' }, { label: 'Contributing', url: 'contribute.html' }],
+  miniHero: {
+    breadcrumbs: [
+      { label: 'Home', url: 'index.html' },
+      { label: 'Contributing Guide', url: 'contribute.html' }
+    ],
+    icon: ICONS.gitPullRequest,
+    title: 'Contributing Guide',
+    subtext: 'Thank you for helping keep the Static Website Toolkit accurate, comprehensive, and valuable! Learn how to propose tools, improve docs, or open pull requests.',
+    actions: `
+      <a href="submit.html" class="btn btn-primary btn-sm">Use Web Submit Form →</a>
+      <a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+        GitHub Issues ${ICONS.external}
+      </a>
+      <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+        ${ICONS.github} View Repository
+      </a>
+    `
+  },
   content: contributeContent
 }));
 
@@ -1352,13 +1674,6 @@ const thankYouMd = fs.readFileSync(path.join(ROOT_DIR, 'THANKYOU.md'), 'utf8');
 const renderedThankYou = marked.parse(thankYouMd);
 
 const thankYouContent = `
-  <div style="padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
-    <h1 style="font-size:2.25rem; font-weight:800; margin-bottom:0.5rem;">Thank You &amp; Credits 💖</h1>
-    <p style="font-size:1.15rem; color:var(--text-muted); max-width:760px; line-height:1.6;">
-      Recognizing the community, contributors, and tool creators who make modern static websites exceptional.
-    </p>
-  </div>
-
   <div class="markdown-body">
     ${renderedThankYou}
   </div>
@@ -1368,7 +1683,20 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
   title: 'Thank You & Credits - Static Website Toolkit',
   description: 'Special thanks to the contributors, maintainers, and community behind Static Website Toolkit.',
   currentNav: '',
-  breadcrumbs: [{ label: 'Home', url: 'index.html' }, { label: 'Thank You', url: 'thankyou.html' }],
+  miniHero: {
+    breadcrumbs: [
+      { label: 'Home', url: 'index.html' },
+      { label: 'Thank You & Credits', url: 'thankyou.html' }
+    ],
+    icon: ICONS.heart,
+    title: 'Thank You & Credits',
+    subtext: 'Recognizing the community, contributors, and tool creators who make modern static websites exceptional.',
+    actions: `
+      <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+        ${ICONS.github} GitHub Repository ${ICONS.external}
+      </a>
+    `
+  },
   content: thankYouContent
 }));
 
@@ -1404,72 +1732,74 @@ allTools.forEach(tool => {
     badgeIcon = ICONS.tag;
   }
 
-  const toolPageContent = `
-    <article style="padding: 1.5rem 0 3rem;">
-      <!-- Tool Hero Card -->
-      <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:2rem; box-shadow:var(--shadow-card);">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; margin-bottom:1rem;">
-          <div>
-            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-              <span class="badge ${badgeClass}">${badgeIcon} ${escapeHtml(tool.primaryBadge)}</span>
-              <a href="../../archive.html#${tool.categorySlug}" class="badge badge-freemium" style="text-decoration:none;">
-                ${escapeHtml(tool.categoryTitle)}
-              </a>
-            </div>
-            <h1 style="font-size:2.5rem; font-weight:800; margin:0 0 0.5rem 0;">${escapeHtml(tool.name)}</h1>
+  const renderedToolHtml = renderLayout({
+    title: `${tool.name} - ${tool.categoryTitle}`,
+    description: `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`,
+    currentNav: 'archive',
+    miniHero: {
+      breadcrumbs: [
+        { label: 'Home', url: '../../index.html' },
+        { label: 'Archive', url: '../../archive.html' },
+        { label: tool.categoryTitle, url: `../../archive.html#${tool.categorySlug}` },
+        { label: tool.name, url: '#' }
+      ],
+      badgeRow: `
+        <span class="badge ${badgeClass}">${badgeIcon} ${escapeHtml(tool.primaryBadge)}</span>
+        <a href="../../archive.html#${tool.categorySlug}" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">
+          <span style="display:inline-flex; align-items:center;">${CATEGORY_ICONS[tool.categorySlug] || ICONS.zap}</span>
+          ${escapeHtml(tool.categoryTitle)}
+        </a>
+      `,
+      icon: CATEGORY_ICONS[tool.categorySlug] || ICONS.zap,
+      title: escapeHtml(tool.name),
+      subtext: escapeHtml(tool.tagline || tool.description),
+      actions: `
+        <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.95rem; padding:0.6rem 1.15rem;">
+          Visit ${escapeHtml(tool.name)} ${ICONS.external}
+        </a>
+      `,
+      extraHtml: `
+        <div style="display:flex; align-items:center; gap:1.5rem; font-size:0.875rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:1rem; margin-top:0.5rem; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <span style="color:var(--text-subtle); display:inline-flex;">${ICONS.globe}</span>
+            <strong>Official Website:</strong>
+            <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(tool.websiteLabel)} ${ICONS.external}</a>
           </div>
-          <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:1rem; padding:0.65rem 1.25rem;">
-            Visit ${escapeHtml(tool.name)} ${ICONS.external}
-          </a>
-        </div>
-
-        <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem; max-width:850px;">
-          ${escapeHtml(tool.tagline || tool.description)}
-        </p>
-
-        <div style="display:flex; align-items:center; gap:1.5rem; font-size:0.9rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:1.25rem; flex-wrap:wrap;">
-          <div><strong>Official Website:</strong> <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(tool.websiteLabel)} ${ICONS.external}</a></div>
-          <div><strong>Category:</strong> <a href="../../archive.html#${tool.categorySlug}">${escapeHtml(tool.categoryTitle)}</a></div>
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <span style="color:var(--text-subtle); display:inline-flex;">${ICONS.tag}</span>
+            <strong>Category:</strong>
+            <a href="../../archive.html#${tool.categorySlug}">${escapeHtml(tool.categoryTitle)}</a>
+          </div>
           <div style="margin-left:auto;">
             <a href="https://github.com/E6WeB/htmlstatic/blob/main/${tool.relPath}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
               ${ICONS.github} Edit Markdown Guide
             </a>
           </div>
         </div>
-      </div>
-
-      <!-- Rendered Documentation -->
-      <div class="markdown-body">
-        ${parsedHtml}
-      </div>
-
-      <!-- Bottom Navigation -->
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
-        <a href="../../archive.html#${tool.categorySlug}" class="btn btn-secondary">
-          ${ICONS.arrowLeft} Back to ${escapeHtml(tool.categoryTitle)}
-        </a>
-        <a href="../../archive.html" class="btn btn-secondary">
-          Browse Full Archive
-        </a>
-        <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          Visit Official Site ${ICONS.external}
-        </a>
-      </div>
-    </article>
-  `;
-
-  const renderedToolHtml = renderLayout({
-    title: `${tool.name} - ${tool.categoryTitle}`,
-    description: `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`,
-    currentNav: 'archive',
-    breadcrumbs: [
-      { label: 'Home', url: '../../index.html' },
-      { label: 'Archive', url: '../../archive.html' },
-      { label: tool.categoryTitle, url: `../../archive.html#${tool.categorySlug}` },
-      { label: tool.name, url: '#' }
-    ],
+      `
+    },
     rootPath: '../../',
-    content: toolPageContent
+    content: `
+      <article style="padding: 0 0 3.5rem;">
+        <!-- Rendered Documentation -->
+        <div class="markdown-body">
+          ${parsedHtml}
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
+          <a href="../../archive.html#${tool.categorySlug}" class="btn btn-secondary">
+            ${ICONS.arrowLeft} Back to ${escapeHtml(tool.categoryTitle)}
+          </a>
+          <a href="../../archive.html" class="btn btn-secondary">
+            Browse Full Archive
+          </a>
+          <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Visit Official Site ${ICONS.external}
+          </a>
+        </div>
+      </article>
+    `
   });
 
   // Write tool page: tools/<category>/<tool>.html and tools/<category>/<tool>/index.html

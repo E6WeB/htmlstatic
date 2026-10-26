@@ -276,7 +276,128 @@
     transform: translateY(-2px);
   }
 
-  /* Breadcrumbs */
+  /* Mini Hero Section */
+  .mini-hero {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2.25rem 0 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  }
+
+  .mini-hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  /* Breadcrumbs inside Mini Hero */
+  .mini-hero-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+
+  .mini-hero-breadcrumbs a {
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .mini-hero-breadcrumbs a:hover {
+    color: var(--accent);
+  }
+
+  .mini-hero-breadcrumbs .crumb-sep {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-subtle);
+    opacity: 0.6;
+  }
+
+  .mini-hero-breadcrumbs .crumb-current {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  .mini-hero-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.15rem;
+  }
+
+  .mini-hero-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .mini-hero-header-main {
+    flex: 1 1 500px;
+  }
+
+  .mini-hero-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mini-hero-icon-box {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+  }
+
+  .mini-hero-title {
+    font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .mini-hero-subtext {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 820px;
+    margin: 0;
+  }
+
+  .mini-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    align-self: flex-start;
+  }
+
+  .mini-hero-extra {
+    margin-top: 0.25rem;
+  }
+
   .breadcrumbs {
     display: flex;
     align-items: center;
@@ -520,6 +641,13 @@
     }
   }
 
+  @media (max-width: 900px) {
+    .submit-layout {
+      grid-template-columns: 1fr !important;
+      margin-bottom: 3.5rem !important;
+    }
+  }
+
   @media (max-width: 860px) {
     .nav-links {
       gap: 0.25rem;
@@ -532,6 +660,26 @@
       bottom: 1.25rem;
       right: 1.25rem;
       padding: 0.6rem 0.85rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .mini-hero {
+      padding: 1.75rem 0 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .mini-hero-title-row {
+      gap: 0.65rem;
+    }
+    .mini-hero-icon-box {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+    .mini-hero-title {
+      font-size: 1.5rem;
+    }
+    .mini-hero-subtext {
+      font-size: 0.95rem;
     }
   }
 
@@ -560,29 +708,46 @@
     </div>
   </header>
 
-  <main class="site-main container">
-    
-    <nav class="breadcrumbs" aria-label="Breadcrumbs">
-      <a href="index.html">Home</a><span>/</span><span>Submit a Tool</span>
+  
+  <!-- Mini Hero Section -->
+  <section class="mini-hero">
+    <div class="container mini-hero-inner">
+      
+    <nav class="mini-hero-breadcrumbs" aria-label="Breadcrumbs">
+      
+          <a href="index.html"><span style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span> <span>Home</span></a>
+          <span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <span class="crumb-current" aria-current="page">Submit a Tool</span>
     </nav>
   
-    
-  <div style="padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
-    <h1 style="font-size:2.25rem; font-weight:800; margin-bottom:0.5rem;">Submit a Tool</h1>
-    <p style="font-size:1.15rem; color:var(--text-muted); max-width:760px; line-height:1.6;">
-      StaticStack is 100% community-curated and maintained on GitHub. Submissions are processed through <strong>GitHub Issues</strong> to ensure transparency, security, and spam prevention.
-    </p>
-  </div>
+      
+      <div class="mini-hero-header">
+        <div class="mini-hero-header-main">
+          <div class="mini-hero-title-row">
+            <div class="mini-hero-icon-box" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></div>
+            <h1 class="mini-hero-title">Submit a Tool</h1>
+          </div>
+          <p class="mini-hero-subtext">StaticStack is 100% community-curated and maintained on GitHub. Submissions are processed through <strong>GitHub Issues</strong> to ensure transparency, security, and spam prevention.</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+  
 
-  <div style="display:grid; grid-template-columns: 3fr 2fr; gap:2.5rem; align-items:start;">
+  <main class="site-main container">
+    
+    
+  <div class="submit-layout" style="display:grid; grid-template-columns: 3fr 2fr; gap:2.5rem; align-items:start; margin-bottom: 5.5rem;">
     <!-- Form Card -->
-    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.25rem; box-shadow:var(--shadow-card); margin-bottom: 2rem;">
       <h2 style="font-size:1.35rem; font-weight:700; margin-bottom:0.5rem;">Propose a Tool or Service</h2>
       <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
         Fill out the details below. Clicking <strong>"Continue to GitHub"</strong> will securely pre-fill an issue template on our official repository.
       </p>
 
-      <form id="submission-form" onsubmit="handleFormSubmit(event)">
+      <form id="submission-form" onsubmit="handleFormSubmit(event)" style="margin-bottom: 1rem;">
         <div style="margin-bottom:1.25rem;">
           <label style="display:block; font-size:0.875rem; font-weight:600; margin-bottom:0.4rem;" for="tool-name">Tool or Service Name *</label>
           <input type="text" id="tool-name" required placeholder="e.g. Bootstrap Studio, Pagefind, Reflow" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; font-size:0.95rem; background:var(--bg-body); color:var(--text-main);">
