@@ -118,6 +118,7 @@ Tools that make building, testing, and maintaining static websites easier.
 
 | Tool | Description | Website |
 | :--- | :--- | :--- |
+| [Brickstatic](development-tools/brickstatic.md) | Export and publish WordPress Bricks sites as static HTML to GitHub or any host | <a href="https://builtforbricks.com/brickstatic/" target="_blank" rel="noopener noreferrer">builtforbricks.com/brickstatic</a> |
 | [Visual Studio Code](development-tools/visual-studio-code.md) | Code editor with extensions for web development | <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a> |
 | [Prettier](development-tools/prettier.md) | Code formatter for HTML, CSS, JavaScript, and more | <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a> |
 | [ESLint](development-tools/eslint.md) | Find and fix problems in JavaScript code | <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a> |
