@@ -15,31 +15,47 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 
 ### Categories
 
-- [AI & Content Creation](#ai--content-creation)
-- [AI Models](#ai-models)
-- [Analytics & Privacy](#analytics--privacy)
-- [Authentication & User Management](#authentication--user-management)
-- [Booking & Scheduling](#booking--scheduling)
-- [Comments & Community](#comments--community)
-- [Contact Forms](#contact-forms)
-- [Content Management](#content-management)
-- [CSS & UI Component Libraries](#css--ui-component-libraries)
-- [Database & Backend-as-a-Service](#database--backend-as-a-service)
-- [Development Tools](#development-tools)
-- [Hosting & Deployment](#hosting--deployment)
-- [Images & Optimization](#images--optimization)
-- [Interactive Maps & Geolocation](#interactive-maps--geolocation)
-- [Interactive Scripts & Animation](#interactive-scripts--animation)
-- [Live Chat & Support](#live-chat--support)
-- [Media & Video Players](#media--video-players)
-- [Monitoring & Error Tracking](#monitoring--error-tracking)
-- [Newsletters & Email](#newsletters--email)
-- [Payments & E-commerce](#payments--e-commerce)
-- [Search](#search)
-- [Security & Spam Protection](#security--spam-protection)
-- [Static Site Generators](#static-site-generators)
-- [Surveys & Feedback](#surveys--feedback)
-- [Typography & Web Fonts](#typography--web-fonts)
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
+
+<ol>
+  <li><a href="#ai--content-creation">AI &amp; Content Creation</a></li>
+  <li><a href="#ai-models">AI Models</a></li>
+  <li><a href="#analytics--privacy">Analytics &amp; Privacy</a></li>
+  <li><a href="#authentication--user-management">Authentication &amp; User Management</a></li>
+  <li><a href="#booking--scheduling">Booking &amp; Scheduling</a></li>
+  <li><a href="#comments--community">Comments &amp; Community</a></li>
+  <li><a href="#contact-forms">Contact Forms</a></li>
+  <li><a href="#content-management">Content Management</a></li>
+  <li><a href="#css--ui-component-libraries">CSS &amp; UI Component Libraries</a></li>
+  <li><a href="#database--backend-as-a-service">Database &amp; Backend-as-a-Service</a></li>
+  <li><a href="#development-tools">Development Tools</a></li>
+  <li><a href="#hosting--deployment">Hosting &amp; Deployment</a></li>
+  <li><a href="#images--optimization">Images &amp; Optimization</a></li>
+</ol>
+
+</td>
+<td width="50%" valign="top">
+
+<ol start="14">
+  <li><a href="#interactive-maps--geolocation">Interactive Maps &amp; Geolocation</a></li>
+  <li><a href="#interactive-scripts--animation">Interactive Scripts &amp; Animation</a></li>
+  <li><a href="#live-chat--support">Live Chat &amp; Support</a></li>
+  <li><a href="#media--video-players">Media &amp; Video Players</a></li>
+  <li><a href="#monitoring--error-tracking">Monitoring &amp; Error Tracking</a></li>
+  <li><a href="#newsletters--email">Newsletters &amp; Email</a></li>
+  <li><a href="#payments--e-commerce">Payments &amp; E-commerce</a></li>
+  <li><a href="#search">Search</a></li>
+  <li><a href="#security--spam-protection">Security &amp; Spam Protection</a></li>
+  <li><a href="#static-site-generators">Static Site Generators</a></li>
+  <li><a href="#surveys--feedback">Surveys &amp; Feedback</a></li>
+  <li><a href="#typography--web-fonts">Typography &amp; Web Fonts</a></li>
+</ol>
+
+</td>
+</tr>
+</table>
 
 ### Contributing & Community
 
