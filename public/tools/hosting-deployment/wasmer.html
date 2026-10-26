@@ -844,10 +844,29 @@ version = &quot;1.0.0&quot;
                   data-reactions-enabled="0"
                   data-emit-metadata="0"
                   data-input-position="bottom"
-                  data-theme="light"
+                  data-theme="https://staticstack.app/css/giscus-theme.css"
                   data-lang="en"
                   crossorigin="anonymous"
                   async>
+          </script>
+          <script>
+            (function() {
+              function syncTheme() {
+                var iframe = document.querySelector('iframe.giscus-frame');
+                if (!iframe || !iframe.contentWindow) return;
+                var themeUrl = (window.location.protocol === 'https:' && window.location.hostname)
+                  ? window.location.origin + '/css/giscus-theme.css'
+                  : 'https://staticstack.app/css/giscus-theme.css';
+                iframe.contentWindow.postMessage({
+                  giscus: { setConfig: { theme: themeUrl } }
+                }, 'https://giscus.app');
+              }
+              window.addEventListener('message', function(e) {
+                if (e.origin === 'https://giscus.app' && typeof e.data === 'object' && e.data.giscus) {
+                  syncTheme();
+                }
+              });
+            })();
           </script>
         </section>
 

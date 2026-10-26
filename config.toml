@@ -7,4 +7,7 @@ directory-listing = false
 compression = true
 cache-control-headers = true
 security-headers = true
+cors-allow-origins = "*"
+cors-allow-headers = "origin, content-type, authorization, x-requested-with"
+cors-expose-headers = "origin, content-type"
 page404 = "404.html"
