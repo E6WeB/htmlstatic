@@ -7,6 +7,22 @@
   <meta name="description" content="Curated directory of 94+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.">
   <meta name="theme-color" content="#2563eb">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- OpenGraph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StaticStack">
+  <meta property="og:title" content="StaticStack - Modern Tools &amp; APIs for Static Websites">
+  <meta property="og:description" content="Curated directory of 94+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.">
+  <meta property="og:image" content="https://staticstack.app/src/img/og-image.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="StaticStack - The Curated Static Website Toolkit">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StaticStack - Modern Tools &amp; APIs for Static Websites">
+  <meta name="twitter:description" content="Curated directory of 94+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.">
+  <meta name="twitter:image" content="https://staticstack.app/src/img/og-image.webp">
+
   <style>
     
   :root {
@@ -638,6 +654,140 @@
   @media (max-width: 1040px) {
     .archive-layout {
       grid-template-columns: 1fr;
+    }
+  }
+
+  /* Tool Page 2-Column Layout (Content + Right Sidebar) */
+  .tool-page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 2.25rem;
+    align-items: start;
+    padding: 0 0 3.5rem;
+  }
+
+  .tool-page-main {
+    min-width: 0;
+  }
+
+  .tool-page-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .sidebar-widget {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.35rem 1.25rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .sidebar-widget-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-widget-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+  }
+
+  .sidebar-tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .sidebar-tip-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .sidebar-tip-icon {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .sidebar-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.6rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.18s ease;
+  }
+
+  .sidebar-tool-card:hover {
+    background: var(--bg-muted);
+    border-color: var(--border-hover);
+    transform: translateX(2px);
+  }
+
+  .sidebar-tool-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sidebar-tool-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar-tool-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem;
+  }
+
+  .sidebar-tool-desc {
+    font-size: 0.775rem;
+    color: var(--text-subtle);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.1rem;
+  }
+
+  @media (max-width: 1040px) {
+    .tool-page-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .tool-page-sidebar {
+      position: static;
     }
   }
 

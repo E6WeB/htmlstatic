@@ -7,6 +7,22 @@
   <meta name="description" content="Microsoft Phi: High-efficiency small language models (SLMs) built for edge and browser execution. Guide, integration examples, and features for static websites.">
   <meta name="theme-color" content="#2563eb">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- OpenGraph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StaticStack">
+  <meta property="og:title" content="Microsoft Phi - AI Models | StaticStack">
+  <meta property="og:description" content="Microsoft Phi: High-efficiency small language models (SLMs) built for edge and browser execution. Guide, integration examples, and features for static websites.">
+  <meta property="og:image" content="https://staticstack.app/src/img/og-image.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="StaticStack - The Curated Static Website Toolkit">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Microsoft Phi - AI Models | StaticStack">
+  <meta name="twitter:description" content="Microsoft Phi: High-efficiency small language models (SLMs) built for edge and browser execution. Guide, integration examples, and features for static websites.">
+  <meta name="twitter:image" content="https://staticstack.app/src/img/og-image.webp">
+
   <style>
     
   :root {
@@ -641,6 +657,140 @@
     }
   }
 
+  /* Tool Page 2-Column Layout (Content + Right Sidebar) */
+  .tool-page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 2.25rem;
+    align-items: start;
+    padding: 0 0 3.5rem;
+  }
+
+  .tool-page-main {
+    min-width: 0;
+  }
+
+  .tool-page-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .sidebar-widget {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.35rem 1.25rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .sidebar-widget-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-widget-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+  }
+
+  .sidebar-tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .sidebar-tip-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .sidebar-tip-icon {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .sidebar-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.6rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.18s ease;
+  }
+
+  .sidebar-tool-card:hover {
+    background: var(--bg-muted);
+    border-color: var(--border-hover);
+    transform: translateX(2px);
+  }
+
+  .sidebar-tool-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sidebar-tool-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar-tool-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem;
+  }
+
+  .sidebar-tool-desc {
+    font-size: 0.775rem;
+    color: var(--text-subtle);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.1rem;
+  }
+
+  @media (max-width: 1040px) {
+    .tool-page-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .tool-page-sidebar {
+      position: static;
+    }
+  }
+
   @media (max-width: 900px) {
     .submit-layout {
       grid-template-columns: 1fr !important;
@@ -773,10 +923,13 @@
   <main class="site-main container">
     
     
-      <article style="padding: 0 0 3.5rem;">
-        <!-- Rendered Documentation -->
-        <div class="markdown-body">
-          <h1>Microsoft Phi (Phi-4)</h1>
+      <div class="tool-page-layout">
+        <!-- Main Documentation & Discussion -->
+        <div class="tool-page-main">
+          <article style="padding: 0 0 2rem;">
+            <!-- Rendered Documentation -->
+            <div class="markdown-body">
+              <h1>Microsoft Phi (Phi-4)</h1>
 <blockquote>
 <p>Small Language Models (SLMs) engineered for maximum efficiency, low memory footprint, and edge execution.</p>
 </blockquote>
@@ -817,48 +970,171 @@ const res = await fetch(&quot;http://localhost:8080/v1/chat/completions&quot;, {
 <li>Powering local, privacy-first developer tools and offline client-side web applications.</li>
 </ul>
 
+            </div>
+
+            <!-- Discussion via Giscus -->
+            <section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+              <div style="margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
+                <div style="display:flex; align-items:center; gap:0.55rem;">
+                  <span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+                  <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Discussion</h3>
+                </div>
+                <p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p>
+              </div>
+              <div class="giscus"></div>
+              <script src="https://giscus.app/client.js"
+                      data-repo="E6WeB/static-comment"
+                      data-repo-id="R_kgDOVYc0DQ"
+                      data-category="General"
+                      data-category-id="DIC_kwDOVYc0Dc4DJsXu"
+                      data-mapping="pathname"
+                      data-strict="0"
+                      data-reactions-enabled="0"
+                      data-emit-metadata="0"
+                      data-input-position="bottom"
+                      data-theme="light"
+                      data-lang="en"
+                      crossorigin="anonymous"
+                      async>
+              </script>
+            </section>
+
+            <!-- Bottom Navigation -->
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
+              <a href="../../archive.html#ai-models" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to AI Models
+              </a>
+              <a href="../../archive.html" class="btn btn-secondary">
+                Browse Full Archive
+              </a>
+              <a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Visit Official Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Community Comments via Giscus -->
-        <section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
-          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
-            <span style="color:var(--accent); display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
-            <div>
-              <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Community Discussion</h3>
-              <p style="font-size:0.875rem; color:var(--text-muted); margin:0.25rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p>
+        <!-- Right Sidebar -->
+        <aside class="tool-page-sidebar">
+          <!-- Static Site Hints & Tips Card -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-header">
+              <span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
+              <h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4>
+            </div>
+            <div class="sidebar-widget-body">
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Zero Backend Required</strong>
+                  All tools here integrate directly into HTML/CSS/JS without hosting server runtimes or databases.
+                </div>
+              </div>
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Async Performance</strong>
+                  Always use <code>async</code> or <code>defer</code> on widget scripts to keep page load times fast.
+                </div>
+              </div>
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">API Key Security</strong>
+                  Never commit secret tokens to static repositories. Use public client keys or edge proxies.
+                </div>
+              </div>
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Host Anywhere</strong>
+                  Compatible with GitHub Pages, Cloudflare Pages, Netlify, Vercel, and Wasmer Edge.
+                </div>
+              </div>
             </div>
           </div>
-          <div class="giscus"></div>
-          <script src="https://giscus.app/client.js"
-                  data-repo="E6WeB/static-comment"
-                  data-repo-id="R_kgDOVYc0DQ"
-                  data-category="General"
-                  data-category-id="DIC_kwDOVYc0Dc4DJsXu"
-                  data-mapping="pathname"
-                  data-strict="0"
-                  data-reactions-enabled="0"
-                  data-emit-metadata="0"
-                  data-input-position="bottom"
-                  data-theme="light"
-                  data-lang="en"
-                  crossorigin="anonymous"
-                  async>
-          </script>
-        </section>
 
-        <!-- Bottom Navigation -->
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
-          <a href="../../archive.html#ai-models" class="btn btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to AI Models
-          </a>
-          <a href="../../archive.html" class="btn btn-secondary">
-            Browse Full Archive
-          </a>
-          <a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            Visit Official Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          </a>
+          <!-- Discover Random Tools Card -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-header" style="justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:0.5rem;">
+                <span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
+                <h4 class="sidebar-widget-title">Discover Random Tools</h4>
+              </div>
+              <a href="../../archive.html" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
+            </div>
+            <div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
+              
+      <a href="../../tools/comments-community/giscus.html" class="sidebar-tool-card">
+        <span class="sidebar-tool-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </span>
+        <div class="sidebar-tool-info">
+          <div class="sidebar-tool-name">
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Giscus</span>
+            <span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Open Source</span>
+          </div>
+          <div class="sidebar-tool-desc">GitHub Discussions-powered comment widget for static blogs and docs.</div>
         </div>
-      </article>
+      </a>
+    
+      <a href="../../tools/images-optimization/squoosh.html" class="sidebar-tool-card">
+        <span class="sidebar-tool-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        </span>
+        <div class="sidebar-tool-info">
+          <div class="sidebar-tool-name">
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Squoosh</span>
+            <span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Open Source</span>
+          </div>
+          <div class="sidebar-tool-desc">Compress and convert images directly in your browser with instant visual comparison.</div>
+        </div>
+      </a>
+    
+      <a href="../../tools/hosting-deployment/github-pages.html" class="sidebar-tool-card">
+        <span class="sidebar-tool-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+        </span>
+        <div class="sidebar-tool-info">
+          <div class="sidebar-tool-name">
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">GitHub Pages</span>
+            <span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Free</span>
+          </div>
+          <div class="sidebar-tool-desc">Host websites directly from GitHub repositories with Git-driven automation.</div>
+        </div>
+      </a>
+    
+      <a href="../../tools/authentication-users/supabase-auth.html" class="sidebar-tool-card">
+        <span class="sidebar-tool-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </span>
+        <div class="sidebar-tool-info">
+          <div class="sidebar-tool-name">
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Supabase Auth</span>
+            <span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Open Source</span>
+          </div>
+          <div class="sidebar-tool-desc">Open-source authentication supporting passwordless logins, OAuth providers, and JWTs.</div>
+        </div>
+      </a>
+    
+            </div>
+          </div>
+
+          <!-- Submit Alternative Card -->
+          <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+              <span style="color:var(--accent); display:inline-flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
+              <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
+              StaticStack is community curated. Share your favorite static web service or tool with the community.
+            </p>
+            <a href="../../submit.html" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+              Submit a Tool &rarr;
+            </a>
+          </div>
+        </aside>
+      </div>
     
   </main>
 

@@ -835,6 +835,140 @@ const BASE_CSS = `
     }
   }
 
+  /* Tool Page 2-Column Layout (Content + Right Sidebar) */
+  .tool-page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 2.25rem;
+    align-items: start;
+    padding: 0 0 3.5rem;
+  }
+
+  .tool-page-main {
+    min-width: 0;
+  }
+
+  .tool-page-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .sidebar-widget {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.35rem 1.25rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .sidebar-widget-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-widget-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+  }
+
+  .sidebar-tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .sidebar-tip-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .sidebar-tip-icon {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .sidebar-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.6rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.18s ease;
+  }
+
+  .sidebar-tool-card:hover {
+    background: var(--bg-muted);
+    border-color: var(--border-hover);
+    transform: translateX(2px);
+  }
+
+  .sidebar-tool-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sidebar-tool-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar-tool-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem;
+  }
+
+  .sidebar-tool-desc {
+    font-size: 0.775rem;
+    color: var(--text-subtle);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.1rem;
+  }
+
+  @media (max-width: 1040px) {
+    .tool-page-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .tool-page-sidebar {
+      position: static;
+    }
+  }
+
   @media (max-width: 900px) {
     .submit-layout {
       grid-template-columns: 1fr !important;
@@ -958,6 +1092,22 @@ function renderLayout({
   <meta name="description" content="${escapeHtml(cleanDescription)}">
   <meta name="theme-color" content="#2563eb">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- OpenGraph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StaticStack">
+  <meta property="og:title" content="${escapeHtml(pageTitle)}">
+  <meta property="og:description" content="${escapeHtml(cleanDescription)}">
+  <meta property="og:image" content="https://staticstack.app/src/img/og-image.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="StaticStack - The Curated Static Website Toolkit">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(cleanDescription)}">
+  <meta name="twitter:image" content="https://staticstack.app/src/img/og-image.webp">
+
   <style>
     ${BASE_CSS}
   </style>
@@ -1703,8 +1853,45 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
 // ==========================================================================
 // 6. Generate Dedicated HTML Pages for ALL 94 Tools!
 // ==========================================================================
-console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
+// Helper to select deterministic diverse random tools for sidebar
+function getRandomTools(currentSlug, count = 4) {
+  const otherTools = allTools.filter(t => t.slug !== currentSlug);
+  let hash = 0;
+  for (let i = 0; i < currentSlug.length; i++) {
+    hash = (hash << 5) - hash + currentSlug.charCodeAt(i);
+    hash |= 0;
+  }
+  const seed = Math.abs(hash);
 
+  const shuffled = [...otherTools].sort((a, b) => {
+    const valA = ((a.slug.charCodeAt(0) * 31 + a.slug.length * 17 + seed) % 97);
+    const valB = ((b.slug.charCodeAt(0) * 31 + b.slug.length * 17 + seed) % 97);
+    return valA - valB;
+  });
+
+  const picked = [];
+  const categoriesSeen = new Set();
+  for (const t of shuffled) {
+    if (!categoriesSeen.has(t.categorySlug)) {
+      categoriesSeen.add(t.categorySlug);
+      picked.push(t);
+      if (picked.length >= count) break;
+    }
+  }
+
+  if (picked.length < count) {
+    for (const t of shuffled) {
+      if (!picked.some(p => p.slug === t.slug)) {
+        picked.push(t);
+        if (picked.length >= count) break;
+      }
+    }
+  }
+
+  return picked;
+}
+
+console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
 allTools.forEach(tool => {
   let cleanMd = tool.rawMd || `# ${tool.name}\n\n> ${tool.description}\n\n- **Website**: ${tool.websiteUrl}`;
   // Strip trailing markdown navigation links
@@ -1731,6 +1918,34 @@ allTools.forEach(tool => {
     badgeClass = 'badge-paid';
     badgeIcon = ICONS.tag;
   }
+
+  const randomTools = getRandomTools(tool.slug, 4);
+  const randomToolsHtml = randomTools.map(rt => {
+    let rtBadgeClass = 'badge-freemium';
+    const rtPBadge = rt.primaryBadge.toLowerCase();
+    if (rtPBadge.includes('open source')) {
+      rtBadgeClass = 'badge-open-source';
+    } else if (rtPBadge.includes('free')) {
+      rtBadgeClass = 'badge-free';
+    } else if (rtPBadge.includes('paid')) {
+      rtBadgeClass = 'badge-paid';
+    }
+
+    return `
+      <a href="../../tools/${rt.categorySlug}/${rt.slug}.html" class="sidebar-tool-card">
+        <span class="sidebar-tool-icon">
+          ${CATEGORY_ICONS[rt.categorySlug] || ICONS.zap}
+        </span>
+        <div class="sidebar-tool-info">
+          <div class="sidebar-tool-name">
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(rt.name)}</span>
+            <span class="badge ${rtBadgeClass}" style="font-size:0.65rem; padding:0.1rem 0.4rem;">${escapeHtml(rt.primaryBadge)}</span>
+          </div>
+          <div class="sidebar-tool-desc">${escapeHtml(rt.tagline || rt.description)}</div>
+        </div>
+      </a>
+    `;
+  }).join('');
 
   const renderedToolHtml = renderLayout({
     title: `${tool.name} - ${tool.categoryTitle}`,
@@ -1780,52 +1995,126 @@ allTools.forEach(tool => {
     },
     rootPath: '../../',
     content: `
-      <article style="padding: 0 0 3.5rem;">
-        <!-- Rendered Documentation -->
-        <div class="markdown-body">
-          ${parsedHtml}
+      <div class="tool-page-layout">
+        <!-- Main Documentation & Discussion -->
+        <div class="tool-page-main">
+          <article style="padding: 0 0 2rem;">
+            <!-- Rendered Documentation -->
+            <div class="markdown-body">
+              ${parsedHtml}
+            </div>
+
+            <!-- Discussion via Giscus -->
+            <section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+              <div style="margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
+                <div style="display:flex; align-items:center; gap:0.55rem;">
+                  <span style="color:var(--accent); display:inline-flex; align-items:center;">${CATEGORY_ICONS['comments-community']}</span>
+                  <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Discussion</h3>
+                </div>
+                <p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p>
+              </div>
+              <div class="giscus"></div>
+              <script src="https://giscus.app/client.js"
+                      data-repo="E6WeB/static-comment"
+                      data-repo-id="R_kgDOVYc0DQ"
+                      data-category="General"
+                      data-category-id="DIC_kwDOVYc0Dc4DJsXu"
+                      data-mapping="pathname"
+                      data-strict="0"
+                      data-reactions-enabled="0"
+                      data-emit-metadata="0"
+                      data-input-position="bottom"
+                      data-theme="light"
+                      data-lang="en"
+                      crossorigin="anonymous"
+                      async>
+              </script>
+            </section>
+
+            <!-- Bottom Navigation -->
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
+              <a href="../../archive.html#${tool.categorySlug}" class="btn btn-secondary">
+                ${ICONS.arrowLeft} Back to ${escapeHtml(tool.categoryTitle)}
+              </a>
+              <a href="../../archive.html" class="btn btn-secondary">
+                Browse Full Archive
+              </a>
+              <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Visit Official Site ${ICONS.external}
+              </a>
+            </div>
+          </article>
         </div>
 
-        <!-- Community Comments via Giscus -->
-        <section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
-          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
-            <span style="color:var(--accent); display:flex; align-items:center;">${CATEGORY_ICONS['comments-community']}</span>
-            <div>
-              <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Community Discussion</h3>
-              <p style="font-size:0.875rem; color:var(--text-muted); margin:0.25rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p>
+        <!-- Right Sidebar -->
+        <aside class="tool-page-sidebar">
+          <!-- Static Site Hints & Tips Card -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-header">
+              <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.sparkles}</span>
+              <h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4>
+            </div>
+            <div class="sidebar-widget-body">
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon">${ICONS.check}</span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Zero Backend Required</strong>
+                  All tools here integrate directly into HTML/CSS/JS without hosting server runtimes or databases.
+                </div>
+              </div>
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon">${ICONS.zap}</span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Async Performance</strong>
+                  Always use <code>async</code> or <code>defer</code> on widget scripts to keep page load times fast.
+                </div>
+              </div>
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon">${ICONS.shield}</span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">API Key Security</strong>
+                  Never commit secret tokens to static repositories. Use public client keys or edge proxies.
+                </div>
+              </div>
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon">${ICONS.globe}</span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Host Anywhere</strong>
+                  Compatible with GitHub Pages, Cloudflare Pages, Netlify, Vercel, and Wasmer Edge.
+                </div>
+              </div>
             </div>
           </div>
-          <div class="giscus"></div>
-          <script src="https://giscus.app/client.js"
-                  data-repo="E6WeB/static-comment"
-                  data-repo-id="R_kgDOVYc0DQ"
-                  data-category="General"
-                  data-category-id="DIC_kwDOVYc0Dc4DJsXu"
-                  data-mapping="pathname"
-                  data-strict="0"
-                  data-reactions-enabled="0"
-                  data-emit-metadata="0"
-                  data-input-position="bottom"
-                  data-theme="light"
-                  data-lang="en"
-                  crossorigin="anonymous"
-                  async>
-          </script>
-        </section>
 
-        <!-- Bottom Navigation -->
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
-          <a href="../../archive.html#${tool.categorySlug}" class="btn btn-secondary">
-            ${ICONS.arrowLeft} Back to ${escapeHtml(tool.categoryTitle)}
-          </a>
-          <a href="../../archive.html" class="btn btn-secondary">
-            Browse Full Archive
-          </a>
-          <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            Visit Official Site ${ICONS.external}
-          </a>
-        </div>
-      </article>
+          <!-- Discover Random Tools Card -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-header" style="justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:0.5rem;">
+                <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.star}</span>
+                <h4 class="sidebar-widget-title">Discover Random Tools</h4>
+              </div>
+              <a href="../../archive.html" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
+            </div>
+            <div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
+              ${randomToolsHtml}
+            </div>
+          </div>
+
+          <!-- Submit Alternative Card -->
+          <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+              <span style="color:var(--accent); display:inline-flex;">${ICONS.plusCircle}</span>
+              <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
+              StaticStack is community curated. Share your favorite static web service or tool with the community.
+            </p>
+            <a href="../../submit.html" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+              Submit a Tool &rarr;
+            </a>
+          </div>
+        </aside>
+      </div>
     `
   });
 
@@ -1838,10 +2127,14 @@ allTools.forEach(tool => {
   ensureDir(toolSubDir);
   fs.writeFileSync(path.join(toolSubDir, 'index.html'), renderedToolHtml);
 
-  // Also write into the category directory directly: e.g. payments-ecommerce/reflow.html
+  // Also write into the category directory directly: e.g. payments-ecommerce/reflow.html and payments-ecommerce/reflow/index.html
   const directCatDir = path.join(ROOT_DIR, tool.folder);
   ensureDir(directCatDir);
   fs.writeFileSync(path.join(directCatDir, `${tool.slug}.html`), renderedToolHtml);
+
+  const directSubDir = path.join(directCatDir, tool.slug);
+  ensureDir(directSubDir);
+  fs.writeFileSync(path.join(directSubDir, 'index.html'), renderedToolHtml);
 
   // Mirror to public/
   const pubToolCatDir = path.join(PUBLIC_DIR, 'tools', tool.categorySlug);
@@ -1855,6 +2148,10 @@ allTools.forEach(tool => {
   const pubDirectCatDir = path.join(PUBLIC_DIR, tool.folder);
   ensureDir(pubDirectCatDir);
   fs.writeFileSync(path.join(pubDirectCatDir, `${tool.slug}.html`), renderedToolHtml);
+
+  const pubDirectSubDir = path.join(pubDirectCatDir, tool.slug);
+  ensureDir(pubDirectSubDir);
+  fs.writeFileSync(path.join(pubDirectSubDir, 'index.html'), renderedToolHtml);
 });
 
 // ==========================================================================
@@ -1899,5 +2196,17 @@ fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'tha
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thankyou', 'index.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thank-you.html'), path.join(PUBLIC_DIR, 'thank-you.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thank-you', 'index.html'));
+
+// Sync src/img assets to public/
+ensureDir(path.join(PUBLIC_DIR, 'src', 'img'));
+if (fs.existsSync(path.join(ROOT_DIR, 'src', 'img', 'og-image.webp'))) {
+  fs.copyFileSync(path.join(ROOT_DIR, 'src', 'img', 'og-image.webp'), path.join(PUBLIC_DIR, 'src', 'img', 'og-image.webp'));
+  if (fs.existsSync(path.join(ROOT_DIR, 'src', 'img', 'opengraph.webp'))) {
+    fs.copyFileSync(path.join(ROOT_DIR, 'src', 'img', 'opengraph.webp'), path.join(PUBLIC_DIR, 'src', 'img', 'opengraph.webp'));
+  }
+  if (fs.existsSync(path.join(ROOT_DIR, 'src', 'img', 'og.webp'))) {
+    fs.copyFileSync(path.join(ROOT_DIR, 'src', 'img', 'og.webp'), path.join(PUBLIC_DIR, 'src', 'img', 'og.webp'));
+  }
+}
 
 console.log(`🎉 Complete! Generated all main pages with wider 320px archive sidebar + dedicated HTML pages for all ${allTools.length} tools!`);

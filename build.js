@@ -259,15 +259,17 @@ function renderLayout({
   <meta property="og:type" content="${ogType}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
-  <meta property="og:description" content="${escapeHtml(cleanDescription)}">
-  <meta property="og:image" content="https://staticstack.app/og-image.png">
+  <meta property="og:image" content="https://staticstack.app/src/img/og-image.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(cleanDescription)}">
-  <meta name="twitter:image" content="https://staticstack.app/og-image.png">
+  <meta name="twitter:image" content="https://staticstack.app/src/img/og-image.webp">
 
   <!-- Stylesheet & Favicon -->
   <link rel="stylesheet" href="/css/style.css">
@@ -544,7 +546,7 @@ const homeSchema = {
       "@id": "https://staticstack.app/#organization",
       "name": "StaticStack",
       "url": "https://staticstack.app/",
-      "logo": "https://staticstack.app/og-image.png"
+      "logo": "https://staticstack.app/src/img/og-image.webp"
     }
   ]
 };
