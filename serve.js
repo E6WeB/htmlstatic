@@ -21,12 +21,15 @@ const MIME_TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.ico': 'image/x-icon',
+  '.webp': 'image/webp',
+  '.toml': 'application/toml; charset=utf-8',
+  '.yaml': 'text/yaml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8'
 };
 
 const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url);
-  let pathname = decodeURIComponent(parsedUrl.pathname);
+  const reqUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+  let pathname = decodeURIComponent(reqUrl.pathname);
 
   // Normalize path
   let filePath = path.join(SERVE_DIR, pathname);
@@ -36,6 +39,11 @@ const server = http.createServer((req, res) => {
     filePath = path.join(filePath, 'index.html');
   } else if (!path.extname(filePath) && fs.existsSync(filePath + '.html')) {
     filePath = filePath + '.html';
+  } else {
+    const stripped = pathname.replace(/\/+$/, '');
+    if (stripped && fs.existsSync(path.join(SERVE_DIR, stripped + '.html'))) {
+      filePath = path.join(SERVE_DIR, stripped + '.html');
+    }
   }
 
   // Check if file exists

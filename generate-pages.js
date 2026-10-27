@@ -1735,7 +1735,7 @@ function renderLayout({
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="${rootPath}index.html" class="brand">
+      <a href="${rootPath || './'}" class="brand">
         <span class="brand-icon">${ICONS.logo}</span>
         <span>StaticStack</span>
         <span class="brand-badge">Toolkit</span>
@@ -1744,9 +1744,9 @@ function renderLayout({
       <!-- Desktop Clean Nav Menu -->
       <nav class="nav-drawer" aria-label="Main Navigation">
         <ul id="nav-links" class="nav-links">
-          <li><a href="${rootPath}index.html" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
-          <li><a href="${rootPath}archive.html" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
-          <li><a href="${rootPath}submit.html" class="nav-link ${currentNav === 'submit' ? 'active' : ''}">Submit</a></li>
+          <li><a href="${rootPath || './'}" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
+          <li><a href="${rootPath}archive" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
+          <li><a href="${rootPath}submit" class="nav-link ${currentNav === 'submit' ? 'active' : ''}">Submit</a></li>
           <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">${ICONS.github} GitHub</a></li>
         </ul>
       </nav>
@@ -1761,7 +1761,7 @@ function renderLayout({
   <!-- Full-Screen Mobile Navigation Overlay -->
   <div id="mobile-nav-modal" class="mobile-nav-modal" role="dialog" aria-modal="true" aria-label="Navigation Menu" tabindex="-1">
     <div class="mobile-nav-header">
-      <a href="${rootPath}index.html" class="brand" onclick="closeMobileNav()">
+      <a href="${rootPath || './'}" class="brand" onclick="closeMobileNav()">
         <span class="brand-icon">${ICONS.logo}</span>
         <span>StaticStack</span>
       </a>
@@ -1773,7 +1773,7 @@ function renderLayout({
     <div class="mobile-nav-body">
       <ul class="mobile-nav-list">
         <li class="mobile-nav-item">
-          <a href="${rootPath}index.html" class="${currentNav === 'home' ? 'active' : ''}" onclick="closeMobileNav()">
+          <a href="${rootPath || './'}" class="${currentNav === 'home' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.home}</span>
               <span>Home</span>
@@ -1782,7 +1782,7 @@ function renderLayout({
           </a>
         </li>
         <li class="mobile-nav-item">
-          <a href="${rootPath}archive.html" class="${currentNav === 'archive' ? 'active' : ''}" onclick="closeMobileNav()">
+          <a href="${rootPath}archive" class="${currentNav === 'archive' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.archive}</span>
               <span>Master Archive</span>
@@ -1791,7 +1791,7 @@ function renderLayout({
           </a>
         </li>
         <li class="mobile-nav-item">
-          <a href="${rootPath}submit.html" class="${currentNav === 'submit' ? 'active' : ''}" onclick="closeMobileNav()">
+          <a href="${rootPath}submit" class="${currentNav === 'submit' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.plusCircle}</span>
               <span>Submit a Tool</span>
@@ -1800,7 +1800,7 @@ function renderLayout({
           </a>
         </li>
         <li class="mobile-nav-item">
-          <a href="${rootPath}contribute.html" class="${currentNav === 'contribute' ? 'active' : ''}" onclick="closeMobileNav()">
+          <a href="${rootPath}contribute" class="${currentNav === 'contribute' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.gitPullRequest}</span>
               <span>Contributing Guide</span>
@@ -1809,7 +1809,7 @@ function renderLayout({
           </a>
         </li>
         <li class="mobile-nav-item">
-          <a href="${rootPath}thankyou.html" class="${currentNav === 'thankyou' ? 'active' : ''}" onclick="closeMobileNav()">
+          <a href="${rootPath}thankyou" class="${currentNav === 'thankyou' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.heart}</span>
               <span>Thank You &amp; Credits</span>
@@ -1842,7 +1842,7 @@ function renderLayout({
     <div class="container">
       <div class="footer-inner">
         <div>
-          <a href="${rootPath}index.html" class="brand" style="margin-bottom: 0.75rem;">
+          <a href="${rootPath || './'}" class="brand" style="margin-bottom: 0.75rem;">
             <span class="brand-icon">${ICONS.logo}</span>
             <span>StaticStack</span>
           </a>
@@ -1854,17 +1854,17 @@ function renderLayout({
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul class="footer-links">
-            <li><a href="${rootPath}index.html">Home</a></li>
-            <li><a href="${rootPath}archive.html">Master Archive</a></li>
-            <li><a href="${rootPath}submit.html">Submit a Tool</a></li>
+            <li><a href="${rootPath || './'}">Home</a></li>
+            <li><a href="${rootPath}archive">Master Archive</a></li>
+            <li><a href="${rootPath}submit">Submit a Tool</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Community &amp; Project</h4>
           <ul class="footer-links">
-            <li><a href="${rootPath}contribute.html">Contributing Guide</a></li>
-            <li><a href="${rootPath}thankyou.html">Thank You &amp; Credits</a></li>
+            <li><a href="${rootPath}contribute">Contributing Guide</a></li>
+            <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
             <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue</a></li>
@@ -1989,13 +1989,13 @@ const homeContent = `
     </div>
 
     <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:3.5rem;">
-      <a href="archive.html" class="btn btn-primary">
+      <a href="archive" class="btn btn-primary">
         Browse Master Archive ${ICONS.arrowRight}
       </a>
       <a href="#categories" class="btn btn-secondary">
         Browse 25 Categories
       </a>
-      <a href="submit.html" class="btn btn-secondary">
+      <a href="submit" class="btn btn-secondary">
         Submit a Tool
       </a>
     </div>
@@ -2034,7 +2034,7 @@ const homeContent = `
         <h2 style="font-size:1.85rem; font-weight:800; margin-bottom:0.35rem;">Explore by Category</h2>
         <p style="color:var(--text-muted); font-size:1rem;">Jump to any category or view all tools in the master archive.</p>
       </div>
-      <a href="archive.html" class="btn btn-secondary" style="font-size:0.85rem;">View Full Archive →</a>
+      <a href="archive" class="btn btn-secondary" style="font-size:0.85rem;">View Full Archive →</a>
     </div>
 
     <div id="category-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:1.25rem;">
@@ -2042,7 +2042,7 @@ const homeContent = `
         const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
         const searchTerms = (cat.title + ' ' + cat.description + ' ' + cat.tools.map(t => t.name).join(' ')).toLowerCase();
         return `
-        <a href="archive.html#${cat.slug}" class="category-card" data-search="${escapeHtml(searchTerms)}" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#${cat.slug}" class="category-card" data-search="${escapeHtml(searchTerms)}" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;">${icon}</div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">${cat.tools.length} Tools</span>
@@ -2092,9 +2092,9 @@ const homeContent = `
     function submitHeroSearch() {
       const val = heroSearchInput ? heroSearchInput.value.trim() : '';
       if (val) {
-        window.location.href = 'archive.html?q=' + encodeURIComponent(val);
+        window.location.href = 'archive?q=' + encodeURIComponent(val);
       } else {
-        window.location.href = 'archive.html';
+        window.location.href = 'archive';
       }
     }
 
@@ -2110,7 +2110,7 @@ const homeContent = `
     }
 
     function quickSearchTag(tag) {
-      window.location.href = 'archive.html?q=' + encodeURIComponent(tag);
+      window.location.href = 'archive?q=' + encodeURIComponent(tag);
     }
 
     document.addEventListener('keydown', e => {
@@ -2214,7 +2214,7 @@ const archiveRandomToolsHtml = archiveRandomTools.map(rt => {
   }
 
   return `
-    <a href="tools/${rt.categorySlug}/${rt.slug}.html" class="sidebar-tool-card">
+    <a href="tools/${rt.categorySlug}/${rt.slug}" class="sidebar-tool-card">
       <span class="sidebar-tool-icon">
         ${CATEGORY_ICONS[rt.categorySlug] || ICONS.zap}
       </span>
@@ -2314,7 +2314,7 @@ const archiveContent = `
         <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
           StaticStack is community curated. Share your favorite static web service or tool with the community.
         </p>
-        <a href="submit.html" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+        <a href="submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
           Submit a Tool &rarr;
         </a>
       </div>
@@ -2376,7 +2376,7 @@ const archiveContent = `
                   return `
                   <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
-                      <a href="tools/${tool.categorySlug}/${tool.slug}.html" title="View documentation and guide for ${escapeHtml(tool.name)}">${escapeHtml(tool.name)}</a>
+                      <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}">${escapeHtml(tool.name)}</a>
                     </td>
                     <td style="padding:0.85rem 1rem; color:var(--text-muted); line-height:1.5;">${escapeHtml(tool.description)}</td>
                     <td style="padding:0.85rem 1rem;">
@@ -2544,8 +2544,8 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
   currentNav: 'archive',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: 'index.html' },
-      { label: 'Archive', url: 'archive.html' }
+      { label: 'Home', url: './' },
+      { label: 'Archive', url: 'archive' }
     ],
     icon: ICONS.archive,
     title: 'Master Directory',
@@ -2652,7 +2652,7 @@ const submitContent = `
         <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
           You can edit <code>README.md</code> directly and submit a PR with your proposed addition.
         </p>
-        <a href="contribute.html" class="btn btn-secondary btn-sm">Read Contributing Guide →</a>
+        <a href="contribute" class="btn btn-secondary btn-sm">Read Contributing Guide →</a>
       </div>
     </div>
   </div>
@@ -2690,8 +2690,8 @@ fs.writeFileSync(path.join(ROOT_DIR, 'submit.html'), renderLayout({
   currentNav: 'submit',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: 'index.html' },
-      { label: 'Submit a Tool', url: 'submit.html' }
+      { label: 'Home', url: './' },
+      { label: 'Submit a Tool', url: 'submit' }
     ],
     icon: ICONS.plusCircle,
     title: 'Submit a Tool',
@@ -2720,14 +2720,14 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contribute.html'), renderLayout({
   currentNav: '',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: 'index.html' },
-      { label: 'Contributing Guide', url: 'contribute.html' }
+      { label: 'Home', url: './' },
+      { label: 'Contributing Guide', url: 'contribute' }
     ],
     icon: ICONS.gitPullRequest,
     title: 'Contributing Guide',
     subtext: 'Thank you for helping keep the Static Website Toolkit accurate, comprehensive, and valuable! Learn how to propose tools, improve docs, or open pull requests.',
     actions: `
-      <a href="submit.html" class="btn btn-primary btn-sm">Use Web Submit Form →</a>
+      <a href="submit" class="btn btn-primary btn-sm">Use Web Submit Form →</a>
       <a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
         GitHub Issues ${ICONS.external}
       </a>
@@ -2759,8 +2759,8 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
   currentNav: '',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: 'index.html' },
-      { label: 'Thank You & Credits', url: 'thankyou.html' }
+      { label: 'Home', url: './' },
+      { label: 'Thank You & Credits', url: 'thankyou' }
     ],
     icon: ICONS.heart,
     title: 'Thank You & Credits',
@@ -2786,10 +2786,10 @@ allTools.forEach(tool => {
   // Render markdown with relative link rewriting
   let parsedHtml = marked.parse(cleanMd);
   parsedHtml = parsedHtml
-    .replace(/href="(?:\.\.\/)+README\.md#([^"]+)"/g, 'href="../../archive.html#$1"')
-    .replace(/href="(?:\.\.\/)+README\.md"/g, 'href="../../archive.html"')
-    .replace(/href="(?:\.\.\/)+([a-z0-9\-]+)\/([a-z0-9\-]+)\.md"/g, 'href="../../tools/$1/$2.html"')
-    .replace(/href="([a-z0-9\-]+)\.md"/g, 'href="../../tools/' + tool.categorySlug + '/$1.html"');
+    .replace(/href="(?:\.\.\/)+README\.md#([^"]+)"/g, 'href="../../archive#$1"')
+    .replace(/href="(?:\.\.\/)+README\.md"/g, 'href="../../archive"')
+    .replace(/href="(?:\.\.\/)+([a-z0-9\-]+)\/([a-z0-9\-]+)\.md"/g, 'href="../../tools/$1/$2"')
+    .replace(/href="([a-z0-9\-]+)\.md"/g, 'href="../../tools/' + tool.categorySlug + '/$1"');
 
   let badgeClass = 'badge-freemium';
   let badgeIcon = ICONS.star;
@@ -2818,7 +2818,7 @@ allTools.forEach(tool => {
     }
 
     return `
-      <a href="../../tools/${rt.categorySlug}/${rt.slug}.html" class="sidebar-tool-card">
+      <a href="../../tools/${rt.categorySlug}/${rt.slug}" class="sidebar-tool-card">
         <span class="sidebar-tool-icon">
           ${CATEGORY_ICONS[rt.categorySlug] || ICONS.zap}
         </span>
@@ -2839,14 +2839,14 @@ allTools.forEach(tool => {
     currentNav: 'archive',
     miniHero: {
       breadcrumbs: [
-        { label: 'Home', url: '../../index.html' },
-        { label: 'Archive', url: '../../archive.html' },
-        { label: tool.categoryTitle, url: `../../archive.html#${tool.categorySlug}` },
+        { label: 'Home', url: '../../' },
+        { label: 'Archive', url: '../../archive' },
+        { label: tool.categoryTitle, url: `../../archive#${tool.categorySlug}` },
         { label: tool.name, url: '#' }
       ],
       badgeRow: `
         <span class="badge ${badgeClass}">${badgeIcon} ${escapeHtml(tool.primaryBadge)}</span>
-        <a href="../../archive.html#${tool.categorySlug}" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">
+        <a href="../../archive#${tool.categorySlug}" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">
           <span style="display:inline-flex; align-items:center;">${CATEGORY_ICONS[tool.categorySlug] || ICONS.zap}</span>
           ${escapeHtml(tool.categoryTitle)}
         </a>
@@ -2873,7 +2873,7 @@ allTools.forEach(tool => {
           <div style="display:flex; align-items:center; gap:0.4rem;">
             <span style="color:var(--text-subtle); display:inline-flex;">${ICONS.tag}</span>
             <strong>Category:</strong>
-            <a href="../../archive.html#${tool.categorySlug}">${escapeHtml(tool.categoryTitle)}</a>
+            <a href="../../archive#${tool.categorySlug}">${escapeHtml(tool.categoryTitle)}</a>
           </div>
           <div class="mini-hero-extra-edit" style="margin-left:auto;">
             <a href="https://github.com/E6WeB/htmlstatic/blob/main/${tool.relPath}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
@@ -2923,10 +2923,10 @@ allTools.forEach(tool => {
 
             <!-- Bottom Navigation -->
             <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
-              <a href="../../archive.html#${tool.categorySlug}" class="btn btn-secondary">
+              <a href="../../archive#${tool.categorySlug}" class="btn btn-secondary">
                 ${ICONS.arrowLeft} Back to ${escapeHtml(tool.categoryTitle)}
               </a>
-              <a href="../../archive.html" class="btn btn-secondary">
+              <a href="../../archive" class="btn btn-secondary">
                 Browse Full Archive
               </a>
               <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -2983,7 +2983,7 @@ allTools.forEach(tool => {
                 <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.star}</span>
                 <h4 class="sidebar-widget-title">Discover Random Tools</h4>
               </div>
-              <a href="../../archive.html" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
+              <a href="../../archive" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
             </div>
             <div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
               ${randomToolsHtml}
@@ -2999,7 +2999,7 @@ allTools.forEach(tool => {
             <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
               StaticStack is community curated. Share your favorite static web service or tool with the community.
             </p>
-            <a href="../../submit.html" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+            <a href="../../submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
               Submit a Tool &rarr;
             </a>
           </div>
@@ -3036,15 +3036,15 @@ allTools.forEach(tool => {
 const today = new Date().toISOString().split('T')[0];
 const sitemapUrls = [
   { loc: 'https://staticstack.app/', priority: '1.0', changefreq: 'daily' },
-  { loc: 'https://staticstack.app/archive.html', priority: '0.9', changefreq: 'weekly' },
-  { loc: 'https://staticstack.app/submit.html', priority: '0.8', changefreq: 'monthly' },
-  { loc: 'https://staticstack.app/contribute.html', priority: '0.8', changefreq: 'monthly' },
-  { loc: 'https://staticstack.app/thankyou.html', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
+  { loc: 'https://staticstack.app/submit', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/contribute', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/thankyou', priority: '0.7', changefreq: 'monthly' },
 ];
 
 categories.forEach(cat => {
   sitemapUrls.push({
-    loc: `https://staticstack.app/archive.html#${cat.slug}`,
+    loc: `https://staticstack.app/archive#${cat.slug}`,
     priority: '0.85',
     changefreq: 'weekly'
   });
@@ -3053,7 +3053,7 @@ categories.forEach(cat => {
 categories.forEach(cat => {
   cat.tools.forEach(tool => {
     sitemapUrls.push({
-      loc: `https://staticstack.app/tools/${cat.slug}/${tool.slug}.html`,
+      loc: `https://staticstack.app/tools/${cat.slug}/${tool.slug}`,
       priority: '0.8',
       changefreq: 'monthly'
     });
@@ -3091,7 +3091,7 @@ categories.forEach(cat => {
     title: cat.title,
     description: cat.description,
     category: 'Category',
-    url: `/archive.html#${cat.slug}`
+    url: `/archive#${cat.slug}`
   });
 });
 
@@ -3100,7 +3100,7 @@ allTools.forEach(tool => {
     title: tool.name,
     description: tool.description,
     category: tool.categoryTitle,
-    url: `/tools/${tool.categorySlug}/${tool.slug}.html`
+    url: `/tools/${tool.categorySlug}/${tool.slug}`
   });
 });
 

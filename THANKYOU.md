@@ -1,4 +1,4 @@
-# Thank You! 💖
+# Thank You! <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-3px;margin-left:0.35rem;color:var(--accent,#2563eb);"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 
 Thank you for visiting, using, and supporting the **Static Website Toolkit**!
 
@@ -6,50 +6,52 @@ This project was created to empower developers, designers, and creators to build
 
 ---
 
-## Special Thanks
+## Special Thanks <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-3px;margin-left:0.35rem;color:var(--accent,#2563eb);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
 
 We want to extend our heartfelt gratitude to:
 
-- **Our Contributors**: Everyone who takes the time to suggest new tools, correct links, improve descriptions, and submit pull requests.
-- **Tool Creators & Maintainers**: The brilliant developers and companies building the APIs, services, and platforms featured in this list that make modern static websites so powerful.
-- **The Open Source & Web Community**: Everyone who stars this repository, shares it with colleagues, and champions the static web.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> **Our Contributors**: Everyone who takes the time to suggest new tools, correct links, improve descriptions, and submit pull requests.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> **Tool Creators & Maintainers**: The brilliant developers and companies building the APIs, services, and platforms featured in this list that make modern static websites so powerful.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> **The Open Source & Web Community**: Everyone who stars this repository, shares it with colleagues, and champions the static web.
 
 ---
 
-## Built With 🛠️
+## Built With <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-3px;margin-left:0.35rem;color:var(--accent,#2563eb);"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
 
 This project was created and is maintained with:
 
-- **<a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">Antigravity IDE</a>** ([Overview](development-tools/antigravity-ide.md)): Google's AI-first development environment for autonomous agent workflows, coding, and documentation curation.
-- **<a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">GitHub Desktop</a>** ([Overview](development-tools/github-desktop.md)): Visual Git version control application for streamlined branch management, staging, and commits.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> **Domain Name: <a href="https://www.namesilo.com/" target="_blank" rel="noopener noreferrer">NameSilo</a>**: Domain name registration and DNS management for [staticstack.app](https://staticstack.app/).
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> **Hosting: <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">Wasmer.io</a>** ([Guide](tools/hosting-deployment/wasmer)): High-performance decentralized edge hosting and static web server runtime running on Wasmer Edge.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg> **<a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">Antigravity IDE</a>** ([Guide](tools/development-tools/antigravity-ide)): Google's AI-first development environment for autonomous agent workflows, coding, and documentation curation.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg> **<a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">GitHub Desktop</a>** ([Guide](tools/development-tools/github-desktop)): Visual Git version control application for streamlined branch management, staging, and commits.
 
 ---
 
-## Join the Community 🌐
+## Join the Community <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-3px;margin-left:0.35rem;color:var(--accent,#2563eb);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
 
 Want to connect with other web creators, discuss static and dynamic website architecture, or get advice on tools and integrations?
 
 Join our community on Facebook:
 
-👉 **<a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Facebook Group</a>**
+<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-flex;vertical-align:-3px;margin-right:0.35rem;color:#1877f2;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> **<a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Facebook Group</a>**
 
 ### What we discuss in the group:
-- Adding dynamic features (contact forms, payments, comments, newsletters, search) to static sites
-- Modern frontend tools, Jamstack architecture, and serverless workflows
-- Real-world showcases, case studies, and project feedback
-- Performance optimization, SEO, and security best practices
-- Troubleshooting tips and tool recommendations
+- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><polyline points="20 6 9 17 4 12"></polyline></svg> Adding dynamic features (contact forms, payments, comments, newsletters, search) to static sites
+- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><polyline points="20 6 9 17 4 12"></polyline></svg> Modern frontend tools, Jamstack architecture, and serverless workflows
+- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><polyline points="20 6 9 17 4 12"></polyline></svg> Real-world showcases, case studies, and project feedback
+- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><polyline points="20 6 9 17 4 12"></polyline></svg> Performance optimization, SEO, and security best practices
+- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><polyline points="20 6 9 17 4 12"></polyline></svg> Troubleshooting tips and tool recommendations
 
 > [!NOTE]
 > **Community Standard**: Zero advertisement and no affiliate links are allowed—both in this repository and within the group. Our focus is strictly on sharing genuine tools, knowledge, and helping one another.
 
 ---
 
-## Ways to Stay Connected
+## Ways to Stay Connected <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-3px;margin-left:0.35rem;color:var(--accent,#2563eb);"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
 
-- **Join the Group**: Jump into the <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Facebook Group</a> and introduce yourself!
-- **Star this Repository**: If you find this toolkit useful, leave a ⭐ on GitHub to help others discover it.
-- **Contribute**: Have a tool to recommend? Check out our [Contributing Guidelines](CONTRIBUTING.md) and submit a PR or issue.
-- **Share**: Spread the word with friends, teams, and developer communities who love building fast websites.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:#1877f2;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> **Join the Group**: Jump into the <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Facebook Group</a> and introduce yourself!
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:#f59e0b;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> **Star this Repository**: If you find this toolkit useful, leave a star on GitHub to help others discover it.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg> **Contribute**: Have a tool to recommend? Check out our [Contributing Guidelines](contribute) and submit a PR or issue.
+- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;color:var(--accent,#2563eb);"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg> **Share**: Spread the word with friends, teams, and developer communities who love building fast websites.
 
-Thank you for being part of the community! 🚀
+Thank you for being part of the community! <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-left:0.35rem;color:var(--accent,#2563eb);"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
