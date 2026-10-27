@@ -839,7 +839,7 @@
     "title": "Images & Optimization",
     "slug": "images-optimization",
     "description": "Optimize images and other assets to improve loading speed and user experience.",
-    "toolsCount": 4,
+    "toolsCount": 5,
     "tools": [
       {
         "name": "File Converter",
@@ -888,6 +888,19 @@
         ],
         "websiteUrl": "https://tinypng.com/",
         "websiteLabel": "tinypng.com"
+      },
+      {
+        "name": "Unsplash",
+        "slug": "unsplash",
+        "relPath": "images-optimization/unsplash.md",
+        "folder": "images-optimization",
+        "description": "High-resolution, royalty-free stock photography library for website assets",
+        "badges": [
+          "Free",
+          "Freemium"
+        ],
+        "websiteUrl": "https://unsplash.com/",
+        "websiteLabel": "unsplash.com"
       }
     ]
   },
@@ -1344,7 +1357,7 @@
     "title": "Typography & Web Fonts",
     "slug": "typography-fonts",
     "description": "Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services.",
-    "toolsCount": 2,
+    "toolsCount": 3,
     "tools": [
       {
         "name": "Bunny Fonts",
@@ -1369,6 +1382,19 @@
         ],
         "websiteUrl": "https://fontsource.org/",
         "websiteLabel": "fontsource.org"
+      },
+      {
+        "name": "Google Fonts",
+        "slug": "google-fonts",
+        "relPath": "typography-fonts/google-fonts.md",
+        "folder": "typography-fonts",
+        "description": "Extensive library of open-source fonts and icons delivered via global CDN",
+        "badges": [
+          "Free",
+          "Open Source"
+        ],
+        "websiteUrl": "https://fonts.google.com/",
+        "websiteLabel": "fonts.google.com"
       }
     ]
   }

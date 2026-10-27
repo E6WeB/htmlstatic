@@ -693,6 +693,12 @@ Optimize images and other assets to improve loading speed and user experience.
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">tinypng.com</a></td>
   </tr>
+  <tr>
+    <td><a href="images-optimization/unsplash.md">Unsplash</a></td>
+    <td>High-resolution, royalty-free stock photography library for website assets</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">unsplash.com</a></td>
+  </tr>
 </tbody>
 </table>
 
@@ -1088,6 +1094,12 @@ Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font se
     <td>Self-host open-source fonts locally with zero external network requests</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://fontsource.org/" target="_blank" rel="noopener noreferrer">fontsource.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="typography-fonts/google-fonts.md">Google Fonts</a></td>
+    <td>Extensive library of open-source fonts and icons delivered via global CDN</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"> <img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">fonts.google.com</a></td>
   </tr>
 </tbody>
 </table>

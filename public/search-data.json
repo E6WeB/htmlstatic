@@ -540,6 +540,12 @@
     "url": "/tools/images-optimization/tinypng/"
   },
   {
+    "title": "Unsplash",
+    "description": "High-resolution, royalty-free stock photography library for website assets",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/unsplash/"
+  },
+  {
     "title": "Leaflet.js",
     "description": "Lightweight open-source JavaScript library for mobile-friendly interactive maps",
     "category": "Interactive Maps & Geolocation",
@@ -730,5 +736,11 @@
     "description": "Self-host open-source fonts locally with zero external network requests",
     "category": "Typography & Web Fonts",
     "url": "/tools/typography-fonts/fontsource/"
+  },
+  {
+    "title": "Google Fonts",
+    "description": "Extensive library of open-source fonts and icons delivered via global CDN",
+    "category": "Typography & Web Fonts",
+    "url": "/tools/typography-fonts/google-fonts/"
   }
 ]

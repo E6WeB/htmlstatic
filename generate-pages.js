@@ -2546,4 +2546,83 @@ if (fs.existsSync(path.join(ROOT_DIR, 'src', 'img', 'og-image.webp'))) {
   }
 }
 
+// ==========================================================================
+// 8. Generate XML Sitemap & robots.txt
+// ==========================================================================
+const today = new Date().toISOString().split('T')[0];
+const sitemapUrls = [
+  { loc: 'https://staticstack.app/', priority: '1.0', changefreq: 'daily' },
+  { loc: 'https://staticstack.app/archive/', priority: '0.9', changefreq: 'weekly' },
+  { loc: 'https://staticstack.app/submit/', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/contributing/', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/thank-you/', priority: '0.7', changefreq: 'monthly' },
+];
+
+categories.forEach(cat => {
+  sitemapUrls.push({
+    loc: `https://staticstack.app/categories/${cat.slug}/`,
+    priority: '0.85',
+    changefreq: 'weekly'
+  });
+});
+
+categories.forEach(cat => {
+  cat.tools.forEach(tool => {
+    sitemapUrls.push({
+      loc: `https://staticstack.app/tools/${cat.slug}/${tool.slug}/`,
+      priority: '0.8',
+      changefreq: 'monthly'
+    });
+  });
+});
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`).join('\n')}
+</urlset>
+`;
+
+fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemapXml);
+
+const robotsTxt = `User-agent: *
+Allow: /
+
+Sitemap: https://staticstack.app/sitemap.xml
+`;
+
+fs.writeFileSync(path.join(PUBLIC_DIR, 'robots.txt'), robotsTxt);
+
+// ==========================================================================
+// 9. Generate Search Index (public/search-data.json)
+// ==========================================================================
+const searchIndex = [];
+
+categories.forEach(cat => {
+  searchIndex.push({
+    title: cat.title,
+    description: cat.description,
+    category: 'Category',
+    url: `/categories/${cat.slug}/`
+  });
+});
+
+allTools.forEach(tool => {
+  searchIndex.push({
+    title: tool.name,
+    description: tool.description,
+    category: tool.categoryTitle,
+    url: `/tools/${tool.categorySlug}/${tool.slug}/`
+  });
+});
+
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, 'search-data.json'),
+  JSON.stringify(searchIndex, null, 2)
+);
+
 console.log(`🎉 Complete! Generated all main pages with wider 320px archive sidebar + dedicated HTML pages for all ${allTools.length} tools!`);
