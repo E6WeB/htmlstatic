@@ -326,6 +326,8 @@ const BASE_CSS = `
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -336,9 +338,18 @@ const BASE_CSS = `
     color: var(--text-main);
     transition: background-color 0.25s ease, color 0.25s ease;
     overflow-x: hidden;
+    max-width: 100%;
     width: 100%;
     position: relative;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .site-main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--container-max);
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   a {
@@ -358,6 +369,7 @@ const BASE_CSS = `
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    box-sizing: border-box;
   }
 
   /* Buttons */
@@ -1134,15 +1146,47 @@ const BASE_CSS = `
   /* Archive Layout Styles (sidebar scrolls with page) */
   .archive-layout {
     display: grid;
-    grid-template-columns: 440px 1fr;
+    grid-template-columns: 320px minmax(0, 1fr);
     gap: 2.5rem;
     align-items: start;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
-  .archive-sidebar {
+  .archive-sidebar,
+  .archive-main {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .archive-cat-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .archive-cat-header {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .archive-cat-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
   }
 
   .archive-cat-link {
@@ -1156,6 +1200,9 @@ const BASE_CSS = `
     border-radius: var(--radius-sm);
     transition: all 0.15s ease;
     text-decoration: none;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .archive-cat-link:hover {
@@ -1177,6 +1224,7 @@ const BASE_CSS = `
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    min-width: 0;
   }
 
   .archive-cat-count {
@@ -1192,7 +1240,9 @@ const BASE_CSS = `
 
   @media (max-width: 1040px) {
     .archive-layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr) !important;
+      width: 100% !important;
+      max-width: 100% !important;
     }
   }
 
@@ -1333,21 +1383,36 @@ const BASE_CSS = `
   /* Responsive Breakpoints & Mobile Viewport Handling */
   @media (max-width: 1040px) {
     .tool-page-layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr) !important;
       gap: 2rem;
     }
     .archive-layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr) !important;
       gap: 1.5rem;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .archive-sidebar,
+    .archive-main {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     .archive-sidebar-secondary {
       display: none !important;
+    }
+    .archive-categories-widget {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
     .archive-categories-widget .archive-categories-list {
       max-height: 240px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding-right: 0.25rem;
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 
@@ -1503,21 +1568,28 @@ const BASE_CSS = `
       padding: 0.35rem 0.65rem !important;
     }
 
-    /* Archive Table: smooth horizontal scroll without clipping */
+    /* Archive Table: smooth horizontal scroll without clipping or page blowout */
     .archive-table-wrapper {
-      margin-left: -0.25rem;
-      margin-right: -0.25rem;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
       border-radius: var(--radius-md) !important;
       overflow-x: auto !important;
       -webkit-overflow-scrolling: touch !important;
+      box-sizing: border-box !important;
     }
     .archive-table {
-      min-width: 540px !important;
+      min-width: 520px !important;
       font-size: 0.85rem !important;
+      width: 100% !important;
     }
     .archive-table th,
     .archive-table td {
       padding: 0.65rem 0.75rem !important;
+    }
+    .archive-cat-title {
+      font-size: 1.35rem !important;
     }
 
     /* Markdown Body on Mobile */
@@ -2263,7 +2335,7 @@ const archiveContent = `
     </aside>
 
     <!-- Category Sections & Tool Tables -->
-    <div>
+    <div class="archive-main">
       <div id="archive-no-results" style="display:none; text-align:center; padding:3.5rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); margin-bottom:3rem; box-shadow:var(--shadow-card);">
         <div style="font-size:1.35rem; font-weight:700; margin-bottom:0.5rem;">No tools found</div>
         <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">No tools match your current filter or search criteria.</p>
@@ -2274,10 +2346,10 @@ const archiveContent = `
         const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
         return `
         <section id="${cat.slug}" class="archive-cat-section" style="margin-bottom:3.5rem; scroll-margin-top:6rem;">
-          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
-            <div style="color:var(--accent);">${icon}</div>
-            <h2 style="font-size:1.6rem; font-weight:800; margin:0;">${escapeHtml(cat.title)}</h2>
-            <span style="font-size:0.8rem; background:var(--accent-light); color:var(--accent); padding:0.15rem 0.55rem; border-radius:var(--radius-full); font-weight:700;">${cat.tools.length} tools</span>
+          <div class="archive-cat-header" style="display:flex; align-items:center; gap:0.5rem 0.75rem; flex-wrap:wrap; margin-bottom:0.75rem; width:100%; max-width:100%;">
+            <div style="color:var(--accent); flex-shrink:0;">${icon}</div>
+            <h2 class="archive-cat-title" style="font-weight:800; margin:0; min-width:0; overflow-wrap:break-word; word-break:break-word;">${escapeHtml(cat.title)}</h2>
+            <span style="font-size:0.8rem; background:var(--accent-light); color:var(--accent); padding:0.15rem 0.55rem; border-radius:var(--radius-full); font-weight:700; flex-shrink:0;">${cat.tools.length} tools</span>
           </div>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.55; margin-bottom:1.25rem;">${escapeHtml(cat.description)}</p>
 
@@ -2478,9 +2550,9 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
     subtext: `Complete catalog of all ${uniqueToolsCount} tools across ${categories.length} categories for static websites. Filter by pricing or jump directly to any category section.`,
     extraHtml: `
       <!-- Archive Search & Filter Controls -->
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.25rem;">
-        <div style="flex:1 1 300px; position:relative; max-width:480px;">
-          <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all ${uniqueToolsCount} tools by name, description, keyword...">
+      <div class="archive-controls-row" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.25rem; width:100%; max-width:100%; box-sizing:border-box;">
+        <div style="flex:1 1 260px; position:relative; max-width:480px; width:100%; min-width:0; box-sizing:border-box;">
+          <input type="text" id="archive-search-input" style="width:100%; max-width:100%; box-sizing:border-box; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all ${uniqueToolsCount} tools by name, description, keyword...">
           <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
           <button id="archive-search-clear" onclick="clearArchiveSearch()" style="position:absolute; right:0.75rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px;" title="Clear search" aria-label="Clear search">
             ${ICONS.close}
@@ -2488,7 +2560,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
         </div>
 
         <!-- Filter Buttons -->
-        <div class="archive-filter-chips" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <div class="archive-filter-chips" style="display:flex; gap:0.5rem; flex-wrap:wrap; max-width:100%; box-sizing:border-box;">
           <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (${uniqueToolsCount})</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>

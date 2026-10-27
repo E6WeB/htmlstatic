@@ -87,6 +87,8 @@
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -97,9 +99,18 @@
     color: var(--text-main);
     transition: background-color 0.25s ease, color 0.25s ease;
     overflow-x: hidden;
+    max-width: 100%;
     width: 100%;
     position: relative;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .site-main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--container-max);
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   a {
@@ -119,6 +130,7 @@
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    box-sizing: border-box;
   }
 
   /* Buttons */
@@ -895,15 +907,47 @@
   /* Archive Layout Styles (sidebar scrolls with page) */
   .archive-layout {
     display: grid;
-    grid-template-columns: 440px 1fr;
+    grid-template-columns: 320px minmax(0, 1fr);
     gap: 2.5rem;
     align-items: start;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
-  .archive-sidebar {
+  .archive-sidebar,
+  .archive-main {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .archive-cat-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .archive-cat-header {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .archive-cat-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
   }
 
   .archive-cat-link {
@@ -917,6 +961,9 @@
     border-radius: var(--radius-sm);
     transition: all 0.15s ease;
     text-decoration: none;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .archive-cat-link:hover {
@@ -938,6 +985,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    min-width: 0;
   }
 
   .archive-cat-count {
@@ -953,7 +1001,9 @@
 
   @media (max-width: 1040px) {
     .archive-layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr) !important;
+      width: 100% !important;
+      max-width: 100% !important;
     }
   }
 
@@ -1094,21 +1144,36 @@
   /* Responsive Breakpoints & Mobile Viewport Handling */
   @media (max-width: 1040px) {
     .tool-page-layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr) !important;
       gap: 2rem;
     }
     .archive-layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr) !important;
       gap: 1.5rem;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .archive-sidebar,
+    .archive-main {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     .archive-sidebar-secondary {
       display: none !important;
+    }
+    .archive-categories-widget {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
     .archive-categories-widget .archive-categories-list {
       max-height: 240px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding-right: 0.25rem;
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 
@@ -1264,21 +1329,28 @@
       padding: 0.35rem 0.65rem !important;
     }
 
-    /* Archive Table: smooth horizontal scroll without clipping */
+    /* Archive Table: smooth horizontal scroll without clipping or page blowout */
     .archive-table-wrapper {
-      margin-left: -0.25rem;
-      margin-right: -0.25rem;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
       border-radius: var(--radius-md) !important;
       overflow-x: auto !important;
       -webkit-overflow-scrolling: touch !important;
+      box-sizing: border-box !important;
     }
     .archive-table {
-      min-width: 540px !important;
+      min-width: 520px !important;
       font-size: 0.85rem !important;
+      width: 100% !important;
     }
     .archive-table th,
     .archive-table td {
       padding: 0.65rem 0.75rem !important;
+    }
+    .archive-cat-title {
+      font-size: 1.35rem !important;
     }
 
     /* Markdown Body on Mobile */

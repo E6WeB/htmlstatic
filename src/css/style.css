@@ -101,6 +101,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -111,6 +113,7 @@ body {
   color: var(--text-main);
   transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
+  max-width: 100%;
   width: 100%;
   position: relative;
   padding-bottom: env(safe-area-inset-bottom, 0px);
