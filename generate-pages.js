@@ -43,7 +43,8 @@ const ICONS = {
   arrowUp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>`,
   sun: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
   moon: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
-  close: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
+  close: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
+  menu: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`,
   github: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>`,
   check: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
   star: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
@@ -323,6 +324,8 @@ const BASE_CSS = `
     line-height: 1.6;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -332,6 +335,10 @@ const BASE_CSS = `
     background-color: var(--bg-body);
     color: var(--text-main);
     transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   a {
@@ -409,6 +416,7 @@ const BASE_CSS = `
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
     transition: all 0.25s ease;
+    padding-top: env(safe-area-inset-top, 0px);
   }
 
   .header-inner {
@@ -478,6 +486,183 @@ const BASE_CSS = `
     color: var(--accent);
     background-color: var(--accent-light);
     font-weight: 700;
+  }
+
+  /* Hamburger Menu Button (Mobile) */
+  .hamburger-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .hamburger-btn:hover,
+  .hamburger-btn:focus-visible {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: none;
+  }
+
+  /* Full-Screen Mobile Navigation Overlay */
+  .mobile-nav-modal {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--bg-surface);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.99);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .mobile-nav-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  body.mobile-nav-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(env(safe-area-inset-top, 0px) + 0.85rem) 1.25rem 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-close:hover,
+  .mobile-nav-close:focus-visible {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: none;
+    transform: rotate(90deg);
+  }
+
+  .mobile-nav-body {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.25rem 1.25rem calc(env(safe-area-inset-bottom, 0px) + 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mobile-nav-item a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.95rem 1.15rem;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    transition: all 0.18s ease;
+    text-decoration: none;
+  }
+
+  .mobile-nav-item a:hover,
+  .mobile-nav-item a:focus-visible {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateX(4px);
+    outline: none;
+  }
+
+  .mobile-nav-item a.active {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.12);
+  }
+
+  .mobile-nav-link-left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .mobile-nav-link-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-subtle);
+  }
+
+  .mobile-nav-item a.active .mobile-nav-badge {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
   }
 
   /* Floating Back to Top Button */
@@ -889,13 +1074,20 @@ const BASE_CSS = `
   .markdown-body p { margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.7; }
   .markdown-body ul, .markdown-body ol { margin-bottom: 1.25rem; padding-left: 1.75rem; }
   .markdown-body li { margin-bottom: 0.4rem; color: var(--text-main); line-height: 1.6; }
-  .markdown-body hr { border: none; border-top: 1px solid var(--border-color); margin: 2rem 0; }
+  .markdown-body p,
+  .markdown-body li,
+  .markdown-body blockquote,
+  .markdown-body td {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
   .markdown-body pre {
     background: var(--bg-muted);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 1rem 1.25rem;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     font-family: var(--font-mono);
     font-size: 0.875rem;
     margin-bottom: 1.5rem;
@@ -925,6 +1117,9 @@ const BASE_CSS = `
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1.5rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .markdown-body th, .markdown-body td {
     padding: 0.75rem 1rem;
@@ -1123,52 +1318,237 @@ const BASE_CSS = `
     margin-top: 0.1rem;
   }
 
+  /* Prevent iOS Safari 115% automatic zoom when tapping inputs/selects */
+  @media (max-width: 768px) {
+    input[type="text"],
+    input[type="search"],
+    input[type="url"],
+    input[type="email"],
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Responsive Breakpoints & Mobile Viewport Handling */
   @media (max-width: 1040px) {
     .tool-page-layout {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+    .archive-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .archive-sidebar-secondary {
+      display: none !important;
+    }
+    .archive-categories-widget .archive-categories-list {
+      max-height: 240px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 0.25rem;
     }
   }
 
   @media (max-width: 900px) {
     .submit-layout {
       grid-template-columns: 1fr !important;
-      margin-bottom: 3.5rem !important;
+      margin-bottom: 3rem !important;
+      gap: 1.5rem !important;
     }
   }
 
   @media (max-width: 860px) {
-    .nav-links {
-      gap: 0.25rem;
-    }
     .footer-inner {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
     .back-to-top-btn {
-      bottom: 1.25rem;
-      right: 1.25rem;
-      padding: 0.6rem 0.85rem;
+      bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
+      right: max(1.25rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
+      padding: 0.55rem 0.85rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hamburger-btn {
+      display: inline-flex !important;
+    }
+    .nav-drawer {
+      display: none !important;
     }
   }
 
   @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Header & Navigation on iPhone / Mobile */
+    .header-inner {
+      height: 3.75rem;
+      justify-content: space-between;
+    }
+    .brand {
+      font-size: 1.1rem;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+    .brand-icon {
+      width: 2.15rem;
+      height: 2.15rem;
+    }
+    .brand-badge {
+      display: none !important;
+    }
+
+    /* Mini Hero on Mobile */
     .mini-hero {
-      padding: 1.75rem 0 1.5rem;
-      margin-bottom: 1.75rem;
+      padding: 1.5rem 0 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .mini-hero-inner {
+      gap: 0.65rem;
+    }
+    .mini-hero-header {
+      gap: 1rem;
+    }
+    .mini-hero-header-main {
+      flex: 1 1 100%;
+      min-width: 0;
     }
     .mini-hero-title-row {
-      gap: 0.65rem;
+      gap: 0.6rem;
     }
     .mini-hero-icon-box {
       width: 2.25rem;
       height: 2.25rem;
     }
     .mini-hero-title {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
     }
     .mini-hero-subtext {
-      font-size: 0.95rem;
+      font-size: 0.925rem;
+      line-height: 1.5;
+    }
+    .mini-hero-actions {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+    .mini-hero-actions .btn {
+      flex: 1 1 auto;
+      text-align: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      padding: 0.55rem 0.9rem;
+    }
+    .mini-hero-extra > div {
+      gap: 0.75rem !important;
+      font-size: 0.825rem !important;
+    }
+    .mini-hero-extra-edit {
+      margin-left: 0 !important;
+      width: 100%;
+    }
+    .mini-hero-extra-edit a {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Home Hero & Stats Grid */
+    .hero {
+      padding: 2.25rem 0 1.75rem !important;
+    }
+    .hero-kbd {
+      display: none !important;
+    }
+    .hero-search-box {
+      padding: 0.3rem 0.4rem 0.3rem 0.85rem !important;
+    }
+    #hero-search-input {
+      font-size: 16px !important;
+    }
+    .hero-stats-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      padding: 1.25rem 1rem !important;
+      gap: 0.85rem !important;
+    }
+    .hero-stats-grid > div:last-child {
+      grid-column: 1 / -1;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Archive Filter Chips (Swipeable horizontally on touch) */
+    .archive-filter-chips {
+      display: flex !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      flex-wrap: nowrap !important;
+      padding-bottom: 0.4rem !important;
+      scrollbar-width: none !important;
+      width: 100% !important;
+    }
+    .archive-filter-chips::-webkit-scrollbar {
+      display: none;
+    }
+    .archive-filter-chips .btn {
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      font-size: 0.8rem !important;
+      padding: 0.35rem 0.65rem !important;
+    }
+
+    /* Archive Table: smooth horizontal scroll without clipping */
+    .archive-table-wrapper {
+      margin-left: -0.25rem;
+      margin-right: -0.25rem;
+      border-radius: var(--radius-md) !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    .archive-table {
+      min-width: 540px !important;
+      font-size: 0.85rem !important;
+    }
+    .archive-table th,
+    .archive-table td {
+      padding: 0.65rem 0.75rem !important;
+    }
+
+    /* Markdown Body on Mobile */
+    .markdown-body {
+      padding: 1.25rem 1rem !important;
+      border-radius: var(--radius-md) !important;
+      margin-bottom: 2rem !important;
+    }
+    .markdown-body h1 {
+      font-size: 1.5rem !important;
+    }
+    .markdown-body h2 {
+      font-size: 1.25rem !important;
+    }
+    .markdown-body h3 {
+      font-size: 1.1rem !important;
+    }
+    .markdown-body pre {
+      padding: 0.75rem 0.85rem !important;
+      font-size: 0.8rem !important;
+      margin-left: -0.25rem;
+      margin-right: -0.25rem;
+      border-radius: var(--radius-sm) !important;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Submit Form Cards */
+    .submit-card,
+    .submit-info-card {
+      padding: 1.35rem 1.15rem !important;
+      border-radius: var(--radius-md) !important;
     }
   }
 `;
@@ -1248,7 +1628,7 @@ function renderLayout({
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(cleanDescription)}">
   <meta name="theme-color" content="#2563eb">
@@ -1287,8 +1667,8 @@ function renderLayout({
         <span class="brand-badge">Toolkit</span>
       </a>
 
-      <!-- Original Clean Nav Menu -->
-      <nav class="nav-drawer">
+      <!-- Desktop Clean Nav Menu -->
+      <nav class="nav-drawer" aria-label="Main Navigation">
         <ul id="nav-links" class="nav-links">
           <li><a href="${rootPath}index.html" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
           <li><a href="${rootPath}archive.html" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
@@ -1296,8 +1676,85 @@ function renderLayout({
           <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">${ICONS.github} GitHub</a></li>
         </ul>
       </nav>
+
+      <!-- Mobile Hamburger Menu Button -->
+      <button id="mobile-menu-btn" class="hamburger-btn" type="button" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-modal">
+        ${ICONS.menu}
+      </button>
     </div>
   </header>
+
+  <!-- Full-Screen Mobile Navigation Overlay -->
+  <div id="mobile-nav-modal" class="mobile-nav-modal" role="dialog" aria-modal="true" aria-label="Navigation Menu" tabindex="-1">
+    <div class="mobile-nav-header">
+      <a href="${rootPath}index.html" class="brand" onclick="closeMobileNav()">
+        <span class="brand-icon">${ICONS.logo}</span>
+        <span>StaticStack</span>
+      </a>
+      <button id="mobile-menu-close" class="mobile-nav-close" type="button" aria-label="Close Navigation Menu" onclick="closeMobileNav()">
+        ${ICONS.close}
+      </button>
+    </div>
+
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="${rootPath}index.html" class="${currentNav === 'home' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.home}</span>
+              <span>Home</span>
+            </span>
+            <span class="mobile-nav-badge">${currentNav === 'home' ? 'Current' : 'Explore'}</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="${rootPath}archive.html" class="${currentNav === 'archive' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.archive}</span>
+              <span>Master Archive</span>
+            </span>
+            <span class="mobile-nav-badge">99 Tools</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="${rootPath}submit.html" class="${currentNav === 'submit' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.plusCircle}</span>
+              <span>Submit a Tool</span>
+            </span>
+            <span class="mobile-nav-badge">Contribute</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="${rootPath}contribute.html" class="${currentNav === 'contribute' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.gitPullRequest}</span>
+              <span>Contributing Guide</span>
+            </span>
+            <span class="mobile-nav-badge">Docs</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="${rootPath}thankyou.html" class="${currentNav === 'thankyou' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.heart}</span>
+              <span>Thank You &amp; Credits</span>
+            </span>
+            <span class="mobile-nav-badge">Community</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.github}</span>
+              <span>GitHub Repository</span>
+            </span>
+            <span class="mobile-nav-badge" style="display:flex;align-items:center;gap:0.25rem;">${ICONS.external} Star</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   ${miniHeroHtml}
 
@@ -1371,6 +1828,47 @@ function renderLayout({
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Full-Screen Mobile Navigation Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNavModal = document.getElementById('mobile-nav-modal');
+    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
+
+    function openMobileNav() {
+      if (!mobileNavModal) return;
+      mobileNavModal.classList.add('is-open');
+      document.body.classList.add('mobile-nav-open');
+      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      if (mobileMenuCloseBtn) mobileMenuCloseBtn.focus();
+    }
+
+    function closeMobileNav() {
+      if (!mobileNavModal) return;
+      mobileNavModal.classList.remove('is-open');
+      document.body.classList.remove('mobile-nav-open');
+      if (mobileMenuBtn) {
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.focus();
+      }
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', openMobileNav);
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
+        closeMobileNav();
+      }
+    });
+
+    // Close on desktop resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
+        closeMobileNav();
+      }
+    });
   </script>
 </body>
 </html>
@@ -1396,11 +1894,11 @@ const homeContent = `
 
     <!-- Command Hero Search Hub -->
     <div style="max-width:660px; margin:0 auto 2.5rem;">
-      <div style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.35rem 0.5rem 0.35rem 1.15rem; box-shadow:0 10px 25px -5px rgba(0,0,0,0.08); gap:0.5rem;">
+      <div class="hero-search-box" style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.35rem 0.5rem 0.35rem 1.15rem; box-shadow:0 10px 25px -5px rgba(0,0,0,0.08); gap:0.5rem;">
         <span style="color:var(--accent); display:flex; align-items:center;">${ICONS.search}</span>
-        <input type="text" id="hero-search-input" style="flex:1; border:none; background:transparent; outline:none; font-size:1.05rem; font-family:inherit; color:var(--text-main); padding:0.45rem 0.25rem;" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
-        <span style="background:var(--bg-muted); border:1px solid var(--border-color); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-family:var(--font-mono); color:var(--text-subtle);">/</span>
-        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary btn-sm" style="border-radius:var(--radius-full); padding:0.45rem 1rem; font-size:0.85rem;">
+        <input type="text" id="hero-search-input" style="flex:1; min-width:0; border:none; background:transparent; outline:none; font-size:1.05rem; font-family:inherit; color:var(--text-main); padding:0.45rem 0.25rem;" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
+        <span class="hero-kbd" style="background:var(--bg-muted); border:1px solid var(--border-color); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-family:var(--font-mono); color:var(--text-subtle);">/</span>
+        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary btn-sm" style="border-radius:var(--radius-full); padding:0.45rem 1rem; font-size:0.85rem; flex-shrink:0;">
           Search
         </button>
       </div>
@@ -1428,7 +1926,7 @@ const homeContent = `
       </a>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1.25rem; max-width:1040px; margin:0 auto; padding:1.75rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); text-align:center;">
+    <div class="hero-stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1.25rem; max-width:1040px; margin:0 auto; padding:1.75rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); text-align:center;">
       <div>
         <div style="font-size:2rem; font-weight:800; color:var(--accent); margin-bottom:0.25rem;">${categories.length}</div>
         <div style="font-size:0.85rem; color:var(--text-muted); font-weight:500;">Curated Categories</div>
@@ -1663,12 +2161,12 @@ const archiveContent = `
     <!-- Sidebar Category Links & Tool Widgets -->
     <aside class="archive-sidebar">
       <!-- Category Widget -->
-      <div class="sidebar-widget" style="padding: 1.25rem 1rem;">
+      <div class="sidebar-widget archive-categories-widget" style="padding: 1.25rem 1rem;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem; padding:0 0.5rem;">
           <span style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-subtle);">Categories (${categories.length})</span>
           <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">Show All</a>
         </div>
-        <ul id="archive-sidebar-list" style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
+        <ul id="archive-sidebar-list" class="archive-categories-list" style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
           ${categories.map(c => `
             <li>
               <a href="#${c.slug}" class="archive-cat-link" title="${escapeHtml(c.title)}">
@@ -1682,7 +2180,7 @@ const archiveContent = `
       </div>
 
       <!-- Static Site Hints & Tips Card -->
-      <div class="sidebar-widget">
+      <div class="sidebar-widget archive-sidebar-secondary">
         <div class="sidebar-widget-header">
           <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.sparkles}</span>
           <h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4>
@@ -1720,7 +2218,7 @@ const archiveContent = `
       </div>
 
       <!-- Discover Random Tools Card -->
-      <div class="sidebar-widget">
+      <div class="sidebar-widget archive-sidebar-secondary">
         <div class="sidebar-widget-header" style="justify-content:space-between;">
           <div style="display:flex; align-items:center; gap:0.5rem;">
             <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.star}</span>
@@ -1734,7 +2232,7 @@ const archiveContent = `
       </div>
 
       <!-- Submit Alternative Card -->
-      <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
+      <div class="sidebar-widget archive-sidebar-secondary" style="background:var(--bg-muted); border-style:dashed;">
         <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
           <span style="color:var(--accent); display:inline-flex;">${ICONS.plusCircle}</span>
           <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
@@ -1748,7 +2246,7 @@ const archiveContent = `
       </div>
 
       <!-- Facebook Community Group Card -->
-      <div class="sidebar-widget">
+      <div class="sidebar-widget archive-sidebar-secondary">
         <div class="sidebar-widget-header">
           <span style="color:#1877f2; display:inline-flex; align-items:center;">${ICONS.facebook}</span>
           <h4 class="sidebar-widget-title">Facebook Community</h4>
@@ -1783,8 +2281,8 @@ const archiveContent = `
           </div>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.55; margin-bottom:1.25rem;">${escapeHtml(cat.description)}</p>
 
-          <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-card);">
-            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem;">
+          <div class="archive-table-wrapper" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow-x:auto; -webkit-overflow-scrolling:touch; box-shadow:var(--shadow-card);">
+            <table class="archive-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem; min-width:540px;">
               <thead>
                 <tr style="background:var(--bg-muted); border-bottom:1px solid var(--border-color);">
                   <th style="padding:0.75rem 1rem; width:22%;">Tool</th>
@@ -1990,7 +2488,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
         </div>
 
         <!-- Filter Buttons -->
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <div class="archive-filter-chips" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
           <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (${uniqueToolsCount})</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
@@ -2012,7 +2510,7 @@ console.log('✉️ Generating Submit Page (submit.html)...');
 const submitContent = `
   <div class="submit-layout" style="display:grid; grid-template-columns: 3fr 2fr; gap:2.5rem; align-items:start; margin-bottom: 5.5rem;">
     <!-- Form Card -->
-    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.25rem; box-shadow:var(--shadow-card); margin-bottom: 2rem;">
+    <div class="submit-card" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.25rem; box-shadow:var(--shadow-card); margin-bottom: 2rem;">
       <h2 style="font-size:1.35rem; font-weight:700; margin-bottom:0.5rem;">Propose a Tool or Service</h2>
       <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
         Fill out the details below. Clicking <strong>"Continue to GitHub"</strong> will securely pre-fill an issue template on our official repository.
@@ -2051,7 +2549,7 @@ const submitContent = `
 
         <div style="margin-bottom:1.25rem;">
           <label style="display:block; font-size:0.875rem; font-weight:600; margin-bottom:0.4rem;" for="tool-description">Short Description *</label>
-          <textarea id="tool-description" required rows="3" placeholder="Brief 1-2 sentence description explaining what the tool does..." style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; font-size:0.95rem; background:var(--bg-body); color:var(--text-main); line-height:1.5;"></textarea>
+          <textarea id="tool-description" required rows="2" placeholder="Brief 1-2 sentence description explaining what the tool does..." style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; font-size:0.95rem; background:var(--bg-body); color:var(--text-main); line-height:1.5;"></textarea>
         </div>
 
         <div style="margin-bottom:1.75rem;">
@@ -2066,7 +2564,7 @@ const submitContent = `
     </div>
 
     <!-- Right Column: Criteria -->
-    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+    <div class="submit-info-card" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
       <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:1rem;">Inclusion Guidelines</h3>
       <ul style="padding-left:1.25rem; font-size:0.9rem; line-height:1.7; color:var(--text-muted); display:flex; flex-direction:column; gap:0.5rem;">
         <li><strong>Relevant to Static Frontends</strong>: Must enhance HTML, CSS, and JS sites without requiring a traditional backend server.</li>
@@ -2303,7 +2801,7 @@ allTools.forEach(tool => {
             <strong>Category:</strong>
             <a href="../../archive.html#${tool.categorySlug}">${escapeHtml(tool.categoryTitle)}</a>
           </div>
-          <div style="margin-left:auto;">
+          <div class="mini-hero-extra-edit" style="margin-left:auto;">
             <a href="https://github.com/E6WeB/htmlstatic/blob/main/${tool.relPath}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
               ${ICONS.github} Edit Markdown Guide
             </a>
