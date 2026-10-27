@@ -70,7 +70,7 @@ External links use HTML anchor tags formatted with `target="_blank" rel="noopene
 
 ```html
   <tr>
-    <td><a href="category-folder/tool-name.md">Tool Name</a></td>
+    <td><a href="tools/category-folder/tool-name.md">Tool Name</a></td>
     <td>Clear one-sentence description of what it does.</td>
     <td><img src="https://img.shields.io/badge/Pricing-Color?style=flat-square" alt="Pricing"></td>
     <td><a href="https://example.com/" target="_blank" rel="noopener noreferrer">example.com</a></td>
@@ -81,7 +81,7 @@ External links use HTML anchor tags formatted with `target="_blank" rel="noopene
 
 ```html
   <tr>
-    <td><a href="search/pagefind.md">Pagefind</a></td>
+    <td><a href="tools/search/pagefind.md">Pagefind</a></td>
     <td>Static search indexing designed for static websites</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a></td>

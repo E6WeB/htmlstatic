@@ -150,8 +150,9 @@ for (const section of sections) {
     const websiteLabel = rowMatch[6].trim();
 
     const parts = rawPath.split('/');
-    const folder = parts[0];
-    const file = parts[1] || '';
+    const isToolsPrefix = parts[0] === 'tools';
+    const folder = isToolsPrefix ? parts[1] : parts[0];
+    const file = isToolsPrefix ? (parts[2] || '') : (parts[1] || '');
     const toolSlug = file.replace(/\.md$/, '');
 
     let tagline = toolDesc;
@@ -3031,16 +3032,7 @@ allTools.forEach(tool => {
   ensureDir(toolSubDir);
   fs.writeFileSync(path.join(toolSubDir, 'index.html'), renderedToolHtml);
 
-  // Also write into the category directory directly: e.g. payments-ecommerce/reflow.html and payments-ecommerce/reflow/index.html
-  const directCatDir = path.join(ROOT_DIR, tool.folder);
-  ensureDir(directCatDir);
-  fs.writeFileSync(path.join(directCatDir, `${tool.slug}.html`), renderedToolHtml);
-
-  const directSubDir = path.join(directCatDir, tool.slug);
-  ensureDir(directSubDir);
-  fs.writeFileSync(path.join(directSubDir, 'index.html'), renderedToolHtml);
-
-  // Mirror to public/
+  // Mirror to public/tools/<category>/<tool>.html and public/tools/<category>/<tool>/index.html
   const pubToolCatDir = path.join(PUBLIC_DIR, 'tools', tool.categorySlug);
   ensureDir(pubToolCatDir);
   fs.writeFileSync(path.join(pubToolCatDir, `${tool.slug}.html`), renderedToolHtml);
@@ -3048,14 +3040,6 @@ allTools.forEach(tool => {
   const pubToolSubDir = path.join(pubToolCatDir, tool.slug);
   ensureDir(pubToolSubDir);
   fs.writeFileSync(path.join(pubToolSubDir, 'index.html'), renderedToolHtml);
-
-  const pubDirectCatDir = path.join(PUBLIC_DIR, tool.folder);
-  ensureDir(pubDirectCatDir);
-  fs.writeFileSync(path.join(pubDirectCatDir, `${tool.slug}.html`), renderedToolHtml);
-
-  const pubDirectSubDir = path.join(pubDirectCatDir, tool.slug);
-  ensureDir(pubDirectSubDir);
-  fs.writeFileSync(path.join(pubDirectSubDir, 'index.html'), renderedToolHtml);
 });
 
 // ==========================================================================

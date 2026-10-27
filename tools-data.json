@@ -8,7 +8,7 @@
       {
         "name": "ChatGPT",
         "slug": "chatgpt",
-        "relPath": "ai-content-creation/chatgpt.md",
+        "relPath": "tools/ai-content-creation/chatgpt.md",
         "folder": "ai-content-creation",
         "description": "Conversational AI model for drafting blog posts, website copy, and HTML/markdown content",
         "badges": [
@@ -20,7 +20,7 @@
       {
         "name": "Claude",
         "slug": "claude",
-        "relPath": "ai-content-creation/claude.md",
+        "relPath": "tools/ai-content-creation/claude.md",
         "folder": "ai-content-creation",
         "description": "Advanced AI assistant with large context windows for writing long-form articles and documentation",
         "badges": [
@@ -32,7 +32,7 @@
       {
         "name": "Google Gemini",
         "slug": "google-gemini",
-        "relPath": "ai-content-creation/google-gemini.md",
+        "relPath": "tools/ai-content-creation/google-gemini.md",
         "folder": "ai-content-creation",
         "description": "Multimodal AI assistant for research, drafting website copy, and generating structured content",
         "badges": [
@@ -44,7 +44,7 @@
       {
         "name": "Perplexity",
         "slug": "perplexity",
-        "relPath": "ai-content-creation/perplexity.md",
+        "relPath": "tools/ai-content-creation/perplexity.md",
         "folder": "ai-content-creation",
         "description": "AI-powered research and citation engine for writing factual, accurate blog posts and documentation",
         "badges": [
@@ -56,7 +56,7 @@
       {
         "name": "Recraft",
         "slug": "recraft",
-        "relPath": "ai-content-creation/recraft.md",
+        "relPath": "tools/ai-content-creation/recraft.md",
         "folder": "ai-content-creation",
         "description": "AI design tool for generating vector SVGs, 3D graphics, and icons for web pages",
         "badges": [
@@ -76,7 +76,7 @@
       {
         "name": "ChatGPT (OpenAI)",
         "slug": "chatgpt-openai",
-        "relPath": "ai-models/chatgpt-openai.md",
+        "relPath": "tools/ai-models/chatgpt-openai.md",
         "folder": "ai-models",
         "description": "OpenAI's flagship multimodal foundation model family (GPT-4o / o-series)",
         "badges": [
@@ -88,7 +88,7 @@
       {
         "name": "Claude (Anthropic)",
         "slug": "claude-anthropic",
-        "relPath": "ai-models/claude-anthropic.md",
+        "relPath": "tools/ai-models/claude-anthropic.md",
         "folder": "ai-models",
         "description": "Frontier reasoning and coding models with 200k+ token context windows",
         "badges": [
@@ -100,7 +100,7 @@
       {
         "name": "Cohere Command",
         "slug": "cohere-command",
-        "relPath": "ai-models/cohere-command.md",
+        "relPath": "tools/ai-models/cohere-command.md",
         "folder": "ai-models",
         "description": "Enterprise foundation model optimized for search, RAG, and document grounding",
         "badges": [
@@ -112,7 +112,7 @@
       {
         "name": "DeepSeek",
         "slug": "deepseek",
-        "relPath": "ai-models/deepseek.md",
+        "relPath": "tools/ai-models/deepseek.md",
         "folder": "ai-models",
         "description": "High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)",
         "badges": [
@@ -125,7 +125,7 @@
       {
         "name": "Google Gemini",
         "slug": "google-gemini-model",
-        "relPath": "ai-models/google-gemini-model.md",
+        "relPath": "tools/ai-models/google-gemini-model.md",
         "folder": "ai-models",
         "description": "Multimodal frontier model family with up to 2M token context windows",
         "badges": [
@@ -137,7 +137,7 @@
       {
         "name": "Grok (xAI)",
         "slug": "grok-xai",
-        "relPath": "ai-models/grok-xai.md",
+        "relPath": "tools/ai-models/grok-xai.md",
         "folder": "ai-models",
         "description": "Frontier reasoning and coding model with real-time web knowledge integration",
         "badges": [
@@ -149,7 +149,7 @@
       {
         "name": "Meta Llama",
         "slug": "meta-llama",
-        "relPath": "ai-models/meta-llama.md",
+        "relPath": "tools/ai-models/meta-llama.md",
         "folder": "ai-models",
         "description": "Leading open-weights foundation model family for local and cloud deployment",
         "badges": [
@@ -161,7 +161,7 @@
       {
         "name": "Microsoft Phi",
         "slug": "microsoft-phi",
-        "relPath": "ai-models/microsoft-phi.md",
+        "relPath": "tools/ai-models/microsoft-phi.md",
         "folder": "ai-models",
         "description": "High-efficiency small language models (SLMs) built for edge and browser execution",
         "badges": [
@@ -173,7 +173,7 @@
       {
         "name": "Mistral AI",
         "slug": "mistral-ai",
-        "relPath": "ai-models/mistral-ai.md",
+        "relPath": "tools/ai-models/mistral-ai.md",
         "folder": "ai-models",
         "description": "High-speed open and commercial models including Codestral and Mistral Large",
         "badges": [
@@ -186,7 +186,7 @@
       {
         "name": "Qwen",
         "slug": "qwen",
-        "relPath": "ai-models/qwen.md",
+        "relPath": "tools/ai-models/qwen.md",
         "folder": "ai-models",
         "description": "Alibaba Cloud's open-weights model family (Qwen 2.5) with advanced coding mastery",
         "badges": [
@@ -206,7 +206,7 @@
       {
         "name": "GoatCounter",
         "slug": "goatcounter",
-        "relPath": "analytics-privacy/goatcounter.md",
+        "relPath": "tools/analytics-privacy/goatcounter.md",
         "folder": "analytics-privacy",
         "description": "Lightweight, privacy-friendly web analytics",
         "badges": [
@@ -219,7 +219,7 @@
       {
         "name": "Plausible",
         "slug": "plausible",
-        "relPath": "analytics-privacy/plausible.md",
+        "relPath": "tools/analytics-privacy/plausible.md",
         "folder": "analytics-privacy",
         "description": "Privacy-focused website analytics",
         "badges": [
@@ -232,7 +232,7 @@
       {
         "name": "Umami",
         "slug": "umami",
-        "relPath": "analytics-privacy/umami.md",
+        "relPath": "tools/analytics-privacy/umami.md",
         "folder": "analytics-privacy",
         "description": "Open-source website analytics",
         "badges": [
@@ -253,7 +253,7 @@
       {
         "name": "Clerk",
         "slug": "clerk",
-        "relPath": "authentication-users/clerk.md",
+        "relPath": "tools/authentication-users/clerk.md",
         "folder": "authentication-users",
         "description": "User management and auth with drop-in UI and vanilla JS SDK",
         "badges": [
@@ -265,7 +265,7 @@
       {
         "name": "Outseta",
         "slug": "outseta",
-        "relPath": "authentication-users/outseta.md",
+        "relPath": "tools/authentication-users/outseta.md",
         "folder": "authentication-users",
         "description": "All-in-one membership, authentication, payments, and CRM",
         "badges": [
@@ -277,7 +277,7 @@
       {
         "name": "Reflow",
         "slug": "reflow",
-        "relPath": "payments-ecommerce/reflow.md",
+        "relPath": "tools/payments-ecommerce/reflow.md",
         "folder": "payments-ecommerce",
         "description": "User sign-in, session auth, and subscriber management for static frontends",
         "badges": [
@@ -289,7 +289,7 @@
       {
         "name": "Supabase Auth",
         "slug": "supabase-auth",
-        "relPath": "authentication-users/supabase-auth.md",
+        "relPath": "tools/authentication-users/supabase-auth.md",
         "folder": "authentication-users",
         "description": "Open-source auth supporting passwordless logins, OAuth, and JWTs",
         "badges": [
@@ -310,7 +310,7 @@
       {
         "name": "Cal.com",
         "slug": "cal-com",
-        "relPath": "booking-scheduling/cal-com.md",
+        "relPath": "tools/booking-scheduling/cal-com.md",
         "folder": "booking-scheduling",
         "description": "Open-source, embeddable meeting scheduling infrastructure",
         "badges": [
@@ -323,7 +323,7 @@
       {
         "name": "Calendly",
         "slug": "calendly",
-        "relPath": "booking-scheduling/calendly.md",
+        "relPath": "tools/booking-scheduling/calendly.md",
         "folder": "booking-scheduling",
         "description": "Industry-standard appointment scheduling with embeddable widgets",
         "badges": [
@@ -343,7 +343,7 @@
       {
         "name": "Disqus",
         "slug": "disqus",
-        "relPath": "comments-community/disqus.md",
+        "relPath": "tools/comments-community/disqus.md",
         "folder": "comments-community",
         "description": "Hosted commenting system for websites",
         "badges": [
@@ -355,7 +355,7 @@
       {
         "name": "Flarum",
         "slug": "flarum",
-        "relPath": "comments-community/flarum.md",
+        "relPath": "tools/comments-community/flarum.md",
         "folder": "comments-community",
         "description": "Modern, lightweight open-source community forum platform",
         "badges": [
@@ -367,7 +367,7 @@
       {
         "name": "GitHub Discussions",
         "slug": "github-discussions",
-        "relPath": "comments-community/github-discussions.md",
+        "relPath": "tools/comments-community/github-discussions.md",
         "folder": "comments-community",
         "description": "Collaborative community forums and Q&amp;A hosted on GitHub",
         "badges": [
@@ -379,7 +379,7 @@
       {
         "name": "Giscus",
         "slug": "giscus",
-        "relPath": "comments-community/giscus.md",
+        "relPath": "tools/comments-community/giscus.md",
         "folder": "comments-community",
         "description": "GitHub Discussions-powered comments using GitHub Discussions",
         "badges": [
@@ -391,7 +391,7 @@
       {
         "name": "iine",
         "slug": "iine",
-        "relPath": "comments-community/iine.md",
+        "relPath": "tools/comments-community/iine.md",
         "folder": "comments-community",
         "description": "Lightweight, privacy-first appreciation and like button widget without tracking",
         "badges": [
@@ -403,7 +403,7 @@
       {
         "name": "Utterances",
         "slug": "utterances",
-        "relPath": "comments-community/utterances.md",
+        "relPath": "tools/comments-community/utterances.md",
         "folder": "comments-community",
         "description": "Lightweight commenting powered by GitHub issues",
         "badges": [
@@ -423,7 +423,7 @@
       {
         "name": "Basin",
         "slug": "basin",
-        "relPath": "contact-forms/basin.md",
+        "relPath": "tools/contact-forms/basin.md",
         "folder": "contact-forms",
         "description": "Hosted form backend for static websites",
         "badges": [
@@ -435,7 +435,7 @@
       {
         "name": "CraftForms",
         "slug": "craftforms",
-        "relPath": "contact-forms/craftforms.md",
+        "relPath": "tools/contact-forms/craftforms.md",
         "folder": "contact-forms",
         "description": "Booking, quote, and contact form builder with payment support",
         "badges": [
@@ -447,7 +447,7 @@
       {
         "name": "Formspree",
         "slug": "formspree",
-        "relPath": "contact-forms/formspree.md",
+        "relPath": "tools/contact-forms/formspree.md",
         "folder": "contact-forms",
         "description": "Form submissions and email notifications",
         "badges": [
@@ -459,7 +459,7 @@
       {
         "name": "Splitform",
         "slug": "splitform",
-        "relPath": "contact-forms/splitform.md",
+        "relPath": "tools/contact-forms/splitform.md",
         "folder": "contact-forms",
         "description": "Contact forms and form handling for websites",
         "badges": [
@@ -479,7 +479,7 @@
       {
         "name": "CraftPages",
         "slug": "craftpages",
-        "relPath": "content-management/craftpages.md",
+        "relPath": "tools/content-management/craftpages.md",
         "folder": "content-management",
         "description": "Open-source desktop CMS for plain-HTML websites",
         "badges": [
@@ -491,7 +491,7 @@
       {
         "name": "Decap CMS",
         "slug": "decap-cms",
-        "relPath": "content-management/decap-cms.md",
+        "relPath": "tools/content-management/decap-cms.md",
         "folder": "content-management",
         "description": "Open-source content management for Git-based websites",
         "badges": [
@@ -503,7 +503,7 @@
       {
         "name": "Pages CMS",
         "slug": "pages-cms",
-        "relPath": "content-management/pages-cms.md",
+        "relPath": "tools/content-management/pages-cms.md",
         "folder": "content-management",
         "description": "Git-based content management with a browser interface",
         "badges": [
@@ -523,7 +523,7 @@
       {
         "name": "Bulma",
         "slug": "bulma",
-        "relPath": "css-components/bulma.md",
+        "relPath": "tools/css-components/bulma.md",
         "folder": "css-components",
         "description": "Modern Flexbox CSS framework with zero JavaScript dependencies",
         "badges": [
@@ -535,7 +535,7 @@
       {
         "name": "Lucide Icons",
         "slug": "lucide-icons",
-        "relPath": "css-components/lucide-icons.md",
+        "relPath": "tools/css-components/lucide-icons.md",
         "folder": "css-components",
         "description": "Clean, customizable open-source icon set with vanilla JS & SVG support",
         "badges": [
@@ -547,7 +547,7 @@
       {
         "name": "Pico CSS",
         "slug": "pico-css",
-        "relPath": "css-components/pico-css.md",
+        "relPath": "tools/css-components/pico-css.md",
         "folder": "css-components",
         "description": "Minimal, semantic classless CSS framework styling pure HTML",
         "badges": [
@@ -559,7 +559,7 @@
       {
         "name": "Shoelace",
         "slug": "shoelace",
-        "relPath": "css-components/shoelace.md",
+        "relPath": "tools/css-components/shoelace.md",
         "folder": "css-components",
         "description": "Professional library of framework-agnostic web components",
         "badges": [
@@ -579,7 +579,7 @@
       {
         "name": "Firebase Firestore",
         "slug": "firebase-firestore",
-        "relPath": "database-storage/firebase-firestore.md",
+        "relPath": "tools/database-storage/firebase-firestore.md",
         "folder": "database-storage",
         "description": "Real-time cloud NoSQL database that static frontends can query directly",
         "badges": [
@@ -591,7 +591,7 @@
       {
         "name": "JSONbin.io",
         "slug": "jsonbin",
-        "relPath": "database-storage/jsonbin.md",
+        "relPath": "tools/database-storage/jsonbin.md",
         "folder": "database-storage",
         "description": "Cloud JSON document store for saving and fetching data via REST APIs",
         "badges": [
@@ -603,7 +603,7 @@
       {
         "name": "Supabase",
         "slug": "supabase",
-        "relPath": "database-storage/supabase.md",
+        "relPath": "tools/database-storage/supabase.md",
         "folder": "database-storage",
         "description": "Open-source Firebase alternative with real-time Postgres and REST APIs",
         "badges": [
@@ -624,7 +624,7 @@
       {
         "name": "Antigravity CLI",
         "slug": "antigravity-cli",
-        "relPath": "development-tools/antigravity-cli.md",
+        "relPath": "tools/development-tools/antigravity-cli.md",
         "folder": "development-tools",
         "description": "Terminal-native AI coding agent with slash commands and workflow automation",
         "badges": [
@@ -636,7 +636,7 @@
       {
         "name": "Antigravity IDE",
         "slug": "antigravity-ide",
-        "relPath": "development-tools/antigravity-ide.md",
+        "relPath": "tools/development-tools/antigravity-ide.md",
         "folder": "development-tools",
         "description": "AI-first development environment with pair programming and browser automation",
         "badges": [
@@ -648,7 +648,7 @@
       {
         "name": "Bootstrap Studio",
         "slug": "bootstrap-studio",
-        "relPath": "development-tools/bootstrap-studio.md",
+        "relPath": "tools/development-tools/bootstrap-studio.md",
         "folder": "development-tools",
         "description": "Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML",
         "badges": [
@@ -660,7 +660,7 @@
       {
         "name": "Brickstatic",
         "slug": "brickstatic",
-        "relPath": "development-tools/brickstatic.md",
+        "relPath": "tools/development-tools/brickstatic.md",
         "folder": "development-tools",
         "description": "Export and publish WordPress Bricks sites as static HTML to GitHub or any host",
         "badges": [
@@ -672,7 +672,7 @@
       {
         "name": "Cursor",
         "slug": "cursor",
-        "relPath": "development-tools/cursor.md",
+        "relPath": "tools/development-tools/cursor.md",
         "folder": "development-tools",
         "description": "AI-powered code editor with multi-file Composer and predictive completions",
         "badges": [
@@ -684,7 +684,7 @@
       {
         "name": "ESLint",
         "slug": "eslint",
-        "relPath": "development-tools/eslint.md",
+        "relPath": "tools/development-tools/eslint.md",
         "folder": "development-tools",
         "description": "Find and fix problems in JavaScript code",
         "badges": [
@@ -696,7 +696,7 @@
       {
         "name": "GitHub Desktop",
         "slug": "github-desktop",
-        "relPath": "development-tools/github-desktop.md",
+        "relPath": "tools/development-tools/github-desktop.md",
         "folder": "development-tools",
         "description": "Visual Git GUI client to stage changes, manage branches, and sync repositories",
         "badges": [
@@ -708,7 +708,7 @@
       {
         "name": "Google Lighthouse",
         "slug": "google-lighthouse",
-        "relPath": "development-tools/google-lighthouse.md",
+        "relPath": "tools/development-tools/google-lighthouse.md",
         "folder": "development-tools",
         "description": "Audit performance, accessibility, SEO, and best practices",
         "badges": [
@@ -720,7 +720,7 @@
       {
         "name": "OpenCode",
         "slug": "opencode",
-        "relPath": "development-tools/opencode.md",
+        "relPath": "tools/development-tools/opencode.md",
         "folder": "development-tools",
         "description": "Open-source AI coding agent with a terminal TUI and editor extensions",
         "badges": [
@@ -732,7 +732,7 @@
       {
         "name": "Prettier",
         "slug": "prettier",
-        "relPath": "development-tools/prettier.md",
+        "relPath": "tools/development-tools/prettier.md",
         "folder": "development-tools",
         "description": "Code formatter for HTML, CSS, JavaScript, and more",
         "badges": [
@@ -744,7 +744,7 @@
       {
         "name": "Visual Studio Code",
         "slug": "visual-studio-code",
-        "relPath": "development-tools/visual-studio-code.md",
+        "relPath": "tools/development-tools/visual-studio-code.md",
         "folder": "development-tools",
         "description": "Code editor with extensions for web development",
         "badges": [
@@ -756,7 +756,7 @@
       {
         "name": "Zed",
         "slug": "zed",
-        "relPath": "development-tools/zed.md",
+        "relPath": "tools/development-tools/zed.md",
         "folder": "development-tools",
         "description": "High-performance, GPU-accelerated code editor with built-in multiplayer and AI",
         "badges": [
@@ -776,7 +776,7 @@
       {
         "name": "Cloudflare Pages",
         "slug": "cloudflare-pages",
-        "relPath": "hosting-deployment/cloudflare-pages.md",
+        "relPath": "tools/hosting-deployment/cloudflare-pages.md",
         "folder": "hosting-deployment",
         "description": "Deploy static sites with Git integration and edge services",
         "badges": [
@@ -788,7 +788,7 @@
       {
         "name": "GitHub Pages",
         "slug": "github-pages",
-        "relPath": "hosting-deployment/github-pages.md",
+        "relPath": "tools/hosting-deployment/github-pages.md",
         "folder": "hosting-deployment",
         "description": "Host websites directly from GitHub repositories",
         "badges": [
@@ -800,7 +800,7 @@
       {
         "name": "Netlify",
         "slug": "netlify",
-        "relPath": "hosting-deployment/netlify.md",
+        "relPath": "tools/hosting-deployment/netlify.md",
         "folder": "hosting-deployment",
         "description": "Static hosting with deployment automation and additional services",
         "badges": [
@@ -812,7 +812,7 @@
       {
         "name": "Vercel",
         "slug": "vercel",
-        "relPath": "hosting-deployment/vercel.md",
+        "relPath": "tools/hosting-deployment/vercel.md",
         "folder": "hosting-deployment",
         "description": "Deploy static websites and frontend applications",
         "badges": [
@@ -824,7 +824,7 @@
       {
         "name": "Wasmer",
         "slug": "wasmer",
-        "relPath": "hosting-deployment/wasmer.md",
+        "relPath": "tools/hosting-deployment/wasmer.md",
         "folder": "hosting-deployment",
         "description": "Host and deploy static websites and web applications",
         "badges": [
@@ -844,7 +844,7 @@
       {
         "name": "File Converter",
         "slug": "file-converter",
-        "relPath": "images-optimization/file-converter.md",
+        "relPath": "tools/images-optimization/file-converter.md",
         "folder": "images-optimization",
         "description": "Windows context-menu tool to convert and compress images (Windows 11 supported)",
         "badges": [
@@ -856,7 +856,7 @@
       {
         "name": "Squoosh",
         "slug": "squoosh",
-        "relPath": "images-optimization/squoosh.md",
+        "relPath": "tools/images-optimization/squoosh.md",
         "folder": "images-optimization",
         "description": "Compress and convert images in your browser",
         "badges": [
@@ -868,7 +868,7 @@
       {
         "name": "SVG Repo",
         "slug": "svg-repo",
-        "relPath": "images-optimization/svg-repo.md",
+        "relPath": "tools/images-optimization/svg-repo.md",
         "folder": "images-optimization",
         "description": "Browse and download SVG icons and illustrations",
         "badges": [
@@ -880,7 +880,7 @@
       {
         "name": "TinyPNG",
         "slug": "tinypng",
-        "relPath": "images-optimization/tinypng.md",
+        "relPath": "tools/images-optimization/tinypng.md",
         "folder": "images-optimization",
         "description": "Compress PNG, JPEG, WebP, and other supported image formats",
         "badges": [
@@ -892,7 +892,7 @@
       {
         "name": "Unsplash",
         "slug": "unsplash",
-        "relPath": "images-optimization/unsplash.md",
+        "relPath": "tools/images-optimization/unsplash.md",
         "folder": "images-optimization",
         "description": "High-resolution, royalty-free stock photography library for website assets",
         "badges": [
@@ -913,7 +913,7 @@
       {
         "name": "Leaflet.js",
         "slug": "leaflet",
-        "relPath": "maps-geolocation/leaflet.md",
+        "relPath": "tools/maps-geolocation/leaflet.md",
         "folder": "maps-geolocation",
         "description": "Lightweight open-source JavaScript library for mobile-friendly interactive maps",
         "badges": [
@@ -925,7 +925,7 @@
       {
         "name": "Mapbox GL JS",
         "slug": "mapbox-gl-js",
-        "relPath": "maps-geolocation/mapbox-gl-js.md",
+        "relPath": "tools/maps-geolocation/mapbox-gl-js.md",
         "folder": "maps-geolocation",
         "description": "Interactive WebGL vector maps with custom styles and smooth rendering",
         "badges": [
@@ -945,7 +945,7 @@
       {
         "name": "AOS (Animate On Scroll)",
         "slug": "aos",
-        "relPath": "interactive-scripts/aos.md",
+        "relPath": "tools/interactive-scripts/aos.md",
         "folder": "interactive-scripts",
         "description": "Animate elements on scroll using simple HTML data attributes",
         "badges": [
@@ -957,7 +957,7 @@
       {
         "name": "PhotoSwipe",
         "slug": "photoswipe",
-        "relPath": "interactive-scripts/photoswipe.md",
+        "relPath": "tools/interactive-scripts/photoswipe.md",
         "folder": "interactive-scripts",
         "description": "Lightweight JavaScript image gallery and lightbox with smooth zoom",
         "badges": [
@@ -969,7 +969,7 @@
       {
         "name": "Swiper.js",
         "slug": "swiper",
-        "relPath": "interactive-scripts/swiper.md",
+        "relPath": "tools/interactive-scripts/swiper.md",
         "folder": "interactive-scripts",
         "description": "Mobile touch slider with hardware-accelerated transitions",
         "badges": [
@@ -989,7 +989,7 @@
       {
         "name": "Crisp",
         "slug": "crisp",
-        "relPath": "live-chat/crisp.md",
+        "relPath": "tools/live-chat/crisp.md",
         "folder": "live-chat",
         "description": "Multichannel customer messaging and live chat widget",
         "badges": [
@@ -1001,7 +1001,7 @@
       {
         "name": "Tawk.to",
         "slug": "tawk-to",
-        "relPath": "live-chat/tawk-to.md",
+        "relPath": "tools/live-chat/tawk-to.md",
         "folder": "live-chat",
         "description": "100% free live chat application to monitor and chat with visitors",
         "badges": [
@@ -1021,7 +1021,7 @@
       {
         "name": "Mux Player",
         "slug": "mux-player",
-        "relPath": "media-players/mux-player.md",
+        "relPath": "tools/media-players/mux-player.md",
         "folder": "media-players",
         "description": "Responsive, high-performance web video player with automatic HLS streaming",
         "badges": [
@@ -1033,7 +1033,7 @@
       {
         "name": "Plyr",
         "slug": "plyr",
-        "relPath": "media-players/plyr.md",
+        "relPath": "tools/media-players/plyr.md",
         "folder": "media-players",
         "description": "Simple, lightweight, accessible HTML5 media player for video, audio, and YouTube",
         "badges": [
@@ -1045,7 +1045,7 @@
       {
         "name": "Wavesurfer.js",
         "slug": "wavesurfer",
-        "relPath": "media-players/wavesurfer.md",
+        "relPath": "tools/media-players/wavesurfer.md",
         "folder": "media-players",
         "description": "Customizable interactive audio waveform visualizer and player in vanilla JS",
         "badges": [
@@ -1065,7 +1065,7 @@
       {
         "name": "LogRocket",
         "slug": "logrocket",
-        "relPath": "monitoring-errors/logrocket.md",
+        "relPath": "tools/monitoring-errors/logrocket.md",
         "folder": "monitoring-errors",
         "description": "Session replay and frontend telemetry to reproduce user-facing issues",
         "badges": [
@@ -1077,7 +1077,7 @@
       {
         "name": "Sentry",
         "slug": "sentry",
-        "relPath": "monitoring-errors/sentry.md",
+        "relPath": "tools/monitoring-errors/sentry.md",
         "folder": "monitoring-errors",
         "description": "Frontend JavaScript error monitoring and performance tracing",
         "badges": [
@@ -1098,7 +1098,7 @@
       {
         "name": "Brevo",
         "slug": "brevo",
-        "relPath": "newsletters-email/brevo.md",
+        "relPath": "tools/newsletters-email/brevo.md",
         "folder": "newsletters-email",
         "description": "Email marketing and transactional email services",
         "badges": [
@@ -1110,7 +1110,7 @@
       {
         "name": "Buttondown",
         "slug": "buttondown",
-        "relPath": "newsletters-email/buttondown.md",
+        "relPath": "tools/newsletters-email/buttondown.md",
         "folder": "newsletters-email",
         "description": "Newsletter publishing and subscriber management",
         "badges": [
@@ -1122,7 +1122,7 @@
       {
         "name": "Emailit",
         "slug": "emailit",
-        "relPath": "newsletters-email/emailit.md",
+        "relPath": "tools/newsletters-email/emailit.md",
         "folder": "newsletters-email",
         "description": "Email API for sending messages from applications and websites",
         "badges": [
@@ -1142,7 +1142,7 @@
       {
         "name": "Lemon Squeezy",
         "slug": "lemon-squeezy",
-        "relPath": "payments-ecommerce/lemon-squeezy.md",
+        "relPath": "tools/payments-ecommerce/lemon-squeezy.md",
         "folder": "payments-ecommerce",
         "description": "Sell digital products and manage online payments",
         "badges": [
@@ -1154,7 +1154,7 @@
       {
         "name": "Payhip",
         "slug": "payhip",
-        "relPath": "payments-ecommerce/payhip.md",
+        "relPath": "tools/payments-ecommerce/payhip.md",
         "folder": "payments-ecommerce",
         "description": "Sell digital downloads, memberships, and other products",
         "badges": [
@@ -1166,7 +1166,7 @@
       {
         "name": "PaymentForm",
         "slug": "paymentform",
-        "relPath": "payments-ecommerce/paymentform.md",
+        "relPath": "tools/payments-ecommerce/paymentform.md",
         "folder": "payments-ecommerce",
         "description": "Create custom checkout forms to accept payments, tickets, and donations",
         "badges": [
@@ -1178,7 +1178,7 @@
       {
         "name": "Reflow",
         "slug": "reflow",
-        "relPath": "payments-ecommerce/reflow.md",
+        "relPath": "tools/payments-ecommerce/reflow.md",
         "folder": "payments-ecommerce",
         "description": "Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites",
         "badges": [
@@ -1190,7 +1190,7 @@
       {
         "name": "Stripe Payment Links",
         "slug": "stripe-payment-links",
-        "relPath": "payments-ecommerce/stripe-payment-links.md",
+        "relPath": "tools/payments-ecommerce/stripe-payment-links.md",
         "folder": "payments-ecommerce",
         "description": "Accept payments through hosted checkout links",
         "badges": [
@@ -1210,7 +1210,7 @@
       {
         "name": "Algolia",
         "slug": "algolia",
-        "relPath": "search/algolia.md",
+        "relPath": "tools/search/algolia.md",
         "folder": "search",
         "description": "Hosted search service with frontend integrations",
         "badges": [
@@ -1222,7 +1222,7 @@
       {
         "name": "Pagefind",
         "slug": "pagefind",
-        "relPath": "search/pagefind.md",
+        "relPath": "tools/search/pagefind.md",
         "folder": "search",
         "description": "Static search indexing designed for static websites",
         "badges": [
@@ -1242,7 +1242,7 @@
       {
         "name": "Cloudflare Turnstile",
         "slug": "cloudflare-turnstile",
-        "relPath": "security-spam-protection/cloudflare-turnstile.md",
+        "relPath": "tools/security-spam-protection/cloudflare-turnstile.md",
         "folder": "security-spam-protection",
         "description": "Privacy-friendly CAPTCHA alternative",
         "badges": [
@@ -1254,7 +1254,7 @@
       {
         "name": "Google reCAPTCHA",
         "slug": "google-recaptcha",
-        "relPath": "security-spam-protection/google-recaptcha.md",
+        "relPath": "tools/security-spam-protection/google-recaptcha.md",
         "folder": "security-spam-protection",
         "description": "Bot detection and abuse prevention",
         "badges": [
@@ -1266,7 +1266,7 @@
       {
         "name": "hCaptcha",
         "slug": "hcaptcha",
-        "relPath": "security-spam-protection/hcaptcha.md",
+        "relPath": "tools/security-spam-protection/hcaptcha.md",
         "folder": "security-spam-protection",
         "description": "Challenge-based bot and abuse protection",
         "badges": [
@@ -1286,7 +1286,7 @@
       {
         "name": "Astro",
         "slug": "astro",
-        "relPath": "static-site-generators/astro.md",
+        "relPath": "tools/static-site-generators/astro.md",
         "folder": "static-site-generators",
         "description": "Content-driven static web framework that ships zero JS by default",
         "badges": [
@@ -1298,7 +1298,7 @@
       {
         "name": "Eleventy (11ty)",
         "slug": "eleventy",
-        "relPath": "static-site-generators/eleventy.md",
+        "relPath": "tools/static-site-generators/eleventy.md",
         "folder": "static-site-generators",
         "description": "Simple, flexible static generator converting templates to fast HTML",
         "badges": [
@@ -1310,7 +1310,7 @@
       {
         "name": "Hugo",
         "slug": "hugo",
-        "relPath": "static-site-generators/hugo.md",
+        "relPath": "tools/static-site-generators/hugo.md",
         "folder": "static-site-generators",
         "description": "Extremely fast static site generator rendering pages in milliseconds",
         "badges": [
@@ -1330,7 +1330,7 @@
       {
         "name": "Sleekplan",
         "slug": "sleekplan",
-        "relPath": "surveys-feedback/sleekplan.md",
+        "relPath": "tools/surveys-feedback/sleekplan.md",
         "folder": "surveys-feedback",
         "description": "All-in-one user feedback board, public roadmap, and changelog widget",
         "badges": [
@@ -1342,7 +1342,7 @@
       {
         "name": "Tally",
         "slug": "tally",
-        "relPath": "surveys-feedback/tally.md",
+        "relPath": "tools/surveys-feedback/tally.md",
         "folder": "surveys-feedback",
         "description": "Intuitive form and survey builder with unlimited free forms and embeds",
         "badges": [
@@ -1362,7 +1362,7 @@
       {
         "name": "Bunny Fonts",
         "slug": "bunny-fonts",
-        "relPath": "typography-fonts/bunny-fonts.md",
+        "relPath": "tools/typography-fonts/bunny-fonts.md",
         "folder": "typography-fonts",
         "description": "Privacy-first, GDPR-compliant drop-in alternative to Google Fonts",
         "badges": [
@@ -1374,7 +1374,7 @@
       {
         "name": "Fontsource",
         "slug": "fontsource",
-        "relPath": "typography-fonts/fontsource.md",
+        "relPath": "tools/typography-fonts/fontsource.md",
         "folder": "typography-fonts",
         "description": "Self-host open-source fonts locally with zero external network requests",
         "badges": [
@@ -1386,7 +1386,7 @@
       {
         "name": "Google Fonts",
         "slug": "google-fonts",
-        "relPath": "typography-fonts/google-fonts.md",
+        "relPath": "tools/typography-fonts/google-fonts.md",
         "folder": "typography-fonts",
         "description": "Extensive library of open-source fonts and icons delivered via global CDN",
         "badges": [

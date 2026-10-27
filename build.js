@@ -172,8 +172,9 @@ for (const section of sections) {
     const websiteLabel = rowMatch[6].trim();
 
     const parts = rawPath.split('/');
-    const folder = parts[0];
-    const file = parts[1] || '';
+    const isToolsPrefix = parts[0] === 'tools';
+    const folder = isToolsPrefix ? parts[1] : parts[0];
+    const file = isToolsPrefix ? (parts[2] || '') : (parts[1] || '');
     const toolSlug = file.replace(/\.md$/, '');
 
     const badges = parseBadges(badgeHtml);
