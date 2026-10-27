@@ -1,0 +1,21 @@
+[package]
+name = "e6web/staticstack"
+version = "0.1.0"
+description = "StaticStack (staticstack.app) - Static Website Toolkit on Wasmer Edge"
+license = "CC0-1.0"
+entrypoint = "script"
+
+[dependencies]
+"wasmer/static-web-server" = "^1"
+
+[fs]
+"/app" = "."
+"/asset" = "asset"
+
+[[command]]
+name = "script"
+module = "wasmer/static-web-server:webserver"
+runner = "https://webc.org/runner/wasi"
+
+[command.annotations.wasi]
+main-args = ["-w", "/asset/toml/config.toml"]

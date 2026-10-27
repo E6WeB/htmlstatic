@@ -25,7 +25,7 @@ marked.setOptions({
 });
 
 const ROOT_DIR = __dirname;
-const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
+const ASSET_DIR = path.join(ROOT_DIR, 'asset');
 
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
@@ -259,7 +259,8 @@ const toolsData = categories.map(c => ({
     websiteLabel: t.websiteLabel
   }))
 }));
-fs.writeFileSync(path.join(ROOT_DIR, 'tools-data.json'), JSON.stringify(toolsData, null, 2) + '\n');
+ensureDir(path.join(ASSET_DIR, 'json'));
+fs.writeFileSync(path.join(ASSET_DIR, 'json', 'tools-data.json'), JSON.stringify(toolsData, null, 2) + '\n');
 
 // ==========================================================================
 // Base CSS using Native System Font Stack (NO Google Fonts)
@@ -1712,7 +1713,7 @@ function renderLayout({
   <meta property="og:site_name" content="StaticStack">
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(cleanDescription)}">
-  <meta property="og:image" content="https://staticstack.app/src/img/og-image.webp">
+  <meta property="og:image" content="https://staticstack.app/asset/img/og-image.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
@@ -1720,7 +1721,7 @@ function renderLayout({
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(cleanDescription)}">
-  <meta name="twitter:image" content="https://staticstack.app/src/img/og-image.webp">
+  <meta name="twitter:image" content="https://staticstack.app/asset/img/og-image.webp">
 
   <style>
     ${BASE_CSS}
@@ -3023,98 +3024,27 @@ allTools.forEach(tool => {
     `
   });
 
-  // Write tool page: tools/<category>/<tool>.html and tools/<category>/<tool>/index.html
+  // Write tool page: tools/<category>/<tool>.html
   const toolCatDir = path.join(ROOT_DIR, 'tools', tool.categorySlug);
   ensureDir(toolCatDir);
   fs.writeFileSync(path.join(toolCatDir, `${tool.slug}.html`), renderedToolHtml);
-
-  const toolSubDir = path.join(toolCatDir, tool.slug);
-  ensureDir(toolSubDir);
-  fs.writeFileSync(path.join(toolSubDir, 'index.html'), renderedToolHtml);
-
-  // Mirror to public/tools/<category>/<tool>.html and public/tools/<category>/<tool>/index.html
-  const pubToolCatDir = path.join(PUBLIC_DIR, 'tools', tool.categorySlug);
-  ensureDir(pubToolCatDir);
-  fs.writeFileSync(path.join(pubToolCatDir, `${tool.slug}.html`), renderedToolHtml);
-
-  const pubToolSubDir = path.join(pubToolCatDir, tool.slug);
-  ensureDir(pubToolSubDir);
-  fs.writeFileSync(path.join(pubToolSubDir, 'index.html'), renderedToolHtml);
 });
 
 // ==========================================================================
-// 7. Synchronize Aliases in Root & Mirror to public/
-// ==========================================================================
-fs.copyFileSync(path.join(ROOT_DIR, 'contribute.html'), path.join(ROOT_DIR, 'contributing.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(ROOT_DIR, 'thank-you.html'));
-
-ensureDir(path.join(ROOT_DIR, 'archive'));
-ensureDir(path.join(ROOT_DIR, 'submit'));
-ensureDir(path.join(ROOT_DIR, 'contribute'));
-ensureDir(path.join(ROOT_DIR, 'contributing'));
-ensureDir(path.join(ROOT_DIR, 'thankyou'));
-ensureDir(path.join(ROOT_DIR, 'thank-you'));
-
-fs.copyFileSync(path.join(ROOT_DIR, 'archive.html'), path.join(ROOT_DIR, 'archive', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'submit.html'), path.join(ROOT_DIR, 'submit', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'contribute.html'), path.join(ROOT_DIR, 'contribute', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'contribute.html'), path.join(ROOT_DIR, 'contributing', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(ROOT_DIR, 'thankyou', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(ROOT_DIR, 'thank-you', 'index.html'));
-
-// Mirror to public/
-ensureDir(PUBLIC_DIR);
-ensureDir(path.join(PUBLIC_DIR, 'archive'));
-ensureDir(path.join(PUBLIC_DIR, 'submit'));
-ensureDir(path.join(PUBLIC_DIR, 'contribute'));
-ensureDir(path.join(PUBLIC_DIR, 'contributing'));
-ensureDir(path.join(PUBLIC_DIR, 'thankyou'));
-ensureDir(path.join(PUBLIC_DIR, 'thank-you'));
-
-fs.copyFileSync(path.join(ROOT_DIR, 'index.html'), path.join(PUBLIC_DIR, 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'archive.html'), path.join(PUBLIC_DIR, 'archive.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'archive.html'), path.join(PUBLIC_DIR, 'archive', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'submit.html'), path.join(PUBLIC_DIR, 'submit.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'submit.html'), path.join(PUBLIC_DIR, 'submit', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'contribute.html'), path.join(PUBLIC_DIR, 'contribute.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'contribute.html'), path.join(PUBLIC_DIR, 'contribute', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'contributing.html'), path.join(PUBLIC_DIR, 'contributing.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'contribute.html'), path.join(PUBLIC_DIR, 'contributing', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thankyou.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thankyou', 'index.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'thank-you.html'), path.join(PUBLIC_DIR, 'thank-you.html'));
-fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thank-you', 'index.html'));
-if (fs.existsSync(path.join(ROOT_DIR, '404.html'))) {
-  fs.copyFileSync(path.join(ROOT_DIR, '404.html'), path.join(PUBLIC_DIR, '404.html'));
-}
-
-// Sync src/img assets to public/
-ensureDir(path.join(PUBLIC_DIR, 'src', 'img'));
-if (fs.existsSync(path.join(ROOT_DIR, 'src', 'img', 'og-image.webp'))) {
-  fs.copyFileSync(path.join(ROOT_DIR, 'src', 'img', 'og-image.webp'), path.join(PUBLIC_DIR, 'src', 'img', 'og-image.webp'));
-  if (fs.existsSync(path.join(ROOT_DIR, 'src', 'img', 'opengraph.webp'))) {
-    fs.copyFileSync(path.join(ROOT_DIR, 'src', 'img', 'opengraph.webp'), path.join(PUBLIC_DIR, 'src', 'img', 'opengraph.webp'));
-  }
-  if (fs.existsSync(path.join(ROOT_DIR, 'src', 'img', 'og.webp'))) {
-    fs.copyFileSync(path.join(ROOT_DIR, 'src', 'img', 'og.webp'), path.join(PUBLIC_DIR, 'src', 'img', 'og.webp'));
-  }
-}
-
-// ==========================================================================
-// 8. Generate XML Sitemap & robots.txt
+// 7. Generate XML Sitemap & robots.txt (Root)
 // ==========================================================================
 const today = new Date().toISOString().split('T')[0];
 const sitemapUrls = [
   { loc: 'https://staticstack.app/', priority: '1.0', changefreq: 'daily' },
-  { loc: 'https://staticstack.app/archive/', priority: '0.9', changefreq: 'weekly' },
-  { loc: 'https://staticstack.app/submit/', priority: '0.8', changefreq: 'monthly' },
-  { loc: 'https://staticstack.app/contributing/', priority: '0.8', changefreq: 'monthly' },
-  { loc: 'https://staticstack.app/thank-you/', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/archive.html', priority: '0.9', changefreq: 'weekly' },
+  { loc: 'https://staticstack.app/submit.html', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/contribute.html', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/thankyou.html', priority: '0.7', changefreq: 'monthly' },
 ];
 
 categories.forEach(cat => {
   sitemapUrls.push({
-    loc: `https://staticstack.app/categories/${cat.slug}/`,
+    loc: `https://staticstack.app/archive.html#${cat.slug}`,
     priority: '0.85',
     changefreq: 'weekly'
   });
@@ -3123,7 +3053,7 @@ categories.forEach(cat => {
 categories.forEach(cat => {
   cat.tools.forEach(tool => {
     sitemapUrls.push({
-      loc: `https://staticstack.app/tools/${cat.slug}/${tool.slug}/`,
+      loc: `https://staticstack.app/tools/${cat.slug}/${tool.slug}.html`,
       priority: '0.8',
       changefreq: 'monthly'
     });
@@ -3141,7 +3071,7 @@ ${sitemapUrls.map(u => `  <url>
 </urlset>
 `;
 
-fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemapXml);
+fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemapXml);
 
 const robotsTxt = `User-agent: *
 Allow: /
@@ -3149,10 +3079,10 @@ Allow: /
 Sitemap: https://staticstack.app/sitemap.xml
 `;
 
-fs.writeFileSync(path.join(PUBLIC_DIR, 'robots.txt'), robotsTxt);
+fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
 
 // ==========================================================================
-// 9. Generate Search Index (public/search-data.json)
+// 8. Generate Search Index (search-data.json)
 // ==========================================================================
 const searchIndex = [];
 
@@ -3161,7 +3091,7 @@ categories.forEach(cat => {
     title: cat.title,
     description: cat.description,
     category: 'Category',
-    url: `/categories/${cat.slug}/`
+    url: `/archive.html#${cat.slug}`
   });
 });
 
@@ -3170,12 +3100,13 @@ allTools.forEach(tool => {
     title: tool.name,
     description: tool.description,
     category: tool.categoryTitle,
-    url: `/tools/${tool.categorySlug}/${tool.slug}/`
+    url: `/tools/${tool.categorySlug}/${tool.slug}.html`
   });
 });
 
+ensureDir(path.join(ASSET_DIR, 'json'));
 fs.writeFileSync(
-  path.join(PUBLIC_DIR, 'search-data.json'),
+  path.join(ASSET_DIR, 'json', 'search-data.json'),
   JSON.stringify(searchIndex, null, 2)
 );
 

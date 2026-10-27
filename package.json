@@ -2,7 +2,7 @@
   "name": "html-static",
   "version": "1.0.0",
   "description": "Static Website Toolkit - Static website generator for Wasmer Edge",
-  "main": "build.js",
+  "main": "generate-pages.js",
   "scripts": {
     "build": "node generate-pages.js",
     "generate": "node generate-pages.js",

@@ -1,6 +1,6 @@
 /**
  * Local Static Preview Server (Zero Dependencies)
- * Serves the public/ directory on http://localhost:3000
+ * Serves the static website on http://localhost:3000
  */
 
 const http = require('http');
@@ -9,7 +9,7 @@ const path = require('path');
 const url = require('url');
 
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
-const SERVE_DIR = fs.existsSync(path.join(__dirname, 'index.html')) ? __dirname : path.join(__dirname, 'public');
+const SERVE_DIR = __dirname;
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -44,7 +44,7 @@ const server = http.createServer((req, res) => {
     res.end(`
       <!DOCTYPE html>
       <html>
-      <head><title>404 Not Found</title><link rel="stylesheet" href="/css/style.css"></head>
+      <head><title>404 Not Found</title><link rel="stylesheet" href="/asset/css/style.css"></head>
       <body style="display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;">
         <div>
           <h1>404</h1>

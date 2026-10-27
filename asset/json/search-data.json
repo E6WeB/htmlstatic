@@ -1,0 +1,746 @@
+[
+  {
+    "title": "AI & Content Creation",
+    "description": "AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.",
+    "category": "Category",
+    "url": "/archive.html#ai-content-creation"
+  },
+  {
+    "title": "AI Models",
+    "description": "Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.",
+    "category": "Category",
+    "url": "/archive.html#ai-models"
+  },
+  {
+    "title": "Analytics & Privacy",
+    "description": "Understand website traffic, visitor behavior, and page performance.",
+    "category": "Category",
+    "url": "/archive.html#analytics-privacy"
+  },
+  {
+    "title": "Authentication & User Management",
+    "description": "Add user login, member areas, and gated content to static sites without backend code.",
+    "category": "Category",
+    "url": "/archive.html#authentication-users"
+  },
+  {
+    "title": "Booking & Scheduling",
+    "description": "Allow visitors to book appointments and discovery calls directly from static pages.",
+    "category": "Category",
+    "url": "/archive.html#booking-scheduling"
+  },
+  {
+    "title": "Comments & Community",
+    "description": "Let visitors comment on blog posts and interact with your content.",
+    "category": "Category",
+    "url": "/archive.html#comments-community"
+  },
+  {
+    "title": "Contact Forms",
+    "description": "Add contact forms to static websites without building your own form-processing backend.",
+    "category": "Category",
+    "url": "/archive.html#contact-forms"
+  },
+  {
+    "title": "Content Management",
+    "description": "Manage content on static websites without adopting a traditional, full-featured CMS.",
+    "category": "Category",
+    "url": "/archive.html#content-management"
+  },
+  {
+    "title": "CSS & UI Component Libraries",
+    "description": "Build responsive, accessible user interfaces without complex build steps or heavy frameworks.",
+    "category": "Category",
+    "url": "/archive.html#css-components"
+  },
+  {
+    "title": "Database & Backend-as-a-Service",
+    "description": "Store, query, and synchronize data from static frontends without maintaining servers.",
+    "category": "Category",
+    "url": "/archive.html#database-storage"
+  },
+  {
+    "title": "Development Tools",
+    "description": "Tools that make building, testing, and maintaining static websites easier.",
+    "category": "Category",
+    "url": "/archive.html#development-tools"
+  },
+  {
+    "title": "Hosting & Deployment",
+    "description": "Services for publishing static HTML, CSS, and JavaScript websites online.",
+    "category": "Category",
+    "url": "/archive.html#hosting-deployment"
+  },
+  {
+    "title": "Images & Optimization",
+    "description": "Optimize images and other assets to improve loading speed and user experience.",
+    "category": "Category",
+    "url": "/archive.html#images-optimization"
+  },
+  {
+    "title": "Interactive Maps & Geolocation",
+    "description": "Add mobile-friendly, interactive vector and raster maps without API billing hurdles.",
+    "category": "Category",
+    "url": "/archive.html#maps-geolocation"
+  },
+  {
+    "title": "Interactive Scripts & Animation",
+    "description": "Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS.",
+    "category": "Category",
+    "url": "/archive.html#interactive-scripts"
+  },
+  {
+    "title": "Live Chat & Support",
+    "description": "Engage visitors and answer questions in real time with lightweight chat widgets.",
+    "category": "Category",
+    "url": "/archive.html#live-chat"
+  },
+  {
+    "title": "Media & Video Players",
+    "description": "Embed audio, video, and streaming media without intrusive third-party ads or trackers.",
+    "category": "Category",
+    "url": "/archive.html#media-players"
+  },
+  {
+    "title": "Monitoring & Error Tracking",
+    "description": "Detect client-side JavaScript crashes and monitor performance in production.",
+    "category": "Category",
+    "url": "/archive.html#monitoring-errors"
+  },
+  {
+    "title": "Newsletters & Email",
+    "description": "Collect subscribers, send newsletters, and handle email delivery from static websites.",
+    "category": "Category",
+    "url": "/archive.html#newsletters-email"
+  },
+  {
+    "title": "Payments & E-commerce",
+    "description": "Sell digital downloads, services, memberships, and other products from static websites.",
+    "category": "Category",
+    "url": "/archive.html#payments-ecommerce"
+  },
+  {
+    "title": "Search",
+    "description": "Add search functionality to static websites, documentation, and blogs.",
+    "category": "Category",
+    "url": "/archive.html#search"
+  },
+  {
+    "title": "Security & Spam Protection",
+    "description": "Protect forms and websites against automated spam and abuse.",
+    "category": "Category",
+    "url": "/archive.html#security-spam-protection"
+  },
+  {
+    "title": "Static Site Generators",
+    "description": "Build fast, pre-rendered static HTML websites from templates and Markdown.",
+    "category": "Category",
+    "url": "/archive.html#static-site-generators"
+  },
+  {
+    "title": "Surveys & Feedback",
+    "description": "Gather visitor responses, run interactive polls, and publish product roadmaps.",
+    "category": "Category",
+    "url": "/archive.html#surveys-feedback"
+  },
+  {
+    "title": "Typography & Web Fonts",
+    "description": "Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services.",
+    "category": "Category",
+    "url": "/archive.html#typography-fonts"
+  },
+  {
+    "title": "ChatGPT",
+    "description": "Conversational AI model for drafting blog posts, website copy, and HTML/markdown content",
+    "category": "AI & Content Creation",
+    "url": "/tools/ai-content-creation/chatgpt.html"
+  },
+  {
+    "title": "Claude",
+    "description": "Advanced AI assistant with large context windows for writing long-form articles and documentation",
+    "category": "AI & Content Creation",
+    "url": "/tools/ai-content-creation/claude.html"
+  },
+  {
+    "title": "Google Gemini",
+    "description": "Multimodal AI assistant for research, drafting website copy, and generating structured content",
+    "category": "AI & Content Creation",
+    "url": "/tools/ai-content-creation/google-gemini.html"
+  },
+  {
+    "title": "Perplexity",
+    "description": "AI-powered research and citation engine for writing factual, accurate blog posts and documentation",
+    "category": "AI & Content Creation",
+    "url": "/tools/ai-content-creation/perplexity.html"
+  },
+  {
+    "title": "Recraft",
+    "description": "AI design tool for generating vector SVGs, 3D graphics, and icons for web pages",
+    "category": "AI & Content Creation",
+    "url": "/tools/ai-content-creation/recraft.html"
+  },
+  {
+    "title": "ChatGPT (OpenAI)",
+    "description": "OpenAI's flagship multimodal foundation model family (GPT-4o / o-series)",
+    "category": "AI Models",
+    "url": "/tools/ai-models/chatgpt-openai.html"
+  },
+  {
+    "title": "Claude (Anthropic)",
+    "description": "Frontier reasoning and coding models with 200k+ token context windows",
+    "category": "AI Models",
+    "url": "/tools/ai-models/claude-anthropic.html"
+  },
+  {
+    "title": "Cohere Command",
+    "description": "Enterprise foundation model optimized for search, RAG, and document grounding",
+    "category": "AI Models",
+    "url": "/tools/ai-models/cohere-command.html"
+  },
+  {
+    "title": "DeepSeek",
+    "description": "High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)",
+    "category": "AI Models",
+    "url": "/tools/ai-models/deepseek.html"
+  },
+  {
+    "title": "Google Gemini",
+    "description": "Multimodal frontier model family with up to 2M token context windows",
+    "category": "AI Models",
+    "url": "/tools/ai-models/google-gemini-model.html"
+  },
+  {
+    "title": "Grok (xAI)",
+    "description": "Frontier reasoning and coding model with real-time web knowledge integration",
+    "category": "AI Models",
+    "url": "/tools/ai-models/grok-xai.html"
+  },
+  {
+    "title": "Meta Llama",
+    "description": "Leading open-weights foundation model family for local and cloud deployment",
+    "category": "AI Models",
+    "url": "/tools/ai-models/meta-llama.html"
+  },
+  {
+    "title": "Microsoft Phi",
+    "description": "High-efficiency small language models (SLMs) built for edge and browser execution",
+    "category": "AI Models",
+    "url": "/tools/ai-models/microsoft-phi.html"
+  },
+  {
+    "title": "Mistral AI",
+    "description": "High-speed open and commercial models including Codestral and Mistral Large",
+    "category": "AI Models",
+    "url": "/tools/ai-models/mistral-ai.html"
+  },
+  {
+    "title": "Qwen",
+    "description": "Alibaba Cloud's open-weights model family (Qwen 2.5) with advanced coding mastery",
+    "category": "AI Models",
+    "url": "/tools/ai-models/qwen.html"
+  },
+  {
+    "title": "GoatCounter",
+    "description": "Lightweight, privacy-friendly web analytics",
+    "category": "Analytics & Privacy",
+    "url": "/tools/analytics-privacy/goatcounter.html"
+  },
+  {
+    "title": "Plausible",
+    "description": "Privacy-focused website analytics",
+    "category": "Analytics & Privacy",
+    "url": "/tools/analytics-privacy/plausible.html"
+  },
+  {
+    "title": "Umami",
+    "description": "Open-source website analytics",
+    "category": "Analytics & Privacy",
+    "url": "/tools/analytics-privacy/umami.html"
+  },
+  {
+    "title": "Clerk",
+    "description": "User management and auth with drop-in UI and vanilla JS SDK",
+    "category": "Authentication & User Management",
+    "url": "/tools/authentication-users/clerk.html"
+  },
+  {
+    "title": "Outseta",
+    "description": "All-in-one membership, authentication, payments, and CRM",
+    "category": "Authentication & User Management",
+    "url": "/tools/authentication-users/outseta.html"
+  },
+  {
+    "title": "Reflow",
+    "description": "User sign-in, session auth, and subscriber management for static frontends",
+    "category": "Authentication & User Management",
+    "url": "/tools/payments-ecommerce/reflow.html"
+  },
+  {
+    "title": "Supabase Auth",
+    "description": "Open-source auth supporting passwordless logins, OAuth, and JWTs",
+    "category": "Authentication & User Management",
+    "url": "/tools/authentication-users/supabase-auth.html"
+  },
+  {
+    "title": "Cal.com",
+    "description": "Open-source, embeddable meeting scheduling infrastructure",
+    "category": "Booking & Scheduling",
+    "url": "/tools/booking-scheduling/cal-com.html"
+  },
+  {
+    "title": "Calendly",
+    "description": "Industry-standard appointment scheduling with embeddable widgets",
+    "category": "Booking & Scheduling",
+    "url": "/tools/booking-scheduling/calendly.html"
+  },
+  {
+    "title": "Disqus",
+    "description": "Hosted commenting system for websites",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/disqus.html"
+  },
+  {
+    "title": "Flarum",
+    "description": "Modern, lightweight open-source community forum platform",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/flarum.html"
+  },
+  {
+    "title": "GitHub Discussions",
+    "description": "Collaborative community forums and Q&amp;A hosted on GitHub",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/github-discussions.html"
+  },
+  {
+    "title": "Giscus",
+    "description": "GitHub Discussions-powered comments using GitHub Discussions",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/giscus.html"
+  },
+  {
+    "title": "iine",
+    "description": "Lightweight, privacy-first appreciation and like button widget without tracking",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/iine.html"
+  },
+  {
+    "title": "Utterances",
+    "description": "Lightweight commenting powered by GitHub issues",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/utterances.html"
+  },
+  {
+    "title": "Basin",
+    "description": "Hosted form backend for static websites",
+    "category": "Contact Forms",
+    "url": "/tools/contact-forms/basin.html"
+  },
+  {
+    "title": "CraftForms",
+    "description": "Booking, quote, and contact form builder with payment support",
+    "category": "Contact Forms",
+    "url": "/tools/contact-forms/craftforms.html"
+  },
+  {
+    "title": "Formspree",
+    "description": "Form submissions and email notifications",
+    "category": "Contact Forms",
+    "url": "/tools/contact-forms/formspree.html"
+  },
+  {
+    "title": "Splitform",
+    "description": "Contact forms and form handling for websites",
+    "category": "Contact Forms",
+    "url": "/tools/contact-forms/splitform.html"
+  },
+  {
+    "title": "CraftPages",
+    "description": "Open-source desktop CMS for plain-HTML websites",
+    "category": "Content Management",
+    "url": "/tools/content-management/craftpages.html"
+  },
+  {
+    "title": "Decap CMS",
+    "description": "Open-source content management for Git-based websites",
+    "category": "Content Management",
+    "url": "/tools/content-management/decap-cms.html"
+  },
+  {
+    "title": "Pages CMS",
+    "description": "Git-based content management with a browser interface",
+    "category": "Content Management",
+    "url": "/tools/content-management/pages-cms.html"
+  },
+  {
+    "title": "Bulma",
+    "description": "Modern Flexbox CSS framework with zero JavaScript dependencies",
+    "category": "CSS & UI Component Libraries",
+    "url": "/tools/css-components/bulma.html"
+  },
+  {
+    "title": "Lucide Icons",
+    "description": "Clean, customizable open-source icon set with vanilla JS & SVG support",
+    "category": "CSS & UI Component Libraries",
+    "url": "/tools/css-components/lucide-icons.html"
+  },
+  {
+    "title": "Pico CSS",
+    "description": "Minimal, semantic classless CSS framework styling pure HTML",
+    "category": "CSS & UI Component Libraries",
+    "url": "/tools/css-components/pico-css.html"
+  },
+  {
+    "title": "Shoelace",
+    "description": "Professional library of framework-agnostic web components",
+    "category": "CSS & UI Component Libraries",
+    "url": "/tools/css-components/shoelace.html"
+  },
+  {
+    "title": "Firebase Firestore",
+    "description": "Real-time cloud NoSQL database that static frontends can query directly",
+    "category": "Database & Backend-as-a-Service",
+    "url": "/tools/database-storage/firebase-firestore.html"
+  },
+  {
+    "title": "JSONbin.io",
+    "description": "Cloud JSON document store for saving and fetching data via REST APIs",
+    "category": "Database & Backend-as-a-Service",
+    "url": "/tools/database-storage/jsonbin.html"
+  },
+  {
+    "title": "Supabase",
+    "description": "Open-source Firebase alternative with real-time Postgres and REST APIs",
+    "category": "Database & Backend-as-a-Service",
+    "url": "/tools/database-storage/supabase.html"
+  },
+  {
+    "title": "Antigravity CLI",
+    "description": "Terminal-native AI coding agent with slash commands and workflow automation",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/antigravity-cli.html"
+  },
+  {
+    "title": "Antigravity IDE",
+    "description": "AI-first development environment with pair programming and browser automation",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/antigravity-ide.html"
+  },
+  {
+    "title": "Bootstrap Studio",
+    "description": "Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/bootstrap-studio.html"
+  },
+  {
+    "title": "Brickstatic",
+    "description": "Export and publish WordPress Bricks sites as static HTML to GitHub or any host",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/brickstatic.html"
+  },
+  {
+    "title": "Cursor",
+    "description": "AI-powered code editor with multi-file Composer and predictive completions",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/cursor.html"
+  },
+  {
+    "title": "ESLint",
+    "description": "Find and fix problems in JavaScript code",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/eslint.html"
+  },
+  {
+    "title": "GitHub Desktop",
+    "description": "Visual Git GUI client to stage changes, manage branches, and sync repositories",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/github-desktop.html"
+  },
+  {
+    "title": "Google Lighthouse",
+    "description": "Audit performance, accessibility, SEO, and best practices",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/google-lighthouse.html"
+  },
+  {
+    "title": "OpenCode",
+    "description": "Open-source AI coding agent with a terminal TUI and editor extensions",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/opencode.html"
+  },
+  {
+    "title": "Prettier",
+    "description": "Code formatter for HTML, CSS, JavaScript, and more",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/prettier.html"
+  },
+  {
+    "title": "Visual Studio Code",
+    "description": "Code editor with extensions for web development",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/visual-studio-code.html"
+  },
+  {
+    "title": "Zed",
+    "description": "High-performance, GPU-accelerated code editor with built-in multiplayer and AI",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/zed.html"
+  },
+  {
+    "title": "Cloudflare Pages",
+    "description": "Deploy static sites with Git integration and edge services",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/cloudflare-pages.html"
+  },
+  {
+    "title": "GitHub Pages",
+    "description": "Host websites directly from GitHub repositories",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/github-pages.html"
+  },
+  {
+    "title": "Netlify",
+    "description": "Static hosting with deployment automation and additional services",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/netlify.html"
+  },
+  {
+    "title": "Vercel",
+    "description": "Deploy static websites and frontend applications",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/vercel.html"
+  },
+  {
+    "title": "Wasmer",
+    "description": "Host and deploy static websites and web applications",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/wasmer.html"
+  },
+  {
+    "title": "File Converter",
+    "description": "Windows context-menu tool to convert and compress images (Windows 11 supported)",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/file-converter.html"
+  },
+  {
+    "title": "Squoosh",
+    "description": "Compress and convert images in your browser",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/squoosh.html"
+  },
+  {
+    "title": "SVG Repo",
+    "description": "Browse and download SVG icons and illustrations",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/svg-repo.html"
+  },
+  {
+    "title": "TinyPNG",
+    "description": "Compress PNG, JPEG, WebP, and other supported image formats",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/tinypng.html"
+  },
+  {
+    "title": "Unsplash",
+    "description": "High-resolution, royalty-free stock photography library for website assets",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/unsplash.html"
+  },
+  {
+    "title": "Leaflet.js",
+    "description": "Lightweight open-source JavaScript library for mobile-friendly interactive maps",
+    "category": "Interactive Maps & Geolocation",
+    "url": "/tools/maps-geolocation/leaflet.html"
+  },
+  {
+    "title": "Mapbox GL JS",
+    "description": "Interactive WebGL vector maps with custom styles and smooth rendering",
+    "category": "Interactive Maps & Geolocation",
+    "url": "/tools/maps-geolocation/mapbox-gl-js.html"
+  },
+  {
+    "title": "AOS (Animate On Scroll)",
+    "description": "Animate elements on scroll using simple HTML data attributes",
+    "category": "Interactive Scripts & Animation",
+    "url": "/tools/interactive-scripts/aos.html"
+  },
+  {
+    "title": "PhotoSwipe",
+    "description": "Lightweight JavaScript image gallery and lightbox with smooth zoom",
+    "category": "Interactive Scripts & Animation",
+    "url": "/tools/interactive-scripts/photoswipe.html"
+  },
+  {
+    "title": "Swiper.js",
+    "description": "Mobile touch slider with hardware-accelerated transitions",
+    "category": "Interactive Scripts & Animation",
+    "url": "/tools/interactive-scripts/swiper.html"
+  },
+  {
+    "title": "Crisp",
+    "description": "Multichannel customer messaging and live chat widget",
+    "category": "Live Chat & Support",
+    "url": "/tools/live-chat/crisp.html"
+  },
+  {
+    "title": "Tawk.to",
+    "description": "100% free live chat application to monitor and chat with visitors",
+    "category": "Live Chat & Support",
+    "url": "/tools/live-chat/tawk-to.html"
+  },
+  {
+    "title": "Mux Player",
+    "description": "Responsive, high-performance web video player with automatic HLS streaming",
+    "category": "Media & Video Players",
+    "url": "/tools/media-players/mux-player.html"
+  },
+  {
+    "title": "Plyr",
+    "description": "Simple, lightweight, accessible HTML5 media player for video, audio, and YouTube",
+    "category": "Media & Video Players",
+    "url": "/tools/media-players/plyr.html"
+  },
+  {
+    "title": "Wavesurfer.js",
+    "description": "Customizable interactive audio waveform visualizer and player in vanilla JS",
+    "category": "Media & Video Players",
+    "url": "/tools/media-players/wavesurfer.html"
+  },
+  {
+    "title": "LogRocket",
+    "description": "Session replay and frontend telemetry to reproduce user-facing issues",
+    "category": "Monitoring & Error Tracking",
+    "url": "/tools/monitoring-errors/logrocket.html"
+  },
+  {
+    "title": "Sentry",
+    "description": "Frontend JavaScript error monitoring and performance tracing",
+    "category": "Monitoring & Error Tracking",
+    "url": "/tools/monitoring-errors/sentry.html"
+  },
+  {
+    "title": "Brevo",
+    "description": "Email marketing and transactional email services",
+    "category": "Newsletters & Email",
+    "url": "/tools/newsletters-email/brevo.html"
+  },
+  {
+    "title": "Buttondown",
+    "description": "Newsletter publishing and subscriber management",
+    "category": "Newsletters & Email",
+    "url": "/tools/newsletters-email/buttondown.html"
+  },
+  {
+    "title": "Emailit",
+    "description": "Email API for sending messages from applications and websites",
+    "category": "Newsletters & Email",
+    "url": "/tools/newsletters-email/emailit.html"
+  },
+  {
+    "title": "Lemon Squeezy",
+    "description": "Sell digital products and manage online payments",
+    "category": "Payments & E-commerce",
+    "url": "/tools/payments-ecommerce/lemon-squeezy.html"
+  },
+  {
+    "title": "Payhip",
+    "description": "Sell digital downloads, memberships, and other products",
+    "category": "Payments & E-commerce",
+    "url": "/tools/payments-ecommerce/payhip.html"
+  },
+  {
+    "title": "PaymentForm",
+    "description": "Create custom checkout forms to accept payments, tickets, and donations",
+    "category": "Payments & E-commerce",
+    "url": "/tools/payments-ecommerce/paymentform.html"
+  },
+  {
+    "title": "Reflow",
+    "description": "Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites",
+    "category": "Payments & E-commerce",
+    "url": "/tools/payments-ecommerce/reflow.html"
+  },
+  {
+    "title": "Stripe Payment Links",
+    "description": "Accept payments through hosted checkout links",
+    "category": "Payments & E-commerce",
+    "url": "/tools/payments-ecommerce/stripe-payment-links.html"
+  },
+  {
+    "title": "Algolia",
+    "description": "Hosted search service with frontend integrations",
+    "category": "Search",
+    "url": "/tools/search/algolia.html"
+  },
+  {
+    "title": "Pagefind",
+    "description": "Static search indexing designed for static websites",
+    "category": "Search",
+    "url": "/tools/search/pagefind.html"
+  },
+  {
+    "title": "Cloudflare Turnstile",
+    "description": "Privacy-friendly CAPTCHA alternative",
+    "category": "Security & Spam Protection",
+    "url": "/tools/security-spam-protection/cloudflare-turnstile.html"
+  },
+  {
+    "title": "Google reCAPTCHA",
+    "description": "Bot detection and abuse prevention",
+    "category": "Security & Spam Protection",
+    "url": "/tools/security-spam-protection/google-recaptcha.html"
+  },
+  {
+    "title": "hCaptcha",
+    "description": "Challenge-based bot and abuse protection",
+    "category": "Security & Spam Protection",
+    "url": "/tools/security-spam-protection/hcaptcha.html"
+  },
+  {
+    "title": "Astro",
+    "description": "Content-driven static web framework that ships zero JS by default",
+    "category": "Static Site Generators",
+    "url": "/tools/static-site-generators/astro.html"
+  },
+  {
+    "title": "Eleventy (11ty)",
+    "description": "Simple, flexible static generator converting templates to fast HTML",
+    "category": "Static Site Generators",
+    "url": "/tools/static-site-generators/eleventy.html"
+  },
+  {
+    "title": "Hugo",
+    "description": "Extremely fast static site generator rendering pages in milliseconds",
+    "category": "Static Site Generators",
+    "url": "/tools/static-site-generators/hugo.html"
+  },
+  {
+    "title": "Sleekplan",
+    "description": "All-in-one user feedback board, public roadmap, and changelog widget",
+    "category": "Surveys & Feedback",
+    "url": "/tools/surveys-feedback/sleekplan.html"
+  },
+  {
+    "title": "Tally",
+    "description": "Intuitive form and survey builder with unlimited free forms and embeds",
+    "category": "Surveys & Feedback",
+    "url": "/tools/surveys-feedback/tally.html"
+  },
+  {
+    "title": "Bunny Fonts",
+    "description": "Privacy-first, GDPR-compliant drop-in alternative to Google Fonts",
+    "category": "Typography & Web Fonts",
+    "url": "/tools/typography-fonts/bunny-fonts.html"
+  },
+  {
+    "title": "Fontsource",
+    "description": "Self-host open-source fonts locally with zero external network requests",
+    "category": "Typography & Web Fonts",
+    "url": "/tools/typography-fonts/fontsource.html"
+  },
+  {
+    "title": "Google Fonts",
+    "description": "Extensive library of open-source fonts and icons delivered via global CDN",
+    "category": "Typography & Web Fonts",
+    "url": "/tools/typography-fonts/google-fonts.html"
+  }
+]

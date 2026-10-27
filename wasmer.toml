@@ -10,8 +10,7 @@ entrypoint = "script"
 
 [fs]
 "/app" = "."
-"/public" = "public"
-"/settings" = "settings"
+"/asset" = "asset"
 
 [[command]]
 name = "script"
@@ -19,4 +18,4 @@ module = "wasmer/static-web-server:webserver"
 runner = "https://webc.org/runner/wasi"
 
 [command.annotations.wasi]
-main-args = ["-w", "/settings/config.toml"]
+main-args = ["-w", "/asset/toml/config.toml"]
