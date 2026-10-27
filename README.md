@@ -659,16 +659,70 @@ Services for publishing static HTML, CSS, and JavaScript websites online.
     <td><a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">pages.cloudflare.com</a></td>
   </tr>
   <tr>
+    <td><a href="tools/hosting-deployment/codeberg-pages.md">Codeberg Pages</a></td>
+    <td>Community-driven, privacy-respecting, and free static website hosting</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://pages.codeberg.org/" target="_blank" rel="noopener noreferrer">pages.codeberg.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/hosting-deployment/deno-deploy.md">Deno Deploy</a></td>
+    <td>Distributed edge hosting platform serving static assets and edge logic globally</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/hosting-deployment/firebase-hosting.md">Firebase Hosting</a></td>
+    <td>Fast, secure static and dynamic web hosting backed by Google global SSD CDN</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://firebase.google.com/docs/hosting" target="_blank" rel="noopener noreferrer">firebase.google.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/hosting-deployment/fleek.md">Fleek</a></td>
+    <td>Edge-optimized web hosting for static frontends with automated Git deployment</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://fleek.xyz/" target="_blank" rel="noopener noreferrer">fleek.xyz</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/hosting-deployment/github-pages.md">GitHub Pages</a></td>
     <td>Host websites directly from GitHub repositories</td>
     <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
     <td><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">pages.github.com</a></td>
   </tr>
   <tr>
+    <td><a href="tools/hosting-deployment/gitlab-pages.md">GitLab Pages</a></td>
+    <td>Free static website hosting directly from GitLab repositories with custom domains</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://about.gitlab.com/stages-devops-lifecycle/pages/" target="_blank" rel="noopener noreferrer">about.gitlab.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/hosting-deployment/kinsta.md">Kinsta Static Site Hosting</a></td>
+    <td>Free static site hosting deployed across Cloudflare global edge locations</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://kinsta.com/static-site-hosting/" target="_blank" rel="noopener noreferrer">kinsta.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/hosting-deployment/netlify.md">Netlify</a></td>
     <td>Static hosting with deployment automation and additional services</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/hosting-deployment/render.md">Render</a></td>
+    <td>Modern cloud platform offering free static site hosting with global CDN</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://render.com/" target="_blank" rel="noopener noreferrer">render.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/hosting-deployment/stormkit.md">Stormkit</a></td>
+    <td>Dedicated Jamstack and static web hosting platform with multi-environment staging</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.stormkit.io/" target="_blank" rel="noopener noreferrer">stormkit.io</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/hosting-deployment/surge.md">Surge.sh</a></td>
+    <td>Single-command CLI web publishing for static sites with custom domain support</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://surge.sh/" target="_blank" rel="noopener noreferrer">surge.sh</a></td>
   </tr>
   <tr>
     <td><a href="tools/hosting-deployment/vercel.md">Vercel</a></td>

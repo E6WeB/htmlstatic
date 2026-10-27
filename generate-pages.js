@@ -1875,7 +1875,7 @@ function renderLayout({
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> StaticStack. Built with Native System Typography. Zero backend servers required.</p>
+        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a></p>
       </div>
     </div>
   </footer>

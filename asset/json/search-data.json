@@ -510,16 +510,70 @@
     "url": "/tools/hosting-deployment/cloudflare-pages"
   },
   {
+    "title": "Codeberg Pages",
+    "description": "Community-driven, privacy-respecting, and free static website hosting",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/codeberg-pages"
+  },
+  {
+    "title": "Deno Deploy",
+    "description": "Distributed edge hosting platform serving static assets and edge logic globally",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/deno-deploy"
+  },
+  {
+    "title": "Firebase Hosting",
+    "description": "Fast, secure static and dynamic web hosting backed by Google global SSD CDN",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/firebase-hosting"
+  },
+  {
+    "title": "Fleek",
+    "description": "Edge-optimized web hosting for static frontends with automated Git deployment",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/fleek"
+  },
+  {
     "title": "GitHub Pages",
     "description": "Host websites directly from GitHub repositories",
     "category": "Hosting & Deployment",
     "url": "/tools/hosting-deployment/github-pages"
   },
   {
+    "title": "GitLab Pages",
+    "description": "Free static website hosting directly from GitLab repositories with custom domains",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/gitlab-pages"
+  },
+  {
+    "title": "Kinsta Static Site Hosting",
+    "description": "Free static site hosting deployed across Cloudflare global edge locations",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/kinsta"
+  },
+  {
     "title": "Netlify",
     "description": "Static hosting with deployment automation and additional services",
     "category": "Hosting & Deployment",
     "url": "/tools/hosting-deployment/netlify"
+  },
+  {
+    "title": "Render",
+    "description": "Modern cloud platform offering free static site hosting with global CDN",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/render"
+  },
+  {
+    "title": "Stormkit",
+    "description": "Dedicated Jamstack and static web hosting platform with multi-environment staging",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/stormkit"
+  },
+  {
+    "title": "Surge.sh",
+    "description": "Single-command CLI web publishing for static sites with custom domain support",
+    "category": "Hosting & Deployment",
+    "url": "/tools/hosting-deployment/surge"
   },
   {
     "title": "Vercel",

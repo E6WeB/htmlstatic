@@ -803,7 +803,7 @@
     "title": "Hosting & Deployment",
     "slug": "hosting-deployment",
     "description": "Services for publishing static HTML, CSS, and JavaScript websites online.",
-    "toolsCount": 5,
+    "toolsCount": 14,
     "tools": [
       {
         "name": "Cloudflare Pages",
@@ -818,6 +818,55 @@
         "websiteLabel": "pages.cloudflare.com"
       },
       {
+        "name": "Codeberg Pages",
+        "slug": "codeberg-pages",
+        "relPath": "tools/hosting-deployment/codeberg-pages.md",
+        "folder": "hosting-deployment",
+        "description": "Community-driven, privacy-respecting, and free static website hosting",
+        "badges": [
+          "Open Source",
+          "Free"
+        ],
+        "websiteUrl": "https://pages.codeberg.org/",
+        "websiteLabel": "pages.codeberg.org"
+      },
+      {
+        "name": "Deno Deploy",
+        "slug": "deno-deploy",
+        "relPath": "tools/hosting-deployment/deno-deploy.md",
+        "folder": "hosting-deployment",
+        "description": "Distributed edge hosting platform serving static assets and edge logic globally",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://deno.com/deploy",
+        "websiteLabel": "deno.com/deploy"
+      },
+      {
+        "name": "Firebase Hosting",
+        "slug": "firebase-hosting",
+        "relPath": "tools/hosting-deployment/firebase-hosting.md",
+        "folder": "hosting-deployment",
+        "description": "Fast, secure static and dynamic web hosting backed by Google global SSD CDN",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://firebase.google.com/docs/hosting",
+        "websiteLabel": "firebase.google.com"
+      },
+      {
+        "name": "Fleek",
+        "slug": "fleek",
+        "relPath": "tools/hosting-deployment/fleek.md",
+        "folder": "hosting-deployment",
+        "description": "Edge-optimized web hosting for static frontends with automated Git deployment",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://fleek.xyz/",
+        "websiteLabel": "fleek.xyz"
+      },
+      {
         "name": "GitHub Pages",
         "slug": "github-pages",
         "relPath": "tools/hosting-deployment/github-pages.md",
@@ -830,6 +879,31 @@
         "websiteLabel": "pages.github.com"
       },
       {
+        "name": "GitLab Pages",
+        "slug": "gitlab-pages",
+        "relPath": "tools/hosting-deployment/gitlab-pages.md",
+        "folder": "hosting-deployment",
+        "description": "Free static website hosting directly from GitLab repositories with custom domains",
+        "badges": [
+          "Open Source",
+          "Free"
+        ],
+        "websiteUrl": "https://about.gitlab.com/stages-devops-lifecycle/pages/",
+        "websiteLabel": "about.gitlab.com"
+      },
+      {
+        "name": "Kinsta Static Site Hosting",
+        "slug": "kinsta",
+        "relPath": "tools/hosting-deployment/kinsta.md",
+        "folder": "hosting-deployment",
+        "description": "Free static site hosting deployed across Cloudflare global edge locations",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://kinsta.com/static-site-hosting/",
+        "websiteLabel": "kinsta.com"
+      },
+      {
         "name": "Netlify",
         "slug": "netlify",
         "relPath": "tools/hosting-deployment/netlify.md",
@@ -840,6 +914,42 @@
         ],
         "websiteUrl": "https://www.netlify.com/",
         "websiteLabel": "netlify.com"
+      },
+      {
+        "name": "Render",
+        "slug": "render",
+        "relPath": "tools/hosting-deployment/render.md",
+        "folder": "hosting-deployment",
+        "description": "Modern cloud platform offering free static site hosting with global CDN",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://render.com/",
+        "websiteLabel": "render.com"
+      },
+      {
+        "name": "Stormkit",
+        "slug": "stormkit",
+        "relPath": "tools/hosting-deployment/stormkit.md",
+        "folder": "hosting-deployment",
+        "description": "Dedicated Jamstack and static web hosting platform with multi-environment staging",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.stormkit.io/",
+        "websiteLabel": "stormkit.io"
+      },
+      {
+        "name": "Surge.sh",
+        "slug": "surge",
+        "relPath": "tools/hosting-deployment/surge.md",
+        "folder": "hosting-deployment",
+        "description": "Single-command CLI web publishing for static sites with custom domain support",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://surge.sh/",
+        "websiteLabel": "surge.sh"
       },
       {
         "name": "Vercel",
