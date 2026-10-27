@@ -198,6 +198,7 @@ for (const section of sections) {
 }
 
 console.log(`Parsed ${categories.length} categories and ${allTools.length} tools.`);
+const uniqueToolsCount = new Set(allTools.map(t => t.name)).size;
 
 // Export tools-data.json so metadata is always in sync with all parsed tools
 const toolsData = categories.map(c => ({
@@ -1240,14 +1241,14 @@ const homeContent = `
       Empower Static Websites with <span style="background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Zero Backend Servers</span>
     </h1>
     <p style="font-size:clamp(1.05rem, 2vw, 1.25rem); color:var(--text-muted); max-width:740px; margin:0 auto 2rem; line-height:1.6;">
-      You don't need WordPress, a monolithic CMS, or expensive cloud servers. Discover ${allTools.length}+ curated tools, services, and APIs for building modern static sites with HTML, CSS, and JavaScript.
+      You don't need WordPress, a monolithic CMS, or expensive cloud servers. Discover ${uniqueToolsCount}+ curated tools, services, and APIs for building modern static sites with HTML, CSS, and JavaScript.
     </p>
 
     <!-- Command Hero Search Hub -->
     <div style="max-width:660px; margin:0 auto 2.5rem;">
       <div style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.35rem 0.5rem 0.35rem 1.15rem; box-shadow:0 10px 25px -5px rgba(0,0,0,0.08); gap:0.5rem;">
         <span style="color:var(--accent); display:flex; align-items:center;">${ICONS.search}</span>
-        <input type="text" id="hero-search-input" style="flex:1; border:none; background:transparent; outline:none; font-size:1.05rem; font-family:inherit; color:var(--text-main); padding:0.45rem 0.25rem;" placeholder="Search ${allTools.length}+ static tools, APIs, forms, auth..." autocomplete="off">
+        <input type="text" id="hero-search-input" style="flex:1; border:none; background:transparent; outline:none; font-size:1.05rem; font-family:inherit; color:var(--text-main); padding:0.45rem 0.25rem;" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
         <span style="background:var(--bg-muted); border:1px solid var(--border-color); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-family:var(--font-mono); color:var(--text-subtle);">/</span>
         <button type="button" onclick="submitHeroSearch()" class="btn btn-primary btn-sm" style="border-radius:var(--radius-full); padding:0.45rem 1rem; font-size:0.85rem;">
           Search
@@ -1283,7 +1284,7 @@ const homeContent = `
         <div style="font-size:0.85rem; color:var(--text-muted); font-weight:500;">Curated Categories</div>
       </div>
       <div>
-        <div style="font-size:2rem; font-weight:800; color:var(--accent); margin-bottom:0.25rem;">${allTools.length}</div>
+        <div style="font-size:2rem; font-weight:800; color:var(--accent); margin-bottom:0.25rem;">${uniqueToolsCount}</div>
         <div style="font-size:0.85rem; color:var(--text-muted); font-weight:500;">Hand-Picked Tools</div>
       </div>
       <div>
@@ -1329,7 +1330,7 @@ const homeContent = `
 
       <div id="home-no-categories" style="display:none; grid-column:1/-1; text-align:center; padding:3rem 1.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg);">
         <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:0.5rem;">No matching categories on home page</h3>
-        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">Try searching the Master Archive directly for all ${allTools.length} tools, APIs, and services.</p>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">Try searching the Master Archive directly for all ${uniqueToolsCount} tools, APIs, and services.</p>
         <button type="button" onclick="submitHeroSearch()" class="btn btn-primary">Search in Master Archive</button>
       </div>
     </div>
@@ -1394,7 +1395,7 @@ const homeContent = `
 
 fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
   title: 'StaticStack - Modern Tools & APIs for Static Websites',
-  description: `Curated directory of ${allTools.length}+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.`,
+  description: `Curated directory of ${uniqueToolsCount}+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.`,
   currentNav: 'home',
   content: homeContent
 }));
@@ -1431,7 +1432,7 @@ const archiveContent = `
       <div id="archive-no-results" style="display:none; text-align:center; padding:3.5rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); margin-bottom:3rem; box-shadow:var(--shadow-card);">
         <div style="font-size:1.35rem; font-weight:700; margin-bottom:0.5rem;">No tools found</div>
         <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">No tools match your current filter or search criteria.</p>
-        <button class="btn btn-primary" onclick="resetArchiveFilters()">Reset Filters &amp; Show All ${allTools.length} Tools</button>
+        <button class="btn btn-primary" onclick="resetArchiveFilters()">Reset Filters &amp; Show All ${uniqueToolsCount} Tools</button>
       </div>
 
       ${categories.map(cat => {
@@ -1546,11 +1547,11 @@ const archiveContent = `
 
       if (archiveCountEl) {
         if (q) {
-          archiveCountEl.innerHTML = 'Showing ' + count + ' of ${allTools.length} tools matching &ldquo;<strong>' + q.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>&rdquo; &bull; <a href="javascript:void(0)" onclick="clearArchiveSearch()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all ${allTools.length} tools</a>';
+          archiveCountEl.innerHTML = 'Showing ' + count + ' of ${uniqueToolsCount} tools matching &ldquo;<strong>' + q.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>&rdquo; &bull; <a href="javascript:void(0)" onclick="clearArchiveSearch()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all ${uniqueToolsCount} tools</a>';
         } else if (currentFilter !== 'all') {
-          archiveCountEl.innerHTML = 'Showing ' + count + ' ' + currentFilter + ' tools &bull; <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all ${allTools.length} tools</a>';
+          archiveCountEl.innerHTML = 'Showing ' + count + ' ' + currentFilter + ' tools &bull; <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all ${uniqueToolsCount} tools</a>';
         } else {
-          archiveCountEl.textContent = 'Showing all ${allTools.length} tools across ${categories.length} categories';
+          archiveCountEl.textContent = 'Showing all ${uniqueToolsCount} tools across ${categories.length} categories';
         }
       }
     }
@@ -1629,8 +1630,8 @@ const archiveContent = `
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
-  title: `Master Archive - ${allTools.length}+ Tools for Static Websites`,
-  description: `Explore the complete directory of ${allTools.length} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
+  title: `Master Archive - ${uniqueToolsCount}+ Tools for Static Websites`,
+  description: `Explore the complete directory of ${uniqueToolsCount} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
   currentNav: 'archive',
   miniHero: {
     breadcrumbs: [
@@ -1639,12 +1640,12 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
     ],
     icon: ICONS.archive,
     title: 'Master Directory',
-    subtext: `Complete catalog of all ${allTools.length} tools across ${categories.length} categories for static websites. Filter by pricing or jump directly to any category section.`,
+    subtext: `Complete catalog of all ${uniqueToolsCount} tools across ${categories.length} categories for static websites. Filter by pricing or jump directly to any category section.`,
     extraHtml: `
       <!-- Archive Search & Filter Controls -->
       <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.25rem;">
         <div style="flex:1 1 300px; position:relative; max-width:480px;">
-          <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all ${allTools.length} tools by name, description, keyword...">
+          <input type="text" id="archive-search-input" style="width:100%; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all ${uniqueToolsCount} tools by name, description, keyword...">
           <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
           <button id="archive-search-clear" onclick="clearArchiveSearch()" style="position:absolute; right:0.75rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px;" title="Clear search" aria-label="Clear search">
             ${ICONS.close}
@@ -1653,14 +1654,14 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
 
         <!-- Filter Buttons -->
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-          <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (${allTools.length})</button>
+          <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (${uniqueToolsCount})</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
           <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
         </div>
       </div>
-      <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all ${allTools.length} tools across ${categories.length} categories</div>
+      <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all ${uniqueToolsCount} tools across ${categories.length} categories</div>
     `
   },
   content: archiveContent
