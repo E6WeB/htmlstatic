@@ -150,6 +150,12 @@
     transition: all 0.2s ease;
   }
 
+  .btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
   .btn-primary {
     background: var(--accent-gradient);
     color: #ffffff !important;
@@ -776,10 +782,98 @@
     margin-top: auto;
   }
 
+  /* Pre-Footer CTA */
+  .pre-footer-cta {
+    padding: 0 0 3.5rem;
+    margin-top: 1rem;
+  }
+
+  .pre-footer-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    background-image: radial-gradient(circle at top right, var(--accent-light) 0%, transparent 60%);
+  }
+
+  .pre-footer-content {
+    max-width: 600px;
+  }
+
+  .pre-footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  .pre-footer-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+
+  .pre-footer-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .pre-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    padding: 4rem 0 2rem;
+    margin-top: auto;
+  }
+
   .footer-inner {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.5fr 1fr 1.15fr 1.15fr;
+    gap: 2.75rem;
     margin-bottom: 3rem;
   }
 
@@ -789,6 +883,20 @@
     margin-top: 0.85rem;
     max-width: 420px;
     line-height: 1.6;
+  }
+
+  .footer-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-top: 1.15rem;
   }
 
   .footer-col h4 {
@@ -810,10 +918,24 @@
   .footer-links a {
     color: var(--text-muted);
     font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .footer-links a svg {
+    vertical-align: middle;
+    opacity: 0.65;
+    transition: opacity 0.2s, transform 0.2s;
   }
 
   .footer-links a:hover {
     color: var(--accent);
+  }
+
+  .footer-links a:hover svg {
+    opacity: 1;
+    transform: translate(1px, -1px);
   }
 
   .footer-bottom {
@@ -1185,16 +1307,43 @@
     }
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1024px) {
     .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
     }
+    .pre-footer-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .pre-footer-actions {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 860px) {
     .back-to-top-btn {
       bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
       right: max(1.25rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
       padding: 0.55rem 0.85rem;
       font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .pre-footer-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .pre-footer-actions .btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 
@@ -1784,18 +1933,52 @@ npx wrangler pages deploy ./dist --project-name my-static-site
     
   </main>
 
+  <!-- Pre-Footer Call to Action -->
+  <section class="pre-footer-cta">
+    <div class="container">
+      <div class="pre-footer-card">
+        <div class="pre-footer-content">
+          <div class="pre-footer-badge">
+            <span class="status-dot"></span>
+            <span>Community-Curated Open Directory</span>
+          </div>
+          <h2 class="pre-footer-title">Have a great static tool to recommend?</h2>
+          <p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p>
+        </div>
+        <div class="pre-footer-actions">
+          <a href="../../submit" class="btn btn-primary">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            <span>Submit a Tool</span>
+          </a>
+          <a href="../../archive" class="btn btn-secondary">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+            <span>Browse All 26 Categories</span>
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            <span>Star on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <div>
+        <div class="footer-col footer-col-brand">
           <a href="../../" class="brand" style="margin-bottom: 0.75rem;">
             <span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
             <span>StaticStack</span>
           </a>
           <p class="footer-desc">
-            A community-curated collection of tools, services, and resources for building, hosting, and improving static websites with HTML, CSS, and JavaScript—zero backend servers required.
+            A community-curated collection of tools, services, and resources for building and hosting modern static websites with HTML, CSS, and JavaScript.
           </p>
+          <div class="footer-pill-badge">
+            <span class="status-dot"></span>
+            <span>110 Tools &bull; 26 Categories</span>
+          </div>
         </div>
 
         <div class="footer-col">
@@ -1804,17 +1987,30 @@ npx wrangler pages deploy ./dist --project-name my-static-site
             <li><a href="../../">Home</a></li>
             <li><a href="../../archive">Master Archive</a></li>
             <li><a href="../../submit">Submit a Tool</a></li>
+            <li><a href="../../contribute">Contributing Guide</a></li>
+            <li><a href="../../thankyou">Thank You &amp; Credits</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Categories</h4>
+          <ul class="footer-links">
+            <li><a href="../../archive#hosting-deployment">Hosting &amp; Deployment</a></li>
+            <li><a href="../../archive#contact-forms">Contact Forms</a></li>
+            <li><a href="../../archive#css-components">CSS &amp; UI Components</a></li>
+            <li><a href="../../archive#content-management">Content Management</a></li>
+            <li><a href="../../archive#analytics-privacy">Analytics &amp; Privacy</a></li>
+            <li><a href="../../archive#browser-extensions">Browser Extensions</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Community &amp; Project</h4>
           <ul class="footer-links">
-            <li><a href="../../contribute">Contributing Guide</a></li>
-            <li><a href="../../thankyou">Thank You &amp; Credits</a></li>
-            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group</a></li>
-            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue</a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
             <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
           </ul>
         </div>

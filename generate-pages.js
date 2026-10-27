@@ -392,6 +392,12 @@ const BASE_CSS = `
     transition: all 0.2s ease;
   }
 
+  .btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
   .btn-primary {
     background: var(--accent-gradient);
     color: #ffffff !important;
@@ -1018,10 +1024,98 @@ const BASE_CSS = `
     margin-top: auto;
   }
 
+  /* Pre-Footer CTA */
+  .pre-footer-cta {
+    padding: 0 0 3.5rem;
+    margin-top: 1rem;
+  }
+
+  .pre-footer-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    background-image: radial-gradient(circle at top right, var(--accent-light) 0%, transparent 60%);
+  }
+
+  .pre-footer-content {
+    max-width: 600px;
+  }
+
+  .pre-footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  .pre-footer-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+
+  .pre-footer-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .pre-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    padding: 4rem 0 2rem;
+    margin-top: auto;
+  }
+
   .footer-inner {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.5fr 1fr 1.15fr 1.15fr;
+    gap: 2.75rem;
     margin-bottom: 3rem;
   }
 
@@ -1031,6 +1125,20 @@ const BASE_CSS = `
     margin-top: 0.85rem;
     max-width: 420px;
     line-height: 1.6;
+  }
+
+  .footer-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-top: 1.15rem;
   }
 
   .footer-col h4 {
@@ -1052,10 +1160,24 @@ const BASE_CSS = `
   .footer-links a {
     color: var(--text-muted);
     font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .footer-links a svg {
+    vertical-align: middle;
+    opacity: 0.65;
+    transition: opacity 0.2s, transform 0.2s;
   }
 
   .footer-links a:hover {
     color: var(--accent);
+  }
+
+  .footer-links a:hover svg {
+    opacity: 1;
+    transform: translate(1px, -1px);
   }
 
   .footer-bottom {
@@ -1427,16 +1549,43 @@ const BASE_CSS = `
     }
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1024px) {
     .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
     }
+    .pre-footer-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .pre-footer-actions {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 860px) {
     .back-to-top-btn {
       bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
       right: max(1.25rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
       padding: 0.55rem 0.85rem;
       font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .pre-footer-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .pre-footer-actions .btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 
@@ -1838,18 +1987,52 @@ function renderLayout({
     ${content}
   </main>
 
+  <!-- Pre-Footer Call to Action -->
+  <section class="pre-footer-cta">
+    <div class="container">
+      <div class="pre-footer-card">
+        <div class="pre-footer-content">
+          <div class="pre-footer-badge">
+            <span class="status-dot"></span>
+            <span>Community-Curated Open Directory</span>
+          </div>
+          <h2 class="pre-footer-title">Have a great static tool to recommend?</h2>
+          <p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p>
+        </div>
+        <div class="pre-footer-actions">
+          <a href="${rootPath}submit" class="btn btn-primary">
+            ${ICONS.plusCircle}
+            <span>Submit a Tool</span>
+          </a>
+          <a href="${rootPath}archive" class="btn btn-secondary">
+            ${ICONS.archive}
+            <span>Browse All ${categories.length} Categories</span>
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub">
+            ${ICONS.github}
+            <span>Star on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <div>
+        <div class="footer-col footer-col-brand">
           <a href="${rootPath || './'}" class="brand" style="margin-bottom: 0.75rem;">
             <span class="brand-icon">${ICONS.logo}</span>
             <span>StaticStack</span>
           </a>
           <p class="footer-desc">
-            A community-curated collection of tools, services, and resources for building, hosting, and improving static websites with HTML, CSS, and JavaScript—zero backend servers required.
+            A community-curated collection of tools, services, and resources for building and hosting modern static websites with HTML, CSS, and JavaScript.
           </p>
+          <div class="footer-pill-badge">
+            <span class="status-dot"></span>
+            <span>${allTools.length} Tools &bull; ${categories.length} Categories</span>
+          </div>
         </div>
 
         <div class="footer-col">
@@ -1858,17 +2041,30 @@ function renderLayout({
             <li><a href="${rootPath || './'}">Home</a></li>
             <li><a href="${rootPath}archive">Master Archive</a></li>
             <li><a href="${rootPath}submit">Submit a Tool</a></li>
+            <li><a href="${rootPath}contribute">Contributing Guide</a></li>
+            <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Categories</h4>
+          <ul class="footer-links">
+            <li><a href="${rootPath}archive#hosting-deployment">Hosting &amp; Deployment</a></li>
+            <li><a href="${rootPath}archive#contact-forms">Contact Forms</a></li>
+            <li><a href="${rootPath}archive#css-components">CSS &amp; UI Components</a></li>
+            <li><a href="${rootPath}archive#content-management">Content Management</a></li>
+            <li><a href="${rootPath}archive#analytics-privacy">Analytics &amp; Privacy</a></li>
+            <li><a href="${rootPath}archive#browser-extensions">Browser Extensions</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Community &amp; Project</h4>
           <ul class="footer-links">
-            <li><a href="${rootPath}contribute">Contributing Guide</a></li>
-            <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
-            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group</a></li>
-            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue</a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository ${ICONS.external}</a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue ${ICONS.external}</a></li>
+            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group ${ICONS.external}</a></li>
+            <li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io ${ICONS.external}</a></li>
             <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
           </ul>
         </div>
