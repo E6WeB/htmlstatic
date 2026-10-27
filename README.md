@@ -1252,7 +1252,9 @@ Star this repository, contribute a tool, and help make static website developmen
 ## Community & Discussion
 
 Looking to connect with other developers and learn how to make static websites dynamic?  
-Join our community on Facebook: **<a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Facebook Group</a>**
+- **[GitHub Discussions](https://github.com/E6WeB/htmlstatic/discussions)**: Join threaded conversations, ask questions, vote on tool requests, and discuss static web development.
+- **[Community Page](https://staticstack.app/community)**: Embedded live discussion on StaticStack powered by Giscus and GitHub Discussions.
+- **<a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Facebook Group</a>**: Connect with fellow developers in our active Facebook community.
 
 Check out our [Thank You page](THANKYOU.md) for community acknowledgments and appreciation!
 

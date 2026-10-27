@@ -1,5 +1,11 @@
 [
   {
+    "title": "Community & Discussions",
+    "description": "Connect with static site developers, ask questions, share projects, and join our GitHub and Facebook discussions.",
+    "category": "Community",
+    "url": "/community"
+  },
+  {
     "title": "AI & Content Creation",
     "description": "AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.",
     "category": "Category",

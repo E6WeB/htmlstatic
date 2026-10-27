@@ -63,7 +63,14 @@ const ICONS = {
   heart: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`,
   globe: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
   thumbsUp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
-  facebook: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`
+  facebook: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+  users: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+  comments: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
+  lightbulb: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .5 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>`,
+  helpCircle: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+  rocket: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 9v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>`,
+  megaphone: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>`,
+  poll: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>`
 };
 
 // Category Icons
@@ -1541,6 +1548,75 @@ const BASE_CSS = `
     }
   }
 
+  /* Community Layout & Pillars */
+  .community-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 2.25rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .community-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .community-pillar-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .community-pillar-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--border-hover);
+  }
+
+  .community-category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .community-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.85rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .community-tag-pill:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 960px) {
+    .community-layout {
+      grid-template-columns: 1fr !important;
+      margin-bottom: 3rem !important;
+      gap: 1.75rem !important;
+    }
+  }
+
   @media (max-width: 900px) {
     .submit-layout {
       grid-template-columns: 1fr !important;
@@ -1897,6 +1973,7 @@ function renderLayout({
           <li><a href="${rootPath || './'}" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
           <li><a href="${rootPath}archive" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
           <li><a href="${rootPath}submit" class="nav-link ${currentNav === 'submit' ? 'active' : ''}">Submit</a></li>
+          <li><a href="${rootPath}community" class="nav-link ${currentNav === 'community' ? 'active' : ''}">Community</a></li>
           <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">${ICONS.github} GitHub</a></li>
         </ul>
       </nav>
@@ -1950,6 +2027,15 @@ function renderLayout({
           </a>
         </li>
         <li class="mobile-nav-item">
+          <a href="${rootPath}community" class="${currentNav === 'community' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.users}</span>
+              <span>Community</span>
+            </span>
+            <span class="mobile-nav-badge">Discussions</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
           <a href="${rootPath}contribute" class="${currentNav === 'contribute' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.gitPullRequest}</span>
@@ -1964,7 +2050,7 @@ function renderLayout({
               <span class="mobile-nav-link-icon">${ICONS.heart}</span>
               <span>Thank You &amp; Credits</span>
             </span>
-            <span class="mobile-nav-badge">Community</span>
+            <span class="mobile-nav-badge">Credits</span>
           </a>
         </li>
         <li class="mobile-nav-item">
@@ -2041,6 +2127,7 @@ function renderLayout({
             <li><a href="${rootPath || './'}">Home</a></li>
             <li><a href="${rootPath}archive">Master Archive</a></li>
             <li><a href="${rootPath}submit">Submit a Tool</a></li>
+            <li><a href="${rootPath}community">Community</a></li>
             <li><a href="${rootPath}contribute">Contributing Guide</a></li>
             <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
           </ul>
@@ -2061,6 +2148,7 @@ function renderLayout({
         <div class="footer-col">
           <h4>Community &amp; Project</h4>
           <ul class="footer-links">
+            <li><a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions ${ICONS.external}</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository ${ICONS.external}</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue ${ICONS.external}</a></li>
             <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group ${ICONS.external}</a></li>
@@ -2972,7 +3060,383 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
 }));
 
 // ==========================================================================
-// 6. Generate Dedicated HTML Pages for ALL Tools!
+// 6. Generate community.html (Community & Discussions Page)
+// ==========================================================================
+console.log('💬 Generating Community Page (community.html)...');
+
+const communityContent = `
+  <!-- Community Pillars Grid -->
+  <div class="community-pillars-grid">
+    <div class="community-pillar-card">
+      <div>
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); margin-bottom:1rem;">
+          ${ICONS.github}
+        </div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main);">GitHub Discussions</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.55; margin-bottom:1.25rem;">
+          Official threaded discussions on the E6WeB/htmlstatic repository. Browse categories, vote on feature ideas, and follow community RFCs.
+        </p>
+      </div>
+      <a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+        Browse Discussions ${ICONS.external}
+      </a>
+    </div>
+
+    <div class="community-pillar-card">
+      <div>
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:#e0f2fe; color:#0284c7; margin-bottom:1rem;">
+          ${ICONS.comments}
+        </div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main);">Live Discussion Embed</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.55; margin-bottom:1.25rem;">
+          Powered by Giscus. Comment, ask questions, or share tips right on this page! All comments sync in real time with GitHub Discussions.
+        </p>
+      </div>
+      <a href="#community-discussion" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+        Jump to Discussion ↓
+      </a>
+    </div>
+
+    <div class="community-pillar-card">
+      <div>
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:#dbeafe; color:#1877f2; margin-bottom:1rem;">
+          ${ICONS.facebook}
+        </div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main);">Facebook Community</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.55; margin-bottom:1.25rem;">
+          Join over 4,500+ static site developers in the Dynamic Websites group discussing modern static architecture, APIs, and headless tooling.
+        </p>
+      </div>
+      <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+        <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span> Join Facebook Group ${ICONS.external}
+      </a>
+    </div>
+
+    <div class="community-pillar-card">
+      <div>
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--badge-open-source-bg); color:var(--badge-open-source-text); margin-bottom:1rem;">
+          ${ICONS.gitPullRequest}
+        </div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main);">Open Contributions</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.55; margin-bottom:1.25rem;">
+          StaticStack is 100% community-curated. Propose new static tools, submit fixes, and help keep the toolkit up to date.
+        </p>
+      </div>
+      <a href="contribute" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+        Contributing Guide →
+      </a>
+    </div>
+  </div>
+
+  <!-- Discussion Topics Pill Tags -->
+  <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.25rem 1.5rem; margin-bottom:2.25rem; box-shadow:var(--shadow-card); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <div style="display:flex; align-items:center; gap:0.6rem;">
+      <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.tag}</span>
+      <strong style="font-size:0.9rem; color:var(--text-main);">Popular Topics:</strong>
+    </div>
+    <div class="community-category-tags" style="margin-bottom:0;">
+      <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/general" target="_blank" rel="noopener noreferrer" class="community-tag-pill">
+        <span style="display:inline-flex; align-items:center; color:var(--accent);">${ICONS.comments}</span>
+        <span>General Discussion</span>
+        ${ICONS.external}
+      </a>
+      <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/ideas" target="_blank" rel="noopener noreferrer" class="community-tag-pill">
+        <span style="display:inline-flex; align-items:center; color:#d97706;">${ICONS.lightbulb}</span>
+        <span>Tool Ideas &amp; Suggestions</span>
+        ${ICONS.external}
+      </a>
+      <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/q-a" target="_blank" rel="noopener noreferrer" class="community-tag-pill">
+        <span style="display:inline-flex; align-items:center; color:#7c3aed;">${ICONS.helpCircle}</span>
+        <span>Q&amp;A / Support</span>
+        ${ICONS.external}
+      </a>
+      <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/announcements" target="_blank" rel="noopener noreferrer" class="community-tag-pill">
+        <span style="display:inline-flex; align-items:center; color:#dc2626;">${ICONS.megaphone}</span>
+        <span>Announcements</span>
+        ${ICONS.external}
+      </a>
+      <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/polls" target="_blank" rel="noopener noreferrer" class="community-tag-pill">
+        <span style="display:inline-flex; align-items:center; color:#059669;">${ICONS.poll}</span>
+        <span>Polls &amp; Votes</span>
+        ${ICONS.external}
+      </a>
+    </div>
+  </div>
+
+  <!-- Main 2-Column Layout -->
+  <div class="community-layout">
+    <!-- Left Column: Guidelines + Embedded Giscus Forum -->
+    <div class="community-main">
+      <!-- Welcome & Context Card -->
+      <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card); margin-bottom:2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem;">
+          <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.sparkles}</span>
+          <h2 style="font-size:1.35rem; font-weight:700; margin:0; color:var(--text-main);">Welcome to the StaticStack Community</h2>
+        </div>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.65; margin-bottom:1.25rem;">
+          Whether you are building your first static portfolio, deploying a high-traffic documentation portal, or looking for serverless APIs to replace monolithic backends, this is your space to connect, share knowledge, and collaborate.
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; padding-top:1.25rem; border-top:1px solid var(--border-color);">
+          <div style="display:flex; align-items:flex-start; gap:0.6rem;">
+            <span style="color:var(--accent); display:inline-flex; margin-top:0.2rem;">${ICONS.check}</span>
+            <div style="font-size:0.875rem; color:var(--text-muted);">
+              <strong style="color:var(--text-main); display:block;">Ask Questions</strong>
+              Get help with client-side authentication, forms, CMSs, and hosting.
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:0.6rem;">
+            <span style="color:var(--accent); display:inline-flex; margin-top:0.2rem;">${ICONS.check}</span>
+            <div style="font-size:0.875rem; color:var(--text-muted);">
+              <strong style="color:var(--text-main); display:block;">Share Workflows</strong>
+              Discuss static architectures, edge hosting, and integration recipes.
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:0.6rem;">
+            <span style="color:var(--accent); display:inline-flex; margin-top:0.2rem;">${ICONS.check}</span>
+            <div style="font-size:0.875rem; color:var(--text-muted);">
+              <strong style="color:var(--text-main); display:block;">Suggest Tools</strong>
+              Recommend new APIs and tools to include in the toolkit archive.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Community Poll Section -->
+      <section class="community-poll-card" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.75rem 2rem; box-shadow:var(--shadow-card); margin-bottom:2rem; position:relative;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <span style="display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:#ecfdf5; color:#059669; flex-shrink:0;">${ICONS.poll}</span>
+            <div>
+              <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.2rem;">
+                <span style="background:#ecfdf5; color:#059669; font-weight:700; font-size:0.7rem; padding:0.15rem 0.55rem; border-radius:999px; text-transform:uppercase; letter-spacing:0.04em;">Active Community Poll</span>
+                <span style="font-size:0.75rem; color:var(--text-muted);">&bull; GitHub Discussions #6</span>
+              </div>
+              <h3 style="font-size:1.2rem; font-weight:700; margin:0; color:var(--text-main);">Who do you host your static HTML with?</h3>
+            </div>
+          </div>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <span>Vote on GitHub</span>
+            ${ICONS.external}
+          </a>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:0.75rem; margin-bottom:1.25rem;">
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1.15rem; background:var(--bg-muted); border:1px solid var(--border-color); border-radius:var(--radius-md); transition:all 0.15s ease;">
+            <div style="display:flex; align-items:center; gap:0.65rem;">
+              <span style="width:0.85rem; height:0.85rem; border-radius:50%; border:2px solid var(--accent); display:inline-block;"></span>
+              <strong style="color:var(--text-main); font-size:0.875rem;">Wasmer</strong>
+            </div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">${ICONS.external}</span>
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1.15rem; background:var(--bg-muted); border:1px solid var(--border-color); border-radius:var(--radius-md); transition:all 0.15s ease;">
+            <div style="display:flex; align-items:center; gap:0.65rem;">
+              <span style="width:0.85rem; height:0.85rem; border-radius:50%; border:2px solid var(--accent); display:inline-block;"></span>
+              <strong style="color:var(--text-main); font-size:0.875rem;">GitHub Pages</strong>
+            </div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">${ICONS.external}</span>
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1.15rem; background:var(--bg-muted); border:1px solid var(--border-color); border-radius:var(--radius-md); transition:all 0.15s ease;">
+            <div style="display:flex; align-items:center; gap:0.65rem;">
+              <span style="width:0.85rem; height:0.85rem; border-radius:50%; border:2px solid var(--accent); display:inline-block;"></span>
+              <strong style="color:var(--text-main); font-size:0.875rem;">Other</strong>
+            </div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">${ICONS.external}</span>
+          </a>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; font-size:0.75rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:0.85rem;">
+          <span>Cast your vote directly on GitHub Discussions</span>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/polls" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:none; font-weight:600;">
+            Browse All Community Polls &rarr;
+          </a>
+        </div>
+      </section>
+
+      <!-- Embedded Giscus Discussion Section -->
+      <section id="community-discussion" class="community-discussion-card" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card); margin-bottom:2.5rem;">
+        <div style="margin-bottom:1.5rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border-color);">
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.comments}</span>
+            <h2 style="font-size:1.35rem; font-weight:700; margin:0; color:var(--text-main);">Community Discussion</h2>
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">
+            Leave a comment, share your tips, or ask a question.
+          </p>
+        </div>
+
+        <!-- Embedded Giscus Discussion -->
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+                data-repo="E6WeB/htmlstatic"
+                data-repo-id="R_kgDOVXW6KQ"
+                data-category="General"
+                data-category-id="DIC_kwDOVXW6Kc4DJx4r"
+                data-mapping="title"
+                data-strict="0"
+                data-reactions-enabled="0"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="en"
+                crossorigin="anonymous"
+                async>
+        </script>
+      </section>
+    </div>
+
+    <!-- Right Column: Sidebar -->
+    <aside class="community-sidebar" style="display:flex; flex-direction:column; gap:1.5rem;">
+      <!-- GitHub Discussions Quick Links -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-header">
+          <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.github}</span>
+          <h4 class="sidebar-widget-title">Discussion Channels</h4>
+        </div>
+        <div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.5rem;">
+          <a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer" class="sidebar-tool-card" style="text-decoration:none;">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); flex-shrink:0;">${ICONS.comments}</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--text-main); display:block;">All Discussions</strong>
+                <span style="font-size:0.75rem; color:var(--text-muted);">View all threads and updates</span>
+              </div>
+            </div>
+            ${ICONS.external}
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/general" target="_blank" rel="noopener noreferrer" class="sidebar-tool-card" style="text-decoration:none;">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:var(--radius-md); background:#e0f2fe; color:#0284c7; flex-shrink:0;">${ICONS.users}</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--text-main); display:block;">General</strong>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Chat, introductions &amp; news</span>
+              </div>
+            </div>
+            ${ICONS.external}
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/q-a" target="_blank" rel="noopener noreferrer" class="sidebar-tool-card" style="text-decoration:none;">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:var(--radius-md); background:#ede9fe; color:#7c3aed; flex-shrink:0;">${ICONS.helpCircle}</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--text-main); display:block;">Q&amp;A</strong>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Ask for help and advice</span>
+              </div>
+            </div>
+            ${ICONS.external}
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/ideas" target="_blank" rel="noopener noreferrer" class="sidebar-tool-card" style="text-decoration:none;">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:var(--radius-md); background:#fef3c7; color:#d97706; flex-shrink:0;">${ICONS.lightbulb}</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--text-main); display:block;">Ideas &amp; Tool Requests</strong>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Suggest tools to curate</span>
+              </div>
+            </div>
+            ${ICONS.external}
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/announcements" target="_blank" rel="noopener noreferrer" class="sidebar-tool-card" style="text-decoration:none;">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:var(--radius-md); background:#fee2e2; color:#dc2626; flex-shrink:0;">${ICONS.megaphone}</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--text-main); display:block;">Announcements</strong>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Toolkit updates and news</span>
+              </div>
+            </div>
+            ${ICONS.external}
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/polls" target="_blank" rel="noopener noreferrer" class="sidebar-tool-card" style="text-decoration:none;">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:var(--radius-md); background:#ecfdf5; color:#059669; flex-shrink:0;">${ICONS.poll}</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--text-main); display:block;">Polls &amp; Votes</strong>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Community voting &amp; surveys</span>
+              </div>
+            </div>
+            ${ICONS.external}
+          </a>
+        </div>
+      </div>
+
+      <!-- Community Guidelines Card -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-header">
+          <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.shield}</span>
+          <h4 class="sidebar-widget-title">Community Guidelines</h4>
+        </div>
+        <div class="sidebar-widget-body" style="font-size:0.825rem; color:var(--text-muted); line-height:1.6; display:flex; flex-direction:column; gap:0.6rem;">
+          <div><strong style="color:var(--text-main);">1. Be Respectful &amp; Welcoming:</strong> Everyone is welcome regardless of experience level.</div>
+          <div><strong style="color:var(--text-main);">2. Stay Focused:</strong> Keep discussions centered around static sites, Jamstack, and zero-backend web development.</div>
+          <div><strong style="color:var(--text-main);">3. Zero Spam:</strong> No affiliate links, referral codes, or aggressive self-promotion.</div>
+          <div><strong style="color:var(--text-main);">4. Helpful Context:</strong> Provide reproducible examples, live URLs, or code snippets when asking for help.</div>
+        </div>
+      </div>
+
+      <!-- Propose a Tool CTA Card -->
+      <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+          <span style="color:var(--accent); display:inline-flex;">${ICONS.plusCircle}</span>
+          <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
+          Help expand our curated collection of ${uniqueToolsCount}+ static website tools.
+        </p>
+        <a href="submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+          Submit a Tool &rarr;
+        </a>
+      </div>
+
+      <!-- Dynamic Websites Facebook Group Card -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-header">
+          <span style="color:#1877f2; display:inline-flex; align-items:center;">${ICONS.facebook}</span>
+          <h4 class="sidebar-widget-title">Facebook Community</h4>
+        </div>
+        <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
+          Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites Facebook Group.
+        </p>
+        <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
+          <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
+          <span>Dynamic Websites Group</span>
+          ${ICONS.external}
+        </a>
+      </div>
+    </aside>
+  </div>
+`;
+
+fs.writeFileSync(path.join(ROOT_DIR, 'community.html'), renderLayout({
+  title: 'Community & Discussions - StaticStack',
+  description: 'Connect with static and Jamstack web developers. Join GitHub Discussions, ask questions, propose new tools, and exchange integration tips.',
+  currentNav: 'community',
+  miniHero: {
+    breadcrumbs: [
+      { label: 'Home', url: './' },
+      { label: 'Community', url: 'community' }
+    ],
+    icon: ICONS.users,
+    badgeRow: `
+      <span class="status-dot"></span>
+      <span>StaticStack Community &bull; Powered by GitHub Discussions</span>
+    `,
+    title: 'Community & Discussions',
+    subtext: 'The meeting hub for static web developers. Ask questions, share integration recipes, vote on tool requests, and discuss zero-backend architectures.',
+    actions: `
+      <a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+        ${ICONS.github} Open in GitHub Discussions ${ICONS.external}
+      </a>
+      <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+        <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span> Facebook Group ${ICONS.external}
+      </a>
+      <a href="submit" class="btn btn-secondary btn-sm">
+        ${ICONS.plusCircle} Submit a Tool
+      </a>
+    `
+  },
+  content: communityContent
+}));
+
+// ==========================================================================
+// 7. Generate Dedicated HTML Pages for ALL Tools!
 // ==========================================================================
 console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
 allTools.forEach(tool => {
@@ -3228,13 +3692,14 @@ allTools.forEach(tool => {
 });
 
 // ==========================================================================
-// 7. Generate XML Sitemap & robots.txt (Root)
+// 8. Generate XML Sitemap & robots.txt (Root)
 // ==========================================================================
 const today = new Date().toISOString().split('T')[0];
 const sitemapUrls = [
   { loc: 'https://staticstack.app/', priority: '1.0', changefreq: 'daily' },
   { loc: 'https://staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
   { loc: 'https://staticstack.app/submit', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/community', priority: '0.85', changefreq: 'weekly' },
   { loc: 'https://staticstack.app/contribute', priority: '0.8', changefreq: 'monthly' },
   { loc: 'https://staticstack.app/thankyou', priority: '0.7', changefreq: 'monthly' },
 ];
@@ -3279,9 +3744,16 @@ Sitemap: https://staticstack.app/sitemap.xml
 fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
 
 // ==========================================================================
-// 8. Generate Search Index (search-data.json)
+// 9. Generate Search Index (search-data.json)
 // ==========================================================================
 const searchIndex = [];
+
+searchIndex.push({
+  title: 'Community & Discussions',
+  description: 'Connect with static site developers, ask questions, share projects, and join our GitHub and Facebook discussions.',
+  category: 'Community',
+  url: '/community'
+});
 
 categories.forEach(cat => {
   searchIndex.push({
