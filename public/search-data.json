@@ -300,10 +300,28 @@
     "url": "/tools/comments-community/disqus/"
   },
   {
+    "title": "Flarum",
+    "description": "Modern, lightweight open-source community forum platform",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/flarum/"
+  },
+  {
+    "title": "GitHub Discussions",
+    "description": "Collaborative community forums and Q&amp;A hosted on GitHub",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/github-discussions/"
+  },
+  {
     "title": "Giscus",
     "description": "GitHub Discussions-powered comments using GitHub Discussions",
     "category": "Comments & Community",
     "url": "/tools/comments-community/giscus/"
+  },
+  {
+    "title": "iine",
+    "description": "Lightweight, privacy-first appreciation and like button widget without tracking",
+    "category": "Comments & Community",
+    "url": "/tools/comments-community/iine/"
   },
   {
     "title": "Utterances",

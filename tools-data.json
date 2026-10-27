@@ -338,7 +338,7 @@
     "title": "Comments & Community",
     "slug": "comments-community",
     "description": "Let visitors comment on blog posts and interact with your content.",
-    "toolsCount": 5,
+    "toolsCount": 6,
     "tools": [
       {
         "name": "Disqus",
@@ -387,6 +387,18 @@
         ],
         "websiteUrl": "https://giscus.app/",
         "websiteLabel": "giscus.app"
+      },
+      {
+        "name": "iine",
+        "slug": "iine",
+        "relPath": "comments-community/iine.md",
+        "folder": "comments-community",
+        "description": "Lightweight, privacy-first appreciation and like button widget without tracking",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://iine.to/",
+        "websiteLabel": "iine.to"
       },
       {
         "name": "Utterances",

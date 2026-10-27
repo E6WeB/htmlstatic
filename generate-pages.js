@@ -60,7 +60,9 @@ const ICONS = {
   plusCircle: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>`,
   gitPullRequest: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>`,
   heart: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`,
-  globe: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`
+  globe: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
+  thumbsUp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
+  facebook: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`
 };
 
 // Category Icons
@@ -198,7 +200,45 @@ for (const section of sections) {
 }
 
 console.log(`Parsed ${categories.length} categories and ${allTools.length} tools.`);
-const uniqueToolsCount = new Set(allTools.map(t => t.name)).size;
+const uniqueToolsCount = allTools.length;
+
+// Helper to select deterministic diverse random tools for sidebar
+function getRandomTools(currentSlug, count = 4) {
+  const otherTools = allTools.filter(t => t.slug !== currentSlug);
+  let hash = 0;
+  for (let i = 0; i < currentSlug.length; i++) {
+    hash = (hash << 5) - hash + currentSlug.charCodeAt(i);
+    hash |= 0;
+  }
+  const seed = Math.abs(hash);
+
+  const shuffled = [...otherTools].sort((a, b) => {
+    const valA = ((a.slug.charCodeAt(0) * 31 + a.slug.length * 17 + seed) % 97);
+    const valB = ((b.slug.charCodeAt(0) * 31 + b.slug.length * 17 + seed) % 97);
+    return valA - valB;
+  });
+
+  const picked = [];
+  const categoriesSeen = new Set();
+  for (const t of shuffled) {
+    if (!categoriesSeen.has(t.categorySlug)) {
+      categoriesSeen.add(t.categorySlug);
+      picked.push(t);
+      if (picked.length >= count) break;
+    }
+  }
+
+  if (picked.length < count) {
+    for (const t of shuffled) {
+      if (!picked.some(p => p.slug === t.slug)) {
+        picked.push(t);
+        if (picked.length >= count) break;
+      }
+    }
+  }
+
+  return picked;
+}
 
 // Export tools-data.json so metadata is always in sync with all parsed tools
 const toolsData = categories.map(c => ({
@@ -612,6 +652,114 @@ const BASE_CSS = `
     margin-top: 0.25rem;
   }
 
+  /* iine Appreciation / Like Button */
+  .iine-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 0.6rem 1.15rem;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    text-decoration: none;
+  }
+
+  .iine-button .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-subtle);
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease;
+  }
+
+  .iine-button .icon svg {
+    width: 17px;
+    height: 17px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+  }
+
+  .iine-button .counter {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--text-main);
+    min-width: 0.6rem;
+    text-align: left;
+    transition: color 0.2s ease;
+  }
+
+  .iine-button .counter:empty {
+    display: none;
+  }
+
+  .iine-button:hover:not([aria-disabled="true"]):not(.clicked) {
+    background-color: var(--bg-muted);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .iine-button:hover:not([aria-disabled="true"]):not(.clicked) .icon {
+    color: var(--accent);
+    transform: scale(1.15) rotate(-6deg);
+  }
+
+  .iine-button:hover:not([aria-disabled="true"]):not(.clicked) .counter {
+    color: var(--accent);
+  }
+
+  .iine-button.clicked,
+  .iine-button[aria-pressed="true"],
+  .iine-button[aria-disabled="true"] {
+    background-color: var(--accent-light);
+    border-color: rgba(37, 99, 235, 0.35);
+    color: var(--accent);
+    cursor: default;
+  }
+
+  .iine-button.clicked .icon,
+  .iine-button[aria-pressed="true"] .icon,
+  .iine-button[aria-disabled="true"] .icon {
+    color: var(--accent);
+    transform: scale(1.08);
+  }
+
+  .iine-button.clicked .icon svg path,
+  .iine-button[aria-pressed="true"] .icon svg path,
+  .iine-button[aria-disabled="true"] .icon svg path {
+    fill: var(--accent);
+    stroke: var(--accent);
+  }
+
+  .iine-button.clicked .counter,
+  .iine-button[aria-pressed="true"] .counter,
+  .iine-button[aria-disabled="true"] .counter {
+    color: var(--accent);
+  }
+
+  .iine-button:active:not(.clicked) {
+    transform: scale(0.96);
+  }
+
+  .iine-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
   .breadcrumbs {
     display: flex;
     align-items: center;
@@ -797,11 +945,9 @@ const BASE_CSS = `
   }
 
   .archive-sidebar {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 1.25rem 1rem;
-    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .archive-cat-link {
@@ -858,8 +1004,8 @@ const BASE_CSS = `
   /* Tool Page 2-Column Layout (Content + Right Sidebar) */
   .tool-page-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
-    gap: 2.25rem;
+    grid-template-columns: minmax(0, 1fr) 440px;
+    gap: 2.5rem;
     align-items: start;
     padding: 0 0 3.5rem;
   }
@@ -1126,6 +1272,9 @@ function renderLayout({
   <style>
     ${BASE_CSS}
   </style>
+
+  <!-- iine Open Source Appreciation / Like Button -->
+  <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
 </head>
 <body>
 
@@ -1185,6 +1334,7 @@ function renderLayout({
           <ul class="footer-links">
             <li><a href="${rootPath}contribute.html">Contributing Guide</a></li>
             <li><a href="${rootPath}thankyou.html">Thank You &amp; Credits</a></li>
+            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue</a></li>
             <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
@@ -1405,26 +1555,139 @@ fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
 // ==========================================================================
 console.log('📚 Generating Archive Page with wider sidebar (archive.html)...');
 
+const archiveRandomTools = getRandomTools('archive', 4);
+const archiveRandomToolsHtml = archiveRandomTools.map(rt => {
+  let rtBadgeClass = 'badge-freemium';
+  const rtPBadge = rt.primaryBadge.toLowerCase();
+  if (rtPBadge.includes('open source')) {
+    rtBadgeClass = 'badge-open-source';
+  } else if (rtPBadge.includes('free')) {
+    rtBadgeClass = 'badge-free';
+  } else if (rtPBadge.includes('paid')) {
+    rtBadgeClass = 'badge-paid';
+  }
+
+  return `
+    <a href="tools/${rt.categorySlug}/${rt.slug}.html" class="sidebar-tool-card">
+      <span class="sidebar-tool-icon">
+        ${CATEGORY_ICONS[rt.categorySlug] || ICONS.zap}
+      </span>
+      <div class="sidebar-tool-info">
+        <div class="sidebar-tool-name">
+          <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(rt.name)}</span>
+          <span class="badge ${rtBadgeClass}" style="font-size:0.65rem; padding:0.1rem 0.4rem;">${escapeHtml(rt.primaryBadge)}</span>
+        </div>
+        <div class="sidebar-tool-desc">${escapeHtml(rt.tagline || rt.description)}</div>
+      </div>
+    </a>
+  `;
+}).join('');
+
 const archiveContent = `
   <!-- Archive Layout -->
   <div class="archive-layout" style="padding-bottom: 4rem;">
-    <!-- Sidebar Category Links (scrolls with page) -->
+    <!-- Sidebar Category Links & Tool Widgets -->
     <aside class="archive-sidebar">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem; padding:0 0.5rem;">
-        <span style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-subtle);">Categories (25)</span>
-        <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">Show All</a>
+      <!-- Category Widget -->
+      <div class="sidebar-widget" style="padding: 1.25rem 1rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem; padding:0 0.5rem;">
+          <span style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-subtle);">Categories (${categories.length})</span>
+          <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">Show All</a>
+        </div>
+        <ul id="archive-sidebar-list" style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
+          ${categories.map(c => `
+            <li>
+              <a href="#${c.slug}" class="archive-cat-link" title="${escapeHtml(c.title)}">
+                <span class="archive-cat-icon">${CATEGORY_ICONS[c.slug] || ICONS.zap}</span>
+                <span class="archive-cat-name">${escapeHtml(c.title)}</span>
+                <span class="archive-cat-count">${c.tools.length}</span>
+              </a>
+            </li>
+          `).join('')}
+        </ul>
       </div>
-      <ul id="archive-sidebar-list" style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
-        ${categories.map(c => `
-          <li>
-            <a href="#${c.slug}" class="archive-cat-link" title="${escapeHtml(c.title)}">
-              <span class="archive-cat-icon">${CATEGORY_ICONS[c.slug] || ICONS.zap}</span>
-              <span class="archive-cat-name">${escapeHtml(c.title)}</span>
-              <span class="archive-cat-count">${c.tools.length}</span>
-            </a>
-          </li>
-        `).join('')}
-      </ul>
+
+      <!-- Static Site Hints & Tips Card -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-header">
+          <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.sparkles}</span>
+          <h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4>
+        </div>
+        <div class="sidebar-widget-body">
+          <div class="sidebar-tip-item">
+            <span class="sidebar-tip-icon">${ICONS.check}</span>
+            <div>
+              <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Zero Backend Required</strong>
+              All tools here integrate directly into HTML/CSS/JS without hosting server runtimes or databases.
+            </div>
+          </div>
+          <div class="sidebar-tip-item">
+            <span class="sidebar-tip-icon">${ICONS.zap}</span>
+            <div>
+              <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Async Performance</strong>
+              Always use <code>async</code> or <code>defer</code> on widget scripts to keep page load times fast.
+            </div>
+          </div>
+          <div class="sidebar-tip-item">
+            <span class="sidebar-tip-icon">${ICONS.shield}</span>
+            <div>
+              <strong style="color:var(--text-main); font-size:0.825rem; display:block;">API Key Security</strong>
+              Never commit secret tokens to static repositories. Use public client keys or edge proxies.
+            </div>
+          </div>
+          <div class="sidebar-tip-item">
+            <span class="sidebar-tip-icon">${ICONS.globe}</span>
+            <div>
+              <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Host Anywhere</strong>
+              Compatible with GitHub Pages, Cloudflare Pages, Netlify, Vercel, and Wasmer Edge.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discover Random Tools Card -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-header" style="justify-content:space-between;">
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.star}</span>
+            <h4 class="sidebar-widget-title">Featured Tools</h4>
+          </div>
+          <a href="#ai-content-creation" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">Explore All &rarr;</a>
+        </div>
+        <div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
+          ${archiveRandomToolsHtml}
+        </div>
+      </div>
+
+      <!-- Submit Alternative Card -->
+      <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+          <span style="color:var(--accent); display:inline-flex;">${ICONS.plusCircle}</span>
+          <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
+          StaticStack is community curated. Share your favorite static web service or tool with the community.
+        </p>
+        <a href="submit.html" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+          Submit a Tool &rarr;
+        </a>
+      </div>
+
+      <!-- Facebook Community Group Card -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-header">
+          <span style="color:#1877f2; display:inline-flex; align-items:center;">${ICONS.facebook}</span>
+          <h4 class="sidebar-widget-title">Facebook Community</h4>
+        </div>
+        <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
+          Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites Facebook Group.
+        </p>
+        <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
+          <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
+          <span>Dynamic Websites Group</span>
+          ${ICONS.external}
+        </a>
+      </div>
     </aside>
 
     <!-- Category Sections & Tool Tables -->
@@ -1868,44 +2131,6 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
 // ==========================================================================
 // 6. Generate Dedicated HTML Pages for ALL Tools!
 // ==========================================================================
-// Helper to select deterministic diverse random tools for sidebar
-function getRandomTools(currentSlug, count = 4) {
-  const otherTools = allTools.filter(t => t.slug !== currentSlug);
-  let hash = 0;
-  for (let i = 0; i < currentSlug.length; i++) {
-    hash = (hash << 5) - hash + currentSlug.charCodeAt(i);
-    hash |= 0;
-  }
-  const seed = Math.abs(hash);
-
-  const shuffled = [...otherTools].sort((a, b) => {
-    const valA = ((a.slug.charCodeAt(0) * 31 + a.slug.length * 17 + seed) % 97);
-    const valB = ((b.slug.charCodeAt(0) * 31 + b.slug.length * 17 + seed) % 97);
-    return valA - valB;
-  });
-
-  const picked = [];
-  const categoriesSeen = new Set();
-  for (const t of shuffled) {
-    if (!categoriesSeen.has(t.categorySlug)) {
-      categoriesSeen.add(t.categorySlug);
-      picked.push(t);
-      if (picked.length >= count) break;
-    }
-  }
-
-  if (picked.length < count) {
-    for (const t of shuffled) {
-      if (!picked.some(p => p.slug === t.slug)) {
-        picked.push(t);
-        if (picked.length >= count) break;
-      }
-    }
-  }
-
-  return picked;
-}
-
 console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
 allTools.forEach(tool => {
   let cleanMd = tool.rawMd || `# ${tool.name}\n\n> ${tool.description}\n\n- **Website**: ${tool.websiteUrl}`;
@@ -1984,6 +2209,10 @@ allTools.forEach(tool => {
       title: escapeHtml(tool.name),
       subtext: escapeHtml(tool.tagline || tool.description),
       actions: `
+        <button type="button" class="iine-button" data-icon="thumbs_up" data-slug="/tools/${tool.categorySlug}/${tool.slug}" aria-label="Upvote ${escapeHtml(tool.name)}" title="Send appreciation for ${escapeHtml(tool.name)}">
+          <span class="icon">${ICONS.thumbsUp}</span>
+          <span class="counter"></span>
+        </button>
         <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.95rem; padding:0.6rem 1.15rem;">
           Visit ${escapeHtml(tool.name)} ${ICONS.external}
         </a>
@@ -2128,6 +2357,22 @@ allTools.forEach(tool => {
               Submit a Tool &rarr;
             </a>
           </div>
+
+          <!-- Facebook Community Group Card -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-header">
+              <span style="color:#1877f2; display:inline-flex; align-items:center;">${ICONS.facebook}</span>
+              <h4 class="sidebar-widget-title">Facebook Community</h4>
+            </div>
+            <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
+              Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites Facebook Group.
+            </p>
+            <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
+              <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
+              <span>Dynamic Websites Group</span>
+              ${ICONS.external}
+            </a>
+          </div>
         </aside>
       </div>
     `
@@ -2211,6 +2456,9 @@ fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'tha
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thankyou', 'index.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thank-you.html'), path.join(PUBLIC_DIR, 'thank-you.html'));
 fs.copyFileSync(path.join(ROOT_DIR, 'thankyou.html'), path.join(PUBLIC_DIR, 'thank-you', 'index.html'));
+if (fs.existsSync(path.join(ROOT_DIR, '404.html'))) {
+  fs.copyFileSync(path.join(ROOT_DIR, '404.html'), path.join(PUBLIC_DIR, '404.html'));
+}
 
 // Sync src/img assets to public/
 ensureDir(path.join(PUBLIC_DIR, 'src', 'img'));

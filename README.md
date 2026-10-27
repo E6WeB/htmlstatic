@@ -353,6 +353,12 @@ Let visitors comment on blog posts and interact with your content.
     <td><a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">giscus.app</a></td>
   </tr>
   <tr>
+    <td><a href="comments-community/iine.md">iine</a></td>
+    <td>Lightweight, privacy-first appreciation and like button widget without tracking</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://iine.to/" target="_blank" rel="noopener noreferrer">iine.to</a></td>
+  </tr>
+  <tr>
     <td><a href="comments-community/utterances.md">Utterances</a></td>
     <td>Lightweight commenting powered by GitHub issues</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
