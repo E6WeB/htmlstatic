@@ -335,6 +335,38 @@
     ]
   },
   {
+    "title": "Browser Extensions",
+    "slug": "browser-extensions",
+    "description": "Helpful browser extensions for static site development, link sharing, and productivity.",
+    "toolsCount": 2,
+    "tools": [
+      {
+        "name": "FireShot",
+        "slug": "fireshot",
+        "relPath": "tools/browser-extensions/fireshot.md",
+        "folder": "browser-extensions",
+        "description": "Capture full webpage screenshots, edit annotations, and export to PDF, PNG, or JPEG",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg",
+        "websiteLabel": "Chrome Web Store"
+      },
+      {
+        "name": "Send URL",
+        "slug": "send-url",
+        "relPath": "tools/browser-extensions/send-url.md",
+        "folder": "browser-extensions",
+        "description": "One-click browser button to quickly send page URL and title via email",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://chromewebstore.google.com/detail/send-url/fmanefafgomooabofffoidipbfdbjilh",
+        "websiteLabel": "Chrome Web Store"
+      }
+    ]
+  },
+  {
     "title": "Comments & Community",
     "slug": "comments-community",
     "description": "Let visitors comment on blog posts and interact with your content.",

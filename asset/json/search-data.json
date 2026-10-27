@@ -30,6 +30,12 @@
     "url": "/archive#booking-scheduling"
   },
   {
+    "title": "Browser Extensions",
+    "description": "Helpful browser extensions for static site development, link sharing, and productivity.",
+    "category": "Category",
+    "url": "/archive#browser-extensions"
+  },
+  {
     "title": "Comments & Community",
     "description": "Let visitors comment on blog posts and interact with your content.",
     "category": "Category",
@@ -292,6 +298,18 @@
     "description": "Industry-standard appointment scheduling with embeddable widgets",
     "category": "Booking & Scheduling",
     "url": "/tools/booking-scheduling/calendly"
+  },
+  {
+    "title": "FireShot",
+    "description": "Capture full webpage screenshots, edit annotations, and export to PDF, PNG, or JPEG",
+    "category": "Browser Extensions",
+    "url": "/tools/browser-extensions/fireshot"
+  },
+  {
+    "title": "Send URL",
+    "description": "One-click browser button to quickly send page URL and title via email",
+    "category": "Browser Extensions",
+    "url": "/tools/browser-extensions/send-url"
   },
   {
     "title": "Disqus",

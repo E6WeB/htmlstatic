@@ -61,6 +61,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://staticstack.app/archive#browser-extensions</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://staticstack.app/archive#comments-community</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -320,6 +326,18 @@
   </url>
   <url>
     <loc>https://staticstack.app/tools/booking-scheduling/calendly</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://staticstack.app/tools/browser-extensions/fireshot</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://staticstack.app/tools/browser-extensions/send-url</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

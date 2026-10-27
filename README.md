@@ -20,26 +20,27 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 3. [Analytics & Privacy](#analytics--privacy)
 4. [Authentication & User Management](#authentication--user-management)
 5. [Booking & Scheduling](#booking--scheduling)
-6. [Comments & Community](#comments--community)
-7. [Contact Forms](#contact-forms)
-8. [Content Management](#content-management)
-9. [CSS & UI Component Libraries](#css--ui-component-libraries)
-10. [Database & Backend-as-a-Service](#database--backend-as-a-service)
-11. [Development Tools](#development-tools)
-12. [Hosting & Deployment](#hosting--deployment)
-13. [Images & Optimization](#images--optimization)
-14. [Interactive Maps & Geolocation](#interactive-maps--geolocation)
-15. [Interactive Scripts & Animation](#interactive-scripts--animation)
-16. [Live Chat & Support](#live-chat--support)
-17. [Media & Video Players](#media--video-players)
-18. [Monitoring & Error Tracking](#monitoring--error-tracking)
-19. [Newsletters & Email](#newsletters--email)
-20. [Payments & E-commerce](#payments--e-commerce)
-21. [Search](#search)
-22. [Security & Spam Protection](#security--spam-protection)
-23. [Static Site Generators](#static-site-generators)
-24. [Surveys & Feedback](#surveys--feedback)
-25. [Typography & Web Fonts](#typography--web-fonts)
+6. [Browser Extensions](#browser-extensions)
+7. [Comments & Community](#comments--community)
+8. [Contact Forms](#contact-forms)
+9. [Content Management](#content-management)
+10. [CSS & UI Component Libraries](#css--ui-component-libraries)
+11. [Database & Backend-as-a-Service](#database--backend-as-a-service)
+12. [Development Tools](#development-tools)
+13. [Hosting & Deployment](#hosting--deployment)
+14. [Images & Optimization](#images--optimization)
+15. [Interactive Maps & Geolocation](#interactive-maps--geolocation)
+16. [Interactive Scripts & Animation](#interactive-scripts--animation)
+17. [Live Chat & Support](#live-chat--support)
+18. [Media & Video Players](#media--video-players)
+19. [Monitoring & Error Tracking](#monitoring--error-tracking)
+20. [Newsletters & Email](#newsletters--email)
+21. [Payments & E-commerce](#payments--e-commerce)
+22. [Search](#search)
+23. [Security & Spam Protection](#security--spam-protection)
+24. [Static Site Generators](#static-site-generators)
+25. [Surveys & Feedback](#surveys--feedback)
+26. [Typography & Web Fonts](#typography--web-fonts)
 
 ### Contributing & Community
 
@@ -310,6 +311,35 @@ Allow visitors to book appointments and discovery calls directly from static pag
     <td>Industry-standard appointment scheduling with embeddable widgets</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://calendly.com/" target="_blank" rel="noopener noreferrer">calendly.com</a></td>
+  </tr>
+</tbody>
+</table>
+
+## Browser Extensions
+
+Helpful browser extensions for static site development, link sharing, and productivity.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="tools/browser-extensions/fireshot.md">FireShot</a></td>
+    <td>Capture full webpage screenshots, edit annotations, and export to PDF, PNG, or JPEG</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg" target="_blank" rel="noopener noreferrer">Chrome Web Store</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/browser-extensions/send-url.md">Send URL</a></td>
+    <td>One-click browser button to quickly send page URL and title via email</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://chromewebstore.google.com/detail/send-url/fmanefafgomooabofffoidipbfdbjilh" target="_blank" rel="noopener noreferrer">Chrome Web Store</a></td>
   </tr>
 </tbody>
 </table>
