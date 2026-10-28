@@ -3202,56 +3202,6 @@ const communityContent = `
         </div>
       </div>
 
-      <!-- Active Community Poll Section -->
-      <section class="community-poll-card" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.75rem 2rem; box-shadow:var(--shadow-card); margin-bottom:2rem; position:relative;">
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
-          <div style="display:flex; align-items:center; gap:0.75rem;">
-            <span style="display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:#ecfdf5; color:#059669; flex-shrink:0;">${ICONS.poll}</span>
-            <div>
-              <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.2rem;">
-                <span style="background:#ecfdf5; color:#059669; font-weight:700; font-size:0.7rem; padding:0.15rem 0.55rem; border-radius:999px; text-transform:uppercase; letter-spacing:0.04em;">Active Community Poll</span>
-                <span style="font-size:0.75rem; color:var(--text-muted);">&bull; GitHub Discussions #6</span>
-              </div>
-              <h3 style="font-size:1.2rem; font-weight:700; margin:0; color:var(--text-main);">Who do you host your static HTML with?</h3>
-            </div>
-          </div>
-          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-            <span>Vote on GitHub</span>
-            ${ICONS.external}
-          </a>
-        </div>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:0.75rem; margin-bottom:1.25rem;">
-          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1.15rem; background:var(--bg-muted); border:1px solid var(--border-color); border-radius:var(--radius-md); transition:all 0.15s ease;">
-            <div style="display:flex; align-items:center; gap:0.65rem;">
-              <span style="width:0.85rem; height:0.85rem; border-radius:50%; border:2px solid var(--accent); display:inline-block;"></span>
-              <strong style="color:var(--text-main); font-size:0.875rem;">Wasmer</strong>
-            </div>
-            <span style="font-size:0.75rem; color:var(--text-muted);">${ICONS.external}</span>
-          </a>
-          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1.15rem; background:var(--bg-muted); border:1px solid var(--border-color); border-radius:var(--radius-md); transition:all 0.15s ease;">
-            <div style="display:flex; align-items:center; gap:0.65rem;">
-              <span style="width:0.85rem; height:0.85rem; border-radius:50%; border:2px solid var(--accent); display:inline-block;"></span>
-              <strong style="color:var(--text-main); font-size:0.875rem;">GitHub Pages</strong>
-            </div>
-            <span style="font-size:0.75rem; color:var(--text-muted);">${ICONS.external}</span>
-          </a>
-          <a href="https://github.com/E6WeB/htmlstatic/discussions/6" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1.15rem; background:var(--bg-muted); border:1px solid var(--border-color); border-radius:var(--radius-md); transition:all 0.15s ease;">
-            <div style="display:flex; align-items:center; gap:0.65rem;">
-              <span style="width:0.85rem; height:0.85rem; border-radius:50%; border:2px solid var(--accent); display:inline-block;"></span>
-              <strong style="color:var(--text-main); font-size:0.875rem;">Other</strong>
-            </div>
-            <span style="font-size:0.75rem; color:var(--text-muted);">${ICONS.external}</span>
-          </a>
-        </div>
-
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; font-size:0.75rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:0.85rem;">
-          <span>Cast your vote directly on GitHub Discussions</span>
-          <a href="https://github.com/E6WeB/htmlstatic/discussions/categories/polls" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:none; font-weight:600;">
-            Browse All Community Polls &rarr;
-          </a>
-        </div>
-      </section>
 
       <!-- Embedded Giscus Discussion Section -->
       <section id="community-discussion" class="community-discussion-card" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card); margin-bottom:2.5rem;">
