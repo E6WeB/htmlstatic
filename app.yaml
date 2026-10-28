@@ -3,6 +3,8 @@ name: staticstack
 owner: e6web
 package: .
 description: StaticStack (staticstack.app) - Static Website Toolkit and Community on Wasmer Edge
+env:
+  HOST: "0.0.0.0"
 capabilities:
   database:
     engine: postgres
