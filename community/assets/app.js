@@ -33,11 +33,139 @@
     const hide=e.target.closest('[data-hide-kind]');if(hide){if(!state.user?.admin)return;try{await request('moderate',{method:'POST',body:{kind:hide.dataset.hideKind,id:Number(hide.dataset.hideId),hidden:hide.dataset.hideValue==='true'}});toast(hide.dataset.hideValue==='true'?'Content hidden.':'Content restored.');await loadTopics();if(state.activeTopic)await refreshTopic();loadReports();}catch(err){toast(err.message);}return;}
     const review=e.target.closest('[data-review-report]');if(review){try{await request('review_report',{method:'POST',body:{id:Number(review.dataset.reviewReport),status:review.dataset.reviewStatus}});toast('Report updated.');loadReports();}catch(err){toast(err.message);}return;}
   });
-  $('#new-topic').addEventListener('click',()=>{if(!state.user){toast('Sign in with GitHub to start a discussion.');return;}$('#compose-message').textContent='';$('#compose-form').reset();$('#compose-dialog').showModal();});
-  $('#compose-form').addEventListener('submit',async e=>{e.preventDefault();const button=e.submitter;button.disabled=true;$('#compose-message').textContent='Publishing…';try{const data=await request('create_topic',{method:'POST',body:{title:$('#topic-title').value,category:$('#topic-category').value,body:$('#topic-body').value}});$('#compose-dialog').close();toast('Discussion published.');state.category='';state.search='';$('#search').value='';renderCategories();await loadTopics();openTopic(data.id);}catch(err){$('#compose-message').textContent=err.message;}finally{button.disabled=false;}});
-  $('#topic-dialog').addEventListener('submit',async e=>{if(e.target.id!=='reply-form')return;e.preventDefault();const button=e.submitter;button.disabled=true;$('#reply-message').textContent='Posting…';try{await request('reply',{method:'POST',body:{topic_id:Number(state.activeTopic.id),body:$('#reply-body').value}});toast('Reply posted.');await refreshTopic();await loadTopics();}catch(err){$('#reply-message').textContent=err.message;}finally{button.disabled=false;}});
-  $('#report-form').addEventListener('submit',async e=>{e.preventDefault();const button=e.submitter;button.disabled=true;$('#report-message').textContent='Sending…';try{await request('report',{method:'POST',body:{...state.reportTarget,reason:$('#report-reason').value}});$('#report-dialog').close();toast('Report sent to the moderators.');}catch(err){$('#report-message').textContent=err.message;}finally{button.disabled=false;}});
-  let searchTimer;$('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{state.search=$('#search').value.trim();loadTopics();},250);});$('#refresh-reports').addEventListener('click',()=>loadReports());
-  async function init(){try{const data=await request('bootstrap');state.user=data.user;state.categories=data.categories||[];renderCategories();accountView();await loadTopics();}catch(e){$('#topic-list').innerHTML=`<div class="empty-state">Could not connect to the forum API. Check the Wasmer deployment and database setup.<br><small>${escapeHtml(e.message)}</small></div>`;}}
+  const newTopicBtn = $('#new-topic');
+  if (newTopicBtn) {
+    newTopicBtn.addEventListener('click', () => {
+      if (!state.user) {
+        toast('Sign in with GitHub to start a discussion.');
+        return;
+      }
+      $('#compose-message').textContent = '';
+      $('#compose-form').reset();
+      $('#compose-dialog').showModal();
+    });
+  }
+  $('#compose-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const button = e.submitter;
+    button.disabled = true;
+    $('#compose-message').textContent = 'Publishing…';
+    try {
+      const data = await request('create_topic', {
+        method: 'POST',
+        body: {
+          title: $('#topic-title').value,
+          category: $('#topic-category').value,
+          body: $('#topic-body').value
+        }
+      });
+      $('#compose-dialog').close();
+      toast('Discussion published.');
+      state.category = '';
+      state.search = '';
+      const s = $('#search');
+      if (s) { s.value = ''; updateClearBtn(); }
+      renderCategories();
+      await loadTopics();
+      openTopic(data.id);
+    } catch (err) {
+      $('#compose-message').textContent = err.message;
+    } finally {
+      button.disabled = false;
+    }
+  });
+  $('#topic-dialog').addEventListener('submit', async e => {
+    if (e.target.id !== 'reply-form') return;
+    e.preventDefault();
+    const button = e.submitter;
+    button.disabled = true;
+    $('#reply-message').textContent = 'Posting…';
+    try {
+      await request('reply', {
+        method: 'POST',
+        body: {
+          topic_id: Number(state.activeTopic.id),
+          body: $('#reply-body').value
+        }
+      });
+      toast('Reply posted.');
+      await refreshTopic();
+      await loadTopics();
+    } catch (err) {
+      $('#reply-message').textContent = err.message;
+    } finally {
+      button.disabled = false;
+    }
+  });
+  $('#report-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const button = e.submitter;
+    button.disabled = true;
+    $('#report-message').textContent = 'Sending…';
+    try {
+      await request('report', {
+        method: 'POST',
+        body: {
+          ...state.reportTarget,
+          reason: $('#report-reason').value
+        }
+      });
+      $('#report-dialog').close();
+      toast('Report sent to the moderators.');
+    } catch (err) {
+      $('#report-message').textContent = err.message;
+    } finally {
+      button.disabled = false;
+    }
+  });
+  let searchTimer;
+  const searchEl = $('#search');
+  const searchClearBtn = $('#search-clear');
+  function updateClearBtn() {
+    if (searchClearBtn) searchClearBtn.style.display = (searchEl && searchEl.value) ? 'inline-flex' : 'none';
+  }
+  if (searchEl) {
+    searchEl.addEventListener('input', () => {
+      updateClearBtn();
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        state.search = searchEl.value.trim();
+        loadTopics();
+      }, 250);
+    });
+    searchEl.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        searchEl.value = '';
+        updateClearBtn();
+        state.search = '';
+        loadTopics();
+      }
+    });
+  }
+  if (searchClearBtn) {
+    searchClearBtn.addEventListener('click', () => {
+      if (searchEl) {
+        searchEl.value = '';
+        searchEl.focus();
+      }
+      updateClearBtn();
+      state.search = '';
+      loadTopics();
+    });
+  }
+  const refreshBtn = $('#refresh-reports');
+  if (refreshBtn) refreshBtn.addEventListener('click', () => loadReports());
+  async function init() {
+    try {
+      const data = await request('bootstrap');
+      state.user = data.user;
+      state.categories = data.categories || [];
+      renderCategories();
+      accountView();
+      await loadTopics();
+    } catch (e) {
+      $('#topic-list').innerHTML = `<div class="empty-state">Could not connect to the forum API. Check the Wasmer deployment and database setup.<br><small>${escapeHtml(e.message)}</small></div>`;
+    }
+  }
   init();
 })();

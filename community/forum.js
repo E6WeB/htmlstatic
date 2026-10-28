@@ -404,7 +404,8 @@ async function handleApi(req, res, pathname, query) {
 async function handleOAuth(req, res, pathname, query) {
   const action = query.action || 'login';
   const baseUrl = getAppBaseUrl(req);
-  const callbackUrl = `${baseUrl}/community/oauth?action=callback`;
+  const oauthPath = pathname && pathname.endsWith('.php') ? '/community/oauth.php' : '/community/oauth';
+  const callbackUrl = `${baseUrl}${oauthPath}?action=callback`;
 
   if (action === 'login') {
     const state = crypto.randomBytes(24).toString('hex');

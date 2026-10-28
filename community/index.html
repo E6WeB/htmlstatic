@@ -1,28 +1,580 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>StaticStack Community</title>
-  <meta name="description" content="A community for sharing static website tools, components, and ideas.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Community Discussions - StaticStack</title>
+  <meta name="description" content="A community for sharing static website tools, components, questions, and ideas. Discuss HTML, CSS, JavaScript, and zero-backend web development.">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- OpenGraph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StaticStack">
+  <meta property="og:title" content="Community Discussions - StaticStack">
+  <meta property="og:description" content="A community for sharing static website tools, components, questions, and ideas. Discuss HTML, CSS, JavaScript, and zero-backend web development.">
+  <meta property="og:image" content="https://staticstack.app/asset/img/og-image.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="StaticStack Community Forum">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Community Discussions - StaticStack">
+  <meta name="twitter:description" content="A community for sharing static website tools, components, questions, and ideas. Discuss HTML, CSS, JavaScript, and zero-backend web development.">
+  <meta name="twitter:image" content="https://staticstack.app/asset/img/og-image.webp">
+
+  <!-- Global Design System & Community Styles -->
+  <link rel="stylesheet" href="/asset/css/style.css">
   <link rel="stylesheet" href="/community/assets/style.css">
 </head>
 <body>
+
+  <!-- Site Header -->
   <header class="site-header">
-    <div class="header-inner"><a class="brand" href="/" aria-label="StaticStack Community home">StaticStack <span>Community</span></a><div class="account" id="account"><a class="button button-quiet" href="/community/oauth?action=login">Sign in with GitHub</a></div></div>
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <span class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        </span>
+        <span>StaticStack</span>
+        <span class="brand-badge">Community</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-drawer" aria-label="Main Navigation">
+        <ul id="nav-links" class="nav-links">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/archive" class="nav-link">Archive</a></li>
+          <li><a href="/submit" class="nav-link">Submit</a></li>
+          <li><a href="/community/" class="nav-link active">Community</a></li>
+          <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            GitHub
+          </a></li>
+        </ul>
+      </nav>
+
+      <!-- Account Actions (Sign In / User Profile Slot) -->
+      <div class="account" id="account">
+        <a class="button button-quiet" href="/community/oauth?action=login">Sign in with GitHub</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="hamburger-btn" type="button" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-modal">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
   </header>
-  <main class="layout">
-    <section class="intro"><p class="eyebrow">A community for the static web</p><h1>Build better websites together.</h1><p>Share tools, ask questions, and help each other build with HTML, CSS, and JavaScript.</p></section>
-    <div class="toolbar"><div class="search-wrap"><label class="sr-only" for="search">Search discussions</label><input id="search" type="search" placeholder="Search discussions…"></div><button class="button" id="new-topic">Start a discussion</button></div>
-    <div class="columns"><aside class="sidebar"><h2>Categories</h2><nav id="categories" aria-label="Discussion categories"><p class="muted">Loading categories…</p></nav><div class="sidebar-note"><h3>Welcome to StaticStack</h3><p>Keep it friendly, share useful details, and help make the static web easier for everyone.</p></div></aside><section class="discussion-area"><div class="section-heading"><h2 id="list-heading">Latest discussions</h2><span id="topic-count" class="muted"></span></div><div id="topic-list" class="topic-list"><div class="empty-state">Loading discussions…</div></div></section></div>
+
+  <!-- Full-Screen Mobile Navigation Overlay -->
+  <div id="mobile-nav-modal" class="mobile-nav-modal" role="dialog" aria-modal="true" aria-label="Navigation Menu" tabindex="-1">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand" onclick="closeMobileNav()">
+        <span class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        </span>
+        <span>StaticStack</span>
+      </a>
+      <button id="mobile-menu-close" class="mobile-nav-close" type="button" aria-label="Close Navigation Menu" onclick="closeMobileNav()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="/" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
+              <span>Home</span>
+            </span>
+            <span class="mobile-nav-badge">Explore</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="/archive" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span>
+              <span>Master Archive</span>
+            </span>
+            <span class="mobile-nav-badge">110 Tools</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="/submit" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
+              <span>Submit a Tool</span>
+            </span>
+            <span class="mobile-nav-badge">Contribute</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="/community/" class="active" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+              <span>Community</span>
+            </span>
+            <span class="mobile-nav-badge">Discussions</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg></span>
+              <span>GitHub Repository</span>
+            </span>
+            <span class="mobile-nav-badge" style="display:flex;align-items:center;gap:0.25rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              Star
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mini Hero Section -->
+  <section class="mini-hero">
+    <div class="container mini-hero-inner">
+      <nav class="mini-hero-breadcrumbs" aria-label="Breadcrumbs">
+        <a href="/"><span style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span> <span>Home</span></a>
+        <span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <span class="crumb-current" aria-current="page">Community</span>
+      </nav>
+
+
+      <div class="mini-hero-header">
+        <div class="mini-hero-header-main">
+          <div class="mini-hero-title-row">
+            <div class="mini-hero-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h1 class="mini-hero-title">Community Discussions</h1>
+          </div>
+          <p class="mini-hero-subtext">The discussion forum for static website makers. Share tools, ask questions, show off Jamstack projects, and collaborate without bloated backend frameworks.</p>
+        </div>
+        <div class="mini-hero-actions mini-hero-search-actions">
+          <div class="community-search-wrap">
+            <span class="community-search-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <label class="sr-only" for="search">Search discussions</label>
+            <input id="search" type="search" placeholder="Search discussions…" autocomplete="off">
+            <button id="search-clear" type="button" class="community-search-clear" aria-label="Clear search" title="Clear search" style="display:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Community Content with Sidebar Layout -->
+  <main class="site-main container">
+
+    <!-- Admin Moderation Panel (visible only to configured admin) -->
+    <section id="admin-panel" class="admin-panel sidebar-widget" hidden>
+      <div class="admin-heading">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="color:#ef4444;display:inline-flex;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </span>
+          <div>
+            <p class="eyebrow" style="color:#ef4444;margin:0 0 2px;">Administrator Moderation</p>
+            <h3 style="margin:0;font-size:1.15rem;">Reports Needing Review</h3>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="refresh-reports" type="button">Refresh</button>
+      </div>
+      <div id="reports-list" class="reports-list"></div>
+    </section>
+
+    <!-- 2-Column Tool Page Style Layout (Discussions Main Left + Sidebar Right) -->
+    <div class="tool-page-layout community-layout-grid">
+
+      <!-- Main Discussions Content -->
+      <section class="tool-page-main discussion-main">
+
+        <!-- Section Heading & Active Channel Label with New Discussion action -->
+        <div class="community-section-header">
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <h2 id="list-heading" class="community-heading-title">Latest discussions</h2>
+            <span id="topic-count" class="badge badge-freemium"></span>
+          </div>
+          <button class="btn btn-primary btn-sm" id="new-topic" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Start a Discussion</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Discussion Topics List -->
+        <div id="topic-list" class="topic-list">
+          <div class="empty-state">Loading discussions…</div>
+        </div>
+
+      </section>
+
+      <!-- Right Sidebar (Tool Page Sidebar Style) -->
+      <aside class="tool-page-sidebar community-sidebar">
+
+        <!-- Discussion Channels Widget -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-header has-action">
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <span style="color:var(--accent);display:inline-flex;align-items:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </span>
+              <h4 class="sidebar-widget-title">Discussion Channels</h4>
+            </div>
+            <a href="#" data-category="" class="category-reset-link" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
+          </div>
+          <div class="sidebar-widget-body">
+            <nav id="categories" class="community-categories-nav" aria-label="Discussion categories">
+              <p class="muted" style="padding:0.5rem;font-size:0.875rem;">Loading categories…</p>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Community Guidelines Widget (Matches Static Site Hints & Tips) -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-header">
+            <span style="color:var(--accent);display:inline-flex;align-items:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </span>
+            <h4 class="sidebar-widget-title">Community Guidelines</h4>
+          </div>
+          <div class="sidebar-widget-body">
+            <div class="sidebar-tip-item">
+              <span class="sidebar-tip-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <div>
+                <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Zero Backend Focus</strong>
+                Discuss HTML, CSS, JavaScript, static site generators, and edge APIs.
+              </div>
+            </div>
+            <div class="sidebar-tip-item">
+              <span class="sidebar-tip-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </span>
+              <div>
+                <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Showcases &amp; Recipes</strong>
+                Share projects you built, open-source tools, scripts, and UI tips.
+              </div>
+            </div>
+            <div class="sidebar-tip-item">
+              <span class="sidebar-tip-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </span>
+              <div>
+                <strong style="color:var(--text-main); font-size:0.825rem; display:block;">API &amp; Secret Security</strong>
+                Never commit secret tokens or credentials in public threads.
+              </div>
+            </div>
+            <div class="sidebar-tip-item">
+              <span class="sidebar-tip-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </span>
+              <div>
+                <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Friendly &amp; Constructive</strong>
+                Keep discussions constructive, spam-free, and respectful to all makers.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explore Toolkit Widget (Matches Discover Random Tools) -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-header has-action">
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <span style="color:var(--accent);display:inline-flex;align-items:center;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </span>
+              <h4 class="sidebar-widget-title">Explore Toolkit</h4>
+            </div>
+            <a href="/archive" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
+          </div>
+          <div class="sidebar-widget-body" style="display:flex;flex-direction:column;gap:0.4rem;">
+            <a href="/tools/analytics-privacy/umami" class="sidebar-tool-card">
+              <span class="sidebar-tool-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </span>
+              <div class="sidebar-tool-info">
+                <div class="sidebar-tool-name">
+                  <span>Umami</span>
+                  <span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Open Source</span>
+                </div>
+                <div class="sidebar-tool-desc">Simple, privacy-focused open-source analytics.</div>
+              </div>
+            </a>
+            <a href="/tools/images-optimization/tinypng" class="sidebar-tool-card">
+              <span class="sidebar-tool-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              </span>
+              <div class="sidebar-tool-info">
+                <div class="sidebar-tool-name">
+                  <span>TinyPNG</span>
+                  <span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
+                </div>
+                <div class="sidebar-tool-desc">Smart lossy compression for WebP, PNG, and JPEG.</div>
+              </div>
+            </a>
+            <a href="/tools/static-site-generators/hugo" class="sidebar-tool-card">
+              <span class="sidebar-tool-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
+              <div class="sidebar-tool-info">
+                <div class="sidebar-tool-name">
+                  <span>Hugo</span>
+                  <span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Open Source</span>
+                </div>
+                <div class="sidebar-tool-desc">The world’s fastest framework for building websites.</div>
+              </div>
+            </a>
+            <a href="/archive" class="sidebar-tool-card">
+              <span class="sidebar-tool-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+              </span>
+              <div class="sidebar-tool-info">
+                <div class="sidebar-tool-name"><span>Master Archive</span></div>
+                <div class="sidebar-tool-desc">110+ curated tools across 26 categories</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Submit Alternative Dashed CTA Card (Matches Tool Page) -->
+        <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+            <span style="color:var(--accent); display:inline-flex;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            </span>
+            <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+          </div>
+          <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
+            StaticStack is community curated. Share your favorite static web service or tool with the community.
+          </p>
+          <a href="/submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+            Submit a Tool &rarr;
+          </a>
+        </div>
+
+        <!-- Facebook Community Group Card (Matches Tool Page Exactly) -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-header">
+            <span style="color:#1877f2; display:inline-flex; align-items:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </span>
+            <h4 class="sidebar-widget-title">Facebook Community</h4>
+          </div>
+          <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
+            Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites Facebook Group.
+          </p>
+          <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
+            <span style="color:#1877f2; display:inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
+            <span>Dynamic Websites Group</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+
   </main>
-  <footer class="site-footer"><p>StaticStack Community · Built for people who make the web.</p></footer>
-  <dialog id="compose-dialog" class="dialog"><form id="compose-form"><div class="dialog-heading"><div><p class="eyebrow">New discussion</p><h2>Start a topic</h2></div><button type="button" class="close-button" data-close="compose-dialog" aria-label="Close">×</button></div><label for="topic-title">Title</label><input id="topic-title" maxlength="180" required minlength="5" placeholder="What would you like to discuss?"><label for="topic-category">Category</label><select id="topic-category" required></select><label for="topic-body">Message</label><textarea id="topic-body" rows="7" required minlength="10" maxlength="20000" placeholder="Add context so the community can help…"></textarea><p class="form-message" id="compose-message" role="status"></p><div class="dialog-actions"><button type="button" class="button button-quiet" data-close="compose-dialog">Cancel</button><button type="submit" class="button">Publish discussion</button></div></form></dialog>
-  <dialog id="topic-dialog" class="dialog dialog-wide"><div id="topic-detail"></div></dialog>
-  <dialog id="report-dialog" class="dialog"><form id="report-form"><div class="dialog-heading"><h2>Report content</h2><button type="button" class="close-button" data-close="report-dialog" aria-label="Close">×</button></div><label for="report-reason">Why are you reporting this?</label><textarea id="report-reason" rows="4" minlength="5" maxlength="500" required placeholder="Describe the concern…"></textarea><p class="form-message" id="report-message" role="status"></p><div class="dialog-actions"><button type="button" class="button button-quiet" data-close="report-dialog">Cancel</button><button type="submit" class="button">Send report</button></div></form></dialog>
-  <section id="admin-panel" class="admin-panel" hidden><div class="admin-heading"><div><p class="eyebrow">Moderation</p><h2>Reports needing review</h2></div><button class="button button-quiet" id="refresh-reports">Refresh</button></div><div id="reports-list" class="reports-list"></div></section>
+
+  <!-- Pre-Footer Call to Action -->
+  <section class="pre-footer-cta">
+    <div class="container">
+      <div class="pre-footer-card">
+        <div class="pre-footer-content">
+          <div class="pre-footer-badge">
+            <span class="status-dot"></span>
+            <span>Community-Curated Open Directory</span>
+          </div>
+          <h2 class="pre-footer-title">Have a great static tool to recommend?</h2>
+          <p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p>
+        </div>
+        <div class="pre-footer-actions">
+          <a href="/submit" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            <span>Submit a Tool</span>
+          </a>
+          <a href="/archive" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+            <span>Browse All 21 Categories</span>
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            <span>Star on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col footer-col-brand">
+          <a href="/" class="brand" style="margin-bottom: 0.75rem;">
+            <span class="brand-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </span>
+            <span>StaticStack</span>
+          </a>
+          <p class="footer-desc">
+            A community-curated collection of tools, services, and resources for building and hosting modern static websites with HTML, CSS, and JavaScript.
+          </p>
+          <div class="footer-pill-badge">
+            <span class="status-dot"></span>
+            <span>110+ Tools &bull; 21 Categories</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/archive">Master Archive</a></li>
+            <li><a href="/submit">Submit a Tool</a></li>
+            <li><a href="/community/">Community</a></li>
+            <li><a href="/contribute">Contributing Guide</a></li>
+            <li><a href="/thankyou">Thank You &amp; Credits</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Categories</h4>
+          <ul class="footer-links">
+            <li><a href="/archive#hosting-deployment">Hosting &amp; Deployment</a></li>
+            <li><a href="/archive#contact-forms">Contact Forms</a></li>
+            <li><a href="/archive#css-components">CSS &amp; UI Components</a></li>
+            <li><a href="/archive#content-management">Content Management</a></li>
+            <li><a href="/archive#analytics-privacy">Analytics &amp; Privacy</a></li>
+            <li><a href="/archive#browser-extensions">Browser Extensions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Community &amp; Project</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Compose Discussion Dialog -->
+  <dialog id="compose-dialog" class="dialog">
+    <form id="compose-form">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">New Discussion</p>
+          <h2>Start a Topic</h2>
+        </div>
+        <button type="button" class="close-button" data-close="compose-dialog" aria-label="Close">×</button>
+      </div>
+      <label for="topic-title">Title</label>
+      <input id="topic-title" maxlength="180" required minlength="5" placeholder="What would you like to discuss?">
+      <label for="topic-category">Channel / Category</label>
+      <select id="topic-category" required></select>
+      <label for="topic-body">Message</label>
+      <textarea id="topic-body" rows="7" required minlength="10" maxlength="20000" placeholder="Add details, code snippets, or context so the community can help…"></textarea>
+      <p class="form-message" id="compose-message" role="status"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-secondary" data-close="compose-dialog">Cancel</button>
+        <button type="submit" class="btn btn-primary">Publish Discussion</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Topic Detail & Replies Dialog -->
+  <dialog id="topic-dialog" class="dialog dialog-wide">
+    <div id="topic-detail"></div>
+  </dialog>
+
+  <!-- Report Content Dialog -->
+  <dialog id="report-dialog" class="dialog">
+    <form id="report-form">
+      <div class="dialog-heading">
+        <h2>Report Content</h2>
+        <button type="button" class="close-button" data-close="report-dialog" aria-label="Close">×</button>
+      </div>
+      <label for="report-reason">Why are you reporting this?</label>
+      <textarea id="report-reason" rows="4" minlength="5" maxlength="500" required placeholder="Describe the concern (spam, offensive, harmful, etc.)…"></textarea>
+      <p class="form-message" id="report-message" role="status"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-secondary" data-close="report-dialog">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit Report</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Toast Notification -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()">
+    <span class="btt-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </span>
+    <span>Back to Top</span>
+  </button>
+
+  <!-- Scripts: Helpers & Community App Engine -->
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Floating Back to Top
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (!backToTopBtn) return;
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Full-Screen Mobile Navigation Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNavModal = document.getElementById('mobile-nav-modal');
+
+    function openMobileNav() {
+      if (!mobileNavModal) return;
+      mobileNavModal.classList.add('is-open');
+      document.body.classList.add('mobile-nav-open');
+      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileNav() {
+      if (!mobileNavModal) return;
+      mobileNavModal.classList.remove('is-open');
+      document.body.classList.remove('mobile-nav-open');
+      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', openMobileNav);
+    }
+  </script>
   <script src="/community/assets/app.js" defer></script>
 </body>
 </html>
