@@ -59,20 +59,6 @@
   font-weight: 600;
 }
 
-.mini-hero-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.15rem;
-}
-
-.mini-hero-badge-text {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
 .status-dot {
   width: 8px;
   height: 8px;
