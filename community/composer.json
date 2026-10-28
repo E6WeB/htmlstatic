@@ -1,8 +1,0 @@
-{
-  "name": "staticstack/wasmer-forum",
-  "description": "StaticStack forum for Wasmer Edge with PostgreSQL and GitHub OAuth",
-  "type": "project",
-  "require": {
-    "php": ">=8.1"
-  }
-}

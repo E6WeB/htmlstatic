@@ -8,8 +8,9 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 8080;
 const SERVE_DIR = __dirname;
+const forum = require('./community/forum.js');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -30,6 +31,24 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   const reqUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   let pathname = decodeURIComponent(reqUrl.pathname);
+  const query = Object.fromEntries(reqUrl.searchParams.entries());
+
+  // Handle Community Forum API (/community/api or /community/api.php)
+  if (pathname === '/community/api' || pathname === '/community/api.php') {
+    return forum.handleApi(req, res, pathname, query);
+  }
+
+  // Handle Community Forum OAuth (/community/oauth or /community/oauth.php)
+  if (pathname === '/community/oauth' || pathname === '/community/oauth.php') {
+    return forum.handleOAuth(req, res, pathname, query);
+  }
+
+  // Redirect directory without trailing slash
+  if (pathname === '/community') {
+    res.writeHead(301, { Location: '/community/' + (reqUrl.search || '') });
+    res.end();
+    return;
+  }
 
   // Normalize path
   let filePath = path.join(SERVE_DIR, pathname);
@@ -88,7 +107,7 @@ function startServer(port) {
     }
   });
 
-  server.listen(port, () => {
+  server.listen(port, '0.0.0.0', () => {
     console.log(`🚀 Static server running at http://localhost:${port}`);
     console.log(`📁 Serving directory: ${SERVE_DIR}`);
   });

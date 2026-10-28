@@ -2,7 +2,7 @@
   "name": "html-static",
   "version": "1.0.0",
   "description": "Static Website Toolkit - Static website generator for Wasmer Edge",
-  "main": "generate-pages.js",
+  "main": "serve.js",
   "scripts": {
     "build": "node generate-pages.js",
     "generate": "node generate-pages.js",
@@ -11,7 +11,8 @@
     "dev": "node generate-pages.js && node serve.js"
   },
   "dependencies": {
-    "marked": "^15.0.7"
+    "marked": "^15.0.7",
+    "pg": "^8.23.1"
   },
   "repository": {
     "type": "git",

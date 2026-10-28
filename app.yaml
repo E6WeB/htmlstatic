@@ -1,8 +1,8 @@
 kind: wasmer.io/App.v0
-name: staticstack-forum
+name: staticstack
 owner: e6web
 package: .
-description: StaticStack community forum with GitHub OAuth and PostgreSQL
+description: StaticStack (staticstack.app) - Static Website Toolkit and Community on Wasmer Edge
 capabilities:
   database:
     engine: postgres
