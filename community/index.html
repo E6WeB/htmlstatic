@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>StaticStack Community</title>
+  <meta name="description" content="A community for sharing static website tools, components, and ideas.">
+  <link rel="stylesheet" href="/community/assets/style.css">
+  <script>
+    // Wasmer Edge forum backend URL (change here if using a custom domain)
+    window.FORUM_BACKEND_URL = "https://staticstack-forum.wasmer.app";
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner"><a class="brand" href="/" aria-label="StaticStack Community home">StaticStack <span>Community</span></a><div class="account" id="account"><a class="button button-quiet" href="https://staticstack-forum.wasmer.app/oauth.php?action=login">Sign in with GitHub</a></div></div>
+  </header>
+  <main class="layout">
+    <section class="intro"><p class="eyebrow">A community for the static web</p><h1>Build better websites together.</h1><p>Share tools, ask questions, and help each other build with HTML, CSS, and JavaScript.</p></section>
+    <div class="toolbar"><div class="search-wrap"><label class="sr-only" for="search">Search discussions</label><input id="search" type="search" placeholder="Search discussions…"></div><button class="button" id="new-topic">Start a discussion</button></div>
+    <div class="columns"><aside class="sidebar"><h2>Categories</h2><nav id="categories" aria-label="Discussion categories"><p class="muted">Loading categories…</p></nav><div class="sidebar-note"><h3>Welcome to StaticStack</h3><p>Keep it friendly, share useful details, and help make the static web easier for everyone.</p></div></aside><section class="discussion-area"><div class="section-heading"><h2 id="list-heading">Latest discussions</h2><span id="topic-count" class="muted"></span></div><div id="topic-list" class="topic-list"><div class="empty-state">Loading discussions…</div></div></section></div>
+  </main>
+  <footer class="site-footer"><p>StaticStack Community · Built for people who make the web.</p></footer>
+  <dialog id="compose-dialog" class="dialog"><form id="compose-form"><div class="dialog-heading"><div><p class="eyebrow">New discussion</p><h2>Start a topic</h2></div><button type="button" class="close-button" data-close="compose-dialog" aria-label="Close">×</button></div><label for="topic-title">Title</label><input id="topic-title" maxlength="180" required minlength="5" placeholder="What would you like to discuss?"><label for="topic-category">Category</label><select id="topic-category" required></select><label for="topic-body">Message</label><textarea id="topic-body" rows="7" required minlength="10" maxlength="20000" placeholder="Add context so the community can help…"></textarea><p class="form-message" id="compose-message" role="status"></p><div class="dialog-actions"><button type="button" class="button button-quiet" data-close="compose-dialog">Cancel</button><button type="submit" class="button">Publish discussion</button></div></form></dialog>
+  <dialog id="topic-dialog" class="dialog dialog-wide"><div id="topic-detail"></div></dialog>
+  <dialog id="report-dialog" class="dialog"><form id="report-form"><div class="dialog-heading"><h2>Report content</h2><button type="button" class="close-button" data-close="report-dialog" aria-label="Close">×</button></div><label for="report-reason">Why are you reporting this?</label><textarea id="report-reason" rows="4" minlength="5" maxlength="500" required placeholder="Describe the concern…"></textarea><p class="form-message" id="report-message" role="status"></p><div class="dialog-actions"><button type="button" class="button button-quiet" data-close="report-dialog">Cancel</button><button type="submit" class="button">Send report</button></div></form></dialog>
+  <section id="admin-panel" class="admin-panel" hidden><div class="admin-heading"><div><p class="eyebrow">Moderation</p><h2>Reports needing review</h2></div><button class="button button-quiet" id="refresh-reports">Refresh</button></div><div id="reports-list" class="reports-list"></div></section>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/community/assets/app.js" defer></script>
+</body>
+</html>

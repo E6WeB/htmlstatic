@@ -3062,7 +3062,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
 // ==========================================================================
 // 6. Generate community.html (Community & Discussions Page)
 // ==========================================================================
-console.log('💬 Generating Community Page (community.html)...');
+console.log('💬 Skipping community.html generation (now using /community/ forum)...');
 
 const communityContent = `
   <!-- Community Pillars Grid -->
@@ -3354,36 +3354,8 @@ const communityContent = `
   </div>
 `;
 
-fs.writeFileSync(path.join(ROOT_DIR, 'community.html'), renderLayout({
-  title: 'Community & Discussions - StaticStack',
-  description: 'Connect with static and Jamstack web developers. Join GitHub Discussions, ask questions, propose new tools, and exchange integration tips.',
-  currentNav: 'community',
-  miniHero: {
-    breadcrumbs: [
-      { label: 'Home', url: './' },
-      { label: 'Community', url: 'community' }
-    ],
-    icon: ICONS.users,
-    badgeRow: `
-      <span class="status-dot"></span>
-      <span>StaticStack Community &bull; Powered by GitHub Discussions</span>
-    `,
-    title: 'Community & Discussions',
-    subtext: 'The meeting hub for static web developers. Ask questions, share integration recipes, vote on tool requests, and discuss zero-backend architectures.',
-    actions: `
-      <a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-        ${ICONS.github} Open in GitHub Discussions ${ICONS.external}
-      </a>
-      <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-        <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span> Facebook Group ${ICONS.external}
-      </a>
-      <a href="submit" class="btn btn-secondary btn-sm">
-        ${ICONS.plusCircle} Submit a Tool
-      </a>
-    `
-  },
-  content: communityContent
-}));
+// community.html generation disabled in favor of /community/ (static forum index)
+// fs.writeFileSync(path.join(ROOT_DIR, 'community.html'), renderLayout({ ... }));
 
 // ==========================================================================
 // 7. Generate Dedicated HTML Pages for ALL Tools!

@@ -1,0 +1,11 @@
+kind: wasmer.io/App.v0
+name: staticstack-forum
+owner: e6web
+package: .
+description: StaticStack community forum with GitHub OAuth and PostgreSQL
+capabilities:
+  database:
+    engine: postgres
+locality:
+  regions:
+    - fr-roub1
