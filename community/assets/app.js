@@ -23,17 +23,27 @@
       "'": '&#39;'
     }[c]));
 
-  const dateText = (value) => {
+  // Default Community Date & Time Format: MM.DD.YY - H:MM am (e.g. 11.28.26 - 9:26 am)
+  const formatDateTime = (value) => {
     try {
-      return new Date(value).toLocaleDateString(undefined, {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
+      const d = new Date(value);
+      if (isNaN(d.getTime())) return '';
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      const yy = String(d.getFullYear()).slice(-2);
+      let hours = d.getHours();
+      const minutes = String(d.getMinutes()).padStart(2, '0');
+      const ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      return `${mm}.${dd}.${yy} - ${hours}:${minutes} ${ampm}`;
     } catch {
       return '';
     }
   };
+
+  const dateText = (value) => formatDateTime(value);
+  const dateTimeText = (value) => formatDateTime(value);
 
   const isTrue = (v) => v === true || v === 1 || v === '1' || v === 't' || v === 'true';
 
@@ -149,30 +159,64 @@
       return;
     }
     list.innerHTML = state.topics
-      .map(
-        (t) => `
+      .map((t) => {
+        const hasReplies = Number(t.reply_count) > 0;
+        const lastUser = hasReplies && t.last_reply_user ? t.last_reply_user : (t.display_name || t.login);
+        const lastTime = hasReplies && t.last_reply_at ? t.last_reply_at : t.created_at;
+        const lastPrefix = hasReplies ? 'Re: ' : '';
+        const lastTitle = `${lastPrefix}${t.title}`;
+
+        return `
         <article class="topic-card">
-          <div class="topic-stats">
-            <strong>${Number(t.score) || 0}</strong> votes<br>
-            ${Number(t.reply_count) || 0} replies
-          </div>
-          <div>
+          <div class="topic-col-main">
             <a class="topic-title" href="#topic-${t.id}" data-open-topic="${t.id}">${escapeHtml(t.title)}</a>
             <p class="topic-excerpt">${escapeHtml(shortText(t.body))}</p>
             <div class="topic-meta">
-              <span class="category-pill">${escapeHtml(t.category_name)}</span>
-              <span>by ${escapeHtml(t.display_name || t.login)}</span>
-              <span>${dateText(t.updated_at)}</span>
+              <span>by <strong>${escapeHtml(t.display_name || t.login)}</strong></span>
+              <span class="meta-dot" aria-hidden="true">•</span>
+              <span>${dateText(t.created_at)}</span>
               ${
                 state.user?.admin
-                  ? `<button class="text-button admin-delete-btn" data-delete-topic="${t.id}" style="color:#ef4444;font-size:0.8rem;font-weight:600;margin-left:auto;cursor:pointer;" title="Delete this discussion as admin">Delete</button>`
+                  ? `<button class="text-button admin-delete-btn" data-delete-topic="${t.id}" style="color:#ef4444;font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="Delete this discussion as admin">Delete</button>`
                   : ''
               }
             </div>
           </div>
+          <div class="topic-col-category">
+            <a href="#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Filter by ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
+          </div>
+          <div class="topic-col-votes">
+            <span class="stat-number stat-votes-num">${Number(t.score) || 0}</span>
+          </div>
+          <div class="topic-col-replies">
+            <span class="stat-number stat-replies-num">${Number(t.reply_count) || 0}</span>
+          </div>
+          <div class="topic-col-last-post">
+            <a class="last-post-title" href="#topic-${t.id}" data-open-topic="${t.id}" title="${escapeHtml(lastTitle)}">${escapeHtml(lastTitle)}</a>
+            <div class="last-post-byline">
+              <span class="last-post-author">by <strong>${escapeHtml(lastUser)}</strong></span>
+              <a href="#topic-${t.id}" data-open-topic="${t.id}" class="last-post-jump" aria-label="Jump to last post" title="View discussion">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+            <time class="last-post-time" datetime="${escapeHtml(lastTime)}">${formatDateTime(lastTime)}</time>
+          </div>
+          <div class="topic-card-mobile-meta">
+            <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+              <a href="#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
+              <div class="topic-card-mobile-stats">
+                <span class="mobile-stat-text"><strong>${Number(t.score) || 0}</strong> votes</span>
+                <span class="mobile-stat-dot">•</span>
+                <span class="mobile-stat-text"><strong>${Number(t.reply_count) || 0}</strong> replies</span>
+              </div>
+            </div>
+            <div class="mobile-last-post">
+              <span>Last post: <strong>${escapeHtml(lastUser)}</strong> • ${formatDateTime(lastTime)}</span>
+            </div>
+          </div>
         </article>
-      `
-      )
+      `;
+      })
       .join('');
   }
 
@@ -235,7 +279,7 @@
                 <div class="topic-meta">
                   <strong>${escapeHtml(r.display_name || r.login)}</strong>
                   <span>${dateText(r.created_at)}</span>
-                  ${isTrue(r.is_hidden) ? '<span class="category-pill">Hidden</span>' : ''}
+                  ${isTrue(r.is_hidden) ? '<span class="badge badge-paid">Hidden</span>' : ''}
                 </div>
                 <div class="reply-body">${escapeHtml(r.body)}</div>
                 ${voteControls('reply', r.id, r.score, r.my_vote)}
@@ -256,7 +300,7 @@
           <div><button class="button" type="submit">Post reply</button></div>
         </form>
       `
-          : '<p class="muted">Sign in with GitHub to reply or vote.</p>'
+          : '<p class="muted"><a href="/community/oauth?action=login">Sign in with GitHub</a> to reply or vote.</p>'
       }
     `;
   }
@@ -328,6 +372,19 @@
       const dialog = $('#' + close.dataset.close);
       if (dialog) dialog.close();
       return;
+    }
+
+    // Close native dialog on backdrop click
+    if (e.target && e.target.nodeName === 'DIALOG') {
+      const rect = e.target.getBoundingClientRect();
+      const clickedInside = (
+        rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width
+      );
+      if (!clickedInside) {
+        e.target.close();
+        return;
+      }
     }
 
     const vote = e.target.closest('[data-vote-kind]');
@@ -462,7 +519,12 @@
   if (newTopicBtn) {
     newTopicBtn.addEventListener('click', () => {
       if (!state.user) {
-        toast('Sign in with GitHub to start a discussion.');
+        const aModal = $('#auth-modal');
+        if (aModal && typeof aModal.showModal === 'function') {
+          aModal.showModal();
+        } else {
+          openAuthPopup();
+        }
         return;
       }
       const cMsg = $('#compose-message');
@@ -622,6 +684,114 @@
   if (refreshBtn) {
     refreshBtn.addEventListener('click', () => loadReports());
   }
+
+  // Centered OAuth Popup modal window
+  function openAuthPopup(url = '/community/oauth?action=login') {
+    const width = 600;
+    const height = 720;
+
+    // Dual-screen / multi-monitor aware centering
+    const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
+    const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
+
+    const w = window.innerWidth || document.documentElement.clientWidth || screen.width;
+    const h = window.innerHeight || document.documentElement.clientHeight || screen.height;
+
+    const left = Math.max(0, Math.round(dualScreenLeft + (w - width) / 2));
+    const top = Math.max(0, Math.round(dualScreenTop + (h - height) / 2));
+
+    const popup = window.open(
+      url,
+      'staticstack_oauth_popup',
+      `scrollbars=yes,width=${width},height=${height},top=${top},left=${left},menubar=no,toolbar=no,location=no,status=no,resizable=yes`
+    );
+
+    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+      // Browser popup blocker engaged, fallback to standard navigation
+      window.location.href = url;
+      return null;
+    }
+
+    if (popup.focus) {
+      popup.focus();
+    }
+
+    // Polling fallback to check if popup closed or completed
+    let pollCount = 0;
+    const pollTimer = setInterval(async () => {
+      pollCount++;
+      if (pollCount > 300) {
+        clearInterval(pollTimer);
+        return;
+      }
+      if (popup.closed) {
+        clearInterval(pollTimer);
+        // Check if user session updated
+        try {
+          const data = await request('bootstrap');
+          if (data.user && (!state.user || state.user.login !== data.user.login)) {
+            handleAuthSuccess(data);
+          }
+        } catch {}
+      }
+    }, 1000);
+
+    return popup;
+  }
+
+  async function handleAuthSuccess(bootstrapData) {
+    try {
+      const data = bootstrapData || await request('bootstrap');
+      state.user = data.user;
+      state.categories = data.categories || state.categories;
+      accountView();
+      const aModal = $('#auth-modal');
+      if (aModal && aModal.open) aModal.close();
+
+      renderCategories();
+      await loadTopics();
+      if (state.activeTopic) {
+        renderTopic(state.activeTopic);
+      }
+      if (data.user) {
+        toast(`Signed in as ${data.user.name || data.user.login}`);
+      }
+    } catch (e) {
+      console.error('Failed to sync authentication state:', e);
+    }
+  }
+
+  // Cross-window postMessage listener from popup
+  window.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'staticstack-oauth-success') {
+      handleAuthSuccess();
+    }
+  });
+
+  // Global click interception for GitHub sign-in links
+  document.addEventListener('click', (e) => {
+    // If clicking inside the auth modal login button, trigger the popup and close the modal
+    const modalLoginBtn = e.target.closest('#auth-modal-login-btn');
+    if (modalLoginBtn) {
+      e.preventDefault();
+      const aModal = $('#auth-modal');
+      if (aModal) aModal.close();
+      openAuthPopup(modalLoginBtn.href);
+      return;
+    }
+
+    const authLink = e.target.closest('a[href*="/community/oauth?action=login"]');
+    if (authLink) {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      const aModal = $('#auth-modal');
+      if (aModal && typeof aModal.showModal === 'function') {
+        aModal.showModal();
+      } else {
+        openAuthPopup(authLink.href);
+      }
+    }
+  });
 
   // Application bootstrap
   async function init() {

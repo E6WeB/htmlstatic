@@ -23,9 +23,18 @@ const SESSION_COOKIE_NAME = process.env.SESSION_COOKIE || 'staticstack_forum_ses
 function getAppBaseUrl(req) {
   if (process.env.APP_BASE_URL) return process.env.APP_BASE_URL.replace(/\/+$/, '');
   const host = req.headers.host || 'www.staticstack.app';
-  const proto = req.headers['x-forwarded-proto'] || (host.startsWith('localhost') ? 'http' : 'https');
+  const proto = req.headers['x-forwarded-proto'] || (host.startsWith('localhost') || host.startsWith('127.0.0.1') ? 'http' : 'https');
   return `${proto}://${host}`;
 }
+
+const escapeHtml = (str) =>
+  String(str || '').replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[c]));
 
 function parseCookies(req) {
   const list = {};
@@ -167,7 +176,9 @@ async function handleApi(req, res, pathname, query) {
                u.login, u.display_name, u.avatar_url,
                (SELECT COUNT(*)::int FROM forum_replies r WHERE r.topic_id = t.id AND r.is_hidden = FALSE) AS reply_count,
                (SELECT COALESCE(SUM(v.value), 0)::int FROM forum_votes v WHERE v.topic_id = t.id) AS score,
-               (SELECT v.value FROM forum_votes v WHERE v.topic_id = t.id AND v.user_id = $${voterIdx} LIMIT 1) AS my_vote
+               (SELECT v.value FROM forum_votes v WHERE v.topic_id = t.id AND v.user_id = $${voterIdx} LIMIT 1) AS my_vote,
+               (SELECT COALESCE(ru.display_name, ru.login) FROM forum_replies r JOIN forum_users ru ON ru.id = r.user_id WHERE r.topic_id = t.id AND r.is_hidden = FALSE ORDER BY r.created_at DESC LIMIT 1) AS last_reply_user,
+               (SELECT r.created_at FROM forum_replies r WHERE r.topic_id = t.id AND r.is_hidden = FALSE ORDER BY r.created_at DESC LIMIT 1) AS last_reply_at
         FROM forum_topics t
         JOIN forum_categories c ON c.id = t.category_id
         JOIN forum_users u ON u.id = t.user_id
@@ -434,6 +445,8 @@ async function handleOAuth(req, res, pathname, query) {
   const baseUrl = getAppBaseUrl(req);
   const oauthPath = pathname && pathname.endsWith('.php') ? '/community/oauth.php' : '/community/oauth';
   const callbackUrl = `${baseUrl}${oauthPath}?action=callback`;
+  const isSecure = baseUrl.startsWith('https:');
+  const cookieFlags = `${isSecure ? 'Secure; ' : ''}HttpOnly; SameSite=Lax`;
 
   if (action === 'login') {
     const state = crypto.randomBytes(24).toString('hex');
@@ -443,7 +456,7 @@ async function handleOAuth(req, res, pathname, query) {
 
     res.writeHead(302, {
       Location: redirectUrl,
-      'Set-Cookie': `staticstack_oauth_state=${state}; Path=/; Max-Age=600; Secure; HttpOnly; SameSite=Lax`
+      'Set-Cookie': `staticstack_oauth_state=${state}; Path=/; Max-Age=600; ${cookieFlags}`
     });
     res.end();
     return true;
@@ -452,7 +465,7 @@ async function handleOAuth(req, res, pathname, query) {
   if (action === 'logout') {
     res.writeHead(302, {
       Location: `${baseUrl}/community/`,
-      'Set-Cookie': `${SESSION_COOKIE_NAME}=; Path=/; Max-Age=0; Secure; HttpOnly; SameSite=Lax`
+      'Set-Cookie': `${SESSION_COOKIE_NAME}=; Path=/; Max-Age=0; ${cookieFlags}`
     });
     res.end();
     return true;
@@ -465,8 +478,39 @@ async function handleOAuth(req, res, pathname, query) {
     const code = query.code || '';
 
     if (!expectedState || !receivedState || expectedState !== receivedState || !code) {
-      res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('GitHub sign-in was cancelled or could not be verified. Please return to the forum and try again.');
+      res.writeHead(400, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In Cancelled</title>
+  <style>
+    body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center; padding: 24px; box-sizing: border-box; }
+    h2 { font-size: 1.2rem; margin: 0 0 8px; color: #f0f6fc; }
+    p { font-size: 0.95rem; color: #8b949e; margin: 0 0 20px; }
+    button { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+    button:hover { background: #30363d; }
+  </style>
+</head>
+<body>
+  <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#2563eb 0%,#06b6d4 100%);display:flex;align-items:center;justify-content:center;color:#ffffff;margin-bottom:18px;box-shadow:0 8px 24px -4px rgba(37,99,235,0.45);">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+      <polyline points="2 17 12 22 22 17"></polyline>
+      <polyline points="2 12 12 17 22 12"></polyline>
+    </svg>
+  </div>
+  <h2>StaticStack Community</h2>
+  <p style="color:#8b949e;margin:0 0 20px;">GitHub sign-in was cancelled. Please return to the community and try again.</p>
+  <button onclick="window.close()">Close Window</button>
+  <script>
+    if (!window.opener) {
+      setTimeout(function() { window.location.href = '${baseUrl}/community/'; }, 2500);
+    }
+  </script>
+</body>
+</html>`);
       return true;
     }
 
@@ -533,19 +577,108 @@ async function handleOAuth(req, res, pathname, query) {
       };
 
       const signedSession = signSession(session);
-      res.writeHead(302, {
-        Location: `${baseUrl}/community/?signed_in=1`,
+      res.writeHead(200, {
+        'Content-Type': 'text/html; charset=utf-8',
         'Set-Cookie': [
-          `${SESSION_COOKIE_NAME}=${signedSession}; Path=/; Max-Age=${14 * 24 * 60 * 60}; Secure; HttpOnly; SameSite=Lax`,
-          'staticstack_oauth_state=; Path=/; Max-Age=0; Secure; HttpOnly; SameSite=Lax'
+          `${SESSION_COOKIE_NAME}=${signedSession}; Path=/; Max-Age=${14 * 24 * 60 * 60}; ${cookieFlags}`,
+          `staticstack_oauth_state=; Path=/; Max-Age=0; ${cookieFlags}`
         ]
       });
-      res.end();
+      res.end(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signed In — StaticStack Community</title>
+  <style>
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h2 { font-size: 1.25rem; margin: 0 0 8px; font-weight: 600; color: #f0f6fc; }
+    p { font-size: 0.95rem; color: #8b949e; margin: 0; }
+  </style>
+</head>
+<body>
+  <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#2563eb 0%,#06b6d4 100%);display:flex;align-items:center;justify-content:center;color:#ffffff;margin-bottom:18px;box-shadow:0 8px 24px -4px rgba(37,99,235,0.45);">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+      <polyline points="2 17 12 22 22 17"></polyline>
+      <polyline points="2 12 12 17 22 12"></polyline>
+    </svg>
+  </div>
+  <div class="spinner"></div>
+  <h2>StaticStack Community</h2>
+  <p>Signed in successfully! Connecting…</p>
+  <script>
+    (function() {
+      try {
+        if (window.opener && !window.opener.closed) {
+          window.opener.postMessage({
+            type: 'staticstack-oauth-success',
+            user: ${JSON.stringify({
+              id: userId,
+              login: profile.login,
+              name: displayName,
+              avatar: avatarUrl,
+              admin: isAdmin
+            })}
+          }, '*');
+          setTimeout(function() {
+            window.close();
+          }, 350);
+          return;
+        }
+      } catch (e) {}
+      window.location.href = '${baseUrl}/community/?signed_in=1';
+    })();
+  </script>
+</body>
+</html>`);
       return true;
     } catch (err) {
       console.error('OAuth callback error:', err);
-      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end(`Sign in failed: ${err.message}`);
+      res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In Failed</title>
+  <style>
+    body { background: #0d1117; color: #f85149; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center; padding: 24px; box-sizing: border-box; }
+    h2 { font-size: 1.2rem; margin: 0 0 8px; color: #f85149; }
+    p { font-size: 0.95rem; color: #8b949e; margin: 0 0 20px; }
+    button { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+    button:hover { background: #30363d; }
+  </style>
+</head>
+<body>
+  <h2>Sign In Failed</h2>
+  <p>${escapeHtml(err.message)}</p>
+  <button onclick="window.close()">Close Window</button>
+</body>
+</html>`);
       return true;
     }
   }
