@@ -391,6 +391,34 @@ async function handleApi(req, res, pathname, query) {
       return true;
     }
 
+    if (action === 'delete_topic') {
+      if (!user || !user.admin) return sendError(res, 'Administrator access required.', 403);
+      const data = await readBody(req);
+      const topicId = parseInt(data.id, 10);
+
+      if (!topicId) return sendError(res, 'Invalid discussion ID.');
+      const existsRes = await pool.query('SELECT id FROM forum_topics WHERE id = $1', [topicId]);
+      if (!existsRes.rows.length) return sendError(res, 'Discussion not found.', 404);
+
+      await pool.query('DELETE FROM forum_topics WHERE id = $1', [topicId]);
+      sendJson(res, { ok: true, id: topicId });
+      return true;
+    }
+
+    if (action === 'delete_reply') {
+      if (!user || !user.admin) return sendError(res, 'Administrator access required.', 403);
+      const data = await readBody(req);
+      const replyId = parseInt(data.id, 10);
+
+      if (!replyId) return sendError(res, 'Invalid reply ID.');
+      const existsRes = await pool.query('SELECT id FROM forum_replies WHERE id = $1', [replyId]);
+      if (!existsRes.rows.length) return sendError(res, 'Reply not found.', 404);
+
+      await pool.query('DELETE FROM forum_replies WHERE id = $1', [replyId]);
+      sendJson(res, { ok: true, id: replyId });
+      return true;
+    }
+
     sendError(res, 'Unknown action.', 404);
     return true;
   } catch (err) {

@@ -78,23 +78,27 @@
 
 .mini-hero-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  gap: 1.75rem;
+  gap: 2rem;
   flex-wrap: wrap;
-}
-
-.mini-hero-header-main {
-  flex: 1 1 500px;
-  min-width: 0;
+  width: 100%;
 }
 
 .mini-hero-title-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+.mini-hero-title-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
 }
 
 .mini-hero-icon-box {
@@ -238,7 +242,7 @@
 .tool-page-layout,
 .community-layout-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
+  grid-template-columns: minmax(0, 1fr) 440px;
   gap: 2.5rem;
   align-items: start;
   width: 100%;

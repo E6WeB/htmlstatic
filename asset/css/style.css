@@ -25,6 +25,7 @@
   --accent-hover: #1d4ed8;
   --accent-light: #eff6ff;
   --accent-border: #bfdbfe;
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
 
   /* Status & Badge Colors */
   --badge-open-source-bg: #dcfce7;
@@ -48,7 +49,7 @@
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-full: 9999px;
-  --container-max: 1200px;
+  --container-max: 1440px;
 }
 
 [data-theme="dark"] {
@@ -203,24 +204,43 @@ code:not(pre code) {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-main);
   text-decoration: none;
   letter-spacing: -0.02em;
 }
 
+.brand:hover {
+  color: var(--text-main);
+}
+
 .brand-icon {
-  width: 2rem;
-  height: 2rem;
-  background: linear-gradient(135deg, var(--accent), #06b6d4);
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--accent-gradient);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-sm);
-  font-weight: 900;
-  font-size: 1.1rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.brand-icon svg {
+  stroke: #ffffff;
+  display: block;
+}
+
+.brand-badge {
+  font-size: 0.75rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  margin-left: 0.25rem;
+  border: 1px solid var(--border-color);
 }
 
 .nav-drawer {
@@ -236,21 +256,27 @@ code:not(pre code) {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 1.25rem;
+  gap: 0.5rem;
 }
 
 .nav-link {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.925rem;
   font-weight: 500;
-  padding: 0.4rem 0.6rem;
+  padding: 0.45rem 0.8rem;
   border-radius: var(--radius-sm);
   transition: all 0.15s ease;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
   color: var(--accent);
   background-color: var(--accent-light);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  background-color: var(--accent-light);
+  font-weight: 700;
 }
 
 .header-actions {

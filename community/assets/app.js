@@ -163,6 +163,11 @@
               <span class="category-pill">${escapeHtml(t.category_name)}</span>
               <span>by ${escapeHtml(t.display_name || t.login)}</span>
               <span>${dateText(t.updated_at)}</span>
+              ${
+                state.user?.admin
+                  ? `<button class="text-button admin-delete-btn" data-delete-topic="${t.id}" style="color:#ef4444;font-size:0.8rem;font-weight:600;margin-left:auto;cursor:pointer;" title="Delete this discussion as admin">Delete</button>`
+                  : ''
+              }
             </div>
           </div>
         </article>
@@ -194,7 +199,8 @@
           state.user?.admin
             ? `<button class="text-button" data-hide-kind="${kind}" data-hide-id="${id}" data-hide-value="${
                 kind === 'topic' && isTrue(state.activeTopic?.is_hidden) ? 'false' : 'true'
-              }">${kind === 'topic' && isTrue(state.activeTopic?.is_hidden) ? 'Unhide' : 'Hide'}</button>`
+              }">${kind === 'topic' && isTrue(state.activeTopic?.is_hidden) ? 'Unhide' : 'Hide'}</button>
+              <button class="text-button admin-delete-btn" data-delete-${kind}="${id}" style="color:#ef4444;font-weight:600;cursor:pointer;" title="Permanently delete as admin">Delete</button>`
             : ''
         }
       </div>
@@ -280,7 +286,9 @@
           <p>${escapeHtml(r.reason)}</p>
           <div class="report-actions">
             ${r.topic_id ? `<button class="button button-quiet" data-hide-kind="topic" data-hide-id="${r.topic_id}" data-hide-value="true">Hide topic</button>` : ''}
+            ${r.topic_id ? `<button class="button" data-delete-topic="${r.topic_id}" style="background:#ef4444;color:#fff;border-color:#ef4444;">Delete topic</button>` : ''}
             ${r.reply_id ? `<button class="button button-quiet" data-hide-kind="reply" data-hide-id="${r.reply_id}" data-hide-value="true">Hide reply</button>` : ''}
+            ${r.reply_id ? `<button class="button" data-delete-reply="${r.reply_id}" style="background:#ef4444;color:#fff;border-color:#ef4444;">Delete reply</button>` : ''}
             <button class="button" data-review-report="${r.id}" data-review-status="resolved">Mark reviewed</button>
             <button class="button button-quiet" data-review-report="${r.id}" data-review-status="dismissed">Dismiss</button>
           </div>
@@ -398,6 +406,50 @@
         });
         toast('Report updated.');
         loadReports();
+      } catch (err) {
+        toast(err.message);
+      }
+      return;
+    }
+
+    const delTopic = e.target.closest('[data-delete-topic]');
+    if (delTopic) {
+      if (!state.user?.admin) return;
+      const topicId = Number(delTopic.dataset.deleteTopic);
+      if (!confirm('Are you sure you want to permanently delete this discussion? All replies and votes will also be deleted.')) {
+        return;
+      }
+      try {
+        await request('delete_topic', {
+          method: 'POST',
+          body: { id: topicId }
+        });
+        toast('Discussion permanently deleted.');
+        const dialog = $('#topic-dialog');
+        if (dialog && dialog.open) dialog.close();
+        await loadTopics();
+        if (state.user?.admin) loadReports();
+      } catch (err) {
+        toast(err.message);
+      }
+      return;
+    }
+
+    const delReply = e.target.closest('[data-delete-reply]');
+    if (delReply) {
+      if (!state.user?.admin) return;
+      const replyId = Number(delReply.dataset.deleteReply);
+      if (!confirm('Are you sure you want to permanently delete this reply?')) {
+        return;
+      }
+      try {
+        await request('delete_reply', {
+          method: 'POST',
+          body: { id: replyId }
+        });
+        toast('Reply permanently deleted.');
+        await refreshTopic();
+        if (state.user?.admin) loadReports();
       } catch (err) {
         toast(err.message);
       }
