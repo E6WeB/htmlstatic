@@ -24,12 +24,14 @@ CREATE TABLE IF NOT EXISTS forum_topics (
   user_id BIGINT NOT NULL REFERENCES forum_users(id),
   title VARCHAR(180) NOT NULL,
   body TEXT NOT NULL,
+  is_pinned BOOLEAN NOT NULL DEFAULT FALSE,
   is_hidden BOOLEAN NOT NULL DEFAULT FALSE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 CREATE INDEX IF NOT EXISTS forum_topics_category_created_idx ON forum_topics(category_id, created_at DESC);
 CREATE INDEX IF NOT EXISTS forum_topics_created_idx ON forum_topics(created_at DESC);
+CREATE INDEX IF NOT EXISTS forum_topics_pinned_updated_idx ON forum_topics(is_pinned DESC, updated_at DESC);
 
 CREATE TABLE IF NOT EXISTS forum_replies (
   id BIGSERIAL PRIMARY KEY,
@@ -69,6 +71,7 @@ CREATE TABLE IF NOT EXISTS forum_reports (
 CREATE INDEX IF NOT EXISTS forum_reports_status_created_idx ON forum_reports(status, created_at DESC);
 
 INSERT INTO forum_categories (slug, name, description) VALUES
+ ('announcements', 'Announcements', 'Official news, platform updates, and announcements from StaticStack.'),
  ('help', 'Help and Questions', 'Ask questions about building and maintaining static websites.'),
  ('tools', 'Tools and Components', 'Share useful tools, scripts, libraries, and components.'),
  ('showcase', 'Show and Tell', 'Show the static websites and projects you are building.'),

@@ -131,7 +131,7 @@ async function handleApi(req, res, pathname, query) {
 
   try {
     if (action === 'bootstrap') {
-      const catsResult = await pool.query('SELECT id, slug, name, description FROM forum_categories ORDER BY name');
+      const catsResult = await pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC");
       sendJson(res, {
         user: user ? {
           login: user.login,
@@ -145,7 +145,7 @@ async function handleApi(req, res, pathname, query) {
     }
 
     if (action === 'categories') {
-      const result = await pool.query('SELECT id, slug, name, description FROM forum_categories ORDER BY name');
+      const result = await pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC");
       sendJson(res, { categories: result.rows });
       return true;
     }
@@ -171,7 +171,7 @@ async function handleApi(req, res, pathname, query) {
       const voterIdx = idx;
 
       const sql = `
-        SELECT t.id, t.title, t.body, t.created_at, t.updated_at,
+        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned,
                c.slug AS category_slug, c.name AS category_name,
                u.login, u.display_name, u.avatar_url,
                (SELECT COUNT(*)::int FROM forum_replies r WHERE r.topic_id = t.id AND r.is_hidden = FALSE) AS reply_count,
@@ -183,7 +183,7 @@ async function handleApi(req, res, pathname, query) {
         JOIN forum_categories c ON c.id = t.category_id
         JOIN forum_users u ON u.id = t.user_id
         WHERE ${where.join(' AND ')}
-        ORDER BY t.updated_at DESC
+        ORDER BY t.is_pinned DESC, t.updated_at DESC
         LIMIT 100
       `;
 
@@ -200,7 +200,7 @@ async function handleApi(req, res, pathname, query) {
       const isAdmin = Boolean(user && user.admin);
 
       const topicSql = `
-        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_hidden,
+        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_hidden,
                c.slug AS category_slug, c.name AS category_name,
                u.login, u.display_name, u.avatar_url, u.id AS author_id,
                (SELECT COALESCE(SUM(v.value), 0)::int FROM forum_votes v WHERE v.topic_id = t.id) AS score,
@@ -247,9 +247,15 @@ async function handleApi(req, res, pathname, query) {
       if (!catRes.rows.length) return sendError(res, 'Choose a valid category.');
       const catId = catRes.rows[0].id;
 
+      if (slug === 'announcements' && !user.admin) {
+        return sendError(res, 'Only administrators can post in Announcements.', 403);
+      }
+
+      const isPinned = Boolean(slug === 'announcements' || (user.admin && data.pinned));
+
       const insertRes = await pool.query(
-        'INSERT INTO forum_topics (category_id, user_id, title, body) VALUES ($1, $2, $3, $4) RETURNING id',
-        [catId, user.uid, title, body]
+        'INSERT INTO forum_topics (category_id, user_id, title, body, is_pinned) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+        [catId, user.uid, title, body, isPinned]
       );
       sendJson(res, { ok: true, id: parseInt(insertRes.rows[0].id, 10) }, 201);
       return true;
@@ -427,6 +433,24 @@ async function handleApi(req, res, pathname, query) {
 
       await pool.query('DELETE FROM forum_replies WHERE id = $1', [replyId]);
       sendJson(res, { ok: true, id: replyId });
+      return true;
+    }
+
+    if (action === 'pin_topic') {
+      if (!user || !user.admin) return sendError(res, 'Administrator access required.', 403);
+      const data = await readBody(req);
+      const topicId = parseInt(data.id, 10);
+
+      if (!topicId) return sendError(res, 'Invalid discussion ID.');
+      const existsRes = await pool.query('SELECT id, is_pinned FROM forum_topics WHERE id = $1', [topicId]);
+      if (!existsRes.rows.length) return sendError(res, 'Discussion not found.', 404);
+
+      const newPinned = data.pinned !== undefined ? Boolean(data.pinned) : !existsRes.rows[0].is_pinned;
+      const updateRes = await pool.query(
+        'UPDATE forum_topics SET is_pinned = $1, updated_at = NOW() WHERE id = $2 RETURNING id, is_pinned',
+        [newPinned, topicId]
+      );
+      sendJson(res, { ok: true, id: topicId, is_pinned: updateRes.rows[0].is_pinned });
       return true;
     }
 

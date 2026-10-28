@@ -93,18 +93,21 @@
       el.innerHTML = '<a class="button button-quiet" href="/community/oauth?action=login">Sign in with GitHub</a>';
       return;
     }
-    const avatar = state.user.avatar ? `<img class="avatar" src="${escapeHtml(state.user.avatar)}" alt="">` : '';
+    const displayName = escapeHtml(state.user.name || state.user.login || 'User');
+    const avatar = state.user.avatar
+      ? `<img class="avatar" src="${escapeHtml(state.user.avatar)}" alt="${displayName}">`
+      : `<span class="avatar-fallback">${displayName.charAt(0).toUpperCase()}</span>`;
     el.innerHTML = `
-      <div class="account-user">
+      <a class="account-user" href="/community/oauth?action=logout" title="Signed in as ${displayName} (click to sign out)" onclick="return confirm('Sign out of StaticStack Community?');">
         ${avatar}
-        <span>Signed in as <strong>${escapeHtml(state.user.login)}</strong></span>
-      </div>
-      <a class="button button-quiet" href="/community/oauth?action=logout">Sign out</a>
+        <span class="account-name">${displayName}</span>
+      </a>
     `;
     if (state.user.admin) {
-      const adminPanel = $('#admin-panel');
-      if (adminPanel) adminPanel.hidden = false;
       loadReports().catch((e) => toast(e.message));
+    } else {
+      const adminPanel = $('#admin-panel');
+      if (adminPanel) adminPanel.hidden = true;
     }
   }
 
@@ -116,14 +119,17 @@
         state.categories
           .map(
             (c) =>
-              `<a href="#" class="category-link ${state.category === c.slug ? 'active' : ''}" data-category="${escapeHtml(c.slug)}">${escapeHtml(c.name)}<small>${escapeHtml(c.description)}</small></a>`
+              `<a href="#" class="category-link ${state.category === c.slug ? 'active' : ''} ${c.slug === 'announcements' ? 'category-link-announcements' : ''}" data-category="${escapeHtml(c.slug)}">${escapeHtml(c.name)}<small>${escapeHtml(c.description)}</small></a>`
           )
           .join('');
     }
     const select = $('#topic-category');
     if (select) {
       select.innerHTML = state.categories
-        .map((c) => `<option value="${escapeHtml(c.slug)}">${escapeHtml(c.name)}</option>`)
+        .map((c) => {
+          const isAdminOnly = c.slug === 'announcements' && !state.user?.admin;
+          return `<option value="${escapeHtml(c.slug)}" ${isAdminOnly ? 'disabled' : ''}>${escapeHtml(c.name)}${isAdminOnly ? ' (Admin only)' : ''}</option>`;
+        })
         .join('');
     }
   }
@@ -165,11 +171,25 @@
         const lastTime = hasReplies && t.last_reply_at ? t.last_reply_at : t.created_at;
         const lastPrefix = hasReplies ? 'Re: ' : '';
         const lastTitle = `${lastPrefix}${t.title}`;
+        const isPinned = isTrue(t.is_pinned);
 
         return `
-        <article class="topic-card">
+        <article class="topic-card ${isPinned ? 'topic-card-pinned' : ''}">
           <div class="topic-col-main">
-            <a class="topic-title" href="#topic-${t.id}" data-open-topic="${t.id}">${escapeHtml(t.title)}</a>
+            <div class="topic-title-row">
+              ${
+                isPinned
+                  ? `<span class="badge badge-pinned" title="Pinned Announcement">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/>
+                        <line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                      </svg>
+                      Pinned
+                    </span>`
+                  : ''
+              }
+              <a class="topic-title" href="#topic-${t.id}" data-open-topic="${t.id}">${escapeHtml(t.title)}</a>
+            </div>
             <p class="topic-excerpt">${escapeHtml(shortText(t.body))}</p>
             <div class="topic-meta">
               <span>by <strong>${escapeHtml(t.display_name || t.login)}</strong></span>
@@ -177,7 +197,8 @@
               <span>${dateText(t.created_at)}</span>
               ${
                 state.user?.admin
-                  ? `<button class="text-button admin-delete-btn" data-delete-topic="${t.id}" style="color:#ef4444;font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="Delete this discussion as admin">Delete</button>`
+                  ? `<button class="text-button admin-pin-btn" data-pin-topic="${t.id}" data-pinned="${isPinned ? 'true' : 'false'}" style="color:var(--accent);font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="${isPinned ? 'Unpin this discussion' : 'Pin to top of discussions'}">${isPinned ? 'Unpin' : 'Pin to Top'}</button>
+                     <button class="text-button admin-delete-btn" data-delete-topic="${t.id}" style="color:#ef4444;font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="Delete this discussion as admin">Delete</button>`
                   : ''
               }
             </div>
@@ -233,6 +254,7 @@
   }
 
   function voteControls(kind, id, score, myVote) {
+    const isTopicPinned = kind === 'topic' && isTrue(state.activeTopic?.is_pinned);
     return `
       <div class="detail-actions">
         <button class="vote-button ${Number(myVote) === 1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="1" aria-label="Upvote">Upvote</button>
@@ -241,7 +263,8 @@
         <button class="text-button" data-report-kind="${kind}" data-report-id="${id}">Report</button>
         ${
           state.user?.admin
-            ? `<button class="text-button" data-hide-kind="${kind}" data-hide-id="${id}" data-hide-value="${
+            ? `${kind === 'topic' ? `<button class="text-button admin-pin-btn" data-pin-topic="${id}" data-pinned="${isTopicPinned ? 'true' : 'false'}" style="color:var(--accent);font-weight:600;cursor:pointer;">${isTopicPinned ? 'Unpin' : 'Pin to Top'}</button>` : ''}
+              <button class="text-button" data-hide-kind="${kind}" data-hide-id="${id}" data-hide-value="${
                 kind === 'topic' && isTrue(state.activeTopic?.is_hidden) ? 'false' : 'true'
               }">${kind === 'topic' && isTrue(state.activeTopic?.is_hidden) ? 'Unhide' : 'Hide'}</button>
               <button class="text-button admin-delete-btn" data-delete-${kind}="${id}" style="color:#ef4444;font-weight:600;cursor:pointer;" title="Permanently delete as admin">Delete</button>`
@@ -254,10 +277,24 @@
   function renderTopicDetail(t, replies) {
     const root = $('#topic-detail');
     if (!root) return;
+    const isPinned = isTrue(t.is_pinned);
     root.innerHTML = `
       <div class="dialog-heading">
         <div class="detail-header">
-          <p class="eyebrow">${escapeHtml(t.category_name)}</p>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.25rem;">
+            <p class="eyebrow" style="margin:0;">${escapeHtml(t.category_name)}</p>
+            ${
+              isPinned
+                ? `<span class="badge badge-pinned" title="Pinned Announcement">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/>
+                      <line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    Pinned Announcement
+                  </span>`
+                : ''
+            }
+          </div>
           <h2>${escapeHtml(t.title)}</h2>
           <div class="topic-meta">
             <span>Posted by ${escapeHtml(t.display_name || t.login)}</span>
@@ -306,16 +343,21 @@
   }
 
   async function loadReports() {
-    if (!state.user?.admin) return;
+    const adminPanel = $('#admin-panel');
+    if (!state.user?.admin) {
+      if (adminPanel) adminPanel.hidden = true;
+      return;
+    }
     const box = $('#reports-list');
     if (!box) return;
-    box.innerHTML = '<p class="muted">Loading reports…</p>';
     try {
       const data = await request('admin_reports');
-      if (!data.reports.length) {
-        box.innerHTML = '<p class="muted">No pending reports. You are all caught up.</p>';
+      if (!data.reports || !data.reports.length) {
+        if (adminPanel) adminPanel.hidden = true;
+        box.innerHTML = '';
         return;
       }
+      if (adminPanel) adminPanel.hidden = false;
       box.innerHTML = data.reports
         .map(
           (r) => `
@@ -341,6 +383,7 @@
         )
         .join('');
     } catch (e) {
+      if (adminPanel) adminPanel.hidden = true;
       box.innerHTML = `<p class="muted">${escapeHtml(e.message)}</p>`;
     }
   }
@@ -512,6 +555,28 @@
       }
       return;
     }
+
+    const pinBtn = e.target.closest('[data-pin-topic]');
+    if (pinBtn) {
+      if (!state.user?.admin) return;
+      const topicId = Number(pinBtn.dataset.pinTopic);
+      const currentlyPinned = pinBtn.dataset.pinned === 'true';
+      try {
+        const res = await request('pin_topic', {
+          method: 'POST',
+          body: { id: topicId, pinned: !currentlyPinned }
+        });
+        toast(res.is_pinned ? 'Discussion pinned to top.' : 'Discussion unpinned.');
+        await loadTopics();
+        if (state.activeTopic && state.activeTopic.id == topicId) {
+          state.activeTopic.is_pinned = res.is_pinned;
+          await refreshTopic();
+        }
+      } catch (err) {
+        toast(err.message);
+      }
+      return;
+    }
   });
 
   // Start discussion button & modal
@@ -531,8 +596,27 @@
       if (cMsg) cMsg.textContent = '';
       const cForm = $('#compose-form');
       if (cForm) cForm.reset();
+      const pinWrap = $('#compose-pinned-wrap');
+      const pinCheck = $('#topic-pinned');
+      if (pinWrap) pinWrap.style.display = state.user?.admin ? 'flex' : 'none';
+      if (pinCheck) {
+        const catEl = $('#topic-category');
+        pinCheck.checked = Boolean(catEl && catEl.value === 'announcements');
+      }
       const cDialog = $('#compose-dialog');
       if (cDialog) cDialog.showModal();
+    });
+  }
+
+  const topicCatSelect = $('#topic-category');
+  if (topicCatSelect) {
+    topicCatSelect.addEventListener('change', () => {
+      const pinCheck = $('#topic-pinned');
+      if (pinCheck && state.user?.admin) {
+        if (topicCatSelect.value === 'announcements') {
+          pinCheck.checked = true;
+        }
+      }
     });
   }
 
@@ -548,12 +632,14 @@
         const titleEl = $('#topic-title');
         const catEl = $('#topic-category');
         const bodyEl = $('#topic-body');
+        const pinCheck = $('#topic-pinned');
         const data = await request('create_topic', {
           method: 'POST',
           body: {
             title: titleEl ? titleEl.value : '',
             category: catEl ? catEl.value : '',
-            body: bodyEl ? bodyEl.value : ''
+            body: bodyEl ? bodyEl.value : '',
+            pinned: Boolean(pinCheck && pinCheck.checked)
           }
         });
         const cDialog = $('#compose-dialog');
@@ -628,6 +714,7 @@
         const rDialog = $('#report-dialog');
         if (rDialog) rDialog.close();
         toast('Report sent to the moderators.');
+        if (state.user?.admin) loadReports();
       } catch (err) {
         if (msgEl) msgEl.textContent = err.message;
       } finally {
