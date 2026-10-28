@@ -8,7 +8,7 @@ if ($action === 'login') {
     setcookie('staticstack_oauth_state', $state, cookie_options(600, true));
     $redirect = 'https://github.com/login/oauth/authorize?' . http_build_query([
         'client_id' => $clientId,
-        'redirect_uri' => app_base_url() . '/oauth.php?action=callback',
+        'redirect_uri' => app_base_url() . '/community/oauth.php?action=callback',
         'scope' => 'read:user',
         'state' => $state,
         'allow_signup' => 'true'
@@ -17,9 +17,7 @@ if ($action === 'login') {
 }
 if ($action === 'logout') {
     setcookie(session_cookie_name(), '', cookie_options(-3600));
-    $front = getenv('FRONTEND_ORIGIN');
-    $redirect = $front ? rtrim($front, '/') . '/community/' : app_base_url() . '/';
-    header('Location: ' . $redirect, true, 302); exit;
+    header('Location: ' . app_base_url() . '/community/', true, 302); exit;
 }
 if ($action !== 'callback') { http_response_code(404); exit('Not found'); }
 $expectedState = $_COOKIE['staticstack_oauth_state'] ?? '';
@@ -34,7 +32,7 @@ $tokenData = http_json_request('https://github.com/login/oauth/access_token', 'P
     'client_id' => env_required('GITHUB_CLIENT_ID'),
     'client_secret' => env_required('GITHUB_CLIENT_SECRET'),
     'code' => $code,
-    'redirect_uri' => app_base_url() . '/oauth.php?action=callback',
+    'redirect_uri' => app_base_url() . '/community/oauth.php?action=callback',
     'state' => $receivedState
 ], ['Accept: application/json']);
 $token = $tokenData['access_token'] ?? '';
@@ -61,6 +59,4 @@ $session = [
     'exp' => time() + 60 * 60 * 24 * 14
 ];
 setcookie(session_cookie_name(), sign_session($session), cookie_options(60 * 60 * 24 * 14));
-$front = getenv('FRONTEND_ORIGIN');
-$redirect = $front ? rtrim($front, '/') . '/community/?signed_in=1' : app_base_url() . '/?signed_in=1';
-header('Location: ' . $redirect, true, 302); exit;
+header('Location: ' . app_base_url() . '/community/?signed_in=1', true, 302); exit;

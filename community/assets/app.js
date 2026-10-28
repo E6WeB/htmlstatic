@@ -1,7 +1,6 @@
 (() => {
   const $ = (s, root=document) => root.querySelector(s);
-  const backend = (window.FORUM_BACKEND_URL || 'https://staticstack-forum.wasmer.app').replace(/\/+$/, '');
-  const api = `${backend}/api.php`;
+  const api = '/community/api.php';
   const state = { user:null, categories:[], category:'', search:'', topics:[], activeTopic:null, reportTarget:null };
   const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const dateText = value => { try { return new Date(value).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); } catch { return ''; } };
@@ -10,13 +9,13 @@
   let toastTimer;
   function toast(message){ const el=$('#toast'); el.textContent=message; el.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),3000); }
   async function request(action, options={}) {
-    const url = new URL(api); url.searchParams.set('action',action); if(options.params) Object.entries(options.params).forEach(([k,v])=>{if(v!==''&&v!=null)url.searchParams.set(k,v)});
+    const url = new URL(api, location.href); url.searchParams.set('action',action); if(options.params) Object.entries(options.params).forEach(([k,v])=>{if(v!==''&&v!=null)url.searchParams.set(k,v)});
     const response = await fetch(url,{credentials:'include',headers:{'Content-Type':'application/json',...(options.headers||{})},...(options.method?{method:options.method}:{}),...(options.body?{body:JSON.stringify(options.body)}:{})});
     let data={}; try {data=await response.json()} catch {}
     if(!response.ok) throw new Error(data.error || `Request failed (${response.status}).`);
     return data;
   }
-  function accountView(){ const el=$('#account'); if(!state.user){el.innerHTML=`<a class="button button-quiet" href="${backend}/oauth.php?action=login">Sign in with GitHub</a>`;return;} const avatar=state.user.avatar?`<img class="avatar" src="${escapeHtml(state.user.avatar)}" alt="">`:''; el.innerHTML=`<div class="account-user">${avatar}<span>Signed in as <strong>${escapeHtml(state.user.login)}</strong></span></div><a class="button button-quiet" href="${backend}/oauth.php?action=logout">Sign out</a>`; if(state.user.admin){$('#admin-panel').hidden=false; loadReports().catch(e=>toast(e.message));} }
+  function accountView(){ const el=$('#account'); if(!state.user){el.innerHTML='<a class="button button-quiet" href="/community/oauth.php?action=login">Sign in with GitHub</a>';return;} const avatar=state.user.avatar?`<img class="avatar" src="${escapeHtml(state.user.avatar)}" alt="">`:''; el.innerHTML=`<div class="account-user">${avatar}<span>Signed in as <strong>${escapeHtml(state.user.login)}</strong></span></div><a class="button button-quiet" href="/community/oauth.php?action=logout">Sign out</a>`; if(state.user.admin){$('#admin-panel').hidden=false; loadReports().catch(e=>toast(e.message));} }
   function renderCategories(){ const nav=$('#categories'); nav.innerHTML=`<a href="#" class="category-link ${state.category===''?'active':''}" data-category="">All discussions</a>`+state.categories.map(c=>`<a href="#" class="category-link ${state.category===c.slug?'active':''}" data-category="${escapeHtml(c.slug)}">${escapeHtml(c.name)}<small>${escapeHtml(c.description)}</small></a>`).join(''); const select=$('#topic-category'); select.innerHTML=state.categories.map(c=>`<option value="${escapeHtml(c.slug)}">${escapeHtml(c.name)}</option>`).join(''); }
   async function loadTopics(){ const list=$('#topic-list'); list.innerHTML='<div class="empty-state">Loading discussions…</div>'; try{const data=await request('topics',{params:{category:state.category,q:state.search}});state.topics=data.topics||[];renderTopics();}catch(e){list.innerHTML=`<div class="empty-state">${escapeHtml(e.message)}</div>`;} }
   function renderTopics(){ $('#list-heading').textContent=state.category?(state.categories.find(c=>c.slug===state.category)?.name||'Discussions'):'Latest discussions'; $('#topic-count').textContent=`${state.topics.length} ${state.topics.length===1?'topic':'topics'}`; const list=$('#topic-list'); if(!state.topics.length){list.innerHTML='<div class="empty-state">No discussions found. Start one and be the first to share.</div>';return;} list.innerHTML=state.topics.map(t=>`<article class="topic-card"><div class="topic-stats"><strong>${Number(t.score)||0}</strong> votes<br>${Number(t.reply_count)||0} replies</div><div><a class="topic-title" href="#topic-${t.id}" data-open-topic="${t.id}">${escapeHtml(t.title)}</a><p class="topic-excerpt">${escapeHtml(shortText(t.body))}</p><div class="topic-meta"><span class="category-pill">${escapeHtml(t.category_name)}</span><span>by ${escapeHtml(t.display_name||t.login)}</span><span>${dateText(t.updated_at)}</span></div></div></article>`).join(''); }

@@ -3,19 +3,19 @@ name = "e6web/staticstack"
 version = "0.1.0"
 description = "StaticStack (staticstack.app) - Static Website Toolkit on Wasmer Edge"
 license = "CC0-1.0"
-entrypoint = "script"
+entrypoint = "web"
 
 [dependencies]
-"wasmer/static-web-server" = "^1"
+"php/php" = "^8.3"
 
 [fs]
 "/app" = "."
-"/asset" = "asset"
 
 [[command]]
-name = "script"
-module = "wasmer/static-web-server:webserver"
-runner = "https://webc.org/runner/wasi"
+name = "web"
+module = "php/php:php"
+runner = "wasi"
 
 [command.annotations.wasi]
-main-args = ["-w", "/asset/toml/config.toml"]
+main-args = ["-t", "/app", "-S", "localhost:8080", "/app/router.php"]
+
