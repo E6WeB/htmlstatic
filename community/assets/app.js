@@ -1465,14 +1465,43 @@
     }
   });
 
+  function renderForumStats() {
+    if (!state.stats) return;
+    const s = state.stats;
+    const channelsEl = $('#stat-channels-count');
+    if (channelsEl && s.channels !== undefined) channelsEl.textContent = s.channels;
+    const topicsEl = $('#stat-topics-count');
+    if (topicsEl && s.topics !== undefined) topicsEl.textContent = s.topics;
+    const repliesEl = $('#stat-replies-count');
+    if (repliesEl && s.replies !== undefined) repliesEl.textContent = s.replies;
+    const membersEl = $('#stat-members-count');
+    if (membersEl && s.members !== undefined) membersEl.textContent = s.members;
+
+    const newestEl = $('#stat-newest-member');
+    if (newestEl && s.newest_member_name) {
+      newestEl.innerHTML = `<span style="color:var(--text-main);font-weight:600;">${escapeHtml(s.newest_member_name)}</span>${
+        s.newest_member_login ? ` <span class="muted" style="font-size:12px;">(@${escapeHtml(s.newest_member_login)})</span>` : ''
+      }`;
+    }
+
+    const latestEl = $('#stat-latest-post');
+    if (latestEl && s.latest_topic_title) {
+      latestEl.textContent = s.latest_topic_title;
+      latestEl.href = `/community/topic?id=${s.latest_topic_id}`;
+      latestEl.title = s.latest_topic_title;
+    }
+  }
+
   // Application bootstrap
   async function init() {
     try {
       const data = await request('bootstrap');
       state.user = data.user;
       state.categories = data.categories || [];
+      state.stats = data.stats || null;
       renderCategories();
       accountView();
+      renderForumStats();
 
       const isThreadPage = Boolean($('#thread-main'));
       if (isThreadPage) {

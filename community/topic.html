@@ -593,6 +593,113 @@
 
   </main>
 
+  <!-- Community Information & Forum Statistics (14px Low-Profile) -->
+  <section class="forum-stats-section" id="forum-stats-section" aria-label="Community Statistics and Status">
+    <div class="container">
+      <div class="forum-stats-card">
+        <!-- Top Metrics Row -->
+        <div class="forum-stats-row forum-stats-metrics">
+          <div class="forum-stat-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="forum-stat-icon" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="forum-stat-val" id="stat-channels-count">5</span>
+            <span class="forum-stat-label">Channels</span>
+          </div>
+
+          <div class="forum-stat-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="forum-stat-icon" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span class="forum-stat-val" id="stat-topics-count">3</span>
+            <span class="forum-stat-label">Discussions</span>
+          </div>
+
+          <div class="forum-stat-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="forum-stat-icon" aria-hidden="true">
+              <polyline points="9 17 4 12 9 7"></polyline>
+              <path d="M20 18v-2a4 4 0 0 0-4-4H4"></path>
+            </svg>
+            <span class="forum-stat-val" id="stat-replies-count">4</span>
+            <span class="forum-stat-label">Posts</span>
+          </div>
+
+          <div class="forum-stat-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="forum-stat-icon" style="color:var(--accent);" aria-hidden="true">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span class="forum-stat-val" id="stat-active-count">Active</span>
+            <span class="forum-stat-label">Community</span>
+          </div>
+
+          <div class="forum-stat-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="forum-stat-icon" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span class="forum-stat-val" id="stat-members-count">1</span>
+            <span class="forum-stat-label">Members</span>
+          </div>
+        </div>
+
+        <!-- Middle Activity Row -->
+        <div class="forum-stats-row forum-stats-activity">
+          <div class="forum-activity-item">
+            <span class="forum-activity-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              Our newest member:
+            </span>
+            <strong id="stat-newest-member" class="forum-activity-highlight">Q (@E6WeB)</strong>
+          </div>
+
+          <div class="forum-activity-item forum-activity-latest">
+            <span class="forum-activity-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+              Latest Post:
+            </span>
+            <a href="/community/topic?id=2" id="stat-latest-post" class="forum-activity-link">This is a test 2</a>
+          </div>
+        </div>
+
+        <!-- Bottom Icon Legend Row -->
+        <div class="forum-stats-row forum-stats-legend">
+          <div class="legend-group">
+            <span class="legend-title">Topic Icons:</span>
+            <span class="legend-item" title="Open discussion with replies">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              Open Discussion
+            </span>
+            <span class="legend-item" title="Pinned Announcement">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);" aria-hidden="true"><path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/><line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Pinned
+            </span>
+            <span class="legend-item" title="Locked Discussion (replies disabled)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:#d97706;" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              Locked
+            </span>
+            <span class="legend-item" title="Net Votes score">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:#eab308;" aria-hidden="true"><path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34L12 14.24l-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/></svg>
+              Votes
+            </span>
+            <span class="legend-item" title="Edited by author or admin">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              Edited
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Pre-Footer Call to Action -->
   <section class="pre-footer-cta">
     <div class="container">
@@ -622,10 +729,10 @@
 
   <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="brand">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col footer-col-brand">
+          <a href="/" class="brand" style="margin-bottom: 0.75rem;">
             <span class="brand-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -636,40 +743,71 @@
             </span>
             <span>StaticStack</span>
           </a>
-          <p class="footer-tagline">110+ curated tools, APIs, frameworks, and services for building powerful, modern
-            static websites without backend bloat.</p>
+          <p class="footer-desc">
+            A community-curated collection of tools, services, and resources for building and hosting modern static
+            websites with HTML, CSS, and JavaScript.
+          </p>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Navigation</h4>
+          <h4>Navigation</h4>
           <ul class="footer-links">
             <li><a href="/">Home</a></li>
             <li><a href="/archive">Master Archive</a></li>
-            <li><a href="/community/">Community Forum</a></li>
             <li><a href="/submit">Submit a Tool</a></li>
-            <li><a href="/contribute">Contribution Guide</a></li>
+            <li><a href="/community/">Community</a></li>
+            <li><a href="/contribute">Contributing Guide</a></li>
+            <li><a href="/thankyou">Thank You &amp; Credits</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Top Categories</h4>
+          <h4>Popular Categories</h4>
           <ul class="footer-links">
-            <li><a href="/archive#static-site-generators">Static Site Generators</a></li>
             <li><a href="/archive#hosting-deployment">Hosting &amp; Deployment</a></li>
-            <li><a href="/archive#forms-surveys">Forms &amp; Surveys</a></li>
-            <li><a href="/archive#cms-content-management">Headless CMS</a></li>
-            <li><a href="/archive#search-engines">Search Solutions</a></li>
+            <li><a href="/archive#contact-forms">Contact Forms</a></li>
+            <li><a href="/archive#css-components">CSS &amp; UI Components</a></li>
+            <li><a href="/archive#content-management">Content Management</a></li>
+            <li><a href="/archive#analytics-privacy">Analytics &amp; Privacy</a></li>
+            <li><a href="/archive#browser-extensions">Browser Extensions</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Community &amp; Source</h4>
+          <h4>Community &amp; Project</h4>
           <ul class="footer-links">
-            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank"
+                rel="noopener noreferrer">GitHub Discussions <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub
+                Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg></a></li>
+            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an
+                Issue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg></a></li>
             <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
             <li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-            <li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
+            <li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io <svg
+                  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg></a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank"
+                rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
           </ul>
         </div>
       </div>

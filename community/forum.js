@@ -131,7 +131,18 @@ async function handleApi(req, res, pathname, query) {
 
   try {
     if (action === 'bootstrap') {
-      const catsResult = await pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC");
+      const [catsResult, topicsCountRes, repliesCountRes, usersCountRes, newestUserRes, latestTopicRes] = await Promise.all([
+        pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC"),
+        pool.query("SELECT COUNT(*)::int AS count FROM forum_topics WHERE is_hidden = FALSE"),
+        pool.query("SELECT COUNT(*)::int AS count FROM forum_replies WHERE is_hidden = FALSE"),
+        pool.query("SELECT COUNT(*)::int AS count FROM forum_users"),
+        pool.query("SELECT login, display_name FROM forum_users ORDER BY id DESC LIMIT 1"),
+        pool.query("SELECT id, title FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1")
+      ]);
+
+      const newestUser = newestUserRes.rows[0];
+      const latestTopic = latestTopicRes.rows[0];
+
       sendJson(res, {
         user: user ? {
           uid: user.uid,
@@ -140,7 +151,17 @@ async function handleApi(req, res, pathname, query) {
           avatar: user.avatar,
           admin: Boolean(user.admin)
         } : null,
-        categories: catsResult.rows
+        categories: catsResult.rows,
+        stats: {
+          channels: catsResult.rows.length,
+          topics: topicsCountRes.rows[0]?.count || 0,
+          replies: repliesCountRes.rows[0]?.count || 0,
+          members: usersCountRes.rows[0]?.count || 0,
+          newest_member_name: newestUser ? (newestUser.display_name || newestUser.login) : '',
+          newest_member_login: newestUser ? newestUser.login : '',
+          latest_topic_id: latestTopic ? latestTopic.id : null,
+          latest_topic_title: latestTopic ? latestTopic.title : ''
+        }
       });
       return true;
     }
