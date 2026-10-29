@@ -607,52 +607,10 @@
 
 /* Topic List Header Row */
 .topic-list-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 130px 65px 65px 180px;
-  gap: 1rem;
-  align-items: center;
-  padding: 0.65rem 1rem;
-  background: var(--bg-muted);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  margin-bottom: 12px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-subtle);
-  user-select: none;
+  display: none;
 }
 
-.th-col {
-  display: flex;
-  align-items: center;
-}
-
-.th-topic {
-  justify-content: flex-start;
-}
-
-.th-category {
-  justify-content: flex-start;
-}
-
-.th-votes {
-  justify-content: center;
-  text-align: center;
-}
-
-.th-replies {
-  justify-content: center;
-  text-align: center;
-}
-
-.th-last-post {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-/* Topic Card / Table Row Layout */
+/* Topic Card / List Layout */
 .topic-list {
   display: flex;
   flex-direction: column;
@@ -664,11 +622,10 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 130px 65px 65px 180px;
-  gap: 1rem;
-  align-items: center;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
   box-shadow: var(--shadow-sm);
   text-decoration: none;
   position: relative;
@@ -703,8 +660,12 @@
 }
 
 .topic-title-row {
-  display: block;
-  margin-bottom: 0.15rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 /* Pinned Announcement Badge */
@@ -838,117 +799,132 @@
   align-items: center;
 }
 
-.topic-col-main {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.topic-col-category {
+/* Topic Card Footer & Metadata Row (Category, Votes, Replies, Last Post) */
+.topic-card-footer {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
-}
-
-.topic-col-votes {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.topic-col-replies {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.topic-col-last-post {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  font-size: 0.74rem;
-  line-height: 1.35;
-  min-width: 0;
-  text-align: left;
-}
-
-.last-post-title {
-  color: var(--text-main);
-  font-weight: 600;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border-color);
   font-size: 0.78rem;
+  width: 100%;
+}
+
+.topic-footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.topic-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+  user-select: none;
+}
+
+.topic-stat-pill svg {
+  flex-shrink: 0;
+}
+
+.topic-stat-votes {
+  color: var(--accent);
+  border-color: rgba(37, 99, 235, 0.2);
+  background: var(--accent-light);
+}
+
+.topic-stat-votes svg {
+  color: var(--accent);
+}
+
+[data-theme="dark"] .topic-stat-votes {
+  background: rgba(37, 99, 235, 0.16);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .topic-stat-votes svg {
+  color: #93c5fd;
+}
+
+.topic-stat-replies {
+  color: var(--text-main);
+}
+
+.topic-stat-replies svg {
+  color: var(--text-subtle);
+}
+
+.topic-stat-pill strong {
+  font-weight: 700;
+}
+
+.topic-stat-pill .stat-unit {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.topic-last-post {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.topic-last-post .last-post-label {
+  color: var(--text-subtle);
+}
+
+.last-post-user-link {
+  color: var(--text-main);
   text-decoration: none;
+  font-weight: 600;
+  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block;
-  transition: color 0.15s ease;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.last-post-title:hover {
+.last-post-user-link:hover {
   color: var(--accent);
   text-decoration: underline;
 }
 
-.last-post-byline {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  color: var(--text-muted);
-  font-size: 0.74rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.last-post-author {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.last-post-jump {
-  color: var(--text-subtle);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  padding: 0.1rem;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
-.last-post-jump:hover {
-  color: var(--accent);
-  background: var(--accent-light);
-}
-
 .last-post-time {
   color: var(--text-subtle);
-  font-size: 0.7rem;
-  white-space: nowrap;
+  font-size: 0.74rem;
 }
 
-.topic-card-mobile-meta {
-  display: none;
+.topic-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  color: var(--text-subtle);
 }
 
-/* Pure Numeric Display for Votes and Replies */
-.stat-number {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 600;
+.topic-author-byline {
+  color: var(--text-subtle);
+}
+
+.topic-author-byline strong {
   color: var(--text-muted);
-  text-align: center;
-  line-height: 1;
-  user-select: none;
-}
-
-.stat-votes-num {
-  color: var(--accent);
-}
-
-.stat-replies-num {
-  color: var(--text-main);
+  font-weight: 600;
 }
 
 .meta-dot {
@@ -957,7 +933,7 @@
 }
 
 .topic-title {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--accent);
   text-decoration: none;
@@ -975,15 +951,16 @@
 
 .topic-excerpt {
   color: var(--text-muted);
-  font-size: 0.835rem;
-  line-height: 1.45;
-  margin: 0.15rem 0 0.25rem;
+  font-size: 0.865rem;
+  line-height: 1.5;
+  margin: 0;
   white-space: normal;
   overflow-wrap: anywhere;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  width: 100%;
 }
 
 .topic-meta {
@@ -1050,6 +1027,97 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.user-session-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.35rem;
+  border-radius: 9999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.user-session-badge:hover {
+  border-color: var(--border-hover);
+}
+
+.user-badge-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+}
+
+.account-badge-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.account-badge-fallback {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.user-badge-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.user-badge-name {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-main);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.signout-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 9999px;
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.signout-action-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.auth-signin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
 }
 
 .account-user {
@@ -1526,13 +1594,25 @@ a.button {
   border-color: var(--accent-border);
 }
 
-.action-btn.admin-delete-btn {
+.action-btn.admin-delete-btn,
+.action-btn.author-delete-btn {
   color: #ef4444;
 }
 
-.action-btn.admin-delete-btn:hover {
+.action-btn.admin-delete-btn:hover,
+.action-btn.author-delete-btn:hover {
   background: rgba(239, 68, 68, 0.1);
   border-color: rgba(239, 68, 68, 0.35);
+}
+
+.action-btn.admin-hide-btn {
+  color: var(--text-muted);
+}
+
+.action-btn.admin-hide-btn:hover {
+  background: var(--bg-muted);
+  color: var(--text-main);
+  border-color: var(--border-hover);
 }
 
 .action-btn.op-edit-btn {
@@ -1862,45 +1942,25 @@ a.button {
   }
 
   .topic-card {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    padding: 0.85rem 1rem;
     gap: 0.45rem;
-    padding: 0.75rem 0.95rem;
   }
 
-  .topic-col-category,
-  .topic-col-votes,
-  .topic-col-replies,
-  .topic-col-last-post {
-    display: none;
+  .topic-title {
+    font-size: 0.975rem;
   }
 
-  .topic-card-mobile-meta {
-    display: flex;
+  .topic-card-footer {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.4rem;
-    padding-top: 0.45rem;
-    border-top: 1px solid var(--border-color);
+    align-items: flex-start;
+    gap: 0.55rem;
   }
 
-  .topic-card-mobile-stats {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }
-
-  .mobile-stat-dot {
-    opacity: 0.4;
-  }
-
-  .mobile-last-post {
-    font-size: 0.72rem;
-    color: var(--text-subtle);
-    line-height: 1.35;
+  .topic-footer-actions {
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 0.25rem;
+    border-top: 1px dashed var(--border-color);
   }
 
   .topic-title {

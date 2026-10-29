@@ -242,7 +242,12 @@
           </div>
         </div>
 
-        <div style="display:flex;align-items:center;gap:0.5rem;">
+        <div style="display:flex;align-items:center;gap:0.65rem;flex-wrap:wrap;">
+          <!-- Sign In with GitHub / Account Slot -->
+          <div class="account" id="account">
+            <a class="button button-quiet" href="/community/oauth?action=login">Sign in with GitHub</a>
+          </div>
+
           <button type="button" class="btn btn-secondary btn-sm" id="share-thread-btn" title="Copy link to this discussion"
             style="display:inline-flex;align-items:center;gap:0.4rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -886,7 +891,7 @@
   </button>
 
   <!-- Community Client Engine Scripts -->
-  <script src="/community/assets/app.js"></script>
+  <script src="/community/assets/app.js?v=3"></script>
 </body>
 
 </html>

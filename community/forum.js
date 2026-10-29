@@ -19,6 +19,9 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || '8d91e6a78d7091
 const SESSION_SECRET = process.env.SESSION_SECRET || 'e2ebd658d6c89eba64ecea98029d623aa3aa25d7e09e1c1b267496eaa6a3fceb';
 const ADMIN_GITHUB_LOGIN = (process.env.ADMIN_GITHUB_LOGIN || 'E6WeB').toLowerCase().trim();
 const SESSION_COOKIE_NAME = process.env.SESSION_COOKIE || 'staticstack_forum_session';
+const cookieFlags = (process.env.APP_BASE_URL || '').startsWith('https')
+  ? 'SameSite=Lax; Secure'
+  : 'SameSite=Lax';
 
 function getAppBaseUrl(req) {
   if (process.env.APP_BASE_URL) return process.env.APP_BASE_URL.replace(/\/+$/, '');
@@ -498,13 +501,21 @@ async function handleApi(req, res, pathname, query) {
     }
 
     if (action === 'delete_topic') {
-      if (!user || !user.admin) return sendError(res, 'Administrator access required.', 403);
+      if (!user) return sendError(res, 'Sign in with GitHub to delete your discussion.', 401);
       const data = await readBody(req);
       const topicId = parseInt(data.id, 10);
 
       if (!topicId) return sendError(res, 'Invalid discussion ID.');
-      const existsRes = await pool.query('SELECT id FROM forum_topics WHERE id = $1', [topicId]);
+      const existsRes = await pool.query('SELECT id, user_id FROM forum_topics WHERE id = $1', [topicId]);
       if (!existsRes.rows.length) return sendError(res, 'Discussion not found.', 404);
+
+      const topicRow = existsRes.rows[0];
+      const isOwner = Number(topicRow.user_id) === Number(user.uid);
+      const isAdmin = Boolean(user.admin);
+
+      if (!isOwner && !isAdmin) {
+        return sendError(res, 'You can only delete your own discussions.', 403);
+      }
 
       await pool.query('DELETE FROM forum_topics WHERE id = $1', [topicId]);
       sendJson(res, { ok: true, id: topicId });
@@ -512,13 +523,21 @@ async function handleApi(req, res, pathname, query) {
     }
 
     if (action === 'delete_reply') {
-      if (!user || !user.admin) return sendError(res, 'Administrator access required.', 403);
+      if (!user) return sendError(res, 'Sign in with GitHub to delete your reply.', 401);
       const data = await readBody(req);
       const replyId = parseInt(data.id, 10);
 
       if (!replyId) return sendError(res, 'Invalid reply ID.');
-      const existsRes = await pool.query('SELECT id FROM forum_replies WHERE id = $1', [replyId]);
+      const existsRes = await pool.query('SELECT id, user_id FROM forum_replies WHERE id = $1', [replyId]);
       if (!existsRes.rows.length) return sendError(res, 'Reply not found.', 404);
+
+      const replyRow = existsRes.rows[0];
+      const isOwner = Number(replyRow.user_id) === Number(user.uid);
+      const isAdmin = Boolean(user.admin);
+
+      if (!isOwner && !isAdmin) {
+        return sendError(res, 'You can only delete your own replies.', 403);
+      }
 
       await pool.query('DELETE FROM forum_replies WHERE id = $1', [replyId]);
       sendJson(res, { ok: true, id: replyId });
@@ -578,8 +597,10 @@ async function handleOAuth(req, res, pathname, query) {
   const callbackUrl = `${baseUrl}${oauthPath}?action=callback`;
   if (action === 'dev_login') {
     const login = query.user || 'E6WeB';
+    const isDefaultAdmin = ADMIN_GITHUB_LOGIN !== '' && login.toLowerCase() === ADMIN_GITHUB_LOGIN;
+    const devUid = query.uid ? parseInt(query.uid, 10) : (isDefaultAdmin ? 1 : 999);
     const devSession = signSession({
-      uid: 1,
+      uid: devUid,
       login: login,
       name: login,
       exp: Date.now() + 30 * 24 * 60 * 60 * 1000
@@ -607,9 +628,10 @@ async function handleOAuth(req, res, pathname, query) {
   }
 
   if (action === 'logout') {
+    const returnTo = query.redirect && query.redirect.startsWith('/') ? query.redirect : '/community/';
     res.writeHead(302, {
-      Location: `${baseUrl}/community/`,
-      'Set-Cookie': `${SESSION_COOKIE_NAME}=; Path=/; Max-Age=0; ${cookieFlags}`
+      Location: `${baseUrl}${returnTo}`,
+      'Set-Cookie': `${SESSION_COOKIE_NAME}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; ${cookieFlags}`
     });
     res.end();
     return true;

@@ -89,19 +89,41 @@
   function accountView() {
     const el = $('#account');
     if (!el) return;
+    const currentLoc = window.location.pathname + (window.location.search || '');
     if (!state.user) {
-      el.innerHTML = '<a class="button button-quiet" href="/community/oauth?action=login">Sign in with GitHub</a>';
+      el.innerHTML = `
+        <a class="btn btn-secondary btn-sm auth-signin-btn" href="/community/oauth?action=login&redirect=${encodeURIComponent(currentLoc)}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>Sign in with GitHub</span>
+        </a>
+      `;
       return;
     }
     const displayName = escapeHtml(state.user.name || state.user.login || 'User');
+    const handle = escapeHtml(state.user.login || '');
     const avatar = state.user.avatar
-      ? `<img class="avatar" src="${escapeHtml(state.user.avatar)}" alt="${displayName}">`
-      : `<span class="avatar-fallback">${displayName.charAt(0).toUpperCase()}</span>`;
+      ? `<img class="account-badge-avatar" src="${escapeHtml(state.user.avatar)}" alt="${displayName}">`
+      : `<span class="account-badge-fallback">${displayName.charAt(0).toUpperCase()}</span>`;
     el.innerHTML = `
-      <a class="account-user" href="/community/oauth?action=logout" title="Signed in as ${displayName} (click to sign out)" onclick="return confirm('Sign out of StaticStack Community?');">
-        ${avatar}
-        <span class="account-name">${displayName}</span>
-      </a>
+      <div class="user-session-badge">
+        <div class="user-badge-main" title="Signed in as ${displayName} (@${handle})">
+          ${avatar}
+          <div class="user-badge-meta">
+            <span class="user-badge-name">${displayName}</span>
+            ${state.user.admin ? '<span class="badge-admin">Admin</span>' : ''}
+          </div>
+        </div>
+        <a class="signout-action-btn" href="/community/oauth?action=logout&redirect=${encodeURIComponent(currentLoc)}" title="Sign out" onclick="return confirm('Sign out of StaticStack Community?');" aria-label="Sign out">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Sign out</span>
+        </a>
+      </div>
     `;
     if (state.user.admin) {
       loadReports().catch((e) => toast(e.message));
@@ -147,14 +169,25 @@
     }
   }
 
+  function isAuthor(item) {
+    if (!item || !state.user) return false;
+    const authorId = item.author_id !== undefined ? item.author_id : (item.user_id !== undefined ? item.user_id : null);
+    const authorLogin = (item.login || '').toLowerCase().trim();
+    const userLogin = (state.user.login || '').toLowerCase().trim();
+
+    if (authorLogin && userLogin) {
+      return authorLogin === userLogin;
+    }
+    if (state.user.uid && authorId) {
+      return Number(state.user.uid) === Number(authorId);
+    }
+    return false;
+  }
+
   function canEditTopic(t) {
     if (!t || !state.user) return false;
     if (Boolean(state.user.admin)) return true;
-    const isOwner = Boolean(
-      (state.user.uid && t.author_id && String(state.user.uid) === String(t.author_id)) ||
-      (state.user.login && t.login && state.user.login.toLowerCase() === t.login.toLowerCase())
-    );
-    return Boolean(isOwner && !isTrue(t.is_locked));
+    return Boolean(isAuthor(t) && !isTrue(t.is_locked));
   }
 
   function renderTopics() {
@@ -186,81 +219,60 @@
 
         return `
         <article class="topic-card ${isPinned ? 'topic-card-pinned' : ''}">
-          <div class="topic-col-main">
-            <div class="topic-title-row">
-              ${
-                isPinned
-                  ? `<span class="badge badge-pinned" title="Pinned Announcement">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/>
-                        <line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                      </svg>
-                      Pinned
-                    </span>`
-                  : ''
-              }
-              ${
-                isLocked
-                  ? `<span class="badge badge-locked" title="Locked Discussion">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                      </svg>
-                      Locked
-                    </span>`
-                  : ''
-              }
-              <a class="topic-title" href="/community/topic?id=${t.id}">${escapeHtml(t.title)}</a>
-            </div>
-            <p class="topic-excerpt">${escapeHtml(shortText(t.body, 140))}</p>
-            <div class="topic-meta">
-              <span>by <strong>${escapeHtml(t.display_name || t.login)}</strong></span>
-              <span class="meta-dot" aria-hidden="true">•</span>
-              <span>${dateText(t.created_at)}</span>
-              ${
-                canEditTopic(t)
-                  ? `<a href="/community/topic?id=${t.id}#edit" class="text-button op-card-edit-btn" style="color:var(--accent);font-size:0.8rem;font-weight:600;margin-left:0.5rem;text-decoration:none;" title="Edit this discussion">Edit</a>`
-                  : ''
-              }
-              ${
-                state.user?.admin
-                  ? `<button class="text-button admin-pin-btn" data-pin-topic="${t.id}" data-pinned="${isPinned ? 'true' : 'false'}" style="color:var(--accent);font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="${isPinned ? 'Unpin this discussion' : 'Pin to top'}">${isPinned ? 'Unpin' : 'Pin'}</button>
-                     <button class="text-button admin-lock-btn" data-lock-topic="${t.id}" data-locked="${isLocked ? 'true' : 'false'}" style="color:#d97706;font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="${isLocked ? 'Unlock discussion' : 'Lock discussion'}">${isLocked ? 'Unlock' : 'Lock'}</button>
-                     <button class="text-button admin-delete-btn" data-delete-topic="${t.id}" style="color:#ef4444;font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="Delete this discussion as admin">Delete</button>`
-                  : ''
-              }
-            </div>
+          <div class="topic-title-row">
+            ${
+              isPinned
+                ? `<span class="badge badge-pinned" title="Pinned Announcement">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/>
+                      <line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    Pinned
+                  </span>`
+                : ''
+            }
+            ${
+              isLocked
+                ? `<span class="badge badge-locked" title="Locked Discussion">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    Locked
+                  </span>`
+                : ''
+            }
+            <a class="topic-title" href="/community/topic?id=${t.id}">${escapeHtml(t.title)}</a>
           </div>
-          <div class="topic-col-category">
-            <a href="/community/?channel=${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Filter by ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
-          </div>
-          <div class="topic-col-votes">
-            <span class="stat-number stat-votes-num">${Number(t.score) || 0}</span>
-          </div>
-          <div class="topic-col-replies">
-            <span class="stat-number stat-replies-num">${Number(t.reply_count) || 0}</span>
-          </div>
-          <div class="topic-col-last-post">
-            <a class="last-post-title" href="/community/topic?id=${t.id}" title="${escapeHtml(lastTitle)}">${escapeHtml(lastTitle)}</a>
-            <div class="last-post-byline">
-              <span class="last-post-author">by <strong>${escapeHtml(lastUser)}</strong></span>
-              <a href="/community/topic?id=${t.id}" class="last-post-jump" aria-label="Jump to discussion" title="View discussion">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-            </div>
-            <time class="last-post-time" datetime="${escapeHtml(lastTime)}">${formatDateTime(lastTime)}</time>
-          </div>
-          <div class="topic-card-mobile-meta">
-            <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-              <a href="/community/?channel=${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
-              <div class="topic-card-mobile-stats">
-                <span class="mobile-stat-text"><strong>${Number(t.score) || 0}</strong> votes</span>
-                <span class="mobile-stat-dot">•</span>
-                <span class="mobile-stat-text"><strong>${Number(t.reply_count) || 0}</strong> replies</span>
+          <p class="topic-excerpt">${escapeHtml(shortText(t.body, 220))}</p>
+          <div class="topic-card-footer">
+            <div class="topic-footer-meta">
+              <a href="/community/?channel=${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Channel: ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
+              <span class="topic-stat-pill topic-stat-votes" title="${Number(t.score) || 0} votes">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+                <strong>${Number(t.score) || 0}</strong>
+                <span class="stat-unit">${Number(t.score) === 1 ? 'vote' : 'votes'}</span>
+              </span>
+              <span class="topic-stat-pill topic-stat-replies" title="${Number(t.reply_count) || 0} replies">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <strong>${Number(t.reply_count) || 0}</strong>
+                <span class="stat-unit">${Number(t.reply_count) === 1 ? 'reply' : 'replies'}</span>
+              </span>
+              <div class="topic-last-post" title="Last activity">
+                <span class="meta-dot" aria-hidden="true">•</span>
+                <span class="last-post-label">Last post:</span>
+                <a class="last-post-user-link" href="/community/topic?id=${t.id}" title="${escapeHtml(lastTitle)}">
+                  <strong>${escapeHtml(lastUser)}</strong>
+                </a>
+                <time class="last-post-time" datetime="${escapeHtml(lastTime)}">${formatDateTime(lastTime)}</time>
               </div>
             </div>
-            <div class="mobile-last-post">
-              <span>Last post: <strong>${escapeHtml(lastUser)}</strong> • ${formatDateTime(lastTime)}</span>
+            <div class="topic-footer-actions">
+              <span class="topic-author-byline">by <strong>${escapeHtml(t.display_name || t.login)}</strong> • ${dateText(t.created_at)}</span>
             </div>
           </div>
         </article>
@@ -385,7 +397,7 @@
       }
       const opActions = $('#op-actions');
       if (opActions) {
-        opActions.innerHTML = voteControls('topic', t.id, t.score, t.my_vote);
+        opActions.innerHTML = voteControls('topic', t.id, t.score, t.my_vote, t);
       }
 
       // Render Replies
@@ -419,7 +431,7 @@
                   <span style="font-size:0.75rem;font-weight:700;color:var(--text-subtle);">#${index + 1}</span>
                 </div>
                 <div class="reply-body" style="font-size:0.95rem;line-height:1.65;margin:0.5rem 0 0.85rem;">${escapeHtml(r.body)}</div>
-                ${voteControls('reply', r.id, r.score, r.my_vote)}
+                ${voteControls('reply', r.id, r.score, r.my_vote, r)}
               </article>
             `;
           }).join('');
@@ -481,12 +493,19 @@
     window.location.href = `/community/topic?id=${id}`;
   }
 
-  function voteControls(kind, id, score, myVote) {
+  function voteControls(kind, id, score, myVote, item) {
     const isTopic = kind === 'topic';
-    const isTopicPinned = isTopic && isTrue(state.activeTopic?.is_pinned);
-    const isTopicLocked = isTopic && isTrue(state.activeTopic?.is_locked);
-    const isTopicHidden = isTopic && isTrue(state.activeTopic?.is_hidden);
-    const canEdit = isTopic && canEditTopic(state.activeTopic);
+    const postItem = item || (isTopic ? state.activeTopic : null);
+    const isLoggedIn = Boolean(state.user);
+    const isAdmin = Boolean(state.user && state.user.admin);
+    const isOwnPost = Boolean(isLoggedIn && isAuthor(postItem));
+    const canEdit = isLoggedIn && isTopic && canEditTopic(postItem);
+    const canDelete = isAdmin || isOwnPost;
+    const isTopicPinned = isTopic && isTrue(postItem?.is_pinned);
+    const isTopicLocked = isTopic && isTrue(postItem?.is_locked);
+    const isTopicHidden = isTopic && isTrue(postItem?.is_hidden);
+    const isReplyHidden = !isTopic && isTrue(postItem?.is_hidden);
+    const isItemHidden = isTopic ? isTopicHidden : isReplyHidden;
     const scoreVal = Number(score) || 0;
     const scoreClass = scoreVal > 0 ? 'score-positive' : (scoreVal < 0 ? 'score-negative' : '');
 
@@ -494,7 +513,7 @@
       <div class="detail-actions">
         <!-- Vote Cluster: Upvote Icon, Net Score Icon + Count, Downvote Icon -->
         <div class="vote-cluster" role="group" aria-label="Vote">
-          <button class="vote-btn vote-btn-up ${Number(myVote) === 1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="1" aria-label="Upvote" title="Upvote">
+          <button class="vote-btn vote-btn-up ${isLoggedIn && Number(myVote) === 1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="1" aria-label="Upvote" title="${isLoggedIn ? 'Upvote' : 'Sign in with GitHub to vote'}">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="18 15 12 9 6 15"></polyline>
             </svg>
@@ -505,22 +524,26 @@
             </svg>
             <span class="score-val">${scoreVal}</span>
           </span>
-          <button class="vote-btn vote-btn-down ${Number(myVote) === -1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="-1" aria-label="Downvote" title="Downvote">
+          <button class="vote-btn vote-btn-down ${isLoggedIn && Number(myVote) === -1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="-1" aria-label="Downvote" title="${isLoggedIn ? 'Downvote' : 'Sign in with GitHub to vote'}">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
         </div>
 
-        <!-- Report Icon Button -->
-        <button class="action-btn report-icon-btn" data-report-kind="${kind}" data-report-id="${id}" aria-label="Report content" title="Report">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-            <line x1="4" y1="22" x2="4" y2="15"></line>
-          </svg>
-        </button>
+        <!-- Report Icon Button: Logged-in only -->
+        ${
+          isLoggedIn
+            ? `<button class="action-btn report-icon-btn" data-report-kind="${kind}" data-report-id="${id}" aria-label="Report content" title="Report">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                  <line x1="4" y1="22" x2="4" y2="15"></line>
+                </svg>
+              </button>`
+            : ''
+        }
 
-        <!-- Edit Discussion Button (for author or admin) -->
+        <!-- Edit Button: Only for topic author (if unlocked) or admin -->
         ${
           canEdit
             ? `<button class="action-btn op-edit-btn" data-edit-topic="${id}" title="Edit Discussion" aria-label="Edit Discussion">
@@ -533,9 +556,9 @@
             : ''
         }
 
-        <!-- Admin Controls -->
+        <!-- Admin Controls: Pin, Lock, and Hide (strictly admin only) -->
         ${
-          state.user?.admin
+          isAdmin
             ? `
               ${
                 isTopic
@@ -558,24 +581,30 @@
                     </button>`
                   : ''
               }
-              <button class="action-btn admin-hide-btn" data-hide-kind="${kind}" data-hide-id="${id}" data-hide-value="${isTopicHidden ? 'false' : 'true'}" title="${isTopicHidden ? 'Unhide content' : 'Hide from public'}">
+              <button class="action-btn admin-hide-btn" data-hide-kind="${kind}" data-hide-id="${id}" data-hide-value="${isItemHidden ? 'false' : 'true'}" title="${isItemHidden ? 'Unhide content' : 'Hide from public'}">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   ${
-                    isTopicHidden
+                    isItemHidden
                       ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>'
                       : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>'
                   }
                 </svg>
-                <span>${isTopicHidden ? 'Unhide' : 'Hide'}</span>
+                <span>${isItemHidden ? 'Unhide' : 'Hide'}</span>
               </button>
-              <button class="action-btn admin-delete-btn" data-delete-${kind}="${id}" style="color:#ef4444;" title="Permanently delete as admin" aria-label="Delete">
+            `
+            : ''
+        }
+
+        <!-- Delete Button: Author can delete own post; Admin can delete any post -->
+        ${
+          canDelete
+            ? `<button class="action-btn ${isAdmin ? 'admin-delete-btn' : 'author-delete-btn'}" data-delete-${kind}="${id}" style="color:#ef4444;" title="${isAdmin ? 'Permanently delete as admin' : `Delete your ${isTopic ? 'discussion' : 'reply'}`}" aria-label="Delete">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="3 6 5 6 21 6"></polyline>
                   <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                 </svg>
                 <span>Delete</span>
-              </button>
-            `
+              </button>`
             : ''
         }
       </div>
@@ -612,7 +641,7 @@
         <button type="button" class="close-button" data-close="topic-dialog" aria-label="Close">×</button>
       </div>
       <div class="detail-body">${escapeHtml(t.body)}</div>
-      ${voteControls('topic', t.id, t.score, t.my_vote)}
+      ${voteControls('topic', t.id, t.score, t.my_vote, t)}
       <h3 class="reply-heading">Replies (${replies.length})</h3>
       <div class="replies">
         ${
@@ -627,7 +656,7 @@
                   ${isTrue(r.is_hidden) ? '<span class="badge badge-paid">Hidden</span>' : ''}
                 </div>
                 <div class="reply-body">${escapeHtml(r.body)}</div>
-                ${voteControls('reply', r.id, r.score, r.my_vote)}
+                ${voteControls('reply', r.id, r.score, r.my_vote, r)}
               </article>
             `
                 )
@@ -853,7 +882,10 @@
 
     const delTopic = e.target.closest('[data-delete-topic]');
     if (delTopic) {
-      if (!state.user?.admin) return;
+      if (!state.user) {
+        toast('Sign in with GitHub to delete your discussion.');
+        return;
+      }
       const topicId = Number(delTopic.dataset.deleteTopic);
       if (!confirm('Are you sure you want to permanently delete this discussion? All replies and votes will also be deleted.')) {
         return;
@@ -864,6 +896,11 @@
           body: { id: topicId }
         });
         toast('Discussion permanently deleted.');
+        const isThreadPage = Boolean($('#thread-main'));
+        if (isThreadPage) {
+          window.location.href = '/community/';
+          return;
+        }
         const dialog = $('#topic-dialog');
         if (dialog && dialog.open) dialog.close();
         await loadTopics();
@@ -876,7 +913,10 @@
 
     const delReply = e.target.closest('[data-delete-reply]');
     if (delReply) {
-      if (!state.user?.admin) return;
+      if (!state.user) {
+        toast('Sign in with GitHub to delete your reply.');
+        return;
+      }
       const replyId = Number(delReply.dataset.deleteReply);
       if (!confirm('Are you sure you want to permanently delete this reply?')) {
         return;
