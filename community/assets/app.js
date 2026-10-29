@@ -115,11 +115,11 @@
     const nav = $('#categories');
     if (nav) {
       nav.innerHTML =
-        `<a href="#" class="category-link ${state.category === '' ? 'active' : ''}" data-category="">All discussions</a>` +
+        `<a href="/community/" class="category-link ${state.category === '' ? 'active' : ''}" data-category="">All discussions</a>` +
         state.categories
           .map(
             (c) =>
-              `<a href="#" class="category-link ${state.category === c.slug ? 'active' : ''} ${c.slug === 'announcements' ? 'category-link-announcements' : ''}" data-category="${escapeHtml(c.slug)}">${escapeHtml(c.name)}<small>${escapeHtml(c.description)}</small></a>`
+              `<a href="/community/?channel=${encodeURIComponent(c.slug)}" class="category-link ${state.category === c.slug ? 'active' : ''} ${c.slug === 'announcements' ? 'category-link-announcements' : ''}" data-category="${escapeHtml(c.slug)}">${escapeHtml(c.name)}<small>${escapeHtml(c.description)}</small></a>`
           )
           .join('');
     }
@@ -217,7 +217,7 @@
             </div>
           </div>
           <div class="topic-col-category">
-            <a href="/community/#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Filter by ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
+            <a href="/community/?channel=${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Filter by ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
           </div>
           <div class="topic-col-votes">
             <span class="stat-number stat-votes-num">${Number(t.score) || 0}</span>
@@ -237,7 +237,7 @@
           </div>
           <div class="topic-card-mobile-meta">
             <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-              <a href="/community/#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
+              <a href="/community/?channel=${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
               <div class="topic-card-mobile-stats">
                 <span class="mobile-stat-text"><strong>${Number(t.score) || 0}</strong> votes</span>
                 <span class="mobile-stat-dot">•</span>
@@ -279,10 +279,14 @@
       const twTitle = $('#tw-title');
       if (twTitle) twTitle.content = `${t.title} - StaticStack Community`;
 
+      // Highlight the channel in Discussion Channels widget
+      state.category = t.category_slug || '';
+      renderCategories();
+
       // Update breadcrumbs
       const crumbCat = $('#crumb-category');
       if (crumbCat) {
-        crumbCat.innerHTML = `<a href="/community/#${escapeHtml(t.category_slug)}" style="color:inherit;text-decoration:none;">${escapeHtml(t.category_name)}</a>`;
+        crumbCat.innerHTML = `<a href="/community/?channel=${escapeHtml(t.category_slug)}" style="color:inherit;text-decoration:none;">${escapeHtml(t.category_name)}</a>`;
       }
       const crumbTitle = $('#crumb-title');
       if (crumbTitle) crumbTitle.textContent = shortText(t.title, 40);
@@ -296,7 +300,7 @@
         const isPinned = isTrue(t.is_pinned);
         const isLocked = isTrue(t.is_locked);
         heroBadges.innerHTML = `
-          <a href="/community/#${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
+          <a href="/community/?channel=${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
           ${isPinned ? '<span class="badge badge-pinned"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/><line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg> Pinned Announcement</span>' : ''}
           ${isLocked ? '<span class="badge badge-locked"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Locked</span>' : ''}
         `;
@@ -310,7 +314,7 @@
       // Sidebar Overview Widget
       const sbChannel = $('#sb-channel');
       if (sbChannel) {
-        sbChannel.innerHTML = `<a href="/community/#${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>`;
+        sbChannel.innerHTML = `<a href="/community/?channel=${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>`;
       }
       const sbAuthor = $('#sb-author');
       if (sbAuthor) sbAuthor.textContent = t.display_name || t.login;
@@ -350,7 +354,7 @@
       }
       const opCategoryPill = $('#op-category-pill');
       if (opCategoryPill) {
-        opCategoryPill.innerHTML = `<a href="/community/#${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>`;
+        opCategoryPill.innerHTML = `<a href="/community/?channel=${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>`;
       }
       const opBody = $('#op-body');
       if (opBody) {
@@ -659,8 +663,28 @@
   document.addEventListener('click', async (e) => {
     const cat = e.target.closest('[data-category]');
     if (cat) {
+      const selectedCategory = cat.dataset.category || '';
+      const isThreadPage = Boolean($('#thread-main'));
+
+      if (isThreadPage) {
+        // We are on a topic page (/community/topic?id=...)
+        // Navigate to the community listing filtered by this channel
+        const targetUrl = selectedCategory
+          ? `/community/?channel=${encodeURIComponent(selectedCategory)}`
+          : '/community/';
+        window.location.href = targetUrl;
+        return;
+      }
+
+      // We are on the community index (/community/)
       e.preventDefault();
-      state.category = cat.dataset.category;
+      state.category = selectedCategory;
+      const newUrl = selectedCategory
+        ? `/community/?channel=${encodeURIComponent(selectedCategory)}`
+        : '/community/';
+      if (window.history && window.history.pushState) {
+        window.history.pushState({ category: selectedCategory }, '', newUrl);
+      }
       renderCategories();
       loadTopics();
       return;
@@ -1260,6 +1284,14 @@
           if (errorEl) errorEl.style.display = 'block';
         }
       } else {
+        const urlParams = new URLSearchParams(window.location.search);
+        const channelParam = urlParams.get('channel') || urlParams.get('category');
+        const hashParam = window.location.hash ? window.location.hash.replace(/^#/, '') : '';
+        const initialCategory = channelParam || hashParam;
+        if (initialCategory && state.categories.some((c) => c.slug === initialCategory)) {
+          state.category = initialCategory;
+          renderCategories();
+        }
         await loadTopics();
         if (state.user?.admin) loadReports();
       }
@@ -1274,6 +1306,16 @@
       if (errorEl) errorEl.style.display = 'block';
     }
   }
+
+  window.addEventListener('popstate', () => {
+    if (Boolean($('#thread-main'))) return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const channelParam = urlParams.get('channel') || urlParams.get('category');
+    const hashParam = window.location.hash ? window.location.hash.replace(/^#/, '') : '';
+    state.category = channelParam || hashParam || '';
+    renderCategories();
+    loadTopics();
+  });
 
   init();
 })();
