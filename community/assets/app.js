@@ -147,6 +147,16 @@
     }
   }
 
+  function canEditTopic(t) {
+    if (!t || !state.user) return false;
+    if (Boolean(state.user.admin)) return true;
+    const isOwner = Boolean(
+      (state.user.uid && t.author_id && String(state.user.uid) === String(t.author_id)) ||
+      (state.user.login && t.login && state.user.login.toLowerCase() === t.login.toLowerCase())
+    );
+    return Boolean(isOwner && !isTrue(t.is_locked));
+  }
+
   function renderTopics() {
     const heading = $('#list-heading');
     if (heading) {
@@ -207,6 +217,11 @@
               <span>by <strong>${escapeHtml(t.display_name || t.login)}</strong></span>
               <span class="meta-dot" aria-hidden="true">•</span>
               <span>${dateText(t.created_at)}</span>
+              ${
+                canEditTopic(t)
+                  ? `<a href="/community/topic?id=${t.id}#edit" class="text-button op-card-edit-btn" style="color:var(--accent);font-size:0.8rem;font-weight:600;margin-left:0.5rem;text-decoration:none;" title="Edit this discussion">Edit</a>`
+                  : ''
+              }
               ${
                 state.user?.admin
                   ? `<button class="text-button admin-pin-btn" data-pin-topic="${t.id}" data-pinned="${isPinned ? 'true' : 'false'}" style="color:var(--accent);font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="${isPinned ? 'Unpin this discussion' : 'Pin to top'}">${isPinned ? 'Unpin' : 'Pin'}</button>
@@ -352,6 +367,14 @@
       if (opTime) {
         opTime.textContent = formatDateTime(t.created_at);
       }
+      const editedLabel = $('#op-edited-label');
+      if (editedLabel) {
+        const wasEdited = t.updated_at && (new Date(t.updated_at).getTime() - new Date(t.created_at).getTime() > 2000);
+        editedLabel.style.display = wasEdited ? 'inline' : 'none';
+        if (wasEdited) {
+          editedLabel.title = `Last edited ${formatDateTime(t.updated_at)}`;
+        }
+      }
       const opCategoryPill = $('#op-category-pill');
       if (opCategoryPill) {
         opCategoryPill.innerHTML = `<a href="/community/?channel=${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>`;
@@ -407,6 +430,10 @@
 
       if (loadingEl) loadingEl.style.display = 'none';
       contentEl.style.display = 'block';
+
+      if (window.location.hash === '#edit' && canEditTopic(t)) {
+        setTimeout(() => openTopicEditor(), 60);
+      }
     } catch (err) {
       if (loadingEl) loadingEl.style.display = 'none';
       if (errorEl) errorEl.style.display = 'block';
@@ -459,6 +486,7 @@
     const isTopicPinned = isTopic && isTrue(state.activeTopic?.is_pinned);
     const isTopicLocked = isTopic && isTrue(state.activeTopic?.is_locked);
     const isTopicHidden = isTopic && isTrue(state.activeTopic?.is_hidden);
+    const canEdit = isTopic && canEditTopic(state.activeTopic);
     const scoreVal = Number(score) || 0;
     const scoreClass = scoreVal > 0 ? 'score-positive' : (scoreVal < 0 ? 'score-negative' : '');
 
@@ -491,6 +519,19 @@
             <line x1="4" y1="22" x2="4" y2="15"></line>
           </svg>
         </button>
+
+        <!-- Edit Discussion Button (for author or admin) -->
+        ${
+          canEdit
+            ? `<button class="action-btn op-edit-btn" data-edit-topic="${id}" title="Edit Discussion" aria-label="Edit Discussion">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+                <span>Edit</span>
+              </button>`
+            : ''
+        }
 
         <!-- Admin Controls -->
         ${
@@ -735,6 +776,18 @@
         if (state.activeTopic) await refreshTopic();
       } catch (err) {
         toast(err.message);
+      }
+      return;
+    }
+
+    const editBtn = e.target.closest('[data-edit-topic]');
+    if (editBtn) {
+      const topicId = editBtn.dataset.editTopic;
+      const isThreadPage = Boolean($('#thread-main'));
+      if (isThreadPage) {
+        openTopicEditor();
+      } else {
+        window.location.href = `/community/topic?id=${topicId}#edit`;
       }
       return;
     }
@@ -1006,6 +1059,160 @@
       }
     });
   }
+
+  // Topic In-Place Editor Functions & Listeners
+  function openTopicEditor() {
+    const viewMode = $('#op-view-mode');
+    const editForm = $('#op-edit-form');
+    if (!viewMode || !editForm || !state.activeTopic) return;
+
+    const titleInput = $('#op-edit-title');
+    const catSelect = $('#op-edit-category');
+    const bodyInput = $('#op-edit-body');
+    const errEl = $('#op-edit-error');
+
+    if (titleInput) titleInput.value = state.activeTopic.title || '';
+    if (bodyInput) bodyInput.value = state.activeTopic.body || '';
+    if (errEl) errEl.textContent = '';
+
+    if (catSelect && state.categories) {
+      const currentSlug = state.activeTopic.category_slug;
+      catSelect.innerHTML = state.categories
+        .filter((c) => c.slug !== 'announcements' || Boolean(state.user?.admin))
+        .map((c) => `<option value="${escapeHtml(c.slug)}" ${c.slug === currentSlug ? 'selected' : ''}>${escapeHtml(c.name)}</option>`)
+        .join('');
+    }
+
+    viewMode.style.display = 'none';
+    editForm.style.display = 'block';
+    if (window.location.hash !== '#edit') {
+      try {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search + '#edit');
+      } catch (e) {}
+    }
+    if (titleInput) {
+      titleInput.focus();
+    }
+  }
+
+  function closeTopicEditor() {
+    const viewMode = $('#op-view-mode');
+    const editForm = $('#op-edit-form');
+    if (viewMode) viewMode.style.display = 'block';
+    if (editForm) editForm.style.display = 'none';
+    const errEl = $('#op-edit-error');
+    if (errEl) errEl.textContent = '';
+    if (window.location.hash === '#edit') {
+      try {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      } catch (e) {}
+    }
+  }
+
+  const opEditForm = $('#op-edit-form');
+  if (opEditForm) {
+    opEditForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!state.activeTopic) return;
+
+      const titleInput = $('#op-edit-title');
+      const catSelect = $('#op-edit-category');
+      const bodyInput = $('#op-edit-body');
+      const errEl = $('#op-edit-error');
+      const saveBtn = $('#op-edit-save-btn');
+
+      const title = titleInput ? titleInput.value.trim() : '';
+      const category = catSelect ? catSelect.value : '';
+      const body = bodyInput ? bodyInput.value.trim() : '';
+
+      if (errEl) errEl.textContent = '';
+
+      if (title.length < 5 || title.length > 180) {
+        if (errEl) errEl.textContent = 'Title must be between 5 and 180 characters.';
+        return;
+      }
+      if (body.length < 10 || body.length > 20000) {
+        if (errEl) errEl.textContent = 'Discussion body must be between 10 and 20,000 characters.';
+        return;
+      }
+
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin">
+            <line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+          </svg>
+          <span>Saving…</span>
+        `;
+      }
+
+      try {
+        const res = await request('edit_topic', {
+          method: 'POST',
+          body: {
+            id: Number(state.activeTopic.id),
+            title,
+            category,
+            body
+          }
+        });
+
+        // Update local state
+        state.activeTopic.title = res.title || title;
+        state.activeTopic.body = res.body || body;
+        if (res.category_slug) state.activeTopic.category_slug = res.category_slug;
+        if (res.category_name) state.activeTopic.category_name = res.category_name;
+        state.activeTopic.updated_at = res.updated_at || new Date().toISOString();
+
+        // Update DOM elements on page
+        const threadTitleHeading = $('#thread-title-heading');
+        if (threadTitleHeading) threadTitleHeading.textContent = state.activeTopic.title;
+        document.title = `${state.activeTopic.title} — StaticStack Community`;
+
+        const opBody = $('#op-body');
+        if (opBody) opBody.textContent = state.activeTopic.body;
+
+        const opCategoryPill = $('#op-category-pill');
+        if (opCategoryPill) {
+          opCategoryPill.innerHTML = `<a href="/community/?channel=${escapeHtml(state.activeTopic.category_slug)}" class="topic-category-link">${escapeHtml(state.activeTopic.category_name)}</a>`;
+        }
+
+        const editedLabel = $('#op-edited-label');
+        if (editedLabel) {
+          editedLabel.style.display = 'inline';
+          editedLabel.title = `Last edited ${formatDateTime(state.activeTopic.updated_at)}`;
+        }
+
+        closeTopicEditor();
+        toast('Discussion updated successfully!');
+      } catch (err) {
+        if (errEl) errEl.textContent = err.message || 'Failed to update discussion.';
+      } finally {
+        if (saveBtn) {
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Save Changes</span>
+          `;
+        }
+      }
+    });
+  }
+
+  const opEditCancelBtn = $('#op-edit-cancel-btn');
+  if (opEditCancelBtn) {
+    opEditCancelBtn.addEventListener('click', () => {
+      closeTopicEditor();
+    });
+  }
+
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash === '#edit' && state.activeTopic && canEditTopic(state.activeTopic)) {
+      openTopicEditor();
+    }
+  });
 
   // Thread page share button
   const shareThreadBtn = $('#share-thread-btn');

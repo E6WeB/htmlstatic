@@ -290,27 +290,74 @@
 
           <!-- Original Post Card -->
           <article class="thread-op-card" id="thread-op">
-            <!-- Author Row -->
-            <div class="thread-author-row">
-              <div class="thread-author-info">
-                <img id="op-avatar" class="thread-avatar" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2394a3b8'><circle cx='12' cy='8' r='4'/><path d='M20 21a8 8 0 0 0-16 0'/></svg>" alt="Author Avatar">
-                <div>
-                  <div style="display:flex;align-items:center;gap:0.45rem;flex-wrap:wrap;">
-                    <strong id="op-author-name" style="color:var(--text-main);font-size:0.95rem;">Author</strong>
-                    <span id="op-author-handle" style="color:var(--text-subtle);font-size:0.8rem;">@handle</span>
-                    <span id="op-role-badge"></span>
+            <!-- View Mode -->
+            <div id="op-view-mode">
+              <!-- Author Row -->
+              <div class="thread-author-row">
+                <div class="thread-author-info">
+                  <img id="op-avatar" class="thread-avatar" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2394a3b8'><circle cx='12' cy='8' r='4'/><path d='M20 21a8 8 0 0 0-16 0'/></svg>" alt="Author Avatar">
+                  <div>
+                    <div style="display:flex;align-items:center;gap:0.45rem;flex-wrap:wrap;">
+                      <strong id="op-author-name" style="color:var(--text-main);font-size:0.95rem;">Author</strong>
+                      <span id="op-author-handle" style="color:var(--text-subtle);font-size:0.8rem;">@handle</span>
+                      <span id="op-role-badge"></span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;">
+                      <time id="op-time" class="muted" style="font-size:0.75rem;display:inline-block;margin-top:2px;">Oct 28, 2026</time>
+                      <span id="op-edited-label" class="muted" style="display:none;font-size:0.75rem;font-style:italic;">• (edited)</span>
+                    </div>
                   </div>
-                  <time id="op-time" class="muted" style="font-size:0.75rem;display:block;margin-top:2px;">Oct 28, 2026</time>
                 </div>
+                <div id="op-category-pill"></div>
               </div>
-              <div id="op-category-pill"></div>
+
+              <!-- OP Body -->
+              <div id="op-body" class="thread-body"></div>
+
+              <!-- OP Actions & Votes -->
+              <div id="op-actions" class="detail-actions" style="margin-bottom:0;padding-bottom:0;border-bottom:none;"></div>
             </div>
 
-            <!-- OP Body -->
-            <div id="op-body" class="thread-body"></div>
+            <!-- In-Place Edit Form (Hidden by default) -->
+            <form id="op-edit-form" class="op-edit-form" style="display:none;">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;padding-bottom:0.85rem;border-bottom:1px solid var(--border-color);flex-wrap:wrap;">
+                <h3 style="font-size:1.1rem;font-weight:700;margin:0;color:var(--text-main);display:inline-flex;align-items:center;gap:0.5rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                  </svg>
+                  <span>Edit Discussion</span>
+                </h3>
+                <span class="muted" style="font-size:0.75rem;">Markdown supported</span>
+              </div>
 
-            <!-- OP Actions & Votes -->
-            <div id="op-actions" class="detail-actions" style="margin-bottom:0;padding-bottom:0;border-bottom:none;"></div>
+              <div class="form-group" style="margin-bottom:1rem;">
+                <label for="op-edit-title" style="display:block;font-size:0.825rem;font-weight:600;color:var(--text-main);margin-bottom:0.35rem;">Title</label>
+                <input type="text" id="op-edit-title" class="form-input" required minlength="5" maxlength="180" style="width:100%;font-size:1rem;padding:0.65rem 0.85rem;border-radius:var(--radius-md);border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);box-sizing:border-box;">
+              </div>
+
+              <div class="form-group" style="margin-bottom:1rem;">
+                <label for="op-edit-category" style="display:block;font-size:0.825rem;font-weight:600;color:var(--text-main);margin-bottom:0.35rem;">Channel</label>
+                <select id="op-edit-category" class="form-select" style="width:100%;font-size:0.9rem;padding:0.6rem 0.85rem;border-radius:var(--radius-md);border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);box-sizing:border-box;"></select>
+              </div>
+
+              <div class="form-group" style="margin-bottom:1.25rem;">
+                <label for="op-edit-body" style="display:block;font-size:0.825rem;font-weight:600;color:var(--text-main);margin-bottom:0.35rem;">Discussion Body</label>
+                <textarea id="op-edit-body" class="form-textarea" rows="8" required minlength="10" maxlength="20000" style="width:100%;font-size:0.95rem;line-height:1.65;padding:0.75rem 0.85rem;border-radius:var(--radius-md);border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);resize:vertical;box-sizing:border-box;"></textarea>
+              </div>
+
+              <p id="op-edit-error" class="form-message" role="status" style="margin-bottom:1rem;color:#ef4444;font-size:0.85rem;font-weight:600;"></p>
+
+              <div style="display:flex;align-items:center;justify-content:flex-end;gap:0.65rem;">
+                <button type="button" id="op-edit-cancel-btn" class="btn btn-secondary" style="padding:0.5rem 1rem;font-size:0.85rem;">Cancel</button>
+                <button type="submit" id="op-edit-save-btn" class="btn btn-primary" style="padding:0.5rem 1.25rem;font-size:0.85rem;display:inline-flex;align-items:center;gap:0.4rem;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Save Changes</span>
+                </button>
+              </div>
+            </form>
           </article>
 
           <!-- Replies Heading & Section -->

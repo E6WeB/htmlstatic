@@ -118,8 +118,9 @@ Features that bridge the StaticStack tool directory (110+ tools) with the commun
 
 ## 🛡️ Moderation & Quality of Life
 
-### 14. Author Edit Window
-* **What**: Allow users to edit their own discussions or replies within a 15-minute window after posting (or anytime with an `(edited)` indicator).
+### 14. Author Edit (Completed)
+* **What**: Allow users to edit their own discussions anytime with an `(edited)` indicator (and admins can edit any discussion).
+* **Status**: **Completed** — In-place topic editing with live title, channel, and body updates, validation, permissions, and `• (edited)` timestamp label.
 * **Why**: Fixes typos, broken links, or formatting errors without having to delete and re-post.
 
 ### 15. Empty State Prompts

@@ -1535,6 +1535,23 @@ a.button {
   border-color: rgba(239, 68, 68, 0.35);
 }
 
+.action-btn.op-edit-btn {
+  color: var(--accent);
+}
+
+.action-btn.op-edit-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-border);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
 .vote-button,
 .text-button {
   background: var(--bg-surface);
