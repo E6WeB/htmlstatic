@@ -1159,9 +1159,19 @@ const BASE_CSS = `
 
   .footer-links {
     list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 0.65rem;
+  }
+
+  .footer-links li {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
 
   .footer-links a {
