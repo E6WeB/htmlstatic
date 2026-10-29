@@ -23,6 +23,7 @@ const MIME_TYPES = {
   '.jpeg': 'image/jpeg',
   '.ico': 'image/x-icon',
   '.webp': 'image/webp',
+  '.xml': 'application/xml; charset=utf-8',
   '.toml': 'application/toml; charset=utf-8',
   '.yaml': 'text/yaml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8'

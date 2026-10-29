@@ -2151,7 +2151,8 @@ function renderLayout({
             <li><a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions ${ICONS.external}</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository ${ICONS.external}</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue ${ICONS.external}</a></li>
-            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Facebook Group ${ICONS.external}</a></li>
+            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group ${ICONS.external}</a></li>
+            <li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group ${ICONS.external}</a></li>
             <li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io ${ICONS.external}</a></li>
             <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
           </ul>
@@ -2611,11 +2612,16 @@ const archiveContent = `
           <h4 class="sidebar-widget-title">Facebook Community</h4>
         </div>
         <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
-          Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites Facebook Group.
+          Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites and official StaticStack Facebook Groups.
         </p>
         <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
           <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
           <span>Dynamic Websites Group</span>
+          ${ICONS.external}
+        </a>
+        <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
+          <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
+          <span>StaticStack Official Group</span>
           ${ICONS.external}
         </a>
       </div>
@@ -3104,12 +3110,17 @@ const communityContent = `
         </div>
         <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main);">Facebook Community</h3>
         <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.55; margin-bottom:1.25rem;">
-          Join over 4,500+ static site developers in the Dynamic Websites group discussing modern static architecture, APIs, and headless tooling.
+          Join static site developers in the Dynamic Websites group and our official StaticStack group discussing modern static architecture, APIs, and headless tooling.
         </p>
       </div>
-      <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
-        <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span> Join Facebook Group ${ICONS.external}
-      </a>
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+          <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span> Dynamic Websites Group ${ICONS.external}
+        </a>
+        <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">
+          <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span> StaticStack Official Group ${ICONS.external}
+        </a>
+      </div>
     </div>
 
     <div class="community-pillar-card">
@@ -3342,11 +3353,16 @@ const communityContent = `
           <h4 class="sidebar-widget-title">Facebook Community</h4>
         </div>
         <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
-          Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites Facebook Group.
+          Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites and official StaticStack Facebook Groups.
         </p>
         <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
           <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
           <span>Dynamic Websites Group</span>
+          ${ICONS.external}
+        </a>
+        <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
+          <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
+          <span>StaticStack Official Group</span>
           ${ICONS.external}
         </a>
       </div>
@@ -3594,11 +3610,16 @@ allTools.forEach(tool => {
               <h4 class="sidebar-widget-title">Facebook Community</h4>
             </div>
             <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
-              Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites Facebook Group.
+              Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites and official StaticStack Facebook Groups.
             </p>
             <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
               <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
               <span>Dynamic Websites Group</span>
+              ${ICONS.external}
+            </a>
+            <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
+              <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
+              <span>StaticStack Official Group</span>
               ${ICONS.external}
             </a>
           </div>
@@ -3614,9 +3635,21 @@ allTools.forEach(tool => {
 });
 
 // ==========================================================================
-// 8. Generate XML Sitemap & robots.txt (Root)
+// 8. Generate XML Sitemap (sitemap.xml) & Custom Tool Feed (tools.xml) & robots.txt
 // ==========================================================================
 const today = new Date().toISOString().split('T')[0];
+
+function escapeXml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+// 1. Search Engine Sitemap (sitemap.xml)
 const sitemapUrls = [
   { loc: 'https://staticstack.app/', priority: '1.0', changefreq: 'daily' },
   { loc: 'https://staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
@@ -3654,15 +3687,30 @@ ${sitemapUrls.map(u => `  <url>
   </url>`).join('\n')}
 </urlset>
 `;
-
 fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemapXml);
 
+// 2. Custom Tool Directory XML (tools.xml)
+const toolsXml = `<?xml version="1.0" encoding="UTF-8"?>
+<tools>
+${allTools.map(tool => `  <tool>
+    <title>${escapeXml(tool.name)}</title>
+    <category>${escapeXml(tool.categoryTitle)}</category>
+    <url>https://staticstack.app/tools/${tool.categorySlug}/${tool.slug}</url>
+    <description>
+      ${escapeXml(tool.description)}
+    </description>
+    <lastmod>${today}</lastmod>
+  </tool>`).join('\n')}
+</tools>
+`;
+fs.writeFileSync(path.join(ROOT_DIR, 'tools.xml'), toolsXml);
+
+// 3. robots.txt
 const robotsTxt = `User-agent: *
 Allow: /
 
 Sitemap: https://staticstack.app/sitemap.xml
 `;
-
 fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
 
 // ==========================================================================
