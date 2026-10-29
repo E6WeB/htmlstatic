@@ -172,6 +172,7 @@
         const lastPrefix = hasReplies ? 'Re: ' : '';
         const lastTitle = `${lastPrefix}${t.title}`;
         const isPinned = isTrue(t.is_pinned);
+        const isLocked = isTrue(t.is_locked);
 
         return `
         <article class="topic-card ${isPinned ? 'topic-card-pinned' : ''}">
@@ -188,23 +189,35 @@
                     </span>`
                   : ''
               }
-              <a class="topic-title" href="#topic-${t.id}" data-open-topic="${t.id}">${escapeHtml(t.title)}</a>
+              ${
+                isLocked
+                  ? `<span class="badge badge-locked" title="Locked Discussion">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
+                      Locked
+                    </span>`
+                  : ''
+              }
+              <a class="topic-title" href="/community/topic?id=${t.id}">${escapeHtml(t.title)}</a>
             </div>
-            <p class="topic-excerpt">${escapeHtml(shortText(t.body))}</p>
+            <p class="topic-excerpt">${escapeHtml(shortText(t.body, 140))}</p>
             <div class="topic-meta">
               <span>by <strong>${escapeHtml(t.display_name || t.login)}</strong></span>
               <span class="meta-dot" aria-hidden="true">•</span>
               <span>${dateText(t.created_at)}</span>
               ${
                 state.user?.admin
-                  ? `<button class="text-button admin-pin-btn" data-pin-topic="${t.id}" data-pinned="${isPinned ? 'true' : 'false'}" style="color:var(--accent);font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="${isPinned ? 'Unpin this discussion' : 'Pin to top of discussions'}">${isPinned ? 'Unpin' : 'Pin to Top'}</button>
+                  ? `<button class="text-button admin-pin-btn" data-pin-topic="${t.id}" data-pinned="${isPinned ? 'true' : 'false'}" style="color:var(--accent);font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="${isPinned ? 'Unpin this discussion' : 'Pin to top'}">${isPinned ? 'Unpin' : 'Pin'}</button>
+                     <button class="text-button admin-lock-btn" data-lock-topic="${t.id}" data-locked="${isLocked ? 'true' : 'false'}" style="color:#d97706;font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="${isLocked ? 'Unlock discussion' : 'Lock discussion'}">${isLocked ? 'Unlock' : 'Lock'}</button>
                      <button class="text-button admin-delete-btn" data-delete-topic="${t.id}" style="color:#ef4444;font-size:0.8rem;font-weight:600;margin-left:0.5rem;cursor:pointer;" title="Delete this discussion as admin">Delete</button>`
                   : ''
               }
             </div>
           </div>
           <div class="topic-col-category">
-            <a href="#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Filter by ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
+            <a href="/community/#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Filter by ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
           </div>
           <div class="topic-col-votes">
             <span class="stat-number stat-votes-num">${Number(t.score) || 0}</span>
@@ -213,10 +226,10 @@
             <span class="stat-number stat-replies-num">${Number(t.reply_count) || 0}</span>
           </div>
           <div class="topic-col-last-post">
-            <a class="last-post-title" href="#topic-${t.id}" data-open-topic="${t.id}" title="${escapeHtml(lastTitle)}">${escapeHtml(lastTitle)}</a>
+            <a class="last-post-title" href="/community/topic?id=${t.id}" title="${escapeHtml(lastTitle)}">${escapeHtml(lastTitle)}</a>
             <div class="last-post-byline">
               <span class="last-post-author">by <strong>${escapeHtml(lastUser)}</strong></span>
-              <a href="#topic-${t.id}" data-open-topic="${t.id}" class="last-post-jump" aria-label="Jump to last post" title="View discussion">
+              <a href="/community/topic?id=${t.id}" class="last-post-jump" aria-label="Jump to discussion" title="View discussion">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </a>
             </div>
@@ -224,7 +237,7 @@
           </div>
           <div class="topic-card-mobile-meta">
             <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-              <a href="#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
+              <a href="/community/#${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
               <div class="topic-card-mobile-stats">
                 <span class="mobile-stat-text"><strong>${Number(t.score) || 0}</strong> votes</span>
                 <span class="mobile-stat-dot">•</span>
@@ -241,33 +254,283 @@
       .join('');
   }
 
-  async function openTopic(id) {
+  async function loadTopicThread(id) {
+    const loadingEl = $('#thread-loading');
+    const errorEl = $('#thread-error');
+    const contentEl = $('#thread-content');
+    if (!contentEl) return;
+
+    if (loadingEl) loadingEl.style.display = 'block';
+    if (errorEl) errorEl.style.display = 'none';
+    contentEl.style.display = 'none';
+
     try {
       const data = await request('topic', { params: { id } });
-      state.activeTopic = data.topic;
-      renderTopicDetail(data.topic, data.replies || []);
-      const dialog = $('#topic-dialog');
-      if (dialog) dialog.showModal();
-    } catch (e) {
-      toast(e.message);
+      const t = data.topic;
+      const replies = data.replies || [];
+      state.activeTopic = t;
+
+      // Update document titles & metadata
+      document.title = `${t.title} - StaticStack Community`;
+      const metaDesc = $('meta[name="description"]');
+      if (metaDesc) metaDesc.content = shortText(t.body, 160);
+      const ogTitle = $('#og-title');
+      if (ogTitle) ogTitle.content = `${t.title} - StaticStack Community`;
+      const twTitle = $('#tw-title');
+      if (twTitle) twTitle.content = `${t.title} - StaticStack Community`;
+
+      // Update breadcrumbs
+      const crumbCat = $('#crumb-category');
+      if (crumbCat) {
+        crumbCat.innerHTML = `<a href="/community/#${escapeHtml(t.category_slug)}" style="color:inherit;text-decoration:none;">${escapeHtml(t.category_name)}</a>`;
+      }
+      const crumbTitle = $('#crumb-title');
+      if (crumbTitle) crumbTitle.textContent = shortText(t.title, 40);
+
+      // Hero
+      const heroTitle = $('#thread-title');
+      if (heroTitle) heroTitle.textContent = t.title;
+
+      const heroBadges = $('#hero-badge-wrap');
+      if (heroBadges) {
+        const isPinned = isTrue(t.is_pinned);
+        const isLocked = isTrue(t.is_locked);
+        heroBadges.innerHTML = `
+          <a href="/community/#${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
+          ${isPinned ? '<span class="badge badge-pinned"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/><line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg> Pinned Announcement</span>' : ''}
+          ${isLocked ? '<span class="badge badge-locked"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Locked</span>' : ''}
+        `;
+      }
+
+      const heroMeta = $('#thread-hero-meta');
+      if (heroMeta) {
+        heroMeta.innerHTML = `Posted by <strong>${escapeHtml(t.display_name || t.login)}</strong> on ${formatDateTime(t.created_at)} • <strong>${replies.length}</strong> ${replies.length === 1 ? 'reply' : 'replies'} • <strong>${Number(t.score) || 0}</strong> net votes`;
+      }
+
+      // Sidebar Overview Widget
+      const sbChannel = $('#sb-channel');
+      if (sbChannel) {
+        sbChannel.innerHTML = `<a href="/community/#${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>`;
+      }
+      const sbAuthor = $('#sb-author');
+      if (sbAuthor) sbAuthor.textContent = t.display_name || t.login;
+      const sbDate = $('#sb-date');
+      if (sbDate) sbDate.textContent = formatDateTime(t.created_at);
+      const sbReplies = $('#sb-replies');
+      if (sbReplies) sbReplies.textContent = replies.length;
+      const sbScore = $('#sb-score');
+      if (sbScore) sbScore.textContent = Number(t.score) || 0;
+      const sbStatus = $('#sb-status');
+      if (sbStatus) {
+        const isLocked = isTrue(t.is_locked);
+        sbStatus.innerHTML = isLocked
+          ? '<span style="color:#d97706;display:inline-flex;align-items:center;gap:0.3rem;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Locked</span>'
+          : '<span style="color:#10b981;display:inline-flex;align-items:center;gap:0.3rem;"><span style="width:7px;height:7px;border-radius:50%;background:#10b981;display:inline-block;"></span> Open</span>';
+      }
+
+      // Render Original Post (OP)
+      const opAvatar = $('#op-avatar');
+      if (opAvatar) {
+        opAvatar.src = t.avatar_url || `https://github.com/${escapeHtml(t.login)}.png?size=80`;
+      }
+      const opAuthorName = $('#op-author-name');
+      if (opAuthorName) opAuthorName.textContent = t.display_name || t.login;
+      const opAuthorHandle = $('#op-author-handle');
+      if (opAuthorHandle) opAuthorHandle.textContent = `@${t.login}`;
+      const opRole = $('#op-role-badge');
+      if (opRole) {
+        const isAdmin = Boolean(t.login && t.login.toLowerCase() === 'e6web');
+        opRole.innerHTML = isAdmin
+          ? '<span class="badge-admin">Admin</span>'
+          : '<span class="badge-op">Author</span>';
+      }
+      const opTime = $('#op-time');
+      if (opTime) {
+        opTime.textContent = formatDateTime(t.created_at);
+      }
+      const opCategoryPill = $('#op-category-pill');
+      if (opCategoryPill) {
+        opCategoryPill.innerHTML = `<a href="/community/#${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>`;
+      }
+      const opBody = $('#op-body');
+      if (opBody) {
+        opBody.textContent = t.body;
+      }
+      const opActions = $('#op-actions');
+      if (opActions) {
+        opActions.innerHTML = voteControls('topic', t.id, t.score, t.my_vote);
+      }
+
+      // Render Replies
+      const repliesCountNum = $('#replies-count-num');
+      if (repliesCountNum) repliesCountNum.textContent = replies.length;
+
+      const repliesList = $('#thread-replies-list');
+      if (repliesList) {
+        if (!replies.length) {
+          repliesList.innerHTML = `<div class="empty-state" style="padding:2.5rem 1.5rem;">No replies yet. Be the first to share an answer or thoughts!</div>`;
+        } else {
+          repliesList.innerHTML = replies.map((r, index) => {
+            const isOP = r.author_id === t.author_id;
+            const isAdmin = Boolean(r.login && r.login.toLowerCase() === 'e6web');
+            const avatar = r.avatar_url || `https://github.com/${escapeHtml(r.login)}.png?size=80`;
+            return `
+              <article class="thread-reply-card ${isTrue(r.is_hidden) ? 'reply-hidden' : ''}" id="reply-${r.id}">
+                <div class="thread-author-row" style="margin-bottom:0.75rem;padding-bottom:0.65rem;">
+                  <div class="thread-author-info">
+                    <img class="thread-avatar" style="width:36px;height:36px;" src="${avatar}" alt="${escapeHtml(r.display_name || r.login)}">
+                    <div>
+                      <div style="display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;">
+                        <strong style="color:var(--text-main);font-size:0.9rem;">${escapeHtml(r.display_name || r.login)}</strong>
+                        <span style="color:var(--text-subtle);font-size:0.75rem;">@${escapeHtml(r.login)}</span>
+                        ${isAdmin ? '<span class="badge-admin">Admin</span>' : (isOP ? '<span class="badge-op">Author</span>' : '')}
+                        ${isTrue(r.is_hidden) ? '<span class="badge badge-paid">Hidden</span>' : ''}
+                      </div>
+                      <time class="muted" style="font-size:0.72rem;display:block;margin-top:2px;">${formatDateTime(r.created_at)}</time>
+                    </div>
+                  </div>
+                  <span style="font-size:0.75rem;font-weight:700;color:var(--text-subtle);">#${index + 1}</span>
+                </div>
+                <div class="reply-body" style="font-size:0.95rem;line-height:1.65;margin:0.5rem 0 0.85rem;">${escapeHtml(r.body)}</div>
+                ${voteControls('reply', r.id, r.score, r.my_vote)}
+              </article>
+            `;
+          }).join('');
+        }
+      }
+
+      updateReplyComposerState();
+
+      if (loadingEl) loadingEl.style.display = 'none';
+      contentEl.style.display = 'block';
+    } catch (err) {
+      if (loadingEl) loadingEl.style.display = 'none';
+      if (errorEl) errorEl.style.display = 'block';
     }
   }
 
+  function updateReplyComposerState() {
+    const authPrompt = $('#reply-auth-prompt');
+    const form = $('#thread-reply-form');
+    const lockedPrompt = $('#reply-locked-prompt');
+    const userLabel = $('#replying-user-label');
+    if (!authPrompt || !form) return;
+
+    const isLocked = isTrue(state.activeTopic?.is_locked);
+    const isAdmin = Boolean(state.user?.admin);
+
+    if (isLocked && !isAdmin) {
+      if (lockedPrompt) lockedPrompt.style.display = 'block';
+      authPrompt.style.display = 'none';
+      form.style.display = 'none';
+      return;
+    }
+
+    if (lockedPrompt) lockedPrompt.style.display = 'none';
+
+    if (state.user) {
+      authPrompt.style.display = 'none';
+      form.style.display = 'grid';
+      if (userLabel) {
+        userLabel.innerHTML = `Replying as <strong>${escapeHtml(state.user.name || state.user.login)}</strong>${
+          isLocked ? ' <span class="badge badge-locked" style="margin-left:0.5rem;">Locked (Admin override)</span>' : ''
+        }`;
+      }
+    } else {
+      authPrompt.style.display = 'block';
+      form.style.display = 'none';
+    }
+  }
+
+  async function openTopic(id) {
+    if (Boolean($('#thread-main'))) {
+      await loadTopicThread(id);
+      return;
+    }
+    window.location.href = `/community/topic?id=${id}`;
+  }
+
   function voteControls(kind, id, score, myVote) {
-    const isTopicPinned = kind === 'topic' && isTrue(state.activeTopic?.is_pinned);
+    const isTopic = kind === 'topic';
+    const isTopicPinned = isTopic && isTrue(state.activeTopic?.is_pinned);
+    const isTopicLocked = isTopic && isTrue(state.activeTopic?.is_locked);
+    const isTopicHidden = isTopic && isTrue(state.activeTopic?.is_hidden);
+    const scoreVal = Number(score) || 0;
+    const scoreClass = scoreVal > 0 ? 'score-positive' : (scoreVal < 0 ? 'score-negative' : '');
+
     return `
       <div class="detail-actions">
-        <button class="vote-button ${Number(myVote) === 1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="1" aria-label="Upvote">Upvote</button>
-        <button class="vote-button ${Number(myVote) === -1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="-1" aria-label="Downvote">Downvote</button>
-        <span class="muted">${Number(score) || 0} net votes</span>
-        <button class="text-button" data-report-kind="${kind}" data-report-id="${id}">Report</button>
+        <!-- Vote Cluster: Upvote Icon, Net Score Icon + Count, Downvote Icon -->
+        <div class="vote-cluster" role="group" aria-label="Vote">
+          <button class="vote-btn vote-btn-up ${Number(myVote) === 1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="1" aria-label="Upvote" title="Upvote">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+          <span class="vote-score-display ${scoreClass}" title="${scoreVal} net votes" aria-label="${scoreVal} net votes">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="vote-metric-icon">
+              <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34L12 14.24l-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/>
+            </svg>
+            <span class="score-val">${scoreVal}</span>
+          </span>
+          <button class="vote-btn vote-btn-down ${Number(myVote) === -1 ? 'selected' : ''}" data-vote-kind="${kind}" data-vote-id="${id}" data-vote-value="-1" aria-label="Downvote" title="Downvote">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Report Icon Button -->
+        <button class="action-btn report-icon-btn" data-report-kind="${kind}" data-report-id="${id}" aria-label="Report content" title="Report">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+            <line x1="4" y1="22" x2="4" y2="15"></line>
+          </svg>
+        </button>
+
+        <!-- Admin Controls -->
         ${
           state.user?.admin
-            ? `${kind === 'topic' ? `<button class="text-button admin-pin-btn" data-pin-topic="${id}" data-pinned="${isTopicPinned ? 'true' : 'false'}" style="color:var(--accent);font-weight:600;cursor:pointer;">${isTopicPinned ? 'Unpin' : 'Pin to Top'}</button>` : ''}
-              <button class="text-button" data-hide-kind="${kind}" data-hide-id="${id}" data-hide-value="${
-                kind === 'topic' && isTrue(state.activeTopic?.is_hidden) ? 'false' : 'true'
-              }">${kind === 'topic' && isTrue(state.activeTopic?.is_hidden) ? 'Unhide' : 'Hide'}</button>
-              <button class="text-button admin-delete-btn" data-delete-${kind}="${id}" style="color:#ef4444;font-weight:600;cursor:pointer;" title="Permanently delete as admin">Delete</button>`
+            ? `
+              ${
+                isTopic
+                  ? `<button class="action-btn admin-pin-btn ${isTopicPinned ? 'is-active' : ''}" data-pin-topic="${id}" data-pinned="${isTopicPinned ? 'true' : 'false'}" title="${isTopicPinned ? 'Unpin Discussion' : 'Pin to Top'}" aria-label="${isTopicPinned ? 'Unpin' : 'Pin'}">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/>
+                        <line x1="12" y1="12" x2="4" y2="20"/>
+                      </svg>
+                      <span>${isTopicPinned ? 'Unpin' : 'Pin'}</span>
+                    </button>
+                    <button class="action-btn admin-lock-btn ${isTopicLocked ? 'is-locked' : ''}" data-lock-topic="${id}" data-locked="${isTopicLocked ? 'true' : 'false'}" title="${isTopicLocked ? 'Unlock Discussion (allow replies)' : 'Lock Discussion (disable replies)'}" aria-label="${isTopicLocked ? 'Unlock' : 'Lock'}">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        ${
+                          isTopicLocked
+                            ? '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path>'
+                            : '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path>'
+                        }
+                      </svg>
+                      <span>${isTopicLocked ? 'Unlock' : 'Lock'}</span>
+                    </button>`
+                  : ''
+              }
+              <button class="action-btn admin-hide-btn" data-hide-kind="${kind}" data-hide-id="${id}" data-hide-value="${isTopicHidden ? 'false' : 'true'}" title="${isTopicHidden ? 'Unhide content' : 'Hide from public'}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  ${
+                    isTopicHidden
+                      ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>'
+                      : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>'
+                  }
+                </svg>
+                <span>${isTopicHidden ? 'Unhide' : 'Hide'}</span>
+              </button>
+              <button class="action-btn admin-delete-btn" data-delete-${kind}="${id}" style="color:#ef4444;" title="Permanently delete as admin" aria-label="Delete">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+                <span>Delete</span>
+              </button>
+            `
             : ''
         }
       </div>
@@ -405,8 +668,7 @@
 
     const open = e.target.closest('[data-open-topic]');
     if (open) {
-      e.preventDefault();
-      openTopic(open.dataset.openTopic);
+      // Let standard link navigation to /community/topic?id=... take over
       return;
     }
 
@@ -577,6 +839,28 @@
       }
       return;
     }
+
+    const lockBtn = e.target.closest('[data-lock-topic]');
+    if (lockBtn) {
+      if (!state.user?.admin) return;
+      const topicId = Number(lockBtn.dataset.lockTopic);
+      const currentlyLocked = lockBtn.dataset.locked === 'true';
+      try {
+        const res = await request('lock_topic', {
+          method: 'POST',
+          body: { id: topicId, locked: !currentlyLocked }
+        });
+        toast(res.is_locked ? 'Discussion locked (replies disabled).' : 'Discussion unlocked.');
+        await loadTopics();
+        if (state.activeTopic && state.activeTopic.id == topicId) {
+          state.activeTopic.is_locked = res.is_locked;
+          await refreshTopic();
+        }
+      } catch (err) {
+        toast(err.message);
+      }
+      return;
+    }
   });
 
   // Start discussion button & modal
@@ -654,7 +938,7 @@
         }
         renderCategories();
         await loadTopics();
-        openTopic(data.id);
+        window.location.href = `/community/topic?id=${data.id}`;
       } catch (err) {
         if (msgEl) msgEl.textContent = err.message;
       } finally {
@@ -663,7 +947,72 @@
     });
   }
 
-  // Reply form submission
+  // Thread page dedicated reply form submission
+  const threadReplyForm = $('#thread-reply-form');
+  if (threadReplyForm) {
+    threadReplyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = $('#reply-body-input');
+      const msg = $('#reply-error-msg');
+      const btn = $('#submit-reply-btn');
+      if (!input || !state.activeTopic) return;
+      const body = input.value.trim();
+      if (body.length < 2) {
+        if (msg) msg.textContent = 'Reply must be at least 2 characters.';
+        return;
+      }
+      if (btn) btn.disabled = true;
+      if (msg) msg.textContent = 'Publishing reply…';
+      try {
+        await request('reply', {
+          method: 'POST',
+          body: {
+            topic_id: Number(state.activeTopic.id),
+            body
+          }
+        });
+        toast('Reply published!');
+        input.value = '';
+        if (msg) msg.textContent = '';
+        await loadTopicThread(state.activeTopic.id);
+      } catch (err) {
+        if (msg) msg.textContent = err.message;
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+  }
+
+  // Thread page share button
+  const shareThreadBtn = $('#share-thread-btn');
+  if (shareThreadBtn) {
+    shareThreadBtn.addEventListener('click', async () => {
+      const url = window.location.href;
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: state.activeTopic ? state.activeTopic.title : document.title,
+            url: url
+          });
+          return;
+        } catch {}
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        const textSpan = $('#share-btn-text');
+        if (textSpan) {
+          const original = textSpan.textContent;
+          textSpan.textContent = 'Copied Link!';
+          setTimeout(() => { textSpan.textContent = original; }, 2500);
+        }
+        toast('Link copied to clipboard!');
+      } catch {
+        toast('Could not copy link.');
+      }
+    });
+  }
+
+  // Modal Reply form submission (for fallback)
   const topicDialog = $('#topic-dialog');
   if (topicDialog) {
     topicDialog.addEventListener('submit', async (e) => {
@@ -836,9 +1185,14 @@
       if (aModal && aModal.open) aModal.close();
 
       renderCategories();
-      await loadTopics();
-      if (state.activeTopic) {
-        renderTopic(state.activeTopic);
+      const isThreadPage = Boolean($('#thread-main'));
+      if (isThreadPage) {
+        updateReplyComposerState();
+        if (state.activeTopic) {
+          await loadTopicThread(state.activeTopic.id);
+        }
+      } else {
+        await loadTopics();
       }
       if (data.user) {
         toast(`Signed in as ${data.user.name || data.user.login}`);
@@ -888,12 +1242,36 @@
       state.categories = data.categories || [];
       renderCategories();
       accountView();
-      await loadTopics();
+
+      const isThreadPage = Boolean($('#thread-main'));
+      if (isThreadPage) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let threadId = urlParams.get('id');
+        if (!threadId && window.location.pathname.startsWith('/community/topic/')) {
+          const parts = window.location.pathname.split('/community/topic/')[1].split('/');
+          threadId = parts[0];
+        }
+        if (threadId) {
+          await loadTopicThread(threadId);
+        } else {
+          const loadingEl = $('#thread-loading');
+          const errorEl = $('#thread-error');
+          if (loadingEl) loadingEl.style.display = 'none';
+          if (errorEl) errorEl.style.display = 'block';
+        }
+      } else {
+        await loadTopics();
+        if (state.user?.admin) loadReports();
+      }
     } catch (e) {
       const list = $('#topic-list');
       if (list) {
         list.innerHTML = `<div class="empty-state">Could not connect to the forum API. Check the Wasmer deployment and database setup.<br><small>${escapeHtml(e.message)}</small></div>`;
       }
+      const loadingEl = $('#thread-loading');
+      const errorEl = $('#thread-error');
+      if (loadingEl) loadingEl.style.display = 'none';
+      if (errorEl) errorEl.style.display = 'block';
     }
   }
 

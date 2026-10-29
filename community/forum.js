@@ -171,7 +171,7 @@ async function handleApi(req, res, pathname, query) {
       const voterIdx = idx;
 
       const sql = `
-        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned,
+        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_locked,
                c.slug AS category_slug, c.name AS category_name,
                u.login, u.display_name, u.avatar_url,
                (SELECT COUNT(*)::int FROM forum_replies r WHERE r.topic_id = t.id AND r.is_hidden = FALSE) AS reply_count,
@@ -200,7 +200,7 @@ async function handleApi(req, res, pathname, query) {
       const isAdmin = Boolean(user && user.admin);
 
       const topicSql = `
-        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_hidden,
+        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_locked, t.is_hidden,
                c.slug AS category_slug, c.name AS category_name,
                u.login, u.display_name, u.avatar_url, u.id AS author_id,
                (SELECT COALESCE(SUM(v.value), 0)::int FROM forum_votes v WHERE v.topic_id = t.id) AS score,
@@ -271,8 +271,11 @@ async function handleApi(req, res, pathname, query) {
         return sendError(res, 'Reply must be between 2 and 10,000 characters.');
       }
 
-      const topicRes = await pool.query('SELECT id FROM forum_topics WHERE id = $1 AND is_hidden = FALSE', [topicId]);
+      const topicRes = await pool.query('SELECT id, is_locked FROM forum_topics WHERE id = $1 AND is_hidden = FALSE', [topicId]);
       if (!topicRes.rows.length) return sendError(res, 'Topic not found.', 404);
+      if (topicRes.rows[0].is_locked && !user.admin) {
+        return sendError(res, 'This discussion has been locked by an administrator. Replies are disabled.', 403);
+      }
 
       const replyRes = await pool.query(
         'INSERT INTO forum_replies (topic_id, user_id, body) VALUES ($1, $2, $3) RETURNING id',
@@ -451,6 +454,24 @@ async function handleApi(req, res, pathname, query) {
         [newPinned, topicId]
       );
       sendJson(res, { ok: true, id: topicId, is_pinned: updateRes.rows[0].is_pinned });
+      return true;
+    }
+
+    if (action === 'lock_topic') {
+      if (!user || !user.admin) return sendError(res, 'Administrator access required.', 403);
+      const data = await readBody(req);
+      const topicId = parseInt(data.id, 10);
+
+      if (!topicId) return sendError(res, 'Invalid discussion ID.');
+      const existsRes = await pool.query('SELECT id, is_locked FROM forum_topics WHERE id = $1', [topicId]);
+      if (!existsRes.rows.length) return sendError(res, 'Discussion not found.', 404);
+
+      const newLocked = data.locked !== undefined ? Boolean(data.locked) : !existsRes.rows[0].is_locked;
+      const updateRes = await pool.query(
+        'UPDATE forum_topics SET is_locked = $1, updated_at = NOW() WHERE id = $2 RETURNING id, is_locked',
+        [newLocked, topicId]
+      );
+      sendJson(res, { ok: true, id: topicId, is_locked: updateRes.rows[0].is_locked });
       return true;
     }
 

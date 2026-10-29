@@ -36,12 +36,14 @@ const server = http.createServer((req, res) => {
 
   // Handle Community Forum API (/community/api or /community/api.php)
   if (pathname === '/community/api' || pathname === '/community/api.php') {
-    return forum.handleApi(req, res, pathname, query);
+    delete require.cache[require.resolve('./community/forum.js')];
+    return require('./community/forum.js').handleApi(req, res, pathname, query);
   }
 
   // Handle Community Forum OAuth (/community/oauth or /community/oauth.php)
   if (pathname === '/community/oauth' || pathname === '/community/oauth.php') {
-    return forum.handleOAuth(req, res, pathname, query);
+    delete require.cache[require.resolve('./community/forum.js')];
+    return require('./community/forum.js').handleOAuth(req, res, pathname, query);
   }
 
   // Redirect directory without trailing slash
@@ -49,6 +51,20 @@ const server = http.createServer((req, res) => {
     res.writeHead(301, { Location: '/community/' + (reqUrl.search || '') });
     res.end();
     return;
+  }
+
+  // Handle Community Forum Topic Page (/community/topic or /community/topic/:id)
+  if (pathname === '/community/topic' || pathname.startsWith('/community/topic/')) {
+    const topicHtmlPath = path.join(SERVE_DIR, 'community', 'topic.html');
+    if (fs.existsSync(topicHtmlPath)) {
+      res.writeHead(200, {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-cache',
+        'Access-Control-Allow-Origin': '*'
+      });
+      const stream = fs.createReadStream(topicHtmlPath);
+      return stream.pipe(res);
+    }
   }
 
   // Normalize path
