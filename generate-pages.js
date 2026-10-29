@@ -1609,6 +1609,16 @@ const BASE_CSS = `
     color: var(--accent);
   }
 
+  .community-channel-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .community-channel-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent) !important;
+    box-shadow: var(--shadow-card-hover);
+  }
+
   @media (max-width: 960px) {
     .community-layout {
       grid-template-columns: 1fr !important;
@@ -2078,10 +2088,6 @@ function renderLayout({
     <div class="container">
       <div class="pre-footer-card">
         <div class="pre-footer-content">
-          <div class="pre-footer-badge">
-            <span class="status-dot"></span>
-            <span>Community-Curated Open Directory</span>
-          </div>
           <h2 class="pre-footer-title">Have a great static tool to recommend?</h2>
           <p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p>
         </div>
@@ -2092,7 +2098,7 @@ function renderLayout({
           </a>
           <a href="${rootPath}archive" class="btn btn-secondary">
             ${ICONS.archive}
-            <span>Browse All ${categories.length} Categories</span>
+            <span>Browse all Categories</span>
           </a>
           <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub">
             ${ICONS.github}
@@ -2281,6 +2287,9 @@ const homeContent = `
       <a href="#categories" class="btn btn-secondary">
         Browse ${categories.length} Categories
       </a>
+      <a href="community/" class="btn btn-secondary">
+        ${ICONS.comments} Community Forum
+      </a>
       <a href="submit" class="btn btn-secondary">
         Submit a Tool
       </a>
@@ -2347,6 +2356,124 @@ const homeContent = `
         <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:0.5rem;">No matching categories on home page</h3>
         <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">Try searching the Master Archive directly for all ${uniqueToolsCount} tools, APIs, and services.</p>
         <button type="button" onclick="submitHeroSearch()" class="btn btn-primary">Search in Master Archive</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Forum Section -->
+  <section id="community-forum" style="padding: 3.5rem 0 1.5rem;">
+    <div class="community-forum-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: clamp(1.75rem, 4vw, 3rem); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
+      <!-- Subtle Ambient Gradient -->
+      <div style="position: absolute; top: -50px; right: -50px; width: 450px; height: 450px; background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%); pointer-events: none; opacity: 0.85;"></div>
+
+      <div style="position: relative; z-index: 1;">
+        <!-- Header Row -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
+          <div style="max-width: 680px;">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.85rem; background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); border-radius: var(--radius-full); font-size: 0.825rem; font-weight: 600; margin-bottom: 1rem;">
+              <span style="display: inline-flex; align-items: center;">${ICONS.comments}</span>
+              <span>Community Forum</span>
+              <span class="status-dot" style="margin-left: 0.25rem;"></span>
+            </div>
+            <h2 style="font-size: clamp(1.85rem, 3.5vw, 2.35rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.85rem; color: var(--text-main);">
+              Join the Static Web &amp; Jamstack Discussion
+            </h2>
+            <p style="font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: var(--text-muted); line-height: 1.6; margin: 0;">
+              Connect with fellow developers building high-performance static websites without server bloat. Share tools, showcase projects, get help with HTML, CSS &amp; JavaScript, and collaborate with the community.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; min-width: 220px;">
+            <a href="community/" class="btn btn-primary" style="padding: 0.75rem 1.4rem; font-size: 0.95rem; font-weight: 600; justify-content: center; box-shadow: 0 4px 12px rgba(37,99,235,0.25);">
+              ${ICONS.comments}
+              <span>Visit Community Forum</span>
+              ${ICONS.arrowRight}
+            </a>
+            <a href="community/?category=showcase" class="btn btn-secondary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem; justify-content: center;">
+              ${ICONS.rocket}
+              <span>Explore Showcases</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Channels Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+          <a href="community/?category=showcase" class="community-channel-card" style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; display: flex; flex-direction: column; text-decoration: none; color: var(--text-main); transition: all 0.2s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <div style="width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); background: #fef3c7; color: #b45309; display: flex; align-items: center; justify-content: center;">
+                ${ICONS.rocket}
+              </div>
+              <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 0.25rem;">
+                Browse &rarr;
+              </span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-main);">Show &amp; Tell</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; flex-grow: 1;">
+              Show off your static sites, portfolio builds, and custom Jamstack architectures.
+            </p>
+          </a>
+
+          <a href="community/?category=help" class="community-channel-card" style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; display: flex; flex-direction: column; text-decoration: none; color: var(--text-main); transition: all 0.2s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <div style="width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); background: #dbeafe; color: #1d4ed8; display: flex; align-items: center; justify-content: center;">
+                ${ICONS.helpCircle}
+              </div>
+              <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 0.25rem;">
+                Browse &rarr;
+              </span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-main);">Help &amp; Questions</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; flex-grow: 1;">
+              Ask troubleshooting questions on HTML, CSS, JavaScript, SSGs, forms, or APIs.
+            </p>
+          </a>
+
+          <a href="community/?category=tools" class="community-channel-card" style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; display: flex; flex-direction: column; text-decoration: none; color: var(--text-main); transition: all 0.2s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <div style="width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); background: #dcfce7; color: #15803d; display: flex; align-items: center; justify-content: center;">
+                ${ICONS.zap}
+              </div>
+              <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 0.25rem;">
+                Browse &rarr;
+              </span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-main);">Tools &amp; Components</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; flex-grow: 1;">
+              Share and discover open-source scripts, CSS libraries, client-side APIs, and micro-tools.
+            </p>
+          </a>
+
+          <a href="community/?category=discussion" class="community-channel-card" style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; display: flex; flex-direction: column; text-decoration: none; color: var(--text-main); transition: all 0.2s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <div style="width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); background: #ede9fe; color: #6d28d9; display: flex; align-items: center; justify-content: center;">
+                ${ICONS.comments}
+              </div>
+              <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 0.25rem;">
+                Browse &rarr;
+              </span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-main);">General Discussion</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; flex-grow: 1;">
+              Discuss static web trends, zero-backend philosophy, performance, and best practices.
+            </p>
+          </a>
+        </div>
+
+        <!-- Forum Pillars / Trust Badges -->
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-muted);">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: var(--accent); display: inline-flex;">${ICONS.shield}</span>
+            <span><strong>GitHub OAuth:</strong> Fast, 1-click sign-in without extra passwords</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #10b981; display: inline-flex;">${ICONS.thumbsUp}</span>
+            <span><strong>Community Votes:</strong> Upvote helpful replies &amp; curated discussions</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #8b5cf6; display: inline-flex;">${ICONS.sparkles}</span>
+            <span><strong>Zero Backend Bloat:</strong> Pure HTML/JS on Wasmer Edge &amp; PostgreSQL</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
