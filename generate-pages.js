@@ -482,13 +482,17 @@ const BASE_CSS = `
 
   .brand-badge {
     font-size: 0.75rem;
-    background: var(--accent-light);
-    color: var(--accent);
+    background: #FAF9ED;
+    color: #2367EA;
     padding: 0.15rem 0.5rem;
     border-radius: var(--radius-full);
-    font-weight: 600;
+    font-weight: 700;
     margin-left: 0.25rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid #EAE6B8;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 
   .nav-links {
@@ -2009,7 +2013,7 @@ function renderLayout({
       <a href="${rootPath || './'}" class="brand">
         <span class="brand-icon">${ICONS.logo}</span>
         <span>StaticStack</span>
-        <span class="brand-badge">Toolkit</span>
+        <span class="brand-badge">.app</span>
       </a>
 
       <!-- Desktop Clean Nav Menu -->
