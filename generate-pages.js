@@ -70,7 +70,8 @@ const ICONS = {
   helpCircle: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
   rocket: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 9v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>`,
   megaphone: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>`,
-  poll: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>`
+  poll: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>`,
+  eye: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`
 };
 
 // Category Icons
@@ -1829,7 +1830,7 @@ const BASE_CSS = `
       box-sizing: border-box !important;
     }
     .archive-table {
-      min-width: 520px !important;
+      min-width: 580px !important;
       font-size: 0.85rem !important;
       width: 100% !important;
     }
@@ -2785,13 +2786,14 @@ const archiveContent = `
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.55; margin-bottom:1.25rem;">${escapeHtml(cat.description)}</p>
 
           <div class="archive-table-wrapper" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow-x:auto; -webkit-overflow-scrolling:touch; box-shadow:var(--shadow-card);">
-            <table class="archive-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem; min-width:540px;">
+            <table class="archive-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem; min-width:580px;">
               <thead>
                 <tr style="background:var(--bg-muted); border-bottom:1px solid var(--border-color);">
                   <th style="padding:0.75rem 1rem; width:22%;">Tool</th>
-                  <th style="padding:0.75rem 1rem; width:45%;">Description</th>
-                  <th style="padding:0.75rem 1rem; width:18%;">Pricing</th>
-                  <th style="padding:0.75rem 1rem; width:15%;">Link</th>
+                  <th style="padding:0.75rem 1rem; width:12%; white-space:nowrap;">Views</th>
+                  <th style="padding:0.75rem 1rem; width:38%;">Description</th>
+                  <th style="padding:0.75rem 1rem; width:14%;">Pricing</th>
+                  <th style="padding:0.75rem 1rem; width:14%;">Link</th>
                 </tr>
               </thead>
               <tbody>
@@ -2801,11 +2803,18 @@ const archiveContent = `
                   if (pBadge.includes('open source')) badgeClass = 'badge-open-source';
                   else if (pBadge.includes('free')) badgeClass = 'badge-free';
                   else if (pBadge.includes('paid')) badgeClass = 'badge-paid';
+                  const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
 
                   return `
                   <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
                       <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}">${escapeHtml(tool.name)}</a>
+                    </td>
+                    <td style="padding:0.85rem 1rem; white-space:nowrap;">
+                      <span class="tool-archive-views" data-key="${toolKey}" title="Total views for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.35rem; font-size:0.85rem; color:var(--text-muted); font-variant-numeric:tabular-nums;">
+                        <span style="color:var(--text-subtle); display:inline-flex; align-items:center;">${ICONS.eye}</span>
+                        <span class="view-count-num">--</span>
+                      </span>
                     </td>
                     <td style="padding:0.85rem 1rem; color:var(--text-muted); line-height:1.5;">${escapeHtml(tool.description)}</td>
                     <td style="padding:0.85rem 1rem;">
@@ -2964,6 +2973,80 @@ const archiveContent = `
         if (archiveSearchInput) archiveSearchInput.focus();
       }
     });
+
+    // Tool Views Fetcher (staggered & lazy-loaded via IntersectionObserver)
+    const viewCache = new Map();
+    const viewQueue = [];
+    let isProcessingViewQueue = false;
+
+    function processViewQueue() {
+      if (isProcessingViewQueue || viewQueue.length === 0) return;
+      isProcessingViewQueue = true;
+      const item = viewQueue.shift();
+      const key = item.key;
+      const el = item.el;
+
+      if (viewCache.has(key)) {
+        const numEl = el.querySelector('.view-count-num');
+        if (numEl) numEl.textContent = viewCache.get(key);
+        isProcessingViewQueue = false;
+        setTimeout(processViewQueue, 10);
+        return;
+      }
+
+      fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(key))
+        .then(res => {
+          if (!res.ok) return { value: 0 };
+          return res.json();
+        })
+        .then(data => {
+          const raw = data && data.value !== undefined ? Number(data.value) : 0;
+          const val = (!isNaN(raw) && raw >= 0) ? raw : 0;
+          const formatted = val.toLocaleString();
+          viewCache.set(key, formatted);
+          const numEl = el.querySelector('.view-count-num');
+          if (numEl) numEl.textContent = formatted;
+        })
+        .catch(() => {
+          const numEl = el.querySelector('.view-count-num');
+          if (numEl && numEl.textContent === '--') numEl.textContent = '0';
+        })
+        .finally(() => {
+          setTimeout(() => {
+            isProcessingViewQueue = false;
+            processViewQueue();
+          }, 35);
+        });
+    }
+
+    function queueViewFetch(el) {
+      if (!el || el.getAttribute('data-fetched') === 'true') return;
+      el.setAttribute('data-fetched', 'true');
+      const key = el.getAttribute('data-key');
+      if (key) {
+        viewQueue.push({ el: el, key: key });
+        processViewQueue();
+      }
+    }
+
+    if ('IntersectionObserver' in window) {
+      const viewObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            obs.unobserve(entry.target);
+            queueViewFetch(entry.target);
+          }
+        });
+      }, { rootMargin: '300px 0px' });
+
+      document.querySelectorAll('.tool-archive-views[data-key]').forEach(el => {
+        viewObserver.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.tool-archive-views[data-key]').forEach(el => {
+        queueViewFetch(el);
+      });
+    }
   </script>
 `;
 
@@ -3612,6 +3695,11 @@ allTools.forEach(tool => {
             <strong>Category:</strong>
             <a href="../../archive#${tool.categorySlug}">${escapeHtml(tool.categoryTitle)}</a>
           </div>
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <span style="color:var(--text-subtle); display:inline-flex;">${ICONS.eye}</span>
+            <strong>Views:</strong>
+            <span id="tool-view-count" class="tool-view-count" data-key="htmlstatic-${tool.categorySlug}-${tool.slug}" style="font-weight:600; color:var(--text-main); font-variant-numeric:tabular-nums;">--</span>
+          </div>
           <div class="mini-hero-extra-edit" style="margin-left:auto;">
             <a href="https://github.com/E6WeB/htmlstatic/blob/main/${tool.relPath}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
               ${ICONS.github} Edit Markdown Guide
@@ -3657,6 +3745,54 @@ allTools.forEach(tool => {
                       async>
               </script>
             </section>
+
+            <!-- Tool View Counter via CountAPI -->
+            <script>
+              (function() {
+                const countEl = document.getElementById('tool-view-count');
+                if (!countEl) return;
+                const key = countEl.getAttribute('data-key');
+                if (!key) return;
+
+                const sessionKey = 'hs_view_' + key;
+                let alreadyViewed = false;
+                try {
+                  alreadyViewed = !!sessionStorage.getItem(sessionKey);
+                } catch (e) {}
+
+                function updateDisplay(val) {
+                  const num = Number(val);
+                  if (!isNaN(num) && num >= 0) {
+                    countEl.textContent = num.toLocaleString();
+                  }
+                }
+
+                const endpoint = alreadyViewed ? 'get' : 'hit';
+                fetch('https://countapi.mileshilliard.com/api/v1/' + endpoint + '/' + encodeURIComponent(key))
+                  .then(function(res) {
+                    if (!res.ok) {
+                      if (endpoint === 'get') return { value: 0 };
+                      throw new Error('CountAPI error');
+                    }
+                    return res.json();
+                  })
+                  .then(function(data) {
+                    if (data && data.value !== undefined) {
+                      updateDisplay(data.value);
+                      if (!alreadyViewed) {
+                        try {
+                          sessionStorage.setItem(sessionKey, '1');
+                        } catch (e) {}
+                      }
+                    }
+                  })
+                  .catch(function() {
+                    if (countEl.textContent === '--') {
+                      countEl.textContent = '1';
+                    }
+                  });
+              })();
+            </script>
 
             <!-- Bottom Navigation -->
             <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
