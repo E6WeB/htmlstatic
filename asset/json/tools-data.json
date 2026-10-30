@@ -651,7 +651,7 @@
     "title": "Development Tools",
     "slug": "development-tools",
     "description": "Tools that make building, testing, and maintaining static websites easier.",
-    "toolsCount": 12,
+    "toolsCount": 13,
     "tools": [
       {
         "name": "Antigravity CLI",
@@ -712,6 +712,18 @@
         ],
         "websiteUrl": "https://cursor.com/",
         "websiteLabel": "cursor.com"
+      },
+      {
+        "name": "Emdash",
+        "slug": "emdash",
+        "relPath": "tools/development-tools/emdash.md",
+        "folder": "development-tools",
+        "description": "Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes",
+        "badges": [
+          "Open Source"
+        ],
+        "websiteUrl": "https://emdash.com/",
+        "websiteLabel": "emdash.com"
       },
       {
         "name": "ESLint",
@@ -1492,6 +1504,26 @@
         ],
         "websiteUrl": "https://tally.so/",
         "websiteLabel": "tally.so"
+      }
+    ]
+  },
+  {
+    "title": "Tutorials",
+    "slug": "tutorials",
+    "description": "Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites.",
+    "toolsCount": 1,
+    "tools": [
+      {
+        "name": "Cold Compile",
+        "slug": "coldcompile",
+        "relPath": "tools/tutorials/coldcompile.md",
+        "folder": "tutorials",
+        "description": "In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites",
+        "badges": [
+          "Free"
+        ],
+        "websiteUrl": "https://coldcompile.dev/",
+        "websiteLabel": "coldcompile.dev"
       }
     ]
   },

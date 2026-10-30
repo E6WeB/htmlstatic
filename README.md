@@ -40,7 +40,8 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 23. [Security & Spam Protection](#security--spam-protection)
 24. [Static Site Generators](#static-site-generators)
 25. [Surveys & Feedback](#surveys--feedback)
-26. [Typography & Web Fonts](#typography--web-fonts)
+26. [Tutorials](#tutorials)
+27. [Typography & Web Fonts](#typography--web-fonts)
 
 ### Contributing & Community
 
@@ -592,6 +593,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>AI-powered code editor with multi-file Composer and predictive completions</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://cursor.com/" target="_blank" rel="noopener noreferrer">cursor.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/development-tools/emdash.md">Emdash</a></td>
+    <td>Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://emdash.com/" target="_blank" rel="noopener noreferrer">emdash.com</a></td>
   </tr>
   <tr>
     <td><a href="tools/development-tools/eslint.md">ESLint</a></td>
@@ -1149,6 +1156,29 @@ Gather visitor responses, run interactive polls, and publish product roadmaps.
     <td>Intuitive form and survey builder with unlimited free forms and embeds</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://tally.so/" target="_blank" rel="noopener noreferrer">tally.so</a></td>
+  </tr>
+</tbody>
+</table>
+
+## Tutorials
+
+Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="tools/tutorials/coldcompile.md">Cold Compile</a></td>
+    <td>In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://coldcompile.dev/" target="_blank" rel="noopener noreferrer">coldcompile.dev</a></td>
   </tr>
 </tbody>
 </table>

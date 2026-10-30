@@ -156,6 +156,12 @@
     "url": "/archive#surveys-feedback"
   },
   {
+    "title": "Tutorials",
+    "description": "Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites.",
+    "category": "Category",
+    "url": "/archive#tutorials"
+  },
+  {
     "title": "Typography & Web Fonts",
     "description": "Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services.",
     "category": "Category",
@@ -466,6 +472,12 @@
     "description": "AI-powered code editor with multi-file Composer and predictive completions",
     "category": "Development Tools",
     "url": "/tools/development-tools/cursor"
+  },
+  {
+    "title": "Emdash",
+    "description": "Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/emdash"
   },
   {
     "title": "ESLint",
@@ -802,6 +814,12 @@
     "description": "Intuitive form and survey builder with unlimited free forms and embeds",
     "category": "Surveys & Feedback",
     "url": "/tools/surveys-feedback/tally"
+  },
+  {
+    "title": "Cold Compile",
+    "description": "In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites",
+    "category": "Tutorials",
+    "url": "/tools/tutorials/coldcompile"
   },
   {
     "title": "Bunny Fonts",
