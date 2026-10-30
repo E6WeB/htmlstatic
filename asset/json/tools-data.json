@@ -3,7 +3,7 @@
     "title": "AI & Content Creation",
     "slug": "ai-content-creation",
     "description": "AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.",
-    "toolsCount": 5,
+    "toolsCount": 6,
     "tools": [
       {
         "name": "ChatGPT",
@@ -40,6 +40,18 @@
         ],
         "websiteUrl": "https://gemini.google.com/",
         "websiteLabel": "gemini.google.com"
+      },
+      {
+        "name": "imgmov",
+        "slug": "imgmov",
+        "relPath": "tools/ai-content-creation/imgmov.md",
+        "folder": "ai-content-creation",
+        "description": "AI generator for creating commercial product videos, images, and visual assets from photos and prompts",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://imgmov.com/",
+        "websiteLabel": "imgmov.com"
       },
       {
         "name": "Perplexity",

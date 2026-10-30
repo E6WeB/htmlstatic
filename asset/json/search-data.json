@@ -186,6 +186,12 @@
     "url": "/tools/ai-content-creation/google-gemini"
   },
   {
+    "title": "imgmov",
+    "description": "AI generator for creating commercial product videos, images, and visual assets from photos and prompts",
+    "category": "AI & Content Creation",
+    "url": "/tools/ai-content-creation/imgmov"
+  },
+  {
     "title": "Perplexity",
     "description": "AI-powered research and citation engine for writing factual, accurate blog posts and documentation",
     "category": "AI & Content Creation",

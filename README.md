@@ -120,6 +120,12 @@ AI-powered tools for writing website copy, drafting blog articles, creating stru
     <td><a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">gemini.google.com</a></td>
   </tr>
   <tr>
+    <td><a href="tools/ai-content-creation/imgmov.md">imgmov</a></td>
+    <td>AI generator for creating commercial product videos, images, and visual assets from photos and prompts</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://imgmov.com/" target="_blank" rel="noopener noreferrer">imgmov.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/ai-content-creation/perplexity.md">Perplexity</a></td>
     <td>AI-powered research and citation engine for writing factual, accurate blog posts and documentation</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
