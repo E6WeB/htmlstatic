@@ -1934,10 +1934,18 @@ function renderLayout({
   content,
   miniHero = null,
   breadcrumbs = [],
-  rootPath = ''
+  rootPath = '',
+  ogImage = ''
 }) {
   const cleanDescription = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
   const pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
+
+  const pageOgImage = ogImage || (
+    currentNav === 'home' ? 'https://staticstack.app/asset/img/og-home.webp' :
+    currentNav === 'submit' ? 'https://staticstack.app/asset/img/og-submit.webp' :
+    currentNav === 'community' ? 'https://staticstack.app/asset/img/og-community.webp' :
+    'https://staticstack.app/asset/img/og-image.webp'
+  );
 
   const miniHeroHtml = miniHero ? renderMiniHero(miniHero, rootPath) : '';
   const breadcrumbFallbackHtml = (!miniHero && breadcrumbs.length > 0) ? `
@@ -1961,15 +1969,15 @@ function renderLayout({
   <meta property="og:site_name" content="StaticStack">
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(cleanDescription)}">
-  <meta property="og:image" content="https://staticstack.app/asset/img/og-image.webp">
+  <meta property="og:image" content="${pageOgImage}">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
-  <meta property="og:image:alt" content="StaticStack - The Curated Static Website Toolkit">
+  <meta property="og:image:alt" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(cleanDescription)}">
-  <meta name="twitter:image" content="https://staticstack.app/asset/img/og-image.webp">
+  <meta name="twitter:image" content="${pageOgImage}">
 
   <style>
     ${BASE_CSS}
@@ -2618,6 +2626,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
   title: 'StaticStack - Modern Tools & APIs for Static Websites',
   description: `Curated directory of ${uniqueToolsCount}+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.`,
   currentNav: 'home',
+  ogImage: 'https://staticstack.app/asset/img/og-home.webp',
   content: homeContent
 }));
 
@@ -2811,8 +2820,7 @@ const archiveContent = `
                       <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}">${escapeHtml(tool.name)}</a>
                     </td>
                     <td style="padding:0.85rem 1rem; white-space:nowrap;">
-                      <span class="tool-archive-views" data-key="${toolKey}" title="Total views for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.35rem; font-size:0.85rem; color:var(--text-muted); font-variant-numeric:tabular-nums;">
-                        <span style="color:var(--text-subtle); display:inline-flex; align-items:center;">${ICONS.eye}</span>
+                      <span class="tool-archive-views" data-key="${toolKey}" title="Total views for ${escapeHtml(tool.name)}" style="font-size:0.85rem; color:var(--text-muted); font-variant-numeric:tabular-nums; font-weight:500;">
                         <span class="view-count-num">--</span>
                       </span>
                     </td>
@@ -3054,6 +3062,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
   title: `Master Archive - ${uniqueToolsCount}+ Tools for Static Websites`,
   description: `Explore the complete directory of ${uniqueToolsCount} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
   currentNav: 'archive',
+  ogImage: 'https://staticstack.app/asset/img/og-archive.webp',
   miniHero: {
     breadcrumbs: [
       { label: 'Home', url: './' },
@@ -3200,6 +3209,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'submit.html'), renderLayout({
   title: 'Submit a Tool - StaticStack',
   description: 'Propose a new static website tool, API, or service to include in the StaticStack directory.',
   currentNav: 'submit',
+  ogImage: 'https://staticstack.app/asset/img/og-submit.webp',
   miniHero: {
     breadcrumbs: [
       { label: 'Home', url: './' },

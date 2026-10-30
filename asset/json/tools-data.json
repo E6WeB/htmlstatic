@@ -201,8 +201,21 @@
     "title": "Analytics & Privacy",
     "slug": "analytics-privacy",
     "description": "Understand website traffic, visitor behavior, and page performance.",
-    "toolsCount": 3,
+    "toolsCount": 4,
     "tools": [
+      {
+        "name": "CountAPI",
+        "slug": "countapi",
+        "relPath": "tools/analytics-privacy/countapi.md",
+        "folder": "analytics-privacy",
+        "description": "Free, key-based hit counter and view tracking API with no signup or keys required",
+        "badges": [
+          "Open Source",
+          "Free"
+        ],
+        "websiteUrl": "https://countapi.mileshilliard.com/",
+        "websiteLabel": "countapi.mileshilliard.com"
+      },
       {
         "name": "GoatCounter",
         "slug": "goatcounter",

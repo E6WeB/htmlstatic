@@ -226,6 +226,12 @@ Understand website traffic, visitor behavior, and page performance.
 </thead>
 <tbody>
   <tr>
+    <td><a href="tools/analytics-privacy/countapi.md">CountAPI</a></td>
+    <td>Free, key-based hit counter and view tracking API with no signup or keys required</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://countapi.mileshilliard.com/" target="_blank" rel="noopener noreferrer">countapi.mileshilliard.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/analytics-privacy/goatcounter.md">GoatCounter</a></td>
     <td>Lightweight, privacy-friendly web analytics</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>

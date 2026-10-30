@@ -136,6 +136,15 @@
     <lastmod>2026-10-30</lastmod>
   </tool>
   <tool>
+    <title>CountAPI</title>
+    <category>Analytics &amp; Privacy</category>
+    <url>https://staticstack.app/tools/analytics-privacy/countapi</url>
+    <description>
+      Free, key-based hit counter and view tracking API with no signup or keys required
+    </description>
+    <lastmod>2026-10-30</lastmod>
+  </tool>
+  <tool>
     <title>GoatCounter</title>
     <category>Analytics &amp; Privacy</category>
     <url>https://staticstack.app/tools/analytics-privacy/goatcounter</url>

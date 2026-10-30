@@ -289,6 +289,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://staticstack.app/tools/analytics-privacy/countapi</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://staticstack.app/tools/analytics-privacy/goatcounter</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>

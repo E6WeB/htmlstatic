@@ -258,6 +258,12 @@
     "url": "/tools/ai-models/qwen"
   },
   {
+    "title": "CountAPI",
+    "description": "Free, key-based hit counter and view tracking API with no signup or keys required",
+    "category": "Analytics & Privacy",
+    "url": "/tools/analytics-privacy/countapi"
+  },
+  {
     "title": "GoatCounter",
     "description": "Lightweight, privacy-friendly web analytics",
     "category": "Analytics & Privacy",
