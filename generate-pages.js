@@ -1935,7 +1935,8 @@ function renderLayout({
   miniHero = null,
   breadcrumbs = [],
   rootPath = '',
-  ogImage = ''
+  ogImage = '',
+  canonicalUrl = ''
 }) {
   const cleanDescription = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
   const pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
@@ -1946,6 +1947,17 @@ function renderLayout({
     currentNav === 'community' ? 'https://staticstack.app/asset/img/og-community.webp' :
     'https://staticstack.app/asset/img/og-image.webp'
   );
+
+  let pageUrl = canonicalUrl;
+  if (!pageUrl) {
+    if (currentNav === 'home') pageUrl = 'https://staticstack.app/';
+    else if (currentNav === 'archive') pageUrl = 'https://staticstack.app/archive';
+    else if (currentNav === 'submit') pageUrl = 'https://staticstack.app/submit';
+    else if (currentNav === 'contribute') pageUrl = 'https://staticstack.app/contribute';
+    else if (currentNav === 'thankyou') pageUrl = 'https://staticstack.app/thankyou';
+    else if (currentNav === 'community') pageUrl = 'https://staticstack.app/community/';
+    else pageUrl = 'https://staticstack.app/';
+  }
 
   const miniHeroHtml = miniHero ? renderMiniHero(miniHero, rootPath) : '';
   const breadcrumbFallbackHtml = (!miniHero && breadcrumbs.length > 0) ? `
@@ -1963,10 +1975,12 @@ function renderLayout({
   <meta name="description" content="${escapeHtml(cleanDescription)}">
   <meta name="theme-color" content="#2563eb">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+  <link rel="canonical" href="${pageUrl}">
 
   <!-- OpenGraph & Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="StaticStack">
+  <meta property="og:url" content="${pageUrl}">
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(cleanDescription)}">
   <meta property="og:image" content="${pageOgImage}">
@@ -1975,6 +1989,7 @@ function renderLayout({
   <meta property="og:image:height" content="675">
   <meta property="og:image:alt" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="${pageUrl}">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(cleanDescription)}">
   <meta name="twitter:image" content="${pageOgImage}">
@@ -3667,6 +3682,7 @@ allTools.forEach(tool => {
     title: `${tool.name} - ${tool.categoryTitle}`,
     description: `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`,
     currentNav: 'archive',
+    canonicalUrl: `https://staticstack.app/tools/${tool.categorySlug}/${tool.slug}`,
     miniHero: {
       breadcrumbs: [
         { label: 'Home', url: '../../' },
