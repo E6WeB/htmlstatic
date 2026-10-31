@@ -414,88 +414,81 @@
           </div>
         </div>
 
-        <!-- Explore Toolkit Widget (Matches Discover Random Tools) -->
-        <div class="sidebar-widget">
+        <!-- Top Viewed Tools Widget -->
+        <div class="sidebar-widget" id="top-tools-widget">
           <div class="sidebar-widget-header has-action">
             <div style="display:flex;align-items:center;gap:0.5rem;">
               <span style="color:var(--accent);display:inline-flex;align-items:center;">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </span>
-              <h4 class="sidebar-widget-title">Explore Toolkit</h4>
+              <h4 class="sidebar-widget-title">Top Viewed Tools</h4>
             </div>
             <a href="/archive"
               style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
           </div>
-          <div class="sidebar-widget-body" style="display:flex;flex-direction:column;gap:0.4rem;">
-            <a href="/tools/analytics-privacy/umami" class="sidebar-tool-card">
+          <div id="top-tools-list" class="sidebar-widget-body" style="display:flex;flex-direction:column;gap:0.4rem;">
+            <a href="/tools/ai-content-creation/imgmov" class="sidebar-tool-card" title="imgmov">
               <span class="sidebar-tool-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
               </span>
               <div class="sidebar-tool-info">
                 <div class="sidebar-tool-name">
-                  <span>Umami</span>
-                  <span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Open
-                    Source</span>
+                  <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;">imgmov</span>
+                  <span class="badge" style="font-size:0.65rem; padding:0.12rem 0.45rem; background:var(--accent-light); color:var(--accent); border:1px solid rgba(37,99,235,0.18); display:inline-flex; align-items:center; gap:0.25rem; font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span>12 views</span>
+                  </span>
                 </div>
-                <div class="sidebar-tool-desc">Simple, privacy-focused open-source analytics.</div>
+                <div class="sidebar-tool-desc">AI generator for commercial product videos and visual assets.</div>
               </div>
             </a>
-            <a href="/tools/images-optimization/tinypng" class="sidebar-tool-card">
+            <a href="/tools/interactive-scripts/photoswipe" class="sidebar-tool-card" title="PhotoSwipe">
               <span class="sidebar-tool-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                  <polyline points="21 15 16 10 5 21"></polyline>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               </span>
               <div class="sidebar-tool-info">
                 <div class="sidebar-tool-name">
-                  <span>TinyPNG</span>
-                  <span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
+                  <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;">PhotoSwipe</span>
+                  <span class="badge" style="font-size:0.65rem; padding:0.12rem 0.45rem; background:var(--accent-light); color:var(--accent); border:1px solid rgba(37,99,235,0.18); display:inline-flex; align-items:center; gap:0.25rem; font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span>3 views</span>
+                  </span>
                 </div>
-                <div class="sidebar-tool-desc">Smart lossy compression for WebP, PNG, and JPEG.</div>
+                <div class="sidebar-tool-desc">Lightweight JavaScript image gallery and lightbox.</div>
               </div>
             </a>
-            <a href="/tools/static-site-generators/hugo" class="sidebar-tool-card">
+            <a href="/tools/analytics-privacy/umami" class="sidebar-tool-card" title="Umami">
               <span class="sidebar-tool-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
               </span>
               <div class="sidebar-tool-info">
                 <div class="sidebar-tool-name">
-                  <span>Hugo</span>
-                  <span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Open
-                    Source</span>
+                  <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;">Umami</span>
+                  <span class="badge" style="font-size:0.65rem; padding:0.12rem 0.45rem; background:var(--accent-light); color:var(--accent); border:1px solid rgba(37,99,235,0.18); display:inline-flex; align-items:center; gap:0.25rem; font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span>2 views</span>
+                  </span>
                 </div>
-                <div class="sidebar-tool-desc">The world’s fastest framework for building websites.</div>
+                <div class="sidebar-tool-desc">Simple, privacy-focused open-source analytics alternative.</div>
               </div>
             </a>
-            <a href="/archive" class="sidebar-tool-card">
+            <a href="/tools/hosting-deployment/codeberg-pages" class="sidebar-tool-card" title="Codeberg Pages">
               <span class="sidebar-tool-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="21 8 21 21 3 21 3 8"></polyline>
-                  <rect x="1" y="3" width="22" height="5"></rect>
-                  <line x1="10" y1="12" x2="14" y2="12"></line>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
               </span>
               <div class="sidebar-tool-info">
-                <div class="sidebar-tool-name"><span>Master Archive</span></div>
-                <div class="sidebar-tool-desc">110+ curated tools across 26 categories</div>
+                <div class="sidebar-tool-name">
+                  <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;">Codeberg Pages</span>
+                  <span class="badge" style="font-size:0.65rem; padding:0.12rem 0.45rem; background:var(--accent-light); color:var(--accent); border:1px solid rgba(37,99,235,0.18); display:inline-flex; align-items:center; gap:0.25rem; font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span>2 views</span>
+                  </span>
+                </div>
+                <div class="sidebar-tool-desc">Community-driven, privacy-respecting static hosting.</div>
               </div>
             </a>
           </div>

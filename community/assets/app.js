@@ -1532,6 +1532,36 @@
     }
   }
 
+  // Render Top Viewed Tools in community sidebar
+  function renderTopTools(topTools) {
+    const container = document.getElementById('top-tools-list');
+    if (!container || !Array.isArray(topTools) || topTools.length === 0) return;
+
+    const html = topTools.slice(0, 4).map(tool => {
+      const iconSvg = tool.iconSvg || `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+      const viewCount = Number(tool.views || 0);
+      const viewLabel = viewCount === 1 ? '1 view' : `${viewCount.toLocaleString()} views`;
+
+      return `
+        <a href="${escapeHtml(tool.url)}" class="sidebar-tool-card" title="${escapeHtml(tool.name)}">
+          <span class="sidebar-tool-icon">${iconSvg}</span>
+          <div class="sidebar-tool-info">
+            <div class="sidebar-tool-name">
+              <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;">${escapeHtml(tool.name)}</span>
+              <span class="badge" style="font-size:0.65rem; padding:0.12rem 0.45rem; background:var(--accent-light); color:var(--accent); border:1px solid rgba(37,99,235,0.18); display:inline-flex; align-items:center; gap:0.25rem; font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span>${viewLabel}</span>
+              </span>
+            </div>
+            <div class="sidebar-tool-desc">${escapeHtml(tool.desc || tool.description || '')}</div>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    container.innerHTML = html;
+  }
+
   // Application bootstrap
   async function init() {
     try {
@@ -1542,6 +1572,9 @@
       renderCategories();
       accountView();
       renderForumStats();
+      if (data.top_tools) {
+        renderTopTools(data.top_tools);
+      }
 
       const isThreadPage = Boolean($('#thread-main'));
       if (isThreadPage) {

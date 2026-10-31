@@ -1302,7 +1302,16 @@ const BASE_CSS = `
     box-sizing: border-box;
   }
 
-  .archive-sidebar,
+  .archive-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .archive-main {
     min-width: 0;
     max-width: 100%;
