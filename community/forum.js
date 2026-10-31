@@ -59,7 +59,7 @@ const DEFAULT_TOP_TOOLS = [
     url: '/tools/ai-content-creation/imgmov',
     categorySlug: 'ai-content-creation',
     iconSvg: CATEGORY_ICONS['ai-content-creation'],
-    views: 12
+    views: 6
   },
   {
     name: 'PhotoSwipe',
@@ -176,6 +176,135 @@ const pool = new Pool({
   max: 10,
   idleTimeoutMillis: 30000
 });
+
+// Ensure tool_view_ips table exists for 72h rate-limiting
+pool.query(`
+  CREATE TABLE IF NOT EXISTS tool_view_ips (
+    ip VARCHAR(64) NOT NULL,
+    tool_key VARCHAR(128) NOT NULL,
+    viewed_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (ip, tool_key)
+  );
+  CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
+`).catch(() => {});
+
+// 72-hour IP-based tool view rate limiting (72 hours in ms = 259,200,000 ms)
+const VIEW_COOLDOWN_MS = 72 * 60 * 60 * 1000;
+const ipViewsCache = global.__staticstack_ip_view_times || new Map();
+global.__staticstack_ip_view_times = ipViewsCache;
+
+function getClientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  if (forwarded) {
+    const list = forwarded.split(',');
+    if (list.length > 0 && list[0].trim()) {
+      return list[0].trim();
+    }
+  }
+  return req.headers['x-real-ip'] || (req.socket && req.socket.remoteAddress) || '127.0.0.1';
+}
+
+async function recordToolView(req, key, hitRequested = true) {
+  if (!key || typeof key !== 'string') return { error: 'Invalid key' };
+  const cleanKey = key.trim();
+  const ip = getClientIp(req);
+  const now = Date.now();
+  const cacheKey = `${ip}:${cleanKey}`;
+
+  let alreadyViewedRecently = false;
+
+  // 1. Fast in-memory check
+  if (ipViewsCache.has(cacheKey)) {
+    const lastTime = ipViewsCache.get(cacheKey);
+    if (now - lastTime < VIEW_COOLDOWN_MS) {
+      alreadyViewedRecently = true;
+    }
+  }
+
+  // 2. Check PostgreSQL database if not in memory
+  if (!alreadyViewedRecently) {
+    try {
+      const res = await pool.query(
+        'SELECT viewed_at FROM tool_view_ips WHERE ip = $1 AND tool_key = $2',
+        [ip, cleanKey]
+      );
+      if (res.rows.length > 0) {
+        const lastViewedAt = new Date(res.rows[0].viewed_at).getTime();
+        if (now - lastViewedAt < VIEW_COOLDOWN_MS) {
+          alreadyViewedRecently = true;
+          ipViewsCache.set(cacheKey, lastViewedAt);
+        }
+      }
+    } catch (e) {}
+  }
+
+  const shouldHit = hitRequested && !alreadyViewedRecently;
+  let currentCount = allToolViewsCache[cleanKey] !== undefined ? Number(allToolViewsCache[cleanKey]) : 0;
+
+  if (shouldHit) {
+    ipViewsCache.set(cacheKey, now);
+    try {
+      await pool.query(
+        `INSERT INTO tool_view_ips (ip, tool_key, viewed_at)
+         VALUES ($1, $2, NOW())
+         ON CONFLICT (ip, tool_key)
+         DO UPDATE SET viewed_at = NOW()`,
+        [ip, cleanKey]
+      );
+    } catch (e) {}
+
+    try {
+      const hitRes = await fetch('https://countapi.mileshilliard.com/api/v1/hit/' + encodeURIComponent(cleanKey), {
+        signal: AbortSignal.timeout(4000)
+      });
+      if (hitRes.ok) {
+        const data = await hitRes.json();
+        if (data && data.value !== undefined) {
+          currentCount = Number(data.value);
+        } else {
+          currentCount += 1;
+        }
+      } else {
+        currentCount += 1;
+      }
+    } catch {
+      currentCount += 1;
+    }
+
+    allToolViewsCache[cleanKey] = currentCount;
+    try {
+      fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(allToolViewsCache, null, 2));
+    } catch {}
+
+    return {
+      key: cleanKey,
+      value: currentCount,
+      counted: true,
+      cooldown_hours: 72
+    };
+  } else {
+    // Read only (CountAPI get) without incrementing
+    try {
+      const getRes = await fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(cleanKey), {
+        signal: AbortSignal.timeout(3000)
+      });
+      if (getRes.ok) {
+        const data = await getRes.json();
+        if (data && data.value !== undefined) {
+          currentCount = Number(data.value);
+          allToolViewsCache[cleanKey] = currentCount;
+        }
+      }
+    } catch {}
+
+    return {
+      key: cleanKey,
+      value: currentCount,
+      counted: false,
+      cooldown_hours: 72
+    };
+  }
+}
 
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || 'Ov23liDIeZsYUApYQwiD';
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || '8d91e6a78d709127370caedb9c2fe4af89a02b0f';
@@ -345,6 +474,14 @@ async function handleApi(req, res, pathname, query) {
         refreshTopToolsCache().catch(() => {});
       }
       sendJson(res, { views: allToolViewsCache });
+      return true;
+    }
+
+    if (action === 'tool-view' || action === 'tool_view' || action === 'hit-view' || action === 'view') {
+      const key = query.key || '';
+      const hitRequested = query.hit !== '0' && query.hit !== 'false';
+      const result = await recordToolView(req, key, hitRequested);
+      sendJson(res, result);
       return true;
     }
 
@@ -1036,5 +1173,7 @@ async function handleOAuth(req, res, pathname, query) {
 module.exports = {
   pool,
   handleApi,
-  handleOAuth
+  handleOAuth,
+  recordToolView,
+  getClientIp
 };

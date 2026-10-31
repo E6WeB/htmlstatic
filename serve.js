@@ -34,6 +34,26 @@ const server = http.createServer((req, res) => {
   let pathname = decodeURIComponent(reqUrl.pathname);
   const query = Object.fromEntries(reqUrl.searchParams.entries());
 
+  // Handle Tool View Counter API (/api/view or /api/tool-view)
+  if (pathname === '/api/view' || pathname === '/api/tool-view') {
+    delete require.cache[require.resolve('./community/forum.js')];
+    const key = query.key || '';
+    const hitRequested = query.hit !== '0' && query.hit !== 'false';
+    return require('./community/forum.js').recordToolView(req, key, hitRequested)
+      .then(result => {
+        res.writeHead(200, {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Access-Control-Allow-Origin': '*',
+          'Cache-Control': 'no-store, no-cache, must-revalidate'
+        });
+        res.end(JSON.stringify(result));
+      })
+      .catch(err => {
+        res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ error: err.message }));
+      });
+  }
+
   // Handle Community Forum API (/community/api or /community/api.php)
   if (pathname === '/community/api' || pathname === '/community/api.php') {
     delete require.cache[require.resolve('./community/forum.js')];

@@ -1906,7 +1906,7 @@ const res = await fetch(&quot;https://api.deepseek.com/chat/completions&quot;, {
               </script>
             </section>
 
-            <!-- Tool View Counter via CountAPI -->
+            <!-- Tool View Counter with 72-Hour IP Deduplication & CountAPI -->
             <script>
               (function() {
                 const countEl = document.getElementById('tool-view-count');
@@ -1914,11 +1914,15 @@ const res = await fetch(&quot;https://api.deepseek.com/chat/completions&quot;, {
                 const key = countEl.getAttribute('data-key');
                 if (!key) return;
 
-                const sessionKey = 'hs_view_' + key;
-                let alreadyViewed = false;
+                const storageKey = 'hs_view_ts_' + key;
+                const cooldownMs = 72 * 60 * 60 * 1000; // 72 hours
+                const now = Date.now();
+                let lastViewed = 0;
                 try {
-                  alreadyViewed = !!sessionStorage.getItem(sessionKey);
+                  lastViewed = parseInt(localStorage.getItem(storageKey) || '0', 10);
                 } catch (e) {}
+
+                const alreadyViewed = (now - lastViewed) < cooldownMs;
 
                 function updateDisplay(val) {
                   const num = Number(val);
@@ -1927,29 +1931,37 @@ const res = await fetch(&quot;https://api.deepseek.com/chat/completions&quot;, {
                   }
                 }
 
-                const endpoint = alreadyViewed ? 'get' : 'hit';
-                fetch('https://countapi.mileshilliard.com/api/v1/' + endpoint + '/' + encodeURIComponent(key))
+                // Call StaticStack API with 72-hour IP deduplication
+                const apiParam = alreadyViewed ? '&hit=0' : '&hit=1';
+                fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + apiParam)
                   .then(function(res) {
-                    if (!res.ok) {
-                      if (endpoint === 'get') return { value: 0 };
-                      throw new Error('CountAPI error');
-                    }
+                    if (!res.ok) throw new Error('API error');
                     return res.json();
                   })
                   .then(function(data) {
                     if (data && data.value !== undefined) {
                       updateDisplay(data.value);
-                      if (!alreadyViewed) {
-                        try {
-                          sessionStorage.setItem(sessionKey, '1');
-                        } catch (e) {}
-                      }
+                      try {
+                        localStorage.setItem(storageKey, String(now));
+                      } catch (e) {}
                     }
                   })
                   .catch(function() {
-                    if (countEl.textContent === '--') {
-                      countEl.textContent = '1';
-                    }
+                    // Fallback to read-only CountAPI get if community API is unreachable
+                    fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(key))
+                      .then(function(res) { return res.ok ? res.json() : null; })
+                      .then(function(data) {
+                        if (data && data.value !== undefined) {
+                          updateDisplay(data.value);
+                        } else if (countEl.textContent === '--') {
+                          countEl.textContent = '0';
+                        }
+                      })
+                      .catch(function() {
+                        if (countEl.textContent === '--') {
+                          countEl.textContent = '0';
+                        }
+                      });
                   });
               })();
             </script>
