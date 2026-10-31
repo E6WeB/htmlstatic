@@ -5,10 +5,22 @@ const path = require('path');
 const { Pool } = require('pg');
 
 // Top Viewed Tools in-memory cache and background updater
-let topToolsCache = null;
-let topToolsLastFetch = 0;
+const VIEWS_CACHE_FILE = path.join(__dirname, '..', 'asset', 'json', 'tool-views-cache.json');
+let topToolsCache = global.__staticstack_top_tools_cache || null;
+let allToolViewsCache = global.__staticstack_all_tool_views || null;
+let topToolsLastFetch = global.__staticstack_top_tools_last_fetch || 0;
 let isRefreshingTopTools = false;
 const TOP_TOOLS_CACHE_TTL = 60 * 60 * 1000; // 1 hour
+
+if (!allToolViewsCache) {
+  try {
+    if (fs.existsSync(VIEWS_CACHE_FILE)) {
+      allToolViewsCache = JSON.parse(fs.readFileSync(VIEWS_CACHE_FILE, 'utf8'));
+      global.__staticstack_all_tool_views = allToolViewsCache;
+    }
+  } catch {}
+}
+if (!allToolViewsCache) allToolViewsCache = {};
 
 const CATEGORY_ICONS = {
   'ai-content-creation': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>`,
@@ -87,6 +99,7 @@ async function refreshTopToolsCache() {
 
     const pLimit = 15;
     const results = [];
+    const viewsMap = {};
     for (let i = 0; i < items.length; i += pLimit) {
       const chunk = items.slice(i, i + pLimit);
       const chunkRes = await Promise.all(chunk.map(async t => {
@@ -103,6 +116,7 @@ async function refreshTopToolsCache() {
             if (data && data.value !== undefined) views = Number(data.value) || 0;
           }
         } catch {}
+        viewsMap[key] = views;
         return {
           name: t.title,
           desc: t.description,
@@ -115,11 +129,19 @@ async function refreshTopToolsCache() {
       results.push(...chunkRes);
     }
 
+    allToolViewsCache = viewsMap;
+    global.__staticstack_all_tool_views = viewsMap;
+    try {
+      fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(viewsMap, null, 2));
+    } catch {}
+
     results.sort((a, b) => b.views - a.views);
     const top4 = results.slice(0, 4);
     if (top4.length > 0) {
       topToolsCache = top4;
+      global.__staticstack_top_tools_cache = top4;
       topToolsLastFetch = Date.now();
+      global.__staticstack_top_tools_last_fetch = topToolsLastFetch;
     }
   } catch (err) {
     console.error('[TopTools] Error refreshing view cache:', err.message);
@@ -315,6 +337,14 @@ async function handleApi(req, res, pathname, query) {
     if (action === 'top_tools' || action === 'top-tools') {
       const topTools = await getTopTools();
       sendJson(res, { top_tools: topTools });
+      return true;
+    }
+
+    if (action === 'tool-views' || action === 'tool_views') {
+      if (!Object.keys(allToolViewsCache).length) {
+        refreshTopToolsCache().catch(() => {});
+      }
+      sendJson(res, { views: allToolViewsCache });
       return true;
     }
 

@@ -2663,33 +2663,54 @@ fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
 // ==========================================================================
 console.log('📚 Generating Archive Page with wider sidebar (archive.html)...');
 
-const archiveRandomTools = getRandomTools('archive', 4);
-const archiveRandomToolsHtml = archiveRandomTools.map(rt => {
-  let rtBadgeClass = 'badge-freemium';
-  const rtPBadge = rt.primaryBadge.toLowerCase();
-  if (rtPBadge.includes('open source')) {
-    rtBadgeClass = 'badge-open-source';
-  } else if (rtPBadge.includes('free')) {
-    rtBadgeClass = 'badge-free';
-  } else if (rtPBadge.includes('paid')) {
-    rtBadgeClass = 'badge-paid';
+const initialArchiveTopTools = [
+  {
+    name: 'imgmov',
+    slug: 'imgmov',
+    categorySlug: 'ai-content-creation',
+    tagline: 'AI generator for commercial product videos, images, and visual assets.',
+    views: 12
+  },
+  {
+    name: 'PhotoSwipe',
+    slug: 'photoswipe',
+    categorySlug: 'interactive-scripts',
+    tagline: 'Lightweight JavaScript image gallery and lightbox with smooth zoom.',
+    views: 3
+  },
+  {
+    name: 'Umami',
+    slug: 'umami',
+    categorySlug: 'analytics-privacy',
+    tagline: 'Simple, privacy-focused open-source analytics alternative.',
+    views: 2
+  },
+  {
+    name: 'Codeberg Pages',
+    slug: 'codeberg-pages',
+    categorySlug: 'hosting-deployment',
+    tagline: 'Community-driven, privacy-respecting, and free static website hosting.',
+    views: 2
   }
+];
 
-  return `
-    <a href="tools/${rt.categorySlug}/${rt.slug}" class="sidebar-tool-card">
+const archiveTopToolsHtml = initialArchiveTopTools.map(t => `
+    <a href="tools/${t.categorySlug}/${t.slug}" class="sidebar-tool-card" title="${escapeHtml(t.name)}">
       <span class="sidebar-tool-icon">
-        ${CATEGORY_ICONS[rt.categorySlug] || ICONS.zap}
+        ${CATEGORY_ICONS[t.categorySlug] || ICONS.zap}
       </span>
       <div class="sidebar-tool-info">
         <div class="sidebar-tool-name">
-          <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(rt.name)}</span>
-          <span class="badge ${rtBadgeClass}" style="font-size:0.65rem; padding:0.1rem 0.4rem;">${escapeHtml(rt.primaryBadge)}</span>
+          <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;">${escapeHtml(t.name)}</span>
+          <span class="badge" style="font-size:0.65rem; padding:0.12rem 0.45rem; background:var(--accent-light); color:var(--accent); border:1px solid rgba(37,99,235,0.18); display:inline-flex; align-items:center; gap:0.25rem; font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <span>${t.views} views</span>
+          </span>
         </div>
-        <div class="sidebar-tool-desc">${escapeHtml(rt.tagline || rt.description)}</div>
+        <div class="sidebar-tool-desc">${escapeHtml(t.tagline)}</div>
       </div>
     </a>
-  `;
-}).join('');
+`).join('');
 
 const archiveContent = `
   <!-- Archive Layout -->
@@ -2753,17 +2774,22 @@ const archiveContent = `
         </div>
       </div>
 
-      <!-- Discover Random Tools Card -->
-      <div class="sidebar-widget archive-sidebar-secondary">
+      <!-- Top Viewed Tools Card -->
+      <div class="sidebar-widget archive-sidebar-secondary" id="archive-top-tools-widget">
         <div class="sidebar-widget-header" style="justify-content:space-between;">
           <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.star}</span>
-            <h4 class="sidebar-widget-title">Featured Tools</h4>
+            <span style="color:var(--accent); display:inline-flex; align-items:center;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </span>
+            <h4 class="sidebar-widget-title">Top Viewed Tools</h4>
           </div>
           <a href="#ai-content-creation" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">Explore All &rarr;</a>
         </div>
-        <div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
-          ${archiveRandomToolsHtml}
+        <div id="archive-top-tools-list" class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
+          ${archiveTopToolsHtml}
         </div>
       </div>
 
@@ -3010,14 +3036,46 @@ const archiveContent = `
       }
     });
 
-    // Tool Views Fetcher (staggered & lazy-loaded via IntersectionObserver)
+    // Tool Views Auto-Loader (Instant sessionStorage + Immediate IntersectionObserver + Fast Static Cache + API Fallback)
     const viewCache = new Map();
+
+    function applyViewsMap(viewsMap) {
+      if (!viewsMap || typeof viewsMap !== 'object') return;
+      try {
+        const existing = JSON.parse(sessionStorage.getItem('staticstack_tool_views') || '{}');
+        Object.assign(existing, viewsMap);
+        sessionStorage.setItem('staticstack_tool_views', JSON.stringify(existing));
+      } catch (e) {}
+
+      document.querySelectorAll('.tool-archive-views[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (viewsMap[key] !== undefined) {
+          const val = Number(viewsMap[key]) || 0;
+          const formatted = val.toLocaleString();
+          viewCache.set(key, formatted);
+          const numEl = el.querySelector('.view-count-num');
+          if (numEl) numEl.textContent = formatted;
+          el.setAttribute('data-fetched', 'true');
+        }
+      });
+    }
+
+    // 1. Immediately apply any views already saved in sessionStorage (0ms instant display)
+    try {
+      const saved = sessionStorage.getItem('staticstack_tool_views');
+      if (saved) {
+        applyViewsMap(JSON.parse(saved));
+      }
+    } catch (e) {}
+
+    // 2. Direct CountAPI Queue
     const viewQueue = [];
-    let isProcessingViewQueue = false;
+    let activeWorkers = 0;
+    const MAX_WORKERS = 4;
 
     function processViewQueue() {
-      if (isProcessingViewQueue || viewQueue.length === 0) return;
-      isProcessingViewQueue = true;
+      if (activeWorkers >= MAX_WORKERS || viewQueue.length === 0) return;
+      activeWorkers++;
       const item = viewQueue.shift();
       const key = item.key;
       const el = item.el;
@@ -3025,33 +3083,38 @@ const archiveContent = `
       if (viewCache.has(key)) {
         const numEl = el.querySelector('.view-count-num');
         if (numEl) numEl.textContent = viewCache.get(key);
-        isProcessingViewQueue = false;
+        activeWorkers--;
         setTimeout(processViewQueue, 10);
         return;
       }
 
-      fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(key))
-        .then(res => {
-          if (!res.ok) return { value: 0 };
-          return res.json();
-        })
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3500);
+
+      fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(key), { signal: controller.signal })
+        .then(res => res.ok ? res.json() : { value: 0 })
         .then(data => {
+          clearTimeout(timeoutId);
           const raw = data && data.value !== undefined ? Number(data.value) : 0;
           const val = (!isNaN(raw) && raw >= 0) ? raw : 0;
           const formatted = val.toLocaleString();
           viewCache.set(key, formatted);
+          try {
+            const saved = JSON.parse(sessionStorage.getItem('staticstack_tool_views') || '{}');
+            saved[key] = val;
+            sessionStorage.setItem('staticstack_tool_views', JSON.stringify(saved));
+          } catch (e) {}
           const numEl = el.querySelector('.view-count-num');
           if (numEl) numEl.textContent = formatted;
         })
         .catch(() => {
+          clearTimeout(timeoutId);
           const numEl = el.querySelector('.view-count-num');
           if (numEl && numEl.textContent === '--') numEl.textContent = '0';
         })
         .finally(() => {
-          setTimeout(() => {
-            isProcessingViewQueue = false;
-            processViewQueue();
-          }, 35);
+          activeWorkers--;
+          setTimeout(processViewQueue, 20);
         });
     }
 
@@ -3065,24 +3128,104 @@ const archiveContent = `
       }
     }
 
-    if ('IntersectionObserver' in window) {
-      const viewObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            obs.unobserve(entry.target);
-            queueViewFetch(entry.target);
+    // 3. Immediately start observing all visible rows on screen (zero delay!)
+    function initViewObserver() {
+      if ('IntersectionObserver' in window) {
+        const viewObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              obs.unobserve(entry.target);
+              queueViewFetch(entry.target);
+            }
+          });
+        }, { rootMargin: '350px 0px' });
+
+        document.querySelectorAll('.tool-archive-views[data-key]').forEach(el => {
+          if (el.getAttribute('data-fetched') !== 'true') {
+            viewObserver.observe(el);
           }
         });
-      }, { rootMargin: '300px 0px' });
-
-      document.querySelectorAll('.tool-archive-views[data-key]').forEach(el => {
-        viewObserver.observe(el);
-      });
-    } else {
-      document.querySelectorAll('.tool-archive-views[data-key]').forEach(el => {
-        queueViewFetch(el);
-      });
+      } else {
+        document.querySelectorAll('.tool-archive-views[data-key]').forEach(el => {
+          queueViewFetch(el);
+        });
+      }
     }
+
+    // 4. Fast static JSON batch loader + API fallback in background
+    function loadArchiveBatchViews() {
+      const tryFetch = function(url) {
+        const ctrl = new AbortController();
+        const tid = setTimeout(function() { ctrl.abort(); }, 2500);
+        return fetch(url, { signal: ctrl.signal })
+          .then(function(res) {
+            clearTimeout(tid);
+            return res.ok ? res.json() : null;
+          })
+          .catch(function() {
+            clearTimeout(tid);
+            return null;
+          });
+      };
+
+      tryFetch('asset/json/tool-views-cache.json')
+        .then(function(data) {
+          if (data && typeof data === 'object' && Object.keys(data).length > 0) {
+            applyViewsMap(data.views || data);
+            return true;
+          }
+          return tryFetch('/community/api?action=tool-views');
+        })
+        .then(function(data) {
+          if (data && data !== true && data.views && Object.keys(data.views).length > 0) {
+            applyViewsMap(data.views);
+          }
+        })
+        .catch(function() {});
+
+      // Refresh Top Viewed Tools in archive sidebar
+      tryFetch('/community/api?action=top-tools')
+        .then(function(data) {
+          if (!data || !Array.isArray(data.top_tools) || !data.top_tools.length) return;
+          const listEl = document.getElementById('archive-top-tools-list');
+          if (!listEl) return;
+          listEl.innerHTML = data.top_tools.slice(0, 4).map(function(t) {
+            var icon = t.iconSvg || '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+            var v = Number(t.views || 0);
+            var vText = v === 1 ? '1 view' : v.toLocaleString() + ' views';
+            var link = t.url.startsWith('/') ? t.url.slice(1) : t.url;
+            return '<a href="' + link + '" class="sidebar-tool-card" title="' + t.name + '">' +
+              '<span class="sidebar-tool-icon">' + icon + '</span>' +
+              '<div class="sidebar-tool-info">' +
+                '<div class="sidebar-tool-name">' +
+                  '<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;">' + t.name + '</span>' +
+                  '<span class="badge" style="font-size:0.65rem; padding:0.12rem 0.45rem; background:var(--accent-light); color:var(--accent); border:1px solid rgba(37,99,235,0.18); display:inline-flex; align-items:center; gap:0.25rem; font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;">' +
+                    '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>' +
+                    '<span>' + vText + '</span>' +
+                  '</span>' +
+                '</div>' +
+                '<div class="sidebar-tool-desc">' + (t.desc || t.description || '') + '</div>' +
+              '</div>' +
+            '</a>';
+          }).join('');
+        })
+        .catch(function() {});
+    }
+
+    // Execute immediately on load
+    initViewObserver();
+    loadArchiveBatchViews();
+
+    // Auto-refresh when navigating back via browser history or switching tabs (bfcache support)
+    window.addEventListener('pageshow', function(e) {
+      initViewObserver();
+      loadArchiveBatchViews();
+    });
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') {
+        loadArchiveBatchViews();
+      }
+    });
   </script>
 `;
 
