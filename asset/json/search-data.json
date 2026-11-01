@@ -282,6 +282,12 @@
     "url": "/tools/analytics-privacy/plausible"
   },
   {
+    "title": "Statcounter",
+    "description": "Real-time web analytics, visitor paths, and page counters",
+    "category": "Analytics & Privacy",
+    "url": "/tools/analytics-privacy/statcounter"
+  },
+  {
     "title": "Umami",
     "description": "Open-source website analytics",
     "category": "Analytics & Privacy",
@@ -298,12 +304,6 @@
     "description": "All-in-one membership, authentication, payments, and CRM",
     "category": "Authentication & User Management",
     "url": "/tools/authentication-users/outseta"
-  },
-  {
-    "title": "Reflow",
-    "description": "User sign-in, session auth, and subscriber management for static frontends",
-    "category": "Authentication & User Management",
-    "url": "/tools/payments-ecommerce/reflow"
   },
   {
     "title": "Supabase Auth",
@@ -520,6 +520,12 @@
     "description": "Code formatter for HTML, CSS, JavaScript, and more",
     "category": "Development Tools",
     "url": "/tools/development-tools/prettier"
+  },
+  {
+    "title": "sitereal",
+    "description": "Visual builder for Astro writing real components into your repo with full code access",
+    "category": "Development Tools",
+    "url": "/tools/development-tools/sitereal"
   },
   {
     "title": "Visual Studio Code",

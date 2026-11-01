@@ -213,7 +213,7 @@
     "title": "Analytics & Privacy",
     "slug": "analytics-privacy",
     "description": "Understand website traffic, visitor behavior, and page performance.",
-    "toolsCount": 4,
+    "toolsCount": 5,
     "tools": [
       {
         "name": "CountAPI",
@@ -255,6 +255,18 @@
         "websiteLabel": "plausible.io"
       },
       {
+        "name": "Statcounter",
+        "slug": "statcounter",
+        "relPath": "tools/analytics-privacy/statcounter.md",
+        "folder": "analytics-privacy",
+        "description": "Real-time web analytics, visitor paths, and page counters",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://statcounter.com/",
+        "websiteLabel": "statcounter.com"
+      },
+      {
         "name": "Umami",
         "slug": "umami",
         "relPath": "tools/analytics-privacy/umami.md",
@@ -273,7 +285,7 @@
     "title": "Authentication & User Management",
     "slug": "authentication-users",
     "description": "Add user login, member areas, and gated content to static sites without backend code.",
-    "toolsCount": 4,
+    "toolsCount": 3,
     "tools": [
       {
         "name": "Clerk",
@@ -298,18 +310,6 @@
         ],
         "websiteUrl": "https://outseta.com/",
         "websiteLabel": "outseta.com"
-      },
-      {
-        "name": "Reflow",
-        "slug": "reflow",
-        "relPath": "tools/payments-ecommerce/reflow.md",
-        "folder": "payments-ecommerce",
-        "description": "User sign-in, session auth, and subscriber management for static frontends",
-        "badges": [
-          "Freemium"
-        ],
-        "websiteUrl": "https://reflowhq.com/",
-        "websiteLabel": "reflowhq.com"
       },
       {
         "name": "Supabase Auth",
@@ -676,7 +676,7 @@
     "title": "Development Tools",
     "slug": "development-tools",
     "description": "Tools that make building, testing, and maintaining static websites easier.",
-    "toolsCount": 13,
+    "toolsCount": 14,
     "tools": [
       {
         "name": "Antigravity CLI",
@@ -809,6 +809,18 @@
         ],
         "websiteUrl": "https://prettier.io/",
         "websiteLabel": "prettier.io"
+      },
+      {
+        "name": "sitereal",
+        "slug": "sitereal",
+        "relPath": "tools/development-tools/sitereal.md",
+        "folder": "development-tools",
+        "description": "Visual builder for Astro writing real components into your repo with full code access",
+        "badges": [
+          "Paid"
+        ],
+        "websiteUrl": "https://sitereal.app/",
+        "websiteLabel": "sitereal.app"
       },
       {
         "name": "Visual Studio Code",

@@ -1069,6 +1069,157 @@ const BASE_CSS = `
     color: var(--badge-paid-text);
   }
 
+  /* Home Page Top 4 Viewed Tools Grid */
+  .home-top-tool-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--text-main);
+    box-shadow: var(--shadow-card);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .home-top-tool-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.12);
+  }
+
+  .home-top-tool-cover-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-muted);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .home-top-tool-cover-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .home-top-tool-card:hover .home-top-tool-cover-wrap img {
+    transform: scale(1.03);
+  }
+
+  .home-top-tool-cat-pill {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.65rem;
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-main);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .home-top-tool-body {
+    padding: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.65rem;
+  }
+
+  .home-top-tool-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .home-top-tool-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .home-top-tool-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-main);
+  }
+
+  .home-top-tool-desc {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+
+  .home-top-tool-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+  }
+
+  .home-top-tool-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .home-stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.725rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-muted);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .home-stat-pill svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .home-stat-pill-likes svg {
+    color: #e11d48;
+  }
+
+  .home-top-tool-arrow {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+
+  .home-top-tool-card:hover .home-top-tool-arrow {
+    transform: translateX(3px);
+  }
+
   /* Footer */
   .site-footer {
     background: var(--bg-surface);
@@ -1249,6 +1400,31 @@ const BASE_CSS = `
     text-align: center;
     color: var(--text-subtle);
     font-size: 0.85rem;
+  }
+
+  .footer-statcounter {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  .footer-statcounter,
+  .footer-statcounter *,
+  .footer-statcounter a,
+  .footer-statcounter .statcounter a {
+    pointer-events: none !important;
+    cursor: default !important;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  .footer-statcounter img,
+  .footer-statcounter .statcounter img {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    border: 0 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
   }
 
   /* Markdown Body Rendering */
@@ -2256,7 +2432,14 @@ function renderLayout({
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a></p>
+        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <span class="footer-statcounter" title="Total Site Visitors"><!-- Default Statcounter code for StaticStacks https://www.staticstack.app/ --><script type="text/javascript">
+var sc_project=13364370; 
+var sc_invisible=0; 
+var sc_security="cae7fdd5"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script><noscript><span class="statcounter"><img class="statcounter" src="https://c.statcounter.com/13364370/0/cae7fdd5/0/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></span></noscript><!-- End of Statcounter Code --></span></p>
       </div>
     </div>
   </footer>
@@ -2270,6 +2453,22 @@ function renderLayout({
   <script>
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Strip hyperlinks from statcounter so only plain counter displays
+    const scWrap = document.querySelector('.footer-statcounter');
+    if (scWrap) {
+      const cleanSc = () => {
+        scWrap.querySelectorAll('a').forEach(a => {
+          a.removeAttribute('href');
+          a.removeAttribute('target');
+          a.removeAttribute('title');
+          a.style.pointerEvents = 'none';
+          a.style.cursor = 'default';
+        });
+      };
+      cleanSc();
+      new MutationObserver(cleanSc).observe(scWrap, { childList: true, subtree: true });
+    }
 
     // Floating Back to Top
     const backToTopBtn = document.getElementById('back-to-top');
@@ -2335,6 +2534,80 @@ function renderLayout({
 // 1. Generate index.html (Home Page)
 // ==========================================================================
 console.log('🏠 Generating Home Page (index.html)...');
+
+// Load current view counts from tool-views-cache.json to pick top 4 tools
+let cachedViewsMap = {};
+const toolViewsJsonPath = path.join(ASSET_DIR, 'json', 'tool-views-cache.json');
+try {
+  if (fs.existsSync(toolViewsJsonPath)) {
+    cachedViewsMap = JSON.parse(fs.readFileSync(toolViewsJsonPath, 'utf8'));
+  }
+} catch (e) {}
+
+const topToolsList = allTools.map(tool => {
+  const key = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
+  const views = Number(cachedViewsMap[key]) || 0;
+  return {
+    ...tool,
+    key,
+    views
+  };
+}).sort((a, b) => b.views - a.views).slice(0, 4);
+
+const homeTopToolsHtml = topToolsList.map(t => {
+  let badgeClass = 'badge-freemium';
+  const pBadge = (t.primaryBadge || '').toLowerCase();
+  if (pBadge.includes('open source')) {
+    badgeClass = 'badge-open-source';
+  } else if (pBadge.includes('freemium')) {
+    badgeClass = 'badge-freemium';
+  } else if (pBadge.includes('free')) {
+    badgeClass = 'badge-free';
+  } else if (pBadge.includes('paid')) {
+    badgeClass = 'badge-paid';
+  }
+
+  const coverUrl = `tools/${t.categorySlug}/${t.slug}-cover.webp`;
+  const toolPageUrl = `tools/${t.categorySlug}/${t.slug}`;
+  const toolSlugPath = `/tools/${t.categorySlug}/${t.slug}`;
+
+  return `
+    <a href="${toolPageUrl}" class="home-top-tool-card" data-slug="${toolSlugPath}" data-key="${t.key}" title="Explore ${escapeHtml(t.name)}">
+      <div class="home-top-tool-cover-wrap">
+        <img src="${coverUrl}" alt="${escapeHtml(t.name)} preview screenshot" width="640" height="360" loading="lazy">
+        <span class="home-top-tool-cat-pill">${escapeHtml(t.categoryTitle)}</span>
+      </div>
+      <div class="home-top-tool-body">
+        <div class="home-top-tool-header">
+          <div class="home-top-tool-title-wrap">
+            <span class="home-top-tool-icon">${getToolSiteIcon(t, 22)}</span>
+            <h3 class="home-top-tool-title">${escapeHtml(t.name)}</h3>
+          </div>
+          <span class="badge ${badgeClass}" style="font-size:0.675rem; padding:0.12rem 0.45rem;">${escapeHtml(t.primaryBadge)}</span>
+        </div>
+        <p class="home-top-tool-desc">${escapeHtml(t.tagline || t.description)}</p>
+        <div class="home-top-tool-footer">
+          <div class="home-top-tool-stats">
+            <span class="home-stat-pill" title="Total Views">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span class="home-top-tool-views-val">${t.views}</span> views
+            </span>
+            <span class="home-stat-pill home-stat-pill-likes" title="Community Likes">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+              </svg>
+              <span class="home-top-tool-likes-val" data-likes-slug="${toolSlugPath}">0</span> likes
+            </span>
+          </div>
+          <span class="home-top-tool-arrow">${ICONS.arrowRight}</span>
+        </div>
+      </div>
+    </a>
+  `;
+}).join('');
 
 const homeContent = `
   <section class="hero" style="text-align:center; padding: 4rem 0 3rem;">
@@ -2409,6 +2682,33 @@ const homeContent = `
         <div style="font-size:2rem; font-weight:800; color:var(--accent); margin-bottom:0.25rem;">100%</div>
         <div style="font-size:0.85rem; color:var(--text-muted); font-weight:500;">Free &amp; Open Source</div>
       </div>
+    </div>
+  </section>
+
+  <!-- Top 4 Viewed Tools Section -->
+  <section id="top-tools" style="padding: 3.5rem 0 1.25rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:1.75rem; gap:1rem; flex-wrap:wrap;">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:0.45rem; padding:0.25rem 0.75rem; background:rgba(37, 99, 235, 0.08); color:var(--accent); border:1px solid rgba(37, 99, 235, 0.2); border-radius:var(--radius-full); font-size:0.775rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.75rem;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Community Favorites</span>
+        </div>
+        <h2 style="font-size:clamp(1.65rem, 3vw, 2.15rem); font-weight:800; letter-spacing:-0.02em; margin-bottom:0.35rem; color:var(--text-main);">
+          Top Viewed Tools
+        </h2>
+        <p style="color:var(--text-muted); font-size:0.975rem; margin:0;">
+          The most popular and explored tools across the static web ecosystem.
+        </p>
+      </div>
+      <a href="archive" class="btn btn-secondary" style="font-size:0.85rem;">
+        View Master Archive &rarr;
+      </a>
+    </div>
+
+    <div class="home-top-tools-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.35rem;">
+      ${homeTopToolsHtml}
     </div>
   </section>
 
@@ -2678,7 +2978,12 @@ const homeContent = `
         results.forEach(res => {
           if (res && typeof res === 'object') {
             for (const k in res) {
-              total += (Number(res[k]) || 0);
+              const count = Number(res[k]) || 0;
+              total += count;
+              const likeEl = document.querySelector('[data-likes-slug="' + k + '"]');
+              if (likeEl) {
+                likeEl.textContent = count.toLocaleString();
+              }
             }
           }
         });
@@ -2688,6 +2993,22 @@ const homeContent = `
       .catch(err => {
         console.warn('Could not refresh live total likes:', err);
       });
+
+      // Hydrate live view counts on top tool cards
+      fetch('/community/api?action=tool-views')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (data && data.views) {
+            document.querySelectorAll('.home-top-tool-card').forEach(card => {
+              const key = card.getAttribute('data-key');
+              if (key && data.views[key] !== undefined) {
+                const vEl = card.querySelector('.home-top-tool-views-val');
+                if (vEl) vEl.textContent = Number(data.views[key]).toLocaleString();
+              }
+            });
+          }
+        })
+        .catch(() => {});
     })();
   </script>
 `;
@@ -4014,7 +4335,7 @@ allTools.forEach(tool => {
               </script>
             </section>
 
-            <!-- Tool View Counter with 72-Hour IP Deduplication & CountAPI -->
+            <!-- Tool View Counter: Only counts new unique visitors -->
             <script>
               (function() {
                 const countEl = document.getElementById('tool-view-count');
@@ -4022,15 +4343,19 @@ allTools.forEach(tool => {
                 const key = countEl.getAttribute('data-key');
                 if (!key) return;
 
-                const storageKey = 'hs_view_ts_' + key;
-                const cooldownMs = 72 * 60 * 60 * 1000; // 72 hours
-                const now = Date.now();
-                let lastViewed = 0;
+                const viewedKey = 'hs_viewed_' + key;
+                let alreadyViewed = false;
                 try {
-                  lastViewed = parseInt(localStorage.getItem(storageKey) || '0', 10);
+                  alreadyViewed = !!localStorage.getItem(viewedKey) || (document.cookie.indexOf(viewedKey + '=1') !== -1);
                 } catch (e) {}
 
-                const alreadyViewed = (now - lastViewed) < cooldownMs;
+                // If this is a new viewer, mark immediately in localStorage & cookie so reloads never double-count
+                if (!alreadyViewed) {
+                  try {
+                    localStorage.setItem(viewedKey, '1');
+                    document.cookie = viewedKey + '=1; path=/; max-age=315360000; SameSite=Lax';
+                  } catch (e) {}
+                }
 
                 function updateDisplay(val) {
                   const num = Number(val);
@@ -4039,7 +4364,7 @@ allTools.forEach(tool => {
                   }
                 }
 
-                // Call StaticStack API with 72-hour IP deduplication
+                // Call StaticStack API (hit=1 ONLY if this is a brand new user viewing for the first time)
                 const apiParam = alreadyViewed ? '&hit=0' : '&hit=1';
                 fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + apiParam)
                   .then(function(res) {
@@ -4049,9 +4374,6 @@ allTools.forEach(tool => {
                   .then(function(data) {
                     if (data && data.value !== undefined) {
                       updateDisplay(data.value);
-                      try {
-                        localStorage.setItem(storageKey, String(now));
-                      } catch (e) {}
                     }
                   })
                   .catch(function() {
@@ -4259,15 +4581,22 @@ fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemapXml);
 // 2. Custom Tool Directory XML (tools.xml)
 const toolsXml = `<?xml version="1.0" encoding="UTF-8"?>
 <tools>
-${allTools.map(tool => `  <tool>
+${allTools.map(tool => {
+  const coverRelativeName = `${tool.slug}-cover.webp`;
+  const coverDiskPath = path.join(ROOT_DIR, 'tools', tool.categorySlug, coverRelativeName);
+  const imageTag = fs.existsSync(coverDiskPath)
+    ? `\n    <image>https://staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}</image>`
+    : '';
+  return `  <tool>
     <title>${escapeXml(tool.name)}</title>
     <category>${escapeXml(tool.categoryTitle)}</category>
-    <url>https://staticstack.app/tools/${tool.categorySlug}/${tool.slug}</url>
+    <url>https://staticstack.app/tools/${tool.categorySlug}/${tool.slug}</url>${imageTag}
     <description>
       ${escapeXml(tool.description)}
     </description>
     <lastmod>${today}</lastmod>
-  </tool>`).join('\n')}
+  </tool>`;
+}).join('\n')}
 </tools>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, 'tools.xml'), toolsXml);

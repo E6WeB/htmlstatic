@@ -4,6 +4,7 @@
     <title>ChatGPT</title>
     <category>AI &amp; Content Creation</category>
     <url>https://staticstack.app/tools/ai-content-creation/chatgpt</url>
+    <image>https://staticstack.app/tools/ai-content-creation/chatgpt-cover.webp</image>
     <description>
       Conversational AI model for drafting blog posts, website copy, and HTML/markdown content
     </description>
@@ -13,6 +14,7 @@
     <title>Claude</title>
     <category>AI &amp; Content Creation</category>
     <url>https://staticstack.app/tools/ai-content-creation/claude</url>
+    <image>https://staticstack.app/tools/ai-content-creation/claude-cover.webp</image>
     <description>
       Advanced AI assistant with large context windows for writing long-form articles and documentation
     </description>
@@ -22,6 +24,7 @@
     <title>Google Gemini</title>
     <category>AI &amp; Content Creation</category>
     <url>https://staticstack.app/tools/ai-content-creation/google-gemini</url>
+    <image>https://staticstack.app/tools/ai-content-creation/google-gemini-cover.webp</image>
     <description>
       Multimodal AI assistant for research, drafting website copy, and generating structured content
     </description>
@@ -31,6 +34,7 @@
     <title>imgmov</title>
     <category>AI &amp; Content Creation</category>
     <url>https://staticstack.app/tools/ai-content-creation/imgmov</url>
+    <image>https://staticstack.app/tools/ai-content-creation/imgmov-cover.webp</image>
     <description>
       AI generator for creating commercial product videos, images, and visual assets from photos and prompts
     </description>
@@ -40,6 +44,7 @@
     <title>Perplexity</title>
     <category>AI &amp; Content Creation</category>
     <url>https://staticstack.app/tools/ai-content-creation/perplexity</url>
+    <image>https://staticstack.app/tools/ai-content-creation/perplexity-cover.webp</image>
     <description>
       AI-powered research and citation engine for writing factual, accurate blog posts and documentation
     </description>
@@ -49,6 +54,7 @@
     <title>Recraft</title>
     <category>AI &amp; Content Creation</category>
     <url>https://staticstack.app/tools/ai-content-creation/recraft</url>
+    <image>https://staticstack.app/tools/ai-content-creation/recraft-cover.webp</image>
     <description>
       AI design tool for generating vector SVGs, 3D graphics, and icons for web pages
     </description>
@@ -58,6 +64,7 @@
     <title>ChatGPT (OpenAI)</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/chatgpt-openai</url>
+    <image>https://staticstack.app/tools/ai-models/chatgpt-openai-cover.webp</image>
     <description>
       OpenAI&apos;s flagship multimodal foundation model family (GPT-4o / o-series)
     </description>
@@ -67,6 +74,7 @@
     <title>Claude (Anthropic)</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/claude-anthropic</url>
+    <image>https://staticstack.app/tools/ai-models/claude-anthropic-cover.webp</image>
     <description>
       Frontier reasoning and coding models with 200k+ token context windows
     </description>
@@ -76,6 +84,7 @@
     <title>Cohere Command</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/cohere-command</url>
+    <image>https://staticstack.app/tools/ai-models/cohere-command-cover.webp</image>
     <description>
       Enterprise foundation model optimized for search, RAG, and document grounding
     </description>
@@ -85,6 +94,7 @@
     <title>DeepSeek</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/deepseek</url>
+    <image>https://staticstack.app/tools/ai-models/deepseek-cover.webp</image>
     <description>
       High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)
     </description>
@@ -94,6 +104,7 @@
     <title>Google Gemini</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/google-gemini-model</url>
+    <image>https://staticstack.app/tools/ai-models/google-gemini-model-cover.webp</image>
     <description>
       Multimodal frontier model family with up to 2M token context windows
     </description>
@@ -103,6 +114,7 @@
     <title>Grok (xAI)</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/grok-xai</url>
+    <image>https://staticstack.app/tools/ai-models/grok-xai-cover.webp</image>
     <description>
       Frontier reasoning and coding model with real-time web knowledge integration
     </description>
@@ -112,6 +124,7 @@
     <title>Meta Llama</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/meta-llama</url>
+    <image>https://staticstack.app/tools/ai-models/meta-llama-cover.webp</image>
     <description>
       Leading open-weights foundation model family for local and cloud deployment
     </description>
@@ -121,6 +134,7 @@
     <title>Microsoft Phi</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/microsoft-phi</url>
+    <image>https://staticstack.app/tools/ai-models/microsoft-phi-cover.webp</image>
     <description>
       High-efficiency small language models (SLMs) built for edge and browser execution
     </description>
@@ -130,6 +144,7 @@
     <title>Mistral AI</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/mistral-ai</url>
+    <image>https://staticstack.app/tools/ai-models/mistral-ai-cover.webp</image>
     <description>
       High-speed open and commercial models including Codestral and Mistral Large
     </description>
@@ -139,6 +154,7 @@
     <title>Qwen</title>
     <category>AI Models</category>
     <url>https://staticstack.app/tools/ai-models/qwen</url>
+    <image>https://staticstack.app/tools/ai-models/qwen-cover.webp</image>
     <description>
       Alibaba Cloud&apos;s open-weights model family (Qwen 2.5) with advanced coding mastery
     </description>
@@ -148,6 +164,7 @@
     <title>CountAPI</title>
     <category>Analytics &amp; Privacy</category>
     <url>https://staticstack.app/tools/analytics-privacy/countapi</url>
+    <image>https://staticstack.app/tools/analytics-privacy/countapi-cover.webp</image>
     <description>
       Free, key-based hit counter and view tracking API with no signup or keys required
     </description>
@@ -157,6 +174,7 @@
     <title>GoatCounter</title>
     <category>Analytics &amp; Privacy</category>
     <url>https://staticstack.app/tools/analytics-privacy/goatcounter</url>
+    <image>https://staticstack.app/tools/analytics-privacy/goatcounter-cover.webp</image>
     <description>
       Lightweight, privacy-friendly web analytics
     </description>
@@ -166,8 +184,19 @@
     <title>Plausible</title>
     <category>Analytics &amp; Privacy</category>
     <url>https://staticstack.app/tools/analytics-privacy/plausible</url>
+    <image>https://staticstack.app/tools/analytics-privacy/plausible-cover.webp</image>
     <description>
       Privacy-focused website analytics
+    </description>
+    <lastmod>2026-11-01</lastmod>
+  </tool>
+  <tool>
+    <title>Statcounter</title>
+    <category>Analytics &amp; Privacy</category>
+    <url>https://staticstack.app/tools/analytics-privacy/statcounter</url>
+    <image>https://staticstack.app/tools/analytics-privacy/statcounter-cover.webp</image>
+    <description>
+      Real-time web analytics, visitor paths, and page counters
     </description>
     <lastmod>2026-11-01</lastmod>
   </tool>
@@ -175,6 +204,7 @@
     <title>Umami</title>
     <category>Analytics &amp; Privacy</category>
     <url>https://staticstack.app/tools/analytics-privacy/umami</url>
+    <image>https://staticstack.app/tools/analytics-privacy/umami-cover.webp</image>
     <description>
       Open-source website analytics
     </description>
@@ -184,6 +214,7 @@
     <title>Clerk</title>
     <category>Authentication &amp; User Management</category>
     <url>https://staticstack.app/tools/authentication-users/clerk</url>
+    <image>https://staticstack.app/tools/authentication-users/clerk-cover.webp</image>
     <description>
       User management and auth with drop-in UI and vanilla JS SDK
     </description>
@@ -193,17 +224,9 @@
     <title>Outseta</title>
     <category>Authentication &amp; User Management</category>
     <url>https://staticstack.app/tools/authentication-users/outseta</url>
+    <image>https://staticstack.app/tools/authentication-users/outseta-cover.webp</image>
     <description>
       All-in-one membership, authentication, payments, and CRM
-    </description>
-    <lastmod>2026-11-01</lastmod>
-  </tool>
-  <tool>
-    <title>Reflow</title>
-    <category>Authentication &amp; User Management</category>
-    <url>https://staticstack.app/tools/payments-ecommerce/reflow</url>
-    <description>
-      User sign-in, session auth, and subscriber management for static frontends
     </description>
     <lastmod>2026-11-01</lastmod>
   </tool>
@@ -211,6 +234,7 @@
     <title>Supabase Auth</title>
     <category>Authentication &amp; User Management</category>
     <url>https://staticstack.app/tools/authentication-users/supabase-auth</url>
+    <image>https://staticstack.app/tools/authentication-users/supabase-auth-cover.webp</image>
     <description>
       Open-source auth supporting passwordless logins, OAuth, and JWTs
     </description>
@@ -220,6 +244,7 @@
     <title>Cal.com</title>
     <category>Booking &amp; Scheduling</category>
     <url>https://staticstack.app/tools/booking-scheduling/cal-com</url>
+    <image>https://staticstack.app/tools/booking-scheduling/cal-com-cover.webp</image>
     <description>
       Open-source, embeddable meeting scheduling infrastructure
     </description>
@@ -229,6 +254,7 @@
     <title>Calendly</title>
     <category>Booking &amp; Scheduling</category>
     <url>https://staticstack.app/tools/booking-scheduling/calendly</url>
+    <image>https://staticstack.app/tools/booking-scheduling/calendly-cover.webp</image>
     <description>
       Industry-standard appointment scheduling with embeddable widgets
     </description>
@@ -238,6 +264,7 @@
     <title>FireShot</title>
     <category>Browser Extensions</category>
     <url>https://staticstack.app/tools/browser-extensions/fireshot</url>
+    <image>https://staticstack.app/tools/browser-extensions/fireshot-cover.webp</image>
     <description>
       Capture full webpage screenshots, edit annotations, and export to PDF, PNG, or JPEG
     </description>
@@ -247,6 +274,7 @@
     <title>Send URL</title>
     <category>Browser Extensions</category>
     <url>https://staticstack.app/tools/browser-extensions/send-url</url>
+    <image>https://staticstack.app/tools/browser-extensions/send-url-cover.webp</image>
     <description>
       One-click browser button to quickly send page URL and title via email
     </description>
@@ -256,6 +284,7 @@
     <title>Disqus</title>
     <category>Comments &amp; Community</category>
     <url>https://staticstack.app/tools/comments-community/disqus</url>
+    <image>https://staticstack.app/tools/comments-community/disqus-cover.webp</image>
     <description>
       Hosted commenting system for websites
     </description>
@@ -265,6 +294,7 @@
     <title>Flarum</title>
     <category>Comments &amp; Community</category>
     <url>https://staticstack.app/tools/comments-community/flarum</url>
+    <image>https://staticstack.app/tools/comments-community/flarum-cover.webp</image>
     <description>
       Modern, lightweight open-source community forum platform
     </description>
@@ -274,6 +304,7 @@
     <title>GitHub Discussions</title>
     <category>Comments &amp; Community</category>
     <url>https://staticstack.app/tools/comments-community/github-discussions</url>
+    <image>https://staticstack.app/tools/comments-community/github-discussions-cover.webp</image>
     <description>
       Collaborative community forums and Q&amp;amp;A hosted on GitHub
     </description>
@@ -283,6 +314,7 @@
     <title>Giscus</title>
     <category>Comments &amp; Community</category>
     <url>https://staticstack.app/tools/comments-community/giscus</url>
+    <image>https://staticstack.app/tools/comments-community/giscus-cover.webp</image>
     <description>
       GitHub Discussions-powered comments using GitHub Discussions
     </description>
@@ -292,6 +324,7 @@
     <title>iine</title>
     <category>Comments &amp; Community</category>
     <url>https://staticstack.app/tools/comments-community/iine</url>
+    <image>https://staticstack.app/tools/comments-community/iine-cover.webp</image>
     <description>
       Lightweight, privacy-first appreciation and like button widget without tracking
     </description>
@@ -301,6 +334,7 @@
     <title>Utterances</title>
     <category>Comments &amp; Community</category>
     <url>https://staticstack.app/tools/comments-community/utterances</url>
+    <image>https://staticstack.app/tools/comments-community/utterances-cover.webp</image>
     <description>
       Lightweight commenting powered by GitHub issues
     </description>
@@ -310,6 +344,7 @@
     <title>Basin</title>
     <category>Contact Forms</category>
     <url>https://staticstack.app/tools/contact-forms/basin</url>
+    <image>https://staticstack.app/tools/contact-forms/basin-cover.webp</image>
     <description>
       Hosted form backend for static websites
     </description>
@@ -319,6 +354,7 @@
     <title>CraftForms</title>
     <category>Contact Forms</category>
     <url>https://staticstack.app/tools/contact-forms/craftforms</url>
+    <image>https://staticstack.app/tools/contact-forms/craftforms-cover.webp</image>
     <description>
       Booking, quote, and contact form builder with payment support
     </description>
@@ -328,6 +364,7 @@
     <title>Formspree</title>
     <category>Contact Forms</category>
     <url>https://staticstack.app/tools/contact-forms/formspree</url>
+    <image>https://staticstack.app/tools/contact-forms/formspree-cover.webp</image>
     <description>
       Form submissions and email notifications
     </description>
@@ -337,6 +374,7 @@
     <title>Splitform</title>
     <category>Contact Forms</category>
     <url>https://staticstack.app/tools/contact-forms/splitform</url>
+    <image>https://staticstack.app/tools/contact-forms/splitform-cover.webp</image>
     <description>
       Contact forms and form handling for websites
     </description>
@@ -346,6 +384,7 @@
     <title>CraftPages</title>
     <category>Content Management</category>
     <url>https://staticstack.app/tools/content-management/craftpages</url>
+    <image>https://staticstack.app/tools/content-management/craftpages-cover.webp</image>
     <description>
       Open-source desktop CMS for plain-HTML websites
     </description>
@@ -355,6 +394,7 @@
     <title>Decap CMS</title>
     <category>Content Management</category>
     <url>https://staticstack.app/tools/content-management/decap-cms</url>
+    <image>https://staticstack.app/tools/content-management/decap-cms-cover.webp</image>
     <description>
       Open-source content management for Git-based websites
     </description>
@@ -364,6 +404,7 @@
     <title>Pages CMS</title>
     <category>Content Management</category>
     <url>https://staticstack.app/tools/content-management/pages-cms</url>
+    <image>https://staticstack.app/tools/content-management/pages-cms-cover.webp</image>
     <description>
       Git-based content management with a browser interface
     </description>
@@ -373,6 +414,7 @@
     <title>Bulma</title>
     <category>CSS &amp; UI Component Libraries</category>
     <url>https://staticstack.app/tools/css-components/bulma</url>
+    <image>https://staticstack.app/tools/css-components/bulma-cover.webp</image>
     <description>
       Modern Flexbox CSS framework with zero JavaScript dependencies
     </description>
@@ -382,6 +424,7 @@
     <title>Lucide Icons</title>
     <category>CSS &amp; UI Component Libraries</category>
     <url>https://staticstack.app/tools/css-components/lucide-icons</url>
+    <image>https://staticstack.app/tools/css-components/lucide-icons-cover.webp</image>
     <description>
       Clean, customizable open-source icon set with vanilla JS &amp; SVG support
     </description>
@@ -391,6 +434,7 @@
     <title>Pico CSS</title>
     <category>CSS &amp; UI Component Libraries</category>
     <url>https://staticstack.app/tools/css-components/pico-css</url>
+    <image>https://staticstack.app/tools/css-components/pico-css-cover.webp</image>
     <description>
       Minimal, semantic classless CSS framework styling pure HTML
     </description>
@@ -400,6 +444,7 @@
     <title>Shoelace</title>
     <category>CSS &amp; UI Component Libraries</category>
     <url>https://staticstack.app/tools/css-components/shoelace</url>
+    <image>https://staticstack.app/tools/css-components/shoelace-cover.webp</image>
     <description>
       Professional library of framework-agnostic web components
     </description>
@@ -409,6 +454,7 @@
     <title>Firebase Firestore</title>
     <category>Database &amp; Backend-as-a-Service</category>
     <url>https://staticstack.app/tools/database-storage/firebase-firestore</url>
+    <image>https://staticstack.app/tools/database-storage/firebase-firestore-cover.webp</image>
     <description>
       Real-time cloud NoSQL database that static frontends can query directly
     </description>
@@ -418,6 +464,7 @@
     <title>JSONbin.io</title>
     <category>Database &amp; Backend-as-a-Service</category>
     <url>https://staticstack.app/tools/database-storage/jsonbin</url>
+    <image>https://staticstack.app/tools/database-storage/jsonbin-cover.webp</image>
     <description>
       Cloud JSON document store for saving and fetching data via REST APIs
     </description>
@@ -427,6 +474,7 @@
     <title>Supabase</title>
     <category>Database &amp; Backend-as-a-Service</category>
     <url>https://staticstack.app/tools/database-storage/supabase</url>
+    <image>https://staticstack.app/tools/database-storage/supabase-cover.webp</image>
     <description>
       Open-source Firebase alternative with real-time Postgres and REST APIs
     </description>
@@ -436,6 +484,7 @@
     <title>Antigravity CLI</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/antigravity-cli</url>
+    <image>https://staticstack.app/tools/development-tools/antigravity-cli-cover.webp</image>
     <description>
       Terminal-native AI coding agent with slash commands and workflow automation
     </description>
@@ -445,6 +494,7 @@
     <title>Antigravity IDE</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/antigravity-ide</url>
+    <image>https://staticstack.app/tools/development-tools/antigravity-ide-cover.webp</image>
     <description>
       AI-first development environment with pair programming and browser automation
     </description>
@@ -454,6 +504,7 @@
     <title>Bootstrap Studio</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/bootstrap-studio</url>
+    <image>https://staticstack.app/tools/development-tools/bootstrap-studio-cover.webp</image>
     <description>
       Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML
     </description>
@@ -463,6 +514,7 @@
     <title>Brickstatic</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/brickstatic</url>
+    <image>https://staticstack.app/tools/development-tools/brickstatic-cover.webp</image>
     <description>
       Export and publish WordPress Bricks sites as static HTML to GitHub or any host
     </description>
@@ -472,6 +524,7 @@
     <title>Cursor</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/cursor</url>
+    <image>https://staticstack.app/tools/development-tools/cursor-cover.webp</image>
     <description>
       AI-powered code editor with multi-file Composer and predictive completions
     </description>
@@ -481,6 +534,7 @@
     <title>Emdash</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/emdash</url>
+    <image>https://staticstack.app/tools/development-tools/emdash-cover.webp</image>
     <description>
       Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes
     </description>
@@ -490,6 +544,7 @@
     <title>ESLint</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/eslint</url>
+    <image>https://staticstack.app/tools/development-tools/eslint-cover.webp</image>
     <description>
       Find and fix problems in JavaScript code
     </description>
@@ -499,6 +554,7 @@
     <title>GitHub Desktop</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/github-desktop</url>
+    <image>https://staticstack.app/tools/development-tools/github-desktop-cover.webp</image>
     <description>
       Visual Git GUI client to stage changes, manage branches, and sync repositories
     </description>
@@ -508,6 +564,7 @@
     <title>Google Lighthouse</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/google-lighthouse</url>
+    <image>https://staticstack.app/tools/development-tools/google-lighthouse-cover.webp</image>
     <description>
       Audit performance, accessibility, SEO, and best practices
     </description>
@@ -517,6 +574,7 @@
     <title>OpenCode</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/opencode</url>
+    <image>https://staticstack.app/tools/development-tools/opencode-cover.webp</image>
     <description>
       Open-source AI coding agent with a terminal TUI and editor extensions
     </description>
@@ -526,8 +584,19 @@
     <title>Prettier</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/prettier</url>
+    <image>https://staticstack.app/tools/development-tools/prettier-cover.webp</image>
     <description>
       Code formatter for HTML, CSS, JavaScript, and more
+    </description>
+    <lastmod>2026-11-01</lastmod>
+  </tool>
+  <tool>
+    <title>sitereal</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/sitereal</url>
+    <image>https://staticstack.app/tools/development-tools/sitereal-cover.webp</image>
+    <description>
+      Visual builder for Astro writing real components into your repo with full code access
     </description>
     <lastmod>2026-11-01</lastmod>
   </tool>
@@ -535,6 +604,7 @@
     <title>Visual Studio Code</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/visual-studio-code</url>
+    <image>https://staticstack.app/tools/development-tools/visual-studio-code-cover.webp</image>
     <description>
       Code editor with extensions for web development
     </description>
@@ -544,6 +614,7 @@
     <title>Zed</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/zed</url>
+    <image>https://staticstack.app/tools/development-tools/zed-cover.webp</image>
     <description>
       High-performance, GPU-accelerated code editor with built-in multiplayer and AI
     </description>
@@ -553,6 +624,7 @@
     <title>Cloudflare Pages</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/cloudflare-pages</url>
+    <image>https://staticstack.app/tools/hosting-deployment/cloudflare-pages-cover.webp</image>
     <description>
       Deploy static sites with Git integration and edge services
     </description>
@@ -562,6 +634,7 @@
     <title>Codeberg Pages</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/codeberg-pages</url>
+    <image>https://staticstack.app/tools/hosting-deployment/codeberg-pages-cover.webp</image>
     <description>
       Community-driven, privacy-respecting, and free static website hosting
     </description>
@@ -571,6 +644,7 @@
     <title>Deno Deploy</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/deno-deploy</url>
+    <image>https://staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp</image>
     <description>
       Distributed edge hosting platform serving static assets and edge logic globally
     </description>
@@ -580,6 +654,7 @@
     <title>Firebase Hosting</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/firebase-hosting</url>
+    <image>https://staticstack.app/tools/hosting-deployment/firebase-hosting-cover.webp</image>
     <description>
       Fast, secure static and dynamic web hosting backed by Google global SSD CDN
     </description>
@@ -589,6 +664,7 @@
     <title>Fleek</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/fleek</url>
+    <image>https://staticstack.app/tools/hosting-deployment/fleek-cover.webp</image>
     <description>
       Edge-optimized web hosting for static frontends with automated Git deployment
     </description>
@@ -598,6 +674,7 @@
     <title>GitHub Pages</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/github-pages</url>
+    <image>https://staticstack.app/tools/hosting-deployment/github-pages-cover.webp</image>
     <description>
       Host websites directly from GitHub repositories
     </description>
@@ -607,6 +684,7 @@
     <title>GitLab Pages</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/gitlab-pages</url>
+    <image>https://staticstack.app/tools/hosting-deployment/gitlab-pages-cover.webp</image>
     <description>
       Free static website hosting directly from GitLab repositories with custom domains
     </description>
@@ -616,6 +694,7 @@
     <title>Kinsta Static Site Hosting</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/kinsta</url>
+    <image>https://staticstack.app/tools/hosting-deployment/kinsta-cover.webp</image>
     <description>
       Free static site hosting deployed across Cloudflare global edge locations
     </description>
@@ -625,6 +704,7 @@
     <title>Netlify</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/netlify</url>
+    <image>https://staticstack.app/tools/hosting-deployment/netlify-cover.webp</image>
     <description>
       Static hosting with deployment automation and additional services
     </description>
@@ -634,6 +714,7 @@
     <title>Render</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/render</url>
+    <image>https://staticstack.app/tools/hosting-deployment/render-cover.webp</image>
     <description>
       Modern cloud platform offering free static site hosting with global CDN
     </description>
@@ -643,6 +724,7 @@
     <title>Stormkit</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/stormkit</url>
+    <image>https://staticstack.app/tools/hosting-deployment/stormkit-cover.webp</image>
     <description>
       Dedicated Jamstack and static web hosting platform with multi-environment staging
     </description>
@@ -652,6 +734,7 @@
     <title>Surge.sh</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/surge</url>
+    <image>https://staticstack.app/tools/hosting-deployment/surge-cover.webp</image>
     <description>
       Single-command CLI web publishing for static sites with custom domain support
     </description>
@@ -661,6 +744,7 @@
     <title>Vercel</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/vercel</url>
+    <image>https://staticstack.app/tools/hosting-deployment/vercel-cover.webp</image>
     <description>
       Deploy static websites and frontend applications
     </description>
@@ -670,6 +754,7 @@
     <title>Wasmer</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://staticstack.app/tools/hosting-deployment/wasmer</url>
+    <image>https://staticstack.app/tools/hosting-deployment/wasmer-cover.webp</image>
     <description>
       Host and deploy static websites and web applications
     </description>
@@ -679,6 +764,7 @@
     <title>File Converter</title>
     <category>Images &amp; Optimization</category>
     <url>https://staticstack.app/tools/images-optimization/file-converter</url>
+    <image>https://staticstack.app/tools/images-optimization/file-converter-cover.webp</image>
     <description>
       Windows context-menu tool to convert and compress images (Windows 11 supported)
     </description>
@@ -688,6 +774,7 @@
     <title>Site-Shot</title>
     <category>Images &amp; Optimization</category>
     <url>https://staticstack.app/tools/images-optimization/site-shot</url>
+    <image>https://staticstack.app/tools/images-optimization/site-shot-cover.webp</image>
     <description>
       Website screenshot generator and REST API for full-page web captures and thumbnails
     </description>
@@ -697,6 +784,7 @@
     <title>Squoosh</title>
     <category>Images &amp; Optimization</category>
     <url>https://staticstack.app/tools/images-optimization/squoosh</url>
+    <image>https://staticstack.app/tools/images-optimization/squoosh-cover.webp</image>
     <description>
       Compress and convert images in your browser
     </description>
@@ -706,6 +794,7 @@
     <title>SVG Repo</title>
     <category>Images &amp; Optimization</category>
     <url>https://staticstack.app/tools/images-optimization/svg-repo</url>
+    <image>https://staticstack.app/tools/images-optimization/svg-repo-cover.webp</image>
     <description>
       Browse and download SVG icons and illustrations
     </description>
@@ -715,6 +804,7 @@
     <title>TinyPNG</title>
     <category>Images &amp; Optimization</category>
     <url>https://staticstack.app/tools/images-optimization/tinypng</url>
+    <image>https://staticstack.app/tools/images-optimization/tinypng-cover.webp</image>
     <description>
       Compress PNG, JPEG, WebP, and other supported image formats
     </description>
@@ -724,6 +814,7 @@
     <title>Unsplash</title>
     <category>Images &amp; Optimization</category>
     <url>https://staticstack.app/tools/images-optimization/unsplash</url>
+    <image>https://staticstack.app/tools/images-optimization/unsplash-cover.webp</image>
     <description>
       High-resolution, royalty-free stock photography library for website assets
     </description>
@@ -733,6 +824,7 @@
     <title>Leaflet.js</title>
     <category>Interactive Maps &amp; Geolocation</category>
     <url>https://staticstack.app/tools/maps-geolocation/leaflet</url>
+    <image>https://staticstack.app/tools/maps-geolocation/leaflet-cover.webp</image>
     <description>
       Lightweight open-source JavaScript library for mobile-friendly interactive maps
     </description>
@@ -742,6 +834,7 @@
     <title>Mapbox GL JS</title>
     <category>Interactive Maps &amp; Geolocation</category>
     <url>https://staticstack.app/tools/maps-geolocation/mapbox-gl-js</url>
+    <image>https://staticstack.app/tools/maps-geolocation/mapbox-gl-js-cover.webp</image>
     <description>
       Interactive WebGL vector maps with custom styles and smooth rendering
     </description>
@@ -751,6 +844,7 @@
     <title>AOS (Animate On Scroll)</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://staticstack.app/tools/interactive-scripts/aos</url>
+    <image>https://staticstack.app/tools/interactive-scripts/aos-cover.webp</image>
     <description>
       Animate elements on scroll using simple HTML data attributes
     </description>
@@ -760,6 +854,7 @@
     <title>PhotoSwipe</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://staticstack.app/tools/interactive-scripts/photoswipe</url>
+    <image>https://staticstack.app/tools/interactive-scripts/photoswipe-cover.webp</image>
     <description>
       Lightweight JavaScript image gallery and lightbox with smooth zoom
     </description>
@@ -769,6 +864,7 @@
     <title>Swiper.js</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://staticstack.app/tools/interactive-scripts/swiper</url>
+    <image>https://staticstack.app/tools/interactive-scripts/swiper-cover.webp</image>
     <description>
       Mobile touch slider with hardware-accelerated transitions
     </description>
@@ -778,6 +874,7 @@
     <title>Crisp</title>
     <category>Live Chat &amp; Support</category>
     <url>https://staticstack.app/tools/live-chat/crisp</url>
+    <image>https://staticstack.app/tools/live-chat/crisp-cover.webp</image>
     <description>
       Multichannel customer messaging and live chat widget
     </description>
@@ -787,6 +884,7 @@
     <title>Tawk.to</title>
     <category>Live Chat &amp; Support</category>
     <url>https://staticstack.app/tools/live-chat/tawk-to</url>
+    <image>https://staticstack.app/tools/live-chat/tawk-to-cover.webp</image>
     <description>
       100% free live chat application to monitor and chat with visitors
     </description>
@@ -796,6 +894,7 @@
     <title>Mux Player</title>
     <category>Media &amp; Video Players</category>
     <url>https://staticstack.app/tools/media-players/mux-player</url>
+    <image>https://staticstack.app/tools/media-players/mux-player-cover.webp</image>
     <description>
       Responsive, high-performance web video player with automatic HLS streaming
     </description>
@@ -805,6 +904,7 @@
     <title>Plyr</title>
     <category>Media &amp; Video Players</category>
     <url>https://staticstack.app/tools/media-players/plyr</url>
+    <image>https://staticstack.app/tools/media-players/plyr-cover.webp</image>
     <description>
       Simple, lightweight, accessible HTML5 media player for video, audio, and YouTube
     </description>
@@ -814,6 +914,7 @@
     <title>Wavesurfer.js</title>
     <category>Media &amp; Video Players</category>
     <url>https://staticstack.app/tools/media-players/wavesurfer</url>
+    <image>https://staticstack.app/tools/media-players/wavesurfer-cover.webp</image>
     <description>
       Customizable interactive audio waveform visualizer and player in vanilla JS
     </description>
@@ -823,6 +924,7 @@
     <title>LogRocket</title>
     <category>Monitoring &amp; Error Tracking</category>
     <url>https://staticstack.app/tools/monitoring-errors/logrocket</url>
+    <image>https://staticstack.app/tools/monitoring-errors/logrocket-cover.webp</image>
     <description>
       Session replay and frontend telemetry to reproduce user-facing issues
     </description>
@@ -832,6 +934,7 @@
     <title>Sentry</title>
     <category>Monitoring &amp; Error Tracking</category>
     <url>https://staticstack.app/tools/monitoring-errors/sentry</url>
+    <image>https://staticstack.app/tools/monitoring-errors/sentry-cover.webp</image>
     <description>
       Frontend JavaScript error monitoring and performance tracing
     </description>
@@ -841,6 +944,7 @@
     <title>Brevo</title>
     <category>Newsletters &amp; Email</category>
     <url>https://staticstack.app/tools/newsletters-email/brevo</url>
+    <image>https://staticstack.app/tools/newsletters-email/brevo-cover.webp</image>
     <description>
       Email marketing and transactional email services
     </description>
@@ -850,6 +954,7 @@
     <title>Buttondown</title>
     <category>Newsletters &amp; Email</category>
     <url>https://staticstack.app/tools/newsletters-email/buttondown</url>
+    <image>https://staticstack.app/tools/newsletters-email/buttondown-cover.webp</image>
     <description>
       Newsletter publishing and subscriber management
     </description>
@@ -859,6 +964,7 @@
     <title>Emailit</title>
     <category>Newsletters &amp; Email</category>
     <url>https://staticstack.app/tools/newsletters-email/emailit</url>
+    <image>https://staticstack.app/tools/newsletters-email/emailit-cover.webp</image>
     <description>
       Email API for sending messages from applications and websites
     </description>
@@ -868,6 +974,7 @@
     <title>Lemon Squeezy</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://staticstack.app/tools/payments-ecommerce/lemon-squeezy</url>
+    <image>https://staticstack.app/tools/payments-ecommerce/lemon-squeezy-cover.webp</image>
     <description>
       Sell digital products and manage online payments
     </description>
@@ -877,6 +984,7 @@
     <title>Payhip</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://staticstack.app/tools/payments-ecommerce/payhip</url>
+    <image>https://staticstack.app/tools/payments-ecommerce/payhip-cover.webp</image>
     <description>
       Sell digital downloads, memberships, and other products
     </description>
@@ -886,6 +994,7 @@
     <title>PaymentForm</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://staticstack.app/tools/payments-ecommerce/paymentform</url>
+    <image>https://staticstack.app/tools/payments-ecommerce/paymentform-cover.webp</image>
     <description>
       Create custom checkout forms to accept payments, tickets, and donations
     </description>
@@ -895,6 +1004,7 @@
     <title>Reflow</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://staticstack.app/tools/payments-ecommerce/reflow</url>
+    <image>https://staticstack.app/tools/payments-ecommerce/reflow-cover.webp</image>
     <description>
       Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites
     </description>
@@ -904,6 +1014,7 @@
     <title>Stripe Payment Links</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://staticstack.app/tools/payments-ecommerce/stripe-payment-links</url>
+    <image>https://staticstack.app/tools/payments-ecommerce/stripe-payment-links-cover.webp</image>
     <description>
       Accept payments through hosted checkout links
     </description>
@@ -913,6 +1024,7 @@
     <title>Algolia</title>
     <category>Search</category>
     <url>https://staticstack.app/tools/search/algolia</url>
+    <image>https://staticstack.app/tools/search/algolia-cover.webp</image>
     <description>
       Hosted search service with frontend integrations
     </description>
@@ -922,6 +1034,7 @@
     <title>Pagefind</title>
     <category>Search</category>
     <url>https://staticstack.app/tools/search/pagefind</url>
+    <image>https://staticstack.app/tools/search/pagefind-cover.webp</image>
     <description>
       Static search indexing designed for static websites
     </description>
@@ -931,6 +1044,7 @@
     <title>Cloudflare Turnstile</title>
     <category>Security &amp; Spam Protection</category>
     <url>https://staticstack.app/tools/security-spam-protection/cloudflare-turnstile</url>
+    <image>https://staticstack.app/tools/security-spam-protection/cloudflare-turnstile-cover.webp</image>
     <description>
       Privacy-friendly CAPTCHA alternative
     </description>
@@ -940,6 +1054,7 @@
     <title>Google reCAPTCHA</title>
     <category>Security &amp; Spam Protection</category>
     <url>https://staticstack.app/tools/security-spam-protection/google-recaptcha</url>
+    <image>https://staticstack.app/tools/security-spam-protection/google-recaptcha-cover.webp</image>
     <description>
       Bot detection and abuse prevention
     </description>
@@ -949,6 +1064,7 @@
     <title>hCaptcha</title>
     <category>Security &amp; Spam Protection</category>
     <url>https://staticstack.app/tools/security-spam-protection/hcaptcha</url>
+    <image>https://staticstack.app/tools/security-spam-protection/hcaptcha-cover.webp</image>
     <description>
       Challenge-based bot and abuse protection
     </description>
@@ -958,6 +1074,7 @@
     <title>Astro</title>
     <category>Static Site Generators</category>
     <url>https://staticstack.app/tools/static-site-generators/astro</url>
+    <image>https://staticstack.app/tools/static-site-generators/astro-cover.webp</image>
     <description>
       Content-driven static web framework that ships zero JS by default
     </description>
@@ -967,6 +1084,7 @@
     <title>Eleventy (11ty)</title>
     <category>Static Site Generators</category>
     <url>https://staticstack.app/tools/static-site-generators/eleventy</url>
+    <image>https://staticstack.app/tools/static-site-generators/eleventy-cover.webp</image>
     <description>
       Simple, flexible static generator converting templates to fast HTML
     </description>
@@ -976,6 +1094,7 @@
     <title>Hugo</title>
     <category>Static Site Generators</category>
     <url>https://staticstack.app/tools/static-site-generators/hugo</url>
+    <image>https://staticstack.app/tools/static-site-generators/hugo-cover.webp</image>
     <description>
       Extremely fast static site generator rendering pages in milliseconds
     </description>
@@ -985,6 +1104,7 @@
     <title>Sleekplan</title>
     <category>Surveys &amp; Feedback</category>
     <url>https://staticstack.app/tools/surveys-feedback/sleekplan</url>
+    <image>https://staticstack.app/tools/surveys-feedback/sleekplan-cover.webp</image>
     <description>
       All-in-one user feedback board, public roadmap, and changelog widget
     </description>
@@ -994,6 +1114,7 @@
     <title>Tally</title>
     <category>Surveys &amp; Feedback</category>
     <url>https://staticstack.app/tools/surveys-feedback/tally</url>
+    <image>https://staticstack.app/tools/surveys-feedback/tally-cover.webp</image>
     <description>
       Intuitive form and survey builder with unlimited free forms and embeds
     </description>
@@ -1003,6 +1124,7 @@
     <title>Cold Compile</title>
     <category>Tutorials</category>
     <url>https://staticstack.app/tools/tutorials/coldcompile</url>
+    <image>https://staticstack.app/tools/tutorials/coldcompile-cover.webp</image>
     <description>
       In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites
     </description>
@@ -1012,6 +1134,7 @@
     <title>Bunny Fonts</title>
     <category>Typography &amp; Web Fonts</category>
     <url>https://staticstack.app/tools/typography-fonts/bunny-fonts</url>
+    <image>https://staticstack.app/tools/typography-fonts/bunny-fonts-cover.webp</image>
     <description>
       Privacy-first, GDPR-compliant drop-in alternative to Google Fonts
     </description>
@@ -1021,6 +1144,7 @@
     <title>Fontsource</title>
     <category>Typography &amp; Web Fonts</category>
     <url>https://staticstack.app/tools/typography-fonts/fontsource</url>
+    <image>https://staticstack.app/tools/typography-fonts/fontsource-cover.webp</image>
     <description>
       Self-host open-source fonts locally with zero external network requests
     </description>
@@ -1030,6 +1154,7 @@
     <title>Google Fonts</title>
     <category>Typography &amp; Web Fonts</category>
     <url>https://staticstack.app/tools/typography-fonts/google-fonts</url>
+    <image>https://staticstack.app/tools/typography-fonts/google-fonts-cover.webp</image>
     <description>
       Extensive library of open-source fonts and icons delivered via global CDN
     </description>

@@ -789,6 +789,157 @@
     color: var(--badge-paid-text);
   }
 
+  /* Home Page Top 4 Viewed Tools Grid */
+  .home-top-tool-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--text-main);
+    box-shadow: var(--shadow-card);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .home-top-tool-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.12);
+  }
+
+  .home-top-tool-cover-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-muted);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .home-top-tool-cover-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .home-top-tool-card:hover .home-top-tool-cover-wrap img {
+    transform: scale(1.03);
+  }
+
+  .home-top-tool-cat-pill {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.65rem;
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-main);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .home-top-tool-body {
+    padding: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.65rem;
+  }
+
+  .home-top-tool-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .home-top-tool-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .home-top-tool-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-main);
+  }
+
+  .home-top-tool-desc {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+
+  .home-top-tool-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+  }
+
+  .home-top-tool-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .home-stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.725rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-muted);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .home-stat-pill svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .home-stat-pill-likes svg {
+    color: #e11d48;
+  }
+
+  .home-top-tool-arrow {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+
+  .home-top-tool-card:hover .home-top-tool-arrow {
+    transform: translateX(3px);
+  }
+
   /* Footer */
   .site-footer {
     background: var(--bg-surface);
@@ -969,6 +1120,31 @@
     text-align: center;
     color: var(--text-subtle);
     font-size: 0.85rem;
+  }
+
+  .footer-statcounter {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  .footer-statcounter,
+  .footer-statcounter *,
+  .footer-statcounter a,
+  .footer-statcounter .statcounter a {
+    pointer-events: none !important;
+    cursor: default !important;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  .footer-statcounter img,
+  .footer-statcounter .statcounter img {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    border: 0 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
   }
 
   /* Markdown Body Rendering */
@@ -1710,7 +1886,7 @@
               <span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span>
               <span>Master Archive</span>
             </span>
-            <span class="mobile-nav-badge">115 Tools</span>
+            <span class="mobile-nav-badge">116 Tools</span>
           </a>
         </li>
         <li class="mobile-nav-item">
@@ -1917,7 +2093,7 @@
               </script>
             </section>
 
-            <!-- Tool View Counter with 72-Hour IP Deduplication & CountAPI -->
+            <!-- Tool View Counter: Only counts new unique visitors -->
             <script>
               (function() {
                 const countEl = document.getElementById('tool-view-count');
@@ -1925,15 +2101,19 @@
                 const key = countEl.getAttribute('data-key');
                 if (!key) return;
 
-                const storageKey = 'hs_view_ts_' + key;
-                const cooldownMs = 72 * 60 * 60 * 1000; // 72 hours
-                const now = Date.now();
-                let lastViewed = 0;
+                const viewedKey = 'hs_viewed_' + key;
+                let alreadyViewed = false;
                 try {
-                  lastViewed = parseInt(localStorage.getItem(storageKey) || '0', 10);
+                  alreadyViewed = !!localStorage.getItem(viewedKey) || (document.cookie.indexOf(viewedKey + '=1') !== -1);
                 } catch (e) {}
 
-                const alreadyViewed = (now - lastViewed) < cooldownMs;
+                // If this is a new viewer, mark immediately in localStorage & cookie so reloads never double-count
+                if (!alreadyViewed) {
+                  try {
+                    localStorage.setItem(viewedKey, '1');
+                    document.cookie = viewedKey + '=1; path=/; max-age=315360000; SameSite=Lax';
+                  } catch (e) {}
+                }
 
                 function updateDisplay(val) {
                   const num = Number(val);
@@ -1942,7 +2122,7 @@
                   }
                 }
 
-                // Call StaticStack API with 72-hour IP deduplication
+                // Call StaticStack API (hit=1 ONLY if this is a brand new user viewing for the first time)
                 const apiParam = alreadyViewed ? '&hit=0' : '&hit=1';
                 fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + apiParam)
                   .then(function(res) {
@@ -1952,9 +2132,6 @@
                   .then(function(data) {
                     if (data && data.value !== undefined) {
                       updateDisplay(data.value);
-                      try {
-                        localStorage.setItem(storageKey, String(now));
-                      } catch (e) {}
                     }
                   })
                   .catch(function() {
@@ -2095,16 +2272,16 @@
         </div>
       </a>
     
-      <a href="../../tools/hosting-deployment/stormkit" class="sidebar-tool-card">
+      <a href="../../tools/development-tools/sitereal" class="sidebar-tool-card">
         <span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
-          <img src="https://icons.duckduckgo.com/ip3/stormkit.io.ico" width="20" height="20" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3ES%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ">
+          <img src="https://icons.duckduckgo.com/ip3/sitereal.app.ico" width="20" height="20" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3ES%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ">
         </span>
         <div class="sidebar-tool-info">
           <div class="sidebar-tool-name">
-            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Stormkit</span>
-            <span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">sitereal</span>
+            <span class="badge badge-paid" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Paid</span>
           </div>
-          <div class="sidebar-tool-desc">Dedicated Jamstack and static web hosting platform with multi-environment staging and snippet injection.</div>
+          <div class="sidebar-tool-desc">Visual builder for Astro that writes real .astro files into your repository with full code access and zero vendor lock-in.</div>
         </div>
       </a>
     
@@ -2190,7 +2367,7 @@
           </p>
           <div class="footer-pill-badge">
             <span class="status-dot"></span>
-            <span>115 Tools &bull; 27 Categories</span>
+            <span>116 Tools &bull; 27 Categories</span>
           </div>
         </div>
 
@@ -2233,7 +2410,14 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a></p>
+        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <span class="footer-statcounter" title="Total Site Visitors"><!-- Default Statcounter code for StaticStacks https://www.staticstack.app/ --><script type="text/javascript">
+var sc_project=13364370; 
+var sc_invisible=0; 
+var sc_security="cae7fdd5"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script><noscript><span class="statcounter"><img class="statcounter" src="https://c.statcounter.com/13364370/0/cae7fdd5/0/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></span></noscript><!-- End of Statcounter Code --></span></p>
       </div>
     </div>
   </footer>
@@ -2247,6 +2431,22 @@
   <script>
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Strip hyperlinks from statcounter so only plain counter displays
+    const scWrap = document.querySelector('.footer-statcounter');
+    if (scWrap) {
+      const cleanSc = () => {
+        scWrap.querySelectorAll('a').forEach(a => {
+          a.removeAttribute('href');
+          a.removeAttribute('target');
+          a.removeAttribute('title');
+          a.style.pointerEvents = 'none';
+          a.style.cursor = 'default';
+        });
+      };
+      cleanSc();
+      new MutationObserver(cleanSc).observe(scWrap, { childList: true, subtree: true });
+    }
 
     // Floating Back to Top
     const backToTopBtn = document.getElementById('back-to-top');

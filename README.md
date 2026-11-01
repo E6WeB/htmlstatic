@@ -250,6 +250,12 @@ Understand website traffic, visitor behavior, and page performance.
     <td><a href="https://plausible.io/" target="_blank" rel="noopener noreferrer">plausible.io</a></td>
   </tr>
   <tr>
+    <td><a href="tools/analytics-privacy/statcounter.md">Statcounter</a></td>
+    <td>Real-time web analytics, visitor paths, and page counters</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">statcounter.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/analytics-privacy/umami.md">Umami</a></td>
     <td>Open-source website analytics</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
@@ -283,12 +289,6 @@ Add user login, member areas, and gated content to static sites without backend 
     <td>All-in-one membership, authentication, payments, and CRM</td>
     <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
     <td><a href="https://outseta.com/" target="_blank" rel="noopener noreferrer">outseta.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/payments-ecommerce/reflow.md">Reflow</a></td>
-    <td>User sign-in, session auth, and subscriber management for static frontends</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a></td>
   </tr>
   <tr>
     <td><a href="tools/authentication-users/supabase-auth.md">Supabase Auth</a></td>
@@ -641,6 +641,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>Code formatter for HTML, CSS, JavaScript, and more</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/development-tools/sitereal.md">sitereal</a></td>
+    <td>Visual builder for Astro writing real components into your repo with full code access</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://sitereal.app/" target="_blank" rel="noopener noreferrer">sitereal.app</a></td>
   </tr>
   <tr>
     <td><a href="tools/development-tools/visual-studio-code.md">Visual Studio Code</a></td>

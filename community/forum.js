@@ -194,6 +194,9 @@ const ipViewsCache = global.__staticstack_ip_view_times || new Map();
 global.__staticstack_ip_view_times = ipViewsCache;
 
 function getClientIp(req) {
+  if (req.headers['cf-connecting-ip']) {
+    return req.headers['cf-connecting-ip'].trim();
+  }
   const forwarded = req.headers['x-forwarded-for'];
   if (forwarded) {
     const list = forwarded.split(',');
@@ -211,34 +214,28 @@ async function recordToolView(req, key, hitRequested = true) {
   const now = Date.now();
   const cacheKey = `${ip}:${cleanKey}`;
 
-  let alreadyViewedRecently = false;
+  let alreadyViewed = false;
 
-  // 1. Fast in-memory check
+  // 1. Fast in-memory check (permanent in-memory cache of unique viewer IPs)
   if (ipViewsCache.has(cacheKey)) {
-    const lastTime = ipViewsCache.get(cacheKey);
-    if (now - lastTime < VIEW_COOLDOWN_MS) {
-      alreadyViewedRecently = true;
-    }
+    alreadyViewed = true;
   }
 
-  // 2. Check PostgreSQL database if not in memory
-  if (!alreadyViewedRecently) {
+  // 2. Check PostgreSQL database: if this IP has ever viewed this tool, do not increment
+  if (!alreadyViewed) {
     try {
       const res = await pool.query(
         'SELECT viewed_at FROM tool_view_ips WHERE ip = $1 AND tool_key = $2',
         [ip, cleanKey]
       );
       if (res.rows.length > 0) {
-        const lastViewedAt = new Date(res.rows[0].viewed_at).getTime();
-        if (now - lastViewedAt < VIEW_COOLDOWN_MS) {
-          alreadyViewedRecently = true;
-          ipViewsCache.set(cacheKey, lastViewedAt);
-        }
+        alreadyViewed = true;
+        ipViewsCache.set(cacheKey, new Date(res.rows[0].viewed_at).getTime());
       }
     } catch (e) {}
   }
 
-  const shouldHit = hitRequested && !alreadyViewedRecently;
+  const shouldHit = hitRequested && !alreadyViewed;
   let currentCount = allToolViewsCache[cleanKey] !== undefined ? Number(allToolViewsCache[cleanKey]) : 0;
 
   if (shouldHit) {
@@ -248,7 +245,7 @@ async function recordToolView(req, key, hitRequested = true) {
         `INSERT INTO tool_view_ips (ip, tool_key, viewed_at)
          VALUES ($1, $2, NOW())
          ON CONFLICT (ip, tool_key)
-         DO UPDATE SET viewed_at = NOW()`,
+         DO NOTHING`,
         [ip, cleanKey]
       );
     } catch (e) {}
