@@ -1989,6 +1989,8 @@ function renderLayout({
   breadcrumbs = [],
   rootPath = '',
   ogImage = '',
+  ogImageWidth = 1200,
+  ogImageHeight = 675,
   canonicalUrl = ''
 }) {
   const cleanDescription = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
@@ -2038,8 +2040,8 @@ function renderLayout({
   <meta property="og:description" content="${escapeHtml(cleanDescription)}">
   <meta property="og:image" content="${pageOgImage}">
   <meta property="og:image:type" content="image/webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="675">
+  <meta property="og:image:width" content="${ogImageWidth}">
+  <meta property="og:image:height" content="${ogImageHeight}">
   <meta property="og:image:alt" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="${pageUrl}">
@@ -2254,7 +2256,7 @@ function renderLayout({
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a></p>
+        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a></p>
       </div>
     </div>
   </footer>
@@ -3917,6 +3919,11 @@ allTools.forEach(tool => {
     description: `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`,
     currentNav: 'archive',
     canonicalUrl: `https://staticstack.app/tools/${tool.categorySlug}/${tool.slug}`,
+    ...(coverImageHtml ? {
+      ogImage: `https://staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}`,
+      ogImageWidth: 1280,
+      ogImageHeight: 720
+    } : {}),
     miniHero: {
       breadcrumbs: [
         { label: 'Home', url: '../../' },
