@@ -624,6 +624,12 @@
     "url": "/tools/images-optimization/file-converter"
   },
   {
+    "title": "Site-Shot",
+    "description": "Website screenshot generator and REST API for full-page web captures and thumbnails",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/site-shot"
+  },
+  {
     "title": "Squoosh",
     "description": "Compress and convert images in your browser",
     "category": "Images & Optimization",

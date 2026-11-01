@@ -779,6 +779,12 @@ Optimize images and other assets to improve loading speed and user experience.
     <td><a href="https://github.com/Tichau/FileConverter" target="_blank" rel="noopener noreferrer">github.com/Tichau/FileConverter</a></td>
   </tr>
   <tr>
+    <td><a href="tools/images-optimization/site-shot.md">Site-Shot</a></td>
+    <td>Website screenshot generator and REST API for full-page web captures and thumbnails</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.site-shot.com/" target="_blank" rel="noopener noreferrer">site-shot.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/images-optimization/squoosh.md">Squoosh</a></td>
     <td>Compress and convert images in your browser</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>

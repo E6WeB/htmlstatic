@@ -1018,7 +1018,7 @@
     "title": "Images & Optimization",
     "slug": "images-optimization",
     "description": "Optimize images and other assets to improve loading speed and user experience.",
-    "toolsCount": 5,
+    "toolsCount": 6,
     "tools": [
       {
         "name": "File Converter",
@@ -1031,6 +1031,18 @@
         ],
         "websiteUrl": "https://github.com/Tichau/FileConverter",
         "websiteLabel": "github.com/Tichau/FileConverter"
+      },
+      {
+        "name": "Site-Shot",
+        "slug": "site-shot",
+        "relPath": "tools/images-optimization/site-shot.md",
+        "folder": "images-optimization",
+        "description": "Website screenshot generator and REST API for full-page web captures and thumbnails",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://www.site-shot.com/",
+        "websiteLabel": "site-shot.com"
       },
       {
         "name": "Squoosh",

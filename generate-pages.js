@@ -3866,6 +3866,22 @@ allTools.forEach(tool => {
     badgeIcon = ICONS.tag;
   }
 
+  const coverRelativeName = `${tool.slug}-cover.webp`;
+  const coverDiskPath = path.join(ROOT_DIR, 'tools', tool.categorySlug, coverRelativeName);
+  let coverImageHtml = '';
+  if (fs.existsSync(coverDiskPath)) {
+    coverImageHtml = `
+          <div class="tool-cover-banner" style="margin-bottom:1.5rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card); background:var(--bg-surface);">
+            <img src="${coverRelativeName}" 
+                 alt="${escapeHtml(tool.name)} Screenshot Preview" 
+                 width="1280" 
+                 height="720" 
+                 loading="eager" 
+                 style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;">
+          </div>
+    `;
+  }
+
   const randomTools = getRandomTools(tool.slug, 4);
   const randomToolsHtml = randomTools.map(rt => {
     let rtBadgeClass = 'badge-freemium';
@@ -3957,6 +3973,7 @@ allTools.forEach(tool => {
       <div class="tool-page-layout">
         <!-- Main Documentation & Discussion -->
         <div class="tool-page-main">
+          ${coverImageHtml}
           <article style="padding: 0 0 2rem;">
             <!-- Rendered Documentation -->
             <div class="markdown-body">

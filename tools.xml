@@ -685,6 +685,15 @@
     <lastmod>2026-11-01</lastmod>
   </tool>
   <tool>
+    <title>Site-Shot</title>
+    <category>Images &amp; Optimization</category>
+    <url>https://staticstack.app/tools/images-optimization/site-shot</url>
+    <description>
+      Website screenshot generator and REST API for full-page web captures and thumbnails
+    </description>
+    <lastmod>2026-11-01</lastmod>
+  </tool>
+  <tool>
     <title>Squoosh</title>
     <category>Images &amp; Optimization</category>
     <url>https://staticstack.app/tools/images-optimization/squoosh</url>
