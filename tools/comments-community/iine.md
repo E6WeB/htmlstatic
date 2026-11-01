@@ -47,7 +47,7 @@ Add the script before your closing `</body>` tag and place the button anywhere o
 For environments with JavaScript disabled or strict noscript policies, embed an accessible form action:
 
 ```html
-<form action="https://vhiweeypifbwacashxjz.supabase.co/rest/v1/rpc/increment_hits?apikey=sb_publishable_EoB7MFJhCmb6PiAk-GPJ4w_PGhQ44Ru" method="post">
+<form action="https://YOUR_PROJECT.supabase.co/rest/v1/rpc/increment_hits?apikey=YOUR_PUBLISHABLE_KEY" method="post">
   <input type="hidden" name="page_slug" value="/your-page">
   <button type="submit" class="iine-button" data-icon="thumbs_up" aria-label="Send appreciation">
     <noscript>👍</noscript>
