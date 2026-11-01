@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">leafletjs.com</a>
 - **Category**: [Interactive Maps & Geolocation](../../README.md#interactive-maps--geolocation)
 - **Type**: Open Source Map Library
+- **Pricing / License**: Open Source (BSD-2-Clause)
 
 ---
 

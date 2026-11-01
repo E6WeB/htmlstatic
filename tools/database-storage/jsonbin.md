@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://jsonbin.io/" target="_blank" rel="noopener noreferrer">jsonbin.io</a>
 - **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
 - **Type**: Cloud JSON Storage API
+- **Pricing / License**: Freemium
 
 ---
 

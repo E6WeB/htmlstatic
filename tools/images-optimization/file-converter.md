@@ -7,6 +7,7 @@
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Platform**: Windows (Windows 11 & Windows 10)
 - **Type**: Desktop Context-Menu Utility (Open Source)
+- **Pricing / License**: Open Source (GPL-3.0)
 
 ---
 

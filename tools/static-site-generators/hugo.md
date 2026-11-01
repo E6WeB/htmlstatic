@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">gohugo.io</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: High-Performance Static Generator (Go)
+- **Pricing / License**: Open Source (Apache-2.0)
 
 ---
 

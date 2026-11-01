@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://countapi.mileshilliard.com/" target="_blank" rel="noopener noreferrer">countapi.mileshilliard.com</a>
 - **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
 - **Type**: Counter & View Tracking API
+- **Pricing / License**: Free
 
 ---
 

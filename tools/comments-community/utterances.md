@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utteranc.es</a>
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Minimalist GitHub Issue Comment Widget
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

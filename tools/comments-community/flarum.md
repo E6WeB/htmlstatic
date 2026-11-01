@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://flarum.org/" target="_blank" rel="noopener noreferrer">flarum.org</a>
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Open Source Community Forum
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Static Code Linter
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

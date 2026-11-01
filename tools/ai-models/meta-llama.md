@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://llama.meta.com/" target="_blank" rel="noopener noreferrer">llama.meta.com</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Open-Weights Foundation Model
-- **Pricing / License**: Open Source
+- **Pricing / License**: Free
 
 ---
 

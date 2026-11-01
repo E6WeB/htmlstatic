@@ -799,7 +799,7 @@ Optimize images and other assets to improve loading speed and user experience.
   <tr>
     <td><a href="tools/images-optimization/unsplash.md">Unsplash</a></td>
     <td>High-resolution, royalty-free stock photography library for website assets</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">unsplash.com</a></td>
   </tr>
 </tbody>

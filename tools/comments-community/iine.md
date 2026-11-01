@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://iine.to/" target="_blank" rel="noopener noreferrer">iine.to</a>
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Open Source Reaction & Like Button Widget
+- **Pricing / License**: Free
 
 ---
 

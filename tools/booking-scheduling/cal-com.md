@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://cal.com/" target="_blank" rel="noopener noreferrer">cal.com</a>
 - **Category**: [Booking & Scheduling](../../README.md#booking--scheduling)
 - **Type**: Open Source Scheduling Infrastructure
+- **Pricing / License**: Freemium
 
 ---
 

@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://clerk.com/" target="_blank" rel="noopener noreferrer">clerk.com</a>
 - **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
 - **Type**: User Authentication & Management Platform
+- **Pricing / License**: Freemium
 
 ---
 

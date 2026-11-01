@@ -6,7 +6,7 @@
 - **GitHub Repository**: <a href="https://github.com/zed-industries/zed" target="_blank" rel="noopener noreferrer">github.com/zed-industries/zed</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Code Editor & IDE
-- **Pricing / License**: Open Source
+- **Pricing / License**: Free / Open Source
 
 ---
 

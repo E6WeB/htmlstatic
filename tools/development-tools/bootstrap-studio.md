@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Visual Web Design Editor
-- **Pricing / License**: Paid (One-time purchase)
+- **Pricing / License**: Paid
 
 ---
 

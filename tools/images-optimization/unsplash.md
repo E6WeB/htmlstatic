@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">unsplash.com</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Stock Photography & Image CDN
-- **Pricing / License**: Free & Freemium
+- **Pricing / License**: Freemium
 
 ---
 

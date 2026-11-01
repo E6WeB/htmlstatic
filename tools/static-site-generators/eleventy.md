@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty.dev</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: Zero-Config Static Site Generator
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

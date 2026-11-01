@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://www.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreferrer">mapbox.com/mapbox-gl-js</a>
 - **Category**: [Interactive Maps & Geolocation](../../README.md#interactive-maps--geolocation)
 - **Type**: Vector WebGL Mapping Engine
+- **Pricing / License**: Freemium
 
 ---
 

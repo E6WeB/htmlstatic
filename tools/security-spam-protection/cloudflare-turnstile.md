@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">developers.cloudflare.com/turnstile</a>
 - **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
 - **Type**: Invisible CAPTCHA Alternative
+- **Pricing / License**: Free
 
 ---
 

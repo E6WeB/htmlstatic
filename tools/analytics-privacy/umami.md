@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a>
 - **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
 - **Type**: Open Source Analytics Platform
+- **Pricing / License**: Freemium
 
 ---
 

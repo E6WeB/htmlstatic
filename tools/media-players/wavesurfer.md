@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://wavesurfer.xyz/" target="_blank" rel="noopener noreferrer">wavesurfer.xyz</a>
 - **Category**: [Media & Video Players](../../README.md#media--video-players)
 - **Type**: Audio Waveform Visualizer
+- **Pricing / License**: Open Source (BSD-3-Clause)
 
 ---
 

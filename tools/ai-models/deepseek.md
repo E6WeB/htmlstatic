@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Open-Weights & Reasoning Foundation Model
-- **Pricing / License**: Open Source
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

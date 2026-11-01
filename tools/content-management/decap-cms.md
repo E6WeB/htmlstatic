@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://decapcms.org/" target="_blank" rel="noopener noreferrer">decapcms.org</a>
 - **Category**: [Content Management](../../README.md#content-management)
 - **Type**: Git-Based Headless CMS
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

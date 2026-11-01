@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">desktop.github.com</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Git GUI Client
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

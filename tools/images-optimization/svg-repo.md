@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://svgrepo.com/" target="_blank" rel="noopener noreferrer">svgrepo.com</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Vector Icon & Illustration Library
+- **Pricing / License**: Free
 
 ---
 

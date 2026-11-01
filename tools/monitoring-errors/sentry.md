@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">sentry.io</a>
 - **Category**: [Monitoring & Error Tracking](../../README.md#monitoring--error-tracking)
 - **Type**: Error Monitoring & Performance Tracking
+- **Pricing / License**: Freemium
 
 ---
 

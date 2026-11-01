@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a>
 - **Category**: [Search](../../README.md#search)
 - **Type**: Client-Side Static Search Library
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

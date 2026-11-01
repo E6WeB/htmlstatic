@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://logrocket.com/" target="_blank" rel="noopener noreferrer">logrocket.com</a>
 - **Category**: [Monitoring & Error Tracking](../../README.md#monitoring--error-tracking)
 - **Type**: Session Replay & Telemetry
+- **Pricing / License**: Freemium
 
 ---
 

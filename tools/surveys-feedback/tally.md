@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://tally.so/" target="_blank" rel="noopener noreferrer">tally.so</a>
 - **Category**: [Surveys & Feedback](../../README.md#surveys--feedback)
 - **Type**: Form & Survey Builder
+- **Pricing / License**: Freemium
 
 ---
 

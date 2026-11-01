@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://lucide.dev/" target="_blank" rel="noopener noreferrer">lucide.dev</a>
 - **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
 - **Type**: Vector Icon System
+- **Pricing / License**: Open Source (ISC)
 
 ---
 

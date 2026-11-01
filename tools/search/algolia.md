@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">algolia.com</a>
 - **Category**: [Search](../../README.md#search)
 - **Type**: Hosted Search Engine API
+- **Pricing / License**: Freemium
 
 ---
 

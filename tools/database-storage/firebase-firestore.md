@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">firebase.google.com</a>
 - **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
 - **Type**: Serverless Cloud NoSQL Database
+- **Pricing / License**: Freemium
 
 ---
 

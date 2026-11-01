@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://swiperjs.com/" target="_blank" rel="noopener noreferrer">swiperjs.com</a>
 - **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
 - **Type**: Touch Slider & Carousel Library
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

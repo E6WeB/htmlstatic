@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://splitforms.com/" target="_blank" rel="noopener noreferrer">splitforms.com</a>
 - **Category**: [Contact Forms](../../README.md#contact-forms)
 - **Type**: Hosted Form Backend
+- **Pricing / License**: Freemium
 
 ---
 

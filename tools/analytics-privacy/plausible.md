@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://plausible.io/" target="_blank" rel="noopener noreferrer">plausible.io</a>
 - **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
 - **Type**: Lightweight Analytics Solution
+- **Pricing / License**: Open Source (AGPL-3.0)
 
 ---
 

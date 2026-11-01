@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 - **Type**: Digital Product E-Commerce Platform
+- **Pricing / License**: Freemium
 
 ---
 

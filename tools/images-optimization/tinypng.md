@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">tinypng.com</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Image Compression Service
+- **Pricing / License**: Freemium
 
 ---
 

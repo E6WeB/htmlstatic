@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://plyr.io/" target="_blank" rel="noopener noreferrer">plyr.io</a>
 - **Category**: [Media & Video Players](../../README.md#media--video-players)
 - **Type**: HTML5 Media Player
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

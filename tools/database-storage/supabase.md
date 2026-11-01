@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">supabase.com</a>
 - **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
 - **Type**: Backend-as-a-Service (BaaS)
+- **Pricing / License**: Freemium
 
 ---
 

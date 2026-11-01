@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">disqus.com</a>
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Hosted Discussion Network
+- **Pricing / License**: Freemium
 
 ---
 

@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">emailit.com</a>
 - **Category**: [Newsletters & Email](../../README.md#newsletters--email)
 - **Type**: Transactional Email API
+- **Pricing / License**: Freemium
 
 ---
 

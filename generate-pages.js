@@ -125,6 +125,38 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
+function getDomainFromUrl(url) {
+  try {
+    if (!url) return '';
+    const u = new URL(url);
+    return u.hostname.replace(/^www\./, '');
+  } catch (e) {
+    return '';
+  }
+}
+
+function getBlackWhiteFallbackSvg(name, size = 18) {
+  const initial = escapeHtml((name || 'T').charAt(0).toUpperCase());
+  return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3E${initial}%3C/text%3E%3C/svg%3E`;
+}
+
+function getToolSiteIcon(tool, size = 18, extraStyle = '') {
+  let websiteUrl = tool.websiteUrl;
+  if (!websiteUrl && tool.slug) {
+    const found = allTools.find(at => at.slug === tool.slug);
+    if (found) websiteUrl = found.websiteUrl;
+  }
+  const domain = getDomainFromUrl(websiteUrl);
+  const bwFallback = getBlackWhiteFallbackSvg(tool.name, size);
+
+  if (!domain) {
+    return `<img src="${bwFallback}" width="${size}" height="${size}" class="tool-siteicon" alt="" aria-hidden="true" style="border-radius:4px; vertical-align:middle; flex-shrink:0; ${extraStyle}">`;
+  }
+
+  const faviconUrl = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
+  return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='${bwFallback}';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ${extraStyle}">`;
+}
+
 // Parse README
 const readmeContent = fs.readFileSync(path.join(ROOT_DIR, 'README.md'), 'utf8');
 const sections = readmeContent.split(/\n(?=##\s+)/);
@@ -831,15 +863,23 @@ const BASE_CSS = `
   .mini-hero-icon-box {
     width: 2.75rem;
     height: 2.75rem;
-    background: var(--accent-light);
+    background: var(--bg-surface);
     color: var(--accent);
-    border: 1px solid rgba(37, 99, 235, 0.18);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  .tool-siteicon {
+    display: inline-block;
+    border-radius: 4px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    object-fit: contain;
   }
 
   .mini-hero-title {
@@ -2696,8 +2736,8 @@ const initialArchiveTopTools = [
 
 const archiveTopToolsHtml = initialArchiveTopTools.map(t => `
     <a href="tools/${t.categorySlug}/${t.slug}" class="sidebar-tool-card" title="${escapeHtml(t.name)}">
-      <span class="sidebar-tool-icon">
-        ${CATEGORY_ICONS[t.categorySlug] || ICONS.zap}
+      <span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
+        ${getToolSiteIcon(t, 20)}
       </span>
       <div class="sidebar-tool-info">
         <div class="sidebar-tool-name">
@@ -2743,6 +2783,19 @@ const archiveContent = `
           <h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4>
         </div>
         <div class="sidebar-widget-body">
+          <div class="sidebar-tip-item">
+            <span class="sidebar-tip-icon">${ICONS.tag}</span>
+            <div>
+              <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Pricing &amp; License Structure</strong>
+              <div style="font-size:0.8rem; line-height:1.45; margin-top:0.35rem; display:flex; flex-direction:column; gap:0.35rem;">
+                <div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free</span> 100% free with no payment required.</div>
+                <div><span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Freemium</span> Free tier exists with paid plans/credits.</div>
+                <div><span class="badge badge-paid" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Paid</span> Commercial only; no permanent free tier.</div>
+                <div><span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Open Source</span> Public code with verified license (MIT, Apache, etc.).</div>
+                <div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free / Open Source</span> Free platform with open-source foundation.</div>
+              </div>
+            </div>
+          </div>
           <div class="sidebar-tip-item">
             <span class="sidebar-tip-icon">${ICONS.check}</span>
             <div>
@@ -2864,6 +2917,7 @@ const archiveContent = `
                   const pBadge = tool.primaryBadge.toLowerCase();
                   let badgeClass = 'badge-freemium';
                   if (pBadge.includes('open source')) badgeClass = 'badge-open-source';
+                  else if (pBadge.includes('freemium')) badgeClass = 'badge-freemium';
                   else if (pBadge.includes('free')) badgeClass = 'badge-free';
                   else if (pBadge.includes('paid')) badgeClass = 'badge-paid';
                   const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
@@ -2871,7 +2925,10 @@ const archiveContent = `
                   return `
                   <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
-                      <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}">${escapeHtml(tool.name)}</a>
+                      <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.55rem; text-decoration:none; color:inherit;">
+                        ${getToolSiteIcon(tool, 18)}
+                        <span style="color:var(--text-main); font-weight:700;">${escapeHtml(tool.name)}</span>
+                      </a>
                     </td>
                     <td style="padding:0.85rem 1rem; white-space:nowrap;">
                       <span class="tool-archive-views" data-key="${toolKey}" title="Total views for ${escapeHtml(tool.name)}" style="font-size:0.85rem; color:var(--text-muted); font-variant-numeric:tabular-nums; font-weight:500;">
@@ -3798,6 +3855,9 @@ allTools.forEach(tool => {
   if (pBadge.includes('open source')) {
     badgeClass = 'badge-open-source';
     badgeIcon = ICONS.branch;
+  } else if (pBadge.includes('freemium')) {
+    badgeClass = 'badge-freemium';
+    badgeIcon = ICONS.star;
   } else if (pBadge.includes('free')) {
     badgeClass = 'badge-free';
     badgeIcon = ICONS.check;
@@ -3812,6 +3872,8 @@ allTools.forEach(tool => {
     const rtPBadge = rt.primaryBadge.toLowerCase();
     if (rtPBadge.includes('open source')) {
       rtBadgeClass = 'badge-open-source';
+    } else if (rtPBadge.includes('freemium')) {
+      rtBadgeClass = 'badge-freemium';
     } else if (rtPBadge.includes('free')) {
       rtBadgeClass = 'badge-free';
     } else if (rtPBadge.includes('paid')) {
@@ -3820,8 +3882,8 @@ allTools.forEach(tool => {
 
     return `
       <a href="../../tools/${rt.categorySlug}/${rt.slug}" class="sidebar-tool-card">
-        <span class="sidebar-tool-icon">
-          ${CATEGORY_ICONS[rt.categorySlug] || ICONS.zap}
+        <span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
+          ${getToolSiteIcon(rt, 20)}
         </span>
         <div class="sidebar-tool-info">
           <div class="sidebar-tool-name">
@@ -3853,7 +3915,7 @@ allTools.forEach(tool => {
           ${escapeHtml(tool.categoryTitle)}
         </a>
       `,
-      icon: CATEGORY_ICONS[tool.categorySlug] || ICONS.zap,
+      icon: getToolSiteIcon(tool, 26),
       title: escapeHtml(tool.name),
       subtext: escapeHtml(tool.tagline || tool.description),
       actions: `
@@ -4012,6 +4074,19 @@ allTools.forEach(tool => {
               <h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4>
             </div>
             <div class="sidebar-widget-body">
+              <div class="sidebar-tip-item">
+                <span class="sidebar-tip-icon">${ICONS.tag}</span>
+                <div>
+                  <strong style="color:var(--text-main); font-size:0.825rem; display:block;">Pricing &amp; License Structure</strong>
+                  <div style="font-size:0.8rem; line-height:1.45; margin-top:0.35rem; display:flex; flex-direction:column; gap:0.35rem;">
+                    <div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free</span> 100% free with no payment required.</div>
+                    <div><span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Freemium</span> Free tier exists with paid plans/credits.</div>
+                    <div><span class="badge badge-paid" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Paid</span> Commercial only; no permanent free tier.</div>
+                    <div><span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Open Source</span> Public code with verified license (MIT, Apache, etc.).</div>
+                    <div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free / Open Source</span> Free platform with open-source foundation.</div>
+                  </div>
+                </div>
+              </div>
               <div class="sidebar-tip-item">
                 <span class="sidebar-tip-icon">${ICONS.check}</span>
                 <div>

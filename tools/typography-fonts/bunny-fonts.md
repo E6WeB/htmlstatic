@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://fonts.bunny.net/" target="_blank" rel="noopener noreferrer">fonts.bunny.net</a>
 - **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
 - **Type**: Privacy-First Font CDN
+- **Pricing / License**: Free
 
 ---
 

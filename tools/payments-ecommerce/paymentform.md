@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">paymentform.io</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 - **Type**: Embeddable Payment & Checkout Forms
+- **Pricing / License**: Freemium
 
 ---
 

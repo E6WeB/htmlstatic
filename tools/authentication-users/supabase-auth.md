@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://supabase.com/auth" target="_blank" rel="noopener noreferrer">supabase.com/auth</a>
 - **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
 - **Type**: Open Source Authentication Service
+- **Pricing / License**: Freemium
 
 ---
 

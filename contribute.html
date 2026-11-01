@@ -583,15 +583,23 @@
   .mini-hero-icon-box {
     width: 2.75rem;
     height: 2.75rem;
-    background: var(--accent-light);
+    background: var(--bg-surface);
     color: var(--accent);
-    border: 1px solid rgba(37, 99, 235, 0.18);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  .tool-siteicon {
+    display: inline-block;
+    border-radius: 4px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    object-fit: contain;
   }
 
   .mini-hero-title {

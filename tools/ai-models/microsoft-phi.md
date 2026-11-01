@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer">azure.microsoft.com/.../phi</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Small Language Model (SLM)
-- **Pricing / License**: Open Source
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

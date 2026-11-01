@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">brevo.com</a>
 - **Category**: [Newsletters & Email](../../README.md#newsletters--email)
 - **Type**: Marketing & Transactional Email Suite
+- **Pricing / License**: Freemium
 
 ---
 

@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Code Editor & IDE
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

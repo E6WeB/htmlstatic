@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 - **Type**: Hosted Payment Checkouts
+- **Pricing / License**: Paid
 
 ---
 

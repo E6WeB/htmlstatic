@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer">calendly.com</a>
 - **Category**: [Booking & Scheduling](../../README.md#booking--scheduling)
 - **Type**: Hosted Appointment Booking Service
+- **Pricing / License**: Freemium
 
 ---
 

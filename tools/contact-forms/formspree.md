@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">formspree.io</a>
 - **Category**: [Contact Forms](../../README.md#contact-forms)
 - **Type**: Form Endpoint Service
+- **Pricing / License**: Freemium
 
 ---
 

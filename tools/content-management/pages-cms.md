@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://pagescms.org/" target="_blank" rel="noopener noreferrer">pagescms.org</a>
 - **Category**: [Content Management](../../README.md#content-management)
 - **Type**: Modern Git-Backed CMS
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

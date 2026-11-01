@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://michalsnik.github.io/aos/" target="_blank" rel="noopener noreferrer">michalsnik.github.io/aos</a>
 - **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
 - **Type**: Scroll Animation Library
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

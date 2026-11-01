@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">vercel.com</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Frontend Cloud & Edge CDN
+- **Pricing / License**: Freemium
 
 ---
 

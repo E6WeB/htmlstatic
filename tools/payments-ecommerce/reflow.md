@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce) | [Authentication & User Management](../../README.md#authentication--user-management)
 - **Type**: E-Commerce, Subscriptions & User Authentication
-- **Pricing / License**: Freemium (0% transaction fees)
+- **Pricing / License**: Freemium
 
 ---
 

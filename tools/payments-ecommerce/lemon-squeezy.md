@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 - **Type**: Merchant of Record E-Commerce
+- **Pricing / License**: Freemium
 
 ---
 

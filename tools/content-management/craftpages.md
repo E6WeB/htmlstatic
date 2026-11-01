@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://craftpages.app/" target="_blank" rel="noopener noreferrer">craftpages.app</a>
 - **Category**: [Content Management](../../README.md#content-management)
 - **Type**: Desktop Visual CMS for HTML Sites
+- **Pricing / License**: Open Source (GPL-3.0)
 
 ---
 

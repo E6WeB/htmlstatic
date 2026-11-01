@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">mistral.ai</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Open-Weights & Frontier Model
-- **Pricing / License**: Open Source
+- **Pricing / License**: Freemium
 
 ---
 

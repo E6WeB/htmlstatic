@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://picocss.com/" target="_blank" rel="noopener noreferrer">picocss.com</a>
 - **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
 - **Type**: Classless / Minimal CSS Framework
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

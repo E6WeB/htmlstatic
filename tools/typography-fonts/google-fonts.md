@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">fonts.google.com</a>
 - **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
 - **Type**: Web Font & Icon CDN
+- **Pricing / License**: Free
 
 ---
 

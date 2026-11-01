@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://mux.com/player" target="_blank" rel="noopener noreferrer">mux.com/player</a>
 - **Category**: [Media & Video Players](../../README.md#media--video-players)
 - **Type**: Modern Video Streaming Component
+- **Pricing / License**: Freemium
 
 ---
 

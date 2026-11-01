@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://fontsource.org/" target="_blank" rel="noopener noreferrer">fontsource.org</a>
 - **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
 - **Type**: Self-Hosted Web Fonts
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

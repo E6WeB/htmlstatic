@@ -6,7 +6,7 @@
 - **GitHub Repository**: <a href="https://github.com/opencode-ai/opencode" target="_blank" rel="noopener noreferrer">github.com/opencode-ai/opencode</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: AI Coding Agent (CLI & IDE Extensions)
-- **Pricing / License**: Open Source
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

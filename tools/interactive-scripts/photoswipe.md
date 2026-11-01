@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://photoswipe.com/" target="_blank" rel="noopener noreferrer">photoswipe.com</a>
 - **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
 - **Type**: Image Lightbox & Gallery Library
+- **Pricing / License**: Open Source (MIT)
 
 ---
 

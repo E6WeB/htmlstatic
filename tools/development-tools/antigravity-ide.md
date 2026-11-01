@@ -5,7 +5,7 @@
 - **Official Website**: <a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: AI-First IDE
-- **Pricing / License**: Free
+- **Pricing / License**: Freemium
 
 ---
 

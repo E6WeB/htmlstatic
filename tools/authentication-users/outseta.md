@@ -5,6 +5,7 @@
 - **Official Website**: <a href="https://outseta.com/" target="_blank" rel="noopener noreferrer">outseta.com</a>
 - **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
 - **Type**: Membership & Gated Content Platform
+- **Pricing / License**: Paid
 
 ---
 
