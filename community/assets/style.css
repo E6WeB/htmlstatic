@@ -1428,7 +1428,7 @@ a.button {
   font-size: 1.025rem;
   line-height: 1.7;
   color: var(--text-main);
-  white-space: pre-wrap;
+  word-break: break-word;
   overflow-wrap: anywhere;
   margin: 1.5rem 0;
   padding: 1.25rem 1.4rem;
@@ -1683,7 +1683,7 @@ a.button {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-main);
-  white-space: pre-wrap;
+  word-break: break-word;
   overflow-wrap: anywhere;
   margin: 0.65rem 0 0.85rem;
 }
@@ -1743,14 +1743,103 @@ a.button {
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text-main);
-  white-space: pre-wrap;
   word-break: break-word;
   overflow-wrap: anywhere;
   margin: 1.5rem 0 2rem;
 }
 
+.thread-body h1,
+.thread-body h2,
+.thread-body h3,
+.thread-body h4,
+.reply-body h1,
+.reply-body h2,
+.reply-body h3,
+.reply-body h4,
+.detail-body h1,
+.detail-body h2,
+.detail-body h3,
+.detail-body h4 {
+  color: var(--text-main);
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.thread-body h1, .reply-body h1, .detail-body h1 { font-size: 1.5rem; }
+.thread-body h2, .reply-body h2, .detail-body h2 { font-size: 1.3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.35rem; }
+.thread-body h3, .reply-body h3, .detail-body h3 { font-size: 1.15rem; }
+.thread-body h4, .reply-body h4, .detail-body h4 { font-size: 1.05rem; }
+
+.thread-body p,
+.reply-body p,
+.detail-body p {
+  margin-bottom: 1rem;
+}
+
+.thread-body p:last-child,
+.reply-body p:last-child,
+.detail-body p:last-child {
+  margin-bottom: 0;
+}
+
+.thread-body ul,
+.thread-body ol,
+.reply-body ul,
+.reply-body ol,
+.detail-body ul,
+.detail-body ol {
+  margin: 0.85rem 0 1.15rem 1.75rem;
+  padding-left: 0.5rem;
+}
+
+.thread-body li,
+.reply-body li,
+.detail-body li {
+  margin-bottom: 0.45rem;
+  line-height: 1.6;
+}
+
+.thread-body blockquote,
+.reply-body blockquote,
+.detail-body blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--bg-muted);
+  padding: 0.75rem 1.15rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.thread-body a,
+.reply-body a,
+.detail-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.thread-body a:hover,
+.reply-body a:hover,
+.detail-body a:hover {
+  color: var(--accent-hover);
+}
+
+.thread-body hr,
+.reply-body hr,
+.detail-body hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 1.75rem 0;
+}
+
 .thread-body pre,
-.reply-body pre {
+.reply-body pre,
+.detail-body pre {
   background: var(--bg-muted);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -1763,7 +1852,8 @@ a.button {
 }
 
 .thread-body code,
-.reply-body code {
+.reply-body code,
+.detail-body code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.875em;
   background: var(--bg-muted);
@@ -1773,7 +1863,8 @@ a.button {
 }
 
 .thread-body pre code,
-.reply-body pre code {
+.reply-body pre code,
+.detail-body pre code {
   background: transparent;
   padding: 0;
   border: none;
@@ -2056,11 +2147,29 @@ a.button {
 .forum-stats-section {
   font-size: 14px;
   line-height: 1.45;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.forum-stats-container,
+.forum-stats-section > .container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1040px) {
+  .forum-stats-container,
+  .forum-stats-section > .container {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 2rem !important;
+  }
 }
 
 .forum-stats-card {
+  grid-column: 1;
+  width: 100%;
   font-size: 14px;
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
@@ -2109,11 +2218,102 @@ a.button {
   font-size: 14px;
 }
 
+.forum-stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.forum-stats-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  letter-spacing: -0.015em;
+}
+
+.forum-stats-title .forum-stat-icon {
+  color: var(--accent);
+}
+
 .forum-stats-activity {
   font-size: 14px;
   color: var(--text-main);
   padding-bottom: 0.55rem;
   border-bottom: 1px solid var(--border-color);
+}
+
+/* Topic Page Modern Meta Bar Layout */
+.thread-meta-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.75rem;
+  margin-top: 0.65rem;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.thread-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  line-height: 1.35;
+  color: var(--text-muted);
+  transition: all 0.15s ease;
+}
+
+.thread-meta-item svg {
+  flex-shrink: 0;
+  color: var(--text-subtle);
+}
+
+.thread-meta-item.thread-meta-author {
+  color: var(--text-main);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.thread-meta-item.thread-meta-author svg {
+  color: var(--accent);
+}
+
+.thread-meta-item.thread-meta-replies {
+  background: var(--bg-muted);
+  color: var(--text-main);
+}
+
+.thread-meta-item.thread-meta-votes {
+  background: var(--accent-light);
+  border-color: rgba(37, 99, 235, 0.25);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.thread-meta-item.thread-meta-votes svg {
+  color: #eab308;
+}
+
+[data-theme="dark"] .thread-meta-item {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .thread-meta-item.thread-meta-votes {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
 }
 
 .forum-activity-item {

@@ -52,6 +52,131 @@
     return v.length > n ? v.slice(0, n).trim() + '…' : v;
   };
 
+  const stripMarkdown = (md) => {
+    if (!md) return '';
+    return String(md)
+      .replace(/```[\s\S]*?```/g, '')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/^#{1,6}\s+/gm, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[*_~]+/g, '')
+      .replace(/^[-*+][ \t]+/gm, '')
+      .replace(/^\d+\.[ \t]+/gm, '')
+      .replace(/^(?:&gt;|>)[ \t]?/gm, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
+
+  function renderMarkdown(md) {
+    if (!md) return '';
+    let src = String(md).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+    const codeBlocks = [];
+    const inlineCodes = [];
+
+    // Fenced Code Blocks (```lang ... ```)
+    src = src.replace(/(?:^|\n)```([a-zA-Z0-9_-]*)\n([\s\S]*?)\n```(?:\n|$)/g, (_, lang, code) => {
+      const idx = codeBlocks.length;
+      const langAttr = lang ? ` class="language-${escapeHtml(lang)}"` : '';
+      codeBlocks.push(`<pre><code${langAttr}>${escapeHtml(code)}</code></pre>`);
+      return `\n\n\x00CB${idx}\x00\n\n`;
+    });
+
+    // Inline code (`...`)
+    src = src.replace(/`([^`\n]+)`/g, (_, code) => {
+      const idx = inlineCodes.length;
+      inlineCodes.push(`<code>${escapeHtml(code)}</code>`);
+      return `\x00IC${idx}\x00`;
+    });
+
+    // Escape raw HTML characters to prevent XSS
+    src = src
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+    // Headings (# h1 .. ###### h6)
+    src = src.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, text) => {
+      const level = hashes.length;
+      return `<h${level}>${text.trim()}</h${level}>`;
+    });
+
+    // Horizontal Rules (---, ***, ___)
+    src = src.replace(/^(?:[-*_]\s*){3,}$/gm, '<hr>');
+
+    // Blockquotes (> text)
+    src = src.replace(/^(?:&gt;|>)[ \t]?(.*)$/gm, '<blockquote>$1</blockquote>');
+    src = src.replace(/<\/blockquote>\n<blockquote>/g, '<br>');
+
+    // Process lists (unordered and ordered)
+    src = src.replace(/^([ \t]*)[-*+][ \t]+(.+)$/gm, (_, indent, item) => {
+      return `\x00UL${item.trim()}\x00EUL`;
+    });
+
+    src = src.replace(/^([ \t]*)\d+\.[ \t]+(.+)$/gm, (_, indent, item) => {
+      return `\x00OL${item.trim()}\x00EOL`;
+    });
+
+    src = src.replace(/(?:\x00UL[\s\S]*?\x00EUL\n?)+/g, (match) => {
+      const items = match
+        .trim()
+        .split('\x00EUL')
+        .filter((s) => s.includes('\x00UL'))
+        .map((s) => `<li>${s.replace(/.*\x00UL/, '').trim()}</li>`)
+        .join('');
+      return `<ul>\n${items}\n</ul>\n`;
+    });
+
+    src = src.replace(/(?:\x00OL[\s\S]*?\x00EOL\n?)+/g, (match) => {
+      const items = match
+        .trim()
+        .split('\x00EOL')
+        .filter((s) => s.includes('\x00OL'))
+        .map((s) => `<li>${s.replace(/.*\x00OL/, '').trim()}</li>`)
+        .join('');
+      return `<ol>\n${items}\n</ol>\n`;
+    });
+
+    // Links: [text](url)
+    src = src.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, text, url) => {
+      const cleanUrl = url.replace(/&amp;/g, '&');
+      if (/^(https?:\/\/|\/|mailto:|#)/i.test(cleanUrl)) {
+        const isExternal = /^https?:\/\//i.test(cleanUrl);
+        const extAttrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+        return `<a href="${cleanUrl}"${extAttrs}>${text}</a>`;
+      }
+      return match;
+    });
+
+    // Bold & Italic
+    src = src.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+    src = src.replace(/___([^_]+)___/g, '<strong><em>$1</em></strong>');
+    src = src.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    src = src.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+    src = src.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    src = src.replace(/_([^_]+)_/g, '<em>$1</em>');
+    src = src.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+
+    // Paragraphs
+    const blocks = src.split(/\n{2,}/);
+    const htmlBlocks = blocks.map((block) => {
+      const trimmed = block.trim();
+      if (!trimmed) return '';
+      if (/^<(h[1-6]|ul|ol|blockquote|pre|hr|div)/i.test(trimmed) || trimmed.startsWith('\x00CB')) {
+        return trimmed;
+      }
+      const withBr = trimmed.replace(/\n/g, '<br>');
+      return `<p>${withBr}</p>`;
+    });
+
+    let result = htmlBlocks.join('\n');
+    result = result.replace(/\x00IC(\d+)\x00/g, (_, idx) => inlineCodes[Number(idx)] || '');
+    result = result.replace(/(?:<p>)?\x00CB(\d+)\x00(?:<\/p>)?/g, (_, idx) => codeBlocks[Number(idx)] || '');
+    return result;
+  }
+
   let toastTimer;
   function toast(message) {
     const el = $('#toast');
@@ -244,7 +369,7 @@
             }
             <a class="topic-title" href="/community/topic?id=${t.id}">${escapeHtml(t.title)}</a>
           </div>
-          <p class="topic-excerpt">${escapeHtml(shortText(t.body, 220))}</p>
+          <p class="topic-excerpt">${escapeHtml(shortText(stripMarkdown(t.body), 220))}</p>
           <div class="topic-card-footer">
             <div class="topic-footer-meta">
               <a href="/community/?channel=${t.category_slug}" data-category="${t.category_slug}" class="topic-category-link" title="Channel: ${escapeHtml(t.category_name)}">${escapeHtml(t.category_name)}</a>
@@ -335,7 +460,38 @@
 
       const heroMeta = $('#thread-hero-meta');
       if (heroMeta) {
-        heroMeta.innerHTML = `Posted by <strong>${escapeHtml(t.display_name || t.login)}</strong> on ${formatDateTime(t.created_at)} • <strong>${replies.length}</strong> ${replies.length === 1 ? 'reply' : 'replies'} • <strong>${Number(t.score) || 0}</strong> net votes`;
+        const authorName = escapeHtml(t.display_name || t.login);
+        const replyCount = replies.length;
+        const voteScore = Number(t.score) || 0;
+        heroMeta.className = 'mini-hero-subtext thread-meta-bar';
+        heroMeta.innerHTML = `
+          <span class="thread-meta-item thread-meta-author" title="Author">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Posted by <strong>${authorName}</strong></span>
+          </span>
+          <span class="thread-meta-item thread-meta-date" title="Posted Date">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>${formatDateTime(t.created_at)}</span>
+          </span>
+          <span class="thread-meta-item thread-meta-replies" title="Replies">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span><strong>${replyCount}</strong> ${replyCount === 1 ? 'reply' : 'replies'}</span>
+          </span>
+          <span class="thread-meta-item thread-meta-votes" title="Votes">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34L12 14.24l-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/>
+            </svg>
+            <span><strong>${voteScore}</strong> ${Math.abs(voteScore) === 1 ? 'vote' : 'votes'}</span>
+          </span>
+        `;
       }
 
       // Sidebar Overview Widget
@@ -393,7 +549,7 @@
       }
       const opBody = $('#op-body');
       if (opBody) {
-        opBody.textContent = t.body;
+        opBody.innerHTML = renderMarkdown(t.body);
       }
       const opActions = $('#op-actions');
       if (opActions) {
@@ -430,7 +586,7 @@
                   </div>
                   <span style="font-size:0.75rem;font-weight:700;color:var(--text-subtle);">#${index + 1}</span>
                 </div>
-                <div class="reply-body" style="font-size:0.95rem;line-height:1.65;margin:0.5rem 0 0.85rem;">${escapeHtml(r.body)}</div>
+                <div class="reply-body">${renderMarkdown(r.body)}</div>
                 ${voteControls('reply', r.id, r.score, r.my_vote, r)}
               </article>
             `;
@@ -518,7 +674,7 @@
               <polyline points="18 15 12 9 6 15"></polyline>
             </svg>
           </button>
-          <span class="vote-score-display ${scoreClass}" title="${scoreVal} net votes" aria-label="${scoreVal} net votes">
+          <span class="vote-score-display ${scoreClass}" title="${scoreVal} votes" aria-label="${scoreVal} votes">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="vote-metric-icon">
               <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34L12 14.24l-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/>
             </svg>
@@ -640,7 +796,7 @@
         </div>
         <button type="button" class="close-button" data-close="topic-dialog" aria-label="Close">×</button>
       </div>
-      <div class="detail-body">${escapeHtml(t.body)}</div>
+      <div class="detail-body">${renderMarkdown(t.body)}</div>
       ${voteControls('topic', t.id, t.score, t.my_vote, t)}
       <h3 class="reply-heading">Replies (${replies.length})</h3>
       <div class="replies">
@@ -655,7 +811,7 @@
                   <span>${dateText(r.created_at)}</span>
                   ${isTrue(r.is_hidden) ? '<span class="badge badge-paid">Hidden</span>' : ''}
                 </div>
-                <div class="reply-body">${escapeHtml(r.body)}</div>
+                <div class="reply-body">${renderMarkdown(r.body)}</div>
                 ${voteControls('reply', r.id, r.score, r.my_vote, r)}
               </article>
             `
@@ -1514,6 +1670,8 @@
     if (topicsEl && s.topics !== undefined) topicsEl.textContent = s.topics;
     const repliesEl = $('#stat-replies-count');
     if (repliesEl && s.replies !== undefined) repliesEl.textContent = s.replies;
+    const votesEl = $('#stat-votes-count');
+    if (votesEl && s.votes !== undefined) votesEl.textContent = s.votes;
     const membersEl = $('#stat-members-count');
     if (membersEl && s.members !== undefined) membersEl.textContent = s.members;
 
