@@ -52,91 +52,161 @@ const CATEGORY_ICONS = {
   'tutorials': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`
 };
 
+const TOOLS_DATA_FILE = path.join(__dirname, '..', 'asset', 'json', 'tools-data.json');
+
+function getDomainFromUrl(url) {
+  try {
+    if (!url) return '';
+    const u = new URL(url);
+    return u.hostname.replace(/^www\./, '');
+  } catch (e) {
+    return '';
+  }
+}
+
+function buildTopToolsList(viewsMap = {}) {
+  let categories = [];
+  try {
+    if (fs.existsSync(TOOLS_DATA_FILE)) {
+      categories = JSON.parse(fs.readFileSync(TOOLS_DATA_FILE, 'utf8'));
+    }
+  } catch (e) {}
+
+  if (!categories || !categories.length) {
+    return DEFAULT_TOP_TOOLS;
+  }
+
+  const list = [];
+  categories.forEach(cat => {
+    (cat.tools || []).forEach(t => {
+      const key = `htmlstatic-${cat.slug}-${t.slug}`;
+      const views = Number(viewsMap[key]) || 0;
+      let badgeClass = 'badge-freemium';
+      const pBadge = (t.badges && t.badges[0]) || 'Free';
+      const pBadgeLower = pBadge.toLowerCase();
+      if (pBadgeLower.includes('open source')) {
+        badgeClass = 'badge-open-source';
+      } else if (pBadgeLower.includes('freemium')) {
+        badgeClass = 'badge-freemium';
+      } else if (pBadgeLower.includes('free')) {
+        badgeClass = 'badge-free';
+      } else if (pBadgeLower.includes('paid')) {
+        badgeClass = 'badge-paid';
+      }
+
+      const domain = getDomainFromUrl(t.websiteUrl);
+
+      list.push({
+        name: t.name,
+        slug: t.slug,
+        desc: t.description,
+        description: t.description,
+        url: `/tools/${cat.slug}/${t.slug}`,
+        categorySlug: cat.slug,
+        categoryTitle: cat.title,
+        primaryBadge: pBadge,
+        badgeClass: badgeClass,
+        websiteUrl: t.websiteUrl || '',
+        domain: domain,
+        faviconUrl: domain ? `https://icons.duckduckgo.com/ip3/${domain}.ico` : '',
+        key: key,
+        iconSvg: CATEGORY_ICONS[cat.slug] || CATEGORY_ICONS['development-tools'],
+        views: views
+      });
+    });
+  });
+
+  list.sort((a, b) => {
+    if (b.views !== a.views) return b.views - a.views;
+    return a.name.localeCompare(b.name);
+  });
+
+  return list;
+}
+
 const DEFAULT_TOP_TOOLS = [
   {
     name: 'imgmov',
+    slug: 'imgmov',
     desc: 'AI generator for commercial product videos, images, and visual assets.',
     url: '/tools/ai-content-creation/imgmov',
     categorySlug: 'ai-content-creation',
+    categoryTitle: 'AI & Content Creation',
+    primaryBadge: 'Freemium',
+    badgeClass: 'badge-freemium',
     iconSvg: CATEGORY_ICONS['ai-content-creation'],
-    views: 6
+    views: 21
   },
   {
-    name: 'PhotoSwipe',
-    desc: 'Lightweight JavaScript image gallery and lightbox with smooth zoom.',
-    url: '/tools/interactive-scripts/photoswipe',
-    categorySlug: 'interactive-scripts',
-    iconSvg: CATEGORY_ICONS['interactive-scripts'],
-    views: 3
+    name: 'Pic2SVG',
+    slug: 'pic2svg',
+    desc: 'Convert raster images into scalable, editable SVG vector paths.',
+    url: '/tools/images-optimization/pic2svg',
+    categorySlug: 'images-optimization',
+    categoryTitle: 'Images & Optimization',
+    primaryBadge: 'Freemium',
+    badgeClass: 'badge-freemium',
+    iconSvg: CATEGORY_ICONS['images-optimization'],
+    views: 13
   },
   {
-    name: 'Umami',
-    desc: 'Simple, privacy-focused open-source analytics alternative.',
-    url: '/tools/analytics-privacy/umami',
+    name: 'ChatGPT',
+    slug: 'chatgpt',
+    desc: 'The leading conversational AI model for drafting copy and content.',
+    url: '/tools/ai-content-creation/chatgpt',
+    categorySlug: 'ai-content-creation',
+    categoryTitle: 'AI & Content Creation',
+    primaryBadge: 'Freemium',
+    badgeClass: 'badge-freemium',
+    iconSvg: CATEGORY_ICONS['ai-content-creation'],
+    views: 4
+  },
+  {
+    name: 'CountAPI',
+    slug: 'countapi',
+    desc: 'Free, key-based hit counter and view tracking API.',
+    url: '/tools/analytics-privacy/countapi',
     categorySlug: 'analytics-privacy',
+    categoryTitle: 'Analytics & Privacy',
+    primaryBadge: 'Open Source',
+    badgeClass: 'badge-open-source',
     iconSvg: CATEGORY_ICONS['analytics-privacy'],
-    views: 2
-  },
-  {
-    name: 'Codeberg Pages',
-    desc: 'Community-driven, privacy-respecting, and free static website hosting.',
-    url: '/tools/hosting-deployment/codeberg-pages',
-    categorySlug: 'hosting-deployment',
-    iconSvg: CATEGORY_ICONS['hosting-deployment'],
-    views: 2
+    views: 4
   }
 ];
+
+// Initialize topToolsCache immediately from local views cache
+if (!topToolsCache) {
+  topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
+  global.__staticstack_top_tools_cache = topToolsCache;
+}
 
 async function refreshTopToolsCache() {
   if (isRefreshingTopTools) return;
   isRefreshingTopTools = true;
   try {
-    const searchJsonPath = path.join(__dirname, '..', 'asset', 'json', 'search-data.json');
-    if (!fs.existsSync(searchJsonPath)) return;
-    const raw = fs.readFileSync(searchJsonPath, 'utf8');
-    const items = JSON.parse(raw).filter(x => x && x.url && x.url.startsWith('/tools/'));
-    if (!items.length) return;
-
-    const pLimit = 15;
-    const results = [];
-    const viewsMap = {};
-    for (let i = 0; i < items.length; i += pLimit) {
-      const chunk = items.slice(i, i + pLimit);
-      const chunkRes = await Promise.all(chunk.map(async t => {
-        const parts = t.url.split('/').filter(Boolean);
-        const catSlug = parts[1] || '';
-        const key = 'htmlstatic-' + t.url.replace('/tools/', '').replace(/\//g, '-');
-        let views = 0;
-        try {
-          const res = await fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(key), {
-            signal: AbortSignal.timeout(3000)
-          });
-          if (res.ok) {
-            const data = await res.json();
-            if (data && data.value !== undefined) views = Number(data.value) || 0;
+    // 1. Sync recorded views with PostgreSQL tool_view_ips table
+    try {
+      const dbRes = await pool.query('SELECT tool_key, count(*) as count FROM tool_view_ips GROUP BY tool_key');
+      if (dbRes && dbRes.rows) {
+        dbRes.rows.forEach(r => {
+          const cnt = parseInt(r.count, 10) || 0;
+          if (r.tool_key) {
+            allToolViewsCache[r.tool_key] = Math.max(allToolViewsCache[r.tool_key] || 0, cnt);
           }
-        } catch {}
-        viewsMap[key] = views;
-        return {
-          name: t.title,
-          desc: t.description,
-          url: t.url,
-          categorySlug: catSlug,
-          iconSvg: CATEGORY_ICONS[catSlug] || CATEGORY_ICONS['development-tools'],
-          views: views
-        };
-      }));
-      results.push(...chunkRes);
+        });
+      }
+    } catch (dbErr) {
+      // Postgres pool might still be connecting
     }
 
-    allToolViewsCache = viewsMap;
-    global.__staticstack_all_tool_views = viewsMap;
+    // 2. Persist updated viewsMap to cache file
     try {
-      fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(viewsMap, null, 2));
+      fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(allToolViewsCache, null, 2));
     } catch {}
 
-    results.sort((a, b) => b.views - a.views);
-    const top4 = results.slice(0, 4);
+    // 3. Build updated top tools list
+    const top4 = buildTopToolsList(allToolViewsCache).slice(0, 4);
     if (top4.length > 0) {
       topToolsCache = top4;
       global.__staticstack_top_tools_cache = top4;
@@ -151,8 +221,8 @@ async function refreshTopToolsCache() {
 }
 
 async function getTopTools() {
-  if (!topToolsCache) {
-    topToolsCache = DEFAULT_TOP_TOOLS;
+  if (!topToolsCache || !topToolsCache.length) {
+    topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
     refreshTopToolsCache().catch(() => {});
   } else if (Date.now() - topToolsLastFetch > TOP_TOOLS_CACHE_TTL) {
     refreshTopToolsCache().catch(() => {});
@@ -269,6 +339,8 @@ async function recordToolView(req, key, hitRequested = true) {
     }
 
     allToolViewsCache[cleanKey] = currentCount;
+    topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
+    global.__staticstack_top_tools_cache = topToolsCache;
     try {
       fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(allToolViewsCache, null, 2));
     } catch {}

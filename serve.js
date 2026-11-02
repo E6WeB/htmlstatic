@@ -54,6 +54,13 @@ const server = http.createServer((req, res) => {
       });
   }
 
+  // Handle Tool Views or Top Tools direct APIs (/api/top-tools, /api/tool-views)
+  if (pathname === '/api/top-tools' || pathname === '/api/tool-views') {
+    delete require.cache[require.resolve('./community/forum.js')];
+    const action = pathname === '/api/top-tools' ? 'top-tools' : 'tool-views';
+    return require('./community/forum.js').handleApi(req, res, pathname, { ...query, action });
+  }
+
   // Handle Community Forum API (/community/api or /community/api.php)
   if (pathname === '/community/api' || pathname === '/community/api.php') {
     delete require.cache[require.resolve('./community/forum.js')];
