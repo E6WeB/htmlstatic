@@ -6,6 +6,7 @@
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Open Source Reaction & Like Button Widget
 - **Pricing / License**: Free
+- **Tags**: `like-button`, `reactions`, `appreciation`, `privacy-first`, `widget`, `open-source`
 
 ---
 

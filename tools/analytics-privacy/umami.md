@@ -8,6 +8,7 @@
 - **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
 - **Type**: Open Source Analytics Platform
 - **Pricing / License**: Freemium
+- **Tags**: `analytics`, `privacy`, `cookieless`, `gdpr`, `self-hosted`, `open-source`
 
 ---
 

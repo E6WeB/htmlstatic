@@ -157,6 +157,47 @@ function getToolSiteIcon(tool, size = 18, extraStyle = '') {
   return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='${bwFallback}';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ${extraStyle}">`;
 }
 
+function extractToolTags(rawMd, folder, toolSlug, primaryBadge, toolName) {
+  const tagsSet = new Set();
+  if (rawMd) {
+    // 1. Bullet item: - **Tags**: `tag1`, `tag2`, tag3 or - **Keywords**: ...
+    const bulletMatch = rawMd.match(/-\s*\*\*(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\*\*:\s*([^\n\r]+)/i);
+    if (bulletMatch) {
+      bulletMatch[1]
+        .replace(/[`\[\]]/g, '')
+        .split(/[,，]/)
+        .map(t => t.trim().toLowerCase().replace(/^#/, ''))
+        .filter(Boolean)
+        .forEach(t => tagsSet.add(t));
+    }
+
+    // 2. Section heading: ## Tags or ## Keywords
+    const sectionMatch = rawMd.match(/##\s+(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\s*\n+([\s\S]*?)(?=\n+---|\n+##|$)/i);
+    if (sectionMatch) {
+      sectionMatch[1]
+        .replace(/[`\[\]\*\-]/g, ' ')
+        .split(/[,，\n]/)
+        .map(t => t.trim().toLowerCase().replace(/^#/, ''))
+        .filter(t => t.length > 1 && !t.startsWith('http'))
+        .forEach(t => tagsSet.add(t));
+    }
+  }
+
+  // Fallback defaults if no explicit tags exist in markdown
+  if (tagsSet.size === 0) {
+    const catWords = folder.split('-').filter(w => w.length > 2);
+    const slugWords = toolSlug.split('-').filter(w => w.length > 2 && !catWords.includes(w));
+    catWords.forEach(w => tagsSet.add(w));
+    if (primaryBadge) {
+      const b = primaryBadge.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      if (b && b !== 'free') tagsSet.add(b);
+    }
+    slugWords.forEach(w => tagsSet.add(w));
+  }
+
+  return Array.from(tagsSet).slice(0, 8);
+}
+
 // Parse README
 const readmeContent = fs.readFileSync(path.join(ROOT_DIR, 'README.md'), 'utf8');
 const sections = readmeContent.split(/\n(?=##\s+)/);
@@ -210,6 +251,7 @@ for (const section of sections) {
 
     const badges = parseBadges(badgeHtml);
     const primaryBadge = badges[0] || 'Free';
+    const tags = extractToolTags(rawMd, folder, toolSlug, primaryBadge, toolName);
 
     const toolObj = {
       name: toolName,
@@ -222,6 +264,7 @@ for (const section of sections) {
       tagline: tagline,
       overview: overview,
       rawMd: rawMd,
+      tags: tags,
       badges: badges,
       primaryBadge: primaryBadge,
       websiteUrl: websiteUrl,
@@ -1632,6 +1675,61 @@ const BASE_CSS = `
     min-width: 0;
   }
 
+  /* Tool Tags / Keywords Section */
+  .tool-tags-section {
+    margin: 2rem 0 1.5rem;
+    padding: 1.15rem 1.35rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-card);
+  }
+
+  .tool-tags-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-subtle);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .tool-tags-list {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .tool-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-body);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .tool-tag-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  }
+
   .tool-page-sidebar {
     display: flex;
     flex-direction: column;
@@ -2725,7 +2823,7 @@ const homeContent = `
     <div id="category-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:1.25rem;">
       ${categories.map(cat => {
         const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
-        const searchTerms = (cat.title + ' ' + cat.description + ' ' + cat.tools.map(t => t.name).join(' ')).toLowerCase();
+        const searchTerms = (cat.title + ' ' + cat.description + ' ' + cat.tools.map(t => t.name + ' ' + (t.tags || []).join(' ')).join(' ')).toLowerCase();
         return `
         <a href="archive#${cat.slug}" class="category-card" data-search="${escapeHtml(searchTerms)}" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
@@ -3246,7 +3344,7 @@ const archiveContent = `
                   const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
 
                   return `
-                  <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
+                  <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ') + ' ' + (tool.tags || []).join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
                       <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.55rem; text-decoration:none; color:inherit;">
                         ${getToolSiteIcon(tool, 18)}
@@ -4163,6 +4261,9 @@ allTools.forEach(tool => {
   let cleanMd = tool.rawMd || `# ${tool.name}\n\n> ${tool.description}\n\n- **Website**: ${tool.websiteUrl}`;
   // Strip trailing markdown navigation links
   cleanMd = cleanMd.replace(/\n+---\s*\n+\[.*?Back to[\s\S]*$/i, '').trimEnd();
+  // Strip tags from markdown body so they render in dedicated interactive section above Discussion
+  cleanMd = cleanMd.replace(/\n\s*-\s*\*\*(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\*\*:[^\n\r]+/gi, '');
+  cleanMd = cleanMd.replace(/\n+---\s*\n+##\s+(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\b[\s\S]*?(?=\n+---|\n+##|$)/gi, '');
 
   // Render markdown with relative link rewriting
   let parsedHtml = marked.parse(cleanMd);
@@ -4234,6 +4335,24 @@ allTools.forEach(tool => {
       </a>
     `;
   }).join('');
+
+  let toolTagsHtml = '';
+  if (tool.tags && tool.tags.length > 0) {
+    const pills = tool.tags.map(t => {
+      const cleanTag = escapeHtml(t);
+      return `<a href="../../archive?q=${encodeURIComponent(t)}" class="tool-tag-pill" title="Filter tools tagged #${cleanTag}">#${cleanTag}</a>`;
+    }).join('');
+
+    toolTagsHtml = `
+            <!-- Tool Tags / Keywords (Above Discussion) -->
+            <div class="tool-tags-section">
+              <span class="tool-tags-label">${ICONS.tag} Tags</span>
+              <div class="tool-tags-list">
+                ${pills}
+              </div>
+            </div>
+    `;
+  }
 
   const renderedToolHtml = renderLayout({
     title: `${tool.name} - ${tool.categoryTitle}`,
@@ -4307,6 +4426,8 @@ allTools.forEach(tool => {
             <div class="markdown-body">
               ${parsedHtml}
             </div>
+
+            ${toolTagsHtml}
 
             <!-- Discussion via Giscus -->
             <section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
@@ -4635,6 +4756,7 @@ allTools.forEach(tool => {
     title: tool.name,
     description: tool.description,
     category: tool.categoryTitle,
+    tags: tool.tags || [],
     url: `/tools/${tool.categorySlug}/${tool.slug}`
   });
 });

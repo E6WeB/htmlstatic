@@ -1352,6 +1352,61 @@
     min-width: 0;
   }
 
+  /* Tool Tags / Keywords Section */
+  .tool-tags-section {
+    margin: 2rem 0 1.5rem;
+    padding: 1.15rem 1.35rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-card);
+  }
+
+  .tool-tags-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-subtle);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .tool-tags-list {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .tool-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-body);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .tool-tag-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  }
+
   .tool-page-sidebar {
     display: flex;
     flex-direction: column;
@@ -2077,20 +2132,20 @@
       </div>
     </a>
   
-    <a href="tools/interactive-scripts/photoswipe" class="home-top-tool-card" data-slug="/tools/interactive-scripts/photoswipe" data-key="htmlstatic-interactive-scripts-photoswipe" title="Explore PhotoSwipe">
+    <a href="tools/ai-content-creation/chatgpt" class="home-top-tool-card" data-slug="/tools/ai-content-creation/chatgpt" data-key="htmlstatic-ai-content-creation-chatgpt" title="Explore ChatGPT">
       <div class="home-top-tool-cover-wrap">
-        <img src="tools/interactive-scripts/photoswipe-cover.webp" alt="PhotoSwipe preview screenshot" width="640" height="360" loading="lazy">
-        <span class="home-top-tool-cat-pill">Interactive Scripts &amp; Animation</span>
+        <img src="tools/ai-content-creation/chatgpt-cover.webp" alt="ChatGPT preview screenshot" width="640" height="360" loading="lazy">
+        <span class="home-top-tool-cat-pill">AI &amp; Content Creation</span>
       </div>
       <div class="home-top-tool-body">
         <div class="home-top-tool-header">
           <div class="home-top-tool-title-wrap">
-            <span class="home-top-tool-icon"><img src="https://icons.duckduckgo.com/ip3/photoswipe.com.ico" width="22" height="22" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3EP%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; "></span>
-            <h3 class="home-top-tool-title">PhotoSwipe</h3>
+            <span class="home-top-tool-icon"><img src="https://icons.duckduckgo.com/ip3/chatgpt.com.ico" width="22" height="22" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3EC%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; "></span>
+            <h3 class="home-top-tool-title">ChatGPT</h3>
           </div>
-          <span class="badge badge-open-source" style="font-size:0.675rem; padding:0.12rem 0.45rem;">Open Source</span>
+          <span class="badge badge-freemium" style="font-size:0.675rem; padding:0.12rem 0.45rem;">Freemium</span>
         </div>
-        <p class="home-top-tool-desc">Lightweight, responsive JavaScript image gallery and lightbox with smooth gestures and zoom.</p>
+        <p class="home-top-tool-desc">The leading conversational AI model for drafting blog posts, landing page copy, and structured HTML/Markdown content.</p>
         <div class="home-top-tool-footer">
           <div class="home-top-tool-stats">
             <span class="home-stat-pill" title="Total Views">
@@ -2098,13 +2153,13 @@
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
-              <span class="home-top-tool-views-val">3</span> views
+              <span class="home-top-tool-views-val">4</span> views
             </span>
             <span class="home-stat-pill home-stat-pill-likes" title="Community Likes">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
               </svg>
-              <span class="home-top-tool-likes-val" data-likes-slug="/tools/interactive-scripts/photoswipe">0</span> likes
+              <span class="home-top-tool-likes-val" data-likes-slug="/tools/ai-content-creation/chatgpt">0</span> likes
             </span>
           </div>
           <span class="home-top-tool-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
@@ -2112,20 +2167,20 @@
       </div>
     </a>
   
-    <a href="tools/booking-scheduling/cal-com" class="home-top-tool-card" data-slug="/tools/booking-scheduling/cal-com" data-key="htmlstatic-booking-scheduling-cal-com" title="Explore Cal.com">
+    <a href="tools/analytics-privacy/countapi" class="home-top-tool-card" data-slug="/tools/analytics-privacy/countapi" data-key="htmlstatic-analytics-privacy-countapi" title="Explore CountAPI">
       <div class="home-top-tool-cover-wrap">
-        <img src="tools/booking-scheduling/cal-com-cover.webp" alt="Cal.com preview screenshot" width="640" height="360" loading="lazy">
-        <span class="home-top-tool-cat-pill">Booking &amp; Scheduling</span>
+        <img src="tools/analytics-privacy/countapi-cover.webp" alt="CountAPI preview screenshot" width="640" height="360" loading="lazy">
+        <span class="home-top-tool-cat-pill">Analytics &amp; Privacy</span>
       </div>
       <div class="home-top-tool-body">
         <div class="home-top-tool-header">
           <div class="home-top-tool-title-wrap">
-            <span class="home-top-tool-icon"><img src="https://icons.duckduckgo.com/ip3/cal.com.ico" width="22" height="22" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3EC%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; "></span>
-            <h3 class="home-top-tool-title">Cal.com</h3>
+            <span class="home-top-tool-icon"><img src="https://icons.duckduckgo.com/ip3/countapi.mileshilliard.com.ico" width="22" height="22" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3EC%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; "></span>
+            <h3 class="home-top-tool-title">CountAPI</h3>
           </div>
           <span class="badge badge-open-source" style="font-size:0.675rem; padding:0.12rem 0.45rem;">Open Source</span>
         </div>
-        <p class="home-top-tool-desc">Open-source, embeddable meeting scheduling infrastructure for booking calls and appointments.</p>
+        <p class="home-top-tool-desc">Free, key-based hit counter and view tracking API with zero signup or keys required.</p>
         <div class="home-top-tool-footer">
           <div class="home-top-tool-stats">
             <span class="home-stat-pill" title="Total Views">
@@ -2133,13 +2188,13 @@
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
-              <span class="home-top-tool-views-val">2</span> views
+              <span class="home-top-tool-views-val">4</span> views
             </span>
             <span class="home-stat-pill home-stat-pill-likes" title="Community Likes">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
               </svg>
-              <span class="home-top-tool-likes-val" data-likes-slug="/tools/booking-scheduling/cal-com">0</span> likes
+              <span class="home-top-tool-likes-val" data-likes-slug="/tools/analytics-privacy/countapi">0</span> likes
             </span>
           </div>
           <span class="home-top-tool-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
@@ -2147,20 +2202,20 @@
       </div>
     </a>
   
-    <a href="tools/typography-fonts/google-fonts" class="home-top-tool-card" data-slug="/tools/typography-fonts/google-fonts" data-key="htmlstatic-typography-fonts-google-fonts" title="Explore Google Fonts">
+    <a href="tools/analytics-privacy/umami" class="home-top-tool-card" data-slug="/tools/analytics-privacy/umami" data-key="htmlstatic-analytics-privacy-umami" title="Explore Umami">
       <div class="home-top-tool-cover-wrap">
-        <img src="tools/typography-fonts/google-fonts-cover.webp" alt="Google Fonts preview screenshot" width="640" height="360" loading="lazy">
-        <span class="home-top-tool-cat-pill">Typography &amp; Web Fonts</span>
+        <img src="tools/analytics-privacy/umami-cover.webp" alt="Umami preview screenshot" width="640" height="360" loading="lazy">
+        <span class="home-top-tool-cat-pill">Analytics &amp; Privacy</span>
       </div>
       <div class="home-top-tool-body">
         <div class="home-top-tool-header">
           <div class="home-top-tool-title-wrap">
-            <span class="home-top-tool-icon"><img src="https://icons.duckduckgo.com/ip3/fonts.google.com.ico" width="22" height="22" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3EG%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; "></span>
-            <h3 class="home-top-tool-title">Google Fonts</h3>
+            <span class="home-top-tool-icon"><img src="https://icons.duckduckgo.com/ip3/umami.is.ico" width="22" height="22" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3EU%3C/text%3E%3C/svg%3E';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; "></span>
+            <h3 class="home-top-tool-title">Umami</h3>
           </div>
-          <span class="badge badge-free" style="font-size:0.675rem; padding:0.12rem 0.45rem;">Free</span>
+          <span class="badge badge-open-source" style="font-size:0.675rem; padding:0.12rem 0.45rem;">Open Source</span>
         </div>
-        <p class="home-top-tool-desc">Extensive library of open-source web fonts and icons delivered via global CDN.</p>
+        <p class="home-top-tool-desc">Simple, privacy-focused open-source alternative to Google Analytics.</p>
         <div class="home-top-tool-footer">
           <div class="home-top-tool-stats">
             <span class="home-stat-pill" title="Total Views">
@@ -2168,13 +2223,13 @@
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
-              <span class="home-top-tool-views-val">2</span> views
+              <span class="home-top-tool-views-val">4</span> views
             </span>
             <span class="home-stat-pill home-stat-pill-likes" title="Community Likes">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
               </svg>
-              <span class="home-top-tool-likes-val" data-likes-slug="/tools/typography-fonts/google-fonts">0</span> likes
+              <span class="home-top-tool-likes-val" data-likes-slug="/tools/analytics-privacy/umami">0</span> likes
             </span>
           </div>
           <span class="home-top-tool-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
@@ -2197,7 +2252,7 @@
 
     <div id="category-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:1.25rem;">
       
-        <a href="archive#ai-content-creation" class="category-card" data-search="ai &amp; content creation ai-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. chatgpt claude google gemini imgmov perplexity recraft" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#ai-content-creation" class="category-card" data-search="ai &amp; content creation ai-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. chatgpt content creation freemium chatgpt claude content creation freemium claude google gemini content creation freemium google gemini imgmov content creation freemium imgmov perplexity content creation freemium perplexity recraft content creation freemium recraft" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">6 Tools</span>
@@ -2210,7 +2265,7 @@
           </div>
         </a>
         
-        <a href="archive#ai-models" class="category-card" data-search="ai models leading proprietary and open-weights foundation models powering web apis, code generation, and client-side inference. chatgpt (openai) claude (anthropic) cohere command deepseek google gemini grok (xai) meta llama microsoft phi mistral ai qwen" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#ai-models" class="category-card" data-search="ai models leading proprietary and open-weights foundation models powering web apis, code generation, and client-side inference. chatgpt (openai) models freemium chatgpt openai claude (anthropic) models freemium claude anthropic cohere command models freemium cohere command deepseek models open-source deepseek google gemini models freemium google gemini model grok (xai) models paid grok xai meta llama models open-source meta llama microsoft phi models open-source microsoft phi mistral ai models open-source mistral qwen models open-source qwen" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">10 Tools</span>
@@ -2223,7 +2278,7 @@
           </div>
         </a>
         
-        <a href="archive#analytics-privacy" class="category-card" data-search="analytics &amp; privacy understand website traffic, visitor behavior, and page performance. countapi goatcounter plausible statcounter umami" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#analytics-privacy" class="category-card" data-search="analytics &amp; privacy understand website traffic, visitor behavior, and page performance. countapi hit-counter view-tracker api metrics analytics free goatcounter analytics privacy open-source goatcounter plausible analytics privacy open-source plausible statcounter analytics privacy freemium statcounter umami analytics privacy cookieless gdpr self-hosted open-source" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">5 Tools</span>
@@ -2236,7 +2291,7 @@
           </div>
         </a>
         
-        <a href="archive#authentication-users" class="category-card" data-search="authentication &amp; user management add user login, member areas, and gated content to static sites without backend code. clerk outseta supabase auth" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#authentication-users" class="category-card" data-search="authentication &amp; user management add user login, member areas, and gated content to static sites without backend code. clerk authentication users freemium clerk outseta authentication users paid outseta supabase auth authentication users open-source supabase auth" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2249,7 +2304,7 @@
           </div>
         </a>
         
-        <a href="archive#booking-scheduling" class="category-card" data-search="booking &amp; scheduling allow visitors to book appointments and discovery calls directly from static pages. cal.com calendly" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#booking-scheduling" class="category-card" data-search="booking &amp; scheduling allow visitors to book appointments and discovery calls directly from static pages. cal.com booking scheduling open-source cal com calendly booking scheduling freemium calendly" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">2 Tools</span>
@@ -2262,7 +2317,7 @@
           </div>
         </a>
         
-        <a href="archive#browser-extensions" class="category-card" data-search="browser extensions helpful browser extensions for static site development, link sharing, and productivity. fireshot send url" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#browser-extensions" class="category-card" data-search="browser extensions helpful browser extensions for static site development, link sharing, and productivity. fireshot browser extensions freemium fireshot send url browser extensions send url" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">2 Tools</span>
@@ -2275,7 +2330,7 @@
           </div>
         </a>
         
-        <a href="archive#comments-community" class="category-card" data-search="comments &amp; community let visitors comment on blog posts and interact with your content. disqus flarum github discussions giscus iine utterances" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#comments-community" class="category-card" data-search="comments &amp; community let visitors comment on blog posts and interact with your content. disqus comments community freemium disqus flarum comments community open-source flarum github discussions comments community github discussions giscus comments community open-source giscus iine like-button reactions appreciation privacy-first widget open-source utterances comments community open-source utterances" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">6 Tools</span>
@@ -2288,7 +2343,7 @@
           </div>
         </a>
         
-        <a href="archive#contact-forms" class="category-card" data-search="contact forms add contact forms to static websites without building your own form-processing backend. basin craftforms formspree splitform" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#contact-forms" class="category-card" data-search="contact forms add contact forms to static websites without building your own form-processing backend. basin contact forms freemium basin craftforms contact forms freemium craftforms formspree contact forms freemium formspree splitform contact forms freemium splitform" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">4 Tools</span>
@@ -2301,7 +2356,7 @@
           </div>
         </a>
         
-        <a href="archive#content-management" class="category-card" data-search="content management manage content on static websites without adopting a traditional, full-featured cms. craftpages decap cms pages cms" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#content-management" class="category-card" data-search="content management manage content on static websites without adopting a traditional, full-featured cms. craftpages content management open-source craftpages decap cms content management open-source decap cms pages cms content management open-source pages cms" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2314,7 +2369,7 @@
           </div>
         </a>
         
-        <a href="archive#css-components" class="category-card" data-search="css &amp; ui component libraries build responsive, accessible user interfaces without complex build steps or heavy frameworks. bulma lucide icons pico css shoelace" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#css-components" class="category-card" data-search="css &amp; ui component libraries build responsive, accessible user interfaces without complex build steps or heavy frameworks. bulma css components open-source bulma lucide icons css components open-source lucide icons pico css css components open-source pico shoelace css components open-source shoelace" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">4 Tools</span>
@@ -2327,7 +2382,7 @@
           </div>
         </a>
         
-        <a href="archive#database-storage" class="category-card" data-search="database &amp; backend-as-a-service store, query, and synchronize data from static frontends without maintaining servers. firebase firestore jsonbin.io supabase" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#database-storage" class="category-card" data-search="database &amp; backend-as-a-service store, query, and synchronize data from static frontends without maintaining servers. firebase firestore database storage freemium firebase firestore jsonbin.io database storage freemium jsonbin supabase database storage open-source supabase" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2340,7 +2395,7 @@
           </div>
         </a>
         
-        <a href="archive#development-tools" class="category-card" data-search="development tools tools that make building, testing, and maintaining static websites easier. antigravity cli antigravity ide bootstrap studio brickstatic cursor emdash eslint github desktop google lighthouse opencode prettier sitereal visual studio code zed" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#development-tools" class="category-card" data-search="development tools tools that make building, testing, and maintaining static websites easier. antigravity cli development tools antigravity cli antigravity ide development tools antigravity ide bootstrap studio development tools paid bootstrap studio brickstatic development tools paid brickstatic cursor development tools freemium cursor emdash development tools open-source emdash eslint development tools open-source eslint github desktop development tools open-source github desktop google lighthouse development tools open-source google lighthouse opencode development tools open-source opencode prettier development tools open-source prettier sitereal astro visual-builder page-builder desktop-editor jamstack visual studio code development tools open-source visual studio code zed development tools open-source zed" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">14 Tools</span>
@@ -2353,7 +2408,7 @@
           </div>
         </a>
         
-        <a href="archive#hosting-deployment" class="category-card" data-search="hosting &amp; deployment services for publishing static html, css, and javascript websites online. cloudflare pages codeberg pages deno deploy firebase hosting fleek github pages gitlab pages kinsta static site hosting netlify render stormkit surge.sh vercel wasmer" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#hosting-deployment" class="category-card" data-search="hosting &amp; deployment services for publishing static html, css, and javascript websites online. cloudflare pages hosting deployment freemium cloudflare pages codeberg pages static-hosting git-pages forgejo open-source privacy free-hosting deno deploy hosting deployment freemium deno deploy firebase hosting hosting deployment freemium firebase fleek hosting deployment freemium fleek github pages hosting deployment github pages gitlab pages hosting deployment open-source gitlab pages kinsta static site hosting hosting deployment kinsta netlify hosting deployment freemium netlify render hosting deployment freemium render stormkit hosting deployment freemium stormkit surge.sh hosting deployment freemium surge vercel hosting deployment freemium vercel wasmer hosting deployment freemium wasmer" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">14 Tools</span>
@@ -2366,7 +2421,7 @@
           </div>
         </a>
         
-        <a href="archive#images-optimization" class="category-card" data-search="images &amp; optimization optimize images and other assets to improve loading speed and user experience. file converter pic2svg site-shot squoosh svg repo tinypng unsplash" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#images-optimization" class="category-card" data-search="images &amp; optimization optimize images and other assets to improve loading speed and user experience. file converter images optimization open-source file converter pic2svg images optimization freemium pic2svg site-shot images optimization freemium site shot squoosh images optimization open-source squoosh svg repo images optimization svg repo tinypng images optimization freemium tinypng unsplash images optimization freemium unsplash" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">7 Tools</span>
@@ -2379,7 +2434,7 @@
           </div>
         </a>
         
-        <a href="archive#maps-geolocation" class="category-card" data-search="interactive maps &amp; geolocation add mobile-friendly, interactive vector and raster maps without api billing hurdles. leaflet.js mapbox gl js" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#maps-geolocation" class="category-card" data-search="interactive maps &amp; geolocation add mobile-friendly, interactive vector and raster maps without api billing hurdles. leaflet.js maps geolocation open-source leaflet mapbox gl js maps geolocation freemium mapbox" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">2 Tools</span>
@@ -2392,7 +2447,7 @@
           </div>
         </a>
         
-        <a href="archive#interactive-scripts" class="category-card" data-search="interactive scripts &amp; animation add carousels, image lightboxes, and scroll animations to static pages with vanilla js. aos (animate on scroll) photoswipe swiper.js" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#interactive-scripts" class="category-card" data-search="interactive scripts &amp; animation add carousels, image lightboxes, and scroll animations to static pages with vanilla js. aos (animate on scroll) interactive scripts open-source aos photoswipe interactive scripts open-source photoswipe swiper.js interactive scripts open-source swiper" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2405,7 +2460,7 @@
           </div>
         </a>
         
-        <a href="archive#live-chat" class="category-card" data-search="live chat &amp; support engage visitors and answer questions in real time with lightweight chat widgets. crisp tawk.to" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#live-chat" class="category-card" data-search="live chat &amp; support engage visitors and answer questions in real time with lightweight chat widgets. crisp live chat freemium crisp tawk.to live chat tawk" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">2 Tools</span>
@@ -2418,7 +2473,7 @@
           </div>
         </a>
         
-        <a href="archive#media-players" class="category-card" data-search="media &amp; video players embed audio, video, and streaming media without intrusive third-party ads or trackers. mux player plyr wavesurfer.js" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#media-players" class="category-card" data-search="media &amp; video players embed audio, video, and streaming media without intrusive third-party ads or trackers. mux player media players open-source mux player plyr media players open-source plyr wavesurfer.js media players open-source wavesurfer" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2431,7 +2486,7 @@
           </div>
         </a>
         
-        <a href="archive#monitoring-errors" class="category-card" data-search="monitoring &amp; error tracking detect client-side javascript crashes and monitor performance in production. logrocket sentry" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#monitoring-errors" class="category-card" data-search="monitoring &amp; error tracking detect client-side javascript crashes and monitor performance in production. logrocket monitoring errors freemium logrocket sentry monitoring errors open-source sentry" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">2 Tools</span>
@@ -2444,7 +2499,7 @@
           </div>
         </a>
         
-        <a href="archive#newsletters-email" class="category-card" data-search="newsletters &amp; email collect subscribers, send newsletters, and handle email delivery from static websites. brevo buttondown emailit" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#newsletters-email" class="category-card" data-search="newsletters &amp; email collect subscribers, send newsletters, and handle email delivery from static websites. brevo newsletters email freemium brevo buttondown newsletters email freemium buttondown emailit newsletters email freemium emailit" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2457,7 +2512,7 @@
           </div>
         </a>
         
-        <a href="archive#payments-ecommerce" class="category-card" data-search="payments &amp; e-commerce sell digital downloads, services, memberships, and other products from static websites. lemon squeezy payhip paymentform reflow stripe payment links" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#payments-ecommerce" class="category-card" data-search="payments &amp; e-commerce sell digital downloads, services, memberships, and other products from static websites. lemon squeezy payments ecommerce lemon squeezy payhip payments ecommerce payhip paymentform payments ecommerce freemium paymentform reflow payments ecommerce freemium reflow stripe payment links payments ecommerce stripe payment links" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">5 Tools</span>
@@ -2470,7 +2525,7 @@
           </div>
         </a>
         
-        <a href="archive#search" class="category-card" data-search="search add search functionality to static websites, documentation, and blogs. algolia pagefind" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#search" class="category-card" data-search="search add search functionality to static websites, documentation, and blogs. algolia search freemium algolia pagefind search open-source pagefind" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">2 Tools</span>
@@ -2483,7 +2538,7 @@
           </div>
         </a>
         
-        <a href="archive#security-spam-protection" class="category-card" data-search="security &amp; spam protection protect forms and websites against automated spam and abuse. cloudflare turnstile google recaptcha hcaptcha" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#security-spam-protection" class="category-card" data-search="security &amp; spam protection protect forms and websites against automated spam and abuse. cloudflare turnstile security spam protection cloudflare turnstile google recaptcha security spam protection freemium google recaptcha hcaptcha security spam protection freemium hcaptcha" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2496,7 +2551,7 @@
           </div>
         </a>
         
-        <a href="archive#static-site-generators" class="category-card" data-search="static site generators build fast, pre-rendered static html websites from templates and markdown. astro eleventy (11ty) hugo" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#static-site-generators" class="category-card" data-search="static site generators build fast, pre-rendered static html websites from templates and markdown. astro static site generators open-source astro eleventy (11ty) static site generators open-source eleventy hugo static site generators open-source hugo" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>
@@ -2509,7 +2564,7 @@
           </div>
         </a>
         
-        <a href="archive#surveys-feedback" class="category-card" data-search="surveys &amp; feedback gather visitor responses, run interactive polls, and publish product roadmaps. sleekplan tally" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#surveys-feedback" class="category-card" data-search="surveys &amp; feedback gather visitor responses, run interactive polls, and publish product roadmaps. sleekplan surveys feedback freemium sleekplan tally surveys feedback freemium tally" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">2 Tools</span>
@@ -2522,7 +2577,7 @@
           </div>
         </a>
         
-        <a href="archive#tutorials" class="category-card" data-search="tutorials guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites. cold compile" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#tutorials" class="category-card" data-search="tutorials guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites. cold compile tutorials coldcompile" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">1 Tools</span>
@@ -2535,7 +2590,7 @@
           </div>
         </a>
         
-        <a href="archive#typography-fonts" class="category-card" data-search="typography &amp; web fonts self-host open-source web fonts or use privacy-first, gdpr-compliant cdn font services. bunny fonts fontsource google fonts" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
+        <a href="archive#typography-fonts" class="category-card" data-search="typography &amp; web fonts self-host open-source web fonts or use privacy-first, gdpr-compliant cdn font services. bunny fonts typography fonts bunny fontsource typography fonts open-source fontsource google fonts typography fonts google" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></div>
             <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">3 Tools</span>

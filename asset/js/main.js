@@ -121,9 +121,11 @@ function initSearch() {
     }
 
     const matches = searchIndex.filter(item => {
-      return item.title.toLowerCase().includes(query) ||
-             item.description.toLowerCase().includes(query) ||
-             (item.category && item.category.toLowerCase().includes(query));
+      const inTitle = item.title && item.title.toLowerCase().includes(query);
+      const inDesc = item.description && item.description.toLowerCase().includes(query);
+      const inCat = item.category && item.category.toLowerCase().includes(query);
+      const inTags = Array.isArray(item.tags) && item.tags.some(t => t.toLowerCase().includes(query));
+      return inTitle || inDesc || inCat || inTags;
     }).slice(0, 10);
 
     if (matches.length === 0) {
@@ -131,12 +133,21 @@ function initSearch() {
       return;
     }
 
-    resultsContainer.innerHTML = matches.map(item => `
-      <a href="${item.url}" class="search-result-item">
-        <div class="search-result-title">${escapeHtml(item.title)} <span style="font-size:0.75rem; color:var(--text-subtle); font-weight:normal">in ${escapeHtml(item.category || 'Tools')}</span></div>
-        <div class="search-result-desc">${escapeHtml(item.description)}</div>
-      </a>
-    `).join('');
+    resultsContainer.innerHTML = matches.map(item => {
+      const tagsHtml = (item.tags && item.tags.length > 0)
+        ? `<div class="search-result-tags" style="display:flex; gap:0.35rem; margin-top:0.35rem; flex-wrap:wrap;">
+            ${item.tags.slice(0, 4).map(t => `<span style="font-size:0.7rem; padding:0.1rem 0.45rem; border-radius:9999px; background:var(--bg-muted); border:1px solid var(--border-color); color:var(--text-subtle);">#${escapeHtml(t)}</span>`).join('')}
+          </div>`
+        : '';
+
+      return `
+        <a href="${item.url}" class="search-result-item">
+          <div class="search-result-title">${escapeHtml(item.title)} <span style="font-size:0.75rem; color:var(--text-subtle); font-weight:normal">in ${escapeHtml(item.category || 'Tools')}</span></div>
+          <div class="search-result-desc">${escapeHtml(item.description)}</div>
+          ${tagsHtml}
+        </a>
+      `;
+    }).join('');
   });
 }
 

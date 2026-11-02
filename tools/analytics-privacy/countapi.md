@@ -6,6 +6,7 @@
 - **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
 - **Type**: Counter & View Tracking API
 - **Pricing / License**: Free
+- **Tags**: `hit-counter`, `view-tracker`, `api`, `metrics`, `analytics`, `free`
 
 ---
 
