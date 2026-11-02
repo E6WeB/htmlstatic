@@ -630,6 +630,12 @@
     "url": "/tools/images-optimization/file-converter"
   },
   {
+    "title": "Pic2SVG",
+    "description": "Convert raster images into scalable, editable SVG vector paths with free browser-based tracing",
+    "category": "Images & Optimization",
+    "url": "/tools/images-optimization/pic2svg"
+  },
+  {
     "title": "Site-Shot",
     "description": "Website screenshot generator and REST API for full-page web captures and thumbnails",
     "category": "Images & Optimization",

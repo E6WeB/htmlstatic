@@ -785,6 +785,12 @@ Optimize images and other assets to improve loading speed and user experience.
     <td><a href="https://github.com/Tichau/FileConverter" target="_blank" rel="noopener noreferrer">github.com/Tichau/FileConverter</a></td>
   </tr>
   <tr>
+    <td><a href="tools/images-optimization/pic2svg.md">Pic2SVG</a></td>
+    <td>Convert raster images into scalable, editable SVG vector paths with free browser-based tracing</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://pic2svg.com/" target="_blank" rel="noopener noreferrer">pic2svg.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/images-optimization/site-shot.md">Site-Shot</a></td>
     <td>Website screenshot generator and REST API for full-page web captures and thumbnails</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>

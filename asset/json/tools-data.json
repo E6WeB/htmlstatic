@@ -1030,7 +1030,7 @@
     "title": "Images & Optimization",
     "slug": "images-optimization",
     "description": "Optimize images and other assets to improve loading speed and user experience.",
-    "toolsCount": 6,
+    "toolsCount": 7,
     "tools": [
       {
         "name": "File Converter",
@@ -1043,6 +1043,18 @@
         ],
         "websiteUrl": "https://github.com/Tichau/FileConverter",
         "websiteLabel": "github.com/Tichau/FileConverter"
+      },
+      {
+        "name": "Pic2SVG",
+        "slug": "pic2svg",
+        "relPath": "tools/images-optimization/pic2svg.md",
+        "folder": "images-optimization",
+        "description": "Convert raster images into scalable, editable SVG vector paths with free browser-based tracing",
+        "badges": [
+          "Freemium"
+        ],
+        "websiteUrl": "https://pic2svg.com/",
+        "websiteLabel": "pic2svg.com"
       },
       {
         "name": "Site-Shot",
