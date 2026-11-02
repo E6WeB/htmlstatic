@@ -816,6 +816,38 @@
     "url": "/tools/development-tools/cursor"
   },
   {
+    "title": "DesignCraft",
+    "description": "Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust",
+    "category": "Development Tools",
+    "tags": [
+      "page-layout",
+      "rust",
+      "indesign-alternative",
+      "desktop-publishing",
+      "typography",
+      "pdf-export",
+      "print-design",
+      "beta"
+    ],
+    "url": "/tools/development-tools/designcraft"
+  },
+  {
+    "title": "EffectCraft",
+    "description": "Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust",
+    "category": "Development Tools",
+    "tags": [
+      "motion-graphics",
+      "rust",
+      "after-effects-alternative",
+      "lottie",
+      "vfx",
+      "animation",
+      "video",
+      "beta"
+    ],
+    "url": "/tools/development-tools/effectcraft"
+  },
+  {
     "title": "Emdash",
     "description": "Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes",
     "category": "Development Tools",
@@ -838,6 +870,22 @@
       "eslint"
     ],
     "url": "/tools/development-tools/eslint"
+  },
+  {
+    "title": "FigCraft",
+    "description": "Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust",
+    "category": "Development Tools",
+    "tags": [
+      "ui-design",
+      "rust",
+      "figma-alternative",
+      "prototyping",
+      "auto-layout",
+      "dev-mode",
+      "vector",
+      "beta"
+    ],
+    "url": "/tools/development-tools/figcraft"
   },
   {
     "title": "GitHub Desktop",
@@ -878,6 +926,38 @@
     "url": "/tools/development-tools/opencode"
   },
   {
+    "title": "PdfCraft",
+    "description": "Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust",
+    "category": "Development Tools",
+    "tags": [
+      "pdf",
+      "rust",
+      "pdf-editor",
+      "document-tools",
+      "split-pdf",
+      "merge-pdf",
+      "offline",
+      "beta"
+    ],
+    "url": "/tools/development-tools/pdfcraft"
+  },
+  {
+    "title": "PhotoCraft",
+    "description": "Open-source image editor with layers, masks, curves, and PSD/PSB round-tripping in pure Rust",
+    "category": "Development Tools",
+    "tags": [
+      "image-editor",
+      "rust",
+      "photoshop-alternative",
+      "psd",
+      "layers",
+      "graphics",
+      "offline",
+      "beta"
+    ],
+    "url": "/tools/development-tools/photocraft"
+  },
+  {
     "title": "Prettier",
     "description": "Code formatter for HTML, CSS, JavaScript, and more",
     "category": "Development Tools",
@@ -915,6 +995,22 @@
       "code"
     ],
     "url": "/tools/development-tools/visual-studio-code"
+  },
+  {
+    "title": "WordCraft",
+    "description": "Fast, open-source word processor with native .docx support and clean PDF export in pure Rust",
+    "category": "Development Tools",
+    "tags": [
+      "word-processor",
+      "rust",
+      "docx",
+      "markdown",
+      "documents",
+      "offline",
+      "mcp",
+      "beta"
+    ],
+    "url": "/tools/development-tools/wordcraft"
   },
   {
     "title": "Zed",

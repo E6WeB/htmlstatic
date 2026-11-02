@@ -607,6 +607,18 @@ Tools that make building, testing, and maintaining static websites easier.
     <td><a href="https://cursor.com/" target="_blank" rel="noopener noreferrer">cursor.com</a></td>
   </tr>
   <tr>
+    <td><a href="tools/development-tools/designcraft.md">DesignCraft</a></td>
+    <td>Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Beta-d97706?style=flat-square" alt="Beta"></td>
+    <td><a href="https://getartcraft.com/apps/designcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/designcraft</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/development-tools/effectcraft.md">EffectCraft</a></td>
+    <td>Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Beta-d97706?style=flat-square" alt="Beta"></td>
+    <td><a href="https://getartcraft.com/apps/effectcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/effectcraft</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/development-tools/emdash.md">Emdash</a></td>
     <td>Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
@@ -617,6 +629,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>Find and fix problems in JavaScript code</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/development-tools/figcraft.md">FigCraft</a></td>
+    <td>Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Beta-d97706?style=flat-square" alt="Beta"></td>
+    <td><a href="https://getartcraft.com/apps/figcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/figcraft</a></td>
   </tr>
   <tr>
     <td><a href="tools/development-tools/github-desktop.md">GitHub Desktop</a></td>
@@ -637,6 +655,18 @@ Tools that make building, testing, and maintaining static websites easier.
     <td><a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer">opencode.ai</a></td>
   </tr>
   <tr>
+    <td><a href="tools/development-tools/pdfcraft.md">PdfCraft</a></td>
+    <td>Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Beta-d97706?style=flat-square" alt="Beta"></td>
+    <td><a href="https://getartcraft.com/apps/pdfcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/pdfcraft</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/development-tools/photocraft.md">PhotoCraft</a></td>
+    <td>Open-source image editor with layers, masks, curves, and PSD/PSB round-tripping in pure Rust</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Beta-d97706?style=flat-square" alt="Beta"></td>
+    <td><a href="https://getartcraft.com/apps/photocraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/photocraft</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/development-tools/prettier.md">Prettier</a></td>
     <td>Code formatter for HTML, CSS, JavaScript, and more</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
@@ -653,6 +683,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>Code editor with extensions for web development</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/development-tools/wordcraft.md">WordCraft</a></td>
+    <td>Fast, open-source word processor with native .docx support and clean PDF export in pure Rust</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Beta-d97706?style=flat-square" alt="Beta"></td>
+    <td><a href="https://getartcraft.com/apps/wordcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/wordcraft</a></td>
   </tr>
   <tr>
     <td><a href="tools/development-tools/zed.md">Zed</a></td>

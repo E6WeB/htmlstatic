@@ -60,6 +60,8 @@
     --badge-freemium-text: #1e40af;
     --badge-paid-bg: #fef3c7;
     --badge-paid-text: #92400e;
+    --badge-beta-bg: #fef3c7;
+    --badge-beta-text: #b45309;
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -787,6 +789,12 @@
   .badge-paid {
     background: var(--badge-paid-bg);
     color: var(--badge-paid-text);
+  }
+
+  .badge-beta {
+    background: var(--badge-beta-bg);
+    color: var(--badge-beta-text);
+    border: 1px solid rgba(217, 119, 6, 0.25);
   }
 
   /* Home Page Top 4 Viewed Tools Grid */
@@ -1941,7 +1949,7 @@
               <span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span>
               <span>Master Archive</span>
             </span>
-            <span class="mobile-nav-badge">117 Tools</span>
+            <span class="mobile-nav-badge">123 Tools</span>
           </a>
         </li>
         <li class="mobile-nav-item">
@@ -2438,7 +2446,7 @@ npx @11ty/eleventy
           </p>
           <div class="footer-pill-badge">
             <span class="status-dot"></span>
-            <span>117 Tools &bull; 27 Categories</span>
+            <span>123 Tools &bull; 27 Categories</span>
           </div>
         </div>
 

@@ -676,7 +676,7 @@
     "title": "Development Tools",
     "slug": "development-tools",
     "description": "Tools that make building, testing, and maintaining static websites easier.",
-    "toolsCount": 14,
+    "toolsCount": 20,
     "tools": [
       {
         "name": "Antigravity CLI",
@@ -739,6 +739,32 @@
         "websiteLabel": "cursor.com"
       },
       {
+        "name": "DesignCraft",
+        "slug": "designcraft",
+        "relPath": "tools/development-tools/designcraft.md",
+        "folder": "development-tools",
+        "description": "Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust",
+        "badges": [
+          "Open Source",
+          "Beta"
+        ],
+        "websiteUrl": "https://getartcraft.com/apps/designcraft",
+        "websiteLabel": "getartcraft.com/apps/designcraft"
+      },
+      {
+        "name": "EffectCraft",
+        "slug": "effectcraft",
+        "relPath": "tools/development-tools/effectcraft.md",
+        "folder": "development-tools",
+        "description": "Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust",
+        "badges": [
+          "Open Source",
+          "Beta"
+        ],
+        "websiteUrl": "https://getartcraft.com/apps/effectcraft",
+        "websiteLabel": "getartcraft.com/apps/effectcraft"
+      },
+      {
         "name": "Emdash",
         "slug": "emdash",
         "relPath": "tools/development-tools/emdash.md",
@@ -761,6 +787,19 @@
         ],
         "websiteUrl": "https://eslint.org/",
         "websiteLabel": "eslint.org"
+      },
+      {
+        "name": "FigCraft",
+        "slug": "figcraft",
+        "relPath": "tools/development-tools/figcraft.md",
+        "folder": "development-tools",
+        "description": "Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust",
+        "badges": [
+          "Open Source",
+          "Beta"
+        ],
+        "websiteUrl": "https://getartcraft.com/apps/figcraft",
+        "websiteLabel": "getartcraft.com/apps/figcraft"
       },
       {
         "name": "GitHub Desktop",
@@ -799,6 +838,32 @@
         "websiteLabel": "opencode.ai"
       },
       {
+        "name": "PdfCraft",
+        "slug": "pdfcraft",
+        "relPath": "tools/development-tools/pdfcraft.md",
+        "folder": "development-tools",
+        "description": "Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust",
+        "badges": [
+          "Open Source",
+          "Beta"
+        ],
+        "websiteUrl": "https://getartcraft.com/apps/pdfcraft",
+        "websiteLabel": "getartcraft.com/apps/pdfcraft"
+      },
+      {
+        "name": "PhotoCraft",
+        "slug": "photocraft",
+        "relPath": "tools/development-tools/photocraft.md",
+        "folder": "development-tools",
+        "description": "Open-source image editor with layers, masks, curves, and PSD/PSB round-tripping in pure Rust",
+        "badges": [
+          "Open Source",
+          "Beta"
+        ],
+        "websiteUrl": "https://getartcraft.com/apps/photocraft",
+        "websiteLabel": "getartcraft.com/apps/photocraft"
+      },
+      {
         "name": "Prettier",
         "slug": "prettier",
         "relPath": "tools/development-tools/prettier.md",
@@ -833,6 +898,19 @@
         ],
         "websiteUrl": "https://code.visualstudio.com/",
         "websiteLabel": "code.visualstudio.com"
+      },
+      {
+        "name": "WordCraft",
+        "slug": "wordcraft",
+        "relPath": "tools/development-tools/wordcraft.md",
+        "folder": "development-tools",
+        "description": "Fast, open-source word processor with native .docx support and clean PDF export in pure Rust",
+        "badges": [
+          "Open Source",
+          "Beta"
+        ],
+        "websiteUrl": "https://getartcraft.com/apps/wordcraft",
+        "websiteLabel": "getartcraft.com/apps/wordcraft"
       },
       {
         "name": "Zed",

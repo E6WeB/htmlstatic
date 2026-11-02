@@ -383,6 +383,8 @@ const BASE_CSS = `
     --badge-freemium-text: #1e40af;
     --badge-paid-bg: #fef3c7;
     --badge-paid-text: #92400e;
+    --badge-beta-bg: #fef3c7;
+    --badge-beta-text: #b45309;
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -1110,6 +1112,12 @@ const BASE_CSS = `
   .badge-paid {
     background: var(--badge-paid-bg);
     color: var(--badge-paid-text);
+  }
+
+  .badge-beta {
+    background: var(--badge-beta-bg);
+    color: var(--badge-beta-text);
+    border: 1px solid rgba(217, 119, 6, 0.25);
   }
 
   /* Home Page Top 4 Viewed Tools Grid */
@@ -3335,16 +3343,21 @@ const archiveContent = `
               </thead>
               <tbody>
                 ${cat.tools.map(tool => {
-                  const pBadge = tool.primaryBadge.toLowerCase();
-                  let badgeClass = 'badge-freemium';
-                  if (pBadge.includes('open source')) badgeClass = 'badge-open-source';
-                  else if (pBadge.includes('freemium')) badgeClass = 'badge-freemium';
-                  else if (pBadge.includes('free')) badgeClass = 'badge-free';
-                  else if (pBadge.includes('paid')) badgeClass = 'badge-paid';
+                  const toolBadgesList = (tool.badges && tool.badges.length > 0) ? tool.badges : [tool.primaryBadge];
+                  const badgesHtml = toolBadgesList.map(b => {
+                    const lb = (b || '').toLowerCase();
+                    let bClass = 'badge-freemium';
+                    if (lb.includes('open source')) bClass = 'badge-open-source';
+                    else if (lb.includes('beta')) bClass = 'badge-beta';
+                    else if (lb.includes('freemium')) bClass = 'badge-freemium';
+                    else if (lb.includes('free')) bClass = 'badge-free';
+                    else if (lb.includes('paid')) bClass = 'badge-paid';
+                    return `<span class="badge ${bClass}">${escapeHtml(b)}</span>`;
+                  }).join(' ');
                   const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
 
                   return `
-                  <tr class="archive-row" data-badge="${escapeHtml(pBadge)}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ') + ' ' + (tool.tags || []).join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
+                  <tr class="archive-row" data-badge="${escapeHtml((tool.primaryBadge || '').toLowerCase())}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ') + ' ' + (tool.tags || []).join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
                       <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.55rem; text-decoration:none; color:inherit;">
                         ${getToolSiteIcon(tool, 18)}
@@ -3358,7 +3371,9 @@ const archiveContent = `
                     </td>
                     <td style="padding:0.85rem 1rem; color:var(--text-muted); line-height:1.5;">${escapeHtml(tool.description)}</td>
                     <td style="padding:0.85rem 1rem;">
-                      <span class="badge ${badgeClass}">${escapeHtml(tool.primaryBadge)}</span>
+                      <div style="display:inline-flex; flex-wrap:wrap; gap:0.35rem; align-items:center;">
+                        ${badgesHtml}
+                      </div>
                     </td>
                     <td style="padding:0.85rem 1rem;">
                       <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.35rem;" title="Visit ${escapeHtml(tool.name)} official website">
@@ -4372,7 +4387,28 @@ allTools.forEach(tool => {
         { label: tool.name, url: '#' }
       ],
       badgeRow: `
-        <span class="badge ${badgeClass}">${badgeIcon} ${escapeHtml(tool.primaryBadge)}</span>
+        ${(tool.badges && tool.badges.length > 0 ? tool.badges : [tool.primaryBadge]).map(b => {
+          const lb = (b || '').toLowerCase();
+          let bClass = 'badge-freemium';
+          let bIcon = ICONS.star;
+          if (lb.includes('open source')) {
+            bClass = 'badge-open-source';
+            bIcon = ICONS.branch;
+          } else if (lb.includes('beta')) {
+            bClass = 'badge-beta';
+            bIcon = ICONS.zap;
+          } else if (lb.includes('freemium')) {
+            bClass = 'badge-freemium';
+            bIcon = ICONS.star;
+          } else if (lb.includes('free')) {
+            bClass = 'badge-free';
+            bIcon = ICONS.check;
+          } else if (lb.includes('paid')) {
+            bClass = 'badge-paid';
+            bIcon = ICONS.tag;
+          }
+          return `<span class="badge ${bClass}">${bIcon} ${escapeHtml(b)}</span>`;
+        }).join('\n        ')}
         <a href="../../archive#${tool.categorySlug}" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">
           <span style="display:inline-flex; align-items:center;">${CATEGORY_ICONS[tool.categorySlug] || ICONS.zap}</span>
           ${escapeHtml(tool.categoryTitle)}

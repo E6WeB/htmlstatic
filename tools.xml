@@ -531,6 +531,24 @@
     <lastmod>2026-11-02</lastmod>
   </tool>
   <tool>
+    <title>DesignCraft</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/designcraft</url>
+    <description>
+      Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust
+    </description>
+    <lastmod>2026-11-02</lastmod>
+  </tool>
+  <tool>
+    <title>EffectCraft</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/effectcraft</url>
+    <description>
+      Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust
+    </description>
+    <lastmod>2026-11-02</lastmod>
+  </tool>
+  <tool>
     <title>Emdash</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/emdash</url>
@@ -547,6 +565,15 @@
     <image>https://staticstack.app/tools/development-tools/eslint-cover.webp</image>
     <description>
       Find and fix problems in JavaScript code
+    </description>
+    <lastmod>2026-11-02</lastmod>
+  </tool>
+  <tool>
+    <title>FigCraft</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/figcraft</url>
+    <description>
+      Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust
     </description>
     <lastmod>2026-11-02</lastmod>
   </tool>
@@ -581,6 +608,24 @@
     <lastmod>2026-11-02</lastmod>
   </tool>
   <tool>
+    <title>PdfCraft</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/pdfcraft</url>
+    <description>
+      Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust
+    </description>
+    <lastmod>2026-11-02</lastmod>
+  </tool>
+  <tool>
+    <title>PhotoCraft</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/photocraft</url>
+    <description>
+      Open-source image editor with layers, masks, curves, and PSD/PSB round-tripping in pure Rust
+    </description>
+    <lastmod>2026-11-02</lastmod>
+  </tool>
+  <tool>
     <title>Prettier</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/prettier</url>
@@ -607,6 +652,15 @@
     <image>https://staticstack.app/tools/development-tools/visual-studio-code-cover.webp</image>
     <description>
       Code editor with extensions for web development
+    </description>
+    <lastmod>2026-11-02</lastmod>
+  </tool>
+  <tool>
+    <title>WordCraft</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/wordcraft</url>
+    <description>
+      Fast, open-source word processor with native .docx support and clean PDF export in pure Rust
     </description>
     <lastmod>2026-11-02</lastmod>
   </tool>

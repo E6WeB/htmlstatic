@@ -517,6 +517,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://staticstack.app/tools/development-tools/designcraft</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://staticstack.app/tools/development-tools/effectcraft</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://staticstack.app/tools/development-tools/emdash</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -524,6 +536,12 @@
   </url>
   <url>
     <loc>https://staticstack.app/tools/development-tools/eslint</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://staticstack.app/tools/development-tools/figcraft</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -547,6 +565,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://staticstack.app/tools/development-tools/pdfcraft</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://staticstack.app/tools/development-tools/photocraft</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://staticstack.app/tools/development-tools/prettier</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -560,6 +590,12 @@
   </url>
   <url>
     <loc>https://staticstack.app/tools/development-tools/visual-studio-code</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://staticstack.app/tools/development-tools/wordcraft</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
