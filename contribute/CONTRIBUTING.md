@@ -51,7 +51,7 @@ To keep this collection high-quality, practical, and spam-free, please adhere to
 - Bad example: `The best, most powerful search engine on the planet!`
 
 ### 4. No Duplicates
-- Before submitting, search [`README.md`](README.md) (`Ctrl`+`F` or `Cmd`+`F`) to verify that the tool has not already been listed under another category.
+- Before submitting, search [`README.md`](../README.md) (`Ctrl`+`F` or `Cmd`+`F`) to verify that the tool has not already been listed under another category.
 
 ### 5. Transparency & Affiliation
 - Creators and maintainers are welcome to submit their own tools!
@@ -62,7 +62,7 @@ To keep this collection high-quality, practical, and spam-free, please adhere to
 
 ## Entry Format & Template
 
-All tools in [`README.md`](README.md) are organized in full-width tables (`<table width="100%">`) with four columns: **Tool**, **Description**, **Pricing / License**, and **Website**.
+All tools in [`README.md`](../README.md) are organized in full-width tables (`<table width="100%">`) with four columns: **Tool**, **Description**, **Pricing / License**, and **Website**.
 
 External links use HTML anchor tags formatted with `target="_blank" rel="noopener noreferrer"`.
 
@@ -104,7 +104,7 @@ If you are comfortable using Git and GitHub:
    ```bash
    git checkout -b add-tool-name
    ```
-4. **Edit [`README.md`](README.md)**:
+4. **Edit [`README.md`](../README.md)**:
    - Locate the most relevant category table.
    - Insert your new entry following the [Entry Format](#entry-format--template).
    - Ensure the table syntax remains properly aligned and valid markdown.
@@ -144,7 +144,7 @@ Submitting via GitHub Issues is the quickest and easiest way to propose a tool, 
 Before opening your pull request, please make sure:
 
 - [ ] The tool is relevant to static websites and frontend development.
-- [ ] You searched [`README.md`](README.md) to ensure it is not already listed.
+- [ ] You searched [`README.md`](../README.md) to ensure it is not already listed.
 - [ ] Zero advertisement and no affiliate links (official HTTPS URL with no tracking/referral parameters).
 - [ ] The description is concise, objective, and one sentence long.
 - [ ] The entry follows the table format with `target="_blank" rel="noopener noreferrer"`.

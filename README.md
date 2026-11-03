@@ -3,7 +3,7 @@
 > A community-curated collection of tools, services, and resources for building, hosting, and improving static websites with HTML, CSS, and JavaScript.
 
 <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-CC0_1.0-blue.svg" alt="License: CC0 1.0"></a>
-<a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+<a href="contribute/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
 
 You don't need WordPress or a traditional CMS to build a great website. From contact forms and blog comments to hosting, analytics, payments, and newsletters, there are tools that let you add useful features to a static website without managing a full backend.
 

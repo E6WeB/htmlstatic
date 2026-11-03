@@ -136,8 +136,8 @@ function getDomainFromUrl(url) {
 }
 
 function getBlackWhiteFallbackSvg(name, size = 18) {
-  const initial = escapeHtml((name || 'T').charAt(0).toUpperCase());
-  return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23111827' stroke='%23374151' stroke-width='1.5'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif' font-size='12' font-weight='700' fill='%23ffffff'%3E${initial}%3C/text%3E%3C/svg%3E`;
+  const initial = encodeURIComponent((name || 'T').charAt(0).toUpperCase());
+  return `data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27${size}%27 height=%27${size}%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%275%27 fill=%27%23111827%27 stroke=%27%23374151%27 stroke-width=%271.5%27/%3E%3Ctext x=%2750%25%27 y=%2752%25%27 dominant-baseline=%27central%27 text-anchor=%27middle%27 font-family=%27system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif%27 font-size=%2712%27 font-weight=%27700%27 fill=%27%23ffffff%27%3E${initial}%3C/text%3E%3C/svg%3E`;
 }
 
 function getToolSiteIcon(tool, size = 18, extraStyle = '') {
@@ -2318,7 +2318,8 @@ function renderLayout({
 
   const pageOgImage = ogImage || (
     currentNav === 'home' ? 'https://staticstack.app/asset/img/og-home.webp' :
-    currentNav === 'submit' ? 'https://staticstack.app/asset/img/og-submit.webp' :
+    currentNav === 'archive' ? 'https://staticstack.app/archive/og-archive.webp' :
+    currentNav === 'submit' ? 'https://staticstack.app/submit/og-submit.webp' :
     currentNav === 'community' ? 'https://staticstack.app/asset/img/og-community.webp' :
     'https://staticstack.app/asset/img/og-image.webp'
   );
@@ -3183,16 +3184,16 @@ const homeContent = `
               const viewsFormatted = viewsNum.toLocaleString();
               const coverUrl = 'tools/' + t.categorySlug + '/' + t.slug + '-cover.webp';
               const initialLetter = ((t.name || 'T').charAt(0)).toUpperCase();
-              const bwFallback = 'data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'22\\' height=\\'22\\' viewBox=\\'0 0 24 24\\'%3E%3Crect width=\\'24\\' height=\\'24\\' rx=\\'5\\' fill=\\'%23111827\\' stroke=\\'%23374151\\' stroke-width=\\'1.5\\'/%3E%3Ctext x=\\'50%25\\' y=\\'52%25\\' dominant-baseline=\\'central\\' text-anchor=\\'middle\\' font-family=\\'system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif\\' font-size=\\'12\\' font-weight=\\'700\\' fill=\\'%23ffffff\\'%3E' + initialLetter + '%3C/text%3E%3C/svg%3E';
+              const bwFallback = 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2722%27 height=%2722%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%275%27 fill=%27%23111827%27 stroke=%27%23374151%27 stroke-width=%271.5%27/%3E%3Ctext x=%2750%25%27 y=%2752%25%27 dominant-baseline=%27central%27 text-anchor=%27middle%27 font-family=%27system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif%27 font-size=%2712%27 font-weight=%27700%27 fill=%27%23ffffff%27%3E' + encodeURIComponent(initialLetter) + '%3C/text%3E%3C/svg%3E';
               const iconImg = t.faviconUrl
-                ? '<img src=\"' + t.faviconUrl + '\" width=\"22\" height=\"22\" class=\"tool-siteicon\" alt=\"\" loading=\"lazy\" aria-hidden=\"true\" onerror=\"this.onerror=null;this.src=\\'' + bwFallback + '\\';\" style=\"border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain;\">'
-                : (t.iconSvg || '<img src=\"' + bwFallback + '\" width=\"22\" height=\"22\" class=\"tool-siteicon\" alt=\"\" aria-hidden=\"true\" style=\"border-radius:4px; vertical-align:middle; flex-shrink:0;\">');
+                ? '<img src=\"' + t.faviconUrl + '\" width=\"22\" height=\"22\" class=\"tool-siteicon\" alt=\"\" loading=\"lazy\" decoding=\"async\" aria-hidden=\"true\" onerror=\"this.onerror=null;this.src=\\'' + bwFallback + '\\';\" style=\"border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain;\">'
+                : (t.iconSvg || '<img src=\"' + bwFallback + '\" width=\"22\" height=\"22\" class=\"tool-siteicon\" alt=\"\" decoding=\"async\" aria-hidden=\"true\" style=\"border-radius:4px; vertical-align:middle; flex-shrink:0;\">');
 
               const desc = t.desc || t.description || '';
 
               return '<a href=\"' + url + '\" class=\"home-top-tool-card\" data-slug=\"' + slugPath + '\" data-key=\"' + t.key + '\" title=\"Explore ' + escapeClientHtml(t.name) + '\">' +
                 '<div class=\"home-top-tool-cover-wrap\">' +
-                  '<img src=\"' + coverUrl + '\" alt=\"' + escapeClientHtml(t.name) + ' preview screenshot\" width=\"640\" height=\"360\" loading=\"lazy\">' +
+                  '<img src=\"' + coverUrl + '\" alt=\"' + escapeClientHtml(t.name) + ' preview screenshot\" width=\"640\" height=\"360\" loading=\"lazy\" decoding=\"async\">' +
                   '<span class=\"home-top-tool-cat-pill\">' + escapeClientHtml(t.categoryTitle || '') + '</span>' +
                 '</div>' +
                 '<div class=\"home-top-tool-body\">' +
@@ -3313,7 +3314,7 @@ const initialArchiveTopTools = [
 ];
 
 const archiveTopToolsHtml = initialArchiveTopTools.map(t => `
-    <a href="tools/${t.categorySlug}/${t.slug}" class="sidebar-tool-card" title="${escapeHtml(t.name)}">
+    <a href="/tools/${t.categorySlug}/${t.slug}" class="sidebar-tool-card" title="${escapeHtml(t.name)}">
       <span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
         ${getToolSiteIcon(t, 20)}
       </span>
@@ -3433,7 +3434,7 @@ const archiveContent = `
         <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
           StaticStack is community curated. Share your favorite static web service or tool with the community.
         </p>
-        <a href="submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+        <a href="/submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
           Submit a Tool &rarr;
         </a>
       </div>
@@ -3508,7 +3509,7 @@ const archiveContent = `
                   return `
                   <tr class="archive-row" data-badge="${escapeHtml((tool.primaryBadge || '').toLowerCase())}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ') + ' ' + (tool.tags || []).join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:0.85rem 1rem; font-weight:700;">
-                      <a href="tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.55rem; text-decoration:none; color:inherit;">
+                      <a href="/tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.55rem; text-decoration:none; color:inherit;">
                         ${getToolSiteIcon(tool, 18)}
                         <span style="color:var(--text-main); font-weight:700;">${escapeHtml(tool.name)}</span>
                       </a>
@@ -3810,7 +3811,7 @@ const archiveContent = `
           });
       };
 
-      tryFetch('asset/json/tool-views-cache.json')
+      tryFetch('/asset/json/tool-views-cache.json')
         .then(function(data) {
           if (data && typeof data === 'object' && Object.keys(data).length > 0) {
             applyViewsMap(data.views || data);
@@ -3835,7 +3836,7 @@ const archiveContent = `
             var icon = t.iconSvg || '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
             var v = Number(t.views || 0);
             var vText = v === 1 ? '1 view' : v.toLocaleString() + ' views';
-            var link = t.url.startsWith('/') ? t.url.slice(1) : t.url;
+            var link = t.url.startsWith('/') ? t.url : '/' + t.url;
             return '<a href="' + link + '" class="sidebar-tool-card" title="' + t.name + '">' +
               '<span class="sidebar-tool-icon">' + icon + '</span>' +
               '<div class="sidebar-tool-info">' +
@@ -3871,15 +3872,17 @@ const archiveContent = `
   </script>
 `;
 
-fs.writeFileSync(path.join(ROOT_DIR, 'archive.html'), renderLayout({
+ensureDir(path.join(ROOT_DIR, 'archive'));
+fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
   title: `Master Archive - ${uniqueToolsCount}+ Tools for Static Websites`,
   description: `Explore the complete directory of ${uniqueToolsCount} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
   currentNav: 'archive',
-  ogImage: 'https://staticstack.app/asset/img/og-archive.webp',
+  rootPath: '/',
+  ogImage: 'https://staticstack.app/archive/og-archive.webp',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: './' },
-      { label: 'Archive', url: 'archive' }
+      { label: 'Home', url: '/' },
+      { label: 'Archive', url: '/archive' }
     ],
     icon: ICONS.archive,
     title: 'Master Directory',
@@ -3986,7 +3989,7 @@ const submitContent = `
         <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
           You can edit <code>README.md</code> directly and submit a PR with your proposed addition.
         </p>
-        <a href="contribute" class="btn btn-secondary btn-sm">Read Contributing Guide →</a>
+        <a href="/contribute" class="btn btn-secondary btn-sm">Read Contributing Guide →</a>
       </div>
     </div>
   </div>
@@ -4018,15 +4021,17 @@ const submitContent = `
   </script>
 `;
 
-fs.writeFileSync(path.join(ROOT_DIR, 'submit.html'), renderLayout({
+ensureDir(path.join(ROOT_DIR, 'submit'));
+fs.writeFileSync(path.join(ROOT_DIR, 'submit', 'index.html'), renderLayout({
   title: 'Submit a Tool - StaticStack',
   description: 'Propose a new static website tool, API, or service to include in the StaticStack directory.',
   currentNav: 'submit',
-  ogImage: 'https://staticstack.app/asset/img/og-submit.webp',
+  rootPath: '/',
+  ogImage: 'https://staticstack.app/submit/og-submit.webp',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: './' },
-      { label: 'Submit a Tool', url: 'submit' }
+      { label: 'Home', url: '/' },
+      { label: 'Submit a Tool', url: '/submit' }
     ],
     icon: ICONS.plusCircle,
     title: 'Submit a Tool',
@@ -4036,11 +4041,11 @@ fs.writeFileSync(path.join(ROOT_DIR, 'submit.html'), renderLayout({
 }));
 
 // ==========================================================================
-// 4. Generate contribute.html (Contributing Guide Page)
+// 4. Generate contribute/index.html (Contributing Guide Page)
 // ==========================================================================
-console.log('🤝 Generating Contribute Page (contribute.html)...');
+console.log('🤝 Generating Contribute Page (contribute/index.html)...');
 
-const contributingMd = fs.readFileSync(path.join(ROOT_DIR, 'CONTRIBUTING.md'), 'utf8');
+const contributingMd = fs.readFileSync(path.join(ROOT_DIR, 'contribute', 'CONTRIBUTING.md'), 'utf8');
 const renderedContributing = marked.parse(contributingMd);
 
 const contributeContent = `
@@ -4049,20 +4054,22 @@ const contributeContent = `
   </div>
 `;
 
-fs.writeFileSync(path.join(ROOT_DIR, 'contribute.html'), renderLayout({
+ensureDir(path.join(ROOT_DIR, 'contribute'));
+fs.writeFileSync(path.join(ROOT_DIR, 'contribute', 'index.html'), renderLayout({
   title: 'Contributing Guide - Static Website Toolkit',
   description: 'Learn how to contribute new tools, report updates, and submit pull requests to the Static Website Toolkit.',
-  currentNav: '',
+  currentNav: 'contribute',
+  rootPath: '/',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: './' },
-      { label: 'Contributing Guide', url: 'contribute' }
+      { label: 'Home', url: '/' },
+      { label: 'Contributing Guide', url: '/contribute' }
     ],
     icon: ICONS.gitPullRequest,
     title: 'Contributing Guide',
     subtext: 'Thank you for helping keep the Static Website Toolkit accurate, comprehensive, and valuable! Learn how to propose tools, improve docs, or open pull requests.',
     actions: `
-      <a href="submit" class="btn btn-primary btn-sm">Use Web Submit Form →</a>
+      <a href="/submit" class="btn btn-primary btn-sm">Use Web Submit Form →</a>
       <a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
         GitHub Issues ${ICONS.external}
       </a>
@@ -4075,11 +4082,11 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contribute.html'), renderLayout({
 }));
 
 // ==========================================================================
-// 5. Generate thankyou.html (Thank You & Credits Page)
+// 5. Generate thankyou/index.html (Thank You & Credits Page)
 // ==========================================================================
-console.log('💖 Generating Thank You Page (thankyou.html)...');
+console.log('💖 Generating Thank You Page (thankyou/index.html)...');
 
-const thankYouMd = fs.readFileSync(path.join(ROOT_DIR, 'THANKYOU.md'), 'utf8');
+const thankYouMd = fs.readFileSync(path.join(ROOT_DIR, 'thankyou', 'THANKYOU.md'), 'utf8');
 const renderedThankYou = marked.parse(thankYouMd);
 
 const thankYouContent = `
@@ -4088,14 +4095,16 @@ const thankYouContent = `
   </div>
 `;
 
-fs.writeFileSync(path.join(ROOT_DIR, 'thankyou.html'), renderLayout({
+ensureDir(path.join(ROOT_DIR, 'thankyou'));
+fs.writeFileSync(path.join(ROOT_DIR, 'thankyou', 'index.html'), renderLayout({
   title: 'Thank You & Credits - Static Website Toolkit',
   description: 'Special thanks to the contributors, maintainers, and community behind Static Website Toolkit.',
-  currentNav: '',
+  currentNav: 'thankyou',
+  rootPath: '/',
   miniHero: {
     breadcrumbs: [
-      { label: 'Home', url: './' },
-      { label: 'Thank You & Credits', url: 'thankyou' }
+      { label: 'Home', url: '/' },
+      { label: 'Thank You & Credits', url: '/thankyou' }
     ],
     icon: ICONS.heart,
     title: 'Thank You & Credits',
@@ -4385,7 +4394,7 @@ const communityContent = `
         <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
           Help expand our curated collection of ${uniqueToolsCount}+ static website tools.
         </p>
-        <a href="submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+        <a href="/submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
           Submit a Tool &rarr;
         </a>
       </div>

@@ -25,7 +25,7 @@ pages = [
             {'text': '27 Categories'},
             {'text': 'Free & Open Source'}
         ],
-        'output_filenames': ['og-home.webp', 'og-image.webp']
+        'output_filenames': ['asset/img/og-home.webp', 'asset/img/og-image.webp']
     },
     {
         'key': 'archive',
@@ -39,7 +39,7 @@ pages = [
             {'text': 'Zero Backend Tools'},
             {'text': 'Instant Search'}
         ],
-        'output_filenames': ['og-archive.webp']
+        'output_filenames': ['archive/og-archive.webp']
     },
     {
         'key': 'submit',
@@ -53,7 +53,7 @@ pages = [
             {'text': 'Contribute on GitHub'},
             {'text': 'Zero Backend Required'}
         ],
-        'output_filenames': ['og-submit.webp']
+        'output_filenames': ['submit/og-submit.webp']
     },
     {
         'key': 'community',
@@ -67,7 +67,7 @@ pages = [
             {'text': 'Facebook Groups'},
             {'text': 'Dev Showcase'}
         ],
-        'output_filenames': ['og-community.webp']
+        'output_filenames': ['asset/img/og-community.webp']
     }
 ]
 
@@ -295,7 +295,8 @@ for page in pages:
     # Convert PNG to WebP with Pillow
     im = Image.open(temp_png)
     for out_name in page['output_filenames']:
-        out_path = os.path.join(ASSET_IMG_DIR, out_name)
+        out_path = os.path.join(SCRIPT_DIR, out_name)
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
         im.save(out_path, 'WEBP', quality=82, method=6)
         print(f"  -> Saved {out_path} ({os.path.getsize(out_path)} bytes)")
 
