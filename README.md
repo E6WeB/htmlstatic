@@ -1195,10 +1195,40 @@ Build fast, pre-rendered static HTML websites from templates and Markdown.
     <td><a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty.dev</a></td>
   </tr>
   <tr>
+    <td><a href="tools/static-site-generators/gatsby.md">Gatsby</a></td>
+    <td>React-based static site framework with a unified GraphQL data layer</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">gatsbyjs.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/static-site-generators/hugo.md">Hugo</a></td>
     <td>Extremely fast static site generator rendering pages in milliseconds</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">gohugo.io</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/static-site-generators/jekyll.md">Jekyll</a></td>
+    <td>Ruby static site generator transforming Markdown and Liquid into HTML</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">jekyllrb.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/static-site-generators/nextjs.md">Next.js</a></td>
+    <td>React framework supporting pure static HTML exports and file routing</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">nextjs.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/static-site-generators/pelican.md">Pelican</a></td>
+    <td>Python static site generator using Markdown, reStructuredText, and Jinja2</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://getpelican.com/" target="_blank" rel="noopener noreferrer">getpelican.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/static-site-generators/zola.md">Zola</a></td>
+    <td>Single-binary Rust static site generator with built-in Sass and search</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://www.getzola.org/" target="_blank" rel="noopener noreferrer">getzola.org</a></td>
   </tr>
 </tbody>
 </table>

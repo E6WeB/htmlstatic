@@ -534,6 +534,7 @@
     <title>DesignCraft</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/designcraft</url>
+    <image>https://staticstack.app/tools/development-tools/designcraft-cover.webp</image>
     <description>
       Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust
     </description>
@@ -543,6 +544,7 @@
     <title>EffectCraft</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/effectcraft</url>
+    <image>https://staticstack.app/tools/development-tools/effectcraft-cover.webp</image>
     <description>
       Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust
     </description>
@@ -572,6 +574,7 @@
     <title>FigCraft</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/figcraft</url>
+    <image>https://staticstack.app/tools/development-tools/figcraft-cover.webp</image>
     <description>
       Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust
     </description>
@@ -611,6 +614,7 @@
     <title>PdfCraft</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/pdfcraft</url>
+    <image>https://staticstack.app/tools/development-tools/pdfcraft-cover.webp</image>
     <description>
       Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust
     </description>
@@ -620,6 +624,7 @@
     <title>PhotoCraft</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/photocraft</url>
+    <image>https://staticstack.app/tools/development-tools/photocraft-cover.webp</image>
     <description>
       Open-source image editor with layers, masks, curves, and PSD/PSB round-tripping in pure Rust
     </description>
@@ -669,6 +674,7 @@
     <title>WordCraft</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/wordcraft</url>
+    <image>https://staticstack.app/tools/development-tools/wordcraft-cover.webp</image>
     <description>
       Fast, open-source word processor with native .docx support and clean PDF export in pure Rust
     </description>
@@ -1165,12 +1171,62 @@
     <lastmod>2026-11-03</lastmod>
   </tool>
   <tool>
+    <title>Gatsby</title>
+    <category>Static Site Generators</category>
+    <url>https://staticstack.app/tools/static-site-generators/gatsby</url>
+    <image>https://staticstack.app/tools/static-site-generators/gatsby-cover.webp</image>
+    <description>
+      React-based static site framework with a unified GraphQL data layer
+    </description>
+    <lastmod>2026-11-03</lastmod>
+  </tool>
+  <tool>
     <title>Hugo</title>
     <category>Static Site Generators</category>
     <url>https://staticstack.app/tools/static-site-generators/hugo</url>
     <image>https://staticstack.app/tools/static-site-generators/hugo-cover.webp</image>
     <description>
       Extremely fast static site generator rendering pages in milliseconds
+    </description>
+    <lastmod>2026-11-03</lastmod>
+  </tool>
+  <tool>
+    <title>Jekyll</title>
+    <category>Static Site Generators</category>
+    <url>https://staticstack.app/tools/static-site-generators/jekyll</url>
+    <image>https://staticstack.app/tools/static-site-generators/jekyll-cover.webp</image>
+    <description>
+      Ruby static site generator transforming Markdown and Liquid into HTML
+    </description>
+    <lastmod>2026-11-03</lastmod>
+  </tool>
+  <tool>
+    <title>Next.js</title>
+    <category>Static Site Generators</category>
+    <url>https://staticstack.app/tools/static-site-generators/nextjs</url>
+    <image>https://staticstack.app/tools/static-site-generators/nextjs-cover.webp</image>
+    <description>
+      React framework supporting pure static HTML exports and file routing
+    </description>
+    <lastmod>2026-11-03</lastmod>
+  </tool>
+  <tool>
+    <title>Pelican</title>
+    <category>Static Site Generators</category>
+    <url>https://staticstack.app/tools/static-site-generators/pelican</url>
+    <image>https://staticstack.app/tools/static-site-generators/pelican-cover.webp</image>
+    <description>
+      Python static site generator using Markdown, reStructuredText, and Jinja2
+    </description>
+    <lastmod>2026-11-03</lastmod>
+  </tool>
+  <tool>
+    <title>Zola</title>
+    <category>Static Site Generators</category>
+    <url>https://staticstack.app/tools/static-site-generators/zola</url>
+    <image>https://staticstack.app/tools/static-site-generators/zola-cover.webp</image>
+    <description>
+      Single-binary Rust static site generator with built-in Sass and search
     </description>
     <lastmod>2026-11-03</lastmod>
   </tool>
