@@ -42,7 +42,26 @@
     }
   };
 
-  const dateText = (value) => formatDateTime(value);
+  const relativeTime = (value) => {
+    try {
+      const d = new Date(value);
+      if (isNaN(d.getTime())) return '';
+      const diffSec = Math.floor((Date.now() - d.getTime()) / 1000);
+      if (diffSec < 45) return 'Just now';
+      if (diffSec < 3600) return `${Math.floor(diffSec / 60)}m ago`;
+      if (diffSec < 86400) return `${Math.floor(diffSec / 3600)}h ago`;
+      if (diffSec < 2592000) return `${Math.floor(diffSec / 86400)}d ago`;
+      return formatDateTime(value);
+    } catch {
+      return formatDateTime(value);
+    }
+  };
+
+  const dateText = (value) => {
+    const full = formatDateTime(value);
+    const rel = relativeTime(value);
+    return `<time datetime="${escapeHtml(value)}" title="${escapeHtml(full)}">${escapeHtml(rel)}</time>`;
+  };
   const dateTimeText = (value) => formatDateTime(value);
 
   const isTrue = (v) => v === true || v === 1 || v === '1' || v === 't' || v === 'true';
@@ -77,8 +96,12 @@
     // Fenced Code Blocks (```lang ... ```)
     src = src.replace(/(?:^|\n)```([a-zA-Z0-9_-]*)\n([\s\S]*?)\n```(?:\n|$)/g, (_, lang, code) => {
       const idx = codeBlocks.length;
-      const langAttr = lang ? ` class="language-${escapeHtml(lang)}"` : '';
-      codeBlocks.push(`<pre><code${langAttr}>${escapeHtml(code)}</code></pre>`);
+      const cleanLang = lang ? escapeHtml(lang) : '';
+      const langAttr = cleanLang ? ` class="language-${cleanLang}"` : '';
+      const langBadge = cleanLang ? `<span class="code-lang-badge">${cleanLang}</span>` : '<span></span>';
+      codeBlocks.push(
+        `<div class="code-block-wrap"><div class="code-block-bar">${langBadge}<button type="button" class="copy-code-btn" data-copy-code aria-label="Copy code">Copy</button></div><pre><code${langAttr}>${escapeHtml(code)}</code></pre></div>`
+      );
       return `\n\n\x00CB${idx}\x00\n\n`;
     });
 
@@ -472,12 +495,12 @@
             </svg>
             <span>Posted by <strong>${authorName}</strong></span>
           </span>
-          <span class="thread-meta-item thread-meta-date" title="Posted Date">
+          <span class="thread-meta-item thread-meta-date" title="${escapeHtml(formatDateTime(t.created_at))}">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>${formatDateTime(t.created_at)}</span>
+            <span>${escapeHtml(relativeTime(t.created_at))}</span>
           </span>
           <span class="thread-meta-item thread-meta-replies" title="Replies">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -533,7 +556,8 @@
       }
       const opTime = $('#op-time');
       if (opTime) {
-        opTime.textContent = formatDateTime(t.created_at);
+        opTime.textContent = relativeTime(t.created_at);
+        opTime.title = formatDateTime(t.created_at);
       }
       const editedLabel = $('#op-edited-label');
       if (editedLabel) {
@@ -581,7 +605,7 @@
                         ${isAdmin ? '<span class="badge-admin">Admin</span>' : (isOP ? '<span class="badge-op">Author</span>' : '')}
                         ${isTrue(r.is_hidden) ? '<span class="badge badge-paid">Hidden</span>' : ''}
                       </div>
-                      <time class="muted" style="font-size:0.72rem;display:block;margin-top:2px;">${formatDateTime(r.created_at)}</time>
+                      <time class="muted" title="${escapeHtml(formatDateTime(r.created_at))}" style="font-size:0.72rem;display:block;margin-top:2px;">${escapeHtml(relativeTime(r.created_at))}</time>
                     </div>
                   </div>
                   <span style="font-size:0.75rem;font-weight:700;color:var(--text-subtle);">#${index + 1}</span>
@@ -767,74 +791,6 @@
     `;
   }
 
-  function renderTopicDetail(t, replies) {
-    const root = $('#topic-detail');
-    if (!root) return;
-    const isPinned = isTrue(t.is_pinned);
-    root.innerHTML = `
-      <div class="dialog-heading">
-        <div class="detail-header">
-          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.25rem;">
-            <p class="eyebrow" style="margin:0;">${escapeHtml(t.category_name)}</p>
-            ${
-              isPinned
-                ? `<span class="badge badge-pinned" title="Pinned Announcement">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/>
-                      <line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                    Pinned Announcement
-                  </span>`
-                : ''
-            }
-          </div>
-          <h2>${escapeHtml(t.title)}</h2>
-          <div class="topic-meta">
-            <span>Posted by ${escapeHtml(t.display_name || t.login)}</span>
-            <span>${dateText(t.created_at)}</span>
-          </div>
-        </div>
-        <button type="button" class="close-button" data-close="topic-dialog" aria-label="Close">×</button>
-      </div>
-      <div class="detail-body">${renderMarkdown(t.body)}</div>
-      ${voteControls('topic', t.id, t.score, t.my_vote, t)}
-      <h3 class="reply-heading">Replies (${replies.length})</h3>
-      <div class="replies">
-        ${
-          replies.length
-            ? replies
-                .map(
-                  (r) => `
-              <article class="reply">
-                <div class="topic-meta">
-                  <strong>${escapeHtml(r.display_name || r.login)}</strong>
-                  <span>${dateText(r.created_at)}</span>
-                  ${isTrue(r.is_hidden) ? '<span class="badge badge-paid">Hidden</span>' : ''}
-                </div>
-                <div class="reply-body">${renderMarkdown(r.body)}</div>
-                ${voteControls('reply', r.id, r.score, r.my_vote, r)}
-              </article>
-            `
-                )
-                .join('')
-            : '<p class="muted">No replies yet. Start the conversation.</p>'
-        }
-      </div>
-      ${
-        state.user
-          ? `
-        <form id="reply-form" class="reply-form">
-          <label for="reply-body">Add a reply</label>
-          <textarea id="reply-body" maxlength="10000" minlength="2" required placeholder="Share a helpful reply…"></textarea>
-          <p id="reply-message" class="form-message" role="status"></p>
-          <div><button class="button" type="submit">Post reply</button></div>
-        </form>
-      `
-          : '<p class="muted"><a href="/community/oauth?action=login">Sign in with GitHub</a> to reply or vote.</p>'
-      }
-    `;
-  }
-
   async function loadReports() {
     const adminPanel = $('#admin-panel');
     if (!state.user?.admin) {
@@ -887,6 +843,26 @@
 
   // Global delegated click handler
   document.addEventListener('click', async (e) => {
+    const copyCodeBtn = e.target.closest('[data-copy-code]');
+    if (copyCodeBtn) {
+      const wrap = copyCodeBtn.closest('.code-block-wrap');
+      const codeEl = wrap ? wrap.querySelector('pre code') : null;
+      if (codeEl && navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(codeEl.textContent || '');
+          copyCodeBtn.textContent = 'Copied!';
+          copyCodeBtn.classList.add('copied');
+          setTimeout(() => {
+            copyCodeBtn.textContent = 'Copy';
+            copyCodeBtn.classList.remove('copied');
+          }, 2000);
+        } catch {
+          toast('Could not copy code.');
+        }
+      }
+      return;
+    }
+
     const cat = e.target.closest('[data-category]');
     if (cat) {
       const selectedCategory = cat.dataset.category || '';
@@ -1057,8 +1033,6 @@
           window.location.href = '/community/';
           return;
         }
-        const dialog = $('#topic-dialog');
-        if (dialog && dialog.open) dialog.close();
         await loadTopics();
         if (state.user?.admin) loadReports();
       } catch (err) {
@@ -1361,16 +1335,23 @@
         state.activeTopic.updated_at = res.updated_at || new Date().toISOString();
 
         // Update DOM elements on page
-        const threadTitleHeading = $('#thread-title-heading');
-        if (threadTitleHeading) threadTitleHeading.textContent = state.activeTopic.title;
-        document.title = `${state.activeTopic.title} — StaticStack Community`;
+        const threadTitle = $('#thread-title');
+        if (threadTitle) threadTitle.textContent = state.activeTopic.title;
+        const crumbTitle = $('#crumb-title');
+        if (crumbTitle) crumbTitle.textContent = shortText(state.activeTopic.title, 40);
+        document.title = `${state.activeTopic.title} - StaticStack Community`;
 
         const opBody = $('#op-body');
-        if (opBody) opBody.textContent = state.activeTopic.body;
+        if (opBody) opBody.innerHTML = renderMarkdown(state.activeTopic.body);
 
+        const catLinkHtml = `<a href="/community/?channel=${escapeHtml(state.activeTopic.category_slug)}" class="topic-category-link">${escapeHtml(state.activeTopic.category_name)}</a>`;
         const opCategoryPill = $('#op-category-pill');
-        if (opCategoryPill) {
-          opCategoryPill.innerHTML = `<a href="/community/?channel=${escapeHtml(state.activeTopic.category_slug)}" class="topic-category-link">${escapeHtml(state.activeTopic.category_name)}</a>`;
+        if (opCategoryPill) opCategoryPill.innerHTML = catLinkHtml;
+        const sbChannel = $('#sb-channel');
+        if (sbChannel) sbChannel.innerHTML = catLinkHtml;
+        const crumbCat = $('#crumb-category');
+        if (crumbCat) {
+          crumbCat.innerHTML = `<a href="/community/?channel=${escapeHtml(state.activeTopic.category_slug)}" style="color:inherit;text-decoration:none;">${escapeHtml(state.activeTopic.category_name)}</a>`;
         }
 
         const editedLabel = $('#op-edited-label');
@@ -1435,36 +1416,6 @@
         toast('Link copied to clipboard!');
       } catch {
         toast('Could not copy link.');
-      }
-    });
-  }
-
-  // Modal Reply form submission (for fallback)
-  const topicDialog = $('#topic-dialog');
-  if (topicDialog) {
-    topicDialog.addEventListener('submit', async (e) => {
-      if (e.target.id !== 'reply-form') return;
-      e.preventDefault();
-      const button = e.submitter;
-      if (button) button.disabled = true;
-      const msgEl = $('#reply-message');
-      if (msgEl) msgEl.textContent = 'Posting…';
-      try {
-        const replyBodyEl = $('#reply-body');
-        await request('reply', {
-          method: 'POST',
-          body: {
-            topic_id: Number(state.activeTopic.id),
-            body: replyBodyEl ? replyBodyEl.value : ''
-          }
-        });
-        toast('Reply posted.');
-        await refreshTopic();
-        await loadTopics();
-      } catch (err) {
-        if (msgEl) msgEl.textContent = err.message;
-      } finally {
-        if (button) button.disabled = false;
       }
     });
   }
@@ -1772,6 +1723,116 @@
       if (loadingEl) loadingEl.style.display = 'none';
       if (errorEl) errorEl.style.display = 'block';
     }
+  }
+
+  // Enhance Markdown Composers with Write / Preview Tabs & Ctrl+Enter Shortcut
+  function setupMarkdownPreviewTabs(textareaId) {
+    const textarea = $('#' + textareaId);
+    if (!textarea || textarea.dataset.mdTabsReady === '1') return;
+    textarea.dataset.mdTabsReady = '1';
+
+    const bar = document.createElement('div');
+    bar.className = 'md-editor-tabs';
+    bar.innerHTML = `
+      <div class="md-tabs-left" role="tablist" aria-label="Editor mode">
+        <button type="button" class="md-tab-btn is-active" data-md-mode="write" role="tab" aria-selected="true">Write</button>
+        <button type="button" class="md-tab-btn" data-md-mode="preview" role="tab" aria-selected="false">Preview</button>
+      </div>
+      <span class="md-tabs-hint">Ctrl+Enter to submit</span>
+    `;
+
+    const previewBox = document.createElement('div');
+    previewBox.className = 'md-preview-box thread-body';
+    previewBox.style.display = 'none';
+
+    textarea.parentNode.insertBefore(bar, textarea);
+    textarea.parentNode.insertBefore(previewBox, textarea.nextSibling);
+
+    const writeBtn = bar.querySelector('[data-md-mode="write"]');
+    const previewBtn = bar.querySelector('[data-md-mode="preview"]');
+
+    const setMode = (mode) => {
+      const isPreview = mode === 'preview';
+      writeBtn.classList.toggle('is-active', !isPreview);
+      writeBtn.setAttribute('aria-selected', isPreview ? 'false' : 'true');
+      previewBtn.classList.toggle('is-active', isPreview);
+      previewBtn.setAttribute('aria-selected', isPreview ? 'true' : 'false');
+      if (isPreview) {
+        const val = textarea.value.trim();
+        previewBox.innerHTML = val
+          ? renderMarkdown(val)
+          : '<p class="muted" style="margin:0;">Nothing to preview yet…</p>';
+        textarea.style.display = 'none';
+        previewBox.style.display = 'block';
+      } else {
+        previewBox.style.display = 'none';
+        textarea.style.display = '';
+        textarea.focus();
+      }
+    };
+
+    writeBtn.addEventListener('click', () => setMode('write'));
+    previewBtn.addEventListener('click', () => setMode('preview'));
+
+    textarea.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        const form = textarea.closest('form');
+        if (form) {
+          e.preventDefault();
+          form.requestSubmit();
+        }
+      }
+    });
+
+    const form = textarea.closest('form');
+    if (form) {
+      form.addEventListener('reset', () => setMode('write'));
+      form.addEventListener('submit', () => {
+        if (previewBox.style.display !== 'none') setMode('write');
+      });
+    }
+  }
+
+  ['topic-body', 'reply-body-input', 'op-edit-body'].forEach(setupMarkdownPreviewTabs);
+
+  // Shared Page Chrome Helpers (Year, Back to Top, Mobile Navigation)
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const backToTopBtn = $('#back-to-top');
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  window.scrollToTop = scrollToTop;
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', scrollToTop);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
+
+  const mobileMenuBtn = $('#mobile-menu-btn');
+  const mobileNavModal = $('#mobile-nav-modal');
+  function openMobileNav() {
+    if (!mobileNavModal) return;
+    mobileNavModal.classList.add('is-open');
+    document.body.classList.add('mobile-nav-open');
+    if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+  }
+  function closeMobileNav() {
+    if (!mobileNavModal) return;
+    mobileNavModal.classList.remove('is-open');
+    document.body.classList.remove('mobile-nav-open');
+    if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+  }
+  window.openMobileNav = openMobileNav;
+  window.closeMobileNav = closeMobileNav;
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', openMobileNav);
   }
 
   window.addEventListener('popstate', () => {

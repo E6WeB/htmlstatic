@@ -138,7 +138,7 @@
                 </svg></span>
               <span>Master Archive</span>
             </span>
-            <span class="mobile-nav-badge">110 Tools</span>
+            <span class="mobile-nav-badge">123 Tools</span>
           </a>
         </li>
         <li class="mobile-nav-item">
@@ -856,11 +856,6 @@
     </form>
   </dialog>
 
-  <!-- Topic Detail & Replies Dialog -->
-  <dialog id="topic-dialog" class="dialog dialog-wide">
-    <div id="topic-detail"></div>
-  </dialog>
-
   <!-- Report Content Dialog -->
   <dialog id="report-dialog" class="dialog">
     <form id="report-form">
@@ -918,7 +913,7 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <!-- Floating Back to Top Button -->
-  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()">
+  <button id="back-to-top" class="back-to-top-btn" type="button" aria-label="Back to top" title="Back to top">
     <span class="btt-icon">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
         stroke-linecap="round" stroke-linejoin="round">
@@ -929,49 +924,8 @@
     <span>Back to Top</span>
   </button>
 
-  <!-- Scripts: Helpers & Community App Engine -->
-  <script>
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // Floating Back to Top
-    const backToTopBtn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (!backToTopBtn) return;
-      if (window.scrollY > 350) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    }, { passive: true });
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Full-Screen Mobile Navigation Logic
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileNavModal = document.getElementById('mobile-nav-modal');
-
-    function openMobileNav() {
-      if (!mobileNavModal) return;
-      mobileNavModal.classList.add('is-open');
-      document.body.classList.add('mobile-nav-open');
-      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeMobileNav() {
-      if (!mobileNavModal) return;
-      mobileNavModal.classList.remove('is-open');
-      document.body.classList.remove('mobile-nav-open');
-      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    }
-
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', openMobileNav);
-    }
-  </script>
-  <script src="/community/assets/app.js?v=3" defer></script>
+  <!-- Community App Engine -->
+  <script src="/community/assets/app.js?v=4" defer></script>
 </body>
 
 </html>

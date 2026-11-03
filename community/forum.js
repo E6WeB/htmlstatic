@@ -53,6 +53,28 @@ const CATEGORY_ICONS = {
 };
 
 const TOOLS_DATA_FILE = path.join(__dirname, '..', 'asset', 'json', 'tools-data.json');
+let toolsDataCache = global.__staticstack_tools_data_cache || null;
+
+function getToolsData() {
+  if (!toolsDataCache) {
+    try {
+      if (fs.existsSync(TOOLS_DATA_FILE)) {
+        toolsDataCache = JSON.parse(fs.readFileSync(TOOLS_DATA_FILE, 'utf8'));
+        global.__staticstack_tools_data_cache = toolsDataCache;
+      }
+    } catch (e) {}
+  }
+  return toolsDataCache || [];
+}
+
+let viewsCacheWriteTimer = null;
+function persistViewsCacheAsync() {
+  if (viewsCacheWriteTimer) clearTimeout(viewsCacheWriteTimer);
+  viewsCacheWriteTimer = setTimeout(() => {
+    viewsCacheWriteTimer = null;
+    fs.promises.writeFile(VIEWS_CACHE_FILE, JSON.stringify(allToolViewsCache, null, 2)).catch(() => {});
+  }, 500);
+}
 
 function getDomainFromUrl(url) {
   try {
@@ -65,12 +87,7 @@ function getDomainFromUrl(url) {
 }
 
 function buildTopToolsList(viewsMap = {}) {
-  let categories = [];
-  try {
-    if (fs.existsSync(TOOLS_DATA_FILE)) {
-      categories = JSON.parse(fs.readFileSync(TOOLS_DATA_FILE, 'utf8'));
-    }
-  } catch (e) {}
+  const categories = getToolsData();
 
   if (!categories || !categories.length) {
     return DEFAULT_TOP_TOOLS;
@@ -200,10 +217,8 @@ async function refreshTopToolsCache() {
       // Postgres pool might still be connecting
     }
 
-    // 2. Persist updated viewsMap to cache file
-    try {
-      fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(allToolViewsCache, null, 2));
-    } catch {}
+    // 2. Persist updated viewsMap to cache file asynchronously
+    persistViewsCacheAsync();
 
     // 3. Build updated top tools list
     const top4 = buildTopToolsList(allToolViewsCache).slice(0, 4);
@@ -230,13 +245,8 @@ async function getTopTools() {
   return topToolsCache;
 }
 
-// Background warm-up
-setTimeout(() => {
-  refreshTopToolsCache().catch(() => {});
-}, 1500);
-
-// Initialize PostgreSQL pool with SSL
-const pool = new Pool({
+// Initialize singleton PostgreSQL pool with SSL
+const pool = global.__staticstack_pg_pool || new Pool({
   host: process.env.DB_HOST || 'psql.fr-roub1.bengt.wasmernet.com',
   port: parseInt(process.env.DB_PORT, 10) || 20184,
   database: process.env.DB_NAME || 'staticstack_forum',
@@ -246,17 +256,28 @@ const pool = new Pool({
   max: 10,
   idleTimeoutMillis: 30000
 });
+global.__staticstack_pg_pool = pool;
 
-// Ensure tool_view_ips table exists for 72h rate-limiting
-pool.query(`
-  CREATE TABLE IF NOT EXISTS tool_view_ips (
-    ip VARCHAR(64) NOT NULL,
-    tool_key VARCHAR(128) NOT NULL,
-    viewed_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    PRIMARY KEY (ip, tool_key)
-  );
-  CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
-`).catch(() => {});
+if (!global.__staticstack_db_initialized) {
+  global.__staticstack_db_initialized = true;
+  // Ensure tool_view_ips table and performance indexes exist
+  pool.query(`
+    CREATE TABLE IF NOT EXISTS tool_view_ips (
+      ip VARCHAR(64) NOT NULL,
+      tool_key VARCHAR(128) NOT NULL,
+      viewed_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+      PRIMARY KEY (ip, tool_key)
+    );
+    CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
+    CREATE INDEX IF NOT EXISTS idx_forum_votes_topic_id ON forum_votes (topic_id) WHERE topic_id IS NOT NULL;
+    CREATE INDEX IF NOT EXISTS idx_forum_votes_reply_id ON forum_votes (reply_id) WHERE reply_id IS NOT NULL;
+  `).catch(() => {});
+
+  // Background warm-up once per process
+  setTimeout(() => {
+    refreshTopToolsCache().catch(() => {});
+  }, 1500);
+}
 
 // 72-hour IP-based tool view rate limiting (72 hours in ms = 259,200,000 ms)
 const VIEW_COOLDOWN_MS = 72 * 60 * 60 * 1000;
@@ -341,9 +362,7 @@ async function recordToolView(req, key, hitRequested = true) {
     allToolViewsCache[cleanKey] = currentCount;
     topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
     global.__staticstack_top_tools_cache = topToolsCache;
-    try {
-      fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(allToolViewsCache, null, 2));
-    } catch {}
+    persistViewsCacheAsync();
 
     return {
       key: cleanKey,
@@ -495,19 +514,23 @@ async function handleApi(req, res, pathname, query) {
 
   try {
     if (action === 'bootstrap') {
-      const [catsResult, topicsCountRes, repliesCountRes, usersCountRes, votesCountRes, newestUserRes, latestTopicRes, topTools] = await Promise.all([
+      const [catsResult, statsRes, topTools] = await Promise.all([
         pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC"),
-        pool.query("SELECT COUNT(*)::int AS count FROM forum_topics WHERE is_hidden = FALSE"),
-        pool.query("SELECT COUNT(*)::int AS count FROM forum_replies WHERE is_hidden = FALSE"),
-        pool.query("SELECT COUNT(*)::int AS count FROM forum_users"),
-        pool.query("SELECT COUNT(*)::int AS count FROM forum_votes").catch(() => ({ rows: [{ count: 0 }] })),
-        pool.query("SELECT login, display_name FROM forum_users ORDER BY id DESC LIMIT 1"),
-        pool.query("SELECT id, title FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1"),
+        pool.query(`
+          SELECT
+            (SELECT COUNT(*)::int FROM forum_topics WHERE is_hidden = FALSE) AS topics_count,
+            (SELECT COUNT(*)::int FROM forum_replies WHERE is_hidden = FALSE) AS replies_count,
+            (SELECT COUNT(*)::int FROM forum_users) AS users_count,
+            (SELECT COUNT(*)::int FROM forum_votes) AS votes_count,
+            (SELECT login FROM forum_users ORDER BY id DESC LIMIT 1) AS newest_login,
+            (SELECT display_name FROM forum_users ORDER BY id DESC LIMIT 1) AS newest_display_name,
+            (SELECT id FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1) AS latest_topic_id,
+            (SELECT title FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1) AS latest_topic_title
+        `),
         getTopTools()
       ]);
 
-      const newestUser = newestUserRes.rows[0];
-      const latestTopic = latestTopicRes.rows[0];
+      const st = statsRes.rows[0] || {};
 
       sendJson(res, {
         user: user ? {
@@ -521,14 +544,14 @@ async function handleApi(req, res, pathname, query) {
         top_tools: topTools,
         stats: {
           channels: catsResult.rows.length,
-          topics: topicsCountRes.rows[0]?.count || 0,
-          replies: repliesCountRes.rows[0]?.count || 0,
-          members: usersCountRes.rows[0]?.count || 0,
-          votes: votesCountRes.rows[0]?.count || 0,
-          newest_member_name: newestUser ? (newestUser.display_name || newestUser.login) : '',
-          newest_member_login: newestUser ? newestUser.login : '',
-          latest_topic_id: latestTopic ? latestTopic.id : null,
-          latest_topic_title: latestTopic ? latestTopic.title : ''
+          topics: st.topics_count || 0,
+          replies: st.replies_count || 0,
+          members: st.users_count || 0,
+          votes: st.votes_count || 0,
+          newest_member_name: st.newest_display_name || st.newest_login || '',
+          newest_member_login: st.newest_login || '',
+          latest_topic_id: st.latest_topic_id || null,
+          latest_topic_title: st.latest_topic_title || ''
         }
       });
       return true;
@@ -983,6 +1006,13 @@ async function handleOAuth(req, res, pathname, query) {
   const oauthPath = pathname && pathname.endsWith('.php') ? '/community/oauth.php' : '/community/oauth';
   const callbackUrl = `${baseUrl}${oauthPath}?action=callback`;
   if (action === 'dev_login') {
+    const hostHeader = (req.headers.host || '').toLowerCase();
+    const isLocalhost = hostHeader.startsWith('localhost') || hostHeader.startsWith('127.0.0.1');
+    if (!isLocalhost) {
+      res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Forbidden');
+      return true;
+    }
     const login = query.user || 'E6WeB';
     const isDefaultAdmin = ADMIN_GITHUB_LOGIN !== '' && login.toLowerCase() === ADMIN_GITHUB_LOGIN;
     const devUid = query.uid ? parseInt(query.uid, 10) : (isDefaultAdmin ? 1 : 999);

@@ -150,11 +150,11 @@ function getToolSiteIcon(tool, size = 18, extraStyle = '') {
   const bwFallback = getBlackWhiteFallbackSvg(tool.name, size);
 
   if (!domain) {
-    return `<img src="${bwFallback}" width="${size}" height="${size}" class="tool-siteicon" alt="" aria-hidden="true" style="border-radius:4px; vertical-align:middle; flex-shrink:0; ${extraStyle}">`;
+    return `<img src="${bwFallback}" width="${size}" height="${size}" class="tool-siteicon" alt="" decoding="async" aria-hidden="true" style="border-radius:4px; vertical-align:middle; flex-shrink:0; ${extraStyle}">`;
   }
 
   const faviconUrl = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
-  return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='${bwFallback}';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ${extraStyle}">`;
+  return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" decoding="async" aria-hidden="true" onerror="this.onerror=null;this.src='${bwFallback}';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ${extraStyle}">`;
 }
 
 function extractToolTags(rawMd, folder, toolSlug, primaryBadge, toolName) {
@@ -345,7 +345,7 @@ const toolsData = categories.map(c => ({
   }))
 }));
 ensureDir(path.join(ASSET_DIR, 'json'));
-fs.writeFileSync(path.join(ASSET_DIR, 'json', 'tools-data.json'), JSON.stringify(toolsData, null, 2) + '\n');
+fs.writeFileSync(path.join(ASSET_DIR, 'json', 'tools-data.json'), JSON.stringify(toolsData));
 
 // ==========================================================================
 // Base CSS using Native System Font Stack (NO Google Fonts)
@@ -372,6 +372,7 @@ const BASE_CSS = `
     --accent: #2563eb;
     --accent-hover: #1d4ed8;
     --accent-light: #eff6ff;
+    --accent-border: #bfdbfe;
     --accent-gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
 
     /* Badges */
@@ -398,6 +399,42 @@ const BASE_CSS = `
     --radius-lg: 16px;
     --radius-full: 9999px;
     --container-max: 1440px;
+  }
+
+  [data-theme="dark"] {
+    --bg-body: #090d16;
+    --bg-surface: #111827;
+    --bg-surface-elevated: #1a2234;
+    --bg-muted: #1e293b;
+    --bg-glass: rgba(17, 24, 39, 0.88);
+    --border-color: #1f293d;
+    --border-hover: #334155;
+    --border-focus: #60a5fa;
+    --text-main: #f9fafb;
+    --text-muted: #94a3b8;
+    --text-subtle: #64748b;
+
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --accent-light: rgba(59, 130, 246, 0.12);
+    --accent-border: rgba(59, 130, 246, 0.3);
+
+    --badge-open-source-bg: rgba(34, 197, 94, 0.15);
+    --badge-open-source-text: #4ade80;
+    --badge-free-bg: rgba(34, 197, 94, 0.15);
+    --badge-free-text: #4ade80;
+    --badge-freemium-bg: rgba(59, 130, 246, 0.15);
+    --badge-freemium-text: #93c5fd;
+    --badge-paid-bg: rgba(245, 158, 11, 0.15);
+    --badge-paid-text: #fcd34d;
+    --badge-beta-bg: rgba(245, 158, 11, 0.15);
+    --badge-beta-text: #fbbf24;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 12px 24px -6px rgba(0, 0, 0, 0.6);
   }
 
   *, *::before, *::after {
@@ -1269,14 +1306,6 @@ const BASE_CSS = `
 
   .home-top-tool-card:hover .home-top-tool-arrow {
     transform: translateX(3px);
-  }
-
-  /* Footer */
-  .site-footer {
-    background: var(--bg-surface);
-    border-top: 1px solid var(--border-color);
-    padding: 4rem 0 2rem;
-    margin-top: auto;
   }
 
   /* Pre-Footer CTA */
@@ -2210,6 +2239,15 @@ const BASE_CSS = `
   }
 `;
 
+ensureDir(path.join(ASSET_DIR, 'css'));
+const MINIFIED_BASE_CSS = BASE_CSS
+  .replace(/\/\*[\s\S]*?\*\//g, '')
+  .replace(/\s+/g, ' ')
+  .replace(/\s*([{}:;,>~+])\s*/g, '$1')
+  .replace(/;}/g, '}')
+  .trim();
+fs.writeFileSync(path.join(ASSET_DIR, 'css', 'style.css'), MINIFIED_BASE_CSS + '\n');
+
 function renderBreadcrumbs(crumbs, rootPath = '') {
   if (!crumbs || crumbs.length === 0) return '';
   return `
@@ -2331,9 +2369,7 @@ function renderLayout({
   <meta name="twitter:description" content="${escapeHtml(cleanDescription)}">
   <meta name="twitter:image" content="${pageOgImage}">
 
-  <style>
-    ${BASE_CSS}
-  </style>
+  <link rel="stylesheet" href="/asset/css/style.css">
 
   <!-- iine Open Source Appreciation / Like Button -->
   <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -2680,7 +2716,7 @@ const homeTopToolsHtml = topToolsList.map(t => {
   return `
     <a href="${toolPageUrl}" class="home-top-tool-card" data-slug="${toolSlugPath}" data-key="${t.key}" title="Explore ${escapeHtml(t.name)}">
       <div class="home-top-tool-cover-wrap">
-        <img src="${coverUrl}" alt="${escapeHtml(t.name)} preview screenshot" width="640" height="360" loading="lazy">
+        <img src="${coverUrl}" alt="${escapeHtml(t.name)} preview screenshot" width="640" height="360" loading="lazy" decoding="async">
         <span class="home-top-tool-cat-pill">${escapeHtml(t.categoryTitle)}</span>
       </div>
       <div class="home-top-tool-body">
@@ -4429,6 +4465,8 @@ allTools.forEach(tool => {
                  width="1280" 
                  height="720" 
                  loading="eager" 
+                 fetchpriority="high" 
+                 decoding="async" 
                  style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;">
           </div>
     `;
@@ -4913,7 +4951,7 @@ allTools.forEach(tool => {
 ensureDir(path.join(ASSET_DIR, 'json'));
 fs.writeFileSync(
   path.join(ASSET_DIR, 'json', 'search-data.json'),
-  JSON.stringify(searchIndex, null, 2)
+  JSON.stringify(searchIndex)
 );
 
 console.log(`🎉 Complete! Generated all main pages with wider 320px archive sidebar + dedicated HTML pages for all ${allTools.length} tools!`);

@@ -296,7 +296,7 @@ for page in pages:
     im = Image.open(temp_png)
     for out_name in page['output_filenames']:
         out_path = os.path.join(ASSET_IMG_DIR, out_name)
-        im.save(out_path, 'WEBP', quality=95)
+        im.save(out_path, 'WEBP', quality=82, method=6)
         print(f"  -> Saved {out_path} ({os.path.getsize(out_path)} bytes)")
 
 # Cleanup temp files

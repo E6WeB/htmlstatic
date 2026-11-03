@@ -2428,5 +2428,114 @@ ul.footer-links li {
   margin: 0 !important;
 }
 
+/* Code Block Copy Toolbar & Language Badge */
+.code-block-wrap {
+  margin: 0.85rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  background: var(--bg-muted, #f8fafc);
+}
+
+.code-block-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.75rem;
+  background: rgba(148, 163, 184, 0.12);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.72rem;
+}
+
+.code-lang-badge {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-subtle);
+}
+
+.copy-code-btn {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.18rem 0.55rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.copy-code-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.copy-code-btn.copied {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.code-block-wrap pre {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Write / Preview Markdown Composer Tabs */
+.md-editor-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.md-tabs-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--bg-muted);
+  padding: 0.2rem;
+  border-radius: 7px;
+  border: 1px solid var(--border-color);
+}
+
+.md-tab-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.md-tab-btn.is-active {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.md-tabs-hint {
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+}
+
+.md-preview-box {
+  min-height: 120px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md, 8px);
+  background: var(--bg-muted);
+  margin-bottom: 0.75rem;
+}
+
+
 
 

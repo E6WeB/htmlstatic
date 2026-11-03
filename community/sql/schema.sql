@@ -56,6 +56,8 @@ CREATE TABLE IF NOT EXISTS forum_votes (
 );
 CREATE UNIQUE INDEX IF NOT EXISTS forum_votes_topic_unique ON forum_votes(user_id, topic_id) WHERE topic_id IS NOT NULL;
 CREATE UNIQUE INDEX IF NOT EXISTS forum_votes_reply_unique ON forum_votes(user_id, reply_id) WHERE reply_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_forum_votes_topic_id ON forum_votes(topic_id) WHERE topic_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_forum_votes_reply_id ON forum_votes(reply_id) WHERE reply_id IS NOT NULL;
 
 CREATE TABLE IF NOT EXISTS forum_reports (
   id BIGSERIAL PRIMARY KEY,
