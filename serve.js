@@ -55,6 +55,39 @@ function isBlockedPath(pathname) {
   return false;
 }
 
+// In-memory cache for resolved paths and static buffers (prevents WASIX fd/CPU spikes on parallel bursts)
+const resolvedPathCache = new Map();
+const staticBufferCache = new Map();
+const MAX_CACHEABLE_TEXT_BYTES = 512 * 1024; // 512 KB (covers index.html, archive/index.html, style.css, search-data.json)
+const MAX_CACHEABLE_ICON_BYTES = 32 * 1024;  // 32 KB (covers all 124 -icon.webp files)
+const MAX_CACHE_ENTRIES = 300;
+
+function getCachedEntry(filePath, ext) {
+  let entry = staticBufferCache.get(filePath);
+  if (entry) return entry;
+
+  try {
+    const stat = fs.statSync(filePath);
+    if (!stat.isFile()) return null;
+
+    const isCompressible = COMPRESSIBLE_EXTS.has(ext);
+    const maxBytes = isCompressible ? MAX_CACHEABLE_TEXT_BYTES : MAX_CACHEABLE_ICON_BYTES;
+    if (stat.size > maxBytes) return null;
+
+    const raw = fs.readFileSync(filePath);
+    entry = { raw, gzip: null, br: null };
+
+    if (staticBufferCache.size >= MAX_CACHE_ENTRIES) {
+      const oldestKey = staticBufferCache.keys().next().value;
+      if (oldestKey) staticBufferCache.delete(oldestKey);
+    }
+    staticBufferCache.set(filePath, entry);
+    return entry;
+  } catch {
+    return null;
+  }
+}
+
 function serveFile(req, res, filePath, statusCode = 200) {
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
@@ -77,6 +110,37 @@ function serveFile(req, res, filePath, statusCode = 200) {
   }
 
   const acceptEncoding = req.headers['accept-encoding'] || '';
+  const cached = getCachedEntry(filePath, ext);
+
+  if (cached) {
+    if (COMPRESSIBLE_EXTS.has(ext)) {
+      headers['Vary'] = 'Accept-Encoding';
+      if (/\bbr\b/.test(acceptEncoding)) {
+        if (!cached.br) {
+          cached.br = zlib.brotliCompressSync(cached.raw, {
+            params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 4 }
+          });
+        }
+        headers['Content-Encoding'] = 'br';
+        res.writeHead(statusCode, headers);
+        res.end(cached.br);
+        return;
+      }
+      if (/\bgzip\b/.test(acceptEncoding)) {
+        if (!cached.gzip) {
+          cached.gzip = zlib.gzipSync(cached.raw, { level: 6 });
+        }
+        headers['Content-Encoding'] = 'gzip';
+        res.writeHead(statusCode, headers);
+        res.end(cached.gzip);
+        return;
+      }
+    }
+    res.writeHead(statusCode, headers);
+    res.end(cached.raw);
+    return;
+  }
+
   const rawStream = fs.createReadStream(filePath);
   rawStream.on('error', () => {
     if (!res.headersSent) {
@@ -192,30 +256,38 @@ const server = http.createServer((req, res) => {
     return serve404(req, res);
   }
 
-  // Normalize and prevent path traversal outside SERVE_DIR
-  let filePath = path.resolve(SERVE_DIR, '.' + pathname);
-  if (!filePath.startsWith(SERVE_DIR)) {
-    return serve404(req, res);
-  }
+  let filePath = resolvedPathCache.get(pathname);
+  if (!filePath) {
+    // Normalize and prevent path traversal outside SERVE_DIR
+    let candidatePath = path.resolve(SERVE_DIR, '.' + pathname);
+    if (!candidatePath.startsWith(SERVE_DIR)) {
+      return serve404(req, res);
+    }
 
-  // If directory, check for index.html
-  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-    filePath = path.join(filePath, 'index.html');
-  } else if (!path.extname(filePath) && fs.existsSync(filePath + '.html')) {
-    filePath = filePath + '.html';
-  } else {
-    const stripped = pathname.replace(/\/+$/, '');
-    if (stripped) {
-      const candidate = path.resolve(SERVE_DIR, '.' + stripped + '.html');
-      if (candidate.startsWith(SERVE_DIR) && fs.existsSync(candidate)) {
-        filePath = candidate;
+    // If directory, check for index.html
+    if (fs.existsSync(candidatePath) && fs.statSync(candidatePath).isDirectory()) {
+      candidatePath = path.join(candidatePath, 'index.html');
+    } else if (!path.extname(candidatePath) && fs.existsSync(candidatePath + '.html')) {
+      candidatePath = candidatePath + '.html';
+    } else {
+      const stripped = pathname.replace(/\/+$/, '');
+      if (stripped) {
+        const candidate = path.resolve(SERVE_DIR, '.' + stripped + '.html');
+        if (candidate.startsWith(SERVE_DIR) && fs.existsSync(candidate)) {
+          candidatePath = candidate;
+        }
       }
     }
-  }
 
-  // Check if file exists and is not a directory
-  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-    return serve404(req, res);
+    // Check if file exists and is not a directory
+    if (!fs.existsSync(candidatePath) || fs.statSync(candidatePath).isDirectory()) {
+      return serve404(req, res);
+    }
+
+    if (resolvedPathCache.size < 500) {
+      resolvedPathCache.set(pathname, candidatePath);
+    }
+    filePath = candidatePath;
   }
 
   serveFile(req, res, filePath, 200);

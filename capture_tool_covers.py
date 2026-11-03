@@ -1,5 +1,6 @@
 import os
 import sys
+import shutil
 import json
 import subprocess
 import time
@@ -9,7 +10,29 @@ from PIL import Image
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TOOLS_DIR = os.path.join(SCRIPT_DIR, 'tools')
 DATA_PATH = os.path.join(SCRIPT_DIR, 'asset', 'json', 'tools-data.json')
-CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+
+def detect_chrome_path():
+    if sys.platform == 'darwin':
+        mac_path = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+        if os.path.exists(mac_path):
+            return mac_path
+    elif sys.platform.startswith('win'):
+        for p in [
+            r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+            r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe")
+        ]:
+            if os.path.exists(p):
+                return p
+    for bin_name in ('google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'chrome'):
+        found = shutil.which(bin_name)
+        if found:
+            return found
+    return r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+
+CHROME_PATH = detect_chrome_path()
 SCRATCH_DIR = os.path.join(SCRIPT_DIR, 'asset', 'img', 'scratch')
 os.makedirs(SCRATCH_DIR, exist_ok=True)
 

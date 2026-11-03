@@ -25,17 +25,17 @@
 - [x] Keep `generate-pages.js` focused on orchestrating the build pipeline
 - [x] Download and store all 124 tool siteicons locally (`tools/<category>/<slug>-icon.webp`) via `download_tool_icons.py`
 
-### 2. Cross-Platform Chrome Path Detection in Python Scripts
-- [ ] Update `build_og_images.py` (line 8) and `capture_tool_covers.py` (line 12), which currently hardcode Windows Chrome:
+### 2. Cross-Platform Chrome Path Detection in Python Scripts ✅
+- [x] Update `build_og_images.py` and `capture_tool_covers.py` with `detect_chrome_path()`:
   ```python
-  CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+  CHROME_PATH = detect_chrome_path()
   ```
-- [ ] Add cross-platform detection (`sys.platform` / `shutil.which`) to automatically resolve:
+- [x] Add cross-platform detection (`sys.platform` / `shutil.which`) to automatically resolve:
   - **macOS**: `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`
   - **Windows**: `C:\Program Files\Google\Chrome\Application\chrome.exe`
   - **Linux**: `google-chrome` / `chromium`
 
-### 3. Pre-compress Static Assets or Cache Compressed Buffers in `serve.js`
-- [ ] Avoid running Brotli/Gzip compression on the fly for every request in `serveFile` (`serve.js`).
-- [ ] Either pre-generate `.br` and `.gz` static assets during `npm run build` or add an in-memory cache of compressed buffers for frequently requested files (`index.html`, `archive/index.html`, `asset/json/search-data.json`).
+### 3. Pre-compress Static Assets or Cache Compressed Buffers in `serve.js` ✅
+- [x] Avoid running Brotli/Gzip compression on the fly for every request in `serveFile` (`serve.js`).
+- [x] Added in-memory caching (`staticBufferCache` and `resolvedPathCache` in `serve.js`) of raw, `.gz`, and `.br` buffers for text assets (<= 512 KB) and tool icons (<= 32 KB), eliminating repeated disk I/O and WASIX CPU spikes.
 
