@@ -4,8 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
 
+const ROOT_DIR = path.join(__dirname, '..');
+
 // Top Viewed Tools in-memory cache and background updater
-const VIEWS_CACHE_FILE = path.join(__dirname, '..', 'asset', 'json', 'tool-views-cache.json');
+const VIEWS_CACHE_FILE = path.join(ROOT_DIR, 'asset', 'json', 'tool-views-cache.json');
 let topToolsCache = global.__staticstack_top_tools_cache || null;
 let allToolViewsCache = global.__staticstack_all_tool_views || null;
 let topToolsLastFetch = global.__staticstack_top_tools_last_fetch || 0;
