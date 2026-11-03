@@ -43,9 +43,9 @@ const BLOCKED_FILES = new Set([
 function isBlockedPath(pathname) {
   const lower = pathname.toLowerCase();
   if (BLOCKED_FILES.has(lower)) return true;
-  // Block hidden files/folders (.git, .github, .env, etc.) and node_modules / sql
+  // Block hidden files/folders (.git, .github, .env, etc.) and node_modules / sql / src
   const segments = lower.split('/').filter(Boolean);
-  if (segments.some(seg => seg.startsWith('.') || seg === 'node_modules' || seg === 'sql')) {
+  if (segments.some(seg => seg.startsWith('.') || seg === 'node_modules' || seg === 'sql' || seg === 'src')) {
     return true;
   }
   const ext = path.extname(lower);

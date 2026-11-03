@@ -113,6 +113,9 @@ function buildTopToolsList(viewsMap = {}) {
 
       const domain = getDomainFromUrl(t.websiteUrl);
 
+      const localIconPath = path.join(ROOT_DIR, 'tools', cat.slug, `${t.slug}-icon.webp`);
+      const hasLocalIcon = fs.existsSync(localIconPath);
+
       list.push({
         name: t.name,
         slug: t.slug,
@@ -125,7 +128,9 @@ function buildTopToolsList(viewsMap = {}) {
         badgeClass: badgeClass,
         websiteUrl: t.websiteUrl || '',
         domain: domain,
-        faviconUrl: domain ? `https://icons.duckduckgo.com/ip3/${domain}.ico` : '',
+        faviconUrl: hasLocalIcon
+          ? `/tools/${cat.slug}/${t.slug}-icon.webp`
+          : (domain ? `https://icons.duckduckgo.com/ip3/${domain}.ico` : ''),
         key: key,
         iconSvg: CATEGORY_ICONS[cat.slug] || CATEGORY_ICONS['development-tools'],
         views: views
