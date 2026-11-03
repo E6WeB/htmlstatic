@@ -679,6 +679,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td><a href="https://sitereal.app/" target="_blank" rel="noopener noreferrer">sitereal.app</a></td>
   </tr>
   <tr>
+    <td><a href="tools/development-tools/staticseo.md">StaticSEO</a></td>
+    <td>Open-source SEO tool that bakes meta tags, Open Graph cards, JSON-LD schema, and XML sitemaps into static HTML</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://staticseo.co/" target="_blank" rel="noopener noreferrer">staticseo.co</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/development-tools/visual-studio-code.md">Visual Studio Code</a></td>
     <td>Code editor with extensions for web development</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>

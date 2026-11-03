@@ -646,6 +646,16 @@
     <lastmod>2026-11-03</lastmod>
   </tool>
   <tool>
+    <title>StaticSEO</title>
+    <category>Development Tools</category>
+    <url>https://staticstack.app/tools/development-tools/staticseo</url>
+    <image>https://staticstack.app/tools/development-tools/staticseo-cover.webp</image>
+    <description>
+      Open-source SEO tool that bakes meta tags, Open Graph cards, JSON-LD schema, and XML sitemaps into static HTML
+    </description>
+    <lastmod>2026-11-03</lastmod>
+  </tool>
+  <tool>
     <title>Visual Studio Code</title>
     <category>Development Tools</category>
     <url>https://staticstack.app/tools/development-tools/visual-studio-code</url>
