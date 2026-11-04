@@ -261,12 +261,12 @@ const homeContent = `
         const searchTerms = (cat.title + ' ' + cat.description + ' ' + cat.tools.map(t => t.name + ' ' + (t.tags || []).join(' ')).join(' ')).toLowerCase();
         return `
         <a href="archive#${cat.slug}" class="category-card" data-search="${escapeHtml(searchTerms)}" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-            <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center;">${icon}</div>
-            <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; background:var(--bg-muted); color:var(--text-muted); border-radius:var(--radius-full); border:1px solid var(--border-color);">${cat.tools.length} Tools</span>
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0;">${icon}</div>
+            <h3 style="font-size:1.15rem; font-weight:700; margin:0; line-height:1.3;">${escapeHtml(cat.title)}</h3>
           </div>
-          <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.5rem;">${escapeHtml(cat.title)}</h3>
-          <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.5; flex-grow:1; margin-bottom:1rem;">${escapeHtml(cat.description)}</p>
+          <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.5; flex-grow:1; margin-bottom:0.65rem;">${escapeHtml(cat.description)}</p>
+          <div style="font-size:0.825rem; font-weight:600; color:var(--text-subtle); margin-bottom:0.85rem;">Tools: <span style="color:var(--accent); font-weight:700;">${cat.tools.length}</span></div>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; font-weight:600; color:var(--accent); padding-top:0.75rem; border-top:1px solid var(--border-color);">
             <span>Browse Section</span>
             <span>${ICONS.arrowRight}</span>
