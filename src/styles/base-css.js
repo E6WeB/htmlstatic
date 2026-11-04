@@ -1038,6 +1038,139 @@ const BASE_CSS = `
     font-weight: 700;
   }
 
+  /* Tool Icons & Master Archive Tables */
+  .tool-siteicon {
+    border-radius: 4px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .archive-cat-section {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .archive-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .archive-cat-ico {
+    color: var(--accent);
+    flex-shrink: 0;
+    display: inline-flex;
+  }
+
+  .archive-cat-title {
+    font-weight: 800;
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .archive-cat-pill {
+    font-size: 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 0.15rem 0.55rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .archive-cat-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .archive-table-wrapper {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: var(--shadow-card);
+  }
+
+  .archive-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+    min-width: 580px;
+  }
+
+  .archive-table thead tr {
+    background: var(--bg-muted);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .archive-table th {
+    padding: 0.75rem 1rem;
+  }
+
+  .archive-table th:nth-child(1) { width: 22%; }
+  .archive-table th:nth-child(2) { width: 12%; white-space: nowrap; }
+  .archive-table th:nth-child(3) { width: 38%; }
+  .archive-table th:nth-child(4) { width: 14%; }
+  .archive-table th:nth-child(5) { width: 14%; }
+
+  .archive-row {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .archive-table td {
+    padding: 0.85rem 1rem;
+  }
+
+  .archive-table td:nth-child(1) {
+    font-weight: 700;
+  }
+
+  .archive-table td:nth-child(1) a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 700;
+  }
+
+  .archive-table td:nth-child(2) {
+    white-space: nowrap;
+  }
+
+  .tool-archive-views {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+
+  .archive-table td:nth-child(3) {
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .archive-table td:nth-child(4) .badge {
+    margin: 0.1rem 0.15rem 0.1rem 0;
+  }
+
+  .archive-table td:nth-child(5) a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
   /* Pre-Footer CTA */
   .pre-footer-cta {
     padding: 0 0 3.5rem;

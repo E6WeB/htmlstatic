@@ -70,8 +70,17 @@ function createLayoutRenderer({ allTools, categories }) {
     canonicalUrl = '',
     jsonLd = null
   }) {
-    const cleanDescription = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
-    const pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
+    const rawDesc = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
+    const cleanDescription = rawDesc.length > 160 ? rawDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...' : rawDesc;
+    let pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
+    if (pageTitle.length > 60 && !title.includes('StaticStack')) {
+      pageTitle = title.length <= 60 ? title : title.slice(0, 57).replace(/\s+\S*$/, '') + '...';
+    } else if (pageTitle.length > 60) {
+      pageTitle = pageTitle.replace(/\s*\|\s*StaticStack$/, '');
+      if (pageTitle.length > 60) {
+        pageTitle = pageTitle.slice(0, 57).replace(/\s+\S*$/, '') + '...';
+      }
+    }
 
     const pageOgImage = ogImage || (
       currentNav === 'home' ? 'https://www.staticstack.app/asset/img/og-home.webp' :

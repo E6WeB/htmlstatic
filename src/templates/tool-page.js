@@ -95,9 +95,31 @@ function renderToolPage({
     `;
   }
 
+  let toolTitle = `${tool.name} - ${tool.categoryTitle} | StaticStack`;
+  if (toolTitle.length > 60) {
+    toolTitle = `${tool.name} - Static Web Tool & Guide | StaticStack`;
+  }
+  if (toolTitle.length > 60) {
+    toolTitle = `${tool.name} - Static Website Tool | StaticStack`;
+  }
+  if (toolTitle.length > 60) {
+    toolTitle = `${tool.name} | StaticStack`;
+  }
+
+  let toolDesc = `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`;
+  if (toolDesc.length > 160) {
+    toolDesc = `${tool.name}: ${tool.description}. Static website integration guide and features.`;
+  }
+  if (toolDesc.length > 160) {
+    toolDesc = `${tool.name}: ${tool.description}.`;
+  }
+  if (toolDesc.length > 160) {
+    toolDesc = toolDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...';
+  }
+
   return renderLayout({
-    title: `${tool.name} - ${tool.categoryTitle}`,
-    description: `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`,
+    title: toolTitle,
+    description: toolDesc,
     currentNav: 'archive',
     canonicalUrl: `https://www.staticstack.app/tools/${tool.categorySlug}/${tool.slug}`,
     ...(coverImageHtml ? {

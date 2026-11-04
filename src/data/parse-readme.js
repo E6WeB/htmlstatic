@@ -123,19 +123,21 @@ function loadCatalog(rootDir) {
       const localIconDiskPath = path.join(rootDir, 'tools', categorySlug, `${slug}-icon.webp`);
       if (fs.existsSync(localIconDiskPath)) {
         const localIconUrl = `/tools/${categorySlug}/${slug}-icon.webp`;
-        return `<img src="${localIconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" decoding="async" aria-hidden="true" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ${extraStyle}">`;
+        const styleAttr = extraStyle ? ` style="${extraStyle.trim()}"` : '';
+        return `<img src="${localIconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" decoding="async"${styleAttr}>`;
       }
     }
 
     const domain = getDomainFromUrl(websiteUrl);
     const bwFallback = getBlackWhiteFallbackSvg(tool.name, size);
+    const styleAttr = extraStyle ? ` style="${extraStyle.trim()}"` : '';
 
     if (!domain) {
-      return `<img src="${bwFallback}" width="${size}" height="${size}" class="tool-siteicon" alt="" decoding="async" aria-hidden="true" style="border-radius:4px; vertical-align:middle; flex-shrink:0; ${extraStyle}">`;
+      return `<img src="${bwFallback}" width="${size}" height="${size}" class="tool-siteicon" alt="" decoding="async"${styleAttr}>`;
     }
 
     const faviconUrl = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
-    return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" decoding="async" aria-hidden="true" onerror="this.onerror=null;this.src='${bwFallback}';" style="border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain; ${extraStyle}">`;
+    return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${bwFallback}';"${styleAttr}>`;
   }
 
   function getRandomTools(currentSlug, count = 4) {

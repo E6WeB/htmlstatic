@@ -786,13 +786,12 @@ const archiveContent = `
         <ul id="archive-sidebar-list" class="archive-categories-list" style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
           ${categories.map(c => `
             <li>
-              <a href="#${c.slug}" class="archive-cat-link" title="${escapeHtml(c.title)}">
-                <span class="archive-cat-icon">${CATEGORY_ICONS[c.slug] || ICONS.zap}</span>
+              <a href="#${c.slug}" class="archive-cat-link">
+                <span class="archive-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-${c.slug}"/></svg></span>
                 <span class="archive-cat-name">${escapeHtml(c.title)}</span>
                 <span class="archive-cat-count">${c.tools.length}</span>
               </a>
-            </li>
-          `).join('')}
+            </li>`).join('')}
         </ul>
       </div>
 
@@ -904,6 +903,14 @@ const archiveContent = `
 
     <!-- Category Sections & Tool Tables -->
     <div class="archive-main">
+      <svg style="display:none" aria-hidden="true">
+        <symbol id="ico-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></symbol>
+        ${categories.map(c => {
+          const rawSvg = CATEGORY_ICONS[c.slug] || ICONS.zap;
+          const inner = rawSvg.replace(/^<svg[^>]*>|<\/svg>$/g, '');
+          return `<symbol id="ci-${c.slug}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${inner}</symbol>`;
+        }).join('')}
+      </svg>
       <div id="archive-no-results" style="display:none; text-align:center; padding:3.5rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); margin-bottom:3rem; box-shadow:var(--shadow-card);">
         <div style="font-size:1.35rem; font-weight:700; margin-bottom:0.5rem;">No tools found</div>
         <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">No tools match your current filter or search criteria.</p>
@@ -911,25 +918,24 @@ const archiveContent = `
       </div>
 
       ${categories.map(cat => {
-        const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
         return `
-        <section id="${cat.slug}" class="archive-cat-section" style="margin-bottom:3.5rem; scroll-margin-top:6rem;">
-          <div class="archive-cat-header" style="display:flex; align-items:center; gap:0.5rem 0.75rem; flex-wrap:wrap; margin-bottom:0.75rem; width:100%; max-width:100%;">
-            <div style="color:var(--accent); flex-shrink:0;">${icon}</div>
-            <h2 class="archive-cat-title" style="font-weight:800; margin:0; min-width:0; overflow-wrap:break-word; word-break:break-word;">${escapeHtml(cat.title)}</h2>
-            <span style="font-size:0.8rem; background:var(--accent-light); color:var(--accent); padding:0.15rem 0.55rem; border-radius:var(--radius-full); font-weight:700; flex-shrink:0;">${cat.tools.length} tools</span>
+        <section id="${cat.slug}" class="archive-cat-section">
+          <div class="archive-cat-header">
+            <div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-${cat.slug}"/></svg></div>
+            <h2 class="archive-cat-title">${escapeHtml(cat.title)}</h2>
+            <span class="archive-cat-pill">${cat.tools.length} tools</span>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.55; margin-bottom:1.25rem;">${escapeHtml(cat.description)}</p>
+          <p class="archive-cat-desc">${escapeHtml(cat.description)}</p>
 
-          <div class="archive-table-wrapper" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow-x:auto; -webkit-overflow-scrolling:touch; box-shadow:var(--shadow-card);">
-            <table class="archive-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem; min-width:580px;">
+          <div class="archive-table-wrapper">
+            <table class="archive-table">
               <thead>
-                <tr style="background:var(--bg-muted); border-bottom:1px solid var(--border-color);">
-                  <th style="padding:0.75rem 1rem; width:22%;">Tool</th>
-                  <th style="padding:0.75rem 1rem; width:12%; white-space:nowrap;">Views</th>
-                  <th style="padding:0.75rem 1rem; width:38%;">Description</th>
-                  <th style="padding:0.75rem 1rem; width:14%;">Pricing</th>
-                  <th style="padding:0.75rem 1rem; width:14%;">Link</th>
+                <tr>
+                  <th>Tool</th>
+                  <th>Views</th>
+                  <th>Description</th>
+                  <th>Pricing</th>
+                  <th>Link</th>
                 </tr>
               </thead>
               <tbody>
@@ -945,40 +951,24 @@ const archiveContent = `
                     else if (lb.includes('paid')) bClass = 'badge-paid';
                     return `<span class="badge ${bClass}">${escapeHtml(b)}</span>`;
                   }).join(' ');
-                  const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
+                  const rowVisibleWords = new Set((tool.name + ' ' + tool.description + ' ' + toolBadgesList.join(' ')).toLowerCase().split(/\s+/).filter(Boolean));
+                  const extraSearchWords = Array.from(new Set(
+                    (cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + (tool.tags || []).join(' ')).toLowerCase().split(/\s+/).filter(w => w && !rowVisibleWords.has(w))
+                  )).join(' ');
 
                   return `
-                  <tr class="archive-row" data-badge="${escapeHtml((tool.primaryBadge || '').toLowerCase())}" data-search="${escapeHtml((tool.name + ' ' + tool.description + ' ' + cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + tool.badges.join(' ') + ' ' + (tool.tags || []).join(' ')).toLowerCase())}" style="border-bottom:1px solid var(--border-color);">
-                    <td style="padding:0.85rem 1rem; font-weight:700;">
-                      <a href="/tools/${tool.categorySlug}/${tool.slug}" title="View documentation and guide for ${escapeHtml(tool.name)}" style="display:inline-flex; align-items:center; gap:0.55rem; text-decoration:none; color:inherit;">
-                        ${getToolSiteIcon(tool, 18)}
-                        <span style="color:var(--text-main); font-weight:700;">${escapeHtml(tool.name)}</span>
-                      </a>
-                    </td>
-                    <td style="padding:0.85rem 1rem; white-space:nowrap;">
-                      <span class="tool-archive-views" data-key="${toolKey}" title="Total views for ${escapeHtml(tool.name)}" style="font-size:0.85rem; color:var(--text-muted); font-variant-numeric:tabular-nums; font-weight:500;">
-                        <span class="view-count-num">--</span>
-                      </span>
-                    </td>
-                    <td style="padding:0.85rem 1rem; color:var(--text-muted); line-height:1.5;">${escapeHtml(tool.description)}</td>
-                    <td style="padding:0.85rem 1rem;">
-                      <div style="display:inline-flex; flex-wrap:wrap; gap:0.35rem; align-items:center;">
-                        ${badgesHtml}
-                      </div>
-                    </td>
-                    <td style="padding:0.85rem 1rem;">
-                      <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.35rem;" title="Visit ${escapeHtml(tool.name)} official website">
-                        Link ${ICONS.external}
-                      </a>
-                    </td>
-                  </tr>
-                  `;
+                  <tr class="archive-row" data-search="${escapeHtml(extraSearchWords)}">
+                    <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a></td>
+                    <td><span class="tool-archive-views">--</span></td>
+                    <td>${escapeHtml(tool.description)}</td>
+                    <td>${badgesHtml}</td>
+                    <td><a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></td>
+                  </tr>`;
                 }).join('')}
               </tbody>
             </table>
           </div>
-        </section>
-        `;
+        </section>`;
       }).join('')}
     </div>
   </div>
@@ -986,6 +976,13 @@ const archiveContent = `
   <script>
     const archiveFilters = document.querySelectorAll('.archive-filter');
     const archiveRows = document.querySelectorAll('.archive-row');
+    archiveRows.forEach(row => {
+      const link = row.querySelector('a[href^="/tools/"]');
+      const viewEl = row.querySelector('.tool-archive-views');
+      if (link && viewEl && !viewEl.getAttribute('data-key')) {
+        viewEl.setAttribute('data-key', 'htmlstatic-' + link.getAttribute('href').slice(7).replace('/', '-'));
+      }
+    });
     const archiveSections = document.querySelectorAll('.archive-cat-section');
     const archiveSearchInput = document.getElementById('archive-search-input');
     const archiveClearBtn = document.getElementById('archive-search-clear');
@@ -1008,8 +1005,8 @@ const archiveContent = `
         let secMatches = 0;
         const rows = section.querySelectorAll('.archive-row');
         rows.forEach(row => {
-          const badge = row.getAttribute('data-badge') || '';
-          const searchTxt = row.getAttribute('data-search') || '';
+          const badge = (row.cells[3] ? row.cells[3].textContent : '').toLowerCase();
+          const searchTxt = (row.getAttribute('data-search') || '') + ' ' + row.textContent.toLowerCase();
 
           const matchFilter = currentFilter === 'all' || badge.includes(currentFilter.replace('-', ' '));
           const matchSearch = qWords.length === 0 || qWords.every(w => searchTxt.includes(w));
@@ -1137,8 +1134,8 @@ const archiveContent = `
           const val = Number(viewsMap[key]) || 0;
           const formatted = val.toLocaleString();
           viewCache.set(key, formatted);
-          const numEl = el.querySelector('.view-count-num');
-          if (numEl) numEl.textContent = formatted;
+          const numEl = el.querySelector('.view-count-num') || el;
+          numEl.textContent = formatted;
           el.setAttribute('data-fetched', 'true');
         }
       });
@@ -1165,8 +1162,8 @@ const archiveContent = `
       const el = item.el;
 
       if (viewCache.has(key)) {
-        const numEl = el.querySelector('.view-count-num');
-        if (numEl) numEl.textContent = viewCache.get(key);
+        const numEl = el.querySelector('.view-count-num') || el;
+        numEl.textContent = viewCache.get(key);
         activeWorkers--;
         setTimeout(processViewQueue, 10);
         return;
@@ -1188,13 +1185,13 @@ const archiveContent = `
             saved[key] = val;
             sessionStorage.setItem('staticstack_tool_views', JSON.stringify(saved));
           } catch (e) {}
-          const numEl = el.querySelector('.view-count-num');
-          if (numEl) numEl.textContent = formatted;
+          const numEl = el.querySelector('.view-count-num') || el;
+          numEl.textContent = formatted;
         })
         .catch(() => {
           clearTimeout(timeoutId);
-          const numEl = el.querySelector('.view-count-num');
-          if (numEl && numEl.textContent === '--') numEl.textContent = '0';
+          const numEl = el.querySelector('.view-count-num') || el;
+          if (numEl.textContent === '--') numEl.textContent = '0';
         })
         .finally(() => {
           activeWorkers--;
@@ -1315,7 +1312,7 @@ const archiveContent = `
 
 ensureDir(path.join(ROOT_DIR, 'archive'));
 fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
-  title: `Master Archive - ${uniqueToolsCount}+ Tools for Static Websites`,
+  title: `Master Archive - ${uniqueToolsCount}+ Static Website Tools | StaticStack`,
   description: `Explore the complete directory of ${uniqueToolsCount} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
   currentNav: 'archive',
   rootPath: '/',
@@ -1464,7 +1461,7 @@ const submitContent = `
 
 ensureDir(path.join(ROOT_DIR, 'submit'));
 fs.writeFileSync(path.join(ROOT_DIR, 'submit', 'index.html'), renderLayout({
-  title: 'Submit a Tool - StaticStack',
+  title: 'Submit a Static Website Tool or API Service | StaticStack',
   description: 'Propose a new static website tool, API, or service to include in the StaticStack directory.',
   currentNav: 'submit',
   rootPath: '/',
@@ -1631,7 +1628,7 @@ const contactContent = `
 
 ensureDir(path.join(ROOT_DIR, 'contact'));
 fs.writeFileSync(path.join(ROOT_DIR, 'contact', 'index.html'), renderLayout({
-  title: 'Contact & Connect - StaticStack',
+  title: 'Contact & Connect - Community & GitHub Hub | StaticStack',
   description: 'Get in touch with StaticStack through our official Facebook Group and GitHub repository—no spammy contact forms required.',
   currentNav: 'contact',
   rootPath: '/',
