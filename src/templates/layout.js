@@ -66,31 +66,58 @@ function createLayoutRenderer({ allTools, categories }) {
     rootPath = '',
     ogImage = '',
     ogImageWidth = 1200,
-    ogImageHeight = 675,
-    canonicalUrl = ''
+    ogImageHeight = 630,
+    canonicalUrl = '',
+    jsonLd = null
   }) {
     const cleanDescription = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
     const pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
 
     const pageOgImage = ogImage || (
-      currentNav === 'home' ? 'https://staticstack.app/asset/img/og-home.webp' :
-      currentNav === 'archive' ? 'https://staticstack.app/archive/og-archive.webp' :
-      currentNav === 'submit' ? 'https://staticstack.app/submit/og-submit.webp' :
-      currentNav === 'community' ? 'https://staticstack.app/asset/img/og-community.webp' :
-      'https://staticstack.app/asset/img/og-image.webp'
+      currentNav === 'home' ? 'https://www.staticstack.app/asset/img/og-home.webp' :
+      currentNav === 'archive' ? 'https://www.staticstack.app/archive/og-archive.webp' :
+      currentNav === 'submit' ? 'https://www.staticstack.app/submit/og-submit.webp' :
+      currentNav === 'community' ? 'https://www.staticstack.app/asset/img/og-community.webp' :
+      'https://www.staticstack.app/asset/img/og-image.webp'
     );
 
     let pageUrl = canonicalUrl;
     if (!pageUrl) {
-      if (currentNav === 'home') pageUrl = 'https://staticstack.app/';
-      else if (currentNav === 'archive') pageUrl = 'https://staticstack.app/archive';
-      else if (currentNav === 'submit') pageUrl = 'https://staticstack.app/submit';
-      else if (currentNav === 'contribute') pageUrl = 'https://staticstack.app/contribute';
-      else if (currentNav === 'thankyou') pageUrl = 'https://staticstack.app/thankyou';
-      else if (currentNav === 'contact') pageUrl = 'https://staticstack.app/contact';
-      else if (currentNav === 'community') pageUrl = 'https://staticstack.app/community/';
-      else pageUrl = 'https://staticstack.app/';
+      if (currentNav === 'home') pageUrl = 'https://www.staticstack.app/';
+      else if (currentNav === 'archive') pageUrl = 'https://www.staticstack.app/archive';
+      else if (currentNav === 'submit') pageUrl = 'https://www.staticstack.app/submit';
+      else if (currentNav === 'contribute') pageUrl = 'https://www.staticstack.app/contribute';
+      else if (currentNav === 'thankyou') pageUrl = 'https://www.staticstack.app/thankyou';
+      else if (currentNav === 'contact') pageUrl = 'https://www.staticstack.app/contact';
+      else if (currentNav === 'community') pageUrl = 'https://www.staticstack.app/community/';
+      else pageUrl = 'https://www.staticstack.app/';
     }
+
+    const structuredDataObj = jsonLd || (currentNav === 'home' ? {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'StaticStack',
+      alternateName: 'StaticStack - Modern Tools & APIs for Static Websites',
+      url: 'https://www.staticstack.app/',
+      description: cleanDescription,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://www.staticstack.app/archive?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    } : {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: pageTitle,
+      url: pageUrl,
+      description: cleanDescription,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'StaticStack',
+        url: 'https://www.staticstack.app/'
+      }
+    });
+    const jsonLdString = JSON.stringify(structuredDataObj).replace(/<\//g, '<\\/');
 
     const miniHeroHtml = miniHero ? renderMiniHero(miniHero, rootPath) : '';
     const breadcrumbFallbackHtml = (!miniHero && breadcrumbs.length > 0) ? `
@@ -99,7 +126,7 @@ function createLayoutRenderer({ allTools, categories }) {
     </nav>
   ` : '';
 
-    return `<!DOCTYPE html>
+    const rawHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -108,9 +135,12 @@ function createLayoutRenderer({ allTools, categories }) {
   <meta name="description" content="${escapeHtml(cleanDescription)}">
   <meta name="theme-color" content="#2563eb">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="canonical" href="${pageUrl}">
 
   <!-- OpenGraph & Social Cards -->
+  <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="StaticStack">
   <meta property="og:url" content="${pageUrl}">
@@ -122,11 +152,13 @@ function createLayoutRenderer({ allTools, categories }) {
   <meta property="og:image:height" content="${ogImageHeight}">
   <meta property="og:image:alt" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@staticstack">
   <meta name="twitter:url" content="${pageUrl}">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(cleanDescription)}">
   <meta name="twitter:image" content="${pageOgImage}">
 
+  <script type="application/ld+json">${jsonLdString}</script>
   <link rel="stylesheet" href="/asset/css/style.css">
 
   <!-- iine Open Source Appreciation / Like Button -->
@@ -439,6 +471,15 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
 </body>
 </html>
 `;
+    const preBlocks = [];
+    const withPlaceholders = rawHtml.replace(/<pre[\s\S]*?<\/pre>/gi, m => {
+      preBlocks.push(m);
+      return `__PRE_BLOCK_${preBlocks.length - 1}__`;
+    });
+    return withPlaceholders
+      .replace(/^[ \t]+/gm, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .replace(/__PRE_BLOCK_(\d+)__/g, (_, i) => preBlocks[Number(i)]);
   };
 }
 

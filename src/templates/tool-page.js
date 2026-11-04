@@ -99,9 +99,9 @@ function renderToolPage({
     title: `${tool.name} - ${tool.categoryTitle}`,
     description: `${tool.name}: ${tool.description}. Guide, integration examples, and features for static websites.`,
     currentNav: 'archive',
-    canonicalUrl: `https://staticstack.app/tools/${tool.categorySlug}/${tool.slug}`,
+    canonicalUrl: `https://www.staticstack.app/tools/${tool.categorySlug}/${tool.slug}`,
     ...(coverImageHtml ? {
-      ogImage: `https://staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}`,
+      ogImage: `https://www.staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}`,
       ogImageWidth: 1280,
       ogImageHeight: 720
     } : {}),

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://staticstack.app/sitemap.xml
+Sitemap: https://www.staticstack.app/sitemap.xml

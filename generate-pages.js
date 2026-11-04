@@ -258,20 +258,22 @@ const homeContent = `
     <div id="category-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:1.25rem;">
       ${categories.map(cat => {
         const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
-        const searchTerms = (cat.title + ' ' + cat.description + ' ' + cat.tools.map(t => t.name + ' ' + (t.tags || []).join(' ')).join(' ')).toLowerCase();
+        const visibleWords = new Set((cat.title + ' ' + cat.description).toLowerCase().split(/\s+/).filter(Boolean));
+        const extraWords = Array.from(new Set(
+          cat.tools.map(t => t.name + ' ' + (t.tags || []).join(' ')).join(' ').toLowerCase().split(/\s+/).filter(w => w && !visibleWords.has(w))
+        )).join(' ');
         return `
-        <a href="archive#${cat.slug}" class="category-card" data-search="${escapeHtml(searchTerms)}" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem; display:flex; flex-direction:column; color:var(--text-main); box-shadow:var(--shadow-card); transition:all 0.2s ease;">
-          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
-            <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0;">${icon}</div>
-            <h3 style="font-size:1.15rem; font-weight:700; margin:0; line-height:1.3;">${escapeHtml(cat.title)}</h3>
+        <a href="archive#${cat.slug}" class="category-card" data-search="${escapeHtml(extraWords)}">
+          <div class="category-card-head">
+            <div class="category-card-icon">${icon}</div>
+            <h3 class="category-card-title">${escapeHtml(cat.title)}</h3>
           </div>
-          <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.5; flex-grow:1; margin-bottom:1rem;">${escapeHtml(cat.description)}</p>
-          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; font-weight:600; color:var(--accent); padding-top:0.75rem; border-top:1px solid var(--border-color);">
+          <p class="category-card-desc">${escapeHtml(cat.description)}</p>
+          <div class="category-card-foot">
             <span>Browse Section</span>
-            <span style="color:var(--text-subtle);">Tools: <span style="color:var(--accent); font-weight:700;">${cat.tools.length}</span></span>
+            <span class="category-card-count">Tools: <strong>${cat.tools.length}</strong></span>
           </div>
-        </a>
-        `;
+        </a>`;
       }).join('')}
 
       <div id="home-no-categories" style="display:none; grid-column:1/-1; text-align:center; padding:3rem 1.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg);">
@@ -409,7 +411,7 @@ const homeContent = `
       const categoryCards = document.querySelectorAll('.category-card');
       let visibleCount = 0;
       categoryCards.forEach(card => {
-        const text = card.getAttribute('data-search') || card.textContent.toLowerCase();
+        const text = (card.getAttribute('data-search') || '') + ' ' + card.textContent.toLowerCase();
         const matches = qWords.length === 0 || qWords.every(w => text.includes(w));
         if (matches) {
           card.style.display = 'flex';
@@ -712,7 +714,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
   title: 'StaticStack - Modern Tools & APIs for Static Websites',
   description: `Curated directory of ${uniqueToolsCount}+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.`,
   currentNav: 'home',
-  ogImage: 'https://staticstack.app/asset/img/og-home.webp',
+  ogImage: 'https://www.staticstack.app/asset/img/og-home.webp',
   content: homeContent
 }));
 
@@ -1317,7 +1319,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
   description: `Explore the complete directory of ${uniqueToolsCount} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
   currentNav: 'archive',
   rootPath: '/',
-  ogImage: 'https://staticstack.app/archive/og-archive.webp',
+  ogImage: 'https://www.staticstack.app/archive/og-archive.webp',
   miniHero: {
     breadcrumbs: [
       { label: 'Home', url: '/' },
@@ -1466,7 +1468,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'submit', 'index.html'), renderLayout({
   description: 'Propose a new static website tool, API, or service to include in the StaticStack directory.',
   currentNav: 'submit',
   rootPath: '/',
-  ogImage: 'https://staticstack.app/submit/og-submit.webp',
+  ogImage: 'https://www.staticstack.app/submit/og-submit.webp',
   miniHero: {
     breadcrumbs: [
       { label: 'Home', url: '/' },
@@ -1688,18 +1690,18 @@ function escapeXml(str) {
 
 // 1. Search Engine Sitemap (sitemap.xml)
 const sitemapUrls = [
-  { loc: 'https://staticstack.app/', priority: '1.0', changefreq: 'daily' },
-  { loc: 'https://staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
-  { loc: 'https://staticstack.app/submit', priority: '0.8', changefreq: 'monthly' },
-  { loc: 'https://staticstack.app/community', priority: '0.85', changefreq: 'weekly' },
-  { loc: 'https://staticstack.app/contribute', priority: '0.8', changefreq: 'monthly' },
-  { loc: 'https://staticstack.app/thankyou', priority: '0.7', changefreq: 'monthly' },
-  { loc: 'https://staticstack.app/contact', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://www.staticstack.app/', priority: '1.0', changefreq: 'daily' },
+  { loc: 'https://www.staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
+  { loc: 'https://www.staticstack.app/submit', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://www.staticstack.app/community', priority: '0.85', changefreq: 'weekly' },
+  { loc: 'https://www.staticstack.app/contribute', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://www.staticstack.app/thankyou', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://www.staticstack.app/contact', priority: '0.7', changefreq: 'monthly' },
 ];
 
 categories.forEach(cat => {
   sitemapUrls.push({
-    loc: `https://staticstack.app/archive#${cat.slug}`,
+    loc: `https://www.staticstack.app/archive#${cat.slug}`,
     priority: '0.85',
     changefreq: 'weekly'
   });
@@ -1708,7 +1710,7 @@ categories.forEach(cat => {
 categories.forEach(cat => {
   cat.tools.forEach(tool => {
     sitemapUrls.push({
-      loc: `https://staticstack.app/tools/${cat.slug}/${tool.slug}`,
+      loc: `https://www.staticstack.app/tools/${cat.slug}/${tool.slug}`,
       priority: '0.8',
       changefreq: 'monthly'
     });
@@ -1734,12 +1736,12 @@ ${allTools.map(tool => {
   const coverRelativeName = `${tool.slug}-cover.webp`;
   const coverDiskPath = path.join(ROOT_DIR, 'tools', tool.categorySlug, coverRelativeName);
   const imageTag = fs.existsSync(coverDiskPath)
-    ? `\n    <image>https://staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}</image>`
+    ? `\n    <image>https://www.staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}</image>`
     : '';
   return `  <tool>
     <title>${escapeXml(tool.name)}</title>
     <category>${escapeXml(tool.categoryTitle)}</category>
-    <url>https://staticstack.app/tools/${tool.categorySlug}/${tool.slug}</url>${imageTag}
+    <url>https://www.staticstack.app/tools/${tool.categorySlug}/${tool.slug}</url>${imageTag}
     <description>
       ${escapeXml(tool.description)}
     </description>
@@ -1754,7 +1756,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'tools.xml'), toolsXml);
 const robotsTxt = `User-agent: *
 Allow: /
 
-Sitemap: https://staticstack.app/sitemap.xml
+Sitemap: https://www.staticstack.app/sitemap.xml
 `;
 fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
 

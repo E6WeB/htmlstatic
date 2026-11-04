@@ -26,10 +26,11 @@ const MIME_TYPES = {
   '.xml': 'application/xml; charset=utf-8',
   '.toml': 'application/toml; charset=utf-8',
   '.yaml': 'text/yaml; charset=utf-8',
-  '.txt': 'text/plain; charset=utf-8'
+  '.txt': 'text/plain; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8'
 };
 
-const COMPRESSIBLE_EXTS = new Set(['.html', '.css', '.js', '.json', '.svg', '.xml', '.txt']);
+const COMPRESSIBLE_EXTS = new Set(['.html', '.css', '.js', '.json', '.svg', '.xml', '.txt', '.webmanifest']);
 const IMMUTABLE_CACHE_EXTS = new Set(['.webp', '.png', '.jpg', '.jpeg', '.ico', '.svg']);
 const BLOCKED_FILES = new Set([
   '/serve.js',
@@ -295,7 +296,36 @@ const server = http.createServer((req, res) => {
   serveFile(req, res, filePath, 200);
 });
 
+function prewarmHotFiles() {
+  const hotRoutes = [
+    ['/', 'index.html'],
+    ['/index.html', 'index.html'],
+    ['/archive', path.join('archive', 'index.html')],
+    ['/submit', path.join('submit', 'index.html')],
+    ['/contact', path.join('contact', 'index.html')],
+    ['/community/', path.join('community', 'index.html')],
+    ['/asset/css/style.css', path.join('asset', 'css', 'style.css')],
+    ['/site.webmanifest', 'site.webmanifest'],
+    ['/apple-touch-icon.png', 'apple-touch-icon.png']
+  ];
+  for (const [route, rel] of hotRoutes) {
+    const full = path.join(SERVE_DIR, rel);
+    if (fs.existsSync(full)) {
+      resolvedPathCache.set(route, full);
+      const ext = path.extname(full).toLowerCase();
+      const entry = getCachedEntry(full, ext);
+      if (entry && COMPRESSIBLE_EXTS.has(ext)) {
+        entry.br = zlib.brotliCompressSync(entry.raw, {
+          params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 4 }
+        });
+        entry.gzip = zlib.gzipSync(entry.raw, { level: 6 });
+      }
+    }
+  }
+}
+
 function startServer(port) {
+  prewarmHotFiles();
   server.once('error', (err) => {
     if (err.code === 'EADDRINUSE') {
       console.log(`⚠️ Port ${port} is busy, trying ${port + 1}...`);

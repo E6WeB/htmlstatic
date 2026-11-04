@@ -103,7 +103,7 @@ html_template = """<!DOCTYPE html>
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{
       width: 1200px;
-      height: 675px;
+      height: 630px;
       overflow: hidden;
       background-color: #f8fafc;
       background-image: 
@@ -310,7 +310,7 @@ for page in pages:
         CHROME_PATH,
         "--headless",
         "--hide-scrollbars",
-        "--window-size=1200,675",
+        "--window-size=1200,630",
         f"--screenshot={temp_png}",
         f"file:///{temp_html.replace(os.sep, '/')}"
     ]
