@@ -189,13 +189,19 @@
 </button>
 </div>
 
-<!-- Filter Buttons -->
+<!-- Filter Buttons & Expand/Collapse Toggle -->
+<div style="display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap; width:100%;">
 <div class="archive-filter-chips" style="display:flex; gap:0.5rem; flex-wrap:wrap; max-width:100%; box-sizing:border-box;">
 <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (129)</button>
 <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
 <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
 <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
 <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
+</div>
+<div class="archive-view-controls">
+<button type="button" class="archive-toggle-all-btn" onclick="toggleAllArchiveCategories(false)">Collapse All</button>
+<button type="button" class="archive-toggle-all-btn" onclick="toggleAllArchiveCategories(true)">Expand All</button>
+</div>
 </div>
 </div>
 <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all 129 tools across 27 categories</div>
@@ -583,6 +589,7 @@ Connect with fellow static site developers, discuss tools, and share projects in
 <div class="archive-main">
 <svg style="display:none" aria-hidden="true">
 <symbol id="ico-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></symbol>
+<symbol id="ico-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></symbol>
 <symbol id="ci-ai-content-creation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></symbol><symbol id="ci-ai-models" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></symbol><symbol id="ci-analytics-privacy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></symbol><symbol id="ci-authentication-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></symbol><symbol id="ci-booking-scheduling" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></symbol><symbol id="ci-browser-extensions" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></symbol><symbol id="ci-comments-community" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></symbol><symbol id="ci-contact-forms" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></symbol><symbol id="ci-content-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></symbol><symbol id="ci-css-components" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></symbol><symbol id="ci-database-storage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></symbol><symbol id="ci-development-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></symbol><symbol id="ci-hosting-deployment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></symbol><symbol id="ci-images-optimization" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></symbol><symbol id="ci-maps-geolocation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></symbol><symbol id="ci-interactive-scripts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></symbol><symbol id="ci-live-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></symbol><symbol id="ci-media-players" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></symbol><symbol id="ci-monitoring-errors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></symbol><symbol id="ci-newsletters-email" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></symbol><symbol id="ci-payments-ecommerce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></symbol><symbol id="ci-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></symbol><symbol id="ci-security-spam-protection" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></symbol><symbol id="ci-static-site-generators" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></symbol><symbol id="ci-surveys-feedback" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></symbol><symbol id="ci-tutorials" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></symbol><symbol id="ci-typography-fonts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></symbol>
 </svg>
 <div id="archive-no-results" style="display:none; text-align:center; padding:3.5rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); margin-bottom:3rem; box-shadow:var(--shadow-card);">
@@ -591,12 +598,16 @@ Connect with fellow static site developers, discuss tools, and share projects in
 <button class="btn btn-primary" onclick="resetArchiveFilters()">Reset Filters &amp; Show All 129 Tools</button>
 </div>
 
-<section id="ai-content-creation" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-ai-content-creation"/></svg></div>
+<section id="ai-content-creation" class="archive-cat-section" data-cat="ai-content-creation">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('ai-content-creation')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-ai-content-creation">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-ai-content-creation"/></svg></span>
 <h2 class="archive-cat-title">AI &amp; Content Creation</h2>
 <span class="archive-cat-pill">6 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-ai-content-creation" class="archive-cat-body">
 <p class="archive-cat-desc">AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.</p>
 
 <div class="archive-table-wrapper">
@@ -657,13 +668,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="ai-models" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-ai-models"/></svg></div>
+<section id="ai-models" class="archive-cat-section" data-cat="ai-models">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('ai-models')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-ai-models">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-ai-models"/></svg></span>
 <h2 class="archive-cat-title">AI Models</h2>
 <span class="archive-cat-pill">10 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-ai-models" class="archive-cat-body">
 <p class="archive-cat-desc">Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.</p>
 
 <div class="archive-table-wrapper">
@@ -752,13 +768,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="analytics-privacy" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-analytics-privacy"/></svg></div>
+<section id="analytics-privacy" class="archive-cat-section" data-cat="analytics-privacy">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('analytics-privacy')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-analytics-privacy">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-analytics-privacy"/></svg></span>
 <h2 class="archive-cat-title">Analytics &amp; Privacy</h2>
 <span class="archive-cat-pill">5 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-analytics-privacy" class="archive-cat-body">
 <p class="archive-cat-desc">Understand website traffic, visitor behavior, and page performance.</p>
 
 <div class="archive-table-wrapper">
@@ -812,13 +833,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="authentication-users" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-authentication-users"/></svg></div>
+<section id="authentication-users" class="archive-cat-section" data-cat="authentication-users">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('authentication-users')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-authentication-users">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-authentication-users"/></svg></span>
 <h2 class="archive-cat-title">Authentication &amp; User Management</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-authentication-users" class="archive-cat-body">
 <p class="archive-cat-desc">Add user login, member areas, and gated content to static sites without backend code.</p>
 
 <div class="archive-table-wrapper">
@@ -858,13 +884,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="booking-scheduling" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-booking-scheduling"/></svg></div>
+<section id="booking-scheduling" class="archive-cat-section" data-cat="booking-scheduling">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('booking-scheduling')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-booking-scheduling">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-booking-scheduling"/></svg></span>
 <h2 class="archive-cat-title">Booking &amp; Scheduling</h2>
 <span class="archive-cat-pill">2 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-booking-scheduling" class="archive-cat-body">
 <p class="archive-cat-desc">Allow visitors to book appointments and discovery calls directly from static pages.</p>
 
 <div class="archive-table-wrapper">
@@ -897,13 +928,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="browser-extensions" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-browser-extensions"/></svg></div>
+<section id="browser-extensions" class="archive-cat-section" data-cat="browser-extensions">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('browser-extensions')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-browser-extensions">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-browser-extensions"/></svg></span>
 <h2 class="archive-cat-title">Browser Extensions</h2>
 <span class="archive-cat-pill">2 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-browser-extensions" class="archive-cat-body">
 <p class="archive-cat-desc">Helpful browser extensions for static site development, link sharing, and productivity.</p>
 
 <div class="archive-table-wrapper">
@@ -936,13 +972,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="comments-community" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-comments-community"/></svg></div>
+<section id="comments-community" class="archive-cat-section" data-cat="comments-community">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('comments-community')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-comments-community">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-comments-community"/></svg></span>
 <h2 class="archive-cat-title">Comments &amp; Community</h2>
 <span class="archive-cat-pill">6 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-comments-community" class="archive-cat-body">
 <p class="archive-cat-desc">Let visitors comment on blog posts and interact with your content.</p>
 
 <div class="archive-table-wrapper">
@@ -1003,13 +1044,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="contact-forms" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-contact-forms"/></svg></div>
+<section id="contact-forms" class="archive-cat-section" data-cat="contact-forms">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('contact-forms')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-contact-forms">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-contact-forms"/></svg></span>
 <h2 class="archive-cat-title">Contact Forms</h2>
 <span class="archive-cat-pill">4 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-contact-forms" class="archive-cat-body">
 <p class="archive-cat-desc">Add contact forms to static websites without building your own form-processing backend.</p>
 
 <div class="archive-table-wrapper">
@@ -1056,13 +1102,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="content-management" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-content-management"/></svg></div>
+<section id="content-management" class="archive-cat-section" data-cat="content-management">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('content-management')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-content-management">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-content-management"/></svg></span>
 <h2 class="archive-cat-title">Content Management</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-content-management" class="archive-cat-body">
 <p class="archive-cat-desc">Manage content on static websites without adopting a traditional, full-featured CMS.</p>
 
 <div class="archive-table-wrapper">
@@ -1102,13 +1153,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="css-components" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-css-components"/></svg></div>
+<section id="css-components" class="archive-cat-section" data-cat="css-components">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('css-components')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-css-components">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-css-components"/></svg></span>
 <h2 class="archive-cat-title">CSS &amp; UI Component Libraries</h2>
 <span class="archive-cat-pill">4 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-css-components" class="archive-cat-body">
 <p class="archive-cat-desc">Build responsive, accessible user interfaces without complex build steps or heavy frameworks.</p>
 
 <div class="archive-table-wrapper">
@@ -1155,13 +1211,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="database-storage" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-database-storage"/></svg></div>
+<section id="database-storage" class="archive-cat-section" data-cat="database-storage">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('database-storage')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-database-storage">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-database-storage"/></svg></span>
 <h2 class="archive-cat-title">Database &amp; Backend-as-a-Service</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-database-storage" class="archive-cat-body">
 <p class="archive-cat-desc">Store, query, and synchronize data from static frontends without maintaining servers.</p>
 
 <div class="archive-table-wrapper">
@@ -1201,13 +1262,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="development-tools" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-development-tools"/></svg></div>
+<section id="development-tools" class="archive-cat-section" data-cat="development-tools">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('development-tools')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-development-tools">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-development-tools"/></svg></span>
 <h2 class="archive-cat-title">Development Tools</h2>
 <span class="archive-cat-pill">21 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-development-tools" class="archive-cat-body">
 <p class="archive-cat-desc">Tools that make building, testing, and maintaining static websites easier.</p>
 
 <div class="archive-table-wrapper">
@@ -1373,13 +1439,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="hosting-deployment" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-hosting-deployment"/></svg></div>
+<section id="hosting-deployment" class="archive-cat-section" data-cat="hosting-deployment">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('hosting-deployment')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-hosting-deployment">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-hosting-deployment"/></svg></span>
 <h2 class="archive-cat-title">Hosting &amp; Deployment</h2>
 <span class="archive-cat-pill">14 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-hosting-deployment" class="archive-cat-body">
 <p class="archive-cat-desc">Services for publishing static HTML, CSS, and JavaScript websites online.</p>
 
 <div class="archive-table-wrapper">
@@ -1496,13 +1567,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="images-optimization" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-images-optimization"/></svg></div>
+<section id="images-optimization" class="archive-cat-section" data-cat="images-optimization">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('images-optimization')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-images-optimization">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-images-optimization"/></svg></span>
 <h2 class="archive-cat-title">Images &amp; Optimization</h2>
 <span class="archive-cat-pill">7 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-images-optimization" class="archive-cat-body">
 <p class="archive-cat-desc">Optimize images and other assets to improve loading speed and user experience.</p>
 
 <div class="archive-table-wrapper">
@@ -1570,13 +1646,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="maps-geolocation" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-maps-geolocation"/></svg></div>
+<section id="maps-geolocation" class="archive-cat-section" data-cat="maps-geolocation">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('maps-geolocation')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-maps-geolocation">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-maps-geolocation"/></svg></span>
 <h2 class="archive-cat-title">Interactive Maps &amp; Geolocation</h2>
 <span class="archive-cat-pill">2 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-maps-geolocation" class="archive-cat-body">
 <p class="archive-cat-desc">Add mobile-friendly, interactive vector and raster maps without API billing hurdles.</p>
 
 <div class="archive-table-wrapper">
@@ -1609,13 +1690,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="interactive-scripts" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-interactive-scripts"/></svg></div>
+<section id="interactive-scripts" class="archive-cat-section" data-cat="interactive-scripts">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('interactive-scripts')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-interactive-scripts">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-interactive-scripts"/></svg></span>
 <h2 class="archive-cat-title">Interactive Scripts &amp; Animation</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-interactive-scripts" class="archive-cat-body">
 <p class="archive-cat-desc">Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS.</p>
 
 <div class="archive-table-wrapper">
@@ -1655,13 +1741,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="live-chat" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-live-chat"/></svg></div>
+<section id="live-chat" class="archive-cat-section" data-cat="live-chat">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('live-chat')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-live-chat">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-live-chat"/></svg></span>
 <h2 class="archive-cat-title">Live Chat &amp; Support</h2>
 <span class="archive-cat-pill">2 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-live-chat" class="archive-cat-body">
 <p class="archive-cat-desc">Engage visitors and answer questions in real time with lightweight chat widgets.</p>
 
 <div class="archive-table-wrapper">
@@ -1694,13 +1785,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="media-players" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-media-players"/></svg></div>
+<section id="media-players" class="archive-cat-section" data-cat="media-players">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('media-players')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-media-players">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-media-players"/></svg></span>
 <h2 class="archive-cat-title">Media &amp; Video Players</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-media-players" class="archive-cat-body">
 <p class="archive-cat-desc">Embed audio, video, and streaming media without intrusive third-party ads or trackers.</p>
 
 <div class="archive-table-wrapper">
@@ -1740,13 +1836,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="monitoring-errors" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-monitoring-errors"/></svg></div>
+<section id="monitoring-errors" class="archive-cat-section" data-cat="monitoring-errors">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('monitoring-errors')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-monitoring-errors">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-monitoring-errors"/></svg></span>
 <h2 class="archive-cat-title">Monitoring &amp; Error Tracking</h2>
 <span class="archive-cat-pill">2 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-monitoring-errors" class="archive-cat-body">
 <p class="archive-cat-desc">Detect client-side JavaScript crashes and monitor performance in production.</p>
 
 <div class="archive-table-wrapper">
@@ -1779,13 +1880,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="newsletters-email" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-newsletters-email"/></svg></div>
+<section id="newsletters-email" class="archive-cat-section" data-cat="newsletters-email">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('newsletters-email')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-newsletters-email">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-newsletters-email"/></svg></span>
 <h2 class="archive-cat-title">Newsletters &amp; Email</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-newsletters-email" class="archive-cat-body">
 <p class="archive-cat-desc">Collect subscribers, send newsletters, and handle email delivery from static websites.</p>
 
 <div class="archive-table-wrapper">
@@ -1825,13 +1931,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="payments-ecommerce" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-payments-ecommerce"/></svg></div>
+<section id="payments-ecommerce" class="archive-cat-section" data-cat="payments-ecommerce">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('payments-ecommerce')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-payments-ecommerce">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-payments-ecommerce"/></svg></span>
 <h2 class="archive-cat-title">Payments &amp; E-commerce</h2>
 <span class="archive-cat-pill">5 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-payments-ecommerce" class="archive-cat-body">
 <p class="archive-cat-desc">Sell digital downloads, services, memberships, and other products from static websites.</p>
 
 <div class="archive-table-wrapper">
@@ -1885,13 +1996,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="search" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-search"/></svg></div>
+<section id="search" class="archive-cat-section" data-cat="search">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('search')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-search">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-search"/></svg></span>
 <h2 class="archive-cat-title">Search</h2>
 <span class="archive-cat-pill">2 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-search" class="archive-cat-body">
 <p class="archive-cat-desc">Add search functionality to static websites, documentation, and blogs.</p>
 
 <div class="archive-table-wrapper">
@@ -1924,13 +2040,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="security-spam-protection" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-security-spam-protection"/></svg></div>
+<section id="security-spam-protection" class="archive-cat-section" data-cat="security-spam-protection">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('security-spam-protection')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-security-spam-protection">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-security-spam-protection"/></svg></span>
 <h2 class="archive-cat-title">Security &amp; Spam Protection</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-security-spam-protection" class="archive-cat-body">
 <p class="archive-cat-desc">Protect forms and websites against automated spam and abuse.</p>
 
 <div class="archive-table-wrapper">
@@ -1970,13 +2091,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="static-site-generators" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-static-site-generators"/></svg></div>
+<section id="static-site-generators" class="archive-cat-section" data-cat="static-site-generators">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('static-site-generators')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-static-site-generators">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-static-site-generators"/></svg></span>
 <h2 class="archive-cat-title">Static Site Generators</h2>
 <span class="archive-cat-pill">8 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-static-site-generators" class="archive-cat-body">
 <p class="archive-cat-desc">Build fast, pre-rendered static HTML websites from templates and Markdown.</p>
 
 <div class="archive-table-wrapper">
@@ -2051,13 +2177,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="surveys-feedback" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-surveys-feedback"/></svg></div>
+<section id="surveys-feedback" class="archive-cat-section" data-cat="surveys-feedback">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('surveys-feedback')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-surveys-feedback">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-surveys-feedback"/></svg></span>
 <h2 class="archive-cat-title">Surveys &amp; Feedback</h2>
 <span class="archive-cat-pill">2 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-surveys-feedback" class="archive-cat-body">
 <p class="archive-cat-desc">Gather visitor responses, run interactive polls, and publish product roadmaps.</p>
 
 <div class="archive-table-wrapper">
@@ -2090,13 +2221,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="tutorials" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-tutorials"/></svg></div>
+<section id="tutorials" class="archive-cat-section" data-cat="tutorials">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('tutorials')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-tutorials">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-tutorials"/></svg></span>
 <h2 class="archive-cat-title">Tutorials</h2>
 <span class="archive-cat-pill">1 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-tutorials" class="archive-cat-body">
 <p class="archive-cat-desc">Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites.</p>
 
 <div class="archive-table-wrapper">
@@ -2122,13 +2258,18 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
-<section id="typography-fonts" class="archive-cat-section">
-<div class="archive-cat-header">
-<div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-typography-fonts"/></svg></div>
+<section id="typography-fonts" class="archive-cat-section" data-cat="typography-fonts">
+<div class="archive-cat-header" onclick="toggleArchiveCategory('typography-fonts')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-typography-fonts">
+<div class="archive-cat-toggle-btn">
+<span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-typography-fonts"/></svg></span>
 <h2 class="archive-cat-title">Typography &amp; Web Fonts</h2>
 <span class="archive-cat-pill">3 tools</span>
 </div>
+<span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
+</div>
+<div id="cat-body-typography-fonts" class="archive-cat-body">
 <p class="archive-cat-desc">Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services.</p>
 
 <div class="archive-table-wrapper">
@@ -2168,6 +2309,7 @@ Connect with fellow static site developers, discuss tools, and share projects in
 </tbody>
 </table>
 </div>
+</div>
 </section>
 </div>
 </div>
@@ -2191,6 +2333,24 @@ const archiveNoResultsEl = document.getElementById('archive-no-results');
 let currentFilter = 'all';
 let currentSearch = '';
 
+function toggleArchiveCategory(slug, forceState) {
+const sec = document.querySelector('.archive-cat-section[data-cat="' + slug + '"]');
+if (!sec) return;
+const isCurrentlyCollapsed = sec.classList.contains('is-collapsed');
+const shouldCollapse = typeof forceState === 'boolean' ? !forceState : !isCurrentlyCollapsed;
+sec.classList.toggle('is-collapsed', shouldCollapse);
+const btn = sec.querySelector('.archive-cat-header');
+if (btn) btn.setAttribute('aria-expanded', shouldCollapse ? 'false' : 'true');
+}
+
+function toggleAllArchiveCategories(expand) {
+document.querySelectorAll('.archive-cat-section').forEach(sec => {
+sec.classList.toggle('is-collapsed', !expand);
+const btn = sec.querySelector('.archive-cat-header');
+if (btn) btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+});
+}
+
 function applyArchiveFilter() {
 let count = 0;
 const q = currentSearch.trim().toLowerCase();
@@ -2199,6 +2359,8 @@ const qWords = q.split(/[\s\-]+/).filter(Boolean);
 if (archiveClearBtn) {
 archiveClearBtn.style.display = q ? 'inline-flex' : 'none';
 }
+
+const hasActiveSearchOrFilter = qWords.length > 0 || currentFilter !== 'all';
 
 archiveSections.forEach(section => {
 let secMatches = 0;
@@ -2221,6 +2383,13 @@ row.style.display = 'none';
 
 // Hide category section if 0 matches
 section.style.display = secMatches > 0 ? '' : 'none';
+
+// Auto-expand matching sections during search/filter so users immediately see their results
+if (hasActiveSearchOrFilter && secMatches > 0) {
+section.classList.remove('is-collapsed');
+const hdr = section.querySelector('.archive-cat-header');
+if (hdr) hdr.setAttribute('aria-expanded', 'true');
+}
 
 // Update sidebar item opacity without hiding it completely
 const secId = section.getAttribute('id');
@@ -2298,9 +2467,14 @@ firstVisible.scrollIntoView({ behavior: 'smooth' });
 }
 }
 
-// Sidebar Category Click: clear search or filter so that all tools in the category are pulled up immediately!
+// Sidebar Category Click: clear search or filter and expand the chosen category so its tools are visible immediately!
 document.querySelectorAll('.archive-cat-link').forEach(link => {
-link.addEventListener('click', () => {
+link.addEventListener('click', (e) => {
+const href = link.getAttribute('href') || '';
+const slug = href.replace(/^#/, '');
+if (slug) {
+toggleArchiveCategory(slug, true);
+}
 if (currentSearch || currentFilter !== 'all') {
 currentFilter = 'all';
 archiveFilters.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === 'all'));

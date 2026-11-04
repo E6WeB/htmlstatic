@@ -905,6 +905,7 @@ const archiveContent = `
     <div class="archive-main">
       <svg style="display:none" aria-hidden="true">
         <symbol id="ico-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></symbol>
+        <symbol id="ico-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></symbol>
         ${categories.map(c => {
           const rawSvg = CATEGORY_ICONS[c.slug] || ICONS.zap;
           const inner = rawSvg.replace(/^<svg[^>]*>|<\/svg>$/g, '');
@@ -919,54 +920,59 @@ const archiveContent = `
 
       ${categories.map(cat => {
         return `
-        <section id="${cat.slug}" class="archive-cat-section">
-          <div class="archive-cat-header">
-            <div class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-${cat.slug}"/></svg></div>
-            <h2 class="archive-cat-title">${escapeHtml(cat.title)}</h2>
-            <span class="archive-cat-pill">${cat.tools.length} tools</span>
+        <section id="${cat.slug}" class="archive-cat-section" data-cat="${cat.slug}">
+          <div class="archive-cat-header" onclick="toggleArchiveCategory('${cat.slug}')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-${cat.slug}">
+            <div class="archive-cat-toggle-btn">
+              <span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-${cat.slug}"/></svg></span>
+              <h2 class="archive-cat-title">${escapeHtml(cat.title)}</h2>
+              <span class="archive-cat-pill">${cat.tools.length} tools</span>
+            </div>
+            <span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
           </div>
-          <p class="archive-cat-desc">${escapeHtml(cat.description)}</p>
+          <div id="cat-body-${cat.slug}" class="archive-cat-body">
+            <p class="archive-cat-desc">${escapeHtml(cat.description)}</p>
 
-          <div class="archive-table-wrapper">
-            <table class="archive-table">
-              <thead>
-                <tr>
-                  <th>Tool</th>
-                  <th>Views</th>
-                  <th>Description</th>
-                  <th>Pricing</th>
-                  <th>Link</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${cat.tools.map(tool => {
-                  const toolBadgesList = (tool.badges && tool.badges.length > 0) ? tool.badges : [tool.primaryBadge];
-                  const badgesHtml = toolBadgesList.map(b => {
-                    const lb = (b || '').toLowerCase();
-                    let bClass = 'badge-freemium';
-                    if (lb.includes('open source')) bClass = 'badge-open-source';
-                    else if (lb.includes('beta')) bClass = 'badge-beta';
-                    else if (lb.includes('freemium')) bClass = 'badge-freemium';
-                    else if (lb.includes('free')) bClass = 'badge-free';
-                    else if (lb.includes('paid')) bClass = 'badge-paid';
-                    return `<span class="badge ${bClass}">${escapeHtml(b)}</span>`;
-                  }).join(' ');
-                  const rowVisibleWords = new Set((tool.name + ' ' + tool.description + ' ' + toolBadgesList.join(' ')).toLowerCase().split(/\s+/).filter(Boolean));
-                  const extraSearchWords = Array.from(new Set(
-                    (cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + (tool.tags || []).join(' ').replace(/-/g, ' ')).toLowerCase().split(/\s+/).filter(w => w && !rowVisibleWords.has(w))
-                  )).join(' ');
+            <div class="archive-table-wrapper">
+              <table class="archive-table">
+                <thead>
+                  <tr>
+                    <th>Tool</th>
+                    <th>Views</th>
+                    <th>Description</th>
+                    <th>Pricing</th>
+                    <th>Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${cat.tools.map(tool => {
+                    const toolBadgesList = (tool.badges && tool.badges.length > 0) ? tool.badges : [tool.primaryBadge];
+                    const badgesHtml = toolBadgesList.map(b => {
+                      const lb = (b || '').toLowerCase();
+                      let bClass = 'badge-freemium';
+                      if (lb.includes('open source')) bClass = 'badge-open-source';
+                      else if (lb.includes('beta')) bClass = 'badge-beta';
+                      else if (lb.includes('freemium')) bClass = 'badge-freemium';
+                      else if (lb.includes('free')) bClass = 'badge-free';
+                      else if (lb.includes('paid')) bClass = 'badge-paid';
+                      return `<span class="badge ${bClass}">${escapeHtml(b)}</span>`;
+                    }).join(' ');
+                    const rowVisibleWords = new Set((tool.name + ' ' + tool.description + ' ' + toolBadgesList.join(' ')).toLowerCase().split(/\s+/).filter(Boolean));
+                    const extraSearchWords = Array.from(new Set(
+                      (cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + (tool.tags || []).join(' ').replace(/-/g, ' ')).toLowerCase().split(/\s+/).filter(w => w && !rowVisibleWords.has(w))
+                    )).join(' ');
 
-                  return `
-                  <tr class="archive-row" data-search="${escapeHtml(extraSearchWords)}">
-                    <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a></td>
-                    <td><span class="tool-archive-views">--</span></td>
-                    <td>${escapeHtml(tool.description)}</td>
-                    <td>${badgesHtml}</td>
-                    <td><a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></td>
-                  </tr>`;
-                }).join('')}
-              </tbody>
-            </table>
+                    return `
+                    <tr class="archive-row" data-search="${escapeHtml(extraSearchWords)}">
+                      <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a></td>
+                      <td><span class="tool-archive-views">--</span></td>
+                      <td>${escapeHtml(tool.description)}</td>
+                      <td>${badgesHtml}</td>
+                      <td><a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></td>
+                    </tr>`;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>`;
       }).join('')}
@@ -992,6 +998,24 @@ const archiveContent = `
     let currentFilter = 'all';
     let currentSearch = '';
 
+    function toggleArchiveCategory(slug, forceState) {
+      const sec = document.querySelector('.archive-cat-section[data-cat="' + slug + '"]');
+      if (!sec) return;
+      const isCurrentlyCollapsed = sec.classList.contains('is-collapsed');
+      const shouldCollapse = typeof forceState === 'boolean' ? !forceState : !isCurrentlyCollapsed;
+      sec.classList.toggle('is-collapsed', shouldCollapse);
+      const btn = sec.querySelector('.archive-cat-header');
+      if (btn) btn.setAttribute('aria-expanded', shouldCollapse ? 'false' : 'true');
+    }
+
+    function toggleAllArchiveCategories(expand) {
+      document.querySelectorAll('.archive-cat-section').forEach(sec => {
+        sec.classList.toggle('is-collapsed', !expand);
+        const btn = sec.querySelector('.archive-cat-header');
+        if (btn) btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+      });
+    }
+
     function applyArchiveFilter() {
       let count = 0;
       const q = currentSearch.trim().toLowerCase();
@@ -1000,6 +1024,8 @@ const archiveContent = `
       if (archiveClearBtn) {
         archiveClearBtn.style.display = q ? 'inline-flex' : 'none';
       }
+
+      const hasActiveSearchOrFilter = qWords.length > 0 || currentFilter !== 'all';
 
       archiveSections.forEach(section => {
         let secMatches = 0;
@@ -1022,6 +1048,13 @@ const archiveContent = `
 
         // Hide category section if 0 matches
         section.style.display = secMatches > 0 ? '' : 'none';
+
+        // Auto-expand matching sections during search/filter so users immediately see their results
+        if (hasActiveSearchOrFilter && secMatches > 0) {
+          section.classList.remove('is-collapsed');
+          const hdr = section.querySelector('.archive-cat-header');
+          if (hdr) hdr.setAttribute('aria-expanded', 'true');
+        }
 
         // Update sidebar item opacity without hiding it completely
         const secId = section.getAttribute('id');
@@ -1099,9 +1132,14 @@ const archiveContent = `
       }
     }
 
-    // Sidebar Category Click: clear search or filter so that all tools in the category are pulled up immediately!
+    // Sidebar Category Click: clear search or filter and expand the chosen category so its tools are visible immediately!
     document.querySelectorAll('.archive-cat-link').forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href') || '';
+        const slug = href.replace(/^#/, '');
+        if (slug) {
+          toggleArchiveCategory(slug, true);
+        }
         if (currentSearch || currentFilter !== 'all') {
           currentFilter = 'all';
           archiveFilters.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === 'all'));
@@ -1336,13 +1374,19 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
           </button>
         </div>
 
-        <!-- Filter Buttons -->
-        <div class="archive-filter-chips" style="display:flex; gap:0.5rem; flex-wrap:wrap; max-width:100%; box-sizing:border-box;">
-          <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (${uniqueToolsCount})</button>
-          <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
-          <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
-          <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
-          <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
+        <!-- Filter Buttons & Expand/Collapse Toggle -->
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap; width:100%;">
+          <div class="archive-filter-chips" style="display:flex; gap:0.5rem; flex-wrap:wrap; max-width:100%; box-sizing:border-box;">
+            <button class="btn btn-sm btn-secondary archive-filter active" data-filter="all">All Tools (${uniqueToolsCount})</button>
+            <button class="btn btn-sm btn-secondary archive-filter" data-filter="open-source">Open Source</button>
+            <button class="btn btn-sm btn-secondary archive-filter" data-filter="free">Free</button>
+            <button class="btn btn-sm btn-secondary archive-filter" data-filter="freemium">Freemium</button>
+            <button class="btn btn-sm btn-secondary archive-filter" data-filter="paid">Paid</button>
+          </div>
+          <div class="archive-view-controls">
+            <button type="button" class="archive-toggle-all-btn" onclick="toggleAllArchiveCategories(false)">Collapse All</button>
+            <button type="button" class="archive-toggle-all-btn" onclick="toggleAllArchiveCategories(true)">Expand All</button>
+          </div>
         </div>
       </div>
       <div id="archive-results-count" style="font-size:0.85rem; color:var(--text-subtle); margin-top:0.75rem;">Showing all ${uniqueToolsCount} tools across ${categories.length} categories</div>
