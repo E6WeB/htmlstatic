@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">pages.github.com</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Git-Integrated Static Hosting
-- **Pricing / License**: Free
+
+- **Tags**: `github-pages`, `gh-pages`, `free-repo-hosting`, `jekyll-hosting`, `custom-domain-ssl`, `git-push-deploy`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
 
 ---
 

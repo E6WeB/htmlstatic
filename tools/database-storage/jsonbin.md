@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://jsonbin.io/" target="_blank" rel="noopener noreferrer">jsonbin.io</a>
 - **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
 - **Type**: Cloud JSON Storage API
-- **Pricing / License**: Freemium
+
+- **Tags**: `jsonbin`, `json-storage-api`, `rest-json-store`, `mock-backend`, `serverless-key-value`, `prototype-db`, `serverless-database`, `baas`, `rest-api`, `realtime-db`
 
 ---
 

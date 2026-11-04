@@ -6,7 +6,8 @@
 - **GitHub Repository**: <a href="https://github.com/zed-industries/zed" target="_blank" rel="noopener noreferrer">github.com/zed-industries/zed</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Code Editor & IDE
-- **Pricing / License**: Free / Open Source
+
+- **Tags**: `zed-editor`, `rust-code-editor`, `gpu-accelerated-ide`, `multiplayer-coding`, `ultra-fast-editor`, `ai-inline-assist`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 
 ---
 

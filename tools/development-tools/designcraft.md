@@ -9,7 +9,7 @@
 - **Pricing / License**: Free / Open Source
 - **Status**: Beta / In Development
 - **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `page-layout`, `rust`, `indesign-alternative`, `desktop-publishing`, `typography`, `pdf-export`, `print-design`, `beta`
+- **Tags**: `page-layout`, `rust`, `indesign-alternative`, `desktop-publishing`, `typography`, `pdf-export`, `print-design`, `beta`, `designcraft`, `open-source-indesign`
 
 ---
 

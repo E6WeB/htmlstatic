@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://sleekplan.com/" target="_blank" rel="noopener noreferrer">sleekplan.com</a>
 - **Category**: [Surveys & Feedback](../../README.md#surveys--feedback)
 - **Type**: Feedback Board & Roadmap Widget
-- **Pricing / License**: Freemium
+
+- **Tags**: `sleekplan`, `in-app-feedback-board`, `public-product-roadmap`, `changelog-popup-widget`, `feature-voting`, `feedback-widget`, `embeddable-surveys`, `product-roadmap`, `changelog-widget`, `typeform-alternative`
 
 ---
 

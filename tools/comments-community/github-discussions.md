@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://docs.github.com/en/discussions" target="_blank" rel="noopener noreferrer">docs.github.com</a>
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Hosted Community & Discussion Forum
-- **Pricing / License**: Free
+
+- **Tags**: `github-discussions`, `open-source-community`, `developer-qna`, `repo-forum`, `zero-cost-community`, `static-blog-comments`, `disqus-alternative`, `github-comments`, `no-database`, `community-widget`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://cloud.google.com/security/products/recaptcha" target="_blank" rel="noopener noreferrer">cloud.google.com/security/products/recaptcha</a>
 - **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
 - **Type**: Bot Mitigation & Verification
-- **Pricing / License**: Freemium
+
+- **Tags**: `google-recaptcha`, `recaptcha-v3-score`, `automated-bot-defense`, `form-abuse-protection`, `bot-protection`, `captcha-alternative`, `form-spam-filter`, `privacy-captcha`, `zero-friction-security`, `freemium`
 
 ---
 

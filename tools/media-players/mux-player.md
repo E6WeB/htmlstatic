@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://mux.com/player" target="_blank" rel="noopener noreferrer">mux.com/player</a>
 - **Category**: [Media & Video Players](../../README.md#media--video-players)
 - **Type**: Modern Video Streaming Component
-- **Pricing / License**: Freemium
+
+- **Tags**: `mux-player`, `hls-video-web-component`, `adaptive-bitrate-streaming`, `timeline-hover-previews`, `video-api`, `html5-video-player`, `hls-streaming`, `audio-waveform`, `podcast-player`, `custom-media-player`
 
 ---
 

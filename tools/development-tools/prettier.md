@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Code Formatter
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `prettier`, `opinionated-code-formatter`, `auto-format-html-css-js`, `clean-code-style`, `editor-save-format`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`, `core-web-vitals`
 
 ---
 

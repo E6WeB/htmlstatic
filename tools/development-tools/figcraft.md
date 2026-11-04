@@ -9,7 +9,7 @@
 - **Pricing / License**: Free / Open Source
 - **Status**: Beta / Early Alpha
 - **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `ui-design`, `rust`, `figma-alternative`, `prototyping`, `auto-layout`, `dev-mode`, `vector`, `beta`
+- **Tags**: `ui-design`, `rust`, `figma-alternative`, `prototyping`, `auto-layout`, `dev-mode`, `vector`, `beta`, `figcraft`, `open-source-figma`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://surge.sh/" target="_blank" rel="noopener noreferrer">surge.sh</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Static Web Publishing & CLI Host
-- **Pricing / License**: Freemium
+
+- **Tags**: `surge-sh`, `cli-static-publishing`, `single-command-deploy`, `frontend-staging`, `quick-html-host`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 
 ---
 

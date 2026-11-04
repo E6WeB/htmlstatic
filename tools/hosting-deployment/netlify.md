@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify.com</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Jamstack & Frontend Cloud
-- **Pricing / License**: Freemium
+
+- **Tags**: `netlify`, `jamstack-pioneer`, `deploy-previews`, `netlify-forms`, `edge-functions`, `instant-rollbacks`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
 
 ---
 

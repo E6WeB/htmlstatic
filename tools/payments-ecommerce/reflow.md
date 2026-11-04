@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce) | [Authentication & User Management](../../README.md#authentication--user-management)
 - **Type**: E-Commerce, Subscriptions & User Authentication
-- **Pricing / License**: Freemium
+
+- **Tags**: `reflow-hq`, `static-site-shopping-cart`, `html-data-attribute-store`, `stripe-paypal-static-cart`, `jamstack-ecommerce`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
 
 ---
 

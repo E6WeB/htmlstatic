@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://tally.so/" target="_blank" rel="noopener noreferrer">tally.so</a>
 - **Category**: [Surveys & Feedback](../../README.md#surveys--feedback)
 - **Type**: Form & Survey Builder
-- **Pricing / License**: Freemium
+
+- **Tags**: `tally-so`, `notion-style-form-builder`, `unlimited-free-forms`, `conditional-logic-surveys`, `typeform-free-alternative`, `feedback-widget`, `embeddable-surveys`, `product-roadmap`, `changelog-widget`, `typeform-alternative`
 
 ---
 

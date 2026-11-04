@@ -7,7 +7,7 @@
 - **Type**: Visual Website Builder & Desktop Editor for Astro
 - **Pricing / License**: Paid
 - **Platform**: macOS, Windows, Linux
-- **Tags**: `astro`, `visual-builder`, `page-builder`, `desktop-editor`, `jamstack`
+- **Tags**: `astro`, `visual-builder`, `page-builder`, `desktop-editor`, `jamstack`, `sitereal`, `visual-astro-builder`, `webflow-for-astro`, `git-synced-visual-editor`, `tailwind-visual-builder`
 
 ---
 

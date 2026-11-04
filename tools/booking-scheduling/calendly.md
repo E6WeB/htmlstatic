@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer">calendly.com</a>
 - **Category**: [Booking & Scheduling](../../README.md#booking--scheduling)
 - **Type**: Hosted Appointment Booking Service
-- **Pricing / License**: Freemium
+
+- **Tags**: `calendly`, `appointment-scheduling`, `popup-booking-widget`, `calendar-integration`, `consultation-booking`, `inline-embed`, `appointment-booking`, `calendar-embed`, `meeting-scheduler`, `no-code-widget`
 
 ---
 

@@ -6,7 +6,8 @@
 - **YouTube Channel**: <a href="https://www.youtube.com/@Cold_Compile" target="_blank" rel="noopener noreferrer">youtube.com/@Cold_Compile</a>
 - **Category**: [Tutorials](../../README.md#tutorials)
 - **Type**: Video & Written Web Development Tutorials
-- **Pricing / License**: Free
+
+- **Tags**: `cold-compile`, `astro-video-tutorials`, `emdash-cms-guides`, `breakdance-static-workflows`, `modern-static-architecture`, `static-web-tutorials`, `astro-guides`, `jamstack-course`, `web-dev-walkthroughs`, `zero-backend-guides`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 - **Type**: Hosted Payment Checkouts
-- **Pricing / License**: Paid
+
+- **Tags**: `stripe-payment-links`, `stripe-buy-button`, `no-code-stripe-checkout`, `apple-google-pay-links`, `recurring-subscriptions`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
 
 ---
 

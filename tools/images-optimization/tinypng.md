@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">tinypng.com</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Image Compression Service
-- **Pricing / License**: Freemium
+
+- **Tags**: `tinypng`, `tinyjpg`, `smart-lossy-compression`, `shrink-png-webp-avif`, `faster-page-speed`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
 
 ---
 

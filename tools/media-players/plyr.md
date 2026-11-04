@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://plyr.io/" target="_blank" rel="noopener noreferrer">plyr.io</a>
 - **Category**: [Media & Video Players](../../README.md#media--video-players)
 - **Type**: HTML5 Media Player
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `plyr-io`, `accessible-html5-player`, `custom-youtube-vimeo-player`, `stylable-css-video-player`, `audio-video-controls`, `html5-video-player`, `hls-streaming`, `audio-waveform`, `podcast-player`, `custom-media-player`
 
 ---
 

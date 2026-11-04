@@ -6,7 +6,7 @@
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Static Website SEO & Metadata Automation Tool
 - **Pricing / License**: Open Source (MIT) / Free
-- **Tags**: `seo`, `open-graph`, `json-ld`, `sitemap`, `meta-tags`, `static-html`
+- **Tags**: `seo`, `open-graph`, `json-ld`, `sitemap`, `meta-tags`, `static-html`, `staticseo`, `static-html-seo`, `open-graph-generator`, `json-ld-schema-builder`
 
 ---
 

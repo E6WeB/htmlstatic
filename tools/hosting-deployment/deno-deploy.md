@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Edge Hosting & Serverless Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `deno-deploy`, `v8-isolates-edge`, `serverless-typescript`, `global-edge-hosting`, `zero-cold-start`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 
 ---
 

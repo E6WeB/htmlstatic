@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.site-shot.com/" target="_blank" rel="noopener noreferrer">site-shot.com</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Website Screenshot Tool & REST API
-- **Pricing / License**: Freemium
+
+- **Tags**: `site-shot`, `website-screenshot-api`, `url-to-image-png`, `automated-og-images`, `webpage-thumbnail-generator`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
 
 ---
 

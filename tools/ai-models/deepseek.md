@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Open-Weights & Reasoning Foundation Model
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `deepseek-r1`, `deepseek-v3`, `open-weights-llm`, `reasoning-model`, `ai-coding`, `low-cost-llm`, `mit-license-ai`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

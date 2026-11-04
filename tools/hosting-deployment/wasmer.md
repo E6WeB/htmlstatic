@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">wasmer.io</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Edge Hosting & WebAssembly Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `wasmer-edge`, `webassembly-cloud`, `winterjs`, `wasm-hosting`, `ultra-fast-edge-server`, `static-and-edge-apps`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
 
 ---
 

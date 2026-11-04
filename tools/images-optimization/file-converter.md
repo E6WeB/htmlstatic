@@ -7,7 +7,8 @@
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Platform**: Windows (Windows 11 & Windows 10)
 - **Type**: Desktop Context-Menu Utility (Open Source)
-- **Pricing / License**: Open Source (GPL-3.0)
+
+- **Tags**: `file-converter`, `windows-right-click-convert`, `batch-webp-converter`, `open-source-media-converter`, `offline-image-compression`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
 
 ---
 

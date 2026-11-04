@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://firebase.google.com/docs/hosting" target="_blank" rel="noopener noreferrer">firebase.google.com/docs/hosting</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Static Hosting & Cloud Infrastructure
-- **Pricing / License**: Freemium
+
+- **Tags**: `firebase-hosting`, `google-cloud-cdn`, `single-command-deploy`, `free-ssl-hosting`, `preview-channels`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 
 ---
 

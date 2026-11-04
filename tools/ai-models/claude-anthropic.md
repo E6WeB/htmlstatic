@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://anthropic.com/" target="_blank" rel="noopener noreferrer">anthropic.com</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Frontier AI & Reasoning Model
-- **Pricing / License**: Freemium
+
+- **Tags**: `anthropic-api`, `claude-3-7-sonnet`, `ai-coding-model`, `200k-context`, `agentic-workflows`, `tool-use-api`, `llm`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

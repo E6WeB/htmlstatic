@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: AI-First IDE
-- **Pricing / License**: Freemium
+
+- **Tags**: `antigravity-ide`, `ai-pair-programming`, `agentic-ide`, `browser-automation-ide`, `multi-agent-coding`, `google-deepmind`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 
 ---
 

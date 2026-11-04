@@ -107,6 +107,168 @@ function getBlackWhiteFallbackSvg(name, size = 18) {
   return `data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27${size}%27 height=%27${size}%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%275%27 fill=%27%23111827%27 stroke=%27%23374151%27 stroke-width=%271.5%27/%3E%3Ctext x=%2750%25%27 y=%2752%25%27 dominant-baseline=%27central%27 text-anchor=%27middle%27 font-family=%27system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif%27 font-size=%2712%27 font-weight=%27700%27 fill=%27%23ffffff%27%3E${initial}%3C/text%3E%3C/svg%3E`;
 }
 
+const CATEGORY_TRENDING_KEYWORDS = {
+  'ai-content-creation': ['ai-copywriting', 'seo-content', 'markdown-generator', 'generative-ai', 'blog-automation', 'static-site-content'],
+  'ai-models': ['llm-api', 'ai-agents', 'rag', 'open-weights', 'prompt-engineering', 'function-calling', 'edge-ai'],
+  'analytics-privacy': ['cookieless-analytics', 'gdpr-compliant', 'google-analytics-alternative', 'privacy-first', 'lightweight-script', 'web-metrics'],
+  'authentication-users': ['passkeys', 'oauth-login', 'jwt-auth', 'passwordless', 'user-management', 'jamstack-auth', 'zero-backend'],
+  'booking-scheduling': ['appointment-booking', 'calendar-embed', 'meeting-scheduler', 'no-code-widget', 'static-html-embed'],
+  'browser-extensions': ['web-dev-extension', 'page-capture', 'productivity-tool', 'chrome-extension', 'developer-workflow'],
+  'comments-community': ['static-blog-comments', 'disqus-alternative', 'github-comments', 'no-database', 'community-widget', 'jamstack-forum'],
+  'contact-forms': ['serverless-forms', 'static-html-form', 'form-backend', 'email-notifications', 'no-backend-forms', 'jamstack-forms'],
+  'content-management': ['git-based-cms', 'headless-cms', 'markdown-cms', 'wordpress-alternative', 'static-site-cms', 'visual-editor'],
+  'css-components': ['ui-components', 'classless-css', 'lightweight-css', 'web-components', 'responsive-design', 'tailwind-alternative'],
+  'database-storage': ['serverless-database', 'baas', 'rest-api', 'realtime-db', 'edge-storage', 'firebase-alternative'],
+  'development-tools': ['ai-coding-agent', 'vibe-coding', 'code-editor', 'web-performance', 'core-web-vitals', 'static-web-dev'],
+  'hosting-deployment': ['free-static-hosting', 'edge-cdn', 'git-deploy', 'jamstack-hosting', 'serverless-deploy', 'custom-domain'],
+  'images-optimization': ['webp-converter', 'svg-vectorizer', 'image-compression', 'core-web-vitals', 'fast-page-load', 'asset-optimization'],
+  'maps-geolocation': ['interactive-maps', 'webgl-maps', 'google-maps-alternative', 'geojson', 'store-locator', 'vector-tiles'],
+  'interactive-scripts': ['vanilla-js', 'scroll-animations', 'touch-slider', 'lightbox-gallery', 'zero-dependencies', 'micro-interactions'],
+  'live-chat': ['customer-support-widget', 'live-chat-embed', 'helpdesk-widget', 'visitor-messaging', 'no-backend-chat'],
+  'media-players': ['html5-video-player', 'hls-streaming', 'audio-waveform', 'podcast-player', 'custom-media-player'],
+  'monitoring-errors': ['error-tracking', 'session-replay', 'frontend-observability', 'bug-reporting', 'rum-monitoring'],
+  'newsletters-email': ['newsletter-embed', 'transactional-email', 'email-api', 'subscriber-growth', 'mailchimp-alternative'],
+  'payments-ecommerce': ['static-ecommerce', 'digital-downloads', 'stripe-checkout', 'no-backend-store', 'sell-digital-products', 'payment-links'],
+  'search': ['static-site-search', 'client-side-search', 'instant-search', 'wasm-search', 'zero-server-search', 'documentation-search'],
+  'security-spam-protection': ['bot-protection', 'captcha-alternative', 'form-spam-filter', 'privacy-captcha', 'zero-friction-security'],
+  'static-site-generators': ['ssg', 'jamstack', 'markdown-to-html', 'zero-js', 'fast-static-sites', 'blog-generator'],
+  'surveys-feedback': ['feedback-widget', 'embeddable-surveys', 'product-roadmap', 'changelog-widget', 'typeform-alternative'],
+  'tutorials': ['static-web-tutorials', 'astro-guides', 'jamstack-course', 'web-dev-walkthroughs', 'zero-backend-guides'],
+  'typography-fonts': ['self-hosted-fonts', 'gdpr-fonts', 'google-fonts-alternative', 'variable-fonts', 'web-typography', 'zero-layout-shift']
+};
+
+const TOOL_TRENDING_KEYWORDS = {
+  'chatgpt': ['chatgpt', 'openai', 'ai-copywriting', 'markdown-writer', 'seo-blog-posts', 'html-generator', 'content-automation', 'gpt-4o'],
+  'claude': ['claude-ai', 'anthropic', 'long-context-ai', 'technical-writing', 'code-generation', 'markdown-docs', 'ai-copywriter', 'claude-sonnet'],
+  'google-gemini': ['google-gemini', 'multimodal-ai', 'ai-research', 'content-drafting', 'structured-json', 'seo-writing', 'gemini-pro'],
+  'imgmov': ['ai-video-generator', 'product-video-ai', 'image-to-video', 'ecommerce-visuals', 'ai-marketing-assets', 'commercial-ai-art'],
+  'perplexity': ['perplexity-ai', 'ai-search-engine', 'cited-research', 'fact-checking', 'seo-research', 'content-discovery', 'answer-engine'],
+  'recraft': ['ai-svg-generator', 'vector-ai', 'icon-generator', '3d-illustrations', 'brand-graphics', 'scalable-vectors', 'web-illustrations'],
+  'chatgpt-openai': ['openai-api', 'gpt-4o', 'o1-reasoning', 'llm-api', 'structured-outputs', 'function-calling', 'ai-embeddings'],
+  'claude-anthropic': ['anthropic-api', 'claude-3-7-sonnet', 'ai-coding-model', '200k-context', 'agentic-workflows', 'tool-use-api', 'llm'],
+  'cohere-command': ['cohere-api', 'command-r', 'enterprise-rag', 'semantic-search', 'rerank-api', 'vector-embeddings', 'cited-llm'],
+  'deepseek': ['deepseek-r1', 'deepseek-v3', 'open-weights-llm', 'reasoning-model', 'ai-coding', 'low-cost-llm', 'mit-license-ai'],
+  'google-gemini-model': ['gemini-api', '2m-context-window', 'multimodal-llm', 'gemini-flash', 'vertex-ai', 'long-context-rag', 'audio-video-ai'],
+  'grok-xai': ['grok-api', 'xai', 'realtime-knowledge', 'reasoning-llm', 'coding-assistant', 'frontier-model', 'openai-compatible'],
+  'meta-llama': ['llama-3', 'meta-ai', 'open-source-llm', 'local-ai', 'ollama', 'self-hosted-llm', 'open-weights'],
+  'microsoft-phi': ['phi-3', 'small-language-model', 'slm', 'webgpu-ai', 'browser-llm', 'on-device-ai', 'onnx-runtime'],
+  'mistral-ai': ['mistral-large', 'codestral', 'open-weights-ai', 'fast-inference', 'european-ai', 'code-completion-llm', 'function-calling'],
+  'qwen': ['qwen-2-5', 'qwen-coder', 'open-source-llm', 'coding-llm', 'multilingual-ai', 'local-llm', 'apache-2-ai'],
+  'countapi': ['hit-counter', 'view-tracker', 'page-views-api', 'no-signup-api', 'visitor-counter', 'static-site-metrics', 'free-counter'],
+  'goatcounter': ['goatcounter', 'open-source-analytics', 'cookieless-tracking', 'gdpr-analytics', 'lightweight-analytics', 'no-banner-analytics'],
+  'plausible': ['plausible-analytics', 'google-analytics-alternative', 'privacy-analytics', 'cookieless', 'gdpr-compliant', '1kb-script', 'eu-hosted'],
+  'statcounter': ['statcounter', 'realtime-visitor-tracking', 'hit-counter', 'visitor-paths', 'web-stats', 'classic-analytics'],
+  'umami': ['umami-analytics', 'self-hosted-analytics', 'open-source-ga-alternative', 'cookieless-metrics', 'privacy-tracking', 'vercel-analytics'],
+  'clerk': ['clerk-auth', 'drop-in-auth', 'passkey-login', 'social-oauth', 'user-profiles', 'javascript-auth-sdk', 'auth0-alternative'],
+  'outseta': ['outseta', 'membership-platform', 'saas-starter', 'stripe-subscriptions', 'auth-and-crm', 'gated-content', 'memberstack-alternative'],
+  'supabase-auth': ['supabase-auth', 'open-source-auth', 'magic-links', 'oauth-providers', 'jwt-authentication', 'row-level-security', 'firebase-auth-alternative'],
+  'cal-com': ['cal-com', 'open-source-calendly', 'scheduling-embed', 'booking-widget', 'self-hosted-calendar', 'meeting-links'],
+  'calendly': ['calendly', 'appointment-scheduling', 'popup-booking-widget', 'calendar-integration', 'consultation-booking', 'inline-embed'],
+  'fireshot': ['fireshot', 'full-page-screenshot', 'webpage-to-pdf', 'browser-capture', 'annotate-screenshots', 'visual-qa'],
+  'send-url': ['share-url-extension', 'email-link-button', 'quick-share', 'browser-utility', 'clean-url-sharing'],
+  'disqus': ['disqus-comments', 'blog-comment-widget', 'social-comments', 'moderation-tools', 'embedded-discussions'],
+  'flarum': ['flarum-forum', 'open-source-forum', 'discourse-alternative', 'lightweight-community', 'embeddable-discussions'],
+  'github-discussions': ['github-discussions', 'open-source-community', 'developer-qna', 'repo-forum', 'zero-cost-community'],
+  'giscus': ['giscus', 'github-discussions-comments', 'static-blog-comments', 'open-source-comments', 'no-tracking-comments', 'markdown-comments'],
+  'iine': ['like-button-widget', 'clap-button', 'appreciation-counter', 'privacy-first-likes', 'no-login-upvotes', 'tiny-js-widget'],
+  'utterances': ['utterances', 'github-issues-comments', 'lightweight-blog-comments', 'open-source-widget', 'markdown-discussions'],
+  'basin': ['basin-forms', 'static-form-backend', 'ajax-contact-form', 'spam-filtering', 'webhook-forms', 'custom-redirects'],
+  'craftforms': ['craftforms', 'payment-forms', 'booking-form-builder', 'quote-calculator-form', 'stripe-forms', 'embeddable-forms'],
+  'formspree': ['formspree', 'html-form-backend', 'contact-form-api', 'serverless-email-forms', 'ajax-submissions', 'static-site-forms'],
+  'splitform': ['splitform', 'static-contact-form', 'form-endpoint', 'email-forwarding-form', 'no-backend-contact'],
+  'craftpages': ['craftpages', 'offline-html-cms', 'desktop-site-builder', 'plain-html-editor', 'zero-lock-in-cms', 'static-page-manager'],
+  'decap-cms': ['decap-cms', 'netlify-cms', 'git-backed-cms', 'markdown-editor', 'open-source-headless-cms', 'astro-hugo-cms'],
+  'pages-cms': ['pages-cms', 'github-cms', 'markdown-frontmatter-editor', 'collaborative-git-cms', 'nextjs-astro-cms'],
+  'bulma': ['bulma-css', 'flexbox-framework', 'pure-css-components', 'no-js-css', 'modular-sass', 'bootstrap-alternative'],
+  'lucide-icons': ['lucide-icons', 'feather-icons-fork', 'svg-icon-library', 'tree-shakable-icons', 'clean-vector-icons'],
+  'pico-css': ['pico-css', 'classless-css', 'semantic-html-styling', 'dark-mode-css', 'minimal-css-framework', 'zero-classes'],
+  'shoelace': ['shoelace-ui', 'web-components', 'custom-elements', 'framework-agnostic-ui', 'accessible-components', 'shadow-dom'],
+  'firebase-firestore': ['firestore', 'nosql-cloud-db', 'realtime-listeners', 'client-side-database', 'serverless-storage', 'google-firebase'],
+  'jsonbin': ['jsonbin', 'json-storage-api', 'rest-json-store', 'mock-backend', 'serverless-key-value', 'prototype-db'],
+  'supabase': ['supabase', 'open-source-firebase', 'postgres-rest-api', 'realtime-subscriptions', 'edge-functions', 'pgvector'],
+  'antigravity-cli': ['antigravity-cli', 'agy-cli', 'terminal-coding-agent', 'ai-workflow-automation', 'slash-commands', 'agentic-cli'],
+  'antigravity-ide': ['antigravity-ide', 'ai-pair-programming', 'agentic-ide', 'browser-automation-ide', 'multi-agent-coding', 'google-deepmind'],
+  'bootstrap-studio': ['bootstrap-studio', 'drag-and-drop-html', 'visual-bootstrap-builder', 'clean-html-export', 'desktop-web-builder'],
+  'brickstatic': ['brickstatic', 'wordpress-to-static-html', 'bricks-builder-export', 'headless-wordpress', 'github-pages-wordpress'],
+  'cursor': ['cursor-ide', 'ai-code-editor', 'cursor-composer', 'vibe-coding', 'vscode-fork-ai', 'multi-file-ai-edits'],
+  'designcraft': ['designcraft', 'open-source-indesign', 'rust-desktop-publishing', 'page-layout-tool', 'pdf-typesetting', 'knuth-plass'],
+  'effectcraft': ['effectcraft', 'open-source-after-effects', 'lottie-animation-export', 'rust-motion-graphics', 'web-animations', 'vfx-compositor'],
+  'emdash': ['emdash', 'parallel-coding-agents', 'agentic-orchestration', 'git-worktree-agents', 'autonomous-coding', 'ai-dev-environment'],
+  'eslint': ['eslint', 'javascript-linter', 'static-code-analysis', 'code-quality', 'ecmascript-rules', 'bug-prevention'],
+  'figcraft': ['figcraft', 'open-source-figma', 'rust-ui-design', 'auto-layout-tool', 'offline-vector-design', 'wireframing'],
+  'github-desktop': ['github-desktop', 'visual-git-client', 'git-gui', 'branch-management', 'no-cli-git', 'pull-requests'],
+  'google-lighthouse': ['google-lighthouse', 'core-web-vitals', 'pagespeed-audit', 'seo-checker', 'accessibility-audit', 'lcp-cls-inp'],
+  'opencode': ['opencode', 'open-source-claude-code', 'terminal-ai-agent', 'tui-coding-assistant', 'multi-provider-llm', 'local-coding-agent'],
+  'pdfcraft': ['pdfcraft', 'open-source-acrobat', 'offline-pdf-editor', 'merge-split-pdf', 'rust-pdf-tool', 'privacy-pdf-utility'],
+  'photocraft': ['photocraft', 'open-source-photoshop', 'psd-editor', 'rust-image-editor', 'layer-mask-editor', 'offline-photo-editing'],
+  'prettier': ['prettier', 'opinionated-code-formatter', 'auto-format-html-css-js', 'clean-code-style', 'editor-save-format'],
+  'sitereal': ['sitereal', 'visual-astro-builder', 'webflow-for-astro', 'git-synced-visual-editor', 'tailwind-visual-builder', 'zero-lock-in'],
+  'staticseo': ['staticseo', 'static-html-seo', 'open-graph-generator', 'json-ld-schema-builder', 'xml-sitemap-generator', 'meta-tag-automation', 'zero-js-seo'],
+  'visual-studio-code': ['vscode', 'microsoft-code-editor', 'web-dev-extensions', 'live-server', 'intellisense', 'git-integration'],
+  'wordcraft': ['wordcraft', 'open-source-word-processor', 'docx-editor', 'rust-document-editor', 'clean-pdf-export', 'offline-writing'],
+  'zed': ['zed-editor', 'rust-code-editor', 'gpu-accelerated-ide', 'multiplayer-coding', 'ultra-fast-editor', 'ai-inline-assist'],
+  'cloudflare-pages': ['cloudflare-pages', 'unlimited-bandwidth-hosting', 'edge-static-hosting', 'cloudflare-workers', 'git-auto-deploy', 'fast-global-cdn'],
+  'codeberg-pages': ['codeberg-pages', 'eu-nonprofit-hosting', 'open-source-git-hosting', 'github-pages-alternative', 'privacy-static-host'],
+  'deno-deploy': ['deno-deploy', 'v8-isolates-edge', 'serverless-typescript', 'global-edge-hosting', 'zero-cold-start'],
+  'firebase-hosting': ['firebase-hosting', 'google-cloud-cdn', 'single-command-deploy', 'free-ssl-hosting', 'preview-channels'],
+  'fleek': ['fleek-hosting', 'ipfs-web-hosting', 'decentralized-cdn', 'edge-static-deploy', 'censorship-resistant-web'],
+  'github-pages': ['github-pages', 'gh-pages', 'free-repo-hosting', 'jekyll-hosting', 'custom-domain-ssl', 'git-push-deploy'],
+  'gitlab-pages': ['gitlab-pages', 'gitlab-ci-cd-hosting', 'free-static-hosting', 'custom-domains', 'devops-static-deploy'],
+  'kinsta': ['kinsta-static-hosting', 'cloudflare-edge-hosting', 'free-static-site-host', 'git-based-deployment', 'fast-cdn-hosting'],
+  'netlify': ['netlify', 'jamstack-pioneer', 'deploy-previews', 'netlify-forms', 'edge-functions', 'instant-rollbacks'],
+  'render': ['render-static-sites', 'free-global-cdn', 'heroku-alternative', 'auto-git-deploys', 'zero-downtime-hosting'],
+  'stormkit': ['stormkit', 'self-hostable-netlify', 'jamstack-deployment', 'staged-rollouts', 'preview-environments'],
+  'surge': ['surge-sh', 'cli-static-publishing', 'single-command-deploy', 'frontend-staging', 'quick-html-host'],
+  'vercel': ['vercel', 'frontend-cloud', 'nextjs-astro-hosting', 'preview-deployments', 'vercel-edge-network', 'zero-config-deploy'],
+  'wasmer': ['wasmer-edge', 'webassembly-cloud', 'winterjs', 'wasm-hosting', 'ultra-fast-edge-server', 'static-and-edge-apps'],
+  'file-converter': ['file-converter', 'windows-right-click-convert', 'batch-webp-converter', 'open-source-media-converter', 'offline-image-compression'],
+  'pic2svg': ['pic2svg', 'png-to-svg', 'jpg-to-vector', 'browser-image-vectorizer', 'free-svg-tracer', 'logo-vectorizer'],
+  'site-shot': ['site-shot', 'website-screenshot-api', 'url-to-image-png', 'automated-og-images', 'webpage-thumbnail-generator'],
+  'squoosh': ['squoosh-app', 'google-image-compressor', 'avif-webp-converter', 'browser-wasm-compression', 'visual-size-comparison'],
+  'svg-repo': ['svg-repo', '500k-free-svgs', 'cc0-vector-icons', 'commercial-use-icons', 'in-browser-svg-color-editor'],
+  'tinypng': ['tinypng', 'tinyjpg', 'smart-lossy-compression', 'shrink-png-webp-avif', 'faster-page-speed'],
+  'unsplash': ['unsplash', 'royalty-free-photos', 'hd-stock-images', 'commercial-free-photography', 'hero-background-images'],
+  'leaflet': ['leaflet-js', 'open-source-maps', 'openstreetmap-js', 'lightweight-mobile-maps', 'custom-map-markers', 'geojson-layers'],
+  'mapbox-gl-js': ['mapbox-gl-js', 'webgl-vector-maps', '3d-terrain-maps', 'custom-map-studio', 'smooth-interactive-maps'],
+  'aos': ['aos-js', 'animate-on-scroll', 'scroll-reveal-css', 'data-aos-attributes', 'lightweight-scroll-effects'],
+  'photoswipe': ['photoswipe', 'javascript-lightbox', 'touch-zoom-gallery', 'responsive-photo-modal', 'zero-dependency-gallery'],
+  'swiper': ['swiper-js', 'mobile-touch-carousel', 'hardware-accelerated-slider', '3d-coverflow-slider', 'vanilla-js-carousel'],
+  'crisp': ['crisp-chat', 'free-live-chat-widget', 'shared-inbox', 'magicbrowse-cobrowsing', 'chatbot-knowledge-base'],
+  'tawk-to': ['tawk-to', '100-percent-free-live-chat', 'unlimited-chat-agents', 'real-time-visitor-monitoring', 'support-ticketing'],
+  'mux-player': ['mux-player', 'hls-video-web-component', 'adaptive-bitrate-streaming', 'timeline-hover-previews', 'video-api'],
+  'plyr': ['plyr-io', 'accessible-html5-player', 'custom-youtube-vimeo-player', 'stylable-css-video-player', 'audio-video-controls'],
+  'wavesurfer': ['wavesurfer-js', 'audio-waveform-visualizer', 'web-audio-canvas', 'podcast-waveform-player', 'interactive-audio-scrubbing'],
+  'logrocket': ['logrocket', 'frontend-session-replay', 'network-console-recorder', 'ux-issue-reproduction', 'performance-telemetry'],
+  'sentry': ['sentry-io', 'javascript-error-tracking', 'source-map-stack-traces', 'crash-reporting', 'release-health-monitoring'],
+  'brevo': ['brevo', 'sendinblue', 'free-transactional-email', 'newsletter-signup-forms', 'smtp-email-marketing'],
+  'buttondown': ['buttondown-email', 'markdown-newsletter', 'minimalist-email-list', 'rss-to-email-automation', 'indie-newsletter-tool'],
+  'emailit': ['emailit', 'developer-email-api', 'rest-smtp-sending', 'serverless-transactional-email', 'pay-as-you-go-email'],
+  'lemon-squeezy': ['lemon-squeezy', 'merchant-of-record', 'global-vat-tax-compliance', 'sell-saas-and-downloads', 'overlay-checkout-embed'],
+  'payhip': ['payhip', 'sell-ebooks-courses', 'no-monthly-fee-ecommerce', 'embed-buy-button', 'instant-digital-delivery'],
+  'paymentform': ['paymentform', 'stripe-checkout-builder', 'no-code-payment-links', 'event-tickets-donations', 'hosted-pay-forms'],
+  'reflow': ['reflow-hq', 'static-site-shopping-cart', 'html-data-attribute-store', 'stripe-paypal-static-cart', 'jamstack-ecommerce'],
+  'stripe-payment-links': ['stripe-payment-links', 'stripe-buy-button', 'no-code-stripe-checkout', 'apple-google-pay-links', 'recurring-subscriptions'],
+  'algolia': ['algolia-search', 'instantsearch-js', 'docsearch', 'typo-tolerant-search', 'millisecond-search-api'],
+  'pagefind': ['pagefind', 'rust-wasm-static-search', 'zero-bandwidth-search-index', 'astro-hugo-11ty-search', 'offline-static-search'],
+  'cloudflare-turnstile': ['cloudflare-turnstile', 'invisible-captcha-alternative', 'no-puzzle-bot-protection', 'privacy-first-verification', 'free-recaptcha-replacement'],
+  'google-recaptcha': ['google-recaptcha', 'recaptcha-v3-score', 'automated-bot-defense', 'form-abuse-protection'],
+  'hcaptcha': ['hcaptcha', 'privacy-focused-captcha', 'gdpr-bot-mitigation', 'recaptcha-drop-in-replacement'],
+  'astro': ['astro-build', 'islands-architecture', 'zero-js-by-default', 'mdx-content-collections', 'fastest-static-framework'],
+  'eleventy': ['eleventy', '11ty', 'zero-client-js-ssg', 'liquid-nunjucks-markdown', 'fast-node-ssg'],
+  'gatsby': ['gatsby-js', 'react-graphql-ssg', 'static-image-optimization', 'headless-cms-react'],
+  'hugo': ['gohugo', 'fastest-go-ssg', 'millisecond-markdown-builds', 'single-binary-ssg', 'multilingual-static-sites'],
+  'jekyll': ['jekyll-rb', 'github-pages-native-ssg', 'liquid-templates', 'markdown-blog-engine'],
+  'nextjs': ['nextjs-static-export', 'react-static-site-generation', 'output-export', 'app-router-ssg'],
+  'pelican': ['pelican-ssg', 'python-static-generator', 'jinja2-templates', 'restructuredtext-markdown'],
+  'zola': ['getzola', 'rust-single-binary-ssg', 'tera-templates', 'built-in-sass-search', 'zero-dependency-ssg'],
+  'sleekplan': ['sleekplan', 'in-app-feedback-board', 'public-product-roadmap', 'changelog-popup-widget', 'feature-voting'],
+  'tally': ['tally-so', 'notion-style-form-builder', 'unlimited-free-forms', 'conditional-logic-surveys', 'typeform-free-alternative'],
+  'coldcompile': ['cold-compile', 'astro-video-tutorials', 'emdash-cms-guides', 'breakdance-static-workflows', 'modern-static-architecture'],
+  'bunny-fonts': ['bunny-fonts', 'gdpr-google-fonts-replacement', 'zero-logging-font-cdn', 'eu-privacy-web-fonts'],
+  'fontsource': ['fontsource', 'npm-self-hosted-fonts', 'local-woff2-fonts', 'zero-external-dns-fonts', 'offline-google-fonts'],
+  'google-fonts': ['google-fonts', 'free-open-source-typefaces', 'variable-web-fonts', 'material-symbols-icons', 'global-font-cdn']
+};
+
 function extractToolTags(rawMd, folder, toolSlug, primaryBadge, toolName) {
   const tagsSet = new Set();
   if (rawMd) {
@@ -131,18 +293,21 @@ function extractToolTags(rawMd, folder, toolSlug, primaryBadge, toolName) {
     }
   }
 
-  if (tagsSet.size === 0) {
-    const catWords = folder.split('-').filter(w => w.length > 2);
-    const slugWords = toolSlug.split('-').filter(w => w.length > 2 && !catWords.includes(w));
-    catWords.forEach(w => tagsSet.add(w));
-    if (primaryBadge) {
-      const b = primaryBadge.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-      if (b && b !== 'free') tagsSet.add(b);
-    }
-    slugWords.forEach(w => tagsSet.add(w));
+  if (TOOL_TRENDING_KEYWORDS[toolSlug]) {
+    TOOL_TRENDING_KEYWORDS[toolSlug].forEach(t => tagsSet.add(t));
+  }
+  if (CATEGORY_TRENDING_KEYWORDS[folder]) {
+    CATEGORY_TRENDING_KEYWORDS[folder].forEach(t => tagsSet.add(t));
   }
 
-  return Array.from(tagsSet).slice(0, 8);
+  if (primaryBadge) {
+    const b = primaryBadge.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    if (b) tagsSet.add(b);
+  }
+  tagsSet.add('static-web');
+  tagsSet.add('jamstack');
+
+  return Array.from(tagsSet).slice(0, 10);
 }
 
 module.exports = {

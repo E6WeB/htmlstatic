@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">sentry.io</a>
 - **Category**: [Monitoring & Error Tracking](../../README.md#monitoring--error-tracking)
 - **Type**: Error Monitoring & Performance Tracking
-- **Pricing / License**: Freemium
+
+- **Tags**: `sentry-io`, `javascript-error-tracking`, `source-map-stack-traces`, `crash-reporting`, `release-health-monitoring`, `error-tracking`, `session-replay`, `frontend-observability`, `bug-reporting`, `rum-monitoring`
 
 ---
 

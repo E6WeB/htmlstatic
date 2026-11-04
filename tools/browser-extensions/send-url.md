@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://chromewebstore.google.com/detail/send-url/fmanefafgomooabofffoidipbfdbjilh" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
 - **Category**: [Browser Extensions](../../README.md#browser-extensions)
 - **Type**: Browser Extension
-- **Pricing / License**: Free
+
+- **Tags**: `share-url-extension`, `email-link-button`, `quick-share`, `browser-utility`, `clean-url-sharing`, `web-dev-extension`, `page-capture`, `productivity-tool`, `chrome-extension`, `developer-workflow`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">gatsbyjs.com</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: React Static Site Generator
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `gatsby-js`, `react-graphql-ssg`, `static-image-optimization`, `headless-cms-react`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
 
 ---
 

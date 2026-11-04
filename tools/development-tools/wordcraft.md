@@ -9,7 +9,7 @@
 - **Pricing / License**: Free / Open Source
 - **Status**: Beta / In Development
 - **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `word-processor`, `rust`, `docx`, `markdown`, `documents`, `offline`, `mcp`, `beta`
+- **Tags**: `word-processor`, `rust`, `docx`, `markdown`, `documents`, `offline`, `mcp`, `beta`, `wordcraft`, `open-source-word-processor`
 
 ---
 

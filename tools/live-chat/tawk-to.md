@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">tawk.to</a>
 - **Category**: [Live Chat & Support](../../README.md#live-chat--support)
 - **Type**: Free Live Chat Software
-- **Pricing / License**: Free
+
+- **Tags**: `tawk-to`, `100-percent-free-live-chat`, `unlimited-chat-agents`, `real-time-visitor-monitoring`, `support-ticketing`, `customer-support-widget`, `live-chat-embed`, `helpdesk-widget`, `visitor-messaging`, `no-backend-chat`
 
 ---
 

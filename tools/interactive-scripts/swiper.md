@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://swiperjs.com/" target="_blank" rel="noopener noreferrer">swiperjs.com</a>
 - **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
 - **Type**: Touch Slider & Carousel Library
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `swiper-js`, `mobile-touch-carousel`, `hardware-accelerated-slider`, `3d-coverflow-slider`, `vanilla-js-carousel`, `vanilla-js`, `scroll-animations`, `touch-slider`, `lightbox-gallery`, `zero-dependencies`
 
 ---
 

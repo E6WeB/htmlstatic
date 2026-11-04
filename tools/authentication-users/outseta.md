@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://outseta.com/" target="_blank" rel="noopener noreferrer">outseta.com</a>
 - **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
 - **Type**: Membership & Gated Content Platform
-- **Pricing / License**: Paid
+
+- **Tags**: `outseta`, `membership-platform`, `saas-starter`, `stripe-subscriptions`, `auth-and-crm`, `gated-content`, `memberstack-alternative`, `passkeys`, `oauth-login`, `jwt-auth`
 
 ---
 

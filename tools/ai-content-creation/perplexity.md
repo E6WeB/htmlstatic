@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">perplexity.ai</a>
 - **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
 - **Type**: AI Search & Research Assistant
-- **Pricing / License**: Freemium
+
+- **Tags**: `perplexity-ai`, `ai-search-engine`, `cited-research`, `fact-checking`, `seo-research`, `content-discovery`, `answer-engine`, `ai-copywriting`, `seo-content`, `markdown-generator`
 
 ---
 

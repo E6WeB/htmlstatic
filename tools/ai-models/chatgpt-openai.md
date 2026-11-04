@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">openai.com</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Multimodal Foundation Model
-- **Pricing / License**: Freemium
+
+- **Tags**: `openai-api`, `gpt-4o`, `o1-reasoning`, `llm-api`, `structured-outputs`, `function-calling`, `ai-embeddings`, `ai-agents`, `rag`, `open-weights`
 
 ---
 

@@ -9,7 +9,7 @@
 - **Pricing / License**: Free / Open Source
 - **Status**: Beta / In Development
 - **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `motion-graphics`, `rust`, `after-effects-alternative`, `lottie`, `vfx`, `animation`, `video`, `beta`
+- **Tags**: `motion-graphics`, `rust`, `after-effects-alternative`, `lottie`, `vfx`, `animation`, `video`, `beta`, `effectcraft`, `open-source-after-effects`
 
 ---
 

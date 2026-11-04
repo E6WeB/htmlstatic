@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://cohere.com/" target="_blank" rel="noopener noreferrer">cohere.com</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Enterprise RAG Foundation Model
-- **Pricing / License**: Freemium
+
+- **Tags**: `cohere-api`, `command-r`, `enterprise-rag`, `semantic-search`, `rerank-api`, `vector-embeddings`, `cited-llm`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

@@ -6,7 +6,8 @@
 - **GitHub Repository**: <a href="https://github.com/opencode-ai/opencode" target="_blank" rel="noopener noreferrer">github.com/opencode-ai/opencode</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: AI Coding Agent (CLI & IDE Extensions)
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `opencode`, `open-source-claude-code`, `terminal-ai-agent`, `tui-coding-assistant`, `multi-provider-llm`, `local-coding-agent`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 
 ---
 

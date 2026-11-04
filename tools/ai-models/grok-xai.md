@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://x.ai/" target="_blank" rel="noopener noreferrer">x.ai</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Frontier Real-Time Model
-- **Pricing / License**: Paid
+
+- **Tags**: `grok-api`, `xai`, `realtime-knowledge`, `reasoning-llm`, `coding-assistant`, `frontier-model`, `openai-compatible`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

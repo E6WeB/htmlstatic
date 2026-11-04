@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a>
 - **Category**: [Search](../../README.md#search)
 - **Type**: Client-Side Static Search Library
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `pagefind`, `rust-wasm-static-search`, `zero-bandwidth-search-index`, `astro-hugo-11ty-search`, `offline-static-search`, `static-site-search`, `client-side-search`, `instant-search`, `wasm-search`, `zero-server-search`
 
 ---
 

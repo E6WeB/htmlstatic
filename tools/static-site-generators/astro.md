@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">astro.build</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: Modern Static Web Framework
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `astro-build`, `islands-architecture`, `zero-js-by-default`, `mdx-content-collections`, `fastest-static-framework`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
 
 ---
 

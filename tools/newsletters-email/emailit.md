@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">emailit.com</a>
 - **Category**: [Newsletters & Email](../../README.md#newsletters--email)
 - **Type**: Transactional Email API
-- **Pricing / License**: Freemium
+
+- **Tags**: `emailit`, `developer-email-api`, `rest-smtp-sending`, `serverless-transactional-email`, `pay-as-you-go-email`, `newsletter-embed`, `transactional-email`, `email-api`, `subscriber-growth`, `mailchimp-alternative`
 
 ---
 

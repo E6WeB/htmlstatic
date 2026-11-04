@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://pic2svg.com/" target="_blank" rel="noopener noreferrer">pic2svg.com</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Vectorizer & Image-to-SVG Converter
-- **Pricing / License**: Freemium
+
+- **Tags**: `pic2svg`, `png-to-svg`, `jpg-to-vector`, `browser-image-vectorizer`, `free-svg-tracer`, `logo-vectorizer`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`
 
 ---
 

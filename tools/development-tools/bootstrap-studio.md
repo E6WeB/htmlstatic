@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Visual Web Design Editor
-- **Pricing / License**: Paid
+
+- **Tags**: `bootstrap-studio`, `drag-and-drop-html`, `visual-bootstrap-builder`, `clean-html-export`, `desktop-web-builder`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`, `core-web-vitals`
 
 ---
 

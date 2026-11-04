@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">mistral.ai</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Open-Weights & Frontier Model
-- **Pricing / License**: Freemium
+
+- **Tags**: `mistral-large`, `codestral`, `open-weights-ai`, `fast-inference`, `european-ai`, `code-completion-llm`, `function-calling`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

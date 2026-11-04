@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a>
 - **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 - **Type**: Merchant of Record E-Commerce
-- **Pricing / License**: Freemium
+
+- **Tags**: `lemon-squeezy`, `merchant-of-record`, `global-vat-tax-compliance`, `sell-saas-and-downloads`, `overlay-checkout-embed`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
 
 ---
 

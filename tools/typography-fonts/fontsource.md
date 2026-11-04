@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://fontsource.org/" target="_blank" rel="noopener noreferrer">fontsource.org</a>
 - **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
 - **Type**: Self-Hosted Web Fonts
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `fontsource`, `npm-self-hosted-fonts`, `local-woff2-fonts`, `zero-external-dns-fonts`, `offline-google-fonts`, `self-hosted-fonts`, `gdpr-fonts`, `google-fonts-alternative`, `variable-fonts`, `web-typography`
 
 ---
 

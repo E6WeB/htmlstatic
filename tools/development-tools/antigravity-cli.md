@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://antigravity.google/docs/cli" target="_blank" rel="noopener noreferrer">antigravity.google/docs/cli</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Command-Line Interface & AI Agent
-- **Pricing / License**: Freemium
+
+- **Tags**: `antigravity-cli`, `agy-cli`, `terminal-coding-agent`, `ai-workflow-automation`, `slash-commands`, `agentic-cli`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">claude.ai</a>
 - **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
 - **Type**: AI Writing & Documentation Assistant
-- **Pricing / License**: Freemium
+
+- **Tags**: `claude-ai`, `anthropic`, `long-context-ai`, `technical-writing`, `code-generation`, `markdown-docs`, `ai-copywriter`, `claude-sonnet`, `ai-copywriting`, `seo-content`
 
 ---
 

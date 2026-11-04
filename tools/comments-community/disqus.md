@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">disqus.com</a>
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Hosted Discussion Network
-- **Pricing / License**: Freemium
+
+- **Tags**: `disqus-comments`, `blog-comment-widget`, `social-comments`, `moderation-tools`, `embedded-discussions`, `static-blog-comments`, `disqus-alternative`, `github-comments`, `no-database`, `community-widget`
 
 ---
 

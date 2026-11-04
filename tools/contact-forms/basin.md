@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://usebasin.com/" target="_blank" rel="noopener noreferrer">usebasin.com</a>
 - **Category**: [Contact Forms](../../README.md#contact-forms)
 - **Type**: Developer Form Backend
-- **Pricing / License**: Freemium
+
+- **Tags**: `basin-forms`, `static-form-backend`, `ajax-contact-form`, `spam-filtering`, `webhook-forms`, `custom-redirects`, `serverless-forms`, `static-html-form`, `form-backend`, `email-notifications`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://photoswipe.com/" target="_blank" rel="noopener noreferrer">photoswipe.com</a>
 - **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
 - **Type**: Image Lightbox & Gallery Library
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `photoswipe`, `javascript-lightbox`, `touch-zoom-gallery`, `responsive-photo-modal`, `zero-dependency-gallery`, `vanilla-js`, `scroll-animations`, `touch-slider`, `lightbox-gallery`, `zero-dependencies`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://cursor.com/" target="_blank" rel="noopener noreferrer">cursor.com</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: AI Code Editor
-- **Pricing / License**: Freemium
+
+- **Tags**: `cursor-ide`, `ai-code-editor`, `cursor-composer`, `vibe-coding`, `vscode-fork-ai`, `multi-file-ai-edits`, `ai-coding-agent`, `code-editor`, `web-performance`, `core-web-vitals`
 
 ---
 

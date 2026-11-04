@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">pages.cloudflare.com</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Global Edge Jamstack Hosting
-- **Pricing / License**: Freemium
+
+- **Tags**: `cloudflare-pages`, `unlimited-bandwidth-hosting`, `edge-static-hosting`, `cloudflare-workers`, `git-auto-deploy`, `fast-global-cdn`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
 
 ---
 

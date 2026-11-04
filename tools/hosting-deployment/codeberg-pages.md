@@ -6,7 +6,7 @@
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Static Web Hosting & Git Platform
 - **Pricing / License**: Free / Open Source
-- **Tags**: `static-hosting`, `git-pages`, `forgejo`, `open-source`, `privacy`, `free-hosting`
+- **Tags**: `static-hosting`, `git-pages`, `forgejo`, `open-source`, `privacy`, `free-hosting`, `codeberg-pages`, `eu-nonprofit-hosting`, `open-source-git-hosting`, `github-pages-alternative`
 
 ---
 

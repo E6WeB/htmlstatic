@@ -260,7 +260,7 @@ const homeContent = `
         const icon = CATEGORY_ICONS[cat.slug] || ICONS.zap;
         const visibleWords = new Set((cat.title + ' ' + cat.description).toLowerCase().split(/\s+/).filter(Boolean));
         const extraWords = Array.from(new Set(
-          cat.tools.map(t => t.name + ' ' + (t.tags || []).join(' ')).join(' ').toLowerCase().split(/\s+/).filter(w => w && !visibleWords.has(w))
+          cat.tools.map(t => t.name + ' ' + (t.tags || []).slice(0, 3).join(' ').replace(/-/g, ' ')).join(' ').toLowerCase().split(/\s+/).filter(w => w && !visibleWords.has(w))
         )).join(' ');
         return `
         <a href="archive#${cat.slug}" class="category-card" data-search="${escapeHtml(extraWords)}">
@@ -407,7 +407,7 @@ const homeContent = `
 
     function searchHomeCategories(query) {
       const q = query.trim().toLowerCase();
-      const qWords = q.split(/\\s+/).filter(Boolean);
+      const qWords = q.split(/[\\s\\-]+/).filter(Boolean);
       const categoryCards = document.querySelectorAll('.category-card');
       let visibleCount = 0;
       categoryCards.forEach(card => {
@@ -953,7 +953,7 @@ const archiveContent = `
                   }).join(' ');
                   const rowVisibleWords = new Set((tool.name + ' ' + tool.description + ' ' + toolBadgesList.join(' ')).toLowerCase().split(/\s+/).filter(Boolean));
                   const extraSearchWords = Array.from(new Set(
-                    (cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + (tool.tags || []).join(' ')).toLowerCase().split(/\s+/).filter(w => w && !rowVisibleWords.has(w))
+                    (cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + (tool.tags || []).join(' ').replace(/-/g, ' ')).toLowerCase().split(/\s+/).filter(w => w && !rowVisibleWords.has(w))
                   )).join(' ');
 
                   return `
@@ -995,7 +995,7 @@ const archiveContent = `
     function applyArchiveFilter() {
       let count = 0;
       const q = currentSearch.trim().toLowerCase();
-      const qWords = q.split(/\\s+/).filter(Boolean);
+      const qWords = q.split(/[\\s\\-]+/).filter(Boolean);
 
       if (archiveClearBtn) {
         archiveClearBtn.style.display = q ? 'inline-flex' : 'none';

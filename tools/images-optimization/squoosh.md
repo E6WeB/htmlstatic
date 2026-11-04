@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">squoosh.app</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Browser-Based Image Compression
-- **Pricing / License**: Open Source (Apache-2.0)
+
+- **Tags**: `squoosh-app`, `google-image-compressor`, `avif-webp-converter`, `browser-wasm-compression`, `visual-size-comparison`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
 
 ---
 

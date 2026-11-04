@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://imgmov.com/" target="_blank" rel="noopener noreferrer">imgmov.com</a>
 - **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
 - **Type**: AI Image & Video Generator
-- **Pricing / License**: Paid
+
+- **Tags**: `ai-video-generator`, `product-video-ai`, `image-to-video`, `ecommerce-visuals`, `ai-marketing-assets`, `commercial-ai-art`, `ai-copywriting`, `seo-content`, `markdown-generator`, `generative-ai`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://qwenlm.github.io/" target="_blank" rel="noopener noreferrer">qwenlm.github.io</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Open-Weights Multilingual Model
-- **Pricing / License**: Open Source (Apache-2.0)
+
+- **Tags**: `qwen-2-5`, `qwen-coder`, `open-source-llm`, `coding-llm`, `multilingual-ai`, `local-llm`, `apache-2-ai`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

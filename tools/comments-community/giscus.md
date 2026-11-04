@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">giscus.app</a>
 - **Category**: [Comments & Community](../../README.md#comments--community)
 - **Type**: Open Source Comment Widget
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `giscus`, `github-discussions-comments`, `static-blog-comments`, `open-source-comments`, `no-tracking-comments`, `markdown-comments`, `disqus-alternative`, `github-comments`, `no-database`, `community-widget`
 
 ---
 

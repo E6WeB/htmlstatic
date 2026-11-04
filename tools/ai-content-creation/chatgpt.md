@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">chatgpt.com</a>
 - **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
 - **Type**: AI Writing & Content Assistant
-- **Pricing / License**: Freemium
+
+- **Tags**: `chatgpt`, `openai`, `ai-copywriting`, `markdown-writer`, `seo-blog-posts`, `html-generator`, `content-automation`, `gpt-4o`, `seo-content`, `markdown-generator`
 
 ---
 

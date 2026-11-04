@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://michalsnik.github.io/aos/" target="_blank" rel="noopener noreferrer">michalsnik.github.io/aos</a>
 - **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
 - **Type**: Scroll Animation Library
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `aos-js`, `animate-on-scroll`, `scroll-reveal-css`, `data-aos-attributes`, `lightweight-scroll-effects`, `vanilla-js`, `scroll-animations`, `touch-slider`, `lightbox-gallery`, `zero-dependencies`
 
 ---
 

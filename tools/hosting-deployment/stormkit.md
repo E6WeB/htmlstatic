@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.stormkit.io/" target="_blank" rel="noopener noreferrer">stormkit.io</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Static Hosting & Jamstack Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `stormkit`, `self-hostable-netlify`, `jamstack-deployment`, `staged-rollouts`, `preview-environments`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 
 ---
 

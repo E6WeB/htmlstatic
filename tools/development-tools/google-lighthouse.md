@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/lighthouse</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Website Quality & Audit Tool
-- **Pricing / License**: Open Source (Apache-2.0)
+
+- **Tags**: `google-lighthouse`, `core-web-vitals`, `pagespeed-audit`, `seo-checker`, `accessibility-audit`, `lcp-cls-inp`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 
 ---
 

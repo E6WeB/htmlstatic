@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://logrocket.com/" target="_blank" rel="noopener noreferrer">logrocket.com</a>
 - **Category**: [Monitoring & Error Tracking](../../README.md#monitoring--error-tracking)
 - **Type**: Session Replay & Telemetry
-- **Pricing / License**: Freemium
+
+- **Tags**: `logrocket`, `frontend-session-replay`, `network-console-recorder`, `ux-issue-reproduction`, `performance-telemetry`, `error-tracking`, `session-replay`, `frontend-observability`, `bug-reporting`, `rum-monitoring`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.recraft.ai/" target="_blank" rel="noopener noreferrer">recraft.ai</a>
 - **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
 - **Type**: AI Vector & Graphic Generator
-- **Pricing / License**: Freemium
+
+- **Tags**: `ai-svg-generator`, `vector-ai`, `icon-generator`, `3d-illustrations`, `brand-graphics`, `scalable-vectors`, `web-illustrations`, `ai-copywriting`, `seo-content`, `markdown-generator`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://fonts.bunny.net/" target="_blank" rel="noopener noreferrer">fonts.bunny.net</a>
 - **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
 - **Type**: Privacy-First Font CDN
-- **Pricing / License**: Free
+
+- **Tags**: `bunny-fonts`, `gdpr-google-fonts-replacement`, `zero-logging-font-cdn`, `eu-privacy-web-fonts`, `self-hosted-fonts`, `gdpr-fonts`, `google-fonts-alternative`, `variable-fonts`, `web-typography`, `zero-layout-shift`
 
 ---
 

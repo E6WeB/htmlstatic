@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://llama.meta.com/" target="_blank" rel="noopener noreferrer">llama.meta.com</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Open-Weights Foundation Model
-- **Pricing / License**: Free
+
+- **Tags**: `llama-3`, `meta-ai`, `open-source-llm`, `local-ai`, `ollama`, `self-hosted-llm`, `open-weights`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

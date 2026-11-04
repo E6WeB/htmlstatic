@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://render.com/" target="_blank" rel="noopener noreferrer">render.com</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Cloud Application & Static Hosting Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `render-static-sites`, `free-global-cdn`, `heroku-alternative`, `auto-git-deploys`, `zero-downtime-hosting`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://kinsta.com/static-site-hosting/" target="_blank" rel="noopener noreferrer">kinsta.com/static-site-hosting/</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Static Web Hosting & Edge CDN
-- **Pricing / License**: Freemium
+
+- **Tags**: `kinsta-static-hosting`, `cloudflare-edge-hosting`, `free-static-site-host`, `git-based-deployment`, `fast-cdn-hosting`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 
 ---
 

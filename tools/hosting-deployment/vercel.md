@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">vercel.com</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Frontend Cloud & Edge CDN
-- **Pricing / License**: Freemium
+
+- **Tags**: `vercel`, `frontend-cloud`, `nextjs-astro-hosting`, `preview-deployments`, `vercel-edge-network`, `zero-config-deploy`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
 
 ---
 

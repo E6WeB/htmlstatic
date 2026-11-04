@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://craftpages.app/" target="_blank" rel="noopener noreferrer">craftpages.app</a>
 - **Category**: [Content Management](../../README.md#content-management)
 - **Type**: Desktop Visual CMS for HTML Sites
-- **Pricing / License**: Open Source (GPL-3.0)
+
+- **Tags**: `craftpages`, `offline-html-cms`, `desktop-site-builder`, `plain-html-editor`, `zero-lock-in-cms`, `static-page-manager`, `git-based-cms`, `headless-cms`, `markdown-cms`, `wordpress-alternative`
 
 ---
 

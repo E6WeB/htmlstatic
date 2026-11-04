@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty.dev</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: Zero-Config Static Site Generator
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `eleventy`, `11ty`, `zero-client-js-ssg`, `liquid-nunjucks-markdown`, `fast-node-ssg`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://fleek.xyz/" target="_blank" rel="noopener noreferrer">fleek.xyz</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Edge Hosting & Decentralized Web Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `fleek-hosting`, `ipfs-web-hosting`, `decentralized-cdn`, `edge-static-deploy`, `censorship-resistant-web`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 
 ---
 

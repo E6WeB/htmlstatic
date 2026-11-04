@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://builtforbricks.com/brickstatic/" target="_blank" rel="noopener noreferrer">builtforbricks.com/brickstatic</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Static Site Generator & Exporter Plugin
-- **Pricing / License**: Freemium
+
+- **Tags**: `brickstatic`, `wordpress-to-static-html`, `bricks-builder-export`, `headless-wordpress`, `github-pages-wordpress`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`, `core-web-vitals`
 - **Platform**: WordPress (Bricks Builder)
 
 ---

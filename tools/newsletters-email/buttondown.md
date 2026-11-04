@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://buttondown.com/" target="_blank" rel="noopener noreferrer">buttondown.com</a>
 - **Category**: [Newsletters & Email](../../README.md#newsletters--email)
 - **Type**: Newsletter Publishing Platform
-- **Pricing / License**: Paid
+
+- **Tags**: `buttondown-email`, `markdown-newsletter`, `minimalist-email-list`, `rss-to-email-automation`, `indie-newsletter-tool`, `newsletter-embed`, `transactional-email`, `email-api`, `subscriber-growth`, `mailchimp-alternative`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://clerk.com/" target="_blank" rel="noopener noreferrer">clerk.com</a>
 - **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
 - **Type**: User Authentication & Management Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `clerk-auth`, `drop-in-auth`, `passkey-login`, `social-oauth`, `user-profiles`, `javascript-auth-sdk`, `auth0-alternative`, `passkeys`, `oauth-login`, `jwt-auth`
 
 ---
 

@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">algolia.com</a>
 - **Category**: [Search](../../README.md#search)
 - **Type**: Hosted Search Engine API
-- **Pricing / License**: Freemium
+
+- **Tags**: `algolia-search`, `instantsearch-js`, `docsearch`, `typo-tolerant-search`, `millisecond-search-api`, `static-site-search`, `client-side-search`, `instant-search`, `wasm-search`, `zero-server-search`
 
 ---
 

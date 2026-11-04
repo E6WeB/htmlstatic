@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Static Code Linter
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `eslint`, `javascript-linter`, `static-code-analysis`, `code-quality`, `ecmascript-rules`, `bug-prevention`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 
 ---
 

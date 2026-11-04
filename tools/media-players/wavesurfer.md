@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://wavesurfer.xyz/" target="_blank" rel="noopener noreferrer">wavesurfer.xyz</a>
 - **Category**: [Media & Video Players](../../README.md#media--video-players)
 - **Type**: Audio Waveform Visualizer
-- **Pricing / License**: Open Source (BSD-3-Clause)
+
+- **Tags**: `wavesurfer-js`, `audio-waveform-visualizer`, `web-audio-canvas`, `podcast-waveform-player`, `interactive-audio-scrubbing`, `html5-video-player`, `hls-streaming`, `audio-waveform`, `podcast-player`, `custom-media-player`
 
 ---
 

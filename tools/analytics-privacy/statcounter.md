@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">statcounter.com</a>
 - **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
 - **Type**: Web Analytics Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `statcounter`, `realtime-visitor-tracking`, `hit-counter`, `visitor-paths`, `web-stats`, `classic-analytics`, `cookieless-analytics`, `gdpr-compliant`, `google-analytics-alternative`, `privacy-first`
 
 ---
 

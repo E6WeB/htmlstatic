@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://svgrepo.com/" target="_blank" rel="noopener noreferrer">svgrepo.com</a>
 - **Category**: [Images & Optimization](../../README.md#images--optimization)
 - **Type**: Vector Icon & Illustration Library
-- **Pricing / License**: Free
+
+- **Tags**: `svg-repo`, `500k-free-svgs`, `cc0-vector-icons`, `commercial-use-icons`, `in-browser-svg-color-editor`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
 
 ---
 

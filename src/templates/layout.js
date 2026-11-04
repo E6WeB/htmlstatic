@@ -68,10 +68,12 @@ function createLayoutRenderer({ allTools, categories }) {
     ogImageWidth = 1200,
     ogImageHeight = 630,
     canonicalUrl = '',
+    keywords = '',
     jsonLd = null
   }) {
     const rawDesc = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
     const cleanDescription = rawDesc.length > 160 ? rawDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...' : rawDesc;
+    const cleanKeywords = keywords || 'static websites, jamstack, static site generators, zero backend, serverless apis, html css javascript tools, astro, hugo, 11ty, nextjs, free static hosting, headless cms, static form backend, open source web tools';
     let pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
     if (pageTitle.length > 60 && !title.includes('StaticStack')) {
       pageTitle = title.length <= 60 ? title : title.slice(0, 57).replace(/\s+\S*$/, '') + '...';
@@ -142,6 +144,7 @@ function createLayoutRenderer({ allTools, categories }) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(cleanDescription)}">
+  <meta name="keywords" content="${escapeHtml(cleanKeywords)}">
   <meta name="theme-color" content="#2563eb">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

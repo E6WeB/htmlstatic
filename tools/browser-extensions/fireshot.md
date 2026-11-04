@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
 - **Category**: [Browser Extensions](../../README.md#browser-extensions)
 - **Type**: Browser Extension
-- **Pricing / License**: Freemium
+
+- **Tags**: `fireshot`, `full-page-screenshot`, `webpage-to-pdf`, `browser-capture`, `annotate-screenshots`, `visual-qa`, `web-dev-extension`, `page-capture`, `productivity-tool`, `chrome-extension`
 
 ---
 

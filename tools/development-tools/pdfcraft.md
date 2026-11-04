@@ -9,7 +9,7 @@
 - **Pricing / License**: Free / Open Source
 - **Status**: Beta / Early Alpha
 - **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `pdf`, `rust`, `pdf-editor`, `document-tools`, `split-pdf`, `merge-pdf`, `offline`, `beta`
+- **Tags**: `pdf`, `rust`, `pdf-editor`, `document-tools`, `split-pdf`, `merge-pdf`, `offline`, `beta`, `pdfcraft`, `open-source-acrobat`
 
 ---
 

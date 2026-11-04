@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">goatcounter.com</a>
 - **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
 - **Type**: Privacy-First Web Analytics
-- **Pricing / License**: Freemium
+
+- **Tags**: `goatcounter`, `open-source-analytics`, `cookieless-tracking`, `gdpr-analytics`, `lightweight-analytics`, `no-banner-analytics`, `cookieless-analytics`, `gdpr-compliant`, `google-analytics-alternative`, `privacy-first`
 
 ---
 

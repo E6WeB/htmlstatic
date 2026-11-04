@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">gohugo.io</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: High-Performance Static Generator (Go)
-- **Pricing / License**: Open Source (Apache-2.0)
+
+- **Tags**: `gohugo`, `fastest-go-ssg`, `millisecond-markdown-builds`, `single-binary-ssg`, `multilingual-static-sites`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
 
 ---
 

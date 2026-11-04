@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">ai.google.dev</a>
 - **Category**: [AI Models](../../README.md#ai-models)
 - **Type**: Multimodal Frontier Model
-- **Pricing / License**: Freemium
+
+- **Tags**: `gemini-api`, `2m-context-window`, `multimodal-llm`, `gemini-flash`, `vertex-ai`, `long-context-rag`, `audio-video-ai`, `llm-api`, `ai-agents`, `rag`
 
 ---
 

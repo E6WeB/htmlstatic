@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://getpelican.com/" target="_blank" rel="noopener noreferrer">getpelican.com</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: Python Static Site Generator
-- **Pricing / License**: Open Source (AGPL-3.0)
+
+- **Tags**: `pelican-ssg`, `python-static-generator`, `jinja2-templates`, `restructuredtext-markdown`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
 
 ---
 

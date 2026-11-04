@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">gemini.google.com</a>
 - **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
 - **Type**: Multimodal AI Assistant
-- **Pricing / License**: Freemium
+
+- **Tags**: `google-gemini`, `multimodal-ai`, `ai-research`, `content-drafting`, `structured-json`, `seo-writing`, `gemini-pro`, `ai-copywriting`, `seo-content`, `markdown-generator`
 
 ---
 

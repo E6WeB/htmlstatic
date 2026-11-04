@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">bulma.io</a>
 - **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
 - **Type**: Pure CSS Framework
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `bulma-css`, `flexbox-framework`, `pure-css-components`, `no-js-css`, `modular-sass`, `bootstrap-alternative`, `ui-components`, `classless-css`, `lightweight-css`, `web-components`
 
 ---
 

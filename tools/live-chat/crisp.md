@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://crisp.chat/" target="_blank" rel="noopener noreferrer">crisp.chat</a>
 - **Category**: [Live Chat & Support](../../README.md#live-chat--support)
 - **Type**: Customer Messaging & Live Chat Platform
-- **Pricing / License**: Freemium
+
+- **Tags**: `crisp-chat`, `free-live-chat-widget`, `shared-inbox`, `magicbrowse-cobrowsing`, `chatbot-knowledge-base`, `customer-support-widget`, `live-chat-embed`, `helpdesk-widget`, `visitor-messaging`, `no-backend-chat`
 
 ---
 

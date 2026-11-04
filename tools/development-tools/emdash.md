@@ -6,7 +6,8 @@
 - **GitHub Repository**: <a href="https://github.com/generalaction/emdash" target="_blank" rel="noopener noreferrer">github.com/generalaction/emdash</a>
 - **Category**: [Development Tools](../../README.md#development-tools)
 - **Type**: Agentic Development Environment (Desktop App)
-- **Pricing / License**: Open Source (Apache-2.0)
+
+- **Tags**: `emdash`, `parallel-coding-agents`, `agentic-orchestration`, `git-worktree-agents`, `autonomous-coding`, `ai-dev-environment`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 
 ---
 

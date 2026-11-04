@@ -9,7 +9,7 @@
 - **Pricing / License**: Free / Open Source
 - **Status**: Beta / Early Alpha
 - **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `image-editor`, `rust`, `photoshop-alternative`, `psd`, `layers`, `graphics`, `offline`, `beta`
+- **Tags**: `image-editor`, `rust`, `photoshop-alternative`, `psd`, `layers`, `graphics`, `offline`, `beta`, `photocraft`, `open-source-photoshop`
 
 ---
 

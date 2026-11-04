@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">jekyllrb.com</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: Blog-Aware Static Site Generator (Ruby)
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `jekyll-rb`, `github-pages-native-ssg`, `liquid-templates`, `markdown-blog-engine`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
 
 ---
 

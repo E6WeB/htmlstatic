@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://about.gitlab.com/stages-devops-lifecycle/pages/" target="_blank" rel="noopener noreferrer">about.gitlab.com/stages-devops-lifecycle/pages/</a>
 - **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 - **Type**: Static Web Hosting & DevOps Platform
-- **Pricing / License**: Free / Open Source
+
+- **Tags**: `gitlab-pages`, `gitlab-ci-cd-hosting`, `free-static-hosting`, `custom-domains`, `devops-static-deploy`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`, `custom-domain`
 
 ---
 

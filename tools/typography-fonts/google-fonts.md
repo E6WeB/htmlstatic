@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">fonts.google.com</a>
 - **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
 - **Type**: Web Font & Icon CDN
-- **Pricing / License**: Free
+
+- **Tags**: `google-fonts`, `free-open-source-typefaces`, `variable-web-fonts`, `material-symbols-icons`, `global-font-cdn`, `self-hosted-fonts`, `gdpr-fonts`, `google-fonts-alternative`, `variable-fonts`, `web-typography`
 
 ---
 

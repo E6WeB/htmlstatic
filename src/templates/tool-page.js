@@ -117,13 +117,66 @@ function renderToolPage({
     toolDesc = toolDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...';
   }
 
+  const toolKeywordsList = Array.from(new Set([
+    tool.name,
+    tool.categoryTitle,
+    ...(tool.tags || []).map(t => t.replace(/-/g, ' ')),
+    ...(tool.tags || []),
+    `${tool.name} static website`,
+    `${tool.name} alternative`,
+    `${tool.name} integration`,
+    'static site tool',
+    'jamstack',
+    'zero backend'
+  ]));
+  const toolKeywordsStr = toolKeywordsList.join(', ');
+  const isFreeOffer = /free|open source|freemium/i.test(tool.primaryBadge || '');
+  const toolCanonical = `https://www.staticstack.app/tools/${tool.categorySlug}/${tool.slug}`;
+  const toolOgImg = coverImageHtml
+    ? `https://www.staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}`
+    : 'https://www.staticstack.app/asset/img/og-image.webp';
+
+  const toolJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'SoftwareApplication',
+        name: tool.name,
+        description: tool.description,
+        url: toolCanonical,
+        sameAs: tool.websiteUrl,
+        image: toolOgImg,
+        applicationCategory: tool.categoryTitle,
+        operatingSystem: 'Web, Static HTML, Jamstack',
+        keywords: toolKeywordsStr,
+        offers: {
+          '@type': 'Offer',
+          price: isFreeOffer ? '0' : undefined,
+          priceCurrency: isFreeOffer ? 'USD' : undefined,
+          category: tool.primaryBadge || 'Free'
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.staticstack.app/' },
+          { '@type': 'ListItem', position: 2, name: 'Archive', item: 'https://www.staticstack.app/archive' },
+          { '@type': 'ListItem', position: 3, name: tool.categoryTitle, item: `https://www.staticstack.app/archive#${tool.categorySlug}` },
+          { '@type': 'ListItem', position: 4, name: tool.name, item: toolCanonical }
+        ]
+      }
+    ]
+  };
+
   return renderLayout({
     title: toolTitle,
     description: toolDesc,
+    keywords: toolKeywordsStr,
+    jsonLd: toolJsonLd,
     currentNav: 'archive',
-    canonicalUrl: `https://www.staticstack.app/tools/${tool.categorySlug}/${tool.slug}`,
+    canonicalUrl: toolCanonical,
     ...(coverImageHtml ? {
-      ogImage: `https://www.staticstack.app/tools/${tool.categorySlug}/${coverRelativeName}`,
+      ogImage: toolOgImg,
       ogImageWidth: 1280,
       ogImageHeight: 720
     } : {}),

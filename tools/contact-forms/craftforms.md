@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://craftforms.app/" target="_blank" rel="noopener noreferrer">craftforms.app</a>
 - **Category**: [Contact Forms](../../README.md#contact-forms)
 - **Type**: Hosted Form Builder & Endpoint
-- **Pricing / License**: Freemium
+
+- **Tags**: `craftforms`, `payment-forms`, `booking-form-builder`, `quote-calculator-form`, `stripe-forms`, `embeddable-forms`, `serverless-forms`, `static-html-form`, `form-backend`, `email-notifications`
 
 ---
 

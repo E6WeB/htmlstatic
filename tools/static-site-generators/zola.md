@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.getzola.org/" target="_blank" rel="noopener noreferrer">getzola.org</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: Single-Binary Static Generator (Rust)
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `getzola`, `rust-single-binary-ssg`, `tera-templates`, `built-in-sass-search`, `zero-dependency-ssg`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
 
 ---
 

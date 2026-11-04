@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">nextjs.org</a>
 - **Category**: [Static Site Generators](../../README.md#static-site-generators)
 - **Type**: React Web Framework & Static Exporter
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `nextjs-static-export`, `react-static-site-generation`, `output-export`, `app-router-ssg`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
 
 ---
 

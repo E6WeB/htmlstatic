@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://shoelace.style/" target="_blank" rel="noopener noreferrer">shoelace.style</a>
 - **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
 - **Type**: Standard Web Components Library
-- **Pricing / License**: Open Source (MIT)
+
+- **Tags**: `shoelace-ui`, `web-components`, `custom-elements`, `framework-agnostic-ui`, `accessible-components`, `shadow-dom`, `ui-components`, `classless-css`, `lightweight-css`, `responsive-design`
 
 ---
 

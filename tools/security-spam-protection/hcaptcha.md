@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://www.hcaptcha.com/" target="_blank" rel="noopener noreferrer">hcaptcha.com</a>
 - **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
 - **Type**: Privacy-Centric Bot Protection
-- **Pricing / License**: Freemium
+
+- **Tags**: `hcaptcha`, `privacy-focused-captcha`, `gdpr-bot-mitigation`, `recaptcha-drop-in-replacement`, `bot-protection`, `captcha-alternative`, `form-spam-filter`, `privacy-captcha`, `zero-friction-security`, `freemium`
 
 ---
 

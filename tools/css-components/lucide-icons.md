@@ -5,7 +5,8 @@
 - **Official Website**: <a href="https://lucide.dev/" target="_blank" rel="noopener noreferrer">lucide.dev</a>
 - **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
 - **Type**: Vector Icon System
-- **Pricing / License**: Open Source (ISC)
+
+- **Tags**: `lucide-icons`, `feather-icons-fork`, `svg-icon-library`, `tree-shakable-icons`, `clean-vector-icons`, `ui-components`, `classless-css`, `lightweight-css`, `web-components`, `responsive-design`
 
 ---
 
