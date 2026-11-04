@@ -178,7 +178,94 @@ function createLayoutRenderer({ allTools, categories }) {
 </head>
 <body>
 
-  <!-- Site Header -->
+  <!-- Left Navigation Rail (Desktop & Tablet >= 768px) -->
+  <aside class="left-nav-rail" aria-label="Desktop Navigation Rail">
+    <div class="rail-top">
+      <a href="${rootPath || './'}" class="rail-brand" aria-label="StaticStack Home">
+        ${ICONS.logo}
+        <span class="rail-tooltip">StaticStack.app</span>
+      </a>
+
+      <nav class="rail-nav" aria-label="Primary Navigation">
+        <ul class="rail-list">
+          <li>
+            <a href="${rootPath || './'}" class="rail-item ${currentNav === 'home' ? 'active' : ''}" aria-label="Home">
+              ${ICONS.home}
+              <span class="rail-tooltip">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="${rootPath}archive" class="rail-item ${currentNav === 'archive' ? 'active' : ''}" aria-label="Master Archive">
+              ${ICONS.compass}
+              <span class="rail-tooltip">Archive (${allTools.length} Tools)</span>
+            </a>
+          </li>
+          <li>
+            <a href="${rootPath}community" class="rail-item ${currentNav === 'community' ? 'active' : ''}" aria-label="Community">
+              ${ICONS.users}
+              <span class="rail-tooltip">Community</span>
+            </a>
+          </li>
+          <li>
+            <a href="${rootPath}contribute" class="rail-item ${currentNav === 'contribute' ? 'active' : ''}" aria-label="Contributing Guide">
+              ${ICONS.gitPullRequest}
+              <span class="rail-tooltip">Contributing</span>
+            </a>
+          </li>
+          <li>
+            <a href="${rootPath}contact" class="rail-item ${currentNav === 'contact' ? 'active' : ''}" aria-label="Contact & Connect">
+              ${ICONS.comments}
+              <span class="rail-tooltip">Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="rail-item" aria-label="GitHub Repository">
+              ${ICONS.github}
+              <span class="rail-tooltip">Star on GitHub</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="rail-bottom">
+      <a href="${rootPath}submit" class="rail-action-btn ${currentNav === 'submit' ? 'active' : ''}" aria-label="Submit a Tool">
+        ${ICONS.plus}
+        <span class="rail-tooltip">Submit a Tool</span>
+      </a>
+      <a href="${rootPath}thankyou" class="rail-item ${currentNav === 'thankyou' ? 'active' : ''}" aria-label="Credits & Thanks">
+        ${ICONS.heart}
+        <span class="rail-tooltip">Credits & Thanks</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Mobile Bottom Navigation Bar (Phones < 768px) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+    <div class="bottom-nav-inner">
+      <a href="${rootPath || './'}" class="bottom-nav-item ${currentNav === 'home' ? 'active' : ''}">
+        ${ICONS.home}
+        <span>Home</span>
+      </a>
+      <a href="${rootPath}archive" class="bottom-nav-item ${currentNav === 'archive' ? 'active' : ''}">
+        ${ICONS.compass}
+        <span>Archive</span>
+      </a>
+      <a href="${rootPath}submit" class="bottom-nav-fab" aria-label="Submit a Tool">
+        ${ICONS.plus}
+      </a>
+      <a href="${rootPath}community" class="bottom-nav-item ${currentNav === 'community' ? 'active' : ''}">
+        ${ICONS.users}
+        <span>Community</span>
+      </a>
+      <button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu" style="background:none;border:none;cursor:pointer;">
+        ${ICONS.moreHorizontal}
+        <span>More</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Site Header (Mobile Only < 768px) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="${rootPath || './'}" class="brand">

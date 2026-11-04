@@ -765,8 +765,8 @@
   "microsoft-phi": {
     "url": "https://azure.microsoft.com/en-us/products/phi/",
     "status": "offline",
-    "code": 0,
-    "error": "Timeout",
+    "code": 503,
+    "error": null,
     "checked_at": "2026-11-04"
   },
   "cloudflare-turnstile": {

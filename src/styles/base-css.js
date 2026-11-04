@@ -323,6 +323,295 @@ const BASE_CSS = `
     outline: none;
   }
 
+  /* ==========================================================================
+     Left Navigation Rail & Mobile Bottom Bar
+     ========================================================================== */
+  .left-nav-rail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 68px;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0.5rem 1.25rem;
+    z-index: 200;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .rail-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .rail-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--accent-gradient);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .rail-brand:hover {
+    transform: translateY(-1px) scale(1.04);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.38);
+    color: #ffffff;
+  }
+
+  .rail-brand svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .rail-nav {
+    width: 100%;
+  }
+
+  .rail-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .rail-list li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .rail-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.18s ease;
+    cursor: pointer;
+  }
+
+  .rail-item svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    transition: stroke 0.18s ease, transform 0.18s ease;
+  }
+
+  .rail-item:hover {
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .rail-item:hover svg {
+    transform: scale(1.08);
+  }
+
+  .rail-item.active {
+    color: var(--accent);
+    background: var(--accent-light);
+    font-weight: 700;
+  }
+
+  .rail-item.active::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 22px;
+    background: var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Tooltip for Left Rail */
+  .rail-tooltip {
+    position: absolute;
+    left: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-6px);
+    background: var(--text-main);
+    color: var(--bg-surface);
+    font-size: 0.775rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+    box-shadow: var(--shadow-md);
+    z-index: 300;
+  }
+
+  .rail-tooltip::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent var(--text-main) transparent transparent;
+  }
+
+  .rail-item:hover .rail-tooltip,
+  .rail-action-btn:hover .rail-tooltip,
+  .rail-brand:hover .rail-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .rail-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  /* Primary Floating Action Button on Left Rail */
+  .rail-action-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .rail-action-btn svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+  }
+
+  .rail-action-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
+    color: #ffffff;
+  }
+
+  /* Mobile Bottom Navigation Bar */
+  .mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-color);
+    z-index: 200;
+    box-sizing: border-box;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .bottom-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.675rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bottom-nav-item svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+  }
+
+  .bottom-nav-item:hover,
+  .bottom-nav-item.active {
+    color: var(--accent);
+  }
+
+  .bottom-nav-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    text-decoration: none;
+    margin-top: -14px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .bottom-nav-fab svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+  }
+
+  .bottom-nav-fab:hover,
+  .bottom-nav-fab:active {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+    color: #ffffff;
+  }
+
   /* Full-Screen Mobile Navigation Overlay */
   .mobile-nav-modal {
     position: fixed;
@@ -2018,7 +2307,36 @@ const BASE_CSS = `
     }
   }
 
-  @media (max-width: 768px) {
+  /* Desktop vs Mobile Shell Layout */
+  @media (min-width: 768px) {
+    body {
+      padding-left: 68px;
+    }
+    .site-header {
+      display: none !important;
+    }
+    .mobile-bottom-nav {
+      display: none !important;
+    }
+    .left-nav-rail {
+      display: flex !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    body {
+      padding-left: 0 !important;
+      padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .site-header {
+      display: block !important;
+    }
+    .left-nav-rail {
+      display: none !important;
+    }
+    .mobile-bottom-nav {
+      display: flex !important;
+    }
     .hamburger-btn {
       display: inline-flex !important;
     }
