@@ -448,10 +448,11 @@ const BASE_CSS = `
     border-radius: 0 4px 4px 0;
   }
 
-  /* Tooltip for Left Rail */
+  /* Tooltip for Left Rail - Positioned safely to the right of the rail, never overlapping icons */
   .rail-tooltip {
     position: absolute;
-    left: calc(100% + 12px);
+    left: 100%;
+    margin-left: 14px;
     top: 50%;
     transform: translateY(-50%) translateX(-6px);
     background: var(--text-main);
@@ -462,12 +463,12 @@ const BASE_CSS = `
     padding: 0.35rem 0.75rem;
     border-radius: var(--radius-sm);
     white-space: nowrap;
-    pointer-events: none;
+    pointer-events: none !important;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
-    box-shadow: var(--shadow-md);
-    z-index: 300;
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
   }
 
   .rail-tooltip::before {
@@ -2528,7 +2529,7 @@ function getMinifiedBaseCss() {
   return BASE_CSS
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/\s+/g, ' ')
-    .replace(/\s*([{}:;,>~+])\s*/g, '$1')
+    .replace(/\s*([{}:;,>~])\s*/g, '$1')
     .replace(/;}/g, '}')
     .trim();
 }
