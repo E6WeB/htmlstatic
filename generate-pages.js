@@ -156,16 +156,16 @@ const homeContent = `
     </p>
 
     <!-- Command Hero Search Hub -->
-    <div style="max-width:660px; margin:0 auto 2.5rem;">
-      <div class="hero-search-box" style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.35rem 0.5rem 0.35rem 1.15rem; box-shadow:0 10px 25px -5px rgba(0,0,0,0.08); gap:0.5rem;">
+    <div style="max-width:780px; margin:0 auto 2.5rem;">
+      <div class="hero-search-box" style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.5rem 0.6rem 0.5rem 1.35rem; box-shadow:0 12px 28px -6px rgba(0,0,0,0.09); gap:0.65rem;">
         <span style="color:var(--accent); display:flex; align-items:center;">${ICONS.search}</span>
-        <input type="text" id="hero-search-input" style="flex:1; min-width:0; border:none; background:transparent; outline:none; font-size:1.05rem; font-family:inherit; color:var(--text-main); padding:0.45rem 0.25rem;" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
-        <span class="hero-kbd" style="background:var(--bg-muted); border:1px solid var(--border-color); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-family:var(--font-mono); color:var(--text-subtle);">/</span>
-        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary btn-sm" style="border-radius:var(--radius-full); padding:0.45rem 1rem; font-size:0.85rem; flex-shrink:0;">
+        <input type="text" id="hero-search-input" style="flex:1; min-width:0; border:none; background:transparent; outline:none; font-size:1.125rem; font-family:inherit; color:var(--text-main); padding:0.55rem 0.35rem;" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
+        <span class="hero-kbd" style="background:var(--bg-muted); border:1px solid var(--border-color); padding:0.2rem 0.55rem; border-radius:4px; font-size:0.8rem; font-family:var(--font-mono); color:var(--text-subtle);">/</span>
+        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary" style="border-radius:var(--radius-full); padding:0.65rem 1.45rem; font-size:0.95rem; flex-shrink:0;">
           Search
         </button>
       </div>
-      <div id="hero-popular-tags" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-top:1rem; font-size:0.85rem;">
+      <div id="hero-popular-tags" style="display:flex; align-items:center; justify-content:center; gap:0.9rem; flex-wrap:wrap; margin-top:1.1rem; font-size:0.9rem;">
         <span style="color:var(--accent); font-weight:600;">Popular:</span>
         <a href="tools/payments-ecommerce/reflow" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Reflow</a>
         <a href="tools/authentication-users/clerk" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Clerk</a>
