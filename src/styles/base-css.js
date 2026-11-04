@@ -1466,6 +1466,37 @@ const BASE_CSS = `
   .markdown-body ol { list-style-type: decimal; }
   .markdown-body ol > li { list-style-type: decimal; }
   .markdown-body li { margin-bottom: 0.4rem; color: var(--text-main); line-height: 1.6; }
+
+  /* Tool Official Website Link Status Indicator Dot */
+  .link-status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-left: 0.45rem;
+    vertical-align: middle;
+    cursor: help;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .link-status-dot:hover {
+    transform: scale(1.4);
+  }
+  .link-status-dot.status-online {
+    background-color: #10b981;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.7);
+  }
+  .link-status-dot.status-offline {
+    background-color: #ef4444;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.7);
+  }
+  [data-theme="dark"] .link-status-dot.status-online {
+    background-color: #34d399;
+    box-shadow: 0 0 7px rgba(52, 211, 153, 0.85);
+  }
+  [data-theme="dark"] .link-status-dot.status-offline {
+    background-color: #f87171;
+    box-shadow: 0 0 7px rgba(248, 113, 113, 0.85);
+  }
   .markdown-body p,
   .markdown-body li,
   .markdown-body blockquote,

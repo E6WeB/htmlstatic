@@ -1040,7 +1040,7 @@ Collect subscribers, send newsletters, and handle email delivery from static web
     <td><a href="tools/newsletters-email/brevo.md">Brevo</a></td>
     <td>Email marketing and transactional email services</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://brevo.com/" target="_blank" rel="noopener noreferrer">brevo.com</a></td>
+    <td><a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">brevo.com</a></td>
   </tr>
   <tr>
     <td><a href="tools/newsletters-email/buttondown.md">Buttondown</a></td>

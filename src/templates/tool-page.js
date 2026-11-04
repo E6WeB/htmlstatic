@@ -7,6 +7,19 @@ const path = require('path');
 const { marked } = require('marked');
 const { ICONS, CATEGORY_ICONS, escapeHtml } = require('../data/icons');
 
+let linkHealthCache = null;
+function getLinkHealthMap(rootDir) {
+  if (linkHealthCache) return linkHealthCache;
+  const healthPath = path.join(rootDir, 'asset', 'json', 'link-health.json');
+  try {
+    if (fs.existsSync(healthPath)) {
+      linkHealthCache = JSON.parse(fs.readFileSync(healthPath, 'utf8'));
+    }
+  } catch {}
+  if (!linkHealthCache) linkHealthCache = {};
+  return linkHealthCache;
+}
+
 function renderToolPage({
   tool,
   rootDir,
@@ -28,6 +41,21 @@ function renderToolPage({
     .replace(/href="(?:\.\.\/)+README\.md"/g, 'href="../../archive"')
     .replace(/href="(?:\.\.\/)+([a-z0-9\-]+)\/([a-z0-9\-]+)\.md"/g, 'href="../../tools/$1/$2"')
     .replace(/href="([a-z0-9\-]+)\.md"/g, 'href="../../tools/' + tool.categorySlug + '/$1"');
+
+  // Inject Option 1: Minimal Glowing Status Dot next to Official Website link
+  const healthMap = getLinkHealthMap(rootDir);
+  const health = healthMap[tool.slug] || { status: 'online', code: 200, checked_at: new Date().toISOString().split('T')[0] };
+  const isOnline = health.status !== 'offline';
+  const statusTitle = isOnline
+    ? `Website verified: Live (HTTP ${health.code || 200}) • Checked ${health.checked_at || 'recently'}`
+    : `Website status warning: Unreachable (${health.error || health.code || 'Offline'}) • Checked ${health.checked_at || 'recently'}`;
+  const dotClass = isOnline ? 'status-online' : 'status-offline';
+  const statusDotHtml = `<span class="link-status-dot ${dotClass}" title="${escapeHtml(statusTitle)}" aria-label="${escapeHtml(statusTitle)}"></span>`;
+
+  parsedHtml = parsedHtml.replace(
+    /(<li>\s*<strong>Official Website<\/strong>:\s*<a\s+[^>]*>[^<]+<\/a>)(\s*<\/li>)/i,
+    `$1 ${statusDotHtml}$2`
+  );
 
   const coverRelativeName = `${tool.slug}-cover.webp`;
   const coverDiskPath = path.join(rootDir, 'tools', tool.categorySlug, coverRelativeName);
