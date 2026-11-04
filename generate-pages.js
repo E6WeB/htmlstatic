@@ -167,13 +167,12 @@ const homeContent = `
       </div>
       <div id="hero-popular-tags" style="display:flex; align-items:center; justify-content:center; gap:0.45rem; flex-wrap:wrap; margin-top:1rem; font-size:0.825rem;">
         <span style="color:var(--text-subtle); font-weight:500;">Popular:</span>
-        <button class="btn-sm btn-secondary" onclick="quickSearchTag('Reflow')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Reflow</button>
-        <button class="btn-sm btn-secondary" onclick="quickSearchTag('Clerk')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Clerk</button>
-        <button class="btn-sm btn-secondary" onclick="quickSearchTag('Pagefind')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Pagefind</button>
-        <button class="btn-sm btn-secondary" onclick="quickSearchTag('Astro')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Astro</button>
-        <button class="btn-sm btn-secondary" onclick="quickSearchTag('Formspree')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Formspree</button>
-        <button class="btn-sm btn-secondary" onclick="quickSearchTag('Pico CSS')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Pico CSS</button>
-        <button class="btn-sm btn-secondary" onclick="quickSearchTag('Supabase')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Supabase</button>
+        <a href="tools/payments-ecommerce/reflow" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Reflow</a>
+        <a href="tools/authentication-users/clerk" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Clerk</a>
+        <a href="tools/search/pagefind" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Pagefind</a>
+        <a href="tools/static-site-generators/astro" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Astro</a>
+        <a href="tools/contact-forms/formspree" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Formspree</a>
+        <a href="tools/database-storage/supabase" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Supabase</a>
       </div>
     </div>
 
@@ -491,7 +490,7 @@ const homeContent = `
       const SUPABASE_KEY = 'sb_publishable_EoB7MFJhCmb6PiAk-GPJ4w_PGhQ44Ru';
       const toolMeta = ${JSON.stringify(allTools.map(t => ({ s: `/tools/${t.categorySlug}/${t.slug}`, n: t.name })))};
       const slugs = toolMeta.map(t => t.s);
-      const defaultPopularNames = ['Reflow', 'Clerk', 'Pagefind', 'Astro', 'Formspree', 'Pico CSS', 'Supabase'];
+      const defaultPopularNames = ['Reflow', 'Clerk', 'Pagefind', 'Astro', 'Formspree', 'Supabase'];
 
       // Escape helper for client-side rendering
       function escapeClientHtml(str) {
@@ -512,23 +511,30 @@ const homeContent = `
           .filter(t => t.likes > 0)
           .sort((a, b) => (b.likes !== a.likes ? b.likes - a.likes : a.name.localeCompare(b.name)));
 
-        const topList = votedTools.slice(0, 7);
+        const topList = votedTools.slice(0, 6);
         const usedNames = new Set(topList.map(t => t.name.toLowerCase()));
 
-        for (let i = 0; i < defaultPopularNames.length && topList.length < 7; i++) {
+        for (let i = 0; i < defaultPopularNames.length && topList.length < 6; i++) {
           const fallbackName = defaultPopularNames[i];
           if (!usedNames.has(fallbackName.toLowerCase())) {
+            const foundMeta = toolMeta.find(t => t.n.toLowerCase() === fallbackName.toLowerCase());
             usedNames.add(fallbackName.toLowerCase());
-            topList.push({ name: fallbackName, likes: 0 });
+            topList.push({
+              name: fallbackName,
+              slug: foundMeta ? foundMeta.s : ('/archive?q=' + encodeURIComponent(fallbackName)),
+              likes: 0
+            });
           }
         }
 
         const pillsHtml = topList.map(item => {
           const safeName = escapeClientHtml(item.name);
+          const rawSlug = item.slug || '';
+          const href = rawSlug.charAt(0) === '/' ? rawSlug.slice(1) : rawSlug;
           const label = item.likes > 0
-            ? safeName + '(' + item.likes.toLocaleString() + ')'
+            ? safeName + '(<span style="color:var(--accent); font-weight:700;">' + item.likes.toLocaleString() + '</span>)'
             : safeName;
-          return '<button class="btn-sm btn-secondary" data-tag="' + safeName + '" onclick="quickSearchTag(this.getAttribute(&quot;data-tag&quot;))" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">' + label + '</button>';
+          return '<a href="' + href + '" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">' + label + '</a>';
         }).join('');
 
         popularContainer.innerHTML = '<span style="color:var(--text-subtle); font-weight:500;">Popular:</span>' + pillsHtml;
