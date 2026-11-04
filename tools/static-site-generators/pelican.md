@@ -2,12 +2,12 @@
 
 > Python-powered static site generator that compiles Markdown and reStructuredText into clean static HTML using Jinja2 templates.
 
-- **Official Website**: <a href="https://getpelican.com/" target="_blank" rel="noopener noreferrer">getpelican.com</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: Python Static Site Generator
+1. **Official Website**: <a href="https://getpelican.com/" target="_blank" rel="noopener noreferrer">getpelican.com</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: Python Static Site Generator
+4. **Pricing / License**: Open Source
 
 - **Tags**: `pelican-ssg`, `python-static-generator`, `jinja2-templates`, `restructuredtext-markdown`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Pelican is especially popular in the Python, data science, and technical writing
 
 ## Key Highlights & Features
 
-- **Markdown & reStructuredText Support**: Write articles and pages in standard Markdown, reStructuredText, or AsciiDoc via plugins.
-- **Jinja2 Templating Engine**: Customize themes and layouts easily using Python's popular Jinja2 template syntax.
-- **Built-in Pygments Syntax Highlighting**: Produces crisp, server-free code syntax highlighting for hundreds of programming languages at build time.
-- **Atom/RSS Feeds & Multi-Language Publishing**: Automatically generates Atom and RSS feeds, categories, tags, and translated article variants.
+1. **Markdown & reStructuredText Support**: Write articles and pages in standard Markdown, reStructuredText, or AsciiDoc via plugins.
+2. **Jinja2 Templating Engine**: Customize themes and layouts easily using Python's popular Jinja2 template syntax.
+3. **Built-in Pygments Syntax Highlighting**: Produces crisp, server-free code syntax highlighting for hundreds of programming languages at build time.
+4. **Atom/RSS Feeds & Multi-Language Publishing**: Automatically generates Atom and RSS feeds, categories, tags, and translated article variants.
 
 ---
 
@@ -60,7 +60,6 @@ Pelican compiles this Markdown file directly into static HTML using Jinja2 templ
 
 ## When to Use It
 
-- Python developers and data scientists who prefer a Python/Jinja2 toolchain over Node.js, Go, or Ruby.
-- Technical blogs and documentation sites written in reStructuredText or Markdown with heavy code samples.
-- Migrating existing WordPress, Dotclear, or RSS feeds into a clean static website using Pelican's built-in importer CLI.
-
+1. Python developers and data scientists who prefer a Python/Jinja2 toolchain over Node.js, Go, or Ruby.
+2. Technical blogs and documentation sites written in reStructuredText or Markdown with heavy code samples.
+3. Migrating existing WordPress, Dotclear, or RSS feeds into a clean static website using Pelican's built-in importer CLI.

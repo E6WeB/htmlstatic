@@ -2,14 +2,12 @@
 
 > Open-source Windows utility to convert and compress images, audio, and video directly from the Windows Explorer context menu.
 
-- **Official Website**: <a href="https://file-converter.io/" target="_blank" rel="noopener noreferrer">file-converter.io</a>
-- **Source Code**: <a href="https://github.com/Tichau/FileConverter" target="_blank" rel="noopener noreferrer">github.com/Tichau/FileConverter</a>
-- **Category**: [Images & Optimization](../../README.md#images--optimization)
-- **Platform**: Windows (Windows 11 & Windows 10)
-- **Type**: Desktop Context-Menu Utility (Open Source)
+1. **Official Website**: <a href="https://file-converter.io/" target="_blank" rel="noopener noreferrer">file-converter.io</a>
+2. **Category**: [Images & Optimization](../../README.md#images--optimization)
+3. **Type**: Desktop Context-Menu Utility (Open Source)
+4. **Pricing / License**: Open Source
 
 - **Tags**: `file-converter`, `windows-right-click-convert`, `batch-webp-converter`, `open-source-media-converter`, `offline-image-compression`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
-
 ---
 
 ## Overview
@@ -31,11 +29,11 @@ For static website creators, it provides a fast offline workflow to batch-conver
 
 ## Key Highlights & Features
 
-- **Explorer Integration**: Convert files directly from the right-click menu with zero application switching.
-- **Batch Processing**: Select dozens or hundreds of images at once and convert them in parallel.
-- **Web-Ready Formats**: Convert to WebP, PNG, JPEG, GIF, and ICO with customized compression presets.
-- **Custom Presets**: Create custom presets to adjust image quality, scaling, and output folders.
-- **100% Free & Open Source**: Licensed under GPL v3 with no ads, tracking, or subscription tiers.
+1. **Explorer Integration**: Convert files directly from the right-click menu with zero application switching.
+2. **Batch Processing**: Select dozens or hundreds of images at once and convert them in parallel.
+3. **Web-Ready Formats**: Convert to WebP, PNG, JPEG, GIF, and ICO with customized compression presets.
+4. **Custom Presets**: Create custom presets to adjust image quality, scaling, and output folders.
+5. **100% Free & Open Source**: Licensed under GPL v3 with no ads, tracking, or subscription tiers.
 
 ---
 
@@ -63,6 +61,6 @@ Right-click your brand logo (PNG) → **File Converter** → **To Ico** to insta
 
 ## When to Use It
 
-- Batch converting static website images to WebP format directly on Windows 11.
-- Generating favicons (`favicon.ico`) quickly without using third-party web tools.
-- Compressing screenshots and blog post illustrations offline with full privacy.
+1. Batch converting static website images to WebP format directly on Windows 11.
+2. Generating favicons (`favicon.ico`) quickly without using third-party web tools.
+3. Compressing screenshots and blog post illustrations offline with full privacy.

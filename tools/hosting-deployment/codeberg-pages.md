@@ -2,12 +2,12 @@
 
 > Community-driven, privacy-respecting, and free static website hosting powered by Codeberg and Forgejo.
 
-- **Official Website**: <a href="https://pages.codeberg.org/" target="_blank" rel="noopener noreferrer">pages.codeberg.org</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Static Web Hosting & Git Platform
-- **Pricing / License**: Free / Open Source
-- **Tags**: `static-hosting`, `git-pages`, `forgejo`, `open-source`, `privacy`, `free-hosting`, `codeberg-pages`, `eu-nonprofit-hosting`, `open-source-git-hosting`, `github-pages-alternative`
+1. **Official Website**: <a href="https://pages.codeberg.org/" target="_blank" rel="noopener noreferrer">pages.codeberg.org</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Static Web Hosting & Git Platform
+4. **Pricing / License**: Free / Open Source
 
+- **Tags**: `static-hosting`, `git-pages`, `forgejo`, `open-source`, `privacy`, `free-hosting`, `codeberg-pages`, `eu-nonprofit-hosting`, `open-source-git-hosting`, `github-pages-alternative`
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ Codeberg Pages contains zero advertising, no telemetry, and zero tracking script
 
 ## Key Highlights & Features
 
-- **100% Free & Open Source**: Run by a registered non-profit with zero monetization of user data.
-- **Privacy by Design**: No visitor tracking, no external trackers, and hosted on European servers adhering to strict GDPR standards.
-- **Custom Domains**: Connect any custom domain with automated Let's Encrypt SSL certificate renewal.
-- **Direct Git Workflow**: Automatically updates your live website whenever you push commits to your `pages` branch or repository.
-- **Static Generator Compatibility**: Deploy outputs from Astro, Hugo, Eleventy, or vanilla HTML/JS via Codeberg Actions (CI/CD).
+1. **100% Free & Open Source**: Run by a registered non-profit with zero monetization of user data.
+2. **Privacy by Design**: No visitor tracking, no external trackers, and hosted on European servers adhering to strict GDPR standards.
+3. **Custom Domains**: Connect any custom domain with automated Let's Encrypt SSL certificate renewal.
+4. **Direct Git Workflow**: Automatically updates your live website whenever you push commits to your `pages` branch or repository.
+5. **Static Generator Compatibility**: Deploy outputs from Astro, Hugo, Eleventy, or vanilla HTML/JS via Codeberg Actions (CI/CD).
 
 ---
 
@@ -41,13 +41,13 @@ git remote add origin https://codeberg.org/<username>/<repo>.git
 git push -u origin pages
 ```
 
-3. Your website goes live immediately at `https://<username>.codeberg.page/<repo>/`.
-4. To add a custom domain, add a `.domains` file in the root of your pages branch containing your domain name and point your DNS CNAME to `<username>.codeberg.page`.
+1. Your website goes live immediately at `https://<username>.codeberg.page/<repo>/`.
+2. To add a custom domain, add a `.domains` file in the root of your pages branch containing your domain name and point your DNS CNAME to `<username>.codeberg.page`.
 
 ---
 
 ## When to Use It
 
-- Open-source projects and developer portfolios prioritizing digital autonomy and privacy.
-- Developers looking for a non-profit alternative to GitHub Pages or proprietary platforms.
-- Static sites that require zero-tracking, ad-free hosting under European privacy laws.
+1. Open-source projects and developer portfolios prioritizing digital autonomy and privacy.
+2. Developers looking for a non-profit alternative to GitHub Pages or proprietary platforms.
+3. Static sites that require zero-tracking, ad-free hosting under European privacy laws.

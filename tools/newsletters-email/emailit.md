@@ -2,12 +2,12 @@
 
 > Modern email API for sending transactional messages from apps and static sites.
 
-- **Official Website**: <a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">emailit.com</a>
-- **Category**: [Newsletters & Email](../../README.md#newsletters--email)
-- **Type**: Transactional Email API
+1. **Official Website**: <a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">emailit.com</a>
+2. **Category**: [Newsletters & Email](../../README.md#newsletters--email)
+3. **Type**: Transactional Email API
+4. **Pricing / License**: Freemium
 
 - **Tags**: `emailit`, `developer-email-api`, `rest-smtp-sending`, `serverless-transactional-email`, `pay-as-you-go-email`, `newsletter-embed`, `transactional-email`, `email-api`, `subscriber-growth`, `mailchimp-alternative`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It can be integrated into static web applications through serverless functions, 
 
 ## Key Highlights & Features
 
-- **High Deliverability**: Optimized routing to ensure messages reach inboxes.
-- **Developer-Friendly API**: Clean REST API for sending transactional messages.
-- **Real-Time Analytics**: Track deliveries, opens, bounces, and click rates.
-- **Template Support**: Create and manage responsive email templates.
+1. **High Deliverability**: Optimized routing to ensure messages reach inboxes.
+2. **Developer-Friendly API**: Clean REST API for sending transactional messages.
+3. **Real-Time Analytics**: Track deliveries, opens, bounces, and click rates.
+4. **Template Support**: Create and manage responsive email templates.
 
 ---
 
@@ -51,6 +51,6 @@ const response = await fetch("https://api.emailit.com/v1/emails", {
 
 ## When to Use It
 
-- Sending order confirmations, receipts, and user notifications.
-- Static sites paired with edge functions (Cloudflare Workers, Netlify Functions).
-- Developers seeking a dependable transactional email service.
+1. Sending order confirmations, receipts, and user notifications.
+2. Static sites paired with edge functions (Cloudflare Workers, Netlify Functions).
+3. Developers seeking a dependable transactional email service.

@@ -2,12 +2,12 @@
 
 > Host and deploy static websites and WebAssembly applications at the edge.
 
-- **Official Website**: <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">wasmer.io</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Edge Hosting & WebAssembly Platform
+1. **Official Website**: <a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">wasmer.io</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Edge Hosting & WebAssembly Platform
+4. **Pricing / License**: Freemium
 
 - **Tags**: `wasmer-edge`, `webassembly-cloud`, `winterjs`, `wasm-hosting`, `ultra-fast-edge-server`, `static-and-edge-apps`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ For static website creators, Wasmer provides a seamless way to deploy static fil
 
 ## Key Highlights & Features
 
-- **Global Edge Network**: Deploy static sites and edge applications close to your visitors.
-- **Sub-Millisecond Cold Starts**: Lightning-fast performance powered by WebAssembly runtimes.
-- **Simple CLI Workflows**: Deploy directly from the command line using the Wasmer CLI.
-- **Unified Registry**: Publish and consume portable packages and web components.
+1. **Global Edge Network**: Deploy static sites and edge applications close to your visitors.
+2. **Sub-Millisecond Cold Starts**: Lightning-fast performance powered by WebAssembly runtimes.
+3. **Simple CLI Workflows**: Deploy directly from the command line using the Wasmer CLI.
+4. **Unified Registry**: Publish and consume portable packages and web components.
 
 ---
 
@@ -54,6 +54,6 @@ version = "1.0.0"
 
 ## When to Use It
 
-- Deploying lightweight static sites alongside WebAssembly modules.
-- Projects requiring instant global deployment and distributed edge execution.
-- Teams looking for an alternative to traditional container and server hosting.
+1. Deploying lightweight static sites alongside WebAssembly modules.
+2. Projects requiring instant global deployment and distributed edge execution.
+3. Teams looking for an alternative to traditional container and server hosting.

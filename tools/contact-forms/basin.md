@@ -2,12 +2,12 @@
 
 > Hosted form backend built for static websites, developers, and agencies.
 
-- **Official Website**: <a href="https://usebasin.com/" target="_blank" rel="noopener noreferrer">usebasin.com</a>
-- **Category**: [Contact Forms](../../README.md#contact-forms)
-- **Type**: Developer Form Backend
+1. **Official Website**: <a href="https://usebasin.com/" target="_blank" rel="noopener noreferrer">usebasin.com</a>
+2. **Category**: [Contact Forms](../../README.md#contact-forms)
+3. **Type**: Developer Form Backend
+4. **Pricing / License**: Freemium
 
 - **Tags**: `basin-forms`, `static-form-backend`, `ajax-contact-form`, `spam-filtering`, `webhook-forms`, `custom-redirects`, `serverless-forms`, `static-html-form`, `form-backend`, `email-notifications`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It features white-label email notifications, advanced spam filtering (including 
 
 ## Key Highlights & Features
 
-- **Anti-Spam Controls**: Integrated honeypot fields, reCAPTCHA, and hCaptcha support.
-- **Custom Redirects**: Seamlessly forward visitors to a dedicated thank-you page.
-- **File Attachments**: Securely handle uploaded documents, images, and archives.
-- **Webhooks & API**: Export data or pipe submissions directly into your CRM.
+1. **Anti-Spam Controls**: Integrated honeypot fields, reCAPTCHA, and hCaptcha support.
+2. **Custom Redirects**: Seamlessly forward visitors to a dedicated thank-you page.
+3. **File Attachments**: Securely handle uploaded documents, images, and archives.
+4. **Webhooks & API**: Export data or pipe submissions directly into your CRM.
 
 ---
 
@@ -44,6 +44,6 @@ Example form integration pointing to Basin:
 
 ## When to Use It
 
-- Agency projects delivering static websites to clients with reliable form handling.
-- Forms that require file attachment support and custom thank-you redirects.
-- Sites requiring custom anti-spam rules and webhook automation.
+1. Agency projects delivering static websites to clients with reliable form handling.
+2. Forms that require file attachment support and custom thank-you redirects.
+3. Sites requiring custom anti-spam rules and webhook automation.

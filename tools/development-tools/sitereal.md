@@ -2,13 +2,12 @@
 
 > Visual builder for Astro that writes real .astro files into your repository with full code access and zero vendor lock-in.
 
-- **Official Website**: <a href="https://sitereal.app/" target="_blank" rel="noopener noreferrer">sitereal.app</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Visual Website Builder & Desktop Editor for Astro
-- **Pricing / License**: Paid
-- **Platform**: macOS, Windows, Linux
-- **Tags**: `astro`, `visual-builder`, `page-builder`, `desktop-editor`, `jamstack`, `sitereal`, `visual-astro-builder`, `webflow-for-astro`, `git-synced-visual-editor`, `tailwind-visual-builder`
+1. **Official Website**: <a href="https://sitereal.app/" target="_blank" rel="noopener noreferrer">sitereal.app</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Visual Website Builder & Desktop Editor for Astro
+4. **Pricing / License**: Paid
 
+- **Tags**: `astro`, `visual-builder`, `page-builder`, `desktop-editor`, `jamstack`, `sitereal`, `visual-astro-builder`, `webflow-for-astro`, `git-synced-visual-editor`, `tailwind-visual-builder`
 ---
 
 ## Overview
@@ -21,14 +20,14 @@ Unlike closed website builders or proprietary platforms that hide your markup be
 
 ## Key Highlights & Features
 
-- **Direct `.astro` Code Generation**: Composes layouts on a visual canvas and writes real Astro components (`src/pages/*.astro`, `src/components/*.astro`), CSS stylesheets, and content files directly into your repository.
-- **Zero Lock-In & Universal Hosting**: Your project is an ordinary Astro codebase that compiles to blazing-fast static HTML, CSS, and JavaScript. Deploy anywhere, including Cloudflare Pages, Vercel, Netlify, GitHub Pages, or any web host.
-- **Synchronized Visual & Code Editing**: Edit visually on the canvas or hand-edit files in your code editor—sitereal rewrites only generated files on save, leaving custom pages, components, and scripts untouched.
-- **Comprehensive Design System & Tokens**: Includes 18 modular token packs covering typography, colors, spacing, and layouts that can be customized or selectively disabled.
-- **AI Agents & Model Context Protocol (MCP)**: Features a built-in MCP server that allows AI coding agents like Claude Code to inspect the canvas, create components, and build pages programmatically.
-- **Content Collections & Headless CMS**: Built-in support for Astro content collections, Markdown/MDX, and headless backends such as WordPress or EmDash.
-- **Built-in Motion & Interactions**: Add entrance reveals, micro-animations, and scroll-linked effects with declarative HTML attributes.
-- **Cross-Platform Desktop Application**: Native desktop app for macOS, Windows, and Linux with a local engine running per-project and offline support.
+1. **Direct `.astro` Code Generation**: Composes layouts on a visual canvas and writes real Astro components (`src/pages/*.astro`, `src/components/*.astro`), CSS stylesheets, and content files directly into your repository.
+2. **Zero Lock-In & Universal Hosting**: Your project is an ordinary Astro codebase that compiles to blazing-fast static HTML, CSS, and JavaScript. Deploy anywhere, including Cloudflare Pages, Vercel, Netlify, GitHub Pages, or any web host.
+3. **Synchronized Visual & Code Editing**: Edit visually on the canvas or hand-edit files in your code editor—sitereal rewrites only generated files on save, leaving custom pages, components, and scripts untouched.
+4. **Comprehensive Design System & Tokens**: Includes 18 modular token packs covering typography, colors, spacing, and layouts that can be customized or selectively disabled.
+5. **AI Agents & Model Context Protocol (MCP)**: Features a built-in MCP server that allows AI coding agents like Claude Code to inspect the canvas, create components, and build pages programmatically.
+6. **Content Collections & Headless CMS**: Built-in support for Astro content collections, Markdown/MDX, and headless backends such as WordPress or EmDash.
+7. **Built-in Motion & Interactions**: Add entrance reveals, micro-animations, and scroll-linked effects with declarative HTML attributes.
+8. **Cross-Platform Desktop Application**: Native desktop app for macOS, Windows, and Linux with a local engine running per-project and offline support.
 
 ---
 
@@ -50,7 +49,7 @@ Trigger your usual Astro build command (`astro build` or `npm run build`) to gen
 
 ## When to Use It
 
-- **Developers & Agencies**: Who want the rapid layout speed of a visual builder while preserving full control over git commits, code structure, and client deliverables.
-- **Astro Static Sites**: Teams building marketing sites, documentation, portfolios, and blogs with Astro that need visual editing for designers or clients.
-- **AI-Assisted Workflows**: Teams leveraging Claude Code and MCP to generate and iterate on components visually and programmatically.
-- **Zero Vendor Lock-In**: Creators who want to own their source code completely without monthly SaaS lock-in or proprietary runtimes.
+1. **Developers & Agencies**: Who want the rapid layout speed of a visual builder while preserving full control over git commits, code structure, and client deliverables.
+2. **Astro Static Sites**: Teams building marketing sites, documentation, portfolios, and blogs with Astro that need visual editing for designers or clients.
+3. **AI-Assisted Workflows**: Teams leveraging Claude Code and MCP to generate and iterate on components visually and programmatically.
+4. **Zero Vendor Lock-In**: Creators who want to own their source code completely without monthly SaaS lock-in or proprietary runtimes.

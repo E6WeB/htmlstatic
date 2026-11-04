@@ -2,12 +2,12 @@
 
 > Visual Git GUI client to stage changes, manage branches, and sync repositories.
 
-- **Official Website**: <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">desktop.github.com</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Git GUI Client
+1. **Official Website**: <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">desktop.github.com</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Git GUI Client
+4. **Pricing / License**: Open Source
 
 - **Tags**: `github-desktop`, `visual-git-client`, `git-gui`, `branch-management`, `no-cli-git`, `pull-requests`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ For static website creators, designers, and developers, GitHub Desktop makes it 
 
 ## Key Highlights & Features
 
-- **Visual Diff Viewer**: Review changes line-by-line across HTML, CSS, JavaScript, and Markdown files before committing.
-- **Visual Branching & Merging**: Easily switch branches, create feature branches, and merge without merge conflict surprises.
-- **One-Click Syncing**: Pull the latest updates, push new commits, and publish repositories directly to GitHub.
-- **Pull Request Integration**: Create, view, and check out pull requests directly within the application.
-- **Cross-Platform**: Available on macOS and Windows, with community Linux distributions available.
+1. **Visual Diff Viewer**: Review changes line-by-line across HTML, CSS, JavaScript, and Markdown files before committing.
+2. **Visual Branching & Merging**: Easily switch branches, create feature branches, and merge without merge conflict surprises.
+3. **One-Click Syncing**: Pull the latest updates, push new commits, and publish repositories directly to GitHub.
+4. **Pull Request Integration**: Create, view, and check out pull requests directly within the application.
+5. **Cross-Platform**: Available on macOS and Windows, with community Linux distributions available.
 
 ---
 
@@ -39,6 +39,6 @@ For static website creators, designers, and developers, GitHub Desktop makes it 
 
 ## When to Use It
 
-- Developers, designers, and writers who prefer an intuitive graphical interface over command-line Git.
-- Managing static websites deployed on GitHub Pages, Cloudflare Pages, or Netlify via Git commits.
-- Quickly reviewing visual diffs and handling partial line-staging before publishing updates.
+1. Developers, designers, and writers who prefer an intuitive graphical interface over command-line Git.
+2. Managing static websites deployed on GitHub Pages, Cloudflare Pages, or Netlify via Git commits.
+3. Quickly reviewing visual diffs and handling partial line-staging before publishing updates.

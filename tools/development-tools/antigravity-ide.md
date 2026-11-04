@@ -2,12 +2,12 @@
 
 > Google's AI-first integrated development environment tailored for agentic pair programming, browser automation, and full-stack web development.
 
-- **Official Website**: <a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: AI-First IDE
+1. **Official Website**: <a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: AI-First IDE
+4. **Pricing / License**: Free
 
 - **Tags**: `antigravity-ide`, `ai-pair-programming`, `agentic-ide`, `browser-automation-ide`, `multi-agent-coding`, `google-deepmind`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ For static website developers, Antigravity IDE can autonomously design, scaffold
 
 ## Key Highlights & Features
 
-- **Agentic Pair Programming**: Autonomous coding assistant that plans, reads, edits, and verifies files across your workspace.
-- **Browser Automation Subagent**: Launches built-in browser sessions to visually inspect rendered HTML/CSS, test user interactions, and record WebP walkthroughs.
-- **Artifact Management**: Generates live visual artifacts, documentation diffs, interactive walkthroughs, and architecture diagrams.
-- **Customization System**: Extend capabilities with modular Skills, project-level Rules (`GEMINI.md` / `AGENTS.md`), MCP servers, and background sidecars.
-- **Integrated Terminal Multitasking**: Concurrently runs local dev servers, static site generators, and build tools while maintaining reactive agent control.
+1. **Agentic Pair Programming**: Autonomous coding assistant that plans, reads, edits, and verifies files across your workspace.
+2. **Browser Automation Subagent**: Launches built-in browser sessions to visually inspect rendered HTML/CSS, test user interactions, and record WebP walkthroughs.
+3. **Artifact Management**: Generates live visual artifacts, documentation diffs, interactive walkthroughs, and architecture diagrams.
+4. **Customization System**: Extend capabilities with modular Skills, project-level Rules (`GEMINI.md` / `AGENTS.md`), MCP servers, and background sidecars.
+5. **Integrated Terminal Multitasking**: Concurrently runs local dev servers, static site generators, and build tools while maintaining reactive agent control.
 
 ---
 
@@ -43,6 +43,6 @@ The agent will scaffold the markup, generate accessible styling, launch the loca
 
 ## When to Use It
 
-- Building static sites and web applications with AI pair programming.
-- Automated testing and visual verification of responsive web interfaces.
-- Rapid prototyping of components, landing pages, and interactive scripts.
+1. Building static sites and web applications with AI pair programming.
+2. Automated testing and visual verification of responsive web interfaces.
+3. Rapid prototyping of components, landing pages, and interactive scripts.

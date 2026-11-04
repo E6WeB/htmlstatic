@@ -2,12 +2,12 @@
 
 > Sell digital products and manage online payments with global tax compliance.
 
-- **Official Website**: <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a>
-- **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
-- **Type**: Merchant of Record E-Commerce
+1. **Official Website**: <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a>
+2. **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
+3. **Type**: Merchant of Record E-Commerce
+4. **Pricing / License**: Free
 
 - **Tags**: `lemon-squeezy`, `merchant-of-record`, `global-vat-tax-compliance`, `sell-saas-and-downloads`, `overlay-checkout-embed`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ For static site owners, Lemon Squeezy provides both hosted checkout URLs and an 
 
 ## Key Highlights & Features
 
-- **Merchant of Record**: Handles global tax, VAT, and compliance on your behalf.
-- **Overlay Checkout**: Beautiful modal checkout that opens directly on your static site.
-- **License Key Management**: Built-in generation and validation for software licenses.
-- **Affiliate Program**: Built-in system to launch and manage an affiliate program.
+1. **Merchant of Record**: Handles global tax, VAT, and compliance on your behalf.
+2. **Overlay Checkout**: Beautiful modal checkout that opens directly on your static site.
+3. **License Key Management**: Built-in generation and validation for software licenses.
+4. **Affiliate Program**: Built-in system to launch and manage an affiliate program.
 
 ---
 
@@ -46,6 +46,6 @@ Add Lemon.js to your static HTML page for an overlay checkout modal:
 
 ## When to Use It
 
-- Selling digital downloads, software licenses, presets, and courses.
-- Sellers who want someone else to handle worldwide VAT and sales tax compliance.
-- Static product landing pages needing a smooth popup checkout experience.
+1. Selling digital downloads, software licenses, presets, and courses.
+2. Sellers who want someone else to handle worldwide VAT and sales tax compliance.
+3. Static product landing pages needing a smooth popup checkout experience.

@@ -2,12 +2,12 @@
 
 > Free online website screenshot generator and REST API for full-page web captures and thumbnails.
 
-- **Official Website**: <a href="https://www.site-shot.com/" target="_blank" rel="noopener noreferrer">site-shot.com</a>
-- **Category**: [Images & Optimization](../../README.md#images--optimization)
-- **Type**: Website Screenshot Tool & REST API
+1. **Official Website**: <a href="https://www.site-shot.com/" target="_blank" rel="noopener noreferrer">site-shot.com</a>
+2. **Category**: [Images & Optimization](../../README.md#images--optimization)
+3. **Type**: Website Screenshot Tool & REST API
+4. **Pricing / License**: Freemium
 
 - **Tags**: `site-shot`, `website-screenshot-api`, `url-to-image-png`, `automated-og-images`, `webpage-thumbnail-generator`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
-
 ---
 
 ## Overview
@@ -20,13 +20,13 @@ The online web interface is completely free with zero signup required. For devel
 
 ## Key Highlights & Features
 
-- **No-Signup Web Tool**: Capture instant high-resolution screenshots directly from the browser with no account needed.
-- **Full-Page Scrolling Capture**: Automatically scrolls and stitches entire web pages up to 20,000 pixels tall.
-- **REST Screenshot API**: Generate dynamic screenshots via simple HTTP GET requests with custom query parameters.
-- **Modern Format Support**: Export to WebP (lossy and lossless), PNG, JPEG, or PDF documents.
-- **Device & Viewport Emulation**: Simulate desktop, tablet, and mobile screen resolutions with custom device pixel ratios.
-- **Ad & Cookie Banner Removal**: Automatically dismisses consent popups and blocks ads for clean website visuals.
-- **Proxy & Geolocation Support**: Render localized content via country-specific rotating proxies.
+1. **No-Signup Web Tool**: Capture instant high-resolution screenshots directly from the browser with no account needed.
+2. **Full-Page Scrolling Capture**: Automatically scrolls and stitches entire web pages up to 20,000 pixels tall.
+3. **REST Screenshot API**: Generate dynamic screenshots via simple HTTP GET requests with custom query parameters.
+4. **Modern Format Support**: Export to WebP (lossy and lossless), PNG, JPEG, or PDF documents.
+5. **Device & Viewport Emulation**: Simulate desktop, tablet, and mobile screen resolutions with custom device pixel ratios.
+6. **Ad & Cookie Banner Removal**: Automatically dismisses consent popups and blocks ads for clean website visuals.
+7. **Proxy & Geolocation Support**: Render localized content via country-specific rotating proxies.
 
 ---
 
@@ -68,6 +68,6 @@ https.get(apiUrl, (response) => {
 
 ## When to Use It
 
-- **Portfolio & Showcase Sites**: Automatically display live preview thumbnails of client websites or personal projects.
-- **Documentation & Link Previews**: Generate visual website cards or OG social share images without hosting a headless Chrome instance.
-- **Design Archival & QA**: Capture full-length scrolling screenshots to document design iterations and responsive layouts.
+1. **Portfolio & Showcase Sites**: Automatically display live preview thumbnails of client websites or personal projects.
+2. **Documentation & Link Previews**: Generate visual website cards or OG social share images without hosting a headless Chrome instance.
+3. **Design Archival & QA**: Capture full-length scrolling screenshots to document design iterations and responsive layouts.

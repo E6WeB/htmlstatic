@@ -2,15 +2,12 @@
 
 > Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust.
 
-- **Official Website**: <a href="https://getartcraft.com/apps/effectcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/effectcraft</a>
-- **GitHub Repository**: <a href="https://github.com/storytold/effectcraft" target="_blank" rel="noopener noreferrer">github.com/storytold/effectcraft</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Open Source Motion Graphics & VFX Compositor
-- **Pricing / License**: Free / Open Source
-- **Status**: Beta / In Development
-- **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `motion-graphics`, `rust`, `after-effects-alternative`, `lottie`, `vfx`, `animation`, `video`, `beta`, `effectcraft`, `open-source-after-effects`
+1. **Official Website**: <a href="https://getartcraft.com/apps/effectcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/effectcraft</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Open Source Motion Graphics & VFX Compositor
+4. **Pricing / License**: Free / Open Source
 
+- **Tags**: `motion-graphics`, `rust`, `after-effects-alternative`, `lottie`, `vfx`, `animation`, `video`, `beta`, `effectcraft`, `open-source-after-effects`
 ---
 
 ## Overview
@@ -26,13 +23,13 @@ EffectCraft is especially powerful for web developers and static site creators b
 
 ## Key Highlights & Features
 
-- **Native Rust Compositor**: Fast, GPU-accelerated rendering pipeline with zero web-engine or Electron overhead.
-- **Intuitive Animation Timeline**: Linear, bezier, hold, and eased keyframes, roving keys, and a dedicated graph editor for fine-tuning speed and value curves.
-- **Multi-Track Layer Types**: Supports solid layers, vector shapes, kinetic typography animators, video footage, nested compositions, null objects, and adjustment layers.
-- **259 Built-in Effects**: Complete suite of blurs, color grading, particle simulations, geometric distortion, keying, and procedural generators.
-- **True 3D Workspace**: 3D layers with ray-traced virtual cameras, depth of field, point and spot lights, soft cast shadows, and orbit navigation.
-- **JavaScript Expression Support**: Powerful expressions (including `wiggle`, loops, and layer references) editable inline and directly linked to any property.
-- **Web-Ready Export Formats**: Direct export to Lottie JSON for static websites, H.264 MP4, ProRes 4444 with alpha transparency, PNG/EXR image sequences, and optimized GIFs.
+1. **Native Rust Compositor**: Fast, GPU-accelerated rendering pipeline with zero web-engine or Electron overhead.
+2. **Intuitive Animation Timeline**: Linear, bezier, hold, and eased keyframes, roving keys, and a dedicated graph editor for fine-tuning speed and value curves.
+3. **Multi-Track Layer Types**: Supports solid layers, vector shapes, kinetic typography animators, video footage, nested compositions, null objects, and adjustment layers.
+4. **259 Built-in Effects**: Complete suite of blurs, color grading, particle simulations, geometric distortion, keying, and procedural generators.
+5. **True 3D Workspace**: 3D layers with ray-traced virtual cameras, depth of field, point and spot lights, soft cast shadows, and orbit navigation.
+6. **JavaScript Expression Support**: Powerful expressions (including `wiggle`, loops, and layer references) editable inline and directly linked to any property.
+7. **Web-Ready Export Formats**: Direct export to Lottie JSON for static websites, H.264 MP4, ProRes 4444 with alpha transparency, PNG/EXR image sequences, and optimized GIFs.
 
 ---
 
@@ -73,6 +70,6 @@ Export hero background loops in H.264 or WebM format with minimal file sizes for
 
 ## When to Use It
 
-- Motion designers and web creators building animated vector assets, hero animations, and Lottie graphics for static websites.
-- Video editors and developers looking for a lightweight, open-source After Effects replacement written in Rust.
-- Projects needing programmatic rendering and automated video/Lottie compilation via command line.
+1. Motion designers and web creators building animated vector assets, hero animations, and Lottie graphics for static websites.
+2. Video editors and developers looking for a lightweight, open-source After Effects replacement written in Rust.
+3. Projects needing programmatic rendering and automated video/Lottie compilation via command line.

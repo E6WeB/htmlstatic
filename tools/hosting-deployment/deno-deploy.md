@@ -2,12 +2,12 @@
 
 > Distributed, multi-region edge hosting platform serving static assets and edge logic globally.
 
-- **Official Website**: <a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Edge Hosting & Serverless Platform
+1. **Official Website**: <a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Edge Hosting & Serverless Platform
+4. **Pricing / License**: Freemium
 
 - **Tags**: `deno-deploy`, `v8-isolates-edge`, `serverless-typescript`, `global-edge-hosting`, `zero-cold-start`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ Deno Deploy eliminates cold starts and provides generous free tier allowances (1
 
 ## Key Highlights & Features
 
-- **Worldwide Edge Network**: Deploys across 35+ global data centers with sub-millisecond response times.
-- **Generous Free Tier**: 100,000 requests/day, 100 GB monthly bandwidth, and unlimited projects.
-- **Automatic SSL & Custom Domains**: Instant HTTPS provisioning with custom domain verification.
-- **GitHub Integration**: Automatically builds and deploys on every Git push with per-branch preview URLs.
-- **Static & Edge Hybrid**: Host pure static files with standard caching or augment with TypeScript edge functions.
+1. **Worldwide Edge Network**: Deploys across 35+ global data centers with sub-millisecond response times.
+2. **Generous Free Tier**: 100,000 requests/day, 100 GB monthly bandwidth, and unlimited projects.
+3. **Automatic SSL & Custom Domains**: Instant HTTPS provisioning with custom domain verification.
+4. **GitHub Integration**: Automatically builds and deploys on every Git push with per-branch preview URLs.
+5. **Static & Edge Hybrid**: Host pure static files with standard caching or augment with TypeScript edge functions.
 
 ---
 
@@ -46,6 +46,6 @@ For continuous integration, connect your GitHub repository in the Deno Deploy da
 
 ## When to Use It
 
-- Static websites requiring ultra-low global latency and edge delivery.
-- Jamstack frontends needing optional edge middleware or geo-routing.
-- Teams looking for a fast, modern alternative to Cloudflare Pages or Vercel.
+1. Static websites requiring ultra-low global latency and edge delivery.
+2. Jamstack frontends needing optional edge middleware or geo-routing.
+3. Teams looking for a fast, modern alternative to Cloudflare Pages or Vercel.

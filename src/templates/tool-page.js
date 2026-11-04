@@ -18,7 +18,7 @@ function renderToolPage({
   // Strip trailing markdown navigation links
   cleanMd = cleanMd.replace(/\n+---\s*\n+\[.*?Back to[\s\S]*$/i, '').trimEnd();
   // Strip tags from markdown body so they render in dedicated interactive section above Discussion
-  cleanMd = cleanMd.replace(/\n\s*-\s*\*\*(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\*\*:[^\n\r]+/gi, '');
+  cleanMd = cleanMd.replace(/\n\s*(?:[-*]|\d+\.)\s*\*\*(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\*\*:[^\n\r]+/gi, '');
   cleanMd = cleanMd.replace(/\n+---\s*\n+##\s+(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\b[\s\S]*?(?=\n+---|\n+##|$)/gi, '');
 
   // Render markdown with relative link rewriting

@@ -2,15 +2,12 @@
 
 > Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust.
 
-- **Official Website**: <a href="https://getartcraft.com/apps/figcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/figcraft</a>
-- **GitHub Repository**: <a href="https://github.com/storytold/figcraft" target="_blank" rel="noopener noreferrer">github.com/storytold/figcraft</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Open Source Interface Design & Prototyping Platform
-- **Pricing / License**: Free / Open Source
-- **Status**: Beta / Early Alpha
-- **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `ui-design`, `rust`, `figma-alternative`, `prototyping`, `auto-layout`, `dev-mode`, `vector`, `beta`, `figcraft`, `open-source-figma`
+1. **Official Website**: <a href="https://getartcraft.com/apps/figcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/figcraft</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Open Source Interface Design & Prototyping Platform
+4. **Pricing / License**: Free / Open Source
 
+- **Tags**: `ui-design`, `rust`, `figma-alternative`, `prototyping`, `auto-layout`, `dev-mode`, `vector`, `beta`, `figcraft`, `open-source-figma`
 ---
 
 ## Overview
@@ -26,14 +23,14 @@ Because FigCraft compiles to native machine code and renders via GPU acceleratio
 
 ## Key Highlights & Features
 
-- **Familiar Workspace & Intuitive UX**: Toolbar, layers panel, design inspector, assets drawer, and keyboard shortcuts positioned exactly where designers expect them.
-- **Bi-Directional Auto Layout**: Full flexbox-style auto layout with horizontal and vertical wrapping, layout grids, auto-padding, gap controls, and Hug/Fill/Fixed sizing rules.
-- **Components & Variants at Scale**: Reusable master components, variant matrices, property bindings, and design variable modes (supporting instant light/dark theme toggles).
-- **Advanced Vector Networks**: Native pen and pencil tools, shape builder, editable boolean operations (union, subtract, intersect, exclude), and variable-width strokes.
-- **Interactive Prototyping**: Connect screens with triggers, animated easing transitions, overlay states, and responsive presentation previews.
-- **Developer Mode & Code Generation**: Inspect paddings, view design annotations, and copy generated HTML, CSS, React, SwiftUI, or Compose snippets directly.
-- **Live Collaborative Sessions**: Host a design session from your machine or a private self-hosted server with live multi-user cursors, selection highlights, and cursor chat.
-- **MCP Server & Agent Control**: 400+ discrete commands allowing programmatic design generation through the command line or AI coding agents.
+1. **Familiar Workspace & Intuitive UX**: Toolbar, layers panel, design inspector, assets drawer, and keyboard shortcuts positioned exactly where designers expect them.
+2. **Bi-Directional Auto Layout**: Full flexbox-style auto layout with horizontal and vertical wrapping, layout grids, auto-padding, gap controls, and Hug/Fill/Fixed sizing rules.
+3. **Components & Variants at Scale**: Reusable master components, variant matrices, property bindings, and design variable modes (supporting instant light/dark theme toggles).
+4. **Advanced Vector Networks**: Native pen and pencil tools, shape builder, editable boolean operations (union, subtract, intersect, exclude), and variable-width strokes.
+5. **Interactive Prototyping**: Connect screens with triggers, animated easing transitions, overlay states, and responsive presentation previews.
+6. **Developer Mode & Code Generation**: Inspect paddings, view design annotations, and copy generated HTML, CSS, React, SwiftUI, or Compose snippets directly.
+7. **Live Collaborative Sessions**: Host a design session from your machine or a private self-hosted server with live multi-user cursors, selection highlights, and cursor chat.
+8. **MCP Server & Agent Control**: 400+ discrete commands allowing programmatic design generation through the command line or AI coding agents.
 
 ---
 
@@ -66,6 +63,6 @@ figcraft-cli export design-system.figcraft --components "Icons/*" --format svg -
 
 ## When to Use It
 
-- Designing landing pages, application interfaces, and component libraries for static web and Jamstack applications.
-- Teams and independent creators seeking a private, offline Figma alternative without monthly subscriptions.
-- Developers who want instant Dev Mode code generation and automated CLI/MCP design pipeline integration.
+1. Designing landing pages, application interfaces, and component libraries for static web and Jamstack applications.
+2. Teams and independent creators seeking a private, offline Figma alternative without monthly subscriptions.
+3. Developers who want instant Dev Mode code generation and automated CLI/MCP design pipeline integration.

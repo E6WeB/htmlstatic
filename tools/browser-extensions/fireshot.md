@@ -2,12 +2,12 @@
 
 > Powerful browser extension to capture full-length webpage screenshots, edit annotations, and export directly to PDF, PNG, or JPEG.
 
-- **Official Website**: <a href="https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
-- **Category**: [Browser Extensions](../../README.md#browser-extensions)
-- **Type**: Browser Extension
+1. **Official Website**: <a href="https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+2. **Category**: [Browser Extensions](../../README.md#browser-extensions)
+3. **Type**: Browser Extension
+4. **Pricing / License**: Freemium
 
 - **Tags**: `fireshot`, `full-page-screenshot`, `webpage-to-pdf`, `browser-capture`, `annotate-screenshots`, `visual-qa`, `web-dev-extension`, `page-capture`, `productivity-tool`, `chrome-extension`
-
 ---
 
 ## Overview
@@ -20,12 +20,12 @@ Captured screenshots can be copied directly to the clipboard, printed, or saved 
 
 ## Key Highlights & Features
 
-- **Full-Page Scrolling Capture**: Automatically scrolls and stitches the entire web page into a single crisp, high-resolution screenshot.
-- **Multiple Capture Modes**: Capture entire page, visible area only, or drag to capture a specific custom selection.
-- **Export to PDF & Images**: Save captures directly to multi-page PDF documents, PNG, JPEG, GIF, or copy straight to your clipboard.
-- **Zero Server Uploads Required**: Processes captures locally in your browser for fast performance and maximum privacy.
-- **Annotation & Editing Tools**: Built-in editor to crop, resize, blur sensitive information, and add text or arrow annotations.
-- **One-Click Export**: Save to disk, send via email, or upload directly to cloud destinations.
+1. **Full-Page Scrolling Capture**: Automatically scrolls and stitches the entire web page into a single crisp, high-resolution screenshot.
+2. **Multiple Capture Modes**: Capture entire page, visible area only, or drag to capture a specific custom selection.
+3. **Export to PDF & Images**: Save captures directly to multi-page PDF documents, PNG, JPEG, GIF, or copy straight to your clipboard.
+4. **Zero Server Uploads Required**: Processes captures locally in your browser for fast performance and maximum privacy.
+5. **Annotation & Editing Tools**: Built-in editor to crop, resize, blur sensitive information, and add text or arrow annotations.
+6. **One-Click Export**: Save to disk, send via email, or upload directly to cloud destinations.
 
 ---
 
@@ -43,7 +43,7 @@ Frontend developers and static site creators can capture full responsive page la
 
 ## When to Use It
 
-- Generating full-height website mockups and portfolio screenshots of static landing pages.
-- Archiving versions of static web designs before major redesigns or refactoring.
-- Capturing long-form documentation pages or tutorials into clean, shareable PDFs.
-- Creating bug reports with visual annotations for frontend layout issues.
+1. Generating full-height website mockups and portfolio screenshots of static landing pages.
+2. Archiving versions of static web designs before major redesigns or refactoring.
+3. Capturing long-form documentation pages or tutorials into clean, shareable PDFs.
+4. Creating bug reports with visual annotations for frontend layout issues.

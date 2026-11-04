@@ -2,12 +2,12 @@
 
 > Reliable form submissions and email notifications for static sites.
 
-- **Official Website**: <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">formspree.io</a>
-- **Category**: [Contact Forms](../../README.md#contact-forms)
-- **Type**: Form Endpoint Service
+1. **Official Website**: <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">formspree.io</a>
+2. **Category**: [Contact Forms](../../README.md#contact-forms)
+3. **Type**: Form Endpoint Service
+4. **Pricing / License**: Freemium
 
 - **Tags**: `formspree`, `html-form-backend`, `contact-form-api`, `serverless-email-forms`, `ajax-submissions`, `static-site-forms`, `serverless-forms`, `static-html-form`, `form-backend`, `email-notifications`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Submissions are scanned for spam via reCAPTCHA and custom rules, forwarded to yo
 
 ## Key Highlights & Features
 
-- **Zero-Code Backend**: Connect any HTML or JavaScript AJAX form in minutes.
-- **Integrations**: Connect submissions to Slack, Discord, Google Sheets, and Trello.
-- **AJAX & Redirect Support**: Submit via `fetch()` for custom UI feedback or standard redirects.
-- **File Uploads**: Collect attachments and file uploads directly through forms.
+1. **Zero-Code Backend**: Connect any HTML or JavaScript AJAX form in minutes.
+2. **Integrations**: Connect submissions to Slack, Discord, Google Sheets, and Trello.
+3. **AJAX & Redirect Support**: Submit via `fetch()` for custom UI feedback or standard redirects.
+4. **File Uploads**: Collect attachments and file uploads directly through forms.
 
 ---
 
@@ -53,6 +53,6 @@ const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
 
 ## When to Use It
 
-- Static blogs, documentation sites, and client websites needing robust forms.
-- Forms requiring third-party integrations (Slack, Google Sheets, Zapier).
-- Advanced forms requiring file attachment handling.
+1. Static blogs, documentation sites, and client websites needing robust forms.
+2. Forms requiring third-party integrations (Slack, Google Sheets, Zapier).
+3. Advanced forms requiring file attachment handling.

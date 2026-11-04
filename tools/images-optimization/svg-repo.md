@@ -2,12 +2,12 @@
 
 > Browse and download thousands of free SVG icons and vectors for commercial use.
 
-- **Official Website**: <a href="https://svgrepo.com/" target="_blank" rel="noopener noreferrer">svgrepo.com</a>
-- **Category**: [Images & Optimization](../../README.md#images--optimization)
-- **Type**: Vector Icon & Illustration Library
+1. **Official Website**: <a href="https://svgrepo.com/" target="_blank" rel="noopener noreferrer">svgrepo.com</a>
+2. **Category**: [Images & Optimization](../../README.md#images--optimization)
+3. **Type**: Vector Icon & Illustration Library
+4. **Pricing / License**: Free
 
 - **Tags**: `svg-repo`, `500k-free-svgs`, `cc0-vector-icons`, `commercial-use-icons`, `in-browser-svg-color-editor`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ The site includes built-in SVG editing and color customization tools so you can 
 
 ## Key Highlights & Features
 
-- **500,000+ Vectors**: Monoline, duotone, flat, and glyph styles across every category.
-- **Commercial License**: Free for commercial use with clear licensing tags.
-- **In-Browser Color Customizer**: Change icon colors and dimensions before downloading.
-- **Direct Copy SVG Code**: Copy raw SVG XML markup straight into HTML documents.
+1. **500,000+ Vectors**: Monoline, duotone, flat, and glyph styles across every category.
+2. **Commercial License**: Free for commercial use with clear licensing tags.
+3. **In-Browser Color Customizer**: Change icon colors and dimensions before downloading.
+4. **Direct Copy SVG Code**: Copy raw SVG XML markup straight into HTML documents.
 
 ---
 
@@ -45,5 +45,5 @@ Use downloaded SVGs directly inline in your HTML for optimal styling control:
 
 ## When to Use It
 
-- Finding UI icons, navigation buttons, and decorative illustrations for static websites.
-- Embedding lightweight scalable vectors that look crisp on high-DPI screens without heavy icon fonts.
+1. Finding UI icons, navigation buttons, and decorative illustrations for static websites.
+2. Embedding lightweight scalable vectors that look crisp on high-DPI screens without heavy icon fonts.

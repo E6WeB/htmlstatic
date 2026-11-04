@@ -2,12 +2,12 @@
 
 > The world's leading open-weights model family, enabling private local hosting and customizable web deployments.
 
-- **Official Website**: <a href="https://llama.meta.com/" target="_blank" rel="noopener noreferrer">llama.meta.com</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Open-Weights Foundation Model
+1. **Official Website**: <a href="https://llama.meta.com/" target="_blank" rel="noopener noreferrer">llama.meta.com</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Open-Weights Foundation Model
+4. **Pricing / License**: Open Source
 
 - **Tags**: `llama-3`, `meta-ai`, `open-source-llm`, `local-ai`, `ollama`, `self-hosted-llm`, `open-weights`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Meta Llama (including Llama 3.3 70B, Llama 3.1 405B, and lightweight 8B/1B varia
 
 ## Key Highlights & Features
 
-**Complete Independence**: Self-host models locally or on private infrastructure with zero vendor lock-in or recurring API costs.
-**128k Context Window**: Supports processing long markdown articles, documentation files, and technical manuals.
-**Edge Deployment**: Runs on Cloudflare Workers AI or Wasmer edge servers for instant global static site integrations.
-**Browser Execution via WebGPU**: Smaller Llama variants (e.g. Llama 3.2 1B/3B) can execute completely client-side in the browser via WebLLM.
+1. **Complete Independence**: Self-host models locally or on private infrastructure with zero vendor lock-in or recurring API costs.
+2. **128k Context Window**: Supports processing long markdown articles, documentation files, and technical manuals.
+3. **Edge Deployment**: Runs on Cloudflare Workers AI or Wasmer edge servers for instant global static site integrations.
+4. **Browser Execution via WebGPU**: Smaller Llama variants (e.g. Llama 3.2 1B/3B) can execute completely client-side in the browser via WebLLM.
 
 ---
 
@@ -45,6 +45,6 @@ const res = await fetch("http://localhost:11434/api/generate", {
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

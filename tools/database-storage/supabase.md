@@ -2,12 +2,12 @@
 
 > Open-source Firebase alternative with real-time Postgres, storage, and auto-generated APIs.
 
-- **Official Website**: <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">supabase.com</a>
-- **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
-- **Type**: Backend-as-a-Service (BaaS)
+1. **Official Website**: <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">supabase.com</a>
+2. **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
+3. **Type**: Backend-as-a-Service (BaaS)
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `supabase`, `open-source-firebase`, `postgres-rest-api`, `realtime-subscriptions`, `edge-functions`, `pgvector`, `serverless-database`, `baas`, `rest-api`, `realtime-db`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Because queries can be executed directly from client-side JavaScript using publi
 
 ## Key Highlights & Features
 
-- **Full PostgreSQL Database**: Enterprise-grade SQL database with relations and views.
-- **Auto-Generated REST APIs**: Instant endpoints for querying, inserting, and updating data.
-- **Real-time Subscriptions**: Listen to database changes over WebSockets instantly.
-- **File Storage**: Upload and serve images and user assets with CDN caching.
+1. **Full PostgreSQL Database**: Enterprise-grade SQL database with relations and views.
+2. **Auto-Generated REST APIs**: Instant endpoints for querying, inserting, and updating data.
+3. **Real-time Subscriptions**: Listen to database changes over WebSockets instantly.
+4. **File Storage**: Upload and serve images and user assets with CDN caching.
 
 ---
 
@@ -63,6 +63,6 @@ Query data directly from static HTML/JavaScript:
 
 ## When to Use It
 
-- Static sites needing user-generated content (reviews, job boards, community listings).
-- Applications needing real-time collaborative updates or chat feeds.
-- Developers wanting the reliability of Postgres without maintaining database servers.
+1. Static sites needing user-generated content (reviews, job boards, community listings).
+2. Applications needing real-time collaborative updates or chat feeds.
+3. Developers wanting the reliability of Postgres without maintaining database servers.

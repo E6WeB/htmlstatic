@@ -2,12 +2,12 @@
 
 > Animate elements on your static web pages as visitors scroll down with simple data attributes.
 
-- **Official Website**: <a href="https://michalsnik.github.io/aos/" target="_blank" rel="noopener noreferrer">michalsnik.github.io/aos</a>
-- **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
-- **Type**: Scroll Animation Library
+1. **Official Website**: <a href="https://michalsnik.github.io/aos/" target="_blank" rel="noopener noreferrer">michalsnik.github.io/aos</a>
+2. **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
+3. **Type**: Scroll Animation Library
+4. **Pricing / License**: Open Source
 
 - **Tags**: `aos-js`, `animate-on-scroll`, `scroll-reveal-css`, `data-aos-attributes`, `lightweight-scroll-effects`, `vanilla-js`, `scroll-animations`, `touch-slider`, `lightbox-gallery`, `zero-dependencies`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Instead of writing complex intersection observers or scroll listeners, you simpl
 
 ## Key Highlights & Features
 
-- **Simple Data Attributes**: Add animations via `data-aos="fade-up"` or `data-aos="zoom-in"`.
-- **Hardware-Accelerated CSS**: Animations use smooth CSS transitions for high frame rates.
-- **Configurable Timing**: Control animation duration, easing, delay, and offset.
-- **Zero Dependencies**: Standalone script that pairs effortlessly with any static HTML page.
+1. **Simple Data Attributes**: Add animations via `data-aos="fade-up"` or `data-aos="zoom-in"`.
+2. **Hardware-Accelerated CSS**: Animations use smooth CSS transitions for high frame rates.
+3. **Configurable Timing**: Control animation duration, easing, delay, and offset.
+4. **Zero Dependencies**: Standalone script that pairs effortlessly with any static HTML page.
 
 ---
 
@@ -57,5 +57,5 @@ Add AOS to your static HTML:
 
 ## When to Use It
 
-- Marketing landing pages and portfolios needing subtle entrance animations.
-- Highlighting features, cards, and testimonials as users scroll down static pages.
+1. Marketing landing pages and portfolios needing subtle entrance animations.
+2. Highlighting features, cards, and testimonials as users scroll down static pages.

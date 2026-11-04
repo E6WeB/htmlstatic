@@ -2,12 +2,12 @@
 
 > Find and fix problems in your JavaScript code before deploying.
 
-- **Official Website**: <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Static Code Linter
+1. **Official Website**: <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer">eslint.org</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Static Code Linter
+4. **Pricing / License**: Open Source
 
 - **Tags**: `eslint`, `javascript-linter`, `static-code-analysis`, `code-quality`, `ecmascript-rules`, `bug-prevention`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ For static websites utilizing vanilla JavaScript or modern frameworks, ESLint ca
 
 ## Key Highlights & Features
 
-- **Error Prevention**: Detect undefined variables, syntax errors, and potential bugs early.
-- **Customizable Rules**: Customize linting rules or adopt popular standards (Airbnb, Standard).
-- **Automatic Fixing**: Automatically fix many common code errors with the `--fix` flag.
-- **Modern Standards**: Support for ES2024+, modules, and modern browser APIs.
+1. **Error Prevention**: Detect undefined variables, syntax errors, and potential bugs early.
+2. **Customizable Rules**: Customize linting rules or adopt popular standards (Airbnb, Standard).
+3. **Automatic Fixing**: Automatically fix many common code errors with the `--fix` flag.
+4. **Modern Standards**: Support for ES2024+, modules, and modern browser APIs.
 
 ---
 
@@ -43,5 +43,5 @@ npx eslint . --fix
 
 ## When to Use It
 
-- Static websites with client-side JavaScript logic, forms, or interactive components.
-- Preventing subtle browser bugs and maintaining modern JavaScript best practices.
+1. Static websites with client-side JavaScript logic, forms, or interactive components.
+2. Preventing subtle browser bugs and maintaining modern JavaScript best practices.

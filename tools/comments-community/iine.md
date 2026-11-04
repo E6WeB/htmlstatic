@@ -2,12 +2,12 @@
 
 > Lightweight, privacy-first appreciation and like button widget without tracking.
 
-- **Official Website**: <a href="https://iine.to/" target="_blank" rel="noopener noreferrer">iine.to</a>
-- **Category**: [Comments & Community](../../README.md#comments--community)
-- **Type**: Open Source Reaction & Like Button Widget
-- **Pricing / License**: Free
-- **Tags**: `like-button`, `reactions`, `appreciation`, `privacy-first`, `widget`, `open-source`, `like-button-widget`, `clap-button`, `appreciation-counter`, `privacy-first-likes`
+1. **Official Website**: <a href="https://iine.to/" target="_blank" rel="noopener noreferrer">iine.to</a>
+2. **Category**: [Comments & Community](../../README.md#comments--community)
+3. **Type**: Open Source Reaction & Like Button Widget
+4. **Pricing / License**: Free
 
+- **Tags**: `like-button`, `reactions`, `appreciation`, `privacy-first`, `widget`, `open-source`, `like-button-widget`, `clap-button`, `appreciation-counter`, `privacy-first-likes`
 ---
 
 ## Overview
@@ -20,12 +20,12 @@ Unlike traditional social reaction widgets that load heavy third-party tracking 
 
 ## Key Highlights & Features
 
-- **Zero Tracking & Privacy-First**: No personal data, cookies, timestamps, or IP addresses collected.
-- **Ultra Lightweight**: Minimal client-side JavaScript (~3.7 KB) with zero third-party framework dependencies.
-- **100% Free & Open Source**: AGPL-licensed; free hosted backend provided for small web creators, with simple self-hosting on Supabase.
-- **Customizable Icons**: Built-in support for thumbs up, hearts, upvotes, or custom emoji.
-- **Works Without JavaScript**: Supports progressive enhancement via standard HTML form submission.
-- **Smooth Animations & Micro-Interactions**: Tactile button feedback with filled icon states and interactive counters.
+1. **Zero Tracking & Privacy-First**: No personal data, cookies, timestamps, or IP addresses collected.
+2. **Ultra Lightweight**: Minimal client-side JavaScript (~3.7 KB) with zero third-party framework dependencies.
+3. **100% Free & Open Source**: AGPL-licensed; free hosted backend provided for small web creators, with simple self-hosting on Supabase.
+4. **Customizable Icons**: Built-in support for thumbs up, hearts, upvotes, or custom emoji.
+5. **Works Without JavaScript**: Supports progressive enhancement via standard HTML form submission.
+6. **Smooth Animations & Micro-Interactions**: Tactile button feedback with filled icon states and interactive counters.
 
 ---
 
@@ -60,6 +60,6 @@ For environments with JavaScript disabled or strict noscript policies, embed an 
 
 ## When to Use It
 
-- Static blogs, personal portfolios, and digital gardens looking for lightweight reader feedback.
-- Documentation sites wanting quick "Was this helpful?" thumbs-up appreciation.
-- Privacy-conscious web developers who avoid intrusive analytics and cookies.
+1. Static blogs, personal portfolios, and digital gardens looking for lightweight reader feedback.
+2. Documentation sites wanting quick "Was this helpful?" thumbs-up appreciation.
+3. Privacy-conscious web developers who avoid intrusive analytics and cookies.

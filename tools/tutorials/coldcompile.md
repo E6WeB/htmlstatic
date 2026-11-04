@@ -2,13 +2,12 @@
 
 > Real-world tutorials, video walkthroughs, and production guides covering EmDash CMS, Astro, Breakdance, and modern AI development tooling.
 
-- **Official Website**: <a href="https://coldcompile.dev/" target="_blank" rel="noopener noreferrer">coldcompile.dev</a>
-- **YouTube Channel**: <a href="https://www.youtube.com/@Cold_Compile" target="_blank" rel="noopener noreferrer">youtube.com/@Cold_Compile</a>
-- **Category**: [Tutorials](../../README.md#tutorials)
-- **Type**: Video & Written Web Development Tutorials
+1. **Official Website**: <a href="https://coldcompile.dev/" target="_blank" rel="noopener noreferrer">coldcompile.dev</a>
+2. **Category**: [Tutorials](../../README.md#tutorials)
+3. **Type**: Video & Written Web Development Tutorials
+4. **Pricing / License**: Free
 
 - **Tags**: `cold-compile`, `astro-video-tutorials`, `emdash-cms-guides`, `breakdance-static-workflows`, `modern-static-architecture`, `static-web-tutorials`, `astro-guides`, `jamstack-course`, `web-dev-walkthroughs`, `zero-backend-guides`
-
 ---
 
 ## Overview
@@ -21,25 +20,25 @@ The platform provides extensive guides on EmDash CMS—an open-source CMS built 
 
 ## Key Highlights & Features
 
-- **Dual-Format Guides**: Every tutorial is accompanied by both a high-definition video walkthrough and a thorough written version with code snippets.
-- **EmDash CMS Focus**: Step-by-step guides covering content modeling, Cloudflare D1/R2 setups, custom plugins, and production deployments.
-- **AI Tooling & MCP**: Practical tutorials on connecting coding agents like Claude Code to site builders and static stacks using MCP connectors.
-- **Production-Tested Insights**: Lessons learned from actual agency client builds, highlighting undocumented edge cases and real-world fixes.
-- **Open Directory & Resources**: Curated directory of themes, plugins, and migration recipes to help developers transition from legacy CMSs to modern Astro stacks.
+1. **Dual-Format Guides**: Every tutorial is accompanied by both a high-definition video walkthrough and a thorough written version with code snippets.
+2. **EmDash CMS Focus**: Step-by-step guides covering content modeling, Cloudflare D1/R2 setups, custom plugins, and production deployments.
+3. **AI Tooling & MCP**: Practical tutorials on connecting coding agents like Claude Code to site builders and static stacks using MCP connectors.
+4. **Production-Tested Insights**: Lessons learned from actual agency client builds, highlighting undocumented edge cases and real-world fixes.
+5. **Open Directory & Resources**: Curated directory of themes, plugins, and migration recipes to help developers transition from legacy CMSs to modern Astro stacks.
 
 ---
 
 ## Core Topics Covered
 
-- **EmDash CMS**: Deep dives into version releases, architecture, content types, and serverless hosting.
-- **Astro & Static Sites**: High-performance static web architectures, component design, and zero-runtime configurations.
-- **Breakdance & Page Builders**: Advanced responsive variables, global design systems, and custom selectors.
-- **AI Development Tools**: Connecting agentic assistants to web builders and automated workflow setups.
+1. **EmDash CMS**: Deep dives into version releases, architecture, content types, and serverless hosting.
+2. **Astro & Static Sites**: High-performance static web architectures, component design, and zero-runtime configurations.
+3. **Breakdance & Page Builders**: Advanced responsive variables, global design systems, and custom selectors.
+4. **AI Development Tools**: Connecting agentic assistants to web builders and automated workflow setups.
 
 ---
 
 ## When to Use It
 
-- Developers building client sites with modern static site generators and Astro.
-- Creators looking for clear, production-ready video and written guides on EmDash CMS and Cloudflare Workers.
-- Anyone interested in leveraging AI coding agents and MCP tools in real-world web development.
+1. Developers building client sites with modern static site generators and Astro.
+2. Creators looking for clear, production-ready video and written guides on EmDash CMS and Cloudflare Workers.
+3. Anyone interested in leveraging AI coding agents and MCP tools in real-world web development.

@@ -2,12 +2,12 @@
 
 > Audit website performance, accessibility, SEO, and web development best practices.
 
-- **Official Website**: <a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/lighthouse</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Website Quality & Audit Tool
+1. **Official Website**: <a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/lighthouse</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Website Quality & Audit Tool
+4. **Pricing / License**: Open Source
 
 - **Tags**: `google-lighthouse`, `core-web-vitals`, `pagespeed-audit`, `seo-checker`, `accessibility-audit`, `lcp-cls-inp`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It provides actionable advice, diagnostics, and metrics (including First Content
 
 ## Key Highlights & Features
 
-- **Five Comprehensive Audits**: Performance, Accessibility, Best Practices, SEO, and PWA.
-- **Core Web Vitals Scoring**: Measure LCP, FID/INP, and CLS against Google standards.
-- **Actionable Recommendations**: Specific advice on unoptimized images, render-blocking scripts, and color contrast.
-- **Integrated in DevTools**: Built directly into the Chrome DevTools "Lighthouse" tab.
+1. **Five Comprehensive Audits**: Performance, Accessibility, Best Practices, SEO, and PWA.
+2. **Core Web Vitals Scoring**: Measure LCP, FID/INP, and CLS against Google standards.
+3. **Actionable Recommendations**: Specific advice on unoptimized images, render-blocking scripts, and color contrast.
+4. **Integrated in DevTools**: Built directly into the Chrome DevTools "Lighthouse" tab.
 
 ---
 
@@ -44,6 +44,6 @@ npx lighthouse https://example.com --view --output html
 
 ## When to Use It
 
-- Benchmarking and optimizing static website load speed and Core Web Vitals.
-- Ensuring WCAG accessibility standards and color contrast compliance.
-- Verifying meta tags, headings, and SEO essentials before launching a static site.
+1. Benchmarking and optimizing static website load speed and Core Web Vitals.
+2. Ensuring WCAG accessibility standards and color contrast compliance.
+3. Verifying meta tags, headings, and SEO essentials before launching a static site.

@@ -2,12 +2,12 @@
 
 > xAI's frontier reasoning and conversational model with real-time access to global live information.
 
-- **Official Website**: <a href="https://x.ai/" target="_blank" rel="noopener noreferrer">x.ai</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Frontier Real-Time Model
+1. **Official Website**: <a href="https://x.ai/" target="_blank" rel="noopener noreferrer">x.ai</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Frontier Real-Time Model
+4. **Pricing / License**: Paid
 
 - **Tags**: `grok-api`, `xai`, `realtime-knowledge`, `reasoning-llm`, `coding-assistant`, `frontier-model`, `openai-compatible`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Grok, built by xAI, is a frontier AI model designed for high-performance reasoni
 
 ## Key Highlights & Features
 
-**Live Real-Time Awareness**: Integrates real-time information and live discourse directly into responses.
-**Strong Coding Benchmarks**: Generates production-ready JavaScript, TypeScript, and modern responsive CSS.
-**Grok Vision**: Multimodal capabilities for analyzing webpage designs, screenshots, and diagrams.
-**REST API Access**: Developer endpoints compatible with standard chat completion formats.
+1. **Live Real-Time Awareness**: Integrates real-time information and live discourse directly into responses.
+2. **Strong Coding Benchmarks**: Generates production-ready JavaScript, TypeScript, and modern responsive CSS.
+3. **Grok Vision**: Multimodal capabilities for analyzing webpage designs, screenshots, and diagrams.
+4. **REST API Access**: Developer endpoints compatible with standard chat completion formats.
 
 ---
 
@@ -48,6 +48,6 @@ const res = await fetch("https://api.x.ai/v1/chat/completions", {
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

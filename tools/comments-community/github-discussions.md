@@ -2,12 +2,12 @@
 
 > Collaborative community discussion forum and Q&A platform built natively into GitHub.
 
-- **Official Website**: <a href="https://docs.github.com/en/discussions" target="_blank" rel="noopener noreferrer">docs.github.com</a>
-- **Category**: [Comments & Community](../../README.md#comments--community)
-- **Type**: Hosted Community & Discussion Forum
+1. **Official Website**: <a href="https://docs.github.com/en/discussions" target="_blank" rel="noopener noreferrer">docs.github.com</a>
+2. **Category**: [Comments & Community](../../README.md#comments--community)
+3. **Type**: Hosted Community & Discussion Forum
+4. **Pricing / License**: Free
 
 - **Tags**: `github-discussions`, `open-source-community`, `developer-qna`, `repo-forum`, `zero-cost-community`, `static-blog-comments`, `disqus-alternative`, `github-comments`, `no-database`, `community-widget`
-
 ---
 
 ## Overview
@@ -20,12 +20,12 @@ For static websites and documentation projects, GitHub Discussions acts as a pow
 
 ## Key Highlights & Features
 
-- **Free & Hosted**: Built directly into GitHub with zero hosting fees, server maintenance, or database setup.
-- **Q&A Format with Answer Upvoting**: Community members can ask questions and mark the most helpful response as the accepted answer.
-- **GraphQL API Support**: Query threads, submit comments, and fetch reactions programmatically from static web applications.
-- **Comment Widget Integration**: Powers static comment widgets like Giscus to provide clean, tracker-free blog commenting.
-- **GitHub Flavored Markdown**: Full support for syntax-highlighted code snippets, checklists, tables, and emoji reactions.
-- **Built-in Moderation & Access Control**: Robust spam filtering, user blocking, lockable threads, and customizable permissions.
+1. **Free & Hosted**: Built directly into GitHub with zero hosting fees, server maintenance, or database setup.
+2. **Q&A Format with Answer Upvoting**: Community members can ask questions and mark the most helpful response as the accepted answer.
+3. **GraphQL API Support**: Query threads, submit comments, and fetch reactions programmatically from static web applications.
+4. **Comment Widget Integration**: Powers static comment widgets like Giscus to provide clean, tracker-free blog commenting.
+5. **GitHub Flavored Markdown**: Full support for syntax-highlighted code snippets, checklists, tables, and emoji reactions.
+6. **Built-in Moderation & Access Control**: Robust spam filtering, user blocking, lockable threads, and customizable permissions.
 
 ---
 
@@ -67,6 +67,6 @@ Use Giscus to embed GitHub Discussions directly onto your static blog posts or d
 
 ## When to Use It
 
-- Open-source projects, developer tools, and technical documentation websites.
-- Blogs and documentation where readers and contributors already possess GitHub accounts.
-- Site owners who want full forum and Q&A functionality with zero server overhead and robust GitHub-grade spam filtering.
+1. Open-source projects, developer tools, and technical documentation websites.
+2. Blogs and documentation where readers and contributors already possess GitHub accounts.
+3. Site owners who want full forum and Q&A functionality with zero server overhead and robust GitHub-grade spam filtering.

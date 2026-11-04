@@ -2,12 +2,12 @@
 
 > Compress and convert images directly in your browser with instant visual comparison.
 
-- **Official Website**: <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">squoosh.app</a>
-- **Category**: [Images & Optimization](../../README.md#images--optimization)
-- **Type**: Browser-Based Image Compression
+1. **Official Website**: <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">squoosh.app</a>
+2. **Category**: [Images & Optimization](../../README.md#images--optimization)
+3. **Type**: Browser-Based Image Compression
+4. **Pricing / License**: Open Source
 
 - **Tags**: `squoosh-app`, `google-image-compressor`, `avif-webp-converter`, `browser-wasm-compression`, `visual-size-comparison`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Because all processing happens locally on your computer, your images are never u
 
 ## Key Highlights & Features
 
-- **Runs 100% in Browser**: Private and secure; images never leave your machine.
-- **Side-by-Side Visual Slider**: Compare original vs compressed image quality in real time.
-- **Next-Gen Formats**: Convert images into lightweight WebP and AVIF files.
-- **Detailed Compression Controls**: Fine-tune color palettes, effort levels, and smoothing.
+1. **Runs 100% in Browser**: Private and secure; images never leave your machine.
+2. **Side-by-Side Visual Slider**: Compare original vs compressed image quality in real time.
+3. **Next-Gen Formats**: Convert images into lightweight WebP and AVIF files.
+4. **Detailed Compression Controls**: Fine-tune color palettes, effort levels, and smoothing.
 
 ---
 
@@ -42,6 +42,6 @@ npx @squoosh/cli --webp auto images/*.png
 
 ## When to Use It
 
-- Optimizing hero banners, screenshots, and illustrations before publishing static pages.
-- Converting heavy JPEG and PNG files into high-efficiency WebP and AVIF formats.
-- Quick manual image compression without installing desktop software.
+1. Optimizing hero banners, screenshots, and illustrations before publishing static pages.
+2. Converting heavy JPEG and PNG files into high-efficiency WebP and AVIF formats.
+3. Quick manual image compression without installing desktop software.

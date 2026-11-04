@@ -2,12 +2,12 @@
 
 > Accept payments through hosted checkout pages without writing server code.
 
-- **Official Website**: <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a>
-- **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
-- **Type**: Hosted Payment Checkouts
+1. **Official Website**: <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a>
+2. **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
+3. **Type**: Hosted Payment Checkouts
+4. **Pricing / License**: Free
 
 - **Tags**: `stripe-payment-links`, `stripe-buy-button`, `no-code-stripe-checkout`, `apple-google-pay-links`, `recurring-subscriptions`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Stripe handles tax collection, fraud prevention (Radar), mobile wallets (Apple P
 
 ## Key Highlights & Features
 
-- **Zero Code Setup**: Generate checkout URLs directly inside Stripe Dashboard.
-- **Digital Wallets**: Automatic support for Apple Pay, Google Pay, and credit cards.
-- **Subscriptions & One-Time Payments**: Sell monthly memberships or single purchases.
-- **Automated Tax & Invoicing**: Built-in tax calculation with Stripe Tax.
+1. **Zero Code Setup**: Generate checkout URLs directly inside Stripe Dashboard.
+2. **Digital Wallets**: Automatic support for Apple Pay, Google Pay, and credit cards.
+3. **Subscriptions & One-Time Payments**: Sell monthly memberships or single purchases.
+4. **Automated Tax & Invoicing**: Built-in tax calculation with Stripe Tax.
 
 ---
 
@@ -44,6 +44,6 @@ Add a Stripe Payment Link to your static site HTML:
 
 ## When to Use It
 
-- Selling single products, consulting sessions, or digital goods from a static site.
-- Setting up subscription or membership billing without building a customer portal.
-- Developers wanting the reliability and security of Stripe with zero backend.
+1. Selling single products, consulting sessions, or digital goods from a static site.
+2. Setting up subscription or membership billing without building a customer portal.
+3. Developers wanting the reliability and security of Stripe with zero backend.

@@ -2,15 +2,12 @@
 
 > Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust.
 
-- **Official Website**: <a href="https://getartcraft.com/apps/designcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/designcraft</a>
-- **GitHub Repository**: <a href="https://github.com/storytold/designcraft" target="_blank" rel="noopener noreferrer">github.com/storytold/designcraft</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Open Source Page Layout & Desktop Publishing App
-- **Pricing / License**: Free / Open Source
-- **Status**: Beta / In Development
-- **Platform**: macOS, Windows, Linux, Web
-- **Tags**: `page-layout`, `rust`, `indesign-alternative`, `desktop-publishing`, `typography`, `pdf-export`, `print-design`, `beta`, `designcraft`, `open-source-indesign`
+1. **Official Website**: <a href="https://getartcraft.com/apps/designcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/designcraft</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Open Source Page Layout & Desktop Publishing App
+4. **Pricing / License**: Free / Open Source
 
+- **Tags**: `page-layout`, `rust`, `indesign-alternative`, `desktop-publishing`, `typography`, `pdf-export`, `print-design`, `beta`, `designcraft`, `open-source-indesign`
 ---
 
 ## Overview
@@ -26,13 +23,13 @@ DesignCraft features multi-page spreads, parent (master) pages, threaded text fr
 
 ## Key Highlights & Features
 
-- **Native Rust Performance**: Fast, multithreaded layout engine using SIMD acceleration for instant redraws and silky smooth canvas panning.
-- **Publication Spreads & Parent Pages**: Multi-page facing spreads, master parent pages for headers/footers, and flexible page geometry.
-- **Threaded Stories & Text Wrapping**: Flow long-form copy across multiple linked text frames with automatic text wrap around images, shapes, and callouts.
-- **Knuth–Plass Paragraph Composer**: Advanced global typesetting with dictionary-based hyphenation, optical margin hanging punctuation, and baseline grid alignment.
-- **Print & Digital Output**: High-resolution PDF/A archival export with embedded fonts, bleed margins, crop marks, CMYK swatches, and spot color management.
-- **Copy-on-Write Architecture**: Lightweight memory footprint with instantaneous multi-level undo and automatic session recovery.
-- **Open Data Interchange & MCP**: Clean open document formats with PNG/SVG export, JSON control channel, and an MCP server for programmatic publishing and automated asset generation.
+1. **Native Rust Performance**: Fast, multithreaded layout engine using SIMD acceleration for instant redraws and silky smooth canvas panning.
+2. **Publication Spreads & Parent Pages**: Multi-page facing spreads, master parent pages for headers/footers, and flexible page geometry.
+3. **Threaded Stories & Text Wrapping**: Flow long-form copy across multiple linked text frames with automatic text wrap around images, shapes, and callouts.
+4. **Knuth–Plass Paragraph Composer**: Advanced global typesetting with dictionary-based hyphenation, optical margin hanging punctuation, and baseline grid alignment.
+5. **Print & Digital Output**: High-resolution PDF/A archival export with embedded fonts, bleed margins, crop marks, CMYK swatches, and spot color management.
+6. **Copy-on-Write Architecture**: Lightweight memory footprint with instantaneous multi-level undo and automatic session recovery.
+7. **Open Data Interchange & MCP**: Clean open document formats with PNG/SVG export, JSON control channel, and an MCP server for programmatic publishing and automated asset generation.
 
 ---
 
@@ -66,6 +63,6 @@ designcraft-cli build handbook.designcraft --export pdf -o public/handbook.pdf
 
 ## When to Use It
 
-- Creators, publishers, and developers designing brochures, magazines, whitepapers, and guides for static sites.
-- Teams looking for a private, offline Adobe InDesign alternative without monthly recurring software fees.
-- Programmatic publication pipelines requiring a fast, headless CLI and MCP server for automated typesetting.
+1. Creators, publishers, and developers designing brochures, magazines, whitepapers, and guides for static sites.
+2. Teams looking for a private, offline Adobe InDesign alternative without monthly recurring software fees.
+3. Programmatic publication pipelines requiring a fast, headless CLI and MCP server for automated typesetting.

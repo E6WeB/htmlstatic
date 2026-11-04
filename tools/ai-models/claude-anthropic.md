@@ -2,12 +2,12 @@
 
 > Anthropic's state-of-the-art model family renowned for coding excellence, nuance, and 200k+ context windows.
 
-- **Official Website**: <a href="https://anthropic.com/" target="_blank" rel="noopener noreferrer">anthropic.com</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Frontier AI & Reasoning Model
+1. **Official Website**: <a href="https://anthropic.com/" target="_blank" rel="noopener noreferrer">anthropic.com</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Frontier AI & Reasoning Model
+4. **Pricing / License**: Freemium
 
 - **Tags**: `anthropic-api`, `claude-3-7-sonnet`, `ai-coding-model`, `200k-context`, `agentic-workflows`, `tool-use-api`, `llm`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Anthropic's Claude model family (including Claude 3.5 Sonnet and Haiku) is celeb
 
 ## Key Highlights & Features
 
-**Industry-Leading Code Generation**: Excels at creating clean HTML5, modern CSS, and performant vanilla JavaScript.
-**200,000+ Token Context**: Ingests hundreds of static markdown pages or API specifications at once.
-**Prompt Caching**: Caches long static documentation prompts to slash API costs and reduce response times by up to 90%.
-**Vision Capabilities**: Inspects webpage screenshots and mockups to convert visual designs into accessible HTML code.
+1. **Industry-Leading Code Generation**: Excels at creating clean HTML5, modern CSS, and performant vanilla JavaScript.
+2. **200,000+ Token Context**: Ingests hundreds of static markdown pages or API specifications at once.
+3. **Prompt Caching**: Caches long static documentation prompts to slash API costs and reduce response times by up to 90%.
+4. **Vision Capabilities**: Inspects webpage screenshots and mockups to convert visual designs into accessible HTML code.
 
 ---
 
@@ -50,6 +50,6 @@ const res = await fetch("https://api.anthropic.com/v1/messages", {
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

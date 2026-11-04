@@ -2,12 +2,12 @@
 
 > Dedicated Jamstack and static web hosting platform with multi-environment staging and snippet injection.
 
-- **Official Website**: <a href="https://www.stormkit.io/" target="_blank" rel="noopener noreferrer">stormkit.io</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Static Hosting & Jamstack Platform
+1. **Official Website**: <a href="https://www.stormkit.io/" target="_blank" rel="noopener noreferrer">stormkit.io</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Static Hosting & Jamstack Platform
+4. **Pricing / License**: Freemium
 
 - **Tags**: `stormkit`, `self-hostable-netlify`, `jamstack-deployment`, `staged-rollouts`, `preview-environments`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
-
 ---
 
 ## Overview
@@ -20,12 +20,12 @@ Stormkit's free tier includes 50 GB of monthly bandwidth, automated SSL certific
 
 ## Key Highlights & Features
 
-- **Multi-Environment Architecture**: Manage staging, development, and production environments from one repository.
-- **Git Branch Deployments**: Automatically generates unique preview URLs for every pull request and feature branch.
-- **Snippet & Header Injection**: Inject meta tags, analytics scripts, and verification tags directly from the UI without modifying source code.
-- **Custom Domains & Automated TLS**: Instant SSL certificate provisioning with custom domain verification.
-- **Atomic Deploys & Instant Rollbacks**: Every build is stored immutably, allowing one-click rollbacks to any past deployment.
-- **Generous Free Tier**: 50 GB monthly bandwidth, unlimited staging environments, and zero credit card required.
+1. **Multi-Environment Architecture**: Manage staging, development, and production environments from one repository.
+2. **Git Branch Deployments**: Automatically generates unique preview URLs for every pull request and feature branch.
+3. **Snippet & Header Injection**: Inject meta tags, analytics scripts, and verification tags directly from the UI without modifying source code.
+4. **Custom Domains & Automated TLS**: Instant SSL certificate provisioning with custom domain verification.
+5. **Atomic Deploys & Instant Rollbacks**: Every build is stored immutably, allowing one-click rollbacks to any past deployment.
+6. **Generous Free Tier**: 50 GB monthly bandwidth, unlimited staging environments, and zero credit card required.
 
 ---
 
@@ -40,6 +40,6 @@ Stormkit's free tier includes 50 GB of monthly bandwidth, automated SSL certific
 
 ## When to Use It
 
-- Static websites and SPAs requiring clean separation between staging and production environments.
-- Projects needing flexible header, footer, or analytics snippet injection without editing HTML source files.
-- Teams looking for a reliable, feature-rich alternative to Netlify or Vercel.
+1. Static websites and SPAs requiring clean separation between staging and production environments.
+2. Projects needing flexible header, footer, or analytics snippet injection without editing HTML source files.
+3. Teams looking for a reliable, feature-rich alternative to Netlify or Vercel.

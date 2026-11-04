@@ -2,12 +2,12 @@
 
 > Web framework designed for content-driven websites that ships zero JavaScript by default.
 
-- **Official Website**: <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">astro.build</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: Modern Static Web Framework
+1. **Official Website**: <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">astro.build</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: Modern Static Web Framework
+4. **Pricing / License**: Open Source
 
 - **Tags**: `astro-build`, `islands-architecture`, `zero-js-by-default`, `mdx-content-collections`, `fastest-static-framework`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Astro allows you to write components using HTML-like syntax or integrate your fa
 
 ## Key Highlights & Features
 
-- **Zero JS by Default**: Delivers pure static HTML and CSS for top Lighthouse scores.
-- **Component Islands**: Hydrate interactive elements on-demand without slowing the whole page.
-- **Content Collections**: Type-safe Markdown and MDX management with schema validation.
-- **Universal Deployment**: Deploys statically to GitHub Pages, Cloudflare Pages, Netlify, or Vercel.
+1. **Zero JS by Default**: Delivers pure static HTML and CSS for top Lighthouse scores.
+2. **Component Islands**: Hydrate interactive elements on-demand without slowing the whole page.
+3. **Content Collections**: Type-safe Markdown and MDX management with schema validation.
+4. **Universal Deployment**: Deploys statically to GitHub Pages, Cloudflare Pages, Netlify, or Vercel.
 
 ---
 
@@ -61,6 +61,6 @@ const pageTitle = "My Static Site";
 
 ## When to Use It
 
-- Content-rich blogs, portfolios, marketing websites, and documentation portals.
-- Achieving flawless 100/100 Google Lighthouse and Core Web Vitals performance scores.
-- Projects that need clean Markdown publishing with optional interactive components.
+1. Content-rich blogs, portfolios, marketing websites, and documentation portals.
+2. Achieving flawless 100/100 Google Lighthouse and Core Web Vitals performance scores.
+3. Projects that need clean Markdown publishing with optional interactive components.

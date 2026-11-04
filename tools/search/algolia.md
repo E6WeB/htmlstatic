@@ -2,12 +2,12 @@
 
 > Hosted search API with typo-tolerant search and pre-built frontend widgets.
 
-- **Official Website**: <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">algolia.com</a>
-- **Category**: [Search](../../README.md#search)
-- **Type**: Hosted Search Engine API
+1. **Official Website**: <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">algolia.com</a>
+2. **Category**: [Search](../../README.md#search)
+3. **Type**: Hosted Search Engine API
+4. **Pricing / License**: Freemium
 
 - **Tags**: `algolia-search`, `instantsearch-js`, `docsearch`, `typo-tolerant-search`, `millisecond-search-api`, `static-site-search`, `client-side-search`, `instant-search`, `wasm-search`, `zero-server-search`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Static websites can index their content during their CI build and query Algolia 
 
 ## Key Highlights & Features
 
-- **As-You-Type Speed**: Instant search results returned in under 20 milliseconds.
-- **Smart Typo Tolerance**: Finds accurate results even with spelling mistakes.
-- **InstantSearch.js**: Pre-built, customizable search UI components.
-- **DocSearch Program**: Free search service for qualifying open-source documentation.
+1. **As-You-Type Speed**: Instant search results returned in under 20 milliseconds.
+2. **Smart Typo Tolerance**: Finds accurate results even with spelling mistakes.
+3. **InstantSearch.js**: Pre-built, customizable search UI components.
+4. **DocSearch Program**: Free search service for qualifying open-source documentation.
 
 ---
 
@@ -57,6 +57,6 @@ Embed Algolia InstantSearch in a static HTML page:
 
 ## When to Use It
 
-- Large ecommerce catalogs and documentation portals requiring instant faceted search.
-- Open-source projects qualifying for the free Algolia DocSearch program.
-- Websites demanding advanced search ranking, analytics, and query personalization.
+1. Large ecommerce catalogs and documentation portals requiring instant faceted search.
+2. Open-source projects qualifying for the free Algolia DocSearch program.
+3. Websites demanding advanced search ranking, analytics, and query personalization.

@@ -2,12 +2,12 @@
 
 > Frontend JavaScript error monitoring and performance tracing for web applications.
 
-- **Official Website**: <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">sentry.io</a>
-- **Category**: [Monitoring & Error Tracking](../../README.md#monitoring--error-tracking)
-- **Type**: Error Monitoring & Performance Tracking
+1. **Official Website**: <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">sentry.io</a>
+2. **Category**: [Monitoring & Error Tracking](../../README.md#monitoring--error-tracking)
+3. **Type**: Error Monitoring & Performance Tracking
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `sentry-io`, `javascript-error-tracking`, `source-map-stack-traces`, `crash-reporting`, `release-health-monitoring`, `error-tracking`, `session-replay`, `frontend-observability`, `bug-reporting`, `rum-monitoring`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It reports stack traces, browser versions, operating systems, and breadcrumbs le
 
 ## Key Highlights & Features
 
-- **Automatic Error Capture**: Catches uncaught runtime exceptions and promise rejections.
-- **Full Stack Traces**: Pinpoints exact lines of JavaScript where crashes occurred.
-- **User Breadcrumbs**: Logs console statements, clicks, and network requests leading to the error.
-- **Generous Developer Tier**: Free plan with thousands of monthly error events.
+1. **Automatic Error Capture**: Catches uncaught runtime exceptions and promise rejections.
+2. **Full Stack Traces**: Pinpoints exact lines of JavaScript where crashes occurred.
+3. **User Breadcrumbs**: Logs console statements, clicks, and network requests leading to the error.
+4. **Generous Developer Tier**: Free plan with thousands of monthly error events.
 
 ---
 
@@ -52,6 +52,6 @@ Initialize Sentry via CDN in the `<head>` of your static HTML:
 
 ## When to Use It
 
-- Static sites with interactive vanilla JavaScript or third-party API integrations.
-- Tracking frontend errors that only occur on specific devices or legacy browsers.
-- Monitoring site reliability and performance metrics in production.
+1. Static sites with interactive vanilla JavaScript or third-party API integrations.
+2. Tracking frontend errors that only occur on specific devices or legacy browsers.
+3. Monitoring site reliability and performance metrics in production.

@@ -2,12 +2,12 @@
 
 > Fast, secure static and dynamic web hosting backed by Google's global SSD CDN.
 
-- **Official Website**: <a href="https://firebase.google.com/docs/hosting" target="_blank" rel="noopener noreferrer">firebase.google.com/docs/hosting</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Static Hosting & Cloud Infrastructure
+1. **Official Website**: <a href="https://firebase.google.com/docs/hosting" target="_blank" rel="noopener noreferrer">firebase.google.com/docs/hosting</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Static Hosting & Cloud Infrastructure
+4. **Pricing / License**: Freemium
 
 - **Tags**: `firebase-hosting`, `google-cloud-cdn`, `single-command-deploy`, `free-ssl-hosting`, `preview-channels`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
-
 ---
 
 ## Overview
@@ -20,12 +20,12 @@ Every site deployed on Firebase Hosting automatically receives a free SSL certif
 
 ## Key Highlights & Features
 
-- **Google Global CDN**: Content is cached on SSDs across Google data centers worldwide.
-- **Generous Free Spark Plan**: 10 GB free hosting storage, 360 MB/day (or 10 GB/month) data transfer.
-- **Custom Domains & Free SSL**: Zero-configuration SSL certificates provisioned automatically for custom domains.
-- **Preview Channels**: Create temporary, shareable preview URLs for testing staging branches before merging.
-- **Multi-Site Management**: Host multiple distinct websites under a single Firebase project.
-- **One-Command CLI Deploys**: Deploy locally using `firebase deploy` or automate via GitHub Actions.
+1. **Google Global CDN**: Content is cached on SSDs across Google data centers worldwide.
+2. **Generous Free Spark Plan**: 10 GB free hosting storage, 360 MB/day (or 10 GB/month) data transfer.
+3. **Custom Domains & Free SSL**: Zero-configuration SSL certificates provisioned automatically for custom domains.
+4. **Preview Channels**: Create temporary, shareable preview URLs for testing staging branches before merging.
+5. **Multi-Site Management**: Host multiple distinct websites under a single Firebase project.
+6. **One-Command CLI Deploys**: Deploy locally using `firebase deploy` or automate via GitHub Actions.
 
 ---
 
@@ -39,7 +39,7 @@ firebase login
 firebase init hosting
 ```
 
-2. Point the public directory to your static files in `firebase.json`:
+1. Point the public directory to your static files in `firebase.json`:
 
 ```json
 {
@@ -51,7 +51,7 @@ firebase init hosting
 }
 ```
 
-3. Deploy your static website:
+1. Deploy your static website:
 
 ```bash
 firebase deploy --only hosting
@@ -61,6 +61,6 @@ firebase deploy --only hosting
 
 ## When to Use It
 
-- Static websites and landing pages requiring Google-backed reliability and speed.
-- Projects integrating with client-side Firebase services like Firestore, Firebase Auth, or Cloud Storage.
-- Teams needing automated preview URLs for GitHub pull requests.
+1. Static websites and landing pages requiring Google-backed reliability and speed.
+2. Projects integrating with client-side Firebase services like Firestore, Firebase Auth, or Cloud Storage.
+3. Teams needing automated preview URLs for GitHub pull requests.

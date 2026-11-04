@@ -2,12 +2,12 @@
 
 > Responsive, high-performance web video player with automatic HLS streaming.
 
-- **Official Website**: <a href="https://mux.com/player" target="_blank" rel="noopener noreferrer">mux.com/player</a>
-- **Category**: [Media & Video Players](../../README.md#media--video-players)
-- **Type**: Modern Video Streaming Component
+1. **Official Website**: <a href="https://mux.com/player" target="_blank" rel="noopener noreferrer">mux.com/player</a>
+2. **Category**: [Media & Video Players](../../README.md#media--video-players)
+3. **Type**: Modern Video Streaming Component
+4. **Pricing / License**: Open Source
 
 - **Tags**: `mux-player`, `hls-video-web-component`, `adaptive-bitrate-streaming`, `timeline-hover-previews`, `video-api`, `html5-video-player`, `hls-streaming`, `audio-waveform`, `podcast-player`, `custom-media-player`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Because it is built as a standard Web Component, it drops directly into static H
 
 ## Key Highlights & Features
 
-- **Standard Web Component**: Usable in pure static HTML via `<mux-player>` tags.
-- **Adaptive Bitrate Streaming**: Automatically adjusts playback quality to the viewer's network speed.
-- **Built-In Performance Metrics**: Monitors playback health and buffering in real time.
-- **Privacy Respecting**: Zero third-party ad networks, trackers, or cookie banners.
+1. **Standard Web Component**: Usable in pure static HTML via `<mux-player>` tags.
+2. **Adaptive Bitrate Streaming**: Automatically adjusts playback quality to the viewer's network speed.
+3. **Built-In Performance Metrics**: Monitors playback health and buffering in real time.
+4. **Privacy Respecting**: Zero third-party ad networks, trackers, or cookie banners.
 
 ---
 
@@ -48,5 +48,5 @@ Embed Mux Player in static HTML:
 
 ## When to Use It
 
-- High-quality video streaming on static sites without YouTube ads or suggested videos.
-- Video-first landing pages that need instant playback and adaptive streaming on mobile.
+1. High-quality video streaming on static sites without YouTube ads or suggested videos.
+2. Video-first landing pages that need instant playback and adaptive streaming on mobile.

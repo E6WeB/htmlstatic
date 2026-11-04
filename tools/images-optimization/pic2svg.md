@@ -2,12 +2,12 @@
 
 > Convert raster images into scalable, editable SVG vector paths with free browser-based tracing.
 
-- **Official Website**: <a href="https://pic2svg.com/" target="_blank" rel="noopener noreferrer">pic2svg.com</a>
-- **Category**: [Images & Optimization](../../README.md#images--optimization)
-- **Type**: Vectorizer & Image-to-SVG Converter
+1. **Official Website**: <a href="https://pic2svg.com/" target="_blank" rel="noopener noreferrer">pic2svg.com</a>
+2. **Category**: [Images & Optimization](../../README.md#images--optimization)
+3. **Type**: Vectorizer & Image-to-SVG Converter
+4. **Pricing / License**: Freemium
 
 - **Tags**: `pic2svg`, `png-to-svg`, `jpg-to-vector`, `browser-image-vectorizer`, `free-svg-tracer`, `logo-vectorizer`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ For static website creators and Jamstack developers, serving SVG vectors instead
 
 ## Key Highlights & Features
 
-- **Free Browser-Based SVG Tracing**: Drop an image directly on the homepage to vectorize and download standard SVG files without account registration.
-- **Multiple Input Formats**: Seamlessly vectorizes PNG, JPG, WebP, and GIF logos, graphics, and illustrations.
-- **Interactive Before/After Comparison**: Side-by-side visual slider lets you inspect the raster original against the vectorized path output.
-- **Lightweight Static Web Assets**: Replaces heavy PNG/JPG logos and UI elements with crisp, CSS-styleable inline or linked SVGs.
-- **Freemium Model**: Free standard SVG generation with paid plans available for commercial teams needing print-ready vector formats (EPS, PDF, AI, DXF).
+1. **Free Browser-Based SVG Tracing**: Drop an image directly on the homepage to vectorize and download standard SVG files without account registration.
+2. **Multiple Input Formats**: Seamlessly vectorizes PNG, JPG, WebP, and GIF logos, graphics, and illustrations.
+3. **Interactive Before/After Comparison**: Side-by-side visual slider lets you inspect the raster original against the vectorized path output.
+4. **Lightweight Static Web Assets**: Replaces heavy PNG/JPG logos and UI elements with crisp, CSS-styleable inline or linked SVGs.
+5. **Freemium Model**: Free standard SVG generation with paid plans available for commercial teams needing print-ready vector formats (EPS, PDF, AI, DXF).
 
 ---
 
@@ -52,6 +52,6 @@ Embed the generated SVG into your static web pages using standard HTML `<img>` t
 
 ## When to Use It
 
-- Converting raster logos and icons into crisp, infinitely scalable vector assets for static website headers and footers.
-- Reducing payload sizes by replacing pixel-heavy PNG or JPEG illustrations with lightweight vector paths.
-- Preparing illustrations and line art for responsive static themes without pixelation on Retina screens.
+1. Converting raster logos and icons into crisp, infinitely scalable vector assets for static website headers and footers.
+2. Reducing payload sizes by replacing pixel-heavy PNG or JPEG illustrations with lightweight vector paths.
+3. Preparing illustrations and line art for responsive static themes without pixelation on Retina screens.

@@ -2,12 +2,12 @@
 
 > Open-source authentication supporting passwordless logins, OAuth providers, and JWTs.
 
-- **Official Website**: <a href="https://supabase.com/auth" target="_blank" rel="noopener noreferrer">supabase.com/auth</a>
-- **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
-- **Type**: Open Source Authentication Service
+1. **Official Website**: <a href="https://supabase.com/auth" target="_blank" rel="noopener noreferrer">supabase.com/auth</a>
+2. **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
+3. **Type**: Open Source Authentication Service
+4. **Pricing / License**: Open Source / Free
 
 - **Tags**: `supabase-auth`, `open-source-auth`, `magic-links`, `oauth-providers`, `jwt-authentication`, `row-level-security`, `firebase-auth-alternative`, `passkeys`, `oauth-login`, `jwt-auth`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ With native support for email/password, magic links, phone logins, and more than
 
 ## Key Highlights & Features
 
-- **Client-Side SDK**: Direct authentication calls from static frontend scripts.
-- **20+ OAuth Providers**: Connect Google, GitHub, Twitter, Discord, and Apple logins in a few clicks.
-- **Passwordless Magic Links**: Let users log in securely with an emailed OTP or link.
-- **Row Level Security (RLS)**: Protect database data automatically according to the logged-in user.
+1. **Client-Side SDK**: Direct authentication calls from static frontend scripts.
+2. **20+ OAuth Providers**: Connect Google, GitHub, Twitter, Discord, and Apple logins in a few clicks.
+3. **Passwordless Magic Links**: Let users log in securely with an emailed OTP or link.
+4. **Row Level Security (RLS)**: Protect database data automatically according to the logged-in user.
 
 ---
 
@@ -60,6 +60,6 @@ Integrate Supabase Auth with vanilla JavaScript:
 
 ## When to Use It
 
-- Static applications needing social login and user session persistence.
-- Projects using Supabase as their backend database for row-level security.
-- Open-source projects prioritizing privacy and data sovereignty.
+1. Static applications needing social login and user session persistence.
+2. Projects using Supabase as their backend database for row-level security.
+3. Open-source projects prioritizing privacy and data sovereignty.

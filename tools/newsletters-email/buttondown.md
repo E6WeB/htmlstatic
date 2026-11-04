@@ -2,12 +2,12 @@
 
 > Privacy-friendly newsletter publishing and subscriber management for developers.
 
-- **Official Website**: <a href="https://buttondown.com/" target="_blank" rel="noopener noreferrer">buttondown.com</a>
-- **Category**: [Newsletters & Email](../../README.md#newsletters--email)
-- **Type**: Newsletter Publishing Platform
+1. **Official Website**: <a href="https://buttondown.com/" target="_blank" rel="noopener noreferrer">buttondown.com</a>
+2. **Category**: [Newsletters & Email](../../README.md#newsletters--email)
+3. **Type**: Newsletter Publishing Platform
+4. **Pricing / License**: Freemium
 
 - **Tags**: `buttondown-email`, `markdown-newsletter`, `minimalist-email-list`, `rss-to-email-automation`, `indie-newsletter-tool`, `newsletter-embed`, `transactional-email`, `email-api`, `subscriber-growth`, `mailchimp-alternative`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ With Buttondown, you can write newsletters in Markdown, track analytics without 
 
 ## Key Highlights & Features
 
-- **No-JS Embed Forms**: Pure HTML subscribe forms that work without external scripts.
-- **Markdown-Native**: Write and send newsletters entirely in Markdown.
-- **Privacy First**: Built-in features to strip tracking pixels and protect reader privacy.
-- **RSS-to-Email**: Automatically send newsletters whenever your static blog publishes.
+1. **No-JS Embed Forms**: Pure HTML subscribe forms that work without external scripts.
+2. **Markdown-Native**: Write and send newsletters entirely in Markdown.
+3. **Privacy First**: Built-in features to strip tracking pixels and protect reader privacy.
+4. **RSS-to-Email**: Automatically send newsletters whenever your static blog publishes.
 
 ---
 
@@ -47,6 +47,6 @@ Add a lightweight subscription form to your static website:
 
 ## When to Use It
 
-- Developer blogs, engineering newsletters, and personal sites.
-- Static sites prioritizing fast load times with pure HTML form embeds.
-- Writers who prefer drafting in Markdown without bulky WYSIWYG editors.
+1. Developer blogs, engineering newsletters, and personal sites.
+2. Static sites prioritizing fast load times with pure HTML form embeds.
+3. Writers who prefer drafting in Markdown without bulky WYSIWYG editors.

@@ -2,12 +2,12 @@
 
 > Comprehensive email marketing and transactional email platform.
 
-- **Official Website**: <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">brevo.com</a>
-- **Category**: [Newsletters & Email](../../README.md#newsletters--email)
-- **Type**: Marketing & Transactional Email Suite
+1. **Official Website**: <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">brevo.com</a>
+2. **Category**: [Newsletters & Email](../../README.md#newsletters--email)
+3. **Type**: Marketing & Transactional Email Suite
+4. **Pricing / License**: Freemium
 
 - **Tags**: `brevo`, `sendinblue`, `free-transactional-email`, `newsletter-signup-forms`, `smtp-email-marketing`, `newsletter-embed`, `transactional-email`, `email-api`, `subscriber-growth`, `mailchimp-alternative`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Brevo offers customizable, embeddable subscription forms and an intuitive email 
 
 ## Key Highlights & Features
 
-- **Generous Free Plan**: Send up to 300 emails per day for free.
-- **Embeddable Forms**: Create styled signup widgets to embed on static pages.
-- **Marketing Automation**: Trigger automated welcome sequences when users subscribe.
-- **Transactional API**: Powerful SMTP and REST API for site notifications.
+1. **Generous Free Plan**: Send up to 300 emails per day for free.
+2. **Embeddable Forms**: Create styled signup widgets to embed on static pages.
+3. **Marketing Automation**: Trigger automated welcome sequences when users subscribe.
+4. **Transactional API**: Powerful SMTP and REST API for site notifications.
 
 ---
 
@@ -45,6 +45,6 @@ Embed a Brevo subscription widget onto your static site:
 
 ## When to Use It
 
-- Growing businesses needing email marketing campaigns and automated sequences.
-- Landing pages requiring lead capture forms with automatic contact list tagging.
-- Projects needing both transactional email delivery and marketing newsletters.
+1. Growing businesses needing email marketing campaigns and automated sequences.
+2. Landing pages requiring lead capture forms with automatic contact list tagging.
+3. Projects needing both transactional email delivery and marketing newsletters.

@@ -2,12 +2,12 @@
 
 > Small Language Models (SLMs) engineered for maximum efficiency, low memory footprint, and edge execution.
 
-- **Official Website**: <a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer">azure.microsoft.com/.../phi</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Small Language Model (SLM)
+1. **Official Website**: <a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer">azure.microsoft.com/.../phi</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Small Language Model (SLM)
+4. **Pricing / License**: Open Source
 
 - **Tags**: `phi-3`, `small-language-model`, `slm`, `webgpu-ai`, `browser-llm`, `on-device-ai`, `onnx-runtime`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Microsoft's Phi model series (including Phi-3 and Phi-4) demonstrates that compa
 
 ## Key Highlights & Features
 
-**Compact Footprint**: 3B to 14B parameter sizes optimized for edge servers, mobile devices, and local developer machines.
-**High Reasoning Quality**: Outperforms many larger models on coding, reasoning, and mathematics benchmarks.
-**Browser-Ready**: Perfect candidate for running client-side AI inside static HTML pages via ONNX Runtime Web and WebGPU.
-**Zero Cloud Dependency**: Execute offline privacy-preserving search, summarization, and autocomplete in the browser.
+1. **Compact Footprint**: 3B to 14B parameter sizes optimized for edge servers, mobile devices, and local developer machines.
+2. **High Reasoning Quality**: Outperforms many larger models on coding, reasoning, and mathematics benchmarks.
+3. **Browser-Ready**: Perfect candidate for running client-side AI inside static HTML pages via ONNX Runtime Web and WebGPU.
+4. **Zero Cloud Dependency**: Execute offline privacy-preserving search, summarization, and autocomplete in the browser.
 
 ---
 
@@ -46,6 +46,6 @@ const res = await fetch("http://localhost:8080/v1/chat/completions", {
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

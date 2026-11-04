@@ -2,12 +2,12 @@
 
 > Free, key-based hit counter and view tracking API with zero signup or keys required.
 
-- **Official Website**: <a href="https://countapi.mileshilliard.com/" target="_blank" rel="noopener noreferrer">countapi.mileshilliard.com</a>
-- **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
-- **Type**: Counter & View Tracking API
-- **Pricing / License**: Free
-- **Tags**: `hit-counter`, `view-tracker`, `api`, `metrics`, `analytics`, `free`, `page-views-api`, `no-signup-api`, `visitor-counter`, `static-site-metrics`
+1. **Official Website**: <a href="https://countapi.mileshilliard.com/" target="_blank" rel="noopener noreferrer">countapi.mileshilliard.com</a>
+2. **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
+3. **Type**: Counter & View Tracking API
+4. **Pricing / License**: Free
 
+- **Tags**: `hit-counter`, `view-tracker`, `api`, `metrics`, `analytics`, `free`, `page-views-api`, `no-signup-api`, `visitor-counter`, `static-site-metrics`
 ---
 
 ## Overview
@@ -20,12 +20,12 @@ With CountAPI, you can track page views, button clicks, downloads, or custom met
 
 ## Key Highlights & Features
 
-- **No Signup & No Keys**: Completely friction-free. Start counting immediately by choosing a unique key name.
-- **Simple GET Endpoints**: Increment, read, or set counter values with straightforward HTTP requests.
-- **Tracking Pixel Compatible**: Works with or without JavaScript. Embed a hidden `<img>` tag to count page hits in strict noscript or markdown environments.
-- **Dynamic SVG Shields**: Generate customizable SVG badges showing your count with custom labels, background colors, and flat or plastic styles.
-- **Ultra-Fast & High Performance**: Powered by a Python Uvicorn engine and an in-memory Redis key-value store for minimal latency.
-- **100% Free & Open Source**: Transparent codebase available on GitHub ([syntaxerror019/countapi](https://github.com/syntaxerror019/countapi)).
+1. **No Signup & No Keys**: Completely friction-free. Start counting immediately by choosing a unique key name.
+2. **Simple GET Endpoints**: Increment, read, or set counter values with straightforward HTTP requests.
+3. **Tracking Pixel Compatible**: Works with or without JavaScript. Embed a hidden `<img>` tag to count page hits in strict noscript or markdown environments.
+4. **Dynamic SVG Shields**: Generate customizable SVG badges showing your count with custom labels, background colors, and flat or plastic styles.
+5. **Ultra-Fast & High Performance**: Powered by a Python Uvicorn engine and an in-memory Redis key-value store for minimal latency.
+6. **100% Free & Open Source**: Transparent codebase available on GitHub ([syntaxerror019/countapi](https://github.com/syntaxerror019/countapi)).
 
 ---
 
@@ -87,7 +87,7 @@ Embed a styled badge in your static HTML or Markdown:
 
 ## When to Use It
 
-- Static blogs, personal landing pages, and documentation sites that need view counts without heavy analytics scripts.
-- Open-source project READMEs and GitHub Pages needing live visitor badges.
-- Download counters or button click tracking on static promotional sites.
-- Jamstack websites where privacy-respecting, numeric-only metrics are needed without cookies or consent banners.
+1. Static blogs, personal landing pages, and documentation sites that need view counts without heavy analytics scripts.
+2. Open-source project READMEs and GitHub Pages needing live visitor badges.
+3. Download counters or button click tracking on static promotional sites.
+4. Jamstack websites where privacy-respecting, numeric-only metrics are needed without cookies or consent banners.

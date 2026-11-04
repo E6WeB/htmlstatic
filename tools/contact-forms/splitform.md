@@ -2,12 +2,12 @@
 
 > Contact forms and form handling designed for static websites.
 
-- **Official Website**: <a href="https://splitforms.com/" target="_blank" rel="noopener noreferrer">splitforms.com</a>
-- **Category**: [Contact Forms](../../README.md#contact-forms)
-- **Type**: Hosted Form Backend
+1. **Official Website**: <a href="https://splitforms.com/" target="_blank" rel="noopener noreferrer">splitforms.com</a>
+2. **Category**: [Contact Forms](../../README.md#contact-forms)
+3. **Type**: Hosted Form Backend
+4. **Pricing / License**: Freemium
 
 - **Tags**: `splitform`, `static-contact-form`, `form-endpoint`, `email-forwarding-form`, `no-backend-contact`, `serverless-forms`, `static-html-form`, `form-backend`, `email-notifications`, `no-backend-forms`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Point your standard HTML `<form>` tag to your unique Splitform endpoint, and sub
 
 ## Key Highlights & Features
 
-- **No Backend Required**: Works with standard HTML form inputs and attributes.
-- **Spam Protection**: Automated bot mitigation to keep inboxes clean.
-- **Email Notifications**: Receive instant alerts when a visitor submits an inquiry.
-- **Export Submissions**: Download inquiry logs as CSV files for bookkeeping.
+1. **No Backend Required**: Works with standard HTML form inputs and attributes.
+2. **Spam Protection**: Automated bot mitigation to keep inboxes clean.
+3. **Email Notifications**: Receive instant alerts when a visitor submits an inquiry.
+4. **Export Submissions**: Download inquiry logs as CSV files for bookkeeping.
 
 ---
 
@@ -50,6 +50,6 @@ Connect your HTML form by setting the `action` attribute to your Splitform endpo
 
 ## When to Use It
 
-- Contact pages, lead capture forms, and survey pages on static sites.
-- Portfolios and business landing pages that need clean email alerts.
-- Developers who want a quick, backend-free form processing solution.
+1. Contact pages, lead capture forms, and survey pages on static sites.
+2. Portfolios and business landing pages that need clean email alerts.
+3. Developers who want a quick, backend-free form processing solution.

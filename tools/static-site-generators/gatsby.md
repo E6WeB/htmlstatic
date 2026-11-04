@@ -2,12 +2,12 @@
 
 > React-based static site framework with a unified GraphQL data layer and rich plugin ecosystem.
 
-- **Official Website**: <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">gatsbyjs.com</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: React Static Site Generator
+1. **Official Website**: <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">gatsbyjs.com</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: React Static Site Generator
+4. **Pricing / License**: Open Source
 
 - **Tags**: `gatsby-js`, `react-graphql-ssg`, `static-image-optimization`, `headless-cms-react`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Once built, Gatsby outputs pre-rendered HTML, CSS, and optimized assets that loa
 
 ## Key Highlights & Features
 
-- **Unified GraphQL Data Layer**: Query Markdown, JSON, headless CMSs, and external APIs through a single GraphQL schema at build time.
-- **Automatic Image Optimization**: Built-in `gatsby-plugin-image` generates responsive WebP/AVIF images and lazy-loaded placeholders automatically.
-- **2,500+ Plugins & Starters**: Extensive ecosystem for SEO, sitemaps, RSS feeds, analytics, and headless CMS integrations.
-- **Pre-Rendered Static Output**: Compiles React components into fast, SEO-friendly static HTML files with automatic code splitting and route prefetching.
+1. **Unified GraphQL Data Layer**: Query Markdown, JSON, headless CMSs, and external APIs through a single GraphQL schema at build time.
+2. **Automatic Image Optimization**: Built-in `gatsby-plugin-image` generates responsive WebP/AVIF images and lazy-loaded placeholders automatically.
+3. **2,500+ Plugins & Starters**: Extensive ecosystem for SEO, sitemaps, RSS feeds, analytics, and headless CMS integrations.
+4. **Pre-Rendered Static Output**: Compiles React components into fast, SEO-friendly static HTML files with automatic code splitting and route prefetching.
 
 ---
 
@@ -63,7 +63,6 @@ export const Head = () => <title>Home Page</title>
 
 ## When to Use It
 
-- React developers building content-heavy marketing sites, blogs, or documentation portals.
-- Websites aggregating content from multiple sources (Markdown, Contentful, WordPress, or Sanity) via GraphQL.
-- Projects that benefit from automated responsive image processing and rich plugin integrations.
-
+1. React developers building content-heavy marketing sites, blogs, or documentation portals.
+2. Websites aggregating content from multiple sources (Markdown, Contentful, WordPress, or Sanity) via GraphQL.
+3. Projects that benefit from automated responsive image processing and rich plugin integrations.

@@ -2,12 +2,12 @@
 
 > The leading conversational AI model for drafting blog posts, landing page copy, and structured HTML/Markdown content.
 
-- **Official Website**: <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">chatgpt.com</a>
-- **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
-- **Type**: AI Writing & Content Assistant
+1. **Official Website**: <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">chatgpt.com</a>
+2. **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
+3. **Type**: AI Writing & Content Assistant
+4. **Pricing / License**: Freemium
 
 - **Tags**: `chatgpt`, `openai`, `ai-copywriting`, `markdown-writer`, `seo-blog-posts`, `html-generator`, `content-automation`, `gpt-4o`, `seo-content`, `markdown-generator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Beyond writing prose, ChatGPT is adept at outputting structured Markdown, creati
 
 ## Key Highlights & Features
 
-- **Versatile Content Generation**: Drafts everything from brief marketing taglines to full-length blog posts and tutorials.
-- **Clean Markdown Output**: Natively formats tables, code blocks, lists, and headings ready to copy-paste into static site files.
-- **SEO & Structured Data**: Generates Open Graph meta tags, Twitter card tags, and Schema.org JSON-LD structured data.
-- **Custom GPTs**: Build or use customized assistants tailored to your site's specific tone of voice, style guides, and formats.
+1. **Versatile Content Generation**: Drafts everything from brief marketing taglines to full-length blog posts and tutorials.
+2. **Clean Markdown Output**: Natively formats tables, code blocks, lists, and headings ready to copy-paste into static site files.
+3. **SEO & Structured Data**: Generates Open Graph meta tags, Twitter card tags, and Schema.org JSON-LD structured data.
+4. **Custom GPTs**: Build or use customized assistants tailored to your site's specific tone of voice, style guides, and formats.
 
 ---
 
@@ -48,6 +48,6 @@ and best use case. Format it for GitHub-flavored Markdown."
 
 ## When to Use It
 
-- Drafting and outlining static blog posts and articles.
-- Generating SEO meta descriptions, open graph tags, and FAQ schemas.
-- Translating static website content into multiple languages.
+1. Drafting and outlining static blog posts and articles.
+2. Generating SEO meta descriptions, open graph tags, and FAQ schemas.
+3. Translating static website content into multiple languages.

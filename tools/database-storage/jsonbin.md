@@ -2,12 +2,12 @@
 
 > Cloud-based JSON document store for saving and retrieving data via simple HTTP REST requests.
 
-- **Official Website**: <a href="https://jsonbin.io/" target="_blank" rel="noopener noreferrer">jsonbin.io</a>
-- **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
-- **Type**: Cloud JSON Storage API
+1. **Official Website**: <a href="https://jsonbin.io/" target="_blank" rel="noopener noreferrer">jsonbin.io</a>
+2. **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
+3. **Type**: Cloud JSON Storage API
+4. **Pricing / License**: Freemium
 
 - **Tags**: `jsonbin`, `json-storage-api`, `rest-json-store`, `mock-backend`, `serverless-key-value`, `prototype-db`, `serverless-database`, `baas`, `rest-api`, `realtime-db`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It is particularly useful for static websites and prototypes that need to persis
 
 ## Key Highlights & Features
 
-- **Simple REST Endpoints**: Read and write JSON objects using standard `fetch()` calls.
-- **Version History**: Keeps track of previous versions of your JSON records.
-- **Public & Private Bins**: Protect bins with master keys or make them read-only for public access.
-- **Schema Validation**: Validate stored JSON objects against strict JSON schemas.
+1. **Simple REST Endpoints**: Read and write JSON objects using standard `fetch()` calls.
+2. **Version History**: Keeps track of previous versions of your JSON records.
+3. **Public & Private Bins**: Protect bins with master keys or make them read-only for public access.
+4. **Schema Validation**: Validate stored JSON objects against strict JSON schemas.
 
 ---
 
@@ -47,6 +47,6 @@ async function getStoredData() {
 
 ## When to Use It
 
-- Prototypes, demos, and lightweight static applications.
-- Storing simple site counters, guestbooks, or user-submitted feedback.
-- Projects where setting up a full SQL or NoSQL database is overkill.
+1. Prototypes, demos, and lightweight static applications.
+2. Storing simple site counters, guestbooks, or user-submitted feedback.
+3. Projects where setting up a full SQL or NoSQL database is overkill.

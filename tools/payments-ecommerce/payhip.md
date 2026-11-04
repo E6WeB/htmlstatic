@@ -2,12 +2,12 @@
 
 > Sell digital downloads, memberships, and online courses from static sites.
 
-- **Official Website**: <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a>
-- **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
-- **Type**: Digital Product E-Commerce Platform
+1. **Official Website**: <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a>
+2. **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
+3. **Type**: Digital Product E-Commerce Platform
+4. **Pricing / License**: Free
 
 - **Tags**: `payhip`, `sell-ebooks-courses`, `no-monthly-fee-ecommerce`, `embed-buy-button`, `instant-digital-delivery`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Payhip offers a lightweight embed script allowing customers to complete purchase
 
 ## Key Highlights & Features
 
-- **Direct File Delivery**: Automatically delivers secure download links after purchase.
-- **In-Page Checkout Overlay**: Customers complete checkout inside an on-page modal.
-- **EU VAT Management**: Calculates and reports European VAT automatically.
-- **Customer Accounts**: Member portals for recurring subscriptions and course materials.
+1. **Direct File Delivery**: Automatically delivers secure download links after purchase.
+2. **In-Page Checkout Overlay**: Customers complete checkout inside an on-page modal.
+3. **EU VAT Management**: Calculates and reports European VAT automatically.
+4. **Customer Accounts**: Member portals for recurring subscriptions and course materials.
 
 ---
 
@@ -47,6 +47,6 @@ Embed Payhip checkout onto your static site:
 
 ## When to Use It
 
-- Selling ebooks, design assets, icon packs, and templates directly from a portfolio.
-- Websites needing instant secure file delivery to buyers.
-- Creators seeking a simple checkout overlay with low transaction fees.
+1. Selling ebooks, design assets, icon packs, and templates directly from a portfolio.
+2. Websites needing instant secure file delivery to buyers.
+3. Creators seeking a simple checkout overlay with low transaction fees.

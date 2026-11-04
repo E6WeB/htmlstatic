@@ -2,12 +2,12 @@
 
 > Intuitive form and survey builder with unlimited free forms and embeds.
 
-- **Official Website**: <a href="https://tally.so/" target="_blank" rel="noopener noreferrer">tally.so</a>
-- **Category**: [Surveys & Feedback](../../README.md#surveys--feedback)
-- **Type**: Form & Survey Builder
+1. **Official Website**: <a href="https://tally.so/" target="_blank" rel="noopener noreferrer">tally.so</a>
+2. **Category**: [Surveys & Feedback](../../README.md#surveys--feedback)
+3. **Type**: Form & Survey Builder
+4. **Pricing / License**: Freemium
 
 - **Tags**: `tally-so`, `notion-style-form-builder`, `unlimited-free-forms`, `conditional-logic-surveys`, `typeform-free-alternative`, `feedback-widget`, `embeddable-surveys`, `product-roadmap`, `changelog-widget`, `typeform-alternative`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Tally offers an exceptionally generous free tier (unlimited forms and responses)
 
 ## Key Highlights & Features
 
-- **Unlimited Forms & Submissions**: Free tier includes unlimited forms and responses.
-- **Notion-Like Experience**: Build forms by simply typing and using slash commands (`/`).
-- **Seamless Embeds**: Embed as inline frames, popup modals, slide-ins, or full pages.
-- **Webhooks & Integrations**: Send submissions to Google Sheets, Notion, Airtable, or webhooks.
+1. **Unlimited Forms & Submissions**: Free tier includes unlimited forms and responses.
+2. **Notion-Like Experience**: Build forms by simply typing and using slash commands (`/`).
+3. **Seamless Embeds**: Embed as inline frames, popup modals, slide-ins, or full pages.
+4. **Webhooks & Integrations**: Send submissions to Google Sheets, Notion, Airtable, or webhooks.
 
 ---
 
@@ -49,6 +49,6 @@ Embed a Tally survey or waitlist into your static HTML:
 
 ## When to Use It
 
-- Customer feedback surveys, NPS scores, and event registration on static websites.
-- Lead capture and waitlists for upcoming static product launches.
-- Complex multi-step surveys requiring conditional logic without building custom forms.
+1. Customer feedback surveys, NPS scores, and event registration on static websites.
+2. Lead capture and waitlists for upcoming static product launches.
+3. Complex multi-step surveys requiring conditional logic without building custom forms.

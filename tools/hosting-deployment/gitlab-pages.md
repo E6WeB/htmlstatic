@@ -2,12 +2,12 @@
 
 > Free static website hosting directly from GitLab repositories with custom domains and automated SSL.
 
-- **Official Website**: <a href="https://about.gitlab.com/stages-devops-lifecycle/pages/" target="_blank" rel="noopener noreferrer">about.gitlab.com/stages-devops-lifecycle/pages/</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Static Web Hosting & DevOps Platform
+1. **Official Website**: <a href="https://about.gitlab.com/stages-devops-lifecycle/pages/" target="_blank" rel="noopener noreferrer">about.gitlab.com/stages-devops-lifecycle/pages/</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Static Web Hosting & DevOps Platform
+4. **Pricing / License**: Open Source / Free
 
 - **Tags**: `gitlab-pages`, `gitlab-ci-cd-hosting`, `free-static-hosting`, `custom-domains`, `devops-static-deploy`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`, `custom-domain`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ GitLab Pages leverages GitLab CI/CD pipelines to build and deploy your site auto
 
 ## Key Highlights & Features
 
-- **100% Free Static Hosting**: Unlimited static websites and projects on GitLab.com.
-- **Custom Domains & Free SSL**: Seamless custom domain configuration with automatic Let's Encrypt certificate renewal.
-- **CI/CD Driven Deployments**: Complete flexibility to run any build script, linter, or static generator before publishing.
-- **Access Control & Privacy**: Make your static site public or restrict access to GitLab project members.
-- **Redirects & Clean URLs**: Easily configure HTTP redirects and custom routing using a `_redirects` file.
+1. **100% Free Static Hosting**: Unlimited static websites and projects on GitLab.com.
+2. **Custom Domains & Free SSL**: Seamless custom domain configuration with automatic Let's Encrypt certificate renewal.
+3. **CI/CD Driven Deployments**: Complete flexibility to run any build script, linter, or static generator before publishing.
+4. **Access Control & Privacy**: Make your static site public or restrict access to GitLab project members.
+5. **Redirects & Clean URLs**: Easily configure HTTP redirects and custom routing using a `_redirects` file.
 
 ---
 
@@ -52,6 +52,6 @@ Any files placed into the `public/` directory will be published automatically to
 
 ## When to Use It
 
-- Open-source and private repositories hosted on GitLab.
-- Projects requiring sophisticated CI/CD pipelines prior to static asset deployment.
-- Teams needing password protection or access-controlled static documentation.
+1. Open-source and private repositories hosted on GitLab.
+2. Projects requiring sophisticated CI/CD pipelines prior to static asset deployment.
+3. Teams needing password protection or access-controlled static documentation.

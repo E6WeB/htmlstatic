@@ -1051,6 +1051,16 @@
     <lastmod>2026-11-04</lastmod>
   </tool>
   <tool>
+    <title>SMTP2GO</title>
+    <category>Newsletters &amp; Email</category>
+    <url>https://www.staticstack.app/tools/newsletters-email/smtp2go</url>
+    <image>https://www.staticstack.app/tools/newsletters-email/smtp2go-cover.webp</image>
+    <description>
+      Scalable transactional email service and REST API with real-time analytics
+    </description>
+    <lastmod>2026-11-04</lastmod>
+  </tool>
+  <tool>
     <title>Lemon Squeezy</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://www.staticstack.app/tools/payments-ecommerce/lemon-squeezy</url>

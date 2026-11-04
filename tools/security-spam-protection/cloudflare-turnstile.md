@@ -2,12 +2,12 @@
 
 > Privacy-friendly, frustration-free CAPTCHA alternative.
 
-- **Official Website**: <a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">developers.cloudflare.com/turnstile</a>
-- **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
-- **Type**: Invisible CAPTCHA Alternative
+1. **Official Website**: <a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">developers.cloudflare.com/turnstile</a>
+2. **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
+3. **Type**: Invisible CAPTCHA Alternative
+4. **Pricing / License**: Free
 
 - **Tags**: `cloudflare-turnstile`, `invisible-captcha-alternative`, `no-puzzle-bot-protection`, `privacy-first-verification`, `free-recaptcha-replacement`, `bot-protection`, `captcha-alternative`, `form-spam-filter`, `privacy-captcha`, `zero-friction-security`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Turnstile is free to use, works on any website, and can be integrated into stati
 
 ## Key Highlights & Features
 
-- **No Puzzles for Users**: Validates real users invisibly or with a simple checkbox.
-- **Privacy Respecting**: Does not harvest user data or track visitors across the web.
-- **100% Free**: Available to all site owners without billing requirements.
-- **Simple Drop-In**: Works effortlessly with static forms and AJAX submissions.
+1. **No Puzzles for Users**: Validates real users invisibly or with a simple checkbox.
+2. **Privacy Respecting**: Does not harvest user data or track visitors across the web.
+3. **100% Free**: Available to all site owners without billing requirements.
+4. **Simple Drop-In**: Works effortlessly with static forms and AJAX submissions.
 
 ---
 
@@ -47,6 +47,6 @@ Add Turnstile to your static HTML form:
 
 ## When to Use It
 
-- Protecting contact forms, comments, and signup forms from spam bots.
-- Websites that want to ditch frustrating image selection puzzles.
-- Privacy-conscious projects seeking an ethical anti-abuse solution.
+1. Protecting contact forms, comments, and signup forms from spam bots.
+2. Websites that want to ditch frustrating image selection puzzles.
+3. Privacy-conscious projects seeking an ethical anti-abuse solution.

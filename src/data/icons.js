@@ -243,6 +243,7 @@ const TOOL_TRENDING_KEYWORDS = {
   'brevo': ['brevo', 'sendinblue', 'free-transactional-email', 'newsletter-signup-forms', 'smtp-email-marketing'],
   'buttondown': ['buttondown-email', 'markdown-newsletter', 'minimalist-email-list', 'rss-to-email-automation', 'indie-newsletter-tool'],
   'emailit': ['emailit', 'developer-email-api', 'rest-smtp-sending', 'serverless-transactional-email', 'pay-as-you-go-email'],
+  'smtp2go': ['smtp2go', 'transactional-email-api', 'smtp-relay', 'email-deliverability', 'serverless-email', 'dkim-spf-automation', 'email-notifications'],
   'lemon-squeezy': ['lemon-squeezy', 'merchant-of-record', 'global-vat-tax-compliance', 'sell-saas-and-downloads', 'overlay-checkout-embed'],
   'payhip': ['payhip', 'sell-ebooks-courses', 'no-monthly-fee-ecommerce', 'embed-buy-button', 'instant-digital-delivery'],
   'paymentform': ['paymentform', 'stripe-checkout-builder', 'no-code-payment-links', 'event-tickets-donations', 'hosted-pay-forms'],
@@ -272,7 +273,7 @@ const TOOL_TRENDING_KEYWORDS = {
 function extractToolTags(rawMd, folder, toolSlug, primaryBadge, toolName) {
   const tagsSet = new Set();
   if (rawMd) {
-    const bulletMatch = rawMd.match(/-\s*\*\*(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\*\*:\s*([^\n\r]+)/i);
+    const bulletMatch = rawMd.match(/(?:[-*]|\d+\.)\s*\*\*(?:Tags|Keywords|Tags\s*[\/&]\s*Keywords)\*\*:\s*([^\n\r]+)/i);
     if (bulletMatch) {
       bulletMatch[1]
         .replace(/[`\[\]]/g, '')

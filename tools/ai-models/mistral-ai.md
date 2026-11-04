@@ -2,12 +2,12 @@
 
 > Leading European open and commercial models celebrated for speed, lightweight efficiency, and specialized code generation.
 
-- **Official Website**: <a href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">mistral.ai</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Open-Weights & Frontier Model
+1. **Official Website**: <a href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">mistral.ai</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Open-Weights & Frontier Model
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `mistral-large`, `codestral`, `open-weights-ai`, `fast-inference`, `european-ai`, `code-completion-llm`, `function-calling`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Mistral AI is a Paris-based AI company that has created some of the most widely 
 
 ## Key Highlights & Features
 
-**Codestral**: Specialized 22B parameter code generation model supporting 80+ programming languages with 32k context.
-**Mixture-of-Experts (MoE)**: Pioneered accessible open MoE architectures for lightning-fast inference latency.
-**Function Calling & JSON Mode**: Native support for schema-enforced JSON outputs and external tool execution.
-**Open Weights & Hosted API**: Available both as open downloadable weights for local hosting and via a fast hosted API (La Plateforme).
+1. **Codestral**: Specialized 22B parameter code generation model supporting 80+ programming languages with 32k context.
+2. **Mixture-of-Experts (MoE)**: Pioneered accessible open MoE architectures for lightning-fast inference latency.
+3. **Function Calling & JSON Mode**: Native support for schema-enforced JSON outputs and external tool execution.
+4. **Open Weights & Hosted API**: Available both as open downloadable weights for local hosting and via a fast hosted API (La Plateforme).
 
 ---
 
@@ -48,6 +48,6 @@ const res = await fetch("https://api.mistral.ai/v1/chat/completions", {
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

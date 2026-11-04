@@ -2,12 +2,12 @@
 
 > Industry-standard appointment scheduling platform with seamless embeddable widgets.
 
-- **Official Website**: <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer">calendly.com</a>
-- **Category**: [Booking & Scheduling](../../README.md#booking--scheduling)
-- **Type**: Hosted Appointment Booking Service
+1. **Official Website**: <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer">calendly.com</a>
+2. **Category**: [Booking & Scheduling](../../README.md#booking--scheduling)
+3. **Type**: Hosted Appointment Booking Service
+4. **Pricing / License**: Freemium
 
 - **Tags**: `calendly`, `appointment-scheduling`, `popup-booking-widget`, `calendar-integration`, `consultation-booking`, `inline-embed`, `appointment-booking`, `calendar-embed`, `meeting-scheduler`, `no-code-widget`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Calendly offers pre-built embed codes that integrate into static websites as inl
 
 ## Key Highlights & Features
 
-- **Universal Recognition**: Highly familiar, trusted scheduling interface for visitors.
-- **Flexible Embed Options**: Inline calendar frames, popup modals, or floating contact badges.
-- **Automated Reminders**: Sends automated email and SMS confirmations to reduce no-shows.
-- **Team Scheduling**: Round-robin and collective meeting availability for teams.
+1. **Universal Recognition**: Highly familiar, trusted scheduling interface for visitors.
+2. **Flexible Embed Options**: Inline calendar frames, popup modals, or floating contact badges.
+3. **Automated Reminders**: Sends automated email and SMS confirmations to reduce no-shows.
+4. **Team Scheduling**: Round-robin and collective meeting availability for teams.
 
 ---
 
@@ -45,5 +45,5 @@ Add a Calendly inline scheduling widget to your static page:
 
 ## When to Use It
 
-- Agency and service business sites that need clients to book consultations.
-- Job application or interview scheduling pages on static company sites.
+1. Agency and service business sites that need clients to book consultations.
+2. Job application or interview scheduling pages on static company sites.

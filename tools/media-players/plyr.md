@@ -2,12 +2,12 @@
 
 > Simple, lightweight, accessible HTML5 media player for video, audio, and YouTube.
 
-- **Official Website**: <a href="https://plyr.io/" target="_blank" rel="noopener noreferrer">plyr.io</a>
-- **Category**: [Media & Video Players](../../README.md#media--video-players)
-- **Type**: HTML5 Media Player
+1. **Official Website**: <a href="https://plyr.io/" target="_blank" rel="noopener noreferrer">plyr.io</a>
+2. **Category**: [Media & Video Players](../../README.md#media--video-players)
+3. **Type**: HTML5 Media Player
+4. **Pricing / License**: Open Source
 
 - **Tags**: `plyr-io`, `accessible-html5-player`, `custom-youtube-vimeo-player`, `stylable-css-video-player`, `audio-video-controls`, `html5-video-player`, `hls-streaming`, `audio-waveform`, `podcast-player`, `custom-media-player`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It features full keyboard navigation, picture-in-picture, fullscreen support, ca
 
 ## Key Highlights & Features
 
-- **Unified Interface**: One consistent, beautiful player UI for HTML5 video, audio, and YouTube/Vimeo.
-- **Accessibility First**: Full keyboard navigation, screen reader support, and ARIA labels.
-- **Lightweight & Fast**: No jQuery dependencies; pure modern JavaScript and CSS.
-- **Responsive & Mobile-Ready**: Adapts gracefully to all screen resolutions and touch devices.
+1. **Unified Interface**: One consistent, beautiful player UI for HTML5 video, audio, and YouTube/Vimeo.
+2. **Accessibility First**: Full keyboard navigation, screen reader support, and ARIA labels.
+3. **Lightweight & Fast**: No jQuery dependencies; pure modern JavaScript and CSS.
+4. **Responsive & Mobile-Ready**: Adapts gracefully to all screen resolutions and touch devices.
 
 ---
 
@@ -52,6 +52,6 @@ Use Plyr on a static HTML page:
 
 ## When to Use It
 
-- Hosting product demo videos, course content, or portfolio videos on static sites.
-- Wrapping YouTube/Vimeo embeds to remove distracting branding and player clutter.
-- Podcasts and music portfolios requiring a clean, custom HTML5 audio player.
+1. Hosting product demo videos, course content, or portfolio videos on static sites.
+2. Wrapping YouTube/Vimeo embeds to remove distracting branding and player clutter.
+3. Podcasts and music portfolios requiring a clean, custom HTML5 audio player.

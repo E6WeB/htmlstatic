@@ -2,13 +2,12 @@
 
 > Open-source AI coding agent available as an interactive terminal interface (TUI) and editor extension.
 
-- **Official Website**: <a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer">opencode.ai</a>
-- **GitHub Repository**: <a href="https://github.com/opencode-ai/opencode" target="_blank" rel="noopener noreferrer">github.com/opencode-ai/opencode</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: AI Coding Agent (CLI & IDE Extensions)
+1. **Official Website**: <a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer">opencode.ai</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: AI Coding Agent (CLI & IDE Extensions)
+4. **Pricing / License**: Open Source
 
 - **Tags**: `opencode`, `open-source-claude-code`, `terminal-ai-agent`, `tui-coding-assistant`, `multi-provider-llm`, `local-coding-agent`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
-
 ---
 
 ## Overview
@@ -21,11 +20,11 @@ With native support for a wide variety of AI providers (Anthropic, OpenAI, Googl
 
 ## Key Highlights & Features
 
-- **Terminal User Interface (TUI)**: Beautiful, responsive keyboard-driven interface built with Bubble Tea.
-- **Multi-Model Flexibility**: Connect to OpenAI, Anthropic Claude, Gemini, or self-hosted open-weights models via Ollama.
-- **Editor Extensions**: Seamlessly switch between standalone CLI sessions and embedded editor panels in VS Code or Cursor.
-- **Non-Interactive Batch Mode**: Run one-off scripting tasks via `opencode run "..."` for CI/CD and automation scripts.
-- **LSP Code Intelligence**: Uses Language Server Protocols to understand project dependencies and syntax rules accurately.
+1. **Terminal User Interface (TUI)**: Beautiful, responsive keyboard-driven interface built with Bubble Tea.
+2. **Multi-Model Flexibility**: Connect to OpenAI, Anthropic Claude, Gemini, or self-hosted open-weights models via Ollama.
+3. **Editor Extensions**: Seamlessly switch between standalone CLI sessions and embedded editor panels in VS Code or Cursor.
+4. **Non-Interactive Batch Mode**: Run one-off scripting tasks via `opencode run "..."` for CI/CD and automation scripts.
+5. **LSP Code Intelligence**: Uses Language Server Protocols to understand project dependencies and syntax rules accurately.
 
 ---
 
@@ -45,6 +44,6 @@ opencode run "Extract all inline CSS styles from index.html into a clean styles.
 
 ## When to Use It
 
-- Developers seeking an open-source, privacy-first alternative to proprietary AI coding tools.
-- Those who want to use local or specialized LLMs for code editing without cloud lock-in.
-- Teams wanting both a fast terminal agent and editor extension integration.
+1. Developers seeking an open-source, privacy-first alternative to proprietary AI coding tools.
+2. Those who want to use local or specialized LLMs for code editing without cloud lock-in.
+3. Teams wanting both a fast terminal agent and editor extension integration.

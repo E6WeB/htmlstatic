@@ -2,12 +2,12 @@
 
 > Multimodal AI model with real-time web search integration for research, drafting web copy, and multi-language content creation.
 
-- **Official Website**: <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">gemini.google.com</a>
-- **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
-- **Type**: Multimodal AI Assistant
+1. **Official Website**: <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">gemini.google.com</a>
+2. **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
+3. **Type**: Multimodal AI Assistant
+4. **Pricing / License**: Freemium
 
 - **Tags**: `google-gemini`, `multimodal-ai`, `ai-research`, `content-drafting`, `structured-json`, `seo-writing`, `gemini-pro`, `ai-copywriting`, `seo-content`, `markdown-generator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ For static website creators, Gemini simplifies writing localized multilingual co
 
 ## Key Highlights & Features
 
-- **Live Web Grounding**: Leverages real-time Google search for current facts, sources, and up-to-date industry data.
-- **Multimodal Capabilities**: Upload website screenshots, wireframes, or diagrams to generate corresponding web copy or code.
-- **Large Context Window**: Ingest extensive datasets, manuals, or research papers for summarization into static website articles.
-- **Export Integration**: Quickly export generated text and tables to Google Docs or copy as clean Markdown.
+1. **Live Web Grounding**: Leverages real-time Google search for current facts, sources, and up-to-date industry data.
+2. **Multimodal Capabilities**: Upload website screenshots, wireframes, or diagrams to generate corresponding web copy or code.
+3. **Large Context Window**: Ingest extensive datasets, manuals, or research papers for summarization into static website articles.
+4. **Export Integration**: Quickly export generated text and tables to Google Docs or copy as clean Markdown.
 
 ---
 
@@ -47,6 +47,6 @@ Ensure the translation uses natural, idiomatic phrasing suitable for a modern te
 
 ## When to Use It
 
-- Writing content that relies on up-to-date facts, current industry statistics, or live web research.
-- Translating and localizing static websites into multiple languages.
-- Brainstorming headlines, value propositions, and SEO copy.
+1. Writing content that relies on up-to-date facts, current industry statistics, or live web research.
+2. Translating and localizing static websites into multiple languages.
+3. Brainstorming headlines, value propositions, and SEO copy.

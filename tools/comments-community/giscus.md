@@ -2,12 +2,12 @@
 
 > GitHub Discussions-powered comment widget for static blogs and docs.
 
-- **Official Website**: <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">giscus.app</a>
-- **Category**: [Comments & Community](../../README.md#comments--community)
-- **Type**: Open Source Comment Widget
+1. **Official Website**: <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">giscus.app</a>
+2. **Category**: [Comments & Community](../../README.md#comments--community)
+3. **Type**: Open Source Comment Widget
+4. **Pricing / License**: Open Source
 
 - **Tags**: `giscus`, `github-discussions-comments`, `static-blog-comments`, `open-source-comments`, `no-tracking-comments`, `markdown-comments`, `disqus-alternative`, `github-comments`, `no-database`, `community-widget`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Because comments are stored in your repository's GitHub Discussions, you have co
 
 ## Key Highlights & Features
 
-- **100% Free & Open Source**: No subscriptions, advertisements, or tracking scripts.
-- **Data Ownership**: All comments are stored directly in your GitHub Discussions.
-- **Reactions & Emoji**: Native support for GitHub reactions (👍, ❤️, 🚀).
-- **Theme Matching**: Supports Light, Dark, High-contrast, and custom CSS themes.
+1. **100% Free & Open Source**: No subscriptions, advertisements, or tracking scripts.
+2. **Data Ownership**: All comments are stored directly in your GitHub Discussions.
+3. **Reactions & Emoji**: Native support for GitHub reactions (👍, ❤️, 🚀).
+4. **Theme Matching**: Supports Light, Dark, High-contrast, and custom CSS themes.
 
 ---
 
@@ -55,6 +55,6 @@ Include the Giscus script tag on your blog post page:
 
 ## When to Use It
 
-- Technical blogs, developer documentation, and open-source websites.
-- Communities where visitors already have GitHub accounts.
-- Site owners who want zero maintenance and full data ownership.
+1. Technical blogs, developer documentation, and open-source websites.
+2. Communities where visitors already have GitHub accounts.
+3. Site owners who want zero maintenance and full data ownership.

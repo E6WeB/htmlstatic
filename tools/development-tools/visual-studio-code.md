@@ -2,12 +2,12 @@
 
 > The leading code editor with rich extension support for web development.
 
-- **Official Website**: <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Code Editor & IDE
+1. **Official Website**: <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Code Editor & IDE
+4. **Pricing / License**: Open Source
 
 - **Tags**: `vscode`, `microsoft-code-editor`, `web-dev-extensions`, `live-server`, `intellisense`, `git-integration`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ For static site authors, VS Code offers live server extensions, HTML/CSS validat
 
 ## Key Highlights & Features
 
-- **IntelliSense**: Smart code completion and parameter info for HTML, CSS, and JS.
-- **Built-in Git**: Stage, commit, diff, and push changes directly from the editor.
-- **Extension Ecosystem**: Thousands of web development plugins (Live Server, Prettier, ESLint).
-- **Integrated Terminal**: Run local servers, build scripts, and CLI utilities inside the app.
+1. **IntelliSense**: Smart code completion and parameter info for HTML, CSS, and JS.
+2. **Built-in Git**: Stage, commit, diff, and push changes directly from the editor.
+3. **Extension Ecosystem**: Thousands of web development plugins (Live Server, Prettier, ESLint).
+4. **Integrated Terminal**: Run local servers, build scripts, and CLI utilities inside the app.
 
 ---
 
@@ -46,5 +46,5 @@ Recommended `.vscode/extensions.json` for static site projects:
 
 ## When to Use It
 
-- Daily code editing, file management, and static site development.
-- Developers who want a fast, customizable environment with extensive extension support.
+1. Daily code editing, file management, and static site development.
+2. Developers who want a fast, customizable environment with extensive extension support.

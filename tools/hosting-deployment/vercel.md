@@ -2,12 +2,12 @@
 
 > Frontend deployment platform optimized for speed, preview workflows, and static assets.
 
-- **Official Website**: <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">vercel.com</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Frontend Cloud & Edge CDN
+1. **Official Website**: <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">vercel.com</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Frontend Cloud & Edge CDN
+4. **Pricing / License**: Freemium
 
 - **Tags**: `vercel`, `frontend-cloud`, `nextjs-astro-hosting`, `preview-deployments`, `vercel-edge-network`, `zero-config-deploy`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Vercel features automatic SSL, custom domain management, worldwide edge routing,
 
 ## Key Highlights & Features
 
-- **Instant Global Deployments**: Assets deployed across a high-speed global edge network.
-- **Live Previews**: Shareable URLs generated for every pull request with team comments.
-- **Zero-Config CLI**: Deploy any static directory in seconds with the `vercel` CLI.
-- **Analytics & Web Vitals**: Real-user performance metrics and Core Web Vitals tracking.
+1. **Instant Global Deployments**: Assets deployed across a high-speed global edge network.
+2. **Live Previews**: Shareable URLs generated for every pull request with team comments.
+3. **Zero-Config CLI**: Deploy any static directory in seconds with the `vercel` CLI.
+4. **Analytics & Web Vitals**: Real-user performance metrics and Core Web Vitals tracking.
 
 ---
 
@@ -43,6 +43,6 @@ npx vercel --prod
 
 ## When to Use It
 
-- Static sites and modern JavaScript frameworks requiring optimal performance.
-- Teams that value collaborative preview workflows and pull request previews.
-- Projects aiming for seamless transition from static pages to edge functions.
+1. Static sites and modern JavaScript frameworks requiring optimal performance.
+2. Teams that value collaborative preview workflows and pull request previews.
+3. Projects aiming for seamless transition from static pages to edge functions.

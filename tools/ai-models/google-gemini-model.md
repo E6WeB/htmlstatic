@@ -2,12 +2,12 @@
 
 > Google's multimodal frontier model family featuring native multimodal reasoning and up to 2M token context.
 
-- **Official Website**: <a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">ai.google.dev</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Multimodal Frontier Model
+1. **Official Website**: <a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">ai.google.dev</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Multimodal Frontier Model
+4. **Pricing / License**: Freemium
 
 - **Tags**: `gemini-api`, `2m-context-window`, `multimodal-llm`, `gemini-flash`, `vertex-ai`, `long-context-rag`, `audio-video-ai`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Google Gemini (including Gemini 1.5 Pro, 1.5 Flash, and Gemini 2.0) is built fro
 
 ## Key Highlights & Features
 
-**Industry-Leading 2M Context**: Upload entire static websites, libraries, and datasets without chunking or vector databases.
-**Native Multimodality**: Process images, wireframe sketches, video recordings, and audio files alongside text.
-**Gemini 1.5 Flash**: Sub-second response times ideal for client-side search and interactive static site widgets.
-**Generous Free Tier**: Google AI Studio provides free API quota for rapid prototyping and personal static sites.
+1. **Industry-Leading 2M Context**: Upload entire static websites, libraries, and datasets without chunking or vector databases.
+2. **Native Multimodality**: Process images, wireframe sketches, video recordings, and audio files alongside text.
+3. **Gemini 1.5 Flash**: Sub-second response times ideal for client-side search and interactive static site widgets.
+4. **Generous Free Tier**: Google AI Studio provides free API quota for rapid prototyping and personal static sites.
 
 ---
 
@@ -44,6 +44,6 @@ const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

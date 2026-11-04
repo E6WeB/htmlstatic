@@ -2,12 +2,12 @@
 
 > The world's fastest static site generator, capable of rendering thousands of pages in milliseconds.
 
-- **Official Website**: <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">gohugo.io</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: High-Performance Static Generator (Go)
+1. **Official Website**: <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">gohugo.io</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: High-Performance Static Generator (Go)
+4. **Pricing / License**: Open Source
 
 - **Tags**: `gohugo`, `fastest-go-ssg`, `millisecond-markdown-builds`, `single-binary-ssg`, `multilingual-static-sites`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ With built-in asset pipelines (Hugo Pipes) for SCSS compilation, image resizing,
 
 ## Key Highlights & Features
 
-- **Sub-Second Builds**: Generates thousands of pages in fractions of a second.
-- **Zero Node.js Dependencies**: Distributed as a single self-contained binary.
-- **Built-in Asset Processing**: Resizes images, compiles Sass, and minifies files natively.
-- **Extensive Theme Ecosystem**: Hundreds of community-contributed themes for blogs and docs.
+1. **Sub-Second Builds**: Generates thousands of pages in fractions of a second.
+2. **Zero Node.js Dependencies**: Distributed as a single self-contained binary.
+3. **Built-in Asset Processing**: Resizes images, compiles Sass, and minifies files natively.
+4. **Extensive Theme Ecosystem**: Hundreds of community-contributed themes for blogs and docs.
 
 ---
 
@@ -46,6 +46,6 @@ hugo
 
 ## When to Use It
 
-- Large websites, massive documentation archives, and blogs with thousands of articles.
-- Developers wanting a single standalone binary with zero npm/node configuration.
-- Rapid continuous integration builds that finish in seconds.
+1. Large websites, massive documentation archives, and blogs with thousands of articles.
+2. Developers wanting a single standalone binary with zero npm/node configuration.
+3. Rapid continuous integration builds that finish in seconds.

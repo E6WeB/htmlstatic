@@ -1010,7 +1010,7 @@ Detect client-side JavaScript crashes and monitor performance in production.
   <tr>
     <td><a href="tools/monitoring-errors/logrocket.md">LogRocket</a></td>
     <td>Session replay and frontend telemetry to reproduce user-facing issues</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
     <td><a href="https://logrocket.com/" target="_blank" rel="noopener noreferrer">logrocket.com</a></td>
   </tr>
   <tr>
@@ -1053,6 +1053,12 @@ Collect subscribers, send newsletters, and handle email delivery from static web
     <td>Email API for sending messages from applications and websites</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://emailit.com/" target="_blank" rel="noopener noreferrer">emailit.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/newsletters-email/smtp2go.md">SMTP2GO</a></td>
+    <td>Scalable transactional email service and REST API with real-time analytics</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.smtp2go.com/" target="_blank" rel="noopener noreferrer">smtp2go.com</a></td>
   </tr>
 </tbody>
 </table>

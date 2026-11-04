@@ -2,12 +2,12 @@
 
 > Hosted booking, quote, and contact form builder with payment support.
 
-- **Official Website**: <a href="https://craftforms.app/" target="_blank" rel="noopener noreferrer">craftforms.app</a>
-- **Category**: [Contact Forms](../../README.md#contact-forms)
-- **Type**: Hosted Form Builder & Endpoint
+1. **Official Website**: <a href="https://craftforms.app/" target="_blank" rel="noopener noreferrer">craftforms.app</a>
+2. **Category**: [Contact Forms](../../README.md#contact-forms)
+3. **Type**: Hosted Form Builder & Endpoint
+4. **Pricing / License**: Freemium
 
 - **Tags**: `craftforms`, `payment-forms`, `booking-form-builder`, `quote-calculator-form`, `stripe-forms`, `embeddable-forms`, `serverless-forms`, `static-html-form`, `form-backend`, `email-notifications`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ Forms can be embedded into any static site via a small HTML/JavaScript snippet a
 
 ## Key Highlights & Features
 
-- **Booking & Availability**: Datepicker fields with availability calendars, time slots, seasonal pricing, and iCal feed sync.
-- **Payments & Deposits**: Integrated Stripe and PayPal checkout with server-side price validation.
-- **Live Price Calculators**: Formula-based instant pricing based on user-selected fields.
-- **Unlimited Submissions**: No monthly submission caps, with EU-based hosting.
-- **Automated Notifications & Webhooks**: Branded email confirmations, PDF generation, and webhooks to Zapier, Make, and n8n.
+1. **Booking & Availability**: Datepicker fields with availability calendars, time slots, seasonal pricing, and iCal feed sync.
+2. **Payments & Deposits**: Integrated Stripe and PayPal checkout with server-side price validation.
+3. **Live Price Calculators**: Formula-based instant pricing based on user-selected fields.
+4. **Unlimited Submissions**: No monthly submission caps, with EU-based hosting.
+5. **Automated Notifications & Webhooks**: Branded email confirmations, PDF generation, and webhooks to Zapier, Make, and n8n.
 
 ---
 
@@ -43,6 +43,6 @@ CraftForms handles user interactions, availability checks, formula calculations,
 
 ## When to Use It
 
-- Static websites for rentals, tours, services, and appointment bookings that require deposits.
-- Custom product or quote forms needing real-time calculation and confirmation PDFs.
-- Portfolios and business landing pages that need robust form handling without third-party submission caps.
+1. Static websites for rentals, tours, services, and appointment bookings that require deposits.
+2. Custom product or quote forms needing real-time calculation and confirmation PDFs.
+3. Portfolios and business landing pages that need robust form handling without third-party submission caps.

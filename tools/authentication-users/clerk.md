@@ -2,12 +2,12 @@
 
 > Complete user management and authentication with drop-in UI and vanilla JavaScript SDK.
 
-- **Official Website**: <a href="https://clerk.com/" target="_blank" rel="noopener noreferrer">clerk.com</a>
-- **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
-- **Type**: User Authentication & Management Platform
+1. **Official Website**: <a href="https://clerk.com/" target="_blank" rel="noopener noreferrer">clerk.com</a>
+2. **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
+3. **Type**: User Authentication & Management Platform
+4. **Pricing / License**: Freemium
 
 - **Tags**: `clerk-auth`, `drop-in-auth`, `passkey-login`, `social-oauth`, `user-profiles`, `javascript-auth-sdk`, `auth0-alternative`, `passkeys`, `oauth-login`, `jwt-auth`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It includes pre-built modal components for sign-up, sign-in, user profiles, and 
 
 ## Key Highlights & Features
 
-- **Drop-In Modals**: Beautiful, accessible sign-in and profile components out of the box.
-- **Social Logins & Passkeys**: Support for Google, GitHub, Apple, passkeys, and magic links.
-- **Vanilla JS SDK**: Load via CDN without complex build tools or frameworks.
-- **Session Management**: Secure JWT handling and token renewal performed automatically in the browser.
+1. **Drop-In Modals**: Beautiful, accessible sign-in and profile components out of the box.
+2. **Social Logins & Passkeys**: Support for Google, GitHub, Apple, passkeys, and magic links.
+3. **Vanilla JS SDK**: Load via CDN without complex build tools or frameworks.
+4. **Session Management**: Secure JWT handling and token renewal performed automatically in the browser.
 
 ---
 
@@ -66,6 +66,6 @@ Add Clerk to any static HTML page using the JavaScript SDK:
 
 ## When to Use It
 
-- Adding gated content, member portals, or user dashboards to static sites.
-- Websites needing secure social logins and passkeys with zero backend maintenance.
-- Client portals that require complete user profile management.
+1. Adding gated content, member portals, or user dashboards to static sites.
+2. Websites needing secure social logins and passkeys with zero backend maintenance.
+3. Client portals that require complete user profile management.

@@ -2,12 +2,12 @@
 
 > All-in-one multichannel customer messaging and live chat platform with a lightweight widget.
 
-- **Official Website**: <a href="https://crisp.chat/" target="_blank" rel="noopener noreferrer">crisp.chat</a>
-- **Category**: [Live Chat & Support](../../README.md#live-chat--support)
-- **Type**: Customer Messaging & Live Chat Platform
+1. **Official Website**: <a href="https://crisp.chat/" target="_blank" rel="noopener noreferrer">crisp.chat</a>
+2. **Category**: [Live Chat & Support](../../README.md#live-chat--support)
+3. **Type**: Customer Messaging & Live Chat Platform
+4. **Pricing / License**: Freemium
 
 - **Tags**: `crisp-chat`, `free-live-chat-widget`, `shared-inbox`, `magicbrowse-cobrowsing`, `chatbot-knowledge-base`, `customer-support-widget`, `live-chat-embed`, `helpdesk-widget`, `visitor-messaging`, `no-backend-chat`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ The Crisp chat widget is lightweight and features customizable themes, language 
 
 ## Key Highlights & Features
 
-- **Generous Free Plan**: Includes live chat for up to 2 operators with mobile apps.
-- **Lightweight Embed**: Asynchronous script designed not to hinder page load times.
-- **Lead Capture**: Collects visitor emails automatically during conversation.
-- **Audio & Video Messages**: Optional voice notes and screen sharing capabilities.
+1. **Generous Free Plan**: Includes live chat for up to 2 operators with mobile apps.
+2. **Lightweight Embed**: Asynchronous script designed not to hinder page load times.
+3. **Lead Capture**: Collects visitor emails automatically during conversation.
+4. **Audio & Video Messages**: Optional voice notes and screen sharing capabilities.
 
 ---
 
@@ -49,5 +49,5 @@ Embed the Crisp chat widget into the `<head>` of your static HTML:
 
 ## When to Use It
 
-- Static e-commerce stores and product landing pages requiring real-time presale support.
-- SaaS landing pages and portfolios wanting direct communication with potential clients.
+1. Static e-commerce stores and product landing pages requiring real-time presale support.
+2. SaaS landing pages and portfolios wanting direct communication with potential clients.

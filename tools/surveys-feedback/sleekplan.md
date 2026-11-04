@@ -2,12 +2,12 @@
 
 > All-in-one user feedback board, public roadmap, and changelog widget.
 
-- **Official Website**: <a href="https://sleekplan.com/" target="_blank" rel="noopener noreferrer">sleekplan.com</a>
-- **Category**: [Surveys & Feedback](../../README.md#surveys--feedback)
-- **Type**: Feedback Board & Roadmap Widget
+1. **Official Website**: <a href="https://sleekplan.com/" target="_blank" rel="noopener noreferrer">sleekplan.com</a>
+2. **Category**: [Surveys & Feedback](../../README.md#surveys--feedback)
+3. **Type**: Feedback Board & Roadmap Widget
+4. **Pricing / License**: Freemium
 
 - **Tags**: `sleekplan`, `in-app-feedback-board`, `public-product-roadmap`, `changelog-popup-widget`, `feature-voting`, `feedback-widget`, `embeddable-surveys`, `product-roadmap`, `changelog-widget`, `typeform-alternative`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It is particularly valuable for static SaaS websites, open-source projects, and 
 
 ## Key Highlights & Features
 
-- **Feedback & Upvoting**: Let visitors submit feature requests and upvote ideas.
-- **Public Roadmap**: Showcase what features are planned, in-progress, and launched.
-- **Changelog Announcements**: Publish product updates and release notes to visitors.
-- **Compact Floating Widget**: One clean script tag that expands into an interactive portal.
+1. **Feedback & Upvoting**: Let visitors submit feature requests and upvote ideas.
+2. **Public Roadmap**: Showcase what features are planned, in-progress, and launched.
+3. **Changelog Announcements**: Publish product updates and release notes to visitors.
+4. **Compact Floating Widget**: One clean script tag that expands into an interactive portal.
 
 ---
 
@@ -50,6 +50,6 @@ Embed the Sleekplan widget onto any static HTML page:
 
 ## When to Use It
 
-- Static product websites wanting to collect feature suggestions and bug reports.
-- Showcasing a live public roadmap and changelog to visitors.
-- Measuring customer satisfaction (CSAT) directly on static pages.
+1. Static product websites wanting to collect feature suggestions and bug reports.
+2. Showcasing a live public roadmap and changelog to visitors.
+3. Measuring customer satisfaction (CSAT) directly on static pages.

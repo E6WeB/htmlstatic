@@ -2,12 +2,12 @@
 
 > AI-powered research and citation engine for writing factual, well-sourced blog posts, guides, and documentation.
 
-- **Official Website**: <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">perplexity.ai</a>
-- **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
-- **Type**: AI Search & Research Assistant
+1. **Official Website**: <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">perplexity.ai</a>
+2. **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
+3. **Type**: AI Search & Research Assistant
+4. **Pricing / License**: Freemium
 
 - **Tags**: `perplexity-ai`, `ai-search-engine`, `cited-research`, `fact-checking`, `seo-research`, `content-discovery`, `answer-engine`, `ai-copywriting`, `seo-content`, `markdown-generator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ For static website publishers, Perplexity is an invaluable research companion. I
 
 ## Key Highlights & Features
 
-- **Inline Citations**: Every sentence and fact is cited with links to authoritative online publications.
-- **Deep Research Mode**: Performs autonomous, multi-step queries across hundreds of web pages to produce comprehensive research dossiers.
-- **Focus Filters**: Limit search queries specifically to Academic papers, YouTube, Reddit discussions, or the broader web.
-- **Collections**: Group related research threads and reference links into shareable knowledge hubs.
+1. **Inline Citations**: Every sentence and fact is cited with links to authoritative online publications.
+2. **Deep Research Mode**: Performs autonomous, multi-step queries across hundreds of web pages to produce comprehensive research dossiers.
+3. **Focus Filters**: Limit search queries specifically to Academic papers, YouTube, Reddit discussions, or the broader web.
+4. **Collections**: Group related research threads and reference links into shareable knowledge hubs.
 
 ---
 
@@ -47,6 +47,6 @@ and link to the official MDN documentation."
 
 ## When to Use It
 
-- Writing research-heavy static site articles that require accurate source citations.
-- Fact-checking claims, benchmarks, and technical assertions before publishing.
-- Compiling lists of curated tools, libraries, and external resources.
+1. Writing research-heavy static site articles that require accurate source citations.
+2. Fact-checking claims, benchmarks, and technical assertions before publishing.
+3. Compiling lists of curated tools, libraries, and external resources.

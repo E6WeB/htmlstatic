@@ -2,12 +2,12 @@
 
 > Real-time web analytics, visitor journey tracking, and configurable page counters.
 
-- **Official Website**: <a href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">statcounter.com</a>
-- **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
-- **Type**: Web Analytics Platform
+1. **Official Website**: <a href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">statcounter.com</a>
+2. **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
+3. **Type**: Web Analytics Platform
+4. **Pricing / License**: Freemium
 
 - **Tags**: `statcounter`, `realtime-visitor-tracking`, `hit-counter`, `visitor-paths`, `web-stats`, `classic-analytics`, `cookieless-analytics`, `gdpr-compliant`, `google-analytics-alternative`, `privacy-first`
-
 ---
 
 ## Overview
@@ -20,12 +20,12 @@ Statcounter is particularly popular for static websites, Jamstack architectures,
 
 ## Key Highlights & Features
 
-- **Real-Time Visitor Paths**: Follow individual visitor journeys step-by-step from their entry page and referral source through to exit pages.
-- **Invisible or Visible Modes**: Run silent background analytics or embed a configurable visitor badge directly into your site layout.
-- **Traffic Feeds & Live Map**: View current active sessions, geolocation, operating systems, screen resolutions, and browsers live.
-- **Popular Pages & Referrers**: Identify your top landing pages, search keywords, external referrers, and outbound link clicks.
-- **Session Replay & Heatmaps**: Premium plans offer visual session recordings and click heatmaps to diagnose user experience issues.
-- **Lightweight Integration**: Simple script addition that works seamlessly across static HTML, SSGs (Astro, 11ty, Hugo), and single-page applications.
+1. **Real-Time Visitor Paths**: Follow individual visitor journeys step-by-step from their entry page and referral source through to exit pages.
+2. **Invisible or Visible Modes**: Run silent background analytics or embed a configurable visitor badge directly into your site layout.
+3. **Traffic Feeds & Live Map**: View current active sessions, geolocation, operating systems, screen resolutions, and browsers live.
+4. **Popular Pages & Referrers**: Identify your top landing pages, search keywords, external referrers, and outbound link clicks.
+5. **Session Replay & Heatmaps**: Premium plans offer visual session recordings and click heatmaps to diagnose user experience issues.
+6. **Lightweight Integration**: Simple script addition that works seamlessly across static HTML, SSGs (Astro, 11ty, Hugo), and single-page applications.
 
 ---
 
@@ -54,6 +54,6 @@ var sc_security = "YOUR_SECURITY_CODE";
 
 ## When to Use It
 
-- Static websites, portfolios, and blogs that need instant, hassle-free traffic metrics without server-side processing.
-- Developers looking for clear visitor journey logs and referrer analysis without navigating complex Google Analytics dashboards.
-- Sites that want the flexibility of displaying a public hit counter or keeping analytics completely private.
+1. Static websites, portfolios, and blogs that need instant, hassle-free traffic metrics without server-side processing.
+2. Developers looking for clear visitor journey logs and referrer analysis without navigating complex Google Analytics dashboards.
+3. Sites that want the flexibility of displaying a public hit counter or keeping analytics completely private.

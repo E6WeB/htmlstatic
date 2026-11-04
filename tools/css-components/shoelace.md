@@ -2,12 +2,12 @@
 
 > Forward-thinking library of framework-agnostic web components that work with plain HTML.
 
-- **Official Website**: <a href="https://shoelace.style/" target="_blank" rel="noopener noreferrer">shoelace.style</a>
-- **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
-- **Type**: Standard Web Components Library
+1. **Official Website**: <a href="https://shoelace.style/" target="_blank" rel="noopener noreferrer">shoelace.style</a>
+2. **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
+3. **Type**: Standard Web Components Library
+4. **Pricing / License**: Open Source
 
 - **Tags**: `shoelace-ui`, `web-components`, `custom-elements`, `framework-agnostic-ui`, `accessible-components`, `shadow-dom`, `ui-components`, `classless-css`, `lightweight-css`, `responsive-design`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Unlike component libraries that require React, Vue, or build tools, Shoelace com
 
 ## Key Highlights & Features
 
-- **Framework Agnostic**: Works natively in static HTML, Astro, Hugo, or any JS framework.
-- **Full Accessibility**: Built-in keyboard navigation, ARIA attributes, and focus management.
-- **Customizable via CSS Tokens**: Easily theme components with simple CSS custom properties.
-- **Rich Component Set**: Dialogs, tooltips, color pickers, progress bars, and icon integrations.
+1. **Framework Agnostic**: Works natively in static HTML, Astro, Hugo, or any JS framework.
+2. **Full Accessibility**: Built-in keyboard navigation, ARIA attributes, and focus management.
+3. **Customizable via CSS Tokens**: Easily theme components with simple CSS custom properties.
+4. **Rich Component Set**: Dialogs, tooltips, color pickers, progress bars, and icon integrations.
 
 ---
 
@@ -50,6 +50,6 @@ Load Shoelace from CDN and use custom elements directly in HTML:
 
 ## When to Use It
 
-- Adding advanced UI components (drawers, modals, tabs, tooltips) to static HTML.
-- Building web applications without bundlers, webpack, or framework dependencies.
-- Teams wanting accessible, enterprise-grade UI components in pure HTML.
+1. Adding advanced UI components (drawers, modals, tabs, tooltips) to static HTML.
+2. Building web applications without bundlers, webpack, or framework dependencies.
+3. Teams wanting accessible, enterprise-grade UI components in pure HTML.

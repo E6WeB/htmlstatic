@@ -835,6 +835,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/tools/newsletters-email/smtp2go</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/tools/payments-ecommerce/lemon-squeezy</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>

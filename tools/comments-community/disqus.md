@@ -2,12 +2,12 @@
 
 > Hosted commenting system for websites with social logins and moderation tools.
 
-- **Official Website**: <a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">disqus.com</a>
-- **Category**: [Comments & Community](../../README.md#comments--community)
-- **Type**: Hosted Discussion Network
+1. **Official Website**: <a href="https://disqus.com/" target="_blank" rel="noopener noreferrer">disqus.com</a>
+2. **Category**: [Comments & Community](../../README.md#comments--community)
+3. **Type**: Hosted Discussion Network
+4. **Pricing / License**: Freemium
 
 - **Tags**: `disqus-comments`, `blog-comment-widget`, `social-comments`, `moderation-tools`, `embedded-discussions`, `static-blog-comments`, `disqus-alternative`, `github-comments`, `no-database`, `community-widget`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It can be added to any static HTML page by embedding a simple JavaScript snippet
 
 ## Key Highlights & Features
 
-- **Social Logins**: Users can comment using Google, Facebook, Twitter, or Disqus accounts.
-- **Comprehensive Moderation**: Pre-moderation, spam filtering, and banned-word lists.
-- **Rich Media Support**: Allows users to include images, formatting, and hyperlinks.
-- **Notification System**: Visitors get email alerts when others reply to their comments.
+1. **Social Logins**: Users can comment using Google, Facebook, Twitter, or Disqus accounts.
+2. **Comprehensive Moderation**: Pre-moderation, spam filtering, and banned-word lists.
+3. **Rich Media Support**: Allows users to include images, formatting, and hyperlinks.
+4. **Notification System**: Visitors get email alerts when others reply to their comments.
 
 ---
 
@@ -51,6 +51,6 @@ Embed Disqus into your static article page:
 
 ## When to Use It
 
-- High-traffic lifestyle, news, or general-interest blogs.
-- Websites where visitors prefer standard social network logins.
-- Publishers wanting automated comment moderation and user notifications.
+1. High-traffic lifestyle, news, or general-interest blogs.
+2. Websites where visitors prefer standard social network logins.
+3. Publishers wanting automated comment moderation and user notifications.

@@ -2,12 +2,12 @@
 
 > Static hosting with automated continuous deployment and edge services.
 
-- **Official Website**: <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify.com</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Jamstack & Frontend Cloud
+1. **Official Website**: <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify.com</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Jamstack & Frontend Cloud
+4. **Pricing / License**: Freemium
 
 - **Tags**: `netlify`, `jamstack-pioneer`, `deploy-previews`, `netlify-forms`, `edge-functions`, `instant-rollbacks`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Beyond simple static file serving, Netlify offers built-in form handling, server
 
 ## Key Highlights & Features
 
-- **Automated Git Workflows**: Builds and deploys automatically upon every push.
-- **Instant Cache Invalidation**: Instant global updates across edge nodes.
-- **Built-in Form Handling**: Collect submissions directly by adding a `netlify` attribute to HTML forms.
-- **Deploy Previews**: Unique URLs for each branch and pull request for rapid review.
+1. **Automated Git Workflows**: Builds and deploys automatically upon every push.
+2. **Instant Cache Invalidation**: Instant global updates across edge nodes.
+3. **Built-in Form Handling**: Collect submissions directly by adding a `netlify` attribute to HTML forms.
+4. **Deploy Previews**: Unique URLs for each branch and pull request for rapid review.
 
 ---
 
@@ -46,6 +46,6 @@ Configure build settings in a `netlify.toml` file at the root of your project:
 
 ## When to Use It
 
-- Production static websites and web applications with automated CI/CD.
-- Websites needing built-in forms and edge redirects without third-party services.
-- Cross-functional teams that rely on Deploy Previews for visual QA.
+1. Production static websites and web applications with automated CI/CD.
+2. Websites needing built-in forms and edge redirects without third-party services.
+3. Cross-functional teams that rely on Deploy Previews for visual QA.

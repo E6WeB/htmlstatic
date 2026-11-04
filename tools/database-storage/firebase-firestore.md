@@ -2,12 +2,12 @@
 
 > Real-time cloud NoSQL database that static frontend applications can query directly.
 
-- **Official Website**: <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">firebase.google.com</a>
-- **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
-- **Type**: Serverless Cloud NoSQL Database
+1. **Official Website**: <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">firebase.google.com</a>
+2. **Category**: [Database & Backend-as-a-Service](../../README.md#database--backend-as-a-service)
+3. **Type**: Serverless Cloud NoSQL Database
+4. **Pricing / License**: Freemium
 
 - **Tags**: `firestore`, `nosql-cloud-db`, `realtime-listeners`, `client-side-database`, `serverless-storage`, `google-firebase`, `serverless-database`, `baas`, `rest-api`, `realtime-db`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Firestore features real-time listeners that update UI elements immediately whene
 
 ## Key Highlights & Features
 
-- **Real-Time Data Sync**: Automatically updates web pages when data changes on the server.
-- **Offline Caching**: Built-in client-side data caching for fast offline experiences.
-- **Generous Free Tier**: Generous daily read/write allowances for small to medium sites.
-- **Granular Security Rules**: Secure direct database access without an intermediary API server.
+1. **Real-Time Data Sync**: Automatically updates web pages when data changes on the server.
+2. **Offline Caching**: Built-in client-side data caching for fast offline experiences.
+3. **Generous Free Tier**: Generous daily read/write allowances for small to medium sites.
+4. **Granular Security Rules**: Secure direct database access without an intermediary API server.
 
 ---
 
@@ -53,5 +53,5 @@ Include Firebase in your static HTML:
 
 ## When to Use It
 
-- Static apps needing real-time updates like live voting, polls, or status dashboards.
-- Projects requiring reliable global database infrastructure backed by Google Cloud.
+1. Static apps needing real-time updates like live voting, polls, or status dashboards.
+2. Projects requiring reliable global database infrastructure backed by Google Cloud.

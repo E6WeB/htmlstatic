@@ -2,12 +2,12 @@
 
 > Full-featured React framework supporting pure static site exports (`output: 'export'`) alongside modern routing and TypeScript tooling.
 
-- **Official Website**: <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">nextjs.org</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: React Web Framework & Static Exporter
+1. **Official Website**: <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">nextjs.org</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: React Web Framework & Static Exporter
+4. **Pricing / License**: Open Source
 
 - **Tags**: `nextjs-static-export`, `react-static-site-generation`, `output-export`, `app-router-ssg`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ A statically exported Next.js site requires zero Node.js servers at runtime and 
 
 ## Key Highlights & Features
 
-- **Pure Static Export (`output: 'export'`)**: Generates self-contained `.html` files for every route at build time with zero server runtime required.
-- **File-System App Router**: Define pages, nested layouts, and dynamic routes (`generateStaticParams`) naturally using folders and React Server Components.
-- **Built-in TypeScript & CSS Support**: Out-of-the-box support for TypeScript, Tailwind CSS, CSS Modules, and Sass without manual bundler configuration.
-- **Automatic Code Splitting & Prefetching**: Only loads the JavaScript needed for the current page and prefetches linked routes in the background.
+1. **Pure Static Export (`output: 'export'`)**: Generates self-contained `.html` files for every route at build time with zero server runtime required.
+2. **File-System App Router**: Define pages, nested layouts, and dynamic routes (`generateStaticParams`) naturally using folders and React Server Components.
+3. **Built-in TypeScript & CSS Support**: Out-of-the-box support for TypeScript, Tailwind CSS, CSS Modules, and Sass without manual bundler configuration.
+4. **Automatic Code Splitting & Prefetching**: Only loads the JavaScript needed for the current page and prefetches linked routes in the background.
 
 ---
 
@@ -59,7 +59,6 @@ npm run build
 
 ## When to Use It
 
-- React teams who want to build interactive static websites, dashboards, documentation, or marketing sites using React and TypeScript.
-- Projects that start as pure static HTML exports (`out/`) and want the flexibility to adopt edge or server features in the future.
-- Developers looking for the largest ecosystem of React UI component libraries and templates.
-
+1. React teams who want to build interactive static websites, dashboards, documentation, or marketing sites using React and TypeScript.
+2. Projects that start as pure static HTML exports (`out/`) and want the flexibility to adopt edge or server features in the future.
+3. Developers looking for the largest ecosystem of React UI component libraries and templates.

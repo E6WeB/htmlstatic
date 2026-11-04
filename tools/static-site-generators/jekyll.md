@@ -2,12 +2,12 @@
 
 > Battle-tested Ruby static site generator that transforms plain Markdown and Liquid templates into static websites and powers GitHub Pages natively.
 
-- **Official Website**: <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">jekyllrb.com</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: Blog-Aware Static Site Generator (Ruby)
+1. **Official Website**: <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">jekyllrb.com</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: Blog-Aware Static Site Generator (Ruby)
+4. **Pricing / License**: Open Source
 
 - **Tags**: `jekyll-rb`, `github-pages-native-ssg`, `liquid-templates`, `markdown-blog-engine`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`, `blog-generator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Because Jekyll is natively integrated into GitHub Pages, you can push Markdown f
 
 ## Key Highlights & Features
 
-- **Blog-Aware by Default**: First-class support for permalinks, categories, tags, drafts, pages, and date-based Markdown posts out of the box.
-- **Native GitHub Pages Integration**: Push source files to GitHub and deploy automatically without configuring external CI pipelines.
-- **Liquid Templating & Front Matter**: Combine YAML front matter with clean Liquid templates, partials (`_includes`), and data files (`_data`).
-- **Mature Theme & Plugin Ecosystem**: Hundreds of free open-source themes and plugins for SEO tags, sitemaps, Atom/RSS feeds, and pagination.
+1. **Blog-Aware by Default**: First-class support for permalinks, categories, tags, drafts, pages, and date-based Markdown posts out of the box.
+2. **Native GitHub Pages Integration**: Push source files to GitHub and deploy automatically without configuring external CI pipelines.
+3. **Liquid Templating & Front Matter**: Combine YAML front matter with clean Liquid templates, partials (`_includes`), and data files (`_data`).
+4. **Mature Theme & Plugin Ecosystem**: Hundreds of free open-source themes and plugins for SEO tags, sitemaps, Atom/RSS feeds, and pagination.
 
 ---
 
@@ -63,7 +63,6 @@ Write your content in clean **Markdown** and Jekyll compiles it to static HTML.
 
 ## When to Use It
 
-- Personal blogs, project documentation, and open-source project landing pages hosted on GitHub Pages.
-- Writers and developers who want a straightforward, convention-over-configuration Markdown publishing workflow.
-- Long-lived static websites that value stability and readable Liquid templates over complex JavaScript toolchains.
-
+1. Personal blogs, project documentation, and open-source project landing pages hosted on GitHub Pages.
+2. Writers and developers who want a straightforward, convention-over-configuration Markdown publishing workflow.
+3. Long-lived static websites that value stability and readable Liquid templates over complex JavaScript toolchains.

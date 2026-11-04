@@ -2,12 +2,12 @@
 
 > Simple, flexible static site generator that transforms templates and Markdown into fast static HTML.
 
-- **Official Website**: <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty.dev</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: Zero-Config Static Site Generator
+1. **Official Website**: <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">11ty.dev</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: Zero-Config Static Site Generator
+4. **Pricing / License**: Open Source
 
 - **Tags**: `eleventy`, `11ty`, `zero-client-js-ssg`, `liquid-nunjucks-markdown`, `fast-node-ssg`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It is renowned for its speed, simplicity, and flexibility, making it a favorite 
 
 ## Key Highlights & Features
 
-- **Zero Client-Side JavaScript**: Outputs clean static HTML files without framework overhead.
-- **Multiple Template Engines**: Mix and match Markdown, Nunjucks, Liquid, and HTML seamlessly.
-- **Blazing Build Speeds**: Rapid local development reload times.
-- **Independent Data Directory**: Feed content from local JSON/JS files or remote APIs.
+1. **Zero Client-Side JavaScript**: Outputs clean static HTML files without framework overhead.
+2. **Multiple Template Engines**: Mix and match Markdown, Nunjucks, Liquid, and HTML seamlessly.
+3. **Blazing Build Speeds**: Rapid local development reload times.
+4. **Independent Data Directory**: Feed content from local JSON/JS files or remote APIs.
 
 ---
 
@@ -46,6 +46,6 @@ npx @11ty/eleventy
 
 ## When to Use It
 
-- Personal blogs, documentation, and simple multi-page websites.
-- Web developers who want to write standard HTML and CSS without framework compilation.
-- Fast, dependency-light static generation.
+1. Personal blogs, documentation, and simple multi-page websites.
+2. Web developers who want to write standard HTML and CSS without framework compilation.
+3. Fast, dependency-light static generation.

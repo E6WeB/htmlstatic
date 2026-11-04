@@ -2,12 +2,12 @@
 
 > Extensive library of open-source web fonts and icons delivered via global CDN.
 
-- **Official Website**: <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">fonts.google.com</a>
-- **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
-- **Type**: Web Font & Icon CDN
+1. **Official Website**: <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">fonts.google.com</a>
+2. **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
+3. **Type**: Web Font & Icon CDN
+4. **Pricing / License**: Free / Open Source
 
 - **Tags**: `google-fonts`, `free-open-source-typefaces`, `variable-web-fonts`, `material-symbols-icons`, `global-font-cdn`, `self-hosted-fonts`, `gdpr-fonts`, `google-fonts-alternative`, `variable-fonts`, `web-typography`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ All fonts are served via Google's high-speed global content delivery network, au
 
 ## Key Highlights & Features
 
-- **Massive Font Library**: Over 1,500 open-source font families covering hundreds of languages and writing systems.
-- **Variable Fonts**: Granular control over weight, width, and optical size using a single, efficient font file.
-- **Material Symbols & Icons**: Thousands of vector icons across Outlined, Rounded, and Sharp styles.
-- **Automatic Optimization**: Delivers compressed WOFF2 files and localized character subsets for fast loading.
-- **100% Free**: Licensed under open-source licenses (SIL Open Font License, Apache 2.0, or Ubuntu Font License) for personal and commercial projects.
+1. **Massive Font Library**: Over 1,500 open-source font families covering hundreds of languages and writing systems.
+2. **Variable Fonts**: Granular control over weight, width, and optical size using a single, efficient font file.
+3. **Material Symbols & Icons**: Thousands of vector icons across Outlined, Rounded, and Sharp styles.
+4. **Automatic Optimization**: Delivers compressed WOFF2 files and localized character subsets for fast loading.
+5. **100% Free**: Licensed under open-source licenses (SIL Open Font License, Apache 2.0, or Ubuntu Font License) for personal and commercial projects.
 
 ---
 
@@ -53,6 +53,6 @@ body {
 
 ## When to Use It
 
-- Quick and easy typography integration on static blogs, landing pages, and documentation sites.
-- Projects needing a vast selection of multilingual fonts or modern variable typography without self-hosting assets.
-- Prototyping and developing web designs with instant access to Google's Material Symbols and icons.
+1. Quick and easy typography integration on static blogs, landing pages, and documentation sites.
+2. Projects needing a vast selection of multilingual fonts or modern variable typography without self-hosting assets.
+3. Prototyping and developing web designs with instant access to Google's Material Symbols and icons.

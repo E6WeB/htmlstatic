@@ -2,12 +2,12 @@
 
 > Add complete e-commerce stores, shopping carts, subscriptions, and user authentication to static websites.
 
-- **Official Website**: <a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a>
-- **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce) | [Authentication & User Management](../../README.md#authentication--user-management)
-- **Type**: E-Commerce, Subscriptions & User Authentication
+1. **Official Website**: <a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a>
+2. **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce) | [Authentication & User Management](../../README.md#authentication--user-management)
+3. **Type**: E-Commerce, Subscriptions & User Authentication
+4. **Pricing / License**: Freemium
 
 - **Tags**: `reflow-hq`, `static-site-shopping-cart`, `html-data-attribute-store`, `stripe-paypal-static-cart`, `jamstack-ecommerce`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
-
 ---
 
 ## Overview
@@ -20,13 +20,13 @@ Connecting directly to your existing Stripe, PayPal, or Paddle account, Reflow c
 
 ## Key Highlights & Features
 
-- **Drop-In Static Integration**: Embed product listings, shopping carts, checkout buttons, and user login modals with simple HTML `data-reflow-type` tags.
-- **Zero Transaction Fees**: Reflow charges 0% commission on sales. Keep 100% of your revenue (minus standard payment gateway fees).
-- **Native Shopping Cart & Checkout**: Slide-out cart drawer, coupon codes, tax calculations, shipping options, and multi-currency support.
-- **Product & Order Management**: Full dashboard for managing physical goods, product variants, inventory, and digital file downloads.
-- **Subscriptions & Recurring Billing**: Create recurring subscription plans, manage free trials, handle customer upgrades, and restrict member content.
-- **Customer Authentication**: Secure user sign-in supporting Google, Apple, Facebook, X, and email/password with client-side JWT token verification.
-- **Bootstrap Studio Integration**: Native drag-and-drop e-commerce and auth components inside Bootstrap Studio.
+1. **Drop-In Static Integration**: Embed product listings, shopping carts, checkout buttons, and user login modals with simple HTML `data-reflow-type` tags.
+2. **Zero Transaction Fees**: Reflow charges 0% commission on sales. Keep 100% of your revenue (minus standard payment gateway fees).
+3. **Native Shopping Cart & Checkout**: Slide-out cart drawer, coupon codes, tax calculations, shipping options, and multi-currency support.
+4. **Product & Order Management**: Full dashboard for managing physical goods, product variants, inventory, and digital file downloads.
+5. **Subscriptions & Recurring Billing**: Create recurring subscription plans, manage free trials, handle customer upgrades, and restrict member content.
+6. **Customer Authentication**: Secure user sign-in supporting Google, Apple, Facebook, X, and email/password with client-side JWT token verification.
+7. **Bootstrap Studio Integration**: Native drag-and-drop e-commerce and auth components inside Bootstrap Studio.
 
 ---
 
@@ -74,7 +74,7 @@ Add customer authentication buttons with custom triggers:
 
 ## When to Use It
 
-- Adding a complete store, shopping cart, or subscription portal to static HTML/CSS/JS websites.
-- Projects built with Bootstrap Studio that want plug-and-play e-commerce and customer accounts.
-- Creators selling physical items or digital downloads without paying high 2%–5% platform commissions.
-- Membership sites and SaaS apps that need customer authentication and subscription management without backend servers.
+1. Adding a complete store, shopping cart, or subscription portal to static HTML/CSS/JS websites.
+2. Projects built with Bootstrap Studio that want plug-and-play e-commerce and customer accounts.
+3. Creators selling physical items or digital downloads without paying high 2%–5% platform commissions.
+4. Membership sites and SaaS apps that need customer authentication and subscription management without backend servers.

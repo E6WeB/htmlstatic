@@ -2,12 +2,12 @@
 
 > Open-source desktop CMS for editing and publishing plain-HTML websites.
 
-- **Official Website**: <a href="https://craftpages.app/" target="_blank" rel="noopener noreferrer">craftpages.app</a>
-- **Category**: [Content Management](../../README.md#content-management)
-- **Type**: Desktop Visual CMS for HTML Sites
+1. **Official Website**: <a href="https://craftpages.app/" target="_blank" rel="noopener noreferrer">craftpages.app</a>
+2. **Category**: [Content Management](../../README.md#content-management)
+3. **Type**: Desktop Visual CMS for HTML Sites
+4. **Pricing / License**: Open Source
 
 - **Tags**: `craftpages`, `offline-html-cms`, `desktop-site-builder`, `plain-html-editor`, `zero-lock-in-cms`, `static-page-manager`, `git-based-cms`, `headless-cms`, `markdown-cms`, `wordpress-alternative`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ It operates entirely offline on the client's computer (macOS, Windows, or Linux)
 
 ## Key Highlights & Features
 
-- **In-Place Visual Editing**: Clients edit copy and photos directly on the page layout without breaking design structure.
-- **Pure HTML Compatibility**: Works with standard HTML files; no proprietary database, runtime, or framework needed.
-- **Built-in Static Blogging**: Generate and manage blog posts with automatic index page updates and RSS feeds.
-- **Direct Publishing**: Deploy directly to Cloudflare Pages or remote servers using built-in SFTP and FTP support.
-- **Privacy & Ownership**: All website files and data stay local; zero lock-in and no cloud subscriptions required.
+1. **In-Place Visual Editing**: Clients edit copy and photos directly on the page layout without breaking design structure.
+2. **Pure HTML Compatibility**: Works with standard HTML files; no proprietary database, runtime, or framework needed.
+3. **Built-in Static Blogging**: Generate and manage blog posts with automatic index page updates and RSS feeds.
+4. **Direct Publishing**: Deploy directly to Cloudflare Pages or remote servers using built-in SFTP and FTP support.
+5. **Privacy & Ownership**: All website files and data stay local; zero lock-in and no cloud subscriptions required.
 
 ---
 
@@ -39,6 +39,6 @@ It operates entirely offline on the client's computer (macOS, Windows, or Linux)
 
 ## When to Use It
 
-- Freelancers and agencies delivering static HTML websites to non-technical clients who need visual editing.
-- Websites that need simple blog management and content edits without setting up a headless CMS or database.
-- Developers looking for a lightweight, zero-maintenance CMS workflow that avoids ongoing hosting fees and security updates.
+1. Freelancers and agencies delivering static HTML websites to non-technical clients who need visual editing.
+2. Websites that need simple blog management and content edits without setting up a headless CMS or database.
+3. Developers looking for a lightweight, zero-maintenance CMS workflow that avoids ongoing hosting fees and security updates.

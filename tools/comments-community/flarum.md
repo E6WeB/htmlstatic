@@ -2,12 +2,12 @@
 
 > Modern, lightweight open-source community forum platform.
 
-- **Official Website**: <a href="https://flarum.org/" target="_blank" rel="noopener noreferrer">flarum.org</a>
-- **Category**: [Comments & Community](../../README.md#comments--community)
-- **Type**: Open Source Community Forum
+1. **Official Website**: <a href="https://flarum.org/" target="_blank" rel="noopener noreferrer">flarum.org</a>
+2. **Category**: [Comments & Community](../../README.md#comments--community)
+3. **Type**: Open Source Community Forum
+4. **Pricing / License**: Open Source
 
 - **Tags**: `flarum-forum`, `open-source-forum`, `discourse-alternative`, `lightweight-community`, `embeddable-discussions`, `static-blog-comments`, `disqus-alternative`, `github-comments`, `no-database`, `community-widget`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ For static website creators, Flarum serves as a premier self-hosted community hu
 
 ## Key Highlights & Features
 
-- **100% Free & Open Source**: Released under the MIT license with complete ownership of your community data and database.
-- **Fast & Responsive SPA UI**: Smooth infinite scrolling, instant transitions, and a floating composer that lets users read while typing.
-- **Extensible Architecture**: Customize your community with hundreds of official and third-party extensions (OAuth logins, SEO, subscriptions, themes).
-- **Headless JSON:API**: Full REST API for fetching discussion threads, user profiles, and comments to embed into static web pages.
-- **Granular Permissions & Tags**: Flexible tag hierarchies, moderation controls, and custom role permissions.
+1. **100% Free & Open Source**: Released under the MIT license with complete ownership of your community data and database.
+2. **Fast & Responsive SPA UI**: Smooth infinite scrolling, instant transitions, and a floating composer that lets users read while typing.
+3. **Extensible Architecture**: Customize your community with hundreds of official and third-party extensions (OAuth logins, SEO, subscriptions, themes).
+4. **Headless JSON:API**: Full REST API for fetching discussion threads, user profiles, and comments to embed into static web pages.
+5. **Granular Permissions & Tags**: Flexible tag hierarchies, moderation controls, and custom role permissions.
 
 ---
 
@@ -67,6 +67,6 @@ Embed recent forum topics dynamically onto your static homepage or sidebar using
 
 ## When to Use It
 
-- Static blogs, product showcases, and documentation sites requiring a full-fledged community forum.
-- Organizations seeking independent, self-hosted community software without vendor lock-in or recurring monthly subscriptions.
-- Sites wanting a fast, modern discussion platform with active plugin support and headless API integration capabilities.
+1. Static blogs, product showcases, and documentation sites requiring a full-fledged community forum.
+2. Organizations seeking independent, self-hosted community software without vendor lock-in or recurring monthly subscriptions.
+3. Sites wanting a fast, modern discussion platform with active plugin support and headless API integration capabilities.

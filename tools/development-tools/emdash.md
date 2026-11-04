@@ -2,13 +2,12 @@
 
 > Free, open-source agentic development environment to run coding agents in parallel, schedule workflows, and review changes.
 
-- **Official Website**: <a href="https://emdash.com/" target="_blank" rel="noopener noreferrer">emdash.com</a>
-- **GitHub Repository**: <a href="https://github.com/generalaction/emdash" target="_blank" rel="noopener noreferrer">github.com/generalaction/emdash</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Agentic Development Environment (Desktop App)
+1. **Official Website**: <a href="https://emdash.com/" target="_blank" rel="noopener noreferrer">emdash.com</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Agentic Development Environment (Desktop App)
+4. **Pricing / License**: Open Source
 
 - **Tags**: `emdash`, `parallel-coding-agents`, `agentic-orchestration`, `git-worktree-agents`, `autonomous-coding`, `ai-dev-environment`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
-
 ---
 
 ## Overview
@@ -21,12 +20,12 @@ Available as a native desktop application across macOS, Windows, and Linux, Emda
 
 ## Key Highlights & Features
 
-- **Parallel Agent Execution**: Run multiple coding agents concurrently across separate git worktrees without blocking your editor or workspace.
-- **Unified Diff & Review**: Inspect visual diffs and reviews across all agent-proposed modifications in one central place before merging.
-- **Built-in Browser Preview**: Live preview websites and static web apps side-by-side with running agent sessions.
-- **Workflow Scheduling**: Schedule repetitive tasks, maintenance, test runs, or migrations for agents to execute autonomously.
-- **MCP & Tooling Support**: Manage prompts, custom skills, and Model Context Protocol (MCP) servers seamlessly.
-- **Cross-Platform & Zero Lock-in**: Fully open source and native on macOS, Windows, and Linux with any LLM provider.
+1. **Parallel Agent Execution**: Run multiple coding agents concurrently across separate git worktrees without blocking your editor or workspace.
+2. **Unified Diff & Review**: Inspect visual diffs and reviews across all agent-proposed modifications in one central place before merging.
+3. **Built-in Browser Preview**: Live preview websites and static web apps side-by-side with running agent sessions.
+4. **Workflow Scheduling**: Schedule repetitive tasks, maintenance, test runs, or migrations for agents to execute autonomously.
+5. **MCP & Tooling Support**: Manage prompts, custom skills, and Model Context Protocol (MCP) servers seamlessly.
+6. **Cross-Platform & Zero Lock-in**: Fully open source and native on macOS, Windows, and Linux with any LLM provider.
 
 ---
 
@@ -41,6 +40,6 @@ Available as a native desktop application across macOS, Windows, and Linux, Emda
 
 ## When to Use It
 
-- Developers who want to delegate tasks to autonomous coding agents in parallel while continuing their own work.
-- Web creators orchestrating multi-agent workflows, code reviews, and live browser testing.
-- Teams looking for a free, open-source AI development environment with zero vendor lock-in.
+1. Developers who want to delegate tasks to autonomous coding agents in parallel while continuing their own work.
+2. Web creators orchestrating multi-agent workflows, code reviews, and live browser testing.
+3. Teams looking for a free, open-source AI development environment with zero vendor lock-in.

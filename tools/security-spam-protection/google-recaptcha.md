@@ -2,12 +2,12 @@
 
 > Industry-standard bot detection and abuse prevention service.
 
-- **Official Website**: <a href="https://cloud.google.com/security/products/recaptcha" target="_blank" rel="noopener noreferrer">cloud.google.com/security/products/recaptcha</a>
-- **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
-- **Type**: Bot Mitigation & Verification
+1. **Official Website**: <a href="https://cloud.google.com/security/products/recaptcha" target="_blank" rel="noopener noreferrer">cloud.google.com/security/products/recaptcha</a>
+2. **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
+3. **Type**: Bot Mitigation & Verification
+4. **Pricing / License**: Freemium
 
 - **Tags**: `google-recaptcha`, `recaptcha-v3-score`, `automated-bot-defense`, `form-abuse-protection`, `bot-protection`, `captcha-alternative`, `form-spam-filter`, `privacy-captcha`, `zero-friction-security`, `freemium`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Available as reCAPTCHA v2 (checkbox / image challenge) and reCAPTCHA v3 (invisib
 
 ## Key Highlights & Features
 
-- **Advanced Machine Learning**: Defends against complex bots and spam scripts.
-- **Invisible Scoring (v3)**: Returns a score based on user interactions without interrupting user flow.
-- **Universal Support**: Integrates out-of-the-box with Formspree, Basin, and email APIs.
-- **Free Tier**: Generous monthly free allowance for standard web properties.
+1. **Advanced Machine Learning**: Defends against complex bots and spam scripts.
+2. **Invisible Scoring (v3)**: Returns a score based on user interactions without interrupting user flow.
+3. **Universal Support**: Integrates out-of-the-box with Formspree, Basin, and email APIs.
+4. **Free Tier**: Generous monthly free allowance for standard web properties.
 
 ---
 
@@ -46,5 +46,5 @@ Example reCAPTCHA v2 checkbox widget in an HTML form:
 
 ## When to Use It
 
-- Forms experiencing heavy automated spam or credential stuffing.
-- Sites integrated with hosted form services with built-in reCAPTCHA secret verification.
+1. Forms experiencing heavy automated spam or credential stuffing.
+2. Sites integrated with hosted form services with built-in reCAPTCHA secret verification.

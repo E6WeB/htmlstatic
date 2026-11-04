@@ -2,12 +2,12 @@
 
 > Minimal and semantic classless CSS framework that styles pure HTML automatically.
 
-- **Official Website**: <a href="https://picocss.com/" target="_blank" rel="noopener noreferrer">picocss.com</a>
-- **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
-- **Type**: Classless / Minimal CSS Framework
+1. **Official Website**: <a href="https://picocss.com/" target="_blank" rel="noopener noreferrer">picocss.com</a>
+2. **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
+3. **Type**: Classless / Minimal CSS Framework
+4. **Pricing / License**: Open Source
 
 - **Tags**: `pico-css`, `classless-css`, `semantic-html-styling`, `dark-mode-css`, `minimal-css-framework`, `zero-classes`, `ui-components`, `lightweight-css`, `web-components`, `responsive-design`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Just link the CSS stylesheet in your `<head>`, write standard HTML tags (heading
 
 ## Key Highlights & Features
 
-- **Semantic HTML Styling**: Styles elements (`<button>`, `<input>`, `<table>`) without custom classes.
-- **Built-in Dark Mode**: Automatically adapts to system color scheme preferences with zero JS.
-- **Under 10 KB**: Lightweight footprint for blazingly fast page rendering.
-- **Accessible by Default**: Designed with high-contrast text and WCAG standards in mind.
+1. **Semantic HTML Styling**: Styles elements (`<button>`, `<input>`, `<table>`) without custom classes.
+2. **Built-in Dark Mode**: Automatically adapts to system color scheme preferences with zero JS.
+3. **Under 10 KB**: Lightweight footprint for blazingly fast page rendering.
+4. **Accessible by Default**: Designed with high-contrast text and WCAG standards in mind.
 
 ---
 
@@ -57,6 +57,6 @@ Link Pico CSS via CDN in your HTML document:
 
 ## When to Use It
 
-- Static documentation, portfolios, blogs, and landing pages with clean typography.
-- Developers who prefer writing semantic HTML over endless utility class strings.
-- Fast prototypes and MVPs where styling speed is a top priority.
+1. Static documentation, portfolios, blogs, and landing pages with clean typography.
+2. Developers who prefer writing semantic HTML over endless utility class strings.
+3. Fast prototypes and MVPs where styling speed is a top priority.

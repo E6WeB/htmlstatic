@@ -2,12 +2,12 @@
 
 > Modern CSS framework based on Flexbox with 100% CSS and zero JavaScript dependencies.
 
-- **Official Website**: <a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">bulma.io</a>
-- **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
-- **Type**: Pure CSS Framework
+1. **Official Website**: <a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">bulma.io</a>
+2. **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
+3. **Type**: Pure CSS Framework
+4. **Pricing / License**: Open Source
 
 - **Tags**: `bulma-css`, `flexbox-framework`, `pure-css-components`, `no-js-css`, `modular-sass`, `bootstrap-alternative`, `ui-components`, `classless-css`, `lightweight-css`, `web-components`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ You retain complete freedom to implement interactive behaviors in vanilla JavaSc
 
 ## Key Highlights & Features
 
-- **100% Pure CSS**: Zero JavaScript overhead; no unexpected conflicts with your code.
-- **Modular Architecture**: Import only the columns, forms, or components you need.
-- **Simple Flexbox Grid**: Intuitive `.columns` and `.column` syntax that is naturally responsive.
-- **Modern Design**: Fresh colors, clean typography, and polished UI elements.
+1. **100% Pure CSS**: Zero JavaScript overhead; no unexpected conflicts with your code.
+2. **Modular Architecture**: Import only the columns, forms, or components you need.
+3. **Simple Flexbox Grid**: Intuitive `.columns` and `.column` syntax that is naturally responsive.
+4. **Modern Design**: Fresh colors, clean typography, and polished UI elements.
 
 ---
 
@@ -51,6 +51,6 @@ Include Bulma via CDN in your static HTML:
 
 ## When to Use It
 
-- Static websites wanting clean responsive styling without complex CSS preprocessors.
-- Projects where you want full control over your JavaScript without framework interference.
-- Landing pages, blogs, and admin dashboards.
+1. Static websites wanting clean responsive styling without complex CSS preprocessors.
+2. Projects where you want full control over your JavaScript without framework interference.
+3. Landing pages, blogs, and admin dashboards.

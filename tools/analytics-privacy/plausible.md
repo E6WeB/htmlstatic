@@ -2,12 +2,12 @@
 
 > Simple, lightweight, privacy-first web analytics without tracking cookies.
 
-- **Official Website**: <a href="https://plausible.io/" target="_blank" rel="noopener noreferrer">plausible.io</a>
-- **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
-- **Type**: Lightweight Analytics Solution
+1. **Official Website**: <a href="https://plausible.io/" target="_blank" rel="noopener noreferrer">plausible.io</a>
+2. **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
+3. **Type**: Lightweight Analytics Solution
+4. **Pricing / License**: Open Source / Paid
 
 - **Tags**: `plausible-analytics`, `google-analytics-alternative`, `privacy-analytics`, `cookieless`, `gdpr-compliant`, `1kb-script`, `eu-hosted`, `cookieless-analytics`, `privacy-first`, `lightweight-script`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Plausible does not use cookies, complies fully with GDPR, CCPA, and PECR, and pr
 
 ## Key Highlights & Features
 
-- **Under 1 KB Footprint**: Keeps static site performance scores high.
-- **Privacy Regulation Compliant**: No cookies, no personal data collection, no consent banners needed.
-- **Goal & Event Tracking**: Track sales, downloads, outbound links, and 404 error pages.
-- **Public or Shared Dashboards**: Easily share read-only stats with clients or community members.
+1. **Under 1 KB Footprint**: Keeps static site performance scores high.
+2. **Privacy Regulation Compliant**: No cookies, no personal data collection, no consent banners needed.
+3. **Goal & Event Tracking**: Track sales, downloads, outbound links, and 404 error pages.
+4. **Public or Shared Dashboards**: Easily share read-only stats with clients or community members.
 
 ---
 
@@ -39,6 +39,6 @@ Embed the script in the `<head>` of your HTML document:
 
 ## When to Use It
 
-- High-performance static websites focused on speed and Core Web Vitals.
-- Sites requiring privacy compliance without cookie consent popups.
-- Agencies looking to share clean analytics dashboards with clients.
+1. High-performance static websites focused on speed and Core Web Vitals.
+2. Sites requiring privacy compliance without cookie consent popups.
+3. Agencies looking to share clean analytics dashboards with clients.

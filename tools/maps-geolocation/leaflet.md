@@ -2,12 +2,12 @@
 
 > Lightweight open-source JavaScript library for mobile-friendly interactive maps.
 
-- **Official Website**: <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">leafletjs.com</a>
-- **Category**: [Interactive Maps & Geolocation](../../README.md#interactive-maps--geolocation)
-- **Type**: Open Source Map Library
+1. **Official Website**: <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">leafletjs.com</a>
+2. **Category**: [Interactive Maps & Geolocation](../../README.md#interactive-maps--geolocation)
+3. **Type**: Open Source Map Library
+4. **Pricing / License**: Open Source
 
 - **Tags**: `leaflet-js`, `open-source-maps`, `openstreetmap-js`, `lightweight-mobile-maps`, `custom-map-markers`, `geojson-layers`, `interactive-maps`, `webgl-maps`, `google-maps-alternative`, `geojson`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It works smoothly across all major desktop and mobile platforms, has a huge plug
 
 ## Key Highlights & Features
 
-- **Ultra Lightweight**: ~42 KB gzipped JavaScript footprint.
-- **No Billing / Credit Card**: Use OpenStreetMap or free tile servers without billing accounts.
-- **Mobile Gesture Support**: Hardware-accelerated panning, pinch-to-zoom, and inertial scrolling.
-- **Rich Plugin Ecosystem**: Hundreds of community plugins for markers, clusters, and geoJSON.
+1. **Ultra Lightweight**: ~42 KB gzipped JavaScript footprint.
+2. **No Billing / Credit Card**: Use OpenStreetMap or free tile servers without billing accounts.
+3. **Mobile Gesture Support**: Hardware-accelerated panning, pinch-to-zoom, and inertial scrolling.
+4. **Rich Plugin Ecosystem**: Hundreds of community plugins for markers, clusters, and geoJSON.
 
 ---
 
@@ -60,6 +60,6 @@ Embed a working map in static HTML in seconds:
 
 ## When to Use It
 
-- Displaying business locations, event venues, or contact page maps on static sites.
-- Mapping projects that want to avoid Google Maps API billing surprises and quotas.
-- Mobile-optimized websites needing fast-loading interactive maps.
+1. Displaying business locations, event venues, or contact page maps on static sites.
+2. Mapping projects that want to avoid Google Maps API billing surprises and quotas.
+3. Mobile-optimized websites needing fast-loading interactive maps.

@@ -1463,6 +1463,8 @@ const BASE_CSS = `
   .markdown-body h3 { font-size: 1.2rem; }
   .markdown-body p { margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.7; }
   .markdown-body ul, .markdown-body ol { margin-bottom: 1.25rem; padding-left: 1.75rem; }
+  .markdown-body ol { list-style-type: decimal; }
+  .markdown-body ol > li { list-style-type: decimal; }
   .markdown-body li { margin-bottom: 0.4rem; color: var(--text-main); line-height: 1.6; }
   .markdown-body p,
   .markdown-body li,

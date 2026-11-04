@@ -2,13 +2,12 @@
 
 > Export and publish WordPress Bricks Builder sites as static HTML for GitHub or any static host.
 
-- **Official Website**: <a href="https://builtforbricks.com/brickstatic/" target="_blank" rel="noopener noreferrer">builtforbricks.com/brickstatic</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Static Site Generator & Exporter Plugin
+1. **Official Website**: <a href="https://builtforbricks.com/brickstatic/" target="_blank" rel="noopener noreferrer">builtforbricks.com/brickstatic</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Static Site Generator & Exporter Plugin
+4. **Pricing / License**: Paid
 
 - **Tags**: `brickstatic`, `wordpress-to-static-html`, `bricks-builder-export`, `headless-wordpress`, `github-pages-wordpress`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`, `core-web-vitals`
-- **Platform**: WordPress (Bricks Builder)
-
 ---
 
 ## Overview
@@ -21,11 +20,11 @@ It bridges the gap between intuitive visual page builders and modern Jamstack ar
 
 ## Key Highlights & Features
 
-- **Static HTML Export**: Generates production-ready static HTML, CSS, JS, and image assets from Bricks Builder pages.
-- **Direct GitHub Integration**: Push static builds directly to a GitHub repository to trigger instant CI/CD deployments.
-- **ZIP Download Option**: Export your entire static site as a ZIP package ready for any static web host or S3 bucket.
-- **Form Handling Options**: Routes form submissions either to static form backends (e.g., Formspree, Basin) or back to a headless WordPress installation.
-- **Enhanced Security & Speed**: Eliminates live WordPress databases, PHP execution, and plugin vulnerabilities from your public-facing production site.
+1. **Static HTML Export**: Generates production-ready static HTML, CSS, JS, and image assets from Bricks Builder pages.
+2. **Direct GitHub Integration**: Push static builds directly to a GitHub repository to trigger instant CI/CD deployments.
+3. **ZIP Download Option**: Export your entire static site as a ZIP package ready for any static web host or S3 bucket.
+4. **Form Handling Options**: Routes form submissions either to static form backends (e.g., Formspree, Basin) or back to a headless WordPress installation.
+5. **Enhanced Security & Speed**: Eliminates live WordPress databases, PHP execution, and plugin vulnerabilities from your public-facing production site.
 
 ---
 
@@ -36,8 +35,8 @@ Design and style your pages, templates, and layouts using WordPress and Bricks B
 
 ### 2. Export Static Files
 Use Brickstatic inside the WordPress admin panel to generate the static site:
-- **GitHub Deployment**: Configure your repository and branch (e.g. `main` or `gh-pages`). Brickstatic commits the static HTML on export.
-- **ZIP Export**: Download the static bundle and upload it to any static web host, CDN, or server.
+1. **GitHub Deployment**: Configure your repository and branch (e.g. `main` or `gh-pages`). Brickstatic commits the static HTML on export.
+2. **ZIP Export**: Download the static bundle and upload it to any static web host, CDN, or server.
 
 ### 3. Static Form Routing
 Configure your contact forms to post directly to third-party form services (such as [Formspree](../contact-forms/formspree.md), [Basin](../contact-forms/basin.md), or [Splitform](../contact-forms/splitform.md)) so forms work seamlessly without PHP running on production.
@@ -46,6 +45,6 @@ Configure your contact forms to post directly to third-party form services (such
 
 ## When to Use It
 
-- Designers and agencies who prefer the visual workflow of Bricks Builder but want the security, zero maintenance, and speed of static HTML hosting.
-- Hosting client websites on free or low-cost static platforms (Cloudflare Pages, GitHub Pages) without ongoing WordPress hosting expenses.
-- Hardening public web presence by keeping WordPress behind a local or private staging server.
+1. Designers and agencies who prefer the visual workflow of Bricks Builder but want the security, zero maintenance, and speed of static HTML hosting.
+2. Hosting client websites on free or low-cost static platforms (Cloudflare Pages, GitHub Pages) without ongoing WordPress hosting expenses.
+3. Hardening public web presence by keeping WordPress behind a local or private staging server.

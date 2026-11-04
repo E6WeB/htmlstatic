@@ -2,12 +2,12 @@
 
 > Single-binary static site generator written in Rust with built-in Sass compilation, syntax highlighting, and search indexing.
 
-- **Official Website**: <a href="https://www.getzola.org/" target="_blank" rel="noopener noreferrer">getzola.org</a>
-- **Category**: [Static Site Generators](../../README.md#static-site-generators)
-- **Type**: Single-Binary Static Generator (Rust)
+1. **Official Website**: <a href="https://www.getzola.org/" target="_blank" rel="noopener noreferrer">getzola.org</a>
+2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+3. **Type**: Single-Binary Static Generator (Rust)
+4. **Pricing / License**: Open Source
 
 - **Tags**: `getzola`, `rust-single-binary-ssg`, `tera-templates`, `built-in-sass-search`, `zero-dependency-ssg`, `ssg`, `jamstack`, `markdown-to-html`, `zero-js`, `fast-static-sites`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It uses the Tera template engine (inspired by Jinja2 and Django templates) paire
 
 ## Key Highlights & Features
 
-- **Single Binary & Zero Dependencies**: One lightweight Rust executable handles everything—no Node.js, Python, or Ruby environment needed.
-- **Batteries Included**: Built-in Sass/SCSS compiler, syntax highlighting, responsive image resizing (`resize_image`), and Elasticlunr/Fuse search index generation.
-- **Blazing-Fast Rust Builds**: Compiles entire websites and reloads local changes in milliseconds.
-- **Tera Templating & Shortcodes**: Expressive Jinja2/Django-style templates with reusable Markdown shortcodes, taxonomies, and automatic internal link checking (`zola check`).
+1. **Single Binary & Zero Dependencies**: One lightweight Rust executable handles everything—no Node.js, Python, or Ruby environment needed.
+2. **Batteries Included**: Built-in Sass/SCSS compiler, syntax highlighting, responsive image resizing (`resize_image`), and Elasticlunr/Fuse search index generation.
+3. **Blazing-Fast Rust Builds**: Compiles entire websites and reloads local changes in milliseconds.
+4. **Tera Templating & Shortcodes**: Expressive Jinja2/Django-style templates with reusable Markdown shortcodes, taxonomies, and automatic internal link checking (`zola check`).
 
 ---
 
@@ -61,7 +61,6 @@ Zola compiles this page into pure static HTML in milliseconds with zero dependen
 
 ## When to Use It
 
-- Developers who want a fast, single-binary static site generator with readable Jinja2-like (`Tera`) templates.
-- Blogs, documentation sites, and knowledge bases that want built-in search, Sass compilation, and link checking without managing npm packages.
-- CI/CD pipelines where minimal install time and sub-second Rust build speeds matter.
-
+1. Developers who want a fast, single-binary static site generator with readable Jinja2-like (`Tera`) templates.
+2. Blogs, documentation sites, and knowledge bases that want built-in search, Sass compilation, and link checking without managing npm packages.
+3. CI/CD pipelines where minimal install time and sub-second Rust build speeds matter.

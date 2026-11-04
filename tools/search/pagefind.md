@@ -2,12 +2,12 @@
 
 > Static search indexing designed specifically for static websites.
 
-- **Official Website**: <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a>
-- **Category**: [Search](../../README.md#search)
-- **Type**: Client-Side Static Search Library
+1. **Official Website**: <a href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">pagefind.app</a>
+2. **Category**: [Search](../../README.md#search)
+3. **Type**: Client-Side Static Search Library
+4. **Pricing / License**: Open Source
 
 - **Tags**: `pagefind`, `rust-wasm-static-search`, `zero-bandwidth-search-index`, `astro-hugo-11ty-search`, `offline-static-search`, `static-site-search`, `client-side-search`, `instant-search`, `wasm-search`, `zero-server-search`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Because it runs completely in the browser and loads only tiny index chunks as th
 
 ## Key Highlights & Features
 
-- **Zero Backend**: Runs entirely on your static host; no hosted search service required.
-- **Negligible Bandwidth**: Chunks search indexes so users download only what they query.
-- **Pre-Built UI**: Includes an accessible, responsive search UI component out of the box.
-- **Framework Agnostic**: Works with Astro, Hugo, Eleventy, Jekyll, VitePress, and plain HTML.
+1. **Zero Backend**: Runs entirely on your static host; no hosted search service required.
+2. **Negligible Bandwidth**: Chunks search indexes so users download only what they query.
+3. **Pre-Built UI**: Includes an accessible, responsive search UI component out of the box.
+4. **Framework Agnostic**: Works with Astro, Hugo, Eleventy, Jekyll, VitePress, and plain HTML.
 
 ---
 
@@ -35,7 +35,7 @@ Because it runs completely in the browser and loads only tiny index chunks as th
 npx pagefind --site dist
 ```
 
-2. Include Pagefind UI in your static HTML:
+1. Include Pagefind UI in your static HTML:
 
 ```html
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
@@ -53,6 +53,6 @@ npx pagefind --site dist
 
 ## When to Use It
 
-- Documentation sites, technical blogs, and large static knowledge bases.
-- Websites that want fast, robust full-text search with zero ongoing server costs.
-- Static sites deployed on GitHub Pages, Cloudflare Pages, Netlify, or Vercel.
+1. Documentation sites, technical blogs, and large static knowledge bases.
+2. Websites that want fast, robust full-text search with zero ongoing server costs.
+3. Static sites deployed on GitHub Pages, Cloudflare Pages, Netlify, or Vercel.

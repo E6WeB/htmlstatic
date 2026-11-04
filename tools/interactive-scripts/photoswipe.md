@@ -2,12 +2,12 @@
 
 > Lightweight, responsive JavaScript image gallery and lightbox with smooth gestures and zoom.
 
-- **Official Website**: <a href="https://photoswipe.com/" target="_blank" rel="noopener noreferrer">photoswipe.com</a>
-- **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
-- **Type**: Image Lightbox & Gallery Library
+1. **Official Website**: <a href="https://photoswipe.com/" target="_blank" rel="noopener noreferrer">photoswipe.com</a>
+2. **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
+3. **Type**: Image Lightbox & Gallery Library
+4. **Pricing / License**: Open Source
 
 - **Tags**: `photoswipe`, `javascript-lightbox`, `touch-zoom-gallery`, `responsive-photo-modal`, `zero-dependency-gallery`, `vanilla-js`, `scroll-animations`, `touch-slider`, `lightbox-gallery`, `zero-dependencies`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ PhotoSwipe is modular, fast, and does not require jQuery, ensuring minimal page 
 
 ## Key Highlights & Features
 
-- **Pinch to Zoom & Swipe**: Native-feeling mobile gestures and zoom controls.
-- **Zero Dependencies**: Pure vanilla JavaScript with no bulky libraries.
-- **Responsive Layouts**: Adapts seamlessly to all screen sizes and orientations.
-- **Accessible**: Keyboard navigation (arrow keys, Escape) and ARIA attributes.
+1. **Pinch to Zoom & Swipe**: Native-feeling mobile gestures and zoom controls.
+2. **Zero Dependencies**: Pure vanilla JavaScript with no bulky libraries.
+3. **Responsive Layouts**: Adapts seamlessly to all screen sizes and orientations.
+4. **Accessible**: Keyboard navigation (arrow keys, Escape) and ARIA attributes.
 
 ---
 
@@ -59,5 +59,5 @@ Include PhotoSwipe via modern ES modules in static HTML:
 
 ## When to Use It
 
-- Photography portfolios, art showcases, and product image zoom galleries.
-- Static blogs and travel sites wanting rich lightbox image viewing.
+1. Photography portfolios, art showcases, and product image zoom galleries.
+2. Static blogs and travel sites wanting rich lightbox image viewing.

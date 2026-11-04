@@ -2,12 +2,12 @@
 
 > AI-powered video and image generation tool that turns product photos and prompts into commercial videos, images, and visual assets for static websites.
 
-- **Official Website**: <a href="https://imgmov.com/" target="_blank" rel="noopener noreferrer">imgmov.com</a>
-- **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
-- **Type**: AI Image & Video Generator
+1. **Official Website**: <a href="https://imgmov.com/" target="_blank" rel="noopener noreferrer">imgmov.com</a>
+2. **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
+3. **Type**: AI Image & Video Generator
+4. **Pricing / License**: Freemium
 
 - **Tags**: `ai-video-generator`, `product-video-ai`, `image-to-video`, `ecommerce-visuals`, `ai-marketing-assets`, `commercial-ai-art`, `ai-copywriting`, `seo-content`, `markdown-generator`, `generative-ai`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ For static website creators and Jamstack developers, producing high-impact visua
 
 ## Key Highlights & Features
 
-- **Product Photo to Video**: Transform static product photography into ad-ready motion clips with dynamic lighting, smooth camera movement, and studio backgrounds.
-- **Text-to-Image & Image-to-Video**: Generate photorealistic commercial visuals and animate static illustrations into short looping video assets.
-- **Developer API & Webhooks**: Programmatically trigger video and image generation workflows via REST API for dynamic static site generation or Jamstack build steps.
-- **Export-Ready Formats**: Easily export optimized MP4 and WebP assets ready for zero-latency static hosting or CDN delivery.
-- **Freemium Tier**: Free daily preview generations with flexible credit packs available for watermark-free commercial use.
+1. **Product Photo to Video**: Transform static product photography into ad-ready motion clips with dynamic lighting, smooth camera movement, and studio backgrounds.
+2. **Text-to-Image & Image-to-Video**: Generate photorealistic commercial visuals and animate static illustrations into short looping video assets.
+3. **Developer API & Webhooks**: Programmatically trigger video and image generation workflows via REST API for dynamic static site generation or Jamstack build steps.
+4. **Export-Ready Formats**: Easily export optimized MP4 and WebP assets ready for zero-latency static hosting or CDN delivery.
+5. **Freemium Tier**: Free daily preview generations with flexible credit packs available for watermark-free commercial use.
 
 ---
 
@@ -68,7 +68,7 @@ const data = await response.json();
 
 ## When to Use It
 
-- Generating engaging video clips and promotional animations for static e-commerce and SaaS landing pages.
-- Creating crisp product hero banners and social share assets without photoshoots or studio setups.
-- Transforming flat static product photography into interactive motion showcases.
-- Enhancing static blogs and documentation with step-by-step visual storyboards and animations.
+1. Generating engaging video clips and promotional animations for static e-commerce and SaaS landing pages.
+2. Creating crisp product hero banners and social share assets without photoshoots or studio setups.
+3. Transforming flat static product photography into interactive motion showcases.
+4. Enhancing static blogs and documentation with step-by-step visual storyboards and animations.

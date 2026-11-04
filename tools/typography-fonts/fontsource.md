@@ -2,12 +2,12 @@
 
 > Self-host open-source web fonts locally with zero external network requests.
 
-- **Official Website**: <a href="https://fontsource.org/" target="_blank" rel="noopener noreferrer">fontsource.org</a>
-- **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
-- **Type**: Self-Hosted Web Fonts
+1. **Official Website**: <a href="https://fontsource.org/" target="_blank" rel="noopener noreferrer">fontsource.org</a>
+2. **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
+3. **Type**: Self-Hosted Web Fonts
+4. **Pricing / License**: Open Source
 
 - **Tags**: `fontsource`, `npm-self-hosted-fonts`, `local-woff2-fonts`, `zero-external-dns-fonts`, `offline-google-fonts`, `self-hosted-fonts`, `gdpr-fonts`, `google-fonts-alternative`, `variable-fonts`, `web-typography`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ By bundling fonts directly into your static site's repository, you eliminate ext
 
 ## Key Highlights & Features
 
-- **Zero External Requests**: All font files are served from your own static domain or CDN.
-- **Faster Page Loads**: Eliminates DNS lookups and TLS handshakes to third-party CDNs.
-- **Version Controlled**: Font files remain locked to your specified version without unexpected changes.
-- **Subset Support**: Automatically includes optimized WOFF2 files with latin and unicode subsets.
+1. **Zero External Requests**: All font files are served from your own static domain or CDN.
+2. **Faster Page Loads**: Eliminates DNS lookups and TLS handshakes to third-party CDNs.
+3. **Version Controlled**: Font files remain locked to your specified version without unexpected changes.
+4. **Subset Support**: Automatically includes optimized WOFF2 files with latin and unicode subsets.
 
 ---
 
@@ -50,6 +50,6 @@ body {
 
 ## When to Use It
 
-- High-performance static websites aiming for maximum Google PageSpeed and Lighthouse scores.
-- Offline-capable static sites and Progressive Web Apps (PWAs).
-- Projects requiring strict privacy standards with zero external third-party requests.
+1. High-performance static websites aiming for maximum Google PageSpeed and Lighthouse scores.
+2. Offline-capable static sites and Progressive Web Apps (PWAs).
+3. Projects requiring strict privacy standards with zero external third-party requests.

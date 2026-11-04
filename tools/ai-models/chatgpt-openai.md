@@ -2,12 +2,12 @@
 
 > OpenAI's flagship multimodal foundation model powering conversational web apps and REST APIs.
 
-- **Official Website**: <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">openai.com</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Multimodal Foundation Model
+1. **Official Website**: <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">openai.com</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Multimodal Foundation Model
+4. **Pricing / License**: Freemium
 
 - **Tags**: `openai-api`, `gpt-4o`, `o1-reasoning`, `llm-api`, `structured-outputs`, `function-calling`, `ai-embeddings`, `ai-agents`, `rag`, `open-weights`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ OpenAI's GPT models (including GPT-4o, GPT-4o-mini, and the o-series reasoning m
 
 ## Key Highlights & Features
 
-**Multimodal Input & Output**: Native support for text, code, images, and audio processing.
-**High Speed & Low Latency**: GPT-4o-mini offers near-instantaneous responses at low token costs.
-**Structured JSON Outputs**: Enforces strict JSON Schema compliance for seamless web API integration.
-**Massive Ecosystem**: Supported by virtually every web framework, SDK, and static site tooling library.
+1. **Multimodal Input & Output**: Native support for text, code, images, and audio processing.
+2. **High Speed & Low Latency**: GPT-4o-mini offers near-instantaneous responses at low token costs.
+3. **Structured JSON Outputs**: Enforces strict JSON Schema compliance for seamless web API integration.
+4. **Massive Ecosystem**: Supported by virtually every web framework, SDK, and static site tooling library.
 
 ---
 
@@ -49,6 +49,6 @@ const data = await response.json();
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

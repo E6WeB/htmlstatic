@@ -2,12 +2,12 @@
 
 > Visual desktop web design application for creating responsive websites using the Bootstrap framework and exporting clean HTML.
 
-- **Official Website**: <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Visual Web Design Editor
+1. **Official Website**: <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Visual Web Design Editor
+4. **Pricing / License**: Paid
 
 - **Tags**: `bootstrap-studio`, `drag-and-drop-html`, `visual-bootstrap-builder`, `clean-html-export`, `desktop-web-builder`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`, `core-web-vitals`
-
 ---
 
 ## Overview
@@ -20,13 +20,13 @@ Unlike online website builders or proprietary platforms, Bootstrap Studio runs e
 
 ## Key Highlights & Features
 
-- **Visual Drag-and-Drop Canvas**: Assemble responsive web pages with a vast library of built-in Bootstrap components (navbars, grids, cards, modals, carousels, and forms).
-- **Clean Code Export**: Generates production-ready, clean, and semantic static HTML, CSS, and JavaScript with zero proprietary scripts or vendor lock-in.
-- **Advanced Code Editing**: Built-in VS Code-style editor for CSS, SASS, JavaScript, and custom HTML with syntax highlighting, auto-completion, and real-time preview sync.
-- **Real-Time Multi-Device Preview**: Connect phones, tablets, or other desktop browsers over local Wi-Fi to test responsive layouts and interactions live as you edit.
-- **Smart Forms Integration**: Built-in form backend capability that routes form submissions directly to your email without writing backend code.
-- **One-Click Publishing & Hosting**: Includes 5 free hosting slots on Bootstrap Studio Sites with custom domain support and SSL, or direct export via SFTP / ZIP download.
-- **Offline & One-Time Purchase**: A native desktop application that you own forever with no mandatory monthly recurring fees.
+1. **Visual Drag-and-Drop Canvas**: Assemble responsive web pages with a vast library of built-in Bootstrap components (navbars, grids, cards, modals, carousels, and forms).
+2. **Clean Code Export**: Generates production-ready, clean, and semantic static HTML, CSS, and JavaScript with zero proprietary scripts or vendor lock-in.
+3. **Advanced Code Editing**: Built-in VS Code-style editor for CSS, SASS, JavaScript, and custom HTML with syntax highlighting, auto-completion, and real-time preview sync.
+4. **Real-Time Multi-Device Preview**: Connect phones, tablets, or other desktop browsers over local Wi-Fi to test responsive layouts and interactions live as you edit.
+5. **Smart Forms Integration**: Built-in form backend capability that routes form submissions directly to your email without writing backend code.
+6. **One-Click Publishing & Hosting**: Includes 5 free hosting slots on Bootstrap Studio Sites with custom domain support and SSL, or direct export via SFTP / ZIP download.
+7. **Offline & One-Time Purchase**: A native desktop application that you own forever with no mandatory monthly recurring fees.
 
 ---
 
@@ -60,16 +60,16 @@ my-website/
 
 ### 4. Deploy Anywhere
 Because the exported files are 100% static HTML, CSS, and JS, deploy them instantly to platforms such as:
-- **Cloudflare Pages**
-- **GitHub Pages**
-- **Netlify**
-- **Vercel**
-- Any shared hosting or VPS via SFTP
+1. **Cloudflare Pages**
+2. **GitHub Pages**
+3. **Netlify**
+4. **Vercel**
+5. Any shared hosting or VPS via SFTP
 
 ---
 
 ## When to Use It
 
-- Designers and developers who want a visual, responsive layout builder without sacrificing clean code output.
-- Teams prototyping and building production static websites, landing pages, and portfolios based on Bootstrap.
-- Anyone looking for an offline, one-time purchase alternative to SaaS website builders and complex CMS platforms.
+1. Designers and developers who want a visual, responsive layout builder without sacrificing clean code output.
+2. Teams prototyping and building production static websites, landing pages, and portfolios based on Bootstrap.
+3. Anyone looking for an offline, one-time purchase alternative to SaaS website builders and complex CMS platforms.

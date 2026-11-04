@@ -2,12 +2,12 @@
 
 > Clean, customizable open-source icon set with lightweight vanilla JavaScript and SVG support.
 
-- **Official Website**: <a href="https://lucide.dev/" target="_blank" rel="noopener noreferrer">lucide.dev</a>
-- **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
-- **Type**: Vector Icon System
+1. **Official Website**: <a href="https://lucide.dev/" target="_blank" rel="noopener noreferrer">lucide.dev</a>
+2. **Category**: [CSS & UI Component Libraries](../../README.md#css--ui-component-libraries)
+3. **Type**: Vector Icon System
+4. **Pricing / License**: Open Source
 
 - **Tags**: `lucide-icons`, `feather-icons-fork`, `svg-icon-library`, `tree-shakable-icons`, `clean-vector-icons`, `ui-components`, `classless-css`, `lightweight-css`, `web-components`, `responsive-design`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ You can use Lucide as standalone inline SVGs, reference external files, or use t
 
 ## Key Highlights & Features
 
-- **1,400+ Icons**: High-quality, consistent 24x24 outline vector icons.
-- **Vanilla JS Helper**: Automatically replaces HTML placeholders with rendered SVGs.
-- **Highly Customizable**: Easily modify size, stroke width, and colors via CSS.
-- **Open Source**: Permissive ISC license for commercial and personal projects.
+1. **1,400+ Icons**: High-quality, consistent 24x24 outline vector icons.
+2. **Vanilla JS Helper**: Automatically replaces HTML placeholders with rendered SVGs.
+3. **Highly Customizable**: Easily modify size, stroke width, and colors via CSS.
+4. **Open Source**: Permissive ISC license for commercial and personal projects.
 
 ---
 
@@ -50,6 +50,6 @@ Use Lucide in static HTML with the CDN script:
 
 ## When to Use It
 
-- Adding clean, consistent icons to buttons, headers, and feature lists on static pages.
-- Developers avoiding heavy icon fonts like FontAwesome that slow down load times.
-- Projects looking for scalable, responsive icons that match modern design trends.
+1. Adding clean, consistent icons to buttons, headers, and feature lists on static pages.
+2. Developers avoiding heavy icon fonts like FontAwesome that slow down load times.
+3. Projects looking for scalable, responsive icons that match modern design trends.

@@ -2,12 +2,12 @@
 
 > Host websites directly from GitHub repositories with Git-driven automation.
 
-- **Official Website**: <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">pages.github.com</a>
-- **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
-- **Type**: Git-Integrated Static Hosting
+1. **Official Website**: <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">pages.github.com</a>
+2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+3. **Type**: Git-Integrated Static Hosting
+4. **Pricing / License**: Free
 
 - **Tags**: `github-pages`, `gh-pages`, `free-repo-hosting`, `jekyll-hosting`, `custom-domain-ssl`, `git-push-deploy`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ GitHub Pages supports custom domains, automatic SSL/TLS certificate provisioning
 
 ## Key Highlights & Features
 
-- **100% Git-Driven**: Deploy automatically on every `git push`.
-- **Free Custom Domains & SSL**: Bring your own domain with automatically renewed HTTPS certificates.
-- **Native GitHub Actions Support**: Build with any static generator (Vite, Astro, Hugo, Eleventy) and deploy.
-- **Zero Cost**: Free for public repositories on standard GitHub accounts.
+1. **100% Git-Driven**: Deploy automatically on every `git push`.
+2. **Free Custom Domains & SSL**: Bring your own domain with automatically renewed HTTPS certificates.
+3. **Native GitHub Actions Support**: Build with any static generator (Vite, Astro, Hugo, Eleventy) and deploy.
+4. **Zero Cost**: Free for public repositories on standard GitHub accounts.
 
 ---
 
@@ -59,6 +59,6 @@ jobs:
 
 ## When to Use It
 
-- Open-source project documentation and personal portfolios.
-- Websites version-controlled in GitHub repositories.
-- Zero-cost hosting with simple continuous deployment.
+1. Open-source project documentation and personal portfolios.
+2. Websites version-controlled in GitHub repositories.
+3. Zero-cost hosting with simple continuous deployment.

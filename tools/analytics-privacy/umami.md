@@ -2,14 +2,12 @@
 
 > Simple, privacy-focused open-source alternative to Google Analytics.
 
-- **Official Website**: <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a>
-- **Website Status**: Down
-- **GitHub Repository**: <a href="https://github.com/umami-software/umami" target="_blank" rel="noopener noreferrer">github.com/umami-software/umami</a>
-- **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
-- **Type**: Open Source Analytics Platform
-- **Pricing / License**: Freemium
-- **Tags**: `analytics`, `privacy`, `cookieless`, `gdpr`, `self-hosted`, `open-source`, `umami-analytics`, `self-hosted-analytics`, `open-source-ga-alternative`, `cookieless-metrics`
+1. **Official Website**: <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a>
+2. **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
+3. **Type**: Open Source Analytics Platform
+4. **Pricing / License**: Freemium
 
+- **Tags**: `analytics`, `privacy`, `cookieless`, `gdpr`, `self-hosted`, `open-source`, `umami-analytics`, `self-hosted-analytics`, `open-source-ga-alternative`, `cookieless-metrics`
 ---
 
 ## Overview
@@ -25,10 +23,10 @@ It features a beautiful, clean single-page dashboard where you can view real-tim
 
 ## Key Highlights & Features
 
-- **Cookie-Free Analytics**: Zero personal tracking or invasive fingerprinting.
-- **Custom Event Tracking**: Track button clicks, form submissions, and downloads.
-- **Fast & Lightweight**: Extremely small tracking script (< 2 KB).
-- **Hosted or Self-Hosted**: Use Umami Cloud or deploy the open-source version on your own infrastructure.
+1. **Cookie-Free Analytics**: Zero personal tracking or invasive fingerprinting.
+2. **Custom Event Tracking**: Track button clicks, form submissions, and downloads.
+3. **Fast & Lightweight**: Extremely small tracking script (< 2 KB).
+4. **Hosted or Self-Hosted**: Use Umami Cloud or deploy the open-source version on your own infrastructure.
 
 ---
 
@@ -51,6 +49,6 @@ Track custom events on buttons or links:
 
 ## When to Use It
 
-- Developers seeking an intuitive, privacy-respecting Google Analytics replacement.
-- Static websites needing custom event and conversion tracking without heavy scripts.
-- Teams who want the option to self-host their analytics data.
+1. Developers seeking an intuitive, privacy-respecting Google Analytics replacement.
+2. Static websites needing custom event and conversion tracking without heavy scripts.
+3. Teams who want the option to self-host their analytics data.

@@ -2,12 +2,12 @@
 
 > Interactive WebGL vector maps with customizable visual styles and 3D terrain.
 
-- **Official Website**: <a href="https://www.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreferrer">mapbox.com/mapbox-gl-js</a>
-- **Category**: [Interactive Maps & Geolocation](../../README.md#interactive-maps--geolocation)
-- **Type**: Vector WebGL Mapping Engine
+1. **Official Website**: <a href="https://www.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreferrer">mapbox.com/mapbox-gl-js</a>
+2. **Category**: [Interactive Maps & Geolocation](../../README.md#interactive-maps--geolocation)
+3. **Type**: Vector WebGL Mapping Engine
+4. **Pricing / License**: Freemium
 
 - **Tags**: `mapbox-gl-js`, `webgl-vector-maps`, `3d-terrain-maps`, `custom-map-studio`, `smooth-interactive-maps`, `interactive-maps`, `webgl-maps`, `google-maps-alternative`, `geojson`, `store-locator`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ With a generous free tier of up to 50,000 monthly map loads, it is an exceptiona
 
 ## Key Highlights & Features
 
-- **WebGL Acceleration**: 60fps rendering, smooth zooming, tilting, and rotating.
-- **Custom Map Styling**: Design custom color palettes, dark modes, and brand-matching maps with Mapbox Studio.
-- **3D Terrains & Buildings**: Render 3D topography and architectural models directly in the browser.
-- **Generous Free Tier**: Up to 50,000 map loads per month at no charge.
+1. **WebGL Acceleration**: 60fps rendering, smooth zooming, tilting, and rotating.
+2. **Custom Map Styling**: Design custom color palettes, dark modes, and brand-matching maps with Mapbox Studio.
+3. **3D Terrains & Buildings**: Render 3D topography and architectural models directly in the browser.
+4. **Generous Free Tier**: Up to 50,000 map loads per month at no charge.
 
 ---
 
@@ -56,6 +56,6 @@ Embed a Mapbox GL vector map in static HTML:
 
 ## When to Use It
 
-- Modern dark-mode landing pages requiring custom-branded vector maps.
-- Real estate, travel, or data visualization static websites.
-- Applications needing smooth rotation, tilting, or 3D terrain.
+1. Modern dark-mode landing pages requiring custom-branded vector maps.
+2. Real estate, travel, or data visualization static websites.
+3. Applications needing smooth rotation, tilting, or 3D terrain.

@@ -2,12 +2,12 @@
 
 > All-in-one membership, authentication, payments, and CRM for static websites.
 
-- **Official Website**: <a href="https://outseta.com/" target="_blank" rel="noopener noreferrer">outseta.com</a>
-- **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
-- **Type**: Membership & Gated Content Platform
+1. **Official Website**: <a href="https://outseta.com/" target="_blank" rel="noopener noreferrer">outseta.com</a>
+2. **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
+3. **Type**: Membership & Gated Content Platform
+4. **Pricing / License**: Paid
 
 - **Tags**: `outseta`, `membership-platform`, `saas-starter`, `stripe-subscriptions`, `auth-and-crm`, `gated-content`, `memberstack-alternative`, `passkeys`, `oauth-login`, `jwt-auth`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ By simply adding a script tag and a few HTML data attributes, you can turn any s
 
 ## Key Highlights & Features
 
-- **No-Code Content Gating**: Protect pages or specific HTML sections using CSS selectors.
-- **Integrated Billing**: Collect one-time payments or monthly recurring subscriptions via Stripe.
-- **Drop-In Auth Widgets**: Embed modal login and sign-up forms with zero custom code.
-- **Built-in Email & CRM**: Track member activity and send automated onboarding emails.
+1. **No-Code Content Gating**: Protect pages or specific HTML sections using CSS selectors.
+2. **Integrated Billing**: Collect one-time payments or monthly recurring subscriptions via Stripe.
+3. **Drop-In Auth Widgets**: Embed modal login and sign-up forms with zero custom code.
+4. **Built-in Email & CRM**: Track member activity and send automated onboarding emails.
 
 ---
 
@@ -55,6 +55,6 @@ Add the Outseta script to your static HTML `<head>`:
 
 ## When to Use It
 
-- Monetizing static websites with paid memberships or premium gated content.
-- Creators who want authentication, Stripe payments, and email marketing in one embed.
-- Agencies building client membership sites without WordPress membership plugins.
+1. Monetizing static websites with paid memberships or premium gated content.
+2. Creators who want authentication, Stripe payments, and email marketing in one embed.
+3. Agencies building client membership sites without WordPress membership plugins.

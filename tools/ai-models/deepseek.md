@@ -2,12 +2,12 @@
 
 > High-efficiency open-weights foundation and reasoning model engineered with Mixture-of-Experts architecture.
 
-- **Official Website**: <a href="https://deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Open-Weights & Reasoning Foundation Model
+1. **Official Website**: <a href="https://deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Open-Weights & Reasoning Foundation Model
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `deepseek-r1`, `deepseek-v3`, `open-weights-llm`, `reasoning-model`, `ai-coding`, `low-cost-llm`, `mit-license-ai`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ DeepSeek has emerged as a groundbreaking open-weights model family. Utilizing an
 
 ## Key Highlights & Features
 
-**Open Weights**: Fully accessible model weights available on Hugging Face for self-hosting and private cloud inference.
-**DeepSeek-R1 Reasoning**: Specialized chain-of-thought model capable of complex logical planning and code verification.
-**Ultra-Low API Pricing**: Extremely economical API endpoints, making it accessible for static sites with high query volumes.
-**OpenAI API Compatible**: Drop-in replacement for existing OpenAI SDKs and fetch wrappers by changing base URLs.
+1. **Open Weights**: Fully accessible model weights available on Hugging Face for self-hosting and private cloud inference.
+2. **DeepSeek-R1 Reasoning**: Specialized chain-of-thought model capable of complex logical planning and code verification.
+3. **Ultra-Low API Pricing**: Extremely economical API endpoints, making it accessible for static sites with high query volumes.
+4. **OpenAI API Compatible**: Drop-in replacement for existing OpenAI SDKs and fetch wrappers by changing base URLs.
 
 ---
 
@@ -48,6 +48,6 @@ const res = await fetch("https://api.deepseek.com/chat/completions", {
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

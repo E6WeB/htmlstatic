@@ -2,12 +2,12 @@
 
 > Chrome browser extension that implements a one-click button to quickly email the active webpage title and URL via mailto protocol.
 
-- **Official Website**: <a href="https://chromewebstore.google.com/detail/send-url/fmanefafgomooabofffoidipbfdbjilh" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
-- **Category**: [Browser Extensions](../../README.md#browser-extensions)
-- **Type**: Browser Extension
+1. **Official Website**: <a href="https://chromewebstore.google.com/detail/send-url/fmanefafgomooabofffoidipbfdbjilh" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+2. **Category**: [Browser Extensions](../../README.md#browser-extensions)
+3. **Type**: Browser Extension
+4. **Pricing / License**: Free
 
 - **Tags**: `share-url-extension`, `email-link-button`, `quick-share`, `browser-utility`, `clean-url-sharing`, `web-dev-extension`, `page-capture`, `productivity-tool`, `chrome-extension`, `developer-workflow`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ Because it relies on the standard `mailto:` protocol, it works seamlessly with w
 
 ## Key Highlights & Features
 
-- **One-Click Sharing**: Adds a convenient action button next to the address bar for instantaneous sharing.
-- **Native Mailto Integration**: Uses standard system `mailto:` handling with zero third-party tracking or data harvesting.
-- **Automatic Title & URL Extraction**: Automatically fills the email subject with the webpage title and the body with the link.
-- **Webmail & Desktop Client Support**: Works with Gmail, Outlook, Apple Mail, Thunderbird, or any system default client.
-- **Lightweight & Private**: Zero background dependencies, minimal permissions, and zero tracking.
+1. **One-Click Sharing**: Adds a convenient action button next to the address bar for instantaneous sharing.
+2. **Native Mailto Integration**: Uses standard system `mailto:` handling with zero third-party tracking or data harvesting.
+3. **Automatic Title & URL Extraction**: Automatically fills the email subject with the webpage title and the body with the link.
+4. **Webmail & Desktop Client Support**: Works with Gmail, Outlook, Apple Mail, Thunderbird, or any system default client.
+5. **Lightweight & Private**: Zero background dependencies, minimal permissions, and zero tracking.
 
 ---
 
@@ -43,6 +43,6 @@ Body: https://staticstack.app/tools/development-tools/antigravity-ide
 
 ## When to Use It
 
-- Sharing live or preview URLs from static websites with teammates, clients, or testers.
-- Bookmarking or forwarding web tools, documentation guides, and articles via email.
-- Streamlining QA feedback workflows for static web frontends.
+1. Sharing live or preview URLs from static websites with teammates, clients, or testers.
+2. Bookmarking or forwarding web tools, documentation guides, and articles via email.
+3. Streamlining QA feedback workflows for static web frontends.

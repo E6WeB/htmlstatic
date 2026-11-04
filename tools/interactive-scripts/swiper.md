@@ -2,12 +2,12 @@
 
 > Modern mobile touch slider with hardware accelerated transitions and zero framework dependencies.
 
-- **Official Website**: <a href="https://swiperjs.com/" target="_blank" rel="noopener noreferrer">swiperjs.com</a>
-- **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
-- **Type**: Touch Slider & Carousel Library
+1. **Official Website**: <a href="https://swiperjs.com/" target="_blank" rel="noopener noreferrer">swiperjs.com</a>
+2. **Category**: [Interactive Scripts & Animation](../../README.md#interactive-scripts--animation)
+3. **Type**: Touch Slider & Carousel Library
+4. **Pricing / License**: Open Source
 
 - **Tags**: `swiper-js`, `mobile-touch-carousel`, `hardware-accelerated-slider`, `3d-coverflow-slider`, `vanilla-js-carousel`, `vanilla-js`, `scroll-animations`, `touch-slider`, `lightbox-gallery`, `zero-dependencies`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ It does not depend on jQuery or any external framework, making it ideal for stat
 
 ## Key Highlights & Features
 
-- **Hardware Accelerated**: Smooth 60fps animations powered by pure CSS transitions.
-- **Full Touch Support**: Responsive touch and swipe gesture recognition.
-- **Rich Effects**: Slide, Fade, Cube, Coverflow, Flip, and Creative effects.
-- **Zero Dependencies**: Works natively with pure vanilla JavaScript and CSS.
+1. **Hardware Accelerated**: Smooth 60fps animations powered by pure CSS transitions.
+2. **Full Touch Support**: Responsive touch and swipe gesture recognition.
+3. **Rich Effects**: Slide, Fade, Cube, Coverflow, Flip, and Creative effects.
+4. **Zero Dependencies**: Works natively with pure vanilla JavaScript and CSS.
 
 ---
 
@@ -64,5 +64,5 @@ Include Swiper via CDN in your static HTML:
 
 ## When to Use It
 
-- Image galleries, testimonial sliders, and product showcases on static sites.
-- Touch-friendly mobile carousels with smooth hardware-accelerated transitions.
+1. Image galleries, testimonial sliders, and product showcases on static sites.
+2. Touch-friendly mobile carousels with smooth hardware-accelerated transitions.

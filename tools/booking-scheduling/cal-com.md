@@ -2,12 +2,12 @@
 
 > Open-source, embeddable meeting scheduling infrastructure for booking calls and appointments.
 
-- **Official Website**: <a href="https://cal.com/" target="_blank" rel="noopener noreferrer">cal.com</a>
-- **Category**: [Booking & Scheduling](../../README.md#booking--scheduling)
-- **Type**: Open Source Scheduling Infrastructure
+1. **Official Website**: <a href="https://cal.com/" target="_blank" rel="noopener noreferrer">cal.com</a>
+2. **Category**: [Booking & Scheduling](../../README.md#booking--scheduling)
+3. **Type**: Open Source Scheduling Infrastructure
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `cal-com`, `open-source-calendly`, `scheduling-embed`, `booking-widget`, `self-hosted-calendar`, `meeting-links`, `appointment-booking`, `calendar-embed`, `meeting-scheduler`, `no-code-widget`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ For static website creators, Cal.com provides embeddable inline widgets and moda
 
 ## Key Highlights & Features
 
-- **Embeddable Widgets**: Embed inline calendars or floating booking buttons on static pages.
-- **Calendar Sync**: Automatic conflict avoidance across Google, Outlook, and Apple calendars.
-- **Payment Integration**: Charge for consultations or client calls via Stripe.
-- **Privacy & Open Source**: Self-hostable or available via hosted cloud accounts.
+1. **Embeddable Widgets**: Embed inline calendars or floating booking buttons on static pages.
+2. **Calendar Sync**: Automatic conflict avoidance across Google, Outlook, and Apple calendars.
+3. **Payment Integration**: Charge for consultations or client calls via Stripe.
+4. **Privacy & Open Source**: Self-hostable or available via hosted cloud accounts.
 
 ---
 
@@ -48,6 +48,6 @@ Embed a Cal.com booking widget onto your static site:
 
 ## When to Use It
 
-- Consultant, freelancer, and agency portfolios that book discovery calls.
-- Static business landing pages requiring automated appointment scheduling.
-- Privacy-conscious projects looking for an open-source scheduling alternative.
+1. Consultant, freelancer, and agency portfolios that book discovery calls.
+2. Static business landing pages requiring automated appointment scheduling.
+3. Privacy-conscious projects looking for an open-source scheduling alternative.

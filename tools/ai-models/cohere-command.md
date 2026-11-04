@@ -2,12 +2,12 @@
 
 > Enterprise-grade foundation model optimized for Retrieval-Augmented Generation (RAG) and document search.
 
-- **Official Website**: <a href="https://cohere.com/" target="_blank" rel="noopener noreferrer">cohere.com</a>
-- **Category**: [AI Models](../../README.md#ai-models)
-- **Type**: Enterprise RAG Foundation Model
+1. **Official Website**: <a href="https://cohere.com/" target="_blank" rel="noopener noreferrer">cohere.com</a>
+2. **Category**: [AI Models](../../README.md#ai-models)
+3. **Type**: Enterprise RAG Foundation Model
+4. **Pricing / License**: Freemium
 
 - **Tags**: `cohere-api`, `command-r`, `enterprise-rag`, `semantic-search`, `rerank-api`, `vector-embeddings`, `cited-llm`, `llm-api`, `ai-agents`, `rag`
-
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Cohere Command R+ is a foundation model tailored specifically for enterprise sea
 
 ## Key Highlights & Features
 
-**Built for RAG**: Natively trained to synthesize answers from indexed website documentation and return citation anchors.
-**Multilingual Fluency**: High-accuracy performance across 10+ core enterprise languages.
-**Tool & Connector Integration**: Calls external APIs and databases to retrieve fresh static data.
-**Cost-Effective Scalability**: Optimized for high-throughput enterprise search queries.
+1. **Built for RAG**: Natively trained to synthesize answers from indexed website documentation and return citation anchors.
+2. **Multilingual Fluency**: High-accuracy performance across 10+ core enterprise languages.
+3. **Tool & Connector Integration**: Calls external APIs and databases to retrieve fresh static data.
+4. **Cost-Effective Scalability**: Optimized for high-throughput enterprise search queries.
 
 ---
 
@@ -48,6 +48,6 @@ const res = await fetch("https://api.cohere.com/v2/chat", {
 
 ## When to Use It
 
-- Adding intelligent search, summarization, or interactive chat widgets to static websites.
-- Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
-- Powering local, privacy-first developer tools and offline client-side web applications.
+1. Adding intelligent search, summarization, or interactive chat widgets to static websites.
+2. Pre-rendering dynamic content, translating articles, and generating static markdown at build time.
+3. Powering local, privacy-first developer tools and offline client-side web applications.

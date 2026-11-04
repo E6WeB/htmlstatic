@@ -2,12 +2,12 @@
 
 > Opinionated code formatter for HTML, CSS, JavaScript, and Markdown.
 
-- **Official Website**: <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a>
-- **Category**: [Development Tools](../../README.md#development-tools)
-- **Type**: Code Formatter
+1. **Official Website**: <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a>
+2. **Category**: [Development Tools](../../README.md#development-tools)
+3. **Type**: Code Formatter
+4. **Pricing / License**: Open Source
 
 - **Tags**: `prettier`, `opinionated-code-formatter`, `auto-format-html-css-js`, `clean-code-style`, `editor-save-format`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`, `core-web-vitals`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ Using Prettier ensures consistent indentation, quotes, and line wrapping across 
 
 ## Key Highlights & Features
 
-- **Opinionated & Consistent**: Saves time and stops debates over code style in pull requests.
-- **Multi-Language Support**: Formats HTML, CSS, JavaScript, JSON, and Markdown files.
-- **Editor Integration**: Automatically formats files whenever you save.
-- **CI Validation**: Check that all files conform to formatting standards in continuous integration.
+1. **Opinionated & Consistent**: Saves time and stops debates over code style in pull requests.
+2. **Multi-Language Support**: Formats HTML, CSS, JavaScript, JSON, and Markdown files.
+3. **Editor Integration**: Automatically formats files whenever you save.
+4. **CI Validation**: Check that all files conform to formatting standards in continuous integration.
 
 ---
 
@@ -54,5 +54,5 @@ Example `.prettierrc` configuration:
 
 ## When to Use It
 
-- Maintaining clean, uniform code styles across HTML, CSS, and JS files.
-- Open-source projects accepting contributions to avoid style discrepancies in PRs.
+1. Maintaining clean, uniform code styles across HTML, CSS, and JS files.
+2. Open-source projects accepting contributions to avoid style discrepancies in PRs.

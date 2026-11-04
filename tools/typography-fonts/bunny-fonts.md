@@ -2,12 +2,12 @@
 
 > Privacy-first, GDPR-compliant drop-in alternative to Google Fonts.
 
-- **Official Website**: <a href="https://fonts.bunny.net/" target="_blank" rel="noopener noreferrer">fonts.bunny.net</a>
-- **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
-- **Type**: Privacy-First Font CDN
+1. **Official Website**: <a href="https://fonts.bunny.net/" target="_blank" rel="noopener noreferrer">fonts.bunny.net</a>
+2. **Category**: [Typography & Web Fonts](../../README.md#typography--web-fonts)
+3. **Type**: Privacy-First Font CDN
+4. **Pricing / License**: Free
 
 - **Tags**: `bunny-fonts`, `gdpr-google-fonts-replacement`, `zero-logging-font-cdn`, `eu-privacy-web-fonts`, `self-hosted-fonts`, `gdpr-fonts`, `google-fonts-alternative`, `variable-fonts`, `web-typography`, `zero-layout-shift`
-
 ---
 
 ## Overview
@@ -20,10 +20,10 @@ To use it on a static site, you simply replace `fonts.googleapis.com` with `font
 
 ## Key Highlights & Features
 
-- **100% GDPR Compliant**: Zero logs, zero tracking, and no cookie requirements.
-- **Exact Google Fonts Drop-In**: Uses identical font families, weights, and query parameters.
-- **Global High-Speed CDN**: Fast edge delivery across hundreds of worldwide PoPs.
-- **100% Free**: Free to use for both personal and commercial static websites.
+1. **100% GDPR Compliant**: Zero logs, zero tracking, and no cookie requirements.
+2. **Exact Google Fonts Drop-In**: Uses identical font families, weights, and query parameters.
+3. **Global High-Speed CDN**: Fast edge delivery across hundreds of worldwide PoPs.
+4. **100% Free**: Free to use for both personal and commercial static websites.
 
 ---
 
@@ -45,6 +45,6 @@ Switch from Google Fonts to Bunny Fonts with a one-word URL change:
 
 ## When to Use It
 
-- Any static website serving European visitors that needs strict GDPR compliance.
-- Site creators who want beautiful typography without Google tracking their audience.
-- Fast, reliable web font hosting without legal risks.
+1. Any static website serving European visitors that needs strict GDPR compliance.
+2. Site creators who want beautiful typography without Google tracking their audience.
+3. Fast, reliable web font hosting without legal risks.

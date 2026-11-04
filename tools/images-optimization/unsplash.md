@@ -2,12 +2,12 @@
 
 > High-resolution, royalty-free stock photography library for website assets.
 
-- **Official Website**: <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">unsplash.com</a>
-- **Category**: [Images & Optimization](../../README.md#images--optimization)
-- **Type**: Stock Photography & Image CDN
+1. **Official Website**: <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">unsplash.com</a>
+2. **Category**: [Images & Optimization](../../README.md#images--optimization)
+3. **Type**: Stock Photography & Image CDN
+4. **Pricing / License**: Freemium
 
 - **Tags**: `unsplash`, `royalty-free-photos`, `hd-stock-images`, `commercial-free-photography`, `hero-background-images`, `webp-converter`, `svg-vectorizer`, `image-compression`, `core-web-vitals`, `fast-page-load`
-
 ---
 
 ## Overview
@@ -20,11 +20,11 @@ Photos are free to download and use for both commercial and non-commercial purpo
 
 ## Key Highlights & Features
 
-- **Millions of Free Photos**: Vast catalog of professional photography covering tech, nature, architecture, business, and lifestyles.
-- **Unsplash License**: Free for commercial and personal static website projects without copyright royalties.
-- **Dynamic Image URL API**: Resize, crop, and convert images to WebP on the fly via query parameters (`?w=800&auto=format&fit=crop`).
-- **Official Developer API**: Fetch random or topic-based photos dynamically via client-side JavaScript or during static build steps.
-- **Curated Collections & Topics**: Easily find coherent imagery sets tailored to specific website design themes.
+1. **Millions of Free Photos**: Vast catalog of professional photography covering tech, nature, architecture, business, and lifestyles.
+2. **Unsplash License**: Free for commercial and personal static website projects without copyright royalties.
+3. **Dynamic Image URL API**: Resize, crop, and convert images to WebP on the fly via query parameters (`?w=800&auto=format&fit=crop`).
+4. **Official Developer API**: Fetch random or topic-based photos dynamically via client-side JavaScript or during static build steps.
+5. **Curated Collections & Topics**: Easily find coherent imagery sets tailored to specific website design themes.
 
 ---
 
@@ -70,6 +70,6 @@ loadHeroBackground();
 
 ## When to Use It
 
-- Sourcing high-quality photography for static landing pages, portfolios, and blog post covers.
-- Prototyping mockups and UI designs with realistic placeholder imagery.
-- Serving responsive, auto-compressed WebP visuals on static websites via URL query parameters.
+1. Sourcing high-quality photography for static landing pages, portfolios, and blog post covers.
+2. Prototyping mockups and UI designs with realistic placeholder imagery.
+3. Serving responsive, auto-compressed WebP visuals on static websites via URL query parameters.
