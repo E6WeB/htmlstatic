@@ -165,7 +165,7 @@ const homeContent = `
           Search
         </button>
       </div>
-      <div style="display:flex; align-items:center; justify-content:center; gap:0.45rem; flex-wrap:wrap; margin-top:1rem; font-size:0.825rem;">
+      <div id="hero-popular-tags" style="display:flex; align-items:center; justify-content:center; gap:0.45rem; flex-wrap:wrap; margin-top:1rem; font-size:0.825rem;">
         <span style="color:var(--text-subtle); font-weight:500;">Popular:</span>
         <button class="btn-sm btn-secondary" onclick="quickSearchTag('Reflow')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Reflow</button>
         <button class="btn-sm btn-secondary" onclick="quickSearchTag('Clerk')" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">Clerk</button>
@@ -489,7 +489,59 @@ const homeContent = `
 
       const SUPABASE_URL = 'https://vhiweeypifbwacashxjz.supabase.co';
       const SUPABASE_KEY = 'sb_publishable_EoB7MFJhCmb6PiAk-GPJ4w_PGhQ44Ru';
-      const slugs = ${JSON.stringify(allTools.map(t => `/tools/${t.categorySlug}/${t.slug}`))};
+      const toolMeta = ${JSON.stringify(allTools.map(t => ({ s: `/tools/${t.categorySlug}/${t.slug}`, n: t.name })))};
+      const slugs = toolMeta.map(t => t.s);
+      const defaultPopularNames = ['Reflow', 'Clerk', 'Pagefind', 'Astro', 'Formspree', 'Pico CSS', 'Supabase'];
+
+      // Escape helper for client-side rendering
+      function escapeClientHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function renderPopularTags(likesMap) {
+        const popularContainer = document.getElementById('hero-popular-tags');
+        if (!popularContainer || !likesMap) return;
+
+        const votedTools = toolMeta
+          .map(t => ({ name: t.n, slug: t.s, likes: Number(likesMap[t.s]) || 0 }))
+          .filter(t => t.likes > 0)
+          .sort((a, b) => (b.likes !== a.likes ? b.likes - a.likes : a.name.localeCompare(b.name)));
+
+        const topList = votedTools.slice(0, 7);
+        const usedNames = new Set(topList.map(t => t.name.toLowerCase()));
+
+        for (let i = 0; i < defaultPopularNames.length && topList.length < 7; i++) {
+          const fallbackName = defaultPopularNames[i];
+          if (!usedNames.has(fallbackName.toLowerCase())) {
+            usedNames.add(fallbackName.toLowerCase());
+            topList.push({ name: fallbackName, likes: 0 });
+          }
+        }
+
+        const pillsHtml = topList.map(item => {
+          const safeName = escapeClientHtml(item.name);
+          const label = item.likes > 0
+            ? safeName + '(' + item.likes.toLocaleString() + ')'
+            : safeName;
+          return '<button class="btn-sm btn-secondary" data-tag="' + safeName + '" onclick="quickSearchTag(this.getAttribute(&quot;data-tag&quot;))" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem;">' + label + '</button>';
+        }).join('');
+
+        popularContainer.innerHTML = '<span style="color:var(--text-subtle); font-weight:500;">Popular:</span>' + pillsHtml;
+      }
+
+      try {
+        const cachedLikesMap = sessionStorage.getItem('staticstack_tool_likes_map');
+        if (cachedLikesMap) {
+          const parsedMap = JSON.parse(cachedLikesMap);
+          window.__staticstack_tool_likes = parsedMap;
+          renderPopularTags(parsedMap);
+        }
+      } catch (e) {}
 
       const batches = [];
       for (let i = 0; i < slugs.length; i += 20) {
@@ -509,9 +561,9 @@ const homeContent = `
       ))
       .then(results => {
         let total = 0;
+        window.__staticstack_tool_likes = window.__staticstack_tool_likes || {};
         results.forEach(res => {
           if (res && typeof res === 'object') {
-            window.__staticstack_tool_likes = window.__staticstack_tool_likes || {};
             for (const k in res) {
               const count = Number(res[k]) || 0;
               total += count;
@@ -525,20 +577,14 @@ const homeContent = `
         });
         animateCounter(counterEl, total);
         sessionStorage.setItem('staticstack_total_likes', total);
+        try {
+          sessionStorage.setItem('staticstack_tool_likes_map', JSON.stringify(window.__staticstack_tool_likes));
+        } catch (e) {}
+        renderPopularTags(window.__staticstack_tool_likes);
       })
       .catch(err => {
         console.warn('Could not refresh live total likes:', err);
       });
-
-      // Escape helper for client-side rendering
-      function escapeClientHtml(str) {
-        return String(str || '')
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;');
-      }
 
       // Fetch and render Top Viewed Tools dynamically
       function refreshHomeTopTools() {
