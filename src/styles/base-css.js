@@ -341,7 +341,16 @@ const BASE_CSS = `
     padding: 1.25rem 0.5rem 1.25rem;
     z-index: 200;
     box-sizing: border-box;
+    overflow: visible !important;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .rail-top,
+  .rail-nav,
+  .rail-list,
+  .rail-list li,
+  .rail-bottom {
+    overflow: visible !important;
   }
 
   .rail-top {
@@ -448,26 +457,26 @@ const BASE_CSS = `
     border-radius: 0 4px 4px 0;
   }
 
-  /* Tooltip for Left Rail - Positioned safely to the right of the rail, never overlapping icons */
+  /* Slide-Out Tooltip positioned safely to the right of the icon and rail */
   .rail-tooltip {
     position: absolute;
-    left: 100%;
-    margin-left: 14px;
+    left: 54px;
     top: 50%;
-    transform: translateY(-50%) translateX(-6px);
-    background: var(--text-main);
-    color: var(--bg-surface);
-    font-size: 0.775rem;
+    transform: translateY(-50%) translateX(-8px);
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.8rem;
     font-weight: 600;
+    line-height: 1.2;
     letter-spacing: 0.01em;
-    padding: 0.35rem 0.75rem;
+    padding: 0.45rem 0.85rem;
     border-radius: var(--radius-sm);
     white-space: nowrap;
     pointer-events: none !important;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
     z-index: 9999;
   }
 
@@ -479,15 +488,16 @@ const BASE_CSS = `
     transform: translateY(-50%);
     border-width: 5px;
     border-style: solid;
-    border-color: transparent var(--text-main) transparent transparent;
+    border-color: transparent #0f172a transparent transparent;
   }
 
+  /* Smooth slide out to the right when hovered */
   .rail-item:hover .rail-tooltip,
   .rail-action-btn:hover .rail-tooltip,
   .rail-brand:hover .rail-tooltip {
     opacity: 1;
     visibility: visible;
-    transform: translateY(-50%) translateX(0);
+    transform: translateY(-50%) translateX(6px);
   }
 
   .rail-bottom {
