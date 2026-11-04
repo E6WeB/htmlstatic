@@ -265,11 +265,10 @@ const homeContent = `
             <div style="width:2.5rem; height:2.5rem; border-radius:var(--radius-md); background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0;">${icon}</div>
             <h3 style="font-size:1.15rem; font-weight:700; margin:0; line-height:1.3;">${escapeHtml(cat.title)}</h3>
           </div>
-          <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.5; flex-grow:1; margin-bottom:0.65rem;">${escapeHtml(cat.description)}</p>
-          <div style="font-size:0.825rem; font-weight:600; color:var(--text-subtle); margin-bottom:0.85rem;">Tools: <span style="color:var(--accent); font-weight:700;">${cat.tools.length}</span></div>
+          <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.5; flex-grow:1; margin-bottom:1rem;">${escapeHtml(cat.description)}</p>
           <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; font-weight:600; color:var(--accent); padding-top:0.75rem; border-top:1px solid var(--border-color);">
             <span>Browse Section</span>
-            <span>${ICONS.arrowRight}</span>
+            <span style="color:var(--text-subtle);">Tools: <span style="color:var(--accent); font-weight:700;">${cat.tools.length}</span></span>
           </div>
         </a>
         `;
