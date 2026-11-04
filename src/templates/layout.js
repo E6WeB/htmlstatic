@@ -87,6 +87,7 @@ function createLayoutRenderer({ allTools, categories }) {
       else if (currentNav === 'submit') pageUrl = 'https://staticstack.app/submit';
       else if (currentNav === 'contribute') pageUrl = 'https://staticstack.app/contribute';
       else if (currentNav === 'thankyou') pageUrl = 'https://staticstack.app/thankyou';
+      else if (currentNav === 'contact') pageUrl = 'https://staticstack.app/contact';
       else if (currentNav === 'community') pageUrl = 'https://staticstack.app/community/';
       else pageUrl = 'https://staticstack.app/';
     }
@@ -229,6 +230,15 @@ function createLayoutRenderer({ allTools, categories }) {
           </a>
         </li>
         <li class="mobile-nav-item">
+          <a href="${rootPath}contact" class="${currentNav === 'contact' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.comments}</span>
+              <span>Contact &amp; Connect</span>
+            </span>
+            <span class="mobile-nav-badge">Connect</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
           <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.github}</span>
@@ -301,6 +311,7 @@ function createLayoutRenderer({ allTools, categories }) {
             <li><a href="${rootPath}community">Community</a></li>
             <li><a href="${rootPath}contribute">Contributing Guide</a></li>
             <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
+            <li><a href="${rootPath}contact">Contact</a></li>
           </ul>
         </div>
 

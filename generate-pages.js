@@ -1559,6 +1559,102 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou', 'index.html'), renderLayout({
 }));
 
 // ==========================================================================
+// 5b. Generate contact/index.html (Contact & Connect Page - No Contact Form)
+// ==========================================================================
+console.log('💬 Generating Contact Page (contact/index.html)...');
+
+const contactMd = fs.readFileSync(path.join(ROOT_DIR, 'contact', 'CONTACT.md'), 'utf8');
+const renderedContactMd = marked.parse(contactMd);
+
+const contactContent = `
+  <section style="padding: 0 0 2.5rem;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; margin-bottom:2.25rem;">
+      <!-- Facebook Group Card -->
+      <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card); display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.8rem; background:rgba(24, 119, 242, 0.1); color:#1877f2; border:1px solid rgba(24, 119, 242, 0.25); border-radius:var(--radius-full); font-size:0.8rem; font-weight:700; margin-bottom:1.15rem;">
+            ${ICONS.facebook}
+            <span>Facebook Community</span>
+          </div>
+          <h2 style="font-size:1.45rem; font-weight:800; color:var(--text-main); margin-bottom:0.65rem;">Connect in Our Facebook Group</h2>
+          <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem;">
+            Join our official Facebook group to message the maintainer directly, share your static website builds, ask questions, and connect with fellow developers.
+          </p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="justify-content:center; width:100%;">
+            ${ICONS.facebook}
+            <span>StaticStack Official Group</span>
+            ${ICONS.external}
+          </a>
+          <a href="/community" class="btn btn-secondary" style="justify-content:center; width:100%;">
+            ${ICONS.comments}
+            <span>Visit On-Site Community Forum</span>
+            ${ICONS.arrowRight}
+          </a>
+        </div>
+      </div>
+
+      <!-- GitHub Point of Contact Card -->
+      <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card); display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.8rem; background:var(--accent-light); color:var(--accent); border:1px solid var(--accent-border); border-radius:var(--radius-full); font-size:0.8rem; font-weight:700; margin-bottom:1.15rem;">
+            ${ICONS.github}
+            <span>GitHub Point of Contact</span>
+          </div>
+          <h2 style="font-size:1.45rem; font-weight:800; color:var(--text-main); margin-bottom:0.65rem;">Reach Out on GitHub</h2>
+          <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem;">
+            Have a question about the catalog, spotted a broken link, or want to collaborate on the codebase? Reach us directly on GitHub via Discussions or Issues.
+          </p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="justify-content:center; width:100%;">
+            ${ICONS.github}
+            <span>Open a GitHub Discussion</span>
+            ${ICONS.external}
+          </a>
+          <a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="justify-content:center; width:100%;">
+            ${ICONS.github}
+            <span>Report an Issue on GitHub</span>
+            ${ICONS.external}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="markdown-body">
+      ${renderedContactMd}
+    </div>
+  </section>
+`;
+
+ensureDir(path.join(ROOT_DIR, 'contact'));
+fs.writeFileSync(path.join(ROOT_DIR, 'contact', 'index.html'), renderLayout({
+  title: 'Contact & Connect - StaticStack',
+  description: 'Get in touch with StaticStack through our official Facebook Group and GitHub repository—no spammy contact forms required.',
+  currentNav: 'contact',
+  rootPath: '/',
+  miniHero: {
+    breadcrumbs: [
+      { label: 'Home', url: '/' },
+      { label: 'Contact & Connect', url: '/contact' }
+    ],
+    icon: ICONS.comments,
+    title: 'Contact & Connect',
+    subtext: 'No contact forms or private ticket queues—connect with us directly in our official Facebook Group or on GitHub.',
+    actions: `
+      <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+        ${ICONS.facebook} Facebook Group ${ICONS.external}
+      </a>
+      <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+        ${ICONS.github} GitHub Repo ${ICONS.external}
+      </a>
+    `
+  },
+  content: contactContent
+}));
+
+// ==========================================================================
 // 6. Generate Dedicated HTML Pages for ALL Tools!
 // ==========================================================================
 console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
@@ -1599,6 +1695,7 @@ const sitemapUrls = [
   { loc: 'https://staticstack.app/community', priority: '0.85', changefreq: 'weekly' },
   { loc: 'https://staticstack.app/contribute', priority: '0.8', changefreq: 'monthly' },
   { loc: 'https://staticstack.app/thankyou', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://staticstack.app/contact', priority: '0.7', changefreq: 'monthly' },
 ];
 
 categories.forEach(cat => {

@@ -180,7 +180,6 @@ const BASE_CSS = `
 
   .btn-primary:hover {
     opacity: 0.95;
-    transform: translateY(-1px);
     box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
   }
 
@@ -193,7 +192,19 @@ const BASE_CSS = `
   .btn-secondary:hover {
     background-color: var(--bg-muted);
     border-color: var(--border-hover);
-    transform: translateY(-1px);
+  }
+
+  #hero-popular-tags a {
+    color: var(--text-muted);
+    font-weight: 500;
+    text-decoration: none;
+    transform: none !important;
+    transition: color 0.15s ease;
+  }
+
+  #hero-popular-tags a:hover {
+    color: var(--accent);
+    transform: none !important;
   }
 
   .btn-sm {

@@ -63,21 +63,23 @@ const MAX_CACHEABLE_ICON_BYTES = 32 * 1024;  // 32 KB (covers all 124 -icon.webp
 const MAX_CACHE_ENTRIES = 300;
 
 function getCachedEntry(filePath, ext) {
-  let entry = staticBufferCache.get(filePath);
-  if (entry) return entry;
-
   try {
     const stat = fs.statSync(filePath);
     if (!stat.isFile()) return null;
+
+    let entry = staticBufferCache.get(filePath);
+    if (entry && entry.mtimeMs === stat.mtimeMs && entry.size === stat.size) {
+      return entry;
+    }
 
     const isCompressible = COMPRESSIBLE_EXTS.has(ext);
     const maxBytes = isCompressible ? MAX_CACHEABLE_TEXT_BYTES : MAX_CACHEABLE_ICON_BYTES;
     if (stat.size > maxBytes) return null;
 
     const raw = fs.readFileSync(filePath);
-    entry = { raw, gzip: null, br: null };
+    entry = { raw, gzip: null, br: null, mtimeMs: stat.mtimeMs, size: stat.size };
 
-    if (staticBufferCache.size >= MAX_CACHE_ENTRIES) {
+    if (!staticBufferCache.has(filePath) && staticBufferCache.size >= MAX_CACHE_ENTRIES) {
       const oldestKey = staticBufferCache.keys().next().value;
       if (oldestKey) staticBufferCache.delete(oldestKey);
     }
