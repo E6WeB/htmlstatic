@@ -381,6 +381,21 @@ const homeContent = `
               Discuss static web trends, zero-backend philosophy, performance, and best practices.
             </p>
           </a>
+
+          <a href="community/?category=support" class="community-channel-card" style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; display: flex; flex-direction: column; text-decoration: none; color: var(--text-main); transition: all 0.2s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <div style="width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); background: #fee2e2; color: #dc2626; display: flex; align-items: center; justify-content: center;">
+                ${ICONS.lifeBuoy}
+              </div>
+              <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 0.25rem;">
+                Browse &rarr;
+              </span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-main);">StaticStack Support</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0; flex-grow: 1;">
+              Question and answer only about the StaticStack website.
+            </p>
+          </a>
         </div>
 
         <!-- Forum Pillars / Trust Badges -->

@@ -757,6 +757,20 @@
   border-left: 3px solid #f59e0b;
 }
 
+/* StaticStack Support Channel Sidebar Accent */
+.category-link-support {
+  position: relative;
+}
+
+.category-link-support:not(.active) {
+  border-left: 3px solid #ef4444;
+  padding-left: 0.7rem;
+}
+
+.category-link-support.active {
+  border-left: 3px solid #ef4444;
+}
+
 
 /* Compose Dialog Pinned Checkbox */
 .compose-pinned-wrap {

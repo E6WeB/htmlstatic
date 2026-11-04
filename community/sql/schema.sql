@@ -78,5 +78,6 @@ INSERT INTO forum_categories (slug, name, description) VALUES
  ('help', 'Help and Questions', 'Ask questions about building and maintaining static websites.'),
  ('tools', 'Tools and Components', 'Share useful tools, scripts, libraries, and components.'),
  ('showcase', 'Show and Tell', 'Show the static websites and projects you are building.'),
- ('discussion', 'General Discussion', 'Talk about HTML, CSS, JavaScript, and the static web.')
+ ('discussion', 'General Discussion', 'Talk about HTML, CSS, JavaScript, and the static web.'),
+ ('support', 'StaticStack Support', 'Question and answer only about the StaticStack website.')
 ON CONFLICT (slug) DO NOTHING;

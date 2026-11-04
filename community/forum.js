@@ -273,6 +273,14 @@ if (!global.__staticstack_db_initialized) {
     CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
     CREATE INDEX IF NOT EXISTS idx_forum_votes_topic_id ON forum_votes (topic_id) WHERE topic_id IS NOT NULL;
     CREATE INDEX IF NOT EXISTS idx_forum_votes_reply_id ON forum_votes (reply_id) WHERE reply_id IS NOT NULL;
+    INSERT INTO forum_categories (slug, name, description) VALUES
+      ('announcements', 'Announcements', 'Official news, platform updates, and announcements from StaticStack.'),
+      ('help', 'Help and Questions', 'Ask questions about building and maintaining static websites.'),
+      ('tools', 'Tools and Components', 'Share useful tools, scripts, libraries, and components.'),
+      ('showcase', 'Show and Tell', 'Show the static websites and projects you are building.'),
+      ('discussion', 'General Discussion', 'Talk about HTML, CSS, JavaScript, and the static web.'),
+      ('support', 'StaticStack Support', 'Question and answer only about the StaticStack website.')
+    ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, description = EXCLUDED.description;
   `).catch(() => {});
 
   // Background warm-up once per process

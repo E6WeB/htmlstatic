@@ -289,7 +289,7 @@
         state.categories
           .map(
             (c) =>
-              `<a href="/community/?channel=${encodeURIComponent(c.slug)}" class="category-link ${state.category === c.slug ? 'active' : ''} ${c.slug === 'announcements' ? 'category-link-announcements' : ''}" data-category="${escapeHtml(c.slug)}">${escapeHtml(c.name)}<small>${escapeHtml(c.description)}</small></a>`
+              `<a href="/community/?channel=${encodeURIComponent(c.slug)}" class="category-link category-link-${escapeHtml(c.slug)} ${state.category === c.slug ? 'active' : ''} ${c.slug === 'announcements' ? 'category-link-announcements' : ''}" data-category="${escapeHtml(c.slug)}">${escapeHtml(c.name)}<small>${escapeHtml(c.description)}</small></a>`
           )
           .join('');
     }
