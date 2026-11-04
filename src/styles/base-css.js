@@ -825,13 +825,13 @@ const BASE_CSS = `
     transform: translateY(-2px);
   }
 
-  /* Mini Hero Section */
+  /* Mini Hero Section - Seamless / Borderless modern app styling */
   .mini-hero {
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-color);
-    padding: 2.25rem 0 2rem;
-    margin-bottom: 2.5rem;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+    background: transparent;
+    border-bottom: none;
+    padding: 2.75rem 0 1.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: none;
   }
 
   .mini-hero-inner {
