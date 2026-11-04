@@ -167,14 +167,14 @@
           Search
         </button>
       </div>
-      <div id="hero-popular-tags" style="display:flex; align-items:center; justify-content:center; gap:0.45rem; flex-wrap:wrap; margin-top:1rem; font-size:0.825rem;">
-        <span style="color:var(--text-subtle); font-weight:500;">Popular:</span>
-        <a href="tools/payments-ecommerce/reflow" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Reflow</a>
-        <a href="tools/authentication-users/clerk" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Clerk</a>
-        <a href="tools/search/pagefind" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Pagefind</a>
-        <a href="tools/static-site-generators/astro" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Astro</a>
-        <a href="tools/contact-forms/formspree" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Formspree</a>
-        <a href="tools/database-storage/supabase" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">Supabase</a>
+      <div id="hero-popular-tags" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-top:1rem; font-size:0.85rem;">
+        <span style="color:var(--accent); font-weight:600;">Popular:</span>
+        <a href="tools/payments-ecommerce/reflow" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Reflow</a>
+        <a href="tools/authentication-users/clerk" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Clerk</a>
+        <a href="tools/search/pagefind" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Pagefind</a>
+        <a href="tools/static-site-generators/astro" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Astro</a>
+        <a href="tools/contact-forms/formspree" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Formspree</a>
+        <a href="tools/database-storage/supabase" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Supabase</a>
       </div>
     </div>
 
@@ -1003,17 +1003,17 @@
           }
         }
 
-        const pillsHtml = topList.map(item => {
+        const linksHtml = topList.map(item => {
           const safeName = escapeClientHtml(item.name);
           const rawSlug = item.slug || '';
           const href = rawSlug.charAt(0) === '/' ? rawSlug.slice(1) : rawSlug;
           const label = item.likes > 0
             ? safeName + '(<span style="color:var(--accent); font-weight:700;">' + item.likes.toLocaleString() + '</span>)'
             : safeName;
-          return '<a href="' + href + '" class="btn-sm btn-secondary" style="padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-size:0.775rem; text-decoration:none;">' + label + '</a>';
+          return '<a href="' + href + '" style="color:var(--text-muted); font-weight:500; text-decoration:none;">' + label + '</a>';
         }).join('');
 
-        popularContainer.innerHTML = '<span style="color:var(--text-subtle); font-weight:500;">Popular:</span>' + pillsHtml;
+        popularContainer.innerHTML = '<span style="color:var(--accent); font-weight:600;">Popular:</span>' + linksHtml;
       }
 
       try {
