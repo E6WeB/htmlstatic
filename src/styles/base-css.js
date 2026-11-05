@@ -835,7 +835,7 @@ const BASE_CSS = `
   }
 
   .mini-hero-breadcrumbs-only {
-    padding-bottom: 0;
+    padding: 2.5rem 0 0.5rem;
     margin-bottom: 0.5rem;
   }
 
@@ -2815,10 +2815,11 @@ const BASE_CSS = `
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem 1rem 4rem;
+    padding: 2.5rem 1rem 4.5rem;
     margin: 0 auto;
     max-width: 680px;
     width: 100%;
+    min-height: 48vh;
     box-sizing: border-box;
   }
 
