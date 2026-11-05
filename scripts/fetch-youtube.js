@@ -102,16 +102,28 @@ async function getYouTubeMetadata(videoId) {
   }
 
   if (!description) {
-    const descMatch = html.match(/<meta\s+name=["']description["']\s+content=["'](.*?)["']/i);
+    const descMatch = html.match(/<meta\s+name=["']description["']\s+content=["'](.*?)["']/i) ||
+                      html.match(/<meta\s+property=["']og:description["']\s+content=["'](.*?)["']/i);
     if (descMatch) description = descMatch[1];
   }
+
+  const fallbackTitle = (html.match(/<meta\s+property=["']og:title["']\s+content=["'](.*?)["']/i) ||
+                         html.match(/<meta\s+name=["']title["']\s+content=["'](.*?)["']/i) ||
+                         html.match(/<title>(.*?)<\/title>/i) || [])[1] || '';
+
+  const fallbackAuthor = (html.match(/"ownerChannelName":"(.*?)"/) ||
+                          html.match(/"author":"(.*?)"/) || [])[1] || '';
+
+  const resolvedTitle = (oembed.title || fallbackTitle || 'YouTube Video').replace(/ - YouTube$/, '').trim();
+  const resolvedAuthor = (oembed.author_name || fallbackAuthor || 'Creator').trim();
+  const resolvedAuthorUrl = oembed.author_url || (resolvedAuthor ? `https://www.youtube.com/@${resolvedAuthor.replace(/\s+/g, '')}` : '');
 
   return {
     videoId,
     videoUrl,
-    title: oembed.title || 'YouTube Video',
-    authorName: oembed.author_name || 'Creator',
-    authorUrl: oembed.author_url || '',
+    title: resolvedTitle,
+    authorName: resolvedAuthor,
+    authorUrl: resolvedAuthorUrl,
     thumbnail: `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
     description: description.trim()
   };

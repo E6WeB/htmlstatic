@@ -1319,6 +1319,12 @@ Guides, video walkthroughs, and step-by-step tutorials for building and maintain
     <td><a href="https://coldcompile.dev/" target="_blank" rel="noopener noreferrer">coldcompile.dev</a></td>
   </tr>
   <tr>
+    <td><a href="tools/tutorials/static-html-advantage-seo.md">The Static HTML Advantage (AskSEOCoach)</a></td>
+    <td>Why lightweight static HTML websites consistently outperform complex CMS stacks in search rankings and speed</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://www.youtube.com/watch?v=XKntRFeaeKA" target="_blank" rel="noopener noreferrer">youtube.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/tutorials/wptuts-wordpress-shift.md">The Web Design Shift (WPTuts)</a></td>
     <td>Architectural breakdown exploring why creators are leaving WordPress maintenance for static-first visual builders</td>
     <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
