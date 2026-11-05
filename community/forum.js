@@ -289,10 +289,43 @@ if (!global.__staticstack_db_initialized) {
   }, 1500);
 }
 
-// 72-hour IP-based tool view rate limiting (72 hours in ms = 259,200,000 ms)
-const VIEW_COOLDOWN_MS = 72 * 60 * 60 * 1000;
-const ipViewsCache = global.__staticstack_ip_view_times || new Map();
-global.__staticstack_ip_view_times = ipViewsCache;
+// 24-hour IP-based tool view rate limiting (1 view per day per IP)
+const VIEW_COOLDOWN_MS = 24 * 60 * 60 * 1000;
+const IP_VIEWS_FILE = path.join(ROOT_DIR, 'asset', 'json', 'tool-view-ips.json');
+let toolIpTimestamps = {}; // { [tool_key]: { [ip]: timestamp } }
+
+try {
+  if (fs.existsSync(IP_VIEWS_FILE)) {
+    toolIpTimestamps = JSON.parse(fs.readFileSync(IP_VIEWS_FILE, 'utf8'));
+  }
+} catch (e) {
+  toolIpTimestamps = {};
+}
+
+let persistIpViewsTimeout = null;
+function persistIpViewsAsync() {
+  if (persistIpViewsTimeout) return;
+  persistIpViewsTimeout = setTimeout(() => {
+    persistIpViewsTimeout = null;
+    try {
+      // Prune entries older than 48 hours to prevent unbounded file growth
+      const cutoff = Date.now() - (48 * 60 * 60 * 1000);
+      for (const tKey of Object.keys(toolIpTimestamps)) {
+        for (const [ipAddr, ts] of Object.entries(toolIpTimestamps[tKey] || {})) {
+          if (ts < cutoff) {
+            delete toolIpTimestamps[tKey][ipAddr];
+          }
+        }
+        if (Object.keys(toolIpTimestamps[tKey]).length === 0) {
+          delete toolIpTimestamps[tKey];
+        }
+      }
+      fs.writeFileSync(IP_VIEWS_FILE, JSON.stringify(toolIpTimestamps, null, 2), 'utf8');
+    } catch (err) {
+      console.error('[Views] Failed to persist tool-view-ips:', err.message);
+    }
+  }, 1000);
+}
 
 function getClientIp(req) {
   if (req.headers['cf-connecting-ip']) {
@@ -305,7 +338,8 @@ function getClientIp(req) {
       return list[0].trim();
     }
   }
-  return req.headers['x-real-ip'] || (req.socket && req.socket.remoteAddress) || '127.0.0.1';
+  const rawIp = req.headers['x-real-ip'] || (req.socket && req.socket.remoteAddress) || '127.0.0.1';
+  return rawIp.startsWith('::ffff:') ? rawIp.slice(7) : rawIp;
 }
 
 async function recordToolView(req, key, hitRequested = true) {
@@ -313,25 +347,30 @@ async function recordToolView(req, key, hitRequested = true) {
   const cleanKey = key.trim();
   const ip = getClientIp(req);
   const now = Date.now();
-  const cacheKey = `${ip}:${cleanKey}`;
 
   let alreadyViewed = false;
+  let lastViewed = 0;
 
-  // 1. Fast in-memory check (permanent in-memory cache of unique viewer IPs)
-  if (ipViewsCache.has(cacheKey)) {
-    alreadyViewed = true;
+  // 1. Check local persistent IP file (strictly 1-view-per-day-per-IP)
+  if (toolIpTimestamps[cleanKey] && toolIpTimestamps[cleanKey][ip]) {
+    lastViewed = Number(toolIpTimestamps[cleanKey][ip]) || 0;
+    if (now - lastViewed < VIEW_COOLDOWN_MS) {
+      alreadyViewed = true;
+    }
   }
 
-  // 2. Check PostgreSQL database: if this IP has ever viewed this tool, do not increment
+  // 2. Check PostgreSQL database if connected
   if (!alreadyViewed) {
     try {
       const res = await pool.query(
-        'SELECT viewed_at FROM tool_view_ips WHERE ip = $1 AND tool_key = $2',
+        "SELECT viewed_at FROM tool_view_ips WHERE ip = $1 AND tool_key = $2 AND viewed_at > NOW() - INTERVAL '24 hours'",
         [ip, cleanKey]
       );
       if (res.rows.length > 0) {
         alreadyViewed = true;
-        ipViewsCache.set(cacheKey, new Date(res.rows[0].viewed_at).getTime());
+        lastViewed = new Date(res.rows[0].viewed_at).getTime();
+        if (!toolIpTimestamps[cleanKey]) toolIpTimestamps[cleanKey] = {};
+        toolIpTimestamps[cleanKey][ip] = lastViewed;
       }
     } catch (e) {}
   }
@@ -340,66 +379,43 @@ async function recordToolView(req, key, hitRequested = true) {
   let currentCount = allToolViewsCache[cleanKey] !== undefined ? Number(allToolViewsCache[cleanKey]) : 0;
 
   if (shouldHit) {
-    ipViewsCache.set(cacheKey, now);
-    try {
-      await pool.query(
-        `INSERT INTO tool_view_ips (ip, tool_key, viewed_at)
-         VALUES ($1, $2, NOW())
-         ON CONFLICT (ip, tool_key)
-         DO NOTHING`,
-        [ip, cleanKey]
-      );
-    } catch (e) {}
+    if (!toolIpTimestamps[cleanKey]) toolIpTimestamps[cleanKey] = {};
+    toolIpTimestamps[cleanKey][ip] = now;
+    persistIpViewsAsync();
 
-    try {
-      const hitRes = await fetch('https://countapi.mileshilliard.com/api/v1/hit/' + encodeURIComponent(cleanKey), {
-        signal: AbortSignal.timeout(4000)
-      });
-      if (hitRes.ok) {
-        const data = await hitRes.json();
-        if (data && data.value !== undefined) {
-          currentCount = Number(data.value);
-        } else {
-          currentCount += 1;
-        }
-      } else {
-        currentCount += 1;
-      }
-    } catch {
-      currentCount += 1;
-    }
-
+    // Increment local verified counter
+    currentCount += 1;
     allToolViewsCache[cleanKey] = currentCount;
     topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
     global.__staticstack_top_tools_cache = topToolsCache;
     persistViewsCacheAsync();
 
-    return {
-      key: cleanKey,
-      value: currentCount,
-      counted: true,
-      cooldown_hours: 72
-    };
-  } else {
-    // Read only (CountAPI get) without incrementing
+    // Record to PostgreSQL if connected
     try {
-      const getRes = await fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(cleanKey), {
-        signal: AbortSignal.timeout(3000)
-      });
-      if (getRes.ok) {
-        const data = await getRes.json();
-        if (data && data.value !== undefined) {
-          currentCount = Number(data.value);
-          allToolViewsCache[cleanKey] = currentCount;
-        }
-      }
-    } catch {}
+      await pool.query(
+        `INSERT INTO tool_view_ips (ip, tool_key, viewed_at)
+         VALUES ($1, $2, NOW())
+         ON CONFLICT (ip, tool_key)
+         DO UPDATE SET viewed_at = NOW()`,
+        [ip, cleanKey]
+      );
+    } catch (e) {}
 
     return {
       key: cleanKey,
       value: currentCount,
+      counted: true,
+      cooldown_hours: 24
+    };
+  } else {
+    // Already viewed within 24h from this IP -> DO NOT INCREMENT!
+    const timeRemaining = lastViewed ? Math.max(0, VIEW_COOLDOWN_MS - (now - lastViewed)) : 0;
+    return {
+      key: cleanKey,
+      value: currentCount,
       counted: false,
-      cooldown_hours: 72
+      cooldown_hours: 24,
+      cooldown_remaining_seconds: Math.ceil(timeRemaining / 1000)
     };
   }
 }

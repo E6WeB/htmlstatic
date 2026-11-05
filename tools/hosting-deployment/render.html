@@ -459,12 +459,12 @@ updateDisplay(data.value);
 }
 })
 .catch(function() {
-// Fallback to read-only CountAPI get if community API is unreachable
-fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(key))
+// Fallback to local views cache if community API is unreachable
+fetch('/asset/json/tool-views-cache.json')
 .then(function(res) { return res.ok ? res.json() : null; })
 .then(function(data) {
-if (data && data.value !== undefined) {
-updateDisplay(data.value);
+if (data && data[key] !== undefined) {
+updateDisplay(data[key]);
 } else if (countEl.textContent === '--') {
 countEl.textContent = '0';
 }

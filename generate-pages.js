@@ -1257,8 +1257,8 @@ const archiveContent = `
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 3500);
 
-      fetch('https://countapi.mileshilliard.com/api/v1/get/' + encodeURIComponent(key), { signal: controller.signal })
-        .then(res => res.ok ? res.json() : { value: 0 })
+      fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + '&hit=0', { signal: controller.signal })
+        .then(res => res.ok ? res.json() : null)
         .then(data => {
           clearTimeout(timeoutId);
           const raw = data && data.value !== undefined ? Number(data.value) : 0;
