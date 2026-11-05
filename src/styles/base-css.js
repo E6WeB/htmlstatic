@@ -2803,6 +2803,86 @@ const BASE_CSS = `
     color: var(--text-subtle);
   }
 
+  /* 404 Not Found Hero Section */
+  .not-found-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3.5rem 1rem 4.5rem;
+    margin: 0 auto;
+    max-width: 680px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .not-found-code {
+    font-size: clamp(5rem, 14vw, 7.5rem);
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 1rem;
+    background: linear-gradient(135deg, var(--accent), #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.04em;
+    user-select: none;
+  }
+
+  .not-found-title {
+    font-size: clamp(1.75rem, 4vw, 2.35rem);
+    font-weight: 800;
+    margin: 0 0 0.85rem;
+    color: var(--text-main);
+    line-height: 1.25;
+  }
+
+  .not-found-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 auto 2rem;
+    max-width: 500px;
+  }
+
+  .not-found-search {
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto 2rem;
+  }
+
+  .not-found-search-form {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .not-found-search-input {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+  }
+
+  .not-found-search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  .not-found-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   /* Desktop vs Mobile Shell Layout */
   @media (min-width: 768px) {
     body {

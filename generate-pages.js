@@ -1737,6 +1737,56 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contact', 'index.html'), renderLayout({
 }));
 
 // ==========================================================================
+// 5c. Generate 404.html (Page Not Found with Modern App Shell)
+// ==========================================================================
+console.log('🔍 Generating 404 Page (404.html)...');
+
+const notFoundContent = `
+  <section class="not-found-section">
+    <div class="not-found-code" aria-hidden="true">404</div>
+    <h1 class="not-found-title">Page Not Found</h1>
+    <p class="not-found-desc">
+      The page or resource you are looking for does not exist, has been moved, or is temporarily unavailable.
+    </p>
+
+    <!-- Quick Search on 404 -->
+    <div class="not-found-search">
+      <form action="/archive" method="GET" class="not-found-search-form" onsubmit="if(!this.q.value.trim()){return false;}">
+        <input type="text" name="q" class="not-found-search-input" placeholder="Search 130+ static tools &amp; categories..." autocomplete="off">
+        <button type="submit" class="btn btn-primary" style="font-size:0.875rem; padding:0.6rem 1.15rem; flex-shrink:0;">
+          Search
+        </button>
+      </form>
+    </div>
+
+    <div class="not-found-actions">
+      <a href="/" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.4rem;">
+        ${ICONS.home} Back to Home
+      </a>
+      <a href="/archive" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem;">
+        ${ICONS.compass} Explore Master Archive
+      </a>
+      <a href="/community" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem;">
+        ${ICONS.comments} Community Forum
+      </a>
+    </div>
+  </section>
+`;
+
+fs.writeFileSync(path.join(ROOT_DIR, '404.html'), renderLayout({
+  title: '404 - Page Not Found | StaticStack',
+  description: 'The requested page could not be found on StaticStack. Explore 130+ curated zero-backend tools and services.',
+  currentNav: '',
+  rootPath: '/',
+  canonicalUrl: 'https://www.staticstack.app/404',
+  breadcrumbs: [
+    { label: 'Home', url: '/' },
+    { label: '404 Not Found', url: '#' }
+  ],
+  content: notFoundContent
+}));
+
+// ==========================================================================
 // 6. Generate Dedicated HTML Pages for ALL Tools!
 // ==========================================================================
 console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
