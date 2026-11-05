@@ -184,6 +184,22 @@ function getToolsCatalog() {
   return [];
 }
 
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function escapeJs(str) {
+  return String(str || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/"/g, '\\"');
+}
+
 function getStatsSummary(req) {
   let viewsCache = {};
   let ipTimestamps = {};
@@ -199,37 +215,113 @@ function getStatsSummary(req) {
   } catch {}
 
   const catalog = getToolsCatalog();
-  const toolMap = new Map();
+  const itemMap = new Map();
 
+  // 1. Catalog Tools (137)
   catalog.forEach(cat => {
     (cat.tools || []).forEach(t => {
       const key = `htmlstatic-${cat.slug}-${t.slug}`;
-      toolMap.set(key, {
+      itemMap.set(key, {
         name: t.name,
         slug: t.slug,
         categorySlug: cat.slug,
         categoryTitle: cat.title,
         url: `/tools/${cat.slug}/${t.slug}`,
         iconUrl: `/tools/${cat.slug}/${t.slug}-icon.webp`,
-        key: key
+        key: key,
+        type: 'tool'
       });
     });
   });
 
-  let totalViews = 0;
-  const toolList = [];
+  // 2. Community Forum Hub
+  const communityKey = 'htmlstatic-community-hub';
+  itemMap.set(communityKey, {
+    name: 'Community Forum Hub',
+    slug: 'community',
+    categorySlug: 'community-forum',
+    categoryTitle: 'Community Forum',
+    url: '/community/',
+    iconUrl: '/asset/img/favicon.svg',
+    key: communityKey,
+    type: 'community'
+  });
 
-  for (const [key, tool] of toolMap.entries()) {
+  // 3. Community Discussion Topics
+  let forumTopics = [
+    { id: 3, title: 'Welcome to the StaticStack Announcements Channel!' },
+    { id: 4, title: 'If you see a tool that is not in the right category.' },
+    { id: 5, title: 'StaticStack Is Growing!' },
+    { id: 6, title: 'StaticStack Website Discussion' },
+    { id: 7, title: 'StaticStack Introduces Category Hubs: Explore Tools, Resources, and FAQs' }
+  ];
+  try {
+    const forum = require(path.join(ROOT_DIR, 'community', 'forum.js'));
+    if (forum.getForumTopicsSync) {
+      forumTopics = forum.getForumTopicsSync();
+    }
+  } catch (e) {}
+
+  forumTopics.forEach(top => {
+    const topicKey = `htmlstatic-community-topic-${top.id}`;
+    itemMap.set(topicKey, {
+      name: `Topic #${top.id}: ${top.title}`,
+      slug: `topic-${top.id}`,
+      categorySlug: 'community-topics',
+      categoryTitle: 'Discussion Topic',
+      url: `/community/topic?id=${top.id}`,
+      iconUrl: '/asset/img/favicon.svg',
+      key: topicKey,
+      type: 'topic'
+    });
+  });
+
+  // 4. Any other topics in viewsCache not yet in itemMap
+  for (const k of Object.keys(viewsCache)) {
+    if (k.startsWith('htmlstatic-community-topic-') && !itemMap.has(k)) {
+      const tid = k.replace('htmlstatic-community-topic-', '');
+      itemMap.set(k, {
+        name: `Topic #${tid}`,
+        slug: `topic-${tid}`,
+        categorySlug: 'community-topics',
+        categoryTitle: 'Discussion Topic',
+        url: `/community/topic?id=${tid}`,
+        iconUrl: '/asset/img/favicon.svg',
+        key: k,
+        type: 'topic'
+      });
+    }
+  }
+
+  // 5. Compute view totals
+  let totalViews = 0;
+  let toolViewsTotal = 0;
+  let communityViewsTotal = 0;
+  const allItems = [];
+
+  for (const [key, item] of itemMap.entries()) {
     const v = Number(viewsCache[key]) || 0;
     totalViews += v;
-    toolList.push({
-      ...tool,
+    if (item.type === 'tool') {
+      toolViewsTotal += v;
+    } else {
+      communityViewsTotal += v;
+    }
+    allItems.push({
+      ...item,
       views: v
     });
   }
 
+  // Also include any other stray keys in viewsCache in totalViews
+  for (const [key, v] of Object.entries(viewsCache)) {
+    if (!itemMap.has(key)) {
+      totalViews += Number(v) || 0;
+    }
+  }
+
   // Sort descending by views
-  toolList.sort((a, b) => {
+  allItems.sort((a, b) => {
     if (b.views !== a.views) return b.views - a.views;
     return a.name.localeCompare(b.name);
   });
@@ -243,7 +335,7 @@ function getStatsSummary(req) {
   const recentEvents = [];
 
   for (const [toolKey, ipDict] of Object.entries(ipTimestamps)) {
-    const toolInfo = toolMap.get(toolKey) || { name: toolKey.replace(/^htmlstatic-/, '') };
+    const toolInfo = itemMap.get(toolKey) || { name: toolKey.replace(/^htmlstatic-/, ''), url: '#' };
     for (const [ip, ts] of Object.entries(ipDict || {})) {
       const timeNum = Number(ts) || 0;
       if (timeNum > past24h) {
@@ -281,13 +373,17 @@ function getStatsSummary(req) {
 
   return {
     totalViews,
-    totalTools: toolList.length,
+    toolViewsTotal,
+    communityViewsTotal,
+    totalTools: catalog.reduce((acc, c) => acc + (c.tools || []).length, 0),
+    totalCommunityItems: forumTopics.length + 1,
     hits24h,
     uniqueVisitors24h: uniqueIps24h.size,
     countries,
-    topTools: toolList.slice(0, 30),
-    allTools: toolList,
-    recentEvents: recentEvents.slice(0, 25)
+    allItems,
+    tools: allItems.filter(i => i.type === 'tool'),
+    communityItems: allItems.filter(i => i.type !== 'tool'),
+    recentEvents: recentEvents.slice(0, 30)
   };
 }
 
@@ -482,22 +578,30 @@ function renderLoginHtml(errorMsg = '') {
 }
 
 function renderDashboardHtml(data, user) {
-  const topRows = data.topTools.map((t, idx) => `
-    <tr>
-      <td style="font-weight:700; color:var(--text-muted); width:40px;">#${idx + 1}</td>
-      <td>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <img src="${t.iconUrl}" width="24" height="24" style="border-radius:5px; background:#111; flex-shrink:0;" alt="">
-          <a href="${t.url}" target="_blank" style="color:var(--text-main); font-weight:600; text-decoration:none;">${t.name}</a>
-        </div>
-      </td>
-      <td><span class="badge" style="font-size:0.75rem; background:rgba(255,255,255,0.06); padding:0.2rem 0.5rem; border-radius:4px;">${t.categoryTitle}</span></td>
-      <td style="font-weight:700; font-variant-numeric:tabular-nums; font-size:1.05rem;" id="views-val-${t.key}">${t.views.toLocaleString()}</td>
-      <td style="text-align:right;">
-        <button onclick="promptAdjust('${t.key}', '${t.name.replace(/'/g, "\\'")}', ${t.views})" class="btn-sm-action">Adjust</button>
-      </td>
-    </tr>
-  `).join('');
+  const allItemRows = (data.allItems || []).map((t, idx) => {
+    let catBadgeStyle = 'background:rgba(255,255,255,0.06); color:var(--text-main);';
+    if (t.type === 'community') {
+      catBadgeStyle = 'background:rgba(37,99,235,0.2); color:#60a5fa; border:1px solid rgba(37,99,235,0.4);';
+    } else if (t.type === 'topic') {
+      catBadgeStyle = 'background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);';
+    }
+    return `
+      <tr class="stats-item-row" data-type="${t.type}" data-search="${escapeHtml((t.name + ' ' + t.categoryTitle + ' ' + t.key).toLowerCase())}">
+        <td style="font-weight:700; color:var(--text-muted); width:40px;">#${idx + 1}</td>
+        <td>
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <img src="${t.iconUrl}" width="24" height="24" style="border-radius:5px; background:#111; flex-shrink:0; object-fit:contain;" alt="">
+            <a href="${t.url}" target="_blank" style="color:var(--text-main); font-weight:600; text-decoration:none;">${escapeHtml(t.name)}</a>
+          </div>
+        </td>
+        <td><span class="badge" style="font-size:0.75rem; padding:0.2rem 0.5rem; border-radius:4px; ${catBadgeStyle}">${escapeHtml(t.categoryTitle)}</span></td>
+        <td style="font-weight:700; font-variant-numeric:tabular-nums; font-size:1.05rem;" id="views-val-${t.key}">${t.views.toLocaleString()}</td>
+        <td style="text-align:right;">
+          <button onclick="promptAdjust('${t.key}', '${escapeJs(t.name)}', ${t.views})" class="btn-sm-action">Adjust</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
 
   const countryRows = data.countries.slice(0, 10).map(c => `
     <tr>
@@ -686,6 +790,56 @@ function renderDashboardHtml(data, user) {
       align-items: center;
       gap: 0.3rem;
     }
+    .stats-filter-bar {
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      background: rgba(0,0,0,0.1);
+    }
+    .stats-search-input {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      min-width: 260px;
+      flex-grow: 1;
+      max-width: 360px;
+    }
+    .stats-search-input:focus {
+      outline: none;
+      border-color: #0284c7;
+    }
+    .stats-tabs {
+      display: flex;
+      gap: 0.35rem;
+      background: rgba(0,0,0,0.2);
+      padding: 3px;
+      border-radius: 8px;
+    }
+    .stats-tab {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .stats-tab:hover {
+      color: #fff;
+    }
+    .stats-tab.active {
+      background: #0284c7;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -716,47 +870,61 @@ function renderDashboardHtml(data, user) {
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-label">Total Verified Views</div>
-        <div class="kpi-value">${data.totalViews.toLocaleString()}</div>
-        <div class="kpi-sub">Across all catalog tools</div>
+        <div class="kpi-value" id="kpi-total-views">${data.totalViews.toLocaleString()}</div>
+        <div class="kpi-sub">Tools + Community Hub + Topics</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Catalog Tool Views</div>
+        <div class="kpi-value">${data.toolViewsTotal.toLocaleString()}</div>
+        <div class="kpi-sub">${data.totalTools} tools across 27 categories</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Community Views</div>
+        <div class="kpi-value">${data.communityViewsTotal.toLocaleString()}</div>
+        <div class="kpi-sub">${data.totalCommunityItems} forum &amp; discussion topics</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">24h Unique Hits</div>
         <div class="kpi-value">${data.hits24h.toLocaleString()}</div>
         <div class="kpi-sub">${data.uniqueVisitors24h} unique IPs today</div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Tracked Tools</div>
-        <div class="kpi-value">${data.totalTools}</div>
-        <div class="kpi-sub">In 27 categories</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Top Country</div>
-        <div class="kpi-value">${data.countries[0] ? `${data.countries[0].flag} ${data.countries[0].code}` : 'US'}</div>
-        <div class="kpi-sub">${data.countries.length} active regions</div>
-      </div>
     </div>
 
-    <!-- Main Grid: Top Tools + Country Leaderboard -->
+    <!-- Main Grid: Tools/Community Controller + Country Leaderboard -->
     <div class="dashboard-grid">
-      <!-- Top Viewed Tools -->
+      <!-- All Tracked Items -->
       <div class="panel">
         <div class="panel-header">
-          <h2 class="panel-title">Top Viewed Tools</h2>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Click "Adjust" to correct counts</span>
+          <div>
+            <h2 class="panel-title">Tracked Catalog &amp; Community Views</h2>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Adjust any tool or community topic view count instantly.</div>
+          </div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">${data.allItems.length} tracked items</span>
         </div>
-        <div style="overflow-x:auto;">
+        <div class="stats-filter-bar">
+          <div class="stats-tabs">
+            <button type="button" class="stats-tab active" data-filter="all" onclick="filterStatsType('all', this)">All (${data.allItems.length})</button>
+            <button type="button" class="stats-tab" data-filter="tool" onclick="filterStatsType('tool', this)">Tools (${data.tools.length})</button>
+            <button type="button" class="stats-tab" data-filter="community" onclick="filterStatsType('community', this)">Community &amp; Topics (${data.communityItems.length})</button>
+          </div>
+          <input type="text" id="stats-search-input" class="stats-search-input" placeholder="Search tool, topic, or category..." oninput="filterStatsItems()">
+        </div>
+        <div style="overflow-x:auto; max-height:680px; overflow-y:auto;">
           <table class="stats-table">
-            <thead>
+            <thead style="position:sticky; top:0; z-index:10;">
               <tr>
                 <th>Rank</th>
-                <th>Tool</th>
+                <th>Item / Title</th>
                 <th>Category</th>
                 <th>Views</th>
                 <th style="text-align:right;">Action</th>
               </tr>
             </thead>
-            <tbody>
-              ${topRows}
+            <tbody id="stats-items-tbody">
+              ${allItemRows}
+              <tr id="stats-no-match-row" style="display:none;">
+                <td colspan="5" style="text-align:center; color:var(--text-muted); padding:2rem;">No matching tools or topics found.</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -810,6 +978,39 @@ function renderDashboardHtml(data, user) {
   </main>
 
   <script>
+    let currentTypeFilter = 'all';
+
+    function filterStatsType(type, btn) {
+      currentTypeFilter = type;
+      document.querySelectorAll('.stats-tab').forEach(el => el.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      filterStatsItems();
+    }
+
+    function filterStatsItems() {
+      const q = (document.getElementById('stats-search-input')?.value || '').toLowerCase().trim();
+      const rows = document.querySelectorAll('.stats-item-row');
+      let visibleCount = 0;
+      rows.forEach(r => {
+        const itemType = r.getAttribute('data-type');
+        const searchData = r.getAttribute('data-search') || '';
+        const matchesType = (currentTypeFilter === 'all') ||
+          (currentTypeFilter === 'tool' && itemType === 'tool') ||
+          (currentTypeFilter === 'community' && itemType !== 'tool');
+        const matchesSearch = !q || searchData.includes(q);
+        if (matchesType && matchesSearch) {
+          r.style.display = '';
+          visibleCount++;
+        } else {
+          r.style.display = 'none';
+        }
+      });
+      const noMatchEl = document.getElementById('stats-no-match-row');
+      if (noMatchEl) {
+        noMatchEl.style.display = visibleCount === 0 ? '' : 'none';
+      }
+    }
+
     function promptAdjust(key, name, currentViews) {
       const input = prompt('Adjust view count for ' + name + ':\\n\\nEnter new count (currently ' + currentViews + '):', currentViews);
       if (input === null) return;
@@ -828,7 +1029,7 @@ function renderDashboardHtml(data, user) {
         if (res.success) {
           const el = document.getElementById('views-val-' + key);
           if (el) el.textContent = val.toLocaleString();
-          alert('Successfully updated ' + name + ' to ' + val.toLocaleString() + ' views!');
+          alert('Successfully updated ' + name + ' to ' + val.toLocaleString() + ' views! Static pages are rebuilding in the background.');
         } else {
           alert('Failed to update views: ' + (res.error || 'Unknown error'));
         }

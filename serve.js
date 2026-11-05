@@ -274,8 +274,17 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Handle Community Forum Hub View
+  if (pathname === '/community/') {
+    forum.recordToolView(req, 'htmlstatic-community-hub', true).catch(() => {});
+  }
+
   // Handle Community Forum Topic Page (/community/topic or /community/topic/:id)
   if (pathname === '/community/topic' || pathname.startsWith('/community/topic/')) {
+    const topicId = query.id || (pathname.split('/')[3] ? parseInt(pathname.split('/')[3], 10) : null);
+    if (topicId) {
+      forum.recordToolView(req, `htmlstatic-community-topic-${topicId}`, true).catch(() => {});
+    }
     const topicHtmlPath = path.join(SERVE_DIR, 'community', 'topic.html');
     if (fs.existsSync(topicHtmlPath)) {
       return serveFile(req, res, topicHtmlPath, 200);

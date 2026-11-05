@@ -25,8 +25,13 @@ function renderToolPage({
   rootDir,
   renderLayout,
   getRandomTools,
-  getToolSiteIcon
+  getToolSiteIcon,
+  cachedViewsMap
 }) {
+  const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
+  const initialViews = (cachedViewsMap && cachedViewsMap[toolKey] !== undefined)
+    ? Number(cachedViewsMap[toolKey])
+    : 0;
   let cleanMd = tool.rawMd || `# ${tool.name}\n\n> ${tool.description}\n\n- **Website**: ${tool.websiteUrl}`;
   // Strip trailing markdown navigation links
   cleanMd = cleanMd.replace(/\n+---\s*\n+\[.*?Back to[\s\S]*$/i, '').trimEnd();
@@ -271,7 +276,7 @@ function renderToolPage({
           <div style="display:flex; align-items:center; gap:0.4rem;">
             <span style="color:var(--text-subtle); display:inline-flex;">${ICONS.eye}</span>
             <strong>Views:</strong>
-            <span id="tool-view-count" class="tool-view-count" data-key="htmlstatic-${tool.categorySlug}-${tool.slug}" style="font-weight:600; color:var(--text-main); font-variant-numeric:tabular-nums;">--</span>
+            <span id="tool-view-count" class="tool-view-count" data-key="${toolKey}" style="font-weight:600; color:var(--text-main); font-variant-numeric:tabular-nums;">${initialViews.toLocaleString()}</span>
           </div>
           <div class="mini-hero-extra-edit" style="margin-left:auto;">
             <a href="https://github.com/E6WeB/htmlstatic/blob/main/${tool.relPath}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">

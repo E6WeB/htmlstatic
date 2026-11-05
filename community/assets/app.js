@@ -410,6 +410,14 @@
                 <strong>${Number(t.reply_count) || 0}</strong>
                 <span class="stat-unit">${Number(t.reply_count) === 1 ? 'reply' : 'replies'}</span>
               </span>
+              <span class="topic-stat-pill topic-stat-views" title="${Number(t.views) || 0} views">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <strong>${Number(t.views) || 0}</strong>
+                <span class="stat-unit">${Number(t.views) === 1 ? 'view' : 'views'}</span>
+              </span>
               <div class="topic-last-post" title="Last activity">
                 <span class="meta-dot" aria-hidden="true">•</span>
                 <span class="last-post-label">Last post:</span>
@@ -513,6 +521,13 @@
               <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34L12 14.24l-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/>
             </svg>
             <span><strong>${voteScore}</strong> ${Math.abs(voteScore) === 1 ? 'vote' : 'votes'}</span>
+          </span>
+          <span class="thread-meta-item thread-meta-views" title="Views">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span><strong>${Number(t.views || 0).toLocaleString()}</strong> ${Number(t.views) === 1 ? 'view' : 'views'}</span>
           </span>
         `;
       }

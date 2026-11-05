@@ -256,6 +256,25 @@ function updateToolView(key, views) {
   return topToolsCache;
 }
 
+let cachedForumTopics = [
+  { id: 3, title: 'Welcome to the StaticStack Announcements Channel!' },
+  { id: 4, title: 'If you see a tool that is not in the right category.' },
+  { id: 5, title: 'StaticStack Is Growing!' },
+  { id: 6, title: 'StaticStack Website Discussion' },
+  { id: 7, title: 'StaticStack Introduces Category Hubs: Explore Tools, Resources, and FAQs' }
+];
+
+async function syncForumTopics() {
+  try {
+    const res = await pool.query('SELECT id, title FROM forum_topics WHERE is_hidden = FALSE ORDER BY id ASC');
+    if (res && res.rows && res.rows.length) {
+      cachedForumTopics = res.rows.map(r => ({ id: Number(r.id), title: r.title }));
+    }
+  } catch (e) {}
+  return cachedForumTopics;
+}
+syncForumTopics().catch(() => {});
+
 // Initialize singleton PostgreSQL pool with SSL
 const pool = global.__staticstack_pg_pool || new Pool({
   host: process.env.DB_HOST || 'psql.fr-roub1.bengt.wasmernet.com',
@@ -549,6 +568,7 @@ async function handleApi(req, res, pathname, query) {
 
   try {
     if (action === 'bootstrap') {
+      recordToolView(req, 'htmlstatic-community-hub', true).catch(() => {});
       const [catsResult, statsRes, topTools] = await Promise.all([
         pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC"),
         pool.query(`
@@ -583,6 +603,7 @@ async function handleApi(req, res, pathname, query) {
           replies: st.replies_count || 0,
           members: st.users_count || 0,
           votes: st.votes_count || 0,
+          community_views: Number(allToolViewsCache['htmlstatic-community-hub']) || 0,
           newest_member_name: st.newest_display_name || st.newest_login || '',
           newest_member_login: st.newest_login || '',
           latest_topic_id: st.latest_topic_id || null,
@@ -658,13 +679,21 @@ async function handleApi(req, res, pathname, query) {
       `;
 
       const result = await pool.query(sql, params);
-      sendJson(res, { topics: result.rows });
+      const topicsWithViews = result.rows.map(t => ({
+        ...t,
+        views: Number(allToolViewsCache[`htmlstatic-community-topic-${t.id}`]) || 0
+      }));
+      sendJson(res, { topics: topicsWithViews });
       return true;
     }
 
     if (action === 'topic') {
       const id = parseInt(query.id, 10);
       if (!id) return sendError(res, 'A valid topic ID is required.');
+
+      const topicKey = `htmlstatic-community-topic-${id}`;
+      const hitParam = query.hit !== '0' && query.hit !== 'false';
+      recordToolView(req, topicKey, hitParam).catch(() => {});
 
       const voterId = user ? user.uid : 0;
       const isAdmin = Boolean(user && user.admin);
@@ -699,7 +728,12 @@ async function handleApi(req, res, pathname, query) {
       `;
       const repliesRes = await pool.query(repliesSql, [id, voterId, isAdmin]);
 
-      sendJson(res, { topic, replies: repliesRes.rows });
+      const topicData = {
+        ...topic,
+        views: Number(allToolViewsCache[topicKey]) || 0
+      };
+
+      sendJson(res, { topic: topicData, replies: repliesRes.rows });
       return true;
     }
 
@@ -1315,5 +1349,7 @@ module.exports = {
   getAllToolViews: () => allToolViewsCache,
   getTopTools,
   updateToolView,
-  buildTopToolsList
+  buildTopToolsList,
+  getForumTopicsSync: () => cachedForumTopics,
+  syncForumTopics
 };

@@ -1001,10 +1001,13 @@ const archiveContent = `
                       (cat.title + ' ' + tool.slug + ' ' + (tool.websiteLabel || '') + ' ' + (tool.tags || []).join(' ').replace(/-/g, ' ')).toLowerCase().split(/\s+/).filter(w => w && !rowVisibleWords.has(w))
                     )).join(' ');
 
+                    const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
+                    const toolViews = Number(cachedViewsMap[toolKey]) || 0;
+
                     return `
                     <tr class="archive-row" data-search="${escapeHtml(extraSearchWords)}">
                       <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a></td>
-                      <td><span class="tool-archive-views">--</span></td>
+                      <td><span class="tool-archive-views" data-key="${toolKey}">${toolViews ? toolViews.toLocaleString() : '0'}</span></td>
                       <td>${escapeHtml(tool.description)}</td>
                       <td>${badgesHtml}</td>
                       <td><a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></td>
@@ -1818,7 +1821,8 @@ allTools.forEach(tool => {
     rootDir: ROOT_DIR,
     renderLayout,
     getRandomTools,
-    getToolSiteIcon
+    getToolSiteIcon,
+    cachedViewsMap
   });
 
   const toolCatDir = path.join(ROOT_DIR, 'tools', tool.categorySlug);

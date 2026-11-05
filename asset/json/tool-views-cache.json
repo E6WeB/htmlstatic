@@ -101,7 +101,7 @@
   "htmlstatic-payments-ecommerce-lemon-squeezy": 2,
   "htmlstatic-media-players-wavesurfer": 0,
   "htmlstatic-newsletters-email-emailit": 1,
-  "htmlstatic-newsletters-email-buttondown": 0,
+  "htmlstatic-newsletters-email-buttondown": 1,
   "htmlstatic-monitoring-errors-sentry": 1,
   "htmlstatic-media-players-mux-player": 1,
   "htmlstatic-payments-ecommerce-payhip": 1,
