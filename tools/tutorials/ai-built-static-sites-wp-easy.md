@@ -62,3 +62,4 @@ The video documents an entire real-time session—sped up during wait times with
 - **Official Website**: [wpeasy.au](https://www.wpeasy.au/)
 - **Starter Repository**: [github.com/wpeasy/full-static-base](https://github.com/wpeasy/full-static-base)
 - **Watch on YouTube**: [https://www.youtube.com/watch?v=C3gS3o--bcI](https://www.youtube.com/watch?v=C3gS3o--bcI)
+
