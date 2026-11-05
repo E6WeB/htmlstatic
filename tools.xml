@@ -1288,6 +1288,16 @@
     <lastmod>2026-11-05</lastmod>
   </tool>
   <tool>
+    <title>AI-Built Static Sites (WP Easy)</title>
+    <category>Tutorials</category>
+    <url>https://www.staticstack.app/tools/tutorials/ai-built-static-sites-wp-easy</url>
+    <image>https://www.staticstack.app/tools/tutorials/ai-built-static-sites-wp-easy-cover.webp</image>
+    <description>
+      Client brief to Cloudflare walkthrough using AI agents, Alpine.js, and zero-compile static architecture
+    </description>
+    <lastmod>2026-11-05</lastmod>
+  </tool>
+  <tool>
     <title>Cold Compile</title>
     <category>Tutorials</category>
     <url>https://www.staticstack.app/tools/tutorials/coldcompile</url>

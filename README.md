@@ -1301,6 +1301,12 @@ Guides, video walkthroughs, and step-by-step tutorials for building and maintain
 </thead>
 <tbody>
   <tr>
+    <td><a href="tools/tutorials/ai-built-static-sites-wp-easy.md">AI-Built Static Sites (WP Easy)</a></td>
+    <td>Client brief to Cloudflare walkthrough using AI agents, Alpine.js, and zero-compile static architecture</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://www.youtube.com/watch?v=C3gS3o--bcI" target="_blank" rel="noopener noreferrer">youtube.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/tutorials/coldcompile.md">Cold Compile</a></td>
     <td>In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites</td>
     <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
