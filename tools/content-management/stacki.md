@@ -33,3 +33,4 @@ Designed to eliminate CMS bloat, Stacki allows creators to build responsive layo
 1. Webflow users seeking a static-first workflow with lower long-term hosting expenses.
 2. Designers and front-end teams who want visual layout power without giving up code ownership.
 3. Client projects that demand custom responsive design and rock-solid static hosting.
+

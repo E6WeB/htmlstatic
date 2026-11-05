@@ -33,3 +33,4 @@ It offers an intuitive visual canvas with granular layout and styling tools, gen
 1. Agencies seeking to eliminate monthly maintenance and patching for simple client brochure sites.
 2. Creators who love visual page building but want the speed, reliability, and security of static sites.
 3. Anyone migrating existing WordPress layouts over to modern, lightweight static infrastructure.
+
