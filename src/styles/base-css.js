@@ -1796,41 +1796,16 @@ const BASE_CSS = `
     font-size: 0.85rem;
   }
 
-  .footer-stat-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.18rem 0.55rem;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text-subtle);
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    vertical-align: middle;
+  .footer-stat-text {
+    color: inherit;
     text-decoration: none;
-    transition: all 0.2s ease;
-    user-select: none;
-    line-height: 1.25;
-    margin-left: 0.25rem;
+    font-size: inherit;
+    font-weight: inherit;
+    display: inline;
+    transition: color 0.15s ease;
   }
 
-  .footer-stat-badge:hover {
-    color: var(--text-main);
-    background: var(--bg-muted);
-    border-color: var(--border-hover);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .footer-stat-badge svg {
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-
-  .footer-stat-count {
-    font-variant-numeric: tabular-nums;
-    font-weight: 600;
+  .footer-stat-text:hover {
     color: var(--text-main);
   }
 
