@@ -575,9 +575,9 @@
   },
   "file-converter": {
     "url": "https://github.com/Tichau/FileConverter",
-    "status": "online",
-    "code": 200,
-    "error": null,
+    "status": "offline",
+    "code": 0,
+    "error": "Timeout",
     "checked_at": "2026-11-05"
   },
   "pic2svg": {
@@ -904,6 +904,34 @@
   },
   "google-fonts": {
     "url": "https://fonts.google.com/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-05"
+  },
+  "instatic": {
+    "url": "https://instatic.com/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-05"
+  },
+  "stacki": {
+    "url": "https://stacki.build/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-05"
+  },
+  "phantom-studio": {
+    "url": "https://phantomstudio.app/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-05"
+  },
+  "wptuts-wordpress-shift": {
+    "url": "https://www.youtube.com/watch?v=RGvDeQcmKy0",
     "status": "online",
     "code": 200,
     "error": null,

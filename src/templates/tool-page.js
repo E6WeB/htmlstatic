@@ -39,7 +39,7 @@ function renderToolPage({
   parsedHtml = parsedHtml
     .replace(/href="(?:\.\.\/)+README\.md#([^"]+)"/g, 'href="../../archive#$1"')
     .replace(/href="(?:\.\.\/)+README\.md"/g, 'href="../../archive"')
-    .replace(/href="(?:\.\.\/)+([a-z0-9\-]+)\/([a-z0-9\-]+)\.md"/g, 'href="../../tools/$1/$2"')
+    .replace(/href="(?:\.\.\/)+(?:tools\/)?([a-z0-9\-]+)\/([a-z0-9\-]+)\.md"/g, 'href="../../tools/$1/$2"')
     .replace(/href="([a-z0-9\-]+)\.md"/g, 'href="../../tools/' + tool.categorySlug + '/$1"');
 
   // Inject Option 1: Minimal Glowing Status Dot next to Official Website link
@@ -60,7 +60,8 @@ function renderToolPage({
   const coverRelativeName = `${tool.slug}-cover.webp`;
   const coverDiskPath = path.join(rootDir, 'tools', tool.categorySlug, coverRelativeName);
   let coverImageHtml = '';
-  if (fs.existsSync(coverDiskPath)) {
+  const hasEmbeddedVideo = cleanMd.includes('video-container') || cleanMd.includes('<iframe');
+  if (fs.existsSync(coverDiskPath) && !hasEmbeddedVideo) {
     coverImageHtml = `
           <div class="tool-cover-banner" style="margin-bottom:1.5rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card); background:var(--bg-surface);">
             <img src="${coverRelativeName}" 

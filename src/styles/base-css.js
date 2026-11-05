@@ -3257,6 +3257,29 @@ const BASE_CSS = `
       padding: 1.15rem !important;
     }
   }
+
+  /* Responsive Video Embeds (YouTube / Tutorials) */
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    background: #000;
+    margin-bottom: 1.75rem;
+  }
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 `;
 
 function getMinifiedBaseCss() {

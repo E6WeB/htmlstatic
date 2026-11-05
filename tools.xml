@@ -401,12 +401,39 @@
     <lastmod>2026-11-05</lastmod>
   </tool>
   <tool>
+    <title>Instatic</title>
+    <category>Content Management</category>
+    <url>https://www.staticstack.app/tools/content-management/instatic</url>
+    <description>
+      Free, browser-based visual website builder created by Core Framework developers
+    </description>
+    <lastmod>2026-11-05</lastmod>
+  </tool>
+  <tool>
     <title>Pages CMS</title>
     <category>Content Management</category>
     <url>https://www.staticstack.app/tools/content-management/pages-cms</url>
     <image>https://www.staticstack.app/tools/content-management/pages-cms-cover.webp</image>
     <description>
       Git-based content management with a browser interface
+    </description>
+    <lastmod>2026-11-05</lastmod>
+  </tool>
+  <tool>
+    <title>Phantom Studio</title>
+    <category>Content Management</category>
+    <url>https://www.staticstack.app/tools/content-management/phantom-studio</url>
+    <description>
+      Visual website builder with static export and low maintenance for WordPress creators
+    </description>
+    <lastmod>2026-11-05</lastmod>
+  </tool>
+  <tool>
+    <title>Stacki</title>
+    <category>Content Management</category>
+    <url>https://www.staticstack.app/tools/content-management/stacki</url>
+    <description>
+      Webflow-familiar visual site builder engineered for local developers and static sites
     </description>
     <lastmod>2026-11-05</lastmod>
   </tool>
@@ -1267,6 +1294,16 @@
     <image>https://www.staticstack.app/tools/tutorials/coldcompile-cover.webp</image>
     <description>
       In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites
+    </description>
+    <lastmod>2026-11-05</lastmod>
+  </tool>
+  <tool>
+    <title>The Web Design Shift (WPTuts)</title>
+    <category>Tutorials</category>
+    <url>https://www.staticstack.app/tools/tutorials/wptuts-wordpress-shift</url>
+    <image>https://www.staticstack.app/tools/tutorials/wptuts-wordpress-shift-cover.webp</image>
+    <description>
+      Architectural breakdown exploring why creators are leaving WordPress maintenance for static-first visual builders
     </description>
     <lastmod>2026-11-05</lastmod>
   </tool>

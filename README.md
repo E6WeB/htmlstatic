@@ -478,10 +478,28 @@ Manage content on static websites without adopting a traditional, full-featured 
     <td><a href="https://decapcms.org/" target="_blank" rel="noopener noreferrer">decapcms.org</a></td>
   </tr>
   <tr>
+    <td><a href="tools/content-management/instatic.md">Instatic</a></td>
+    <td>Free, browser-based visual website builder created by Core Framework developers</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://instatic.com/" target="_blank" rel="noopener noreferrer">instatic.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/content-management/pages-cms.md">Pages CMS</a></td>
     <td>Git-based content management with a browser interface</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://pagescms.org/" target="_blank" rel="noopener noreferrer">pagescms.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/content-management/phantom-studio.md">Phantom Studio</a></td>
+    <td>Visual website builder with static export and low maintenance for WordPress creators</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://phantomstudio.app/" target="_blank" rel="noopener noreferrer">phantomstudio.app</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/content-management/stacki.md">Stacki</a></td>
+    <td>Webflow-familiar visual site builder engineered for local developers and static sites</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://stacki.build/" target="_blank" rel="noopener noreferrer">stacki.build</a></td>
   </tr>
 </tbody>
 </table>
@@ -1287,6 +1305,12 @@ Guides, video walkthroughs, and step-by-step tutorials for building and maintain
     <td>In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites</td>
     <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
     <td><a href="https://coldcompile.dev/" target="_blank" rel="noopener noreferrer">coldcompile.dev</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/tutorials/wptuts-wordpress-shift.md">The Web Design Shift (WPTuts)</a></td>
+    <td>Architectural breakdown exploring why creators are leaving WordPress maintenance for static-first visual builders</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://www.youtube.com/watch?v=RGvDeQcmKy0" target="_blank" rel="noopener noreferrer">youtube.com</a></td>
   </tr>
 </tbody>
 </table>

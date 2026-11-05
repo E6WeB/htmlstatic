@@ -445,7 +445,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/tools/content-management/instatic</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/tools/content-management/pages-cms</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/content-management/phantom-studio</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/content-management/stacki</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -962,6 +980,12 @@
   </url>
   <url>
     <loc>https://www.staticstack.app/tools/tutorials/coldcompile</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/tutorials/wptuts-wordpress-shift</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

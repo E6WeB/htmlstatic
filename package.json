@@ -8,7 +8,8 @@
     "generate": "node generate-pages.js",
     "serve": "node serve.js",
     "start": "node serve.js",
-    "dev": "node generate-pages.js && node serve.js"
+    "dev": "node generate-pages.js && node serve.js",
+    "fetch:youtube": "node scripts/fetch-youtube.js"
   },
   "dependencies": {
     "marked": "^15.0.7",
