@@ -1766,6 +1766,9 @@ const notFoundContent = `
       <a href="/archive" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem;">
         ${ICONS.compass} Explore Master Archive
       </a>
+      <a href="/submit" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem;">
+        ${ICONS.plusCircle} Submit a Tool
+      </a>
       <a href="/community" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem;">
         ${ICONS.comments} Community Forum
       </a>
@@ -1786,6 +1789,7 @@ fs.writeFileSync(path.join(ROOT_DIR, '404.html'), renderLayout({
     ]
   },
   showFooter: false,
+  showPreFooter: false,
   content: notFoundContent
 }));
 
