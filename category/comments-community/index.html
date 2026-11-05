@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/comments-community/giscus-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Comments & Community Tools & Services for Static Sites","url":"https://www.staticstack.app/category/comments-community/","description":"Discover 6 curated Comments & Community tools, services, and APIs for static websites with zero backend servers. Compare features, pricing, and live community stats.","isPartOf":{"@type":"WebSite","name":"StaticStack","url":"https://www.staticstack.app/"},"mainEntity":{"@type":"ItemList","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"name":"Disqus","url":"https://www.staticstack.app/tools/comments-community/disqus"},{"@type":"ListItem","position":2,"name":"Flarum","url":"https://www.staticstack.app/tools/comments-community/flarum"},{"@type":"ListItem","position":3,"name":"GitHub Discussions","url":"https://www.staticstack.app/tools/comments-community/github-discussions"},{"@type":"ListItem","position":4,"name":"Giscus","url":"https://www.staticstack.app/tools/comments-community/giscus"},{"@type":"ListItem","position":5,"name":"iine","url":"https://www.staticstack.app/tools/comments-community/iine"},{"@type":"ListItem","position":6,"name":"Utterances","url":"https://www.staticstack.app/tools/comments-community/utterances"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Comments & Community","item":"https://www.staticstack.app/category/comments-community/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do static websites display and store user comments without a server?","acceptedAnswer":{"@type":"Answer","text":"Static sites embed lightweight client-side comment widgets that connect directly to modern comment backends (such as Giscus, utterances, or Remark42). For example, Giscus leverages GitHub Discussions as its comment database, completely eliminating the need for private server infrastructure."}},{"@type":"Question","name":"How is comment spam moderated on static sites?","acceptedAnswer":{"@type":"Answer","text":"When using GitHub-backed comment engines like Giscus, commenters authenticate with their existing GitHub profiles, dramatically deterring bot spam and malicious trolling. Traditional spam honeypots and moderation dashboards are also available."}},{"@type":"Question","name":"Will comment widgets harm the SEO of my static blog?","acceptedAnswer":{"@type":"Answer","text":"Most comment widgets load asynchronously via an iframe or web component, ensuring your primary static content renders instantly. Many modern search engine crawlers (including Googlebot) execute client-side JavaScript and index comment conversations."}},{"@type":"Question","name":"Can users write comments using Markdown and code formatting?","acceptedAnswer":{"@type":"Answer","text":"Yes! Most static comment engines feature full Markdown syntax support, syntax-highlighted code blocks, image embeds, and emoji reactions."}}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=8">
+<link rel="stylesheet" href="/asset/css/style.css?v=9">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -444,10 +444,12 @@ Showing all 6 tools
 <!-- Filter & Search Toolbar -->
 <div class="cat-hub-toolbar">
 <div class="cat-hub-search-wrap">
-<span class="cat-hub-search-ico" aria-hidden="true">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-</span>
-<input type="text" id="cat-search-input" class="cat-hub-search-input" placeholder="Search Comments &amp; Community by name, feature, or #tag..." autocomplete="off">
+<div class="search-box-pill search-box-pill-compact">
+<span class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<input type="text" id="cat-search-input" placeholder="Search Comments &amp; Community by name, feature, or #tag..." autocomplete="off">
+<span class="search-kbd">/</span>
+<button type="button" id="cat-search-btn" class="btn btn-primary search-btn">Search</button>
+</div>
 </div>
 <div class="cat-hub-filter-pills">
 <button type="button" class="cat-hub-filter-pill active" data-pricing-filter="all">All (6)</button>
@@ -873,6 +875,21 @@ currentQuery = e.target.value;
 applyFilter();
 });
 }
+
+const searchBtn = document.getElementById('cat-search-btn');
+if (searchBtn) {
+searchBtn.addEventListener('click', () => {
+applyFilter();
+if (searchInput) searchInput.focus();
+});
+}
+
+document.addEventListener('keydown', e => {
+if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== searchInput) {
+e.preventDefault();
+if (searchInput) searchInput.focus();
+}
+});
 
 filterPills.forEach(pill => {
 pill.addEventListener('click', () => {

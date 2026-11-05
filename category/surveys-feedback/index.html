@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/surveys-feedback/tally-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Surveys & Feedback Tools & Services for Static Sites","url":"https://www.staticstack.app/category/surveys-feedback/","description":"Discover 2 curated Surveys & Feedback tools, services, and APIs for static websites with zero backend servers. Compare features, pricing, and live community stats.","isPartOf":{"@type":"WebSite","name":"StaticStack","url":"https://www.staticstack.app/"},"mainEntity":{"@type":"ItemList","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"Sleekplan","url":"https://www.staticstack.app/tools/surveys-feedback/sleekplan"},{"@type":"ListItem","position":2,"name":"Tally","url":"https://www.staticstack.app/tools/surveys-feedback/tally"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Surveys & Feedback","item":"https://www.staticstack.app/category/surveys-feedback/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I integrate surveys & feedback tools into a static website?","acceptedAnswer":{"@type":"Answer","text":"All tools featured in the Surveys & Feedback category are designed specifically for zero-backend architecture. You can integrate them directly into your static HTML pages using simple script tags, embed snippets, CDN assets, or client-side JavaScript fetch calls without configuring backend servers."}},{"@type":"Question","name":"Do surveys & feedback services require a dedicated database or backend?","acceptedAnswer":{"@type":"Answer","text":"No. The philosophy of StaticStack is zero backend bloat. Services in this category either run entirely client-side in the browser or manage their own scalable cloud APIs, leaving your static hosting environment completely serverless and hassle-free."}},{"@type":"Question","name":"Are free or open-source surveys & feedback options available?","acceptedAnswer":{"@type":"Answer","text":"Yes! StaticStack highlights open-source and free-tier options for every category. You can use the filter buttons above to instantly filter Surveys & Feedback tools by Open Source, Free, Freemium, or Paid pricing models."}},{"@type":"Question","name":"How do I keep API keys secure when using third-party static site services?","acceptedAnswer":{"@type":"Answer","text":"Most modern static web services provide public, read-only client API keys designed to be safely embedded into frontend HTML. For sensitive operations, you can route requests through edge workers (like Cloudflare Pages Functions) where secret keys remain safely hidden from the browser."}}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=8">
+<link rel="stylesheet" href="/asset/css/style.css?v=9">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -406,10 +406,12 @@ Showing all 2 tools
 <!-- Filter & Search Toolbar -->
 <div class="cat-hub-toolbar">
 <div class="cat-hub-search-wrap">
-<span class="cat-hub-search-ico" aria-hidden="true">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-</span>
-<input type="text" id="cat-search-input" class="cat-hub-search-input" placeholder="Search Surveys &amp; Feedback by name, feature, or #tag..." autocomplete="off">
+<div class="search-box-pill search-box-pill-compact">
+<span class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<input type="text" id="cat-search-input" placeholder="Search Surveys &amp; Feedback by name, feature, or #tag..." autocomplete="off">
+<span class="search-kbd">/</span>
+<button type="button" id="cat-search-btn" class="btn btn-primary search-btn">Search</button>
+</div>
 </div>
 <div class="cat-hub-filter-pills">
 <button type="button" class="cat-hub-filter-pill active" data-pricing-filter="all">All (2)</button>
@@ -702,6 +704,21 @@ currentQuery = e.target.value;
 applyFilter();
 });
 }
+
+const searchBtn = document.getElementById('cat-search-btn');
+if (searchBtn) {
+searchBtn.addEventListener('click', () => {
+applyFilter();
+if (searchInput) searchInput.focus();
+});
+}
+
+document.addEventListener('keydown', e => {
+if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== searchInput) {
+e.preventDefault();
+if (searchInput) searchInput.focus();
+}
+});
 
 filterPills.forEach(pill => {
 pill.addEventListener('click', () => {

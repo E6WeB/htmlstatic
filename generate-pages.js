@@ -180,11 +180,11 @@ const homeContent = `
 
     <!-- Command Hero Search Hub -->
     <div style="max-width:780px; margin:0 auto 2.5rem;">
-      <div class="hero-search-box" style="display:flex; align-items:center; background:var(--bg-surface); border:2px solid var(--border-color); border-radius:var(--radius-full); padding:0.5rem 0.6rem 0.5rem 1.35rem; box-shadow:0 12px 28px -6px rgba(0,0,0,0.09); gap:0.65rem;">
-        <span style="color:var(--accent); display:flex; align-items:center;">${ICONS.search}</span>
-        <input type="text" id="hero-search-input" style="flex:1; min-width:0; border:none; background:transparent; outline:none; font-size:1.125rem; font-family:inherit; color:var(--text-main); padding:0.55rem 0.35rem;" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
-        <span class="hero-kbd" style="background:var(--bg-muted); border:1px solid var(--border-color); padding:0.2rem 0.55rem; border-radius:4px; font-size:0.8rem; font-family:var(--font-mono); color:var(--text-subtle);">/</span>
-        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary" style="border-radius:var(--radius-full); padding:0.65rem 1.45rem; font-size:0.95rem; flex-shrink:0;">
+      <div class="search-box-pill hero-search-box">
+        <span class="search-icon">${ICONS.search}</span>
+        <input type="text" id="hero-search-input" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
+        <span class="search-kbd hero-kbd">/</span>
+        <button type="button" onclick="submitHeroSearch()" class="btn btn-primary search-btn">
           Search
         </button>
       </div>
@@ -1170,6 +1170,13 @@ const archiveContent = `
           }
         }, 100);
       }
+
+      document.addEventListener('keydown', e => {
+        if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== archiveSearchInput) {
+          e.preventDefault();
+          archiveSearchInput.focus();
+        }
+      });
     }
 
     // Sidebar Category Click: clear search or filter and expand the chosen category so its tools are visible immediately!
@@ -1406,12 +1413,18 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
     extraHtml: `
       <!-- Archive Search & Filter Controls -->
       <div class="archive-controls-row" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.25rem; width:100%; max-width:100%; box-sizing:border-box;">
-        <div style="flex:1 1 260px; position:relative; max-width:480px; width:100%; min-width:0; box-sizing:border-box;">
-          <input type="text" id="archive-search-input" style="width:100%; max-width:100%; box-sizing:border-box; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all ${uniqueToolsCount} tools by name, description, keyword...">
-          <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;">${ICONS.search}</span>
-          <button id="archive-search-clear" onclick="clearArchiveSearch()" style="position:absolute; right:0.75rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px;" title="Clear search" aria-label="Clear search">
-            ${ICONS.close}
-          </button>
+        <div style="flex:1 1 340px; max-width:560px; width:100%; min-width:0; box-sizing:border-box;">
+          <div class="search-box-pill search-box-pill-compact">
+            <span class="search-icon">${ICONS.search}</span>
+            <input type="text" id="archive-search-input" placeholder="Search ${uniqueToolsCount}+ static tools by name, description, keyword..." autocomplete="off">
+            <button id="archive-search-clear" onclick="clearArchiveSearch()" style="background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px; flex-shrink:0;" title="Clear search" aria-label="Clear search">
+              ${ICONS.close}
+            </button>
+            <span class="search-kbd">/</span>
+            <button type="button" onclick="applyArchiveFilter()" class="btn btn-primary search-btn">
+              Search
+            </button>
+          </div>
         </div>
 
         <!-- Filter Buttons & Expand/Collapse Toggle -->
@@ -1751,9 +1764,11 @@ const notFoundContent = `
 
     <!-- Quick Search on 404 -->
     <div class="not-found-search">
-      <form action="/archive" method="GET" class="not-found-search-form" onsubmit="if(!this.q.value.trim()){return false;}">
-        <input type="text" name="q" class="not-found-search-input" placeholder="Search 130+ static tools &amp; categories..." autocomplete="off">
-        <button type="submit" class="btn btn-primary" style="font-size:0.875rem; padding:0.6rem 1.15rem; flex-shrink:0;">
+      <form action="/archive" method="GET" class="search-box-pill" onsubmit="if(!this.q.value.trim()){return false;}">
+        <span class="search-icon">${ICONS.search}</span>
+        <input type="text" name="q" id="not-found-search-input" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
+        <span class="search-kbd">/</span>
+        <button type="submit" class="btn btn-primary search-btn">
           Search
         </button>
       </form>

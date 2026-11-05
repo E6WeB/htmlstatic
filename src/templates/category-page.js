@@ -608,10 +608,12 @@ function renderCategoryPage({
         <!-- Filter & Search Toolbar -->
         <div class="cat-hub-toolbar">
           <div class="cat-hub-search-wrap">
-            <span class="cat-hub-search-ico" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </span>
-            <input type="text" id="cat-search-input" class="cat-hub-search-input" placeholder="Search ${escapeHtml(category.title)} by name, feature, or #tag..." autocomplete="off">
+            <div class="search-box-pill search-box-pill-compact">
+              <span class="search-icon">${ICONS.search}</span>
+              <input type="text" id="cat-search-input" placeholder="Search ${escapeHtml(category.title)} by name, feature, or #tag..." autocomplete="off">
+              <span class="search-kbd">/</span>
+              <button type="button" id="cat-search-btn" class="btn btn-primary search-btn">Search</button>
+            </div>
           </div>
           <div class="cat-hub-filter-pills">
             <button type="button" class="cat-hub-filter-pill active" data-pricing-filter="all">All (${tools.length})</button>
@@ -751,6 +753,21 @@ function renderCategoryPage({
           applyFilter();
         });
       }
+
+      const searchBtn = document.getElementById('cat-search-btn');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          applyFilter();
+          if (searchInput) searchInput.focus();
+        });
+      }
+
+      document.addEventListener('keydown', e => {
+        if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== searchInput) {
+          e.preventDefault();
+          if (searchInput) searchInput.focus();
+        }
+      });
 
       filterPills.forEach(pill => {
         pill.addEventListener('click', () => {

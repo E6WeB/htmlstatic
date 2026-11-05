@@ -2534,37 +2534,9 @@ const BASE_CSS = `
 
   .cat-hub-search-wrap {
     position: relative;
-    flex: 1 1 280px;
-  }
-
-  .cat-hub-search-input {
+    flex: 1 1 320px;
+    max-width: 540px;
     width: 100%;
-    padding: 0.6rem 0.85rem 0.6rem 2.25rem;
-    font-size: 0.875rem;
-    font-family: inherit;
-    background: var(--bg-body);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    color: var(--text-main);
-    outline: none;
-    box-sizing: border-box;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .cat-hub-search-input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  }
-
-  .cat-hub-search-ico {
-    position: absolute;
-    left: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-subtle);
-    pointer-events: none;
-    display: flex;
-    align-items: center;
   }
 
   .cat-hub-filter-pills {
@@ -2853,35 +2825,125 @@ const BASE_CSS = `
     max-width: 500px;
   }
 
+  /* ==========================================================================
+     Unified Pill Search Box System (Matches Main Index Hero Search)
+     ========================================================================== */
+  .search-box-pill {
+    display: flex;
+    align-items: center;
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 0.5rem 0.6rem 0.5rem 1.35rem;
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.09);
+    gap: 0.65rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search-box-pill:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15), 0 14px 30px -6px rgba(0, 0, 0, 0.12);
+  }
+
+  .search-box-pill .search-icon {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .search-box-pill .search-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .search-box-pill input[type="text"],
+  .search-box-pill input[type="search"] {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1.125rem;
+    font-family: inherit;
+    color: var(--text-main);
+    padding: 0.55rem 0.35rem;
+  }
+
+  .search-box-pill input::placeholder {
+    color: var(--text-subtle);
+    opacity: 0.85;
+  }
+
+  .search-box-pill .search-kbd {
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--text-subtle);
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+
+  .search-box-pill .search-btn {
+    border-radius: var(--radius-full);
+    padding: 0.65rem 1.45rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    background: var(--accent-gradient);
+    color: #ffffff !important;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+    transition: opacity 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  }
+
+  .search-box-pill .search-btn:hover {
+    opacity: 0.95;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+  }
+
+  .search-box-pill .search-btn:active {
+    transform: scale(0.98);
+  }
+
+  /* Compact variant for Toolbars (Category Hubs, Archive Controls, Community) */
+  .search-box-pill-compact {
+    padding: 0.35rem 0.45rem 0.35rem 1.15rem;
+    box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.06);
+    gap: 0.5rem;
+  }
+
+  .search-box-pill-compact .search-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .search-box-pill-compact input[type="text"],
+  .search-box-pill-compact input[type="search"] {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.25rem;
+  }
+
+  .search-box-pill-compact .search-btn {
+    padding: 0.5rem 1.15rem;
+    font-size: 0.875rem;
+  }
+
   .not-found-search {
     width: 100%;
-    max-width: 460px;
-    margin: 0 auto 2rem;
-  }
-
-  .not-found-search-form {
-    display: flex;
-    gap: 0.5rem;
-    width: 100%;
-  }
-
-  .not-found-search-input {
-    flex: 1;
-    padding: 0.65rem 1rem;
-    font-size: 0.9rem;
-    font-family: inherit;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    color: var(--text-main);
-    outline: none;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    box-sizing: border-box;
-  }
-
-  .not-found-search-input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    max-width: 620px;
+    margin: 0 auto 2.25rem;
   }
 
   .not-found-actions {
@@ -3011,14 +3073,22 @@ const BASE_CSS = `
     .hero {
       padding: 2.25rem 0 1.75rem !important;
     }
-    .hero-kbd {
+    .hero-kbd,
+    .search-kbd {
       display: none !important;
     }
-    .hero-search-box {
-      padding: 0.3rem 0.4rem 0.3rem 0.85rem !important;
+    .hero-search-box,
+    .search-box-pill {
+      padding: 0.35rem 0.45rem 0.35rem 0.85rem !important;
     }
-    #hero-search-input {
+    #hero-search-input,
+    .search-box-pill input[type="text"],
+    .search-box-pill input[type="search"] {
       font-size: 16px !important;
+    }
+    .search-box-pill .search-btn {
+      padding: 0.5rem 1rem !important;
+      font-size: 0.85rem !important;
     }
     .hero-stats-grid {
       grid-template-columns: repeat(2, 1fr) !important;

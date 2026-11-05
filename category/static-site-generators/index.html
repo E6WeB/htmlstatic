@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/static-site-generators/astro-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Static Site Generators Tools & Services for Static Sites","url":"https://www.staticstack.app/category/static-site-generators/","description":"Discover 8 curated Static Site Generators tools, services, and APIs for static websites with zero backend servers. Compare features, pricing, and live community stats.","isPartOf":{"@type":"WebSite","name":"StaticStack","url":"https://www.staticstack.app/"},"mainEntity":{"@type":"ItemList","numberOfItems":8,"itemListElement":[{"@type":"ListItem","position":1,"name":"Astro","url":"https://www.staticstack.app/tools/static-site-generators/astro"},{"@type":"ListItem","position":2,"name":"Eleventy (11ty)","url":"https://www.staticstack.app/tools/static-site-generators/eleventy"},{"@type":"ListItem","position":3,"name":"Gatsby","url":"https://www.staticstack.app/tools/static-site-generators/gatsby"},{"@type":"ListItem","position":4,"name":"Hugo","url":"https://www.staticstack.app/tools/static-site-generators/hugo"},{"@type":"ListItem","position":5,"name":"Jekyll","url":"https://www.staticstack.app/tools/static-site-generators/jekyll"},{"@type":"ListItem","position":6,"name":"Next.js","url":"https://www.staticstack.app/tools/static-site-generators/nextjs"},{"@type":"ListItem","position":7,"name":"Pelican","url":"https://www.staticstack.app/tools/static-site-generators/pelican"},{"@type":"ListItem","position":8,"name":"Zola","url":"https://www.staticstack.app/tools/static-site-generators/zola"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Static Site Generators","item":"https://www.staticstack.app/category/static-site-generators/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a Static Site Generator (SSG)?","acceptedAnswer":{"@type":"Answer","text":"A Static Site Generator is a developer tool that ingests raw source files (like Markdown, templates, and components) during a build step and outputs a collection of pure static HTML, CSS, and JavaScript files ready to be served by any web server or CDN."}},{"@type":"Question","name":"What are the main advantages of using an SSG over a traditional CMS?","acceptedAnswer":{"@type":"Answer","text":"Static websites built with SSGs boast near-instant load times, flawless security (no database to hack), near-zero hosting costs, and effortless version control using standard Git repositories."}},{"@type":"Question","name":"Which SSG is best for my static web project?","acceptedAnswer":{"@type":"Answer","text":"For content-heavy blogs and docs, **Astro**, **Hugo**, and **Eleventy (11ty)** are industry leaders. For React or Vue component ecosystems, **Next.js** (static export mode) and **Nuxt** provide seamless developer experiences."}},{"@type":"Question","name":"Can static websites built with an SSG have dynamic interactive features?","acceptedAnswer":{"@type":"Answer","text":"Absolutely! Modern static sites frequently integrate serverless APIs, client-side search, contact forms, user authentication, and interactive widgets (the Jamstack architecture) without sacrificing static speed."}}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=8">
+<link rel="stylesheet" href="/asset/css/style.css?v=9">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -444,10 +444,12 @@ Showing all 8 tools
 <!-- Filter & Search Toolbar -->
 <div class="cat-hub-toolbar">
 <div class="cat-hub-search-wrap">
-<span class="cat-hub-search-ico" aria-hidden="true">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-</span>
-<input type="text" id="cat-search-input" class="cat-hub-search-input" placeholder="Search Static Site Generators by name, feature, or #tag..." autocomplete="off">
+<div class="search-box-pill search-box-pill-compact">
+<span class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<input type="text" id="cat-search-input" placeholder="Search Static Site Generators by name, feature, or #tag..." autocomplete="off">
+<span class="search-kbd">/</span>
+<button type="button" id="cat-search-btn" class="btn btn-primary search-btn">Search</button>
+</div>
 </div>
 <div class="cat-hub-filter-pills">
 <button type="button" class="cat-hub-filter-pill active" data-pricing-filter="all">All (8)</button>
@@ -937,6 +939,21 @@ currentQuery = e.target.value;
 applyFilter();
 });
 }
+
+const searchBtn = document.getElementById('cat-search-btn');
+if (searchBtn) {
+searchBtn.addEventListener('click', () => {
+applyFilter();
+if (searchInput) searchInput.focus();
+});
+}
+
+document.addEventListener('keydown', e => {
+if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== searchInput) {
+e.preventDefault();
+if (searchInput) searchInput.focus();
+}
+});
 
 filterPills.forEach(pill => {
 pill.addEventListener('click', () => {

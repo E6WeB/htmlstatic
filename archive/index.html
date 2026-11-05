@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/archive/og-archive.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Master Archive - 130+ Static Website Tools | StaticStack","url":"https://www.staticstack.app/archive","description":"Explore the complete directory of 130 curated tools across 27 static website categories with our expanded navigation sidebar.","isPartOf":{"@type":"WebSite","name":"StaticStack","url":"https://www.staticstack.app/"}}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=8">
+<link rel="stylesheet" href="/asset/css/style.css?v=9">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -269,12 +269,18 @@
 <div class="mini-hero-extra">
 <!-- Archive Search & Filter Controls -->
 <div class="archive-controls-row" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.25rem; width:100%; max-width:100%; box-sizing:border-box;">
-<div style="flex:1 1 260px; position:relative; max-width:480px; width:100%; min-width:0; box-sizing:border-box;">
-<input type="text" id="archive-search-input" style="width:100%; max-width:100%; box-sizing:border-box; padding:0.6rem 2.2rem 0.6rem 2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.925rem; color:var(--text-main); font-family:inherit; outline:none;" placeholder="Filter all 130 tools by name, description, keyword...">
-<span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:var(--text-subtle); display:flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-<button id="archive-search-clear" onclick="clearArchiveSearch()" style="position:absolute; right:0.75rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px;" title="Clear search" aria-label="Clear search">
+<div style="flex:1 1 340px; max-width:560px; width:100%; min-width:0; box-sizing:border-box;">
+<div class="search-box-pill search-box-pill-compact">
+<span class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<input type="text" id="archive-search-input" placeholder="Search 130+ static tools by name, description, keyword..." autocomplete="off">
+<button id="archive-search-clear" onclick="clearArchiveSearch()" style="background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:2px; flex-shrink:0;" title="Clear search" aria-label="Clear search">
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 </button>
+<span class="search-kbd">/</span>
+<button type="button" onclick="applyArchiveFilter()" class="btn btn-primary search-btn">
+Search
+</button>
+</div>
 </div>
 
 <!-- Filter Buttons & Expand/Collapse Toggle -->
@@ -2614,6 +2620,13 @@ firstVisible.scrollIntoView({ behavior: 'smooth' });
 }
 }, 100);
 }
+
+document.addEventListener('keydown', e => {
+if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== archiveSearchInput) {
+e.preventDefault();
+archiveSearchInput.focus();
+}
+});
 }
 
 // Sidebar Category Click: clear search or filter and expand the chosen category so its tools are visible immediately!

@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/development-tools/emdash-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Development Tools Tools & Services for Static Sites","url":"https://www.staticstack.app/category/development-tools/","description":"Discover 21 curated Development Tools tools, services, and APIs for static websites with zero backend servers. Compare features, pricing, and live community stats.","isPartOf":{"@type":"WebSite","name":"StaticStack","url":"https://www.staticstack.app/"},"mainEntity":{"@type":"ItemList","numberOfItems":21,"itemListElement":[{"@type":"ListItem","position":1,"name":"Antigravity CLI","url":"https://www.staticstack.app/tools/development-tools/antigravity-cli"},{"@type":"ListItem","position":2,"name":"Antigravity IDE","url":"https://www.staticstack.app/tools/development-tools/antigravity-ide"},{"@type":"ListItem","position":3,"name":"Bootstrap Studio","url":"https://www.staticstack.app/tools/development-tools/bootstrap-studio"},{"@type":"ListItem","position":4,"name":"Brickstatic","url":"https://www.staticstack.app/tools/development-tools/brickstatic"},{"@type":"ListItem","position":5,"name":"Cursor","url":"https://www.staticstack.app/tools/development-tools/cursor"},{"@type":"ListItem","position":6,"name":"DesignCraft","url":"https://www.staticstack.app/tools/development-tools/designcraft"},{"@type":"ListItem","position":7,"name":"EffectCraft","url":"https://www.staticstack.app/tools/development-tools/effectcraft"},{"@type":"ListItem","position":8,"name":"Emdash","url":"https://www.staticstack.app/tools/development-tools/emdash"},{"@type":"ListItem","position":9,"name":"ESLint","url":"https://www.staticstack.app/tools/development-tools/eslint"},{"@type":"ListItem","position":10,"name":"FigCraft","url":"https://www.staticstack.app/tools/development-tools/figcraft"},{"@type":"ListItem","position":11,"name":"GitHub Desktop","url":"https://www.staticstack.app/tools/development-tools/github-desktop"},{"@type":"ListItem","position":12,"name":"Google Lighthouse","url":"https://www.staticstack.app/tools/development-tools/google-lighthouse"},{"@type":"ListItem","position":13,"name":"OpenCode","url":"https://www.staticstack.app/tools/development-tools/opencode"},{"@type":"ListItem","position":14,"name":"PdfCraft","url":"https://www.staticstack.app/tools/development-tools/pdfcraft"},{"@type":"ListItem","position":15,"name":"PhotoCraft","url":"https://www.staticstack.app/tools/development-tools/photocraft"},{"@type":"ListItem","position":16,"name":"Prettier","url":"https://www.staticstack.app/tools/development-tools/prettier"},{"@type":"ListItem","position":17,"name":"sitereal","url":"https://www.staticstack.app/tools/development-tools/sitereal"},{"@type":"ListItem","position":18,"name":"StaticSEO","url":"https://www.staticstack.app/tools/development-tools/staticseo"},{"@type":"ListItem","position":19,"name":"Visual Studio Code","url":"https://www.staticstack.app/tools/development-tools/visual-studio-code"},{"@type":"ListItem","position":20,"name":"WordCraft","url":"https://www.staticstack.app/tools/development-tools/wordcraft"},{"@type":"ListItem","position":21,"name":"Zed","url":"https://www.staticstack.app/tools/development-tools/zed"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Development Tools","item":"https://www.staticstack.app/category/development-tools/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I integrate development tools tools into a static website?","acceptedAnswer":{"@type":"Answer","text":"All tools featured in the Development Tools category are designed specifically for zero-backend architecture. You can integrate them directly into your static HTML pages using simple script tags, embed snippets, CDN assets, or client-side JavaScript fetch calls without configuring backend servers."}},{"@type":"Question","name":"Do development tools services require a dedicated database or backend?","acceptedAnswer":{"@type":"Answer","text":"No. The philosophy of StaticStack is zero backend bloat. Services in this category either run entirely client-side in the browser or manage their own scalable cloud APIs, leaving your static hosting environment completely serverless and hassle-free."}},{"@type":"Question","name":"Are free or open-source development tools options available?","acceptedAnswer":{"@type":"Answer","text":"Yes! StaticStack highlights open-source and free-tier options for every category. You can use the filter buttons above to instantly filter Development Tools tools by Open Source, Free, Freemium, or Paid pricing models."}},{"@type":"Question","name":"How do I keep API keys secure when using third-party static site services?","acceptedAnswer":{"@type":"Answer","text":"Most modern static web services provide public, read-only client API keys designed to be safely embedded into frontend HTML. For sensitive operations, you can route requests through edge workers (like Cloudflare Pages Functions) where secret keys remain safely hidden from the browser."}}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=8">
+<link rel="stylesheet" href="/asset/css/style.css?v=9">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -444,10 +444,12 @@ Showing all 21 tools
 <!-- Filter & Search Toolbar -->
 <div class="cat-hub-toolbar">
 <div class="cat-hub-search-wrap">
-<span class="cat-hub-search-ico" aria-hidden="true">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-</span>
-<input type="text" id="cat-search-input" class="cat-hub-search-input" placeholder="Search Development Tools by name, feature, or #tag..." autocomplete="off">
+<div class="search-box-pill search-box-pill-compact">
+<span class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<input type="text" id="cat-search-input" placeholder="Search Development Tools by name, feature, or #tag..." autocomplete="off">
+<span class="search-kbd">/</span>
+<button type="button" id="cat-search-btn" class="btn btn-primary search-btn">Search</button>
+</div>
 </div>
 <div class="cat-hub-filter-pills">
 <button type="button" class="cat-hub-filter-pill active" data-pricing-filter="all">All (21)</button>
@@ -1368,6 +1370,21 @@ currentQuery = e.target.value;
 applyFilter();
 });
 }
+
+const searchBtn = document.getElementById('cat-search-btn');
+if (searchBtn) {
+searchBtn.addEventListener('click', () => {
+applyFilter();
+if (searchInput) searchInput.focus();
+});
+}
+
+document.addEventListener('keydown', e => {
+if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== searchInput) {
+e.preventDefault();
+if (searchInput) searchInput.focus();
+}
+});
 
 filterPills.forEach(pill => {
 pill.addEventListener('click', () => {
