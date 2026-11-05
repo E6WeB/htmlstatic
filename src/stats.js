@@ -438,8 +438,8 @@ function renderLoginHtml(errorMsg = '') {
 
     <form method="POST" action="/stats/login">
       <div class="form-group">
-        <label class="form-label">Username</label>
-        <input type="text" name="username" class="form-input" placeholder="e6webcom@gmail.com" required autofocus autocomplete="username">
+        <label class="form-label">Email Address</label>
+        <input type="text" name="username" class="form-input" placeholder="Email Address" required autofocus autocomplete="username">
       </div>
       <div class="form-group">
         <label class="form-label">Password</label>
