@@ -1359,21 +1359,29 @@ const BASE_CSS = `
 
   .archive-cat-header {
     display: flex;
-    align-items: center;
-    gap: 0.5rem 0.75rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    margin-bottom: 0.85rem;
     width: 100%;
     max-width: 100%;
     cursor: pointer;
     user-select: none;
-    padding: 0.5rem;
+    padding: 0.65rem 0.75rem;
     border-radius: var(--radius-md);
     transition: background-color 0.15s ease;
   }
 
   .archive-cat-header:hover {
     background: var(--bg-muted);
+  }
+
+  .archive-cat-header-main {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
   }
 
   .archive-cat-toggle-btn {
@@ -1385,7 +1393,7 @@ const BASE_CSS = `
     display: inline-flex;
     align-items: center;
     gap: 0.5rem 0.75rem;
-    flex: 1 1 auto;
+    flex-wrap: wrap;
     cursor: pointer;
     text-align: left;
     font-family: inherit;
@@ -1397,7 +1405,9 @@ const BASE_CSS = `
     color: var(--text-subtle);
     display: inline-flex;
     align-items: center;
+    padding-top: 0.35rem;
     transition: transform 0.2s ease;
+    flex-shrink: 0;
   }
 
   .archive-cat-section.is-collapsed .archive-cat-chevron {
@@ -1458,9 +1468,9 @@ const BASE_CSS = `
 
   .archive-cat-desc {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.925rem;
     line-height: 1.55;
-    margin-bottom: 1.25rem;
+    margin: 0;
   }
 
   .archive-table-wrapper {

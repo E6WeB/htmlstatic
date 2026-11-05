@@ -937,16 +937,17 @@ const archiveContent = `
         return `
         <section id="${cat.slug}" class="archive-cat-section" data-cat="${cat.slug}">
           <div class="archive-cat-header" onclick="toggleArchiveCategory('${cat.slug}')" role="button" tabindex="0" aria-expanded="true" aria-controls="cat-body-${cat.slug}">
-            <div class="archive-cat-toggle-btn">
-              <span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-${cat.slug}"/></svg></span>
-              <h2 class="archive-cat-title">${escapeHtml(cat.title)}</h2>
-              <span class="archive-cat-pill">${cat.tools.length} tools</span>
+            <div class="archive-cat-header-main">
+              <div class="archive-cat-toggle-btn">
+                <span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-${cat.slug}"/></svg></span>
+                <h2 class="archive-cat-title">${escapeHtml(cat.title)}</h2>
+                <span class="archive-cat-pill">${cat.tools.length} tools</span>
+              </div>
+              <p class="archive-cat-desc">${escapeHtml(cat.description)}</p>
             </div>
             <span class="archive-cat-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ico-chev"/></svg></span>
           </div>
           <div id="cat-body-${cat.slug}" class="archive-cat-body">
-            <p class="archive-cat-desc">${escapeHtml(cat.description)}</p>
-
             <div class="archive-table-wrapper">
               <table class="archive-table">
                 <thead>
