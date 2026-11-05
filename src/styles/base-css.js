@@ -539,14 +539,15 @@ const BASE_CSS = `
     color: #ffffff;
   }
 
-  /* Mobile Bottom Navigation Bar */
+  /* Mobile Bottom Navigation Bar (iOS Safe Area & Viewport Shift Fixed) */
   .mobile-bottom-nav {
     display: none;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    min-height: calc(62px + env(safe-area-inset-bottom, 0px));
+    height: calc(62px + env(safe-area-inset-bottom, 0px));
     background: var(--bg-glass);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -554,6 +555,7 @@ const BASE_CSS = `
     z-index: 200;
     box-sizing: border-box;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+    overflow: visible;
   }
 
   .bottom-nav-inner {
@@ -561,31 +563,70 @@ const BASE_CSS = `
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    height: 100%;
+    height: 62px;
     padding: 0 0.5rem;
+    box-sizing: border-box;
+    position: relative;
   }
 
   .bottom-nav-item {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0.25rem 0.25rem;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.2rem;
+    gap: 3px;
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.675rem;
     font-weight: 600;
-    padding: 0.25rem 0.5rem;
     border-radius: var(--radius-sm);
-    transition: all 0.15s ease;
-    flex: 1;
+    transition: color 0.15s ease;
+    flex: 1 1 0;
     min-width: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .bottom-nav-item svg {
-    width: 20px;
-    height: 20px;
+  .bottom-nav-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .bottom-nav-item svg,
+  .bottom-nav-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
     stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .bottom-nav-item span {
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    line-height: 1.1;
   }
 
   .bottom-nav-item:hover,
@@ -604,22 +645,24 @@ const BASE_CSS = `
     color: #ffffff;
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
     text-decoration: none;
-    margin-top: -14px;
+    transform: translateY(-8px);
     flex-shrink: 0;
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .bottom-nav-fab svg {
-    width: 22px;
-    height: 22px;
-    stroke: currentColor;
+    width: 22px !important;
+    height: 22px !important;
+    stroke: #ffffff;
     stroke-width: 2.5;
+    fill: none;
   }
 
   .bottom-nav-fab:hover,
   .bottom-nav-fab:active {
     background: var(--accent-hover);
-    transform: scale(1.05);
+    transform: translateY(-10px) scale(1.05);
     color: #ffffff;
   }
 
@@ -2341,10 +2384,11 @@ const BASE_CSS = `
 
   @media (max-width: 860px) {
     .back-to-top-btn {
-      bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
-      right: max(1.25rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
+      bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+      right: max(1rem, calc(env(safe-area-inset-right, 0px) + 0.5rem));
       padding: 0.55rem 0.85rem;
       font-size: 0.8rem;
+      z-index: 150;
     }
   }
 
@@ -2972,7 +3016,12 @@ const BASE_CSS = `
   @media (max-width: 767px) {
     body {
       padding-left: 0 !important;
-      padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px)) !important;
+      padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .back-to-top-btn {
+      bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      right: 1rem !important;
+      z-index: 150 !important;
     }
     .site-header {
       display: block !important;

@@ -182,7 +182,7 @@ function createLayoutRenderer({ allTools, categories }) {
   <meta name="twitter:image" content="${pageOgImage}">
 
   <script type="application/ld+json">${jsonLdString}</script>
-  <link rel="stylesheet" href="/asset/css/style.css?v=9">
+  <link rel="stylesheet" href="/asset/css/style.css?v=10">
 
   <!-- iine Open Source Appreciation / Like Button -->
   <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -255,22 +255,22 @@ function createLayoutRenderer({ allTools, categories }) {
   <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
     <div class="bottom-nav-inner">
       <a href="${rootPath || './'}" class="bottom-nav-item ${currentNav === 'home' ? 'active' : ''}">
-        ${ICONS.home}
+        <span class="bottom-nav-icon">${ICONS.home}</span>
         <span>Home</span>
       </a>
       <a href="${rootPath}archive" class="bottom-nav-item ${currentNav === 'archive' ? 'active' : ''}">
-        ${ICONS.compass}
+        <span class="bottom-nav-icon">${ICONS.compass}</span>
         <span>Archive</span>
       </a>
       <a href="${rootPath}submit" class="bottom-nav-fab" aria-label="Submit a Tool">
         ${ICONS.plus}
       </a>
       <a href="${rootPath}community" class="bottom-nav-item ${currentNav === 'community' ? 'active' : ''}">
-        ${ICONS.users}
+        <span class="bottom-nav-icon">${ICONS.users}</span>
         <span>Community</span>
       </a>
-      <button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu" style="background:none;border:none;cursor:pointer;">
-        ${ICONS.moreHorizontal}
+      <button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu">
+        <span class="bottom-nav-icon">${ICONS.moreHorizontal}</span>
         <span>More</span>
       </button>
     </div>
