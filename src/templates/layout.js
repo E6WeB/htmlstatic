@@ -33,12 +33,8 @@ function renderMiniHero(miniHero, rootPath = '') {
   const actionsHtml = miniHero.actions ? `<div class="mini-hero-actions">${miniHero.actions}</div>` : '';
   const extraHtml = miniHero.extraHtml ? `<div class="mini-hero-extra">${miniHero.extraHtml}</div>` : '';
 
-  return `
-  <!-- Mini Hero Section -->
-  <section class="mini-hero">
-    <div class="container mini-hero-inner">
-      ${breadcrumbsHtml}
-      ${badgeRowHtml}
+  const hasTitle = Boolean(miniHero.title);
+  const headerHtml = hasTitle ? `
       <div class="mini-hero-header">
         <div class="mini-hero-header-main">
           <div class="mini-hero-title-row">
@@ -49,6 +45,17 @@ function renderMiniHero(miniHero, rootPath = '') {
         </div>
         ${actionsHtml}
       </div>
+  ` : '';
+
+  const extraClass = (!hasTitle && !miniHero.subtext && !miniHero.badgeRow) ? ' mini-hero-breadcrumbs-only' : '';
+
+  return `
+  <!-- Mini Hero Section -->
+  <section class="mini-hero${extraClass}">
+    <div class="container mini-hero-inner">
+      ${breadcrumbsHtml}
+      ${badgeRowHtml}
+      ${headerHtml}
       ${extraHtml}
     </div>
   </section>
@@ -132,9 +139,11 @@ function createLayoutRenderer({ allTools, categories }) {
 
     const miniHeroHtml = miniHero ? renderMiniHero(miniHero, rootPath) : '';
     const breadcrumbFallbackHtml = (!miniHero && breadcrumbs.length > 0) ? `
-    <nav class="breadcrumbs" aria-label="Breadcrumbs">
-      ${breadcrumbs.map((b, i) => i === breadcrumbs.length - 1 ? `<span>${escapeHtml(b.label)}</span>` : `<a href="${b.url}">${escapeHtml(b.label)}</a><span>/</span>`).join('')}
-    </nav>
+  <section class="mini-hero mini-hero-breadcrumbs-only">
+    <div class="container mini-hero-inner">
+      ${renderBreadcrumbs(breadcrumbs, rootPath)}
+    </div>
+  </section>
   ` : '';
 
     const rawHtml = `<!DOCTYPE html>
@@ -171,7 +180,7 @@ function createLayoutRenderer({ allTools, categories }) {
   <meta name="twitter:image" content="${pageOgImage}">
 
   <script type="application/ld+json">${jsonLdString}</script>
-  <link rel="stylesheet" href="/asset/css/style.css?v=7">
+  <link rel="stylesheet" href="/asset/css/style.css?v=8">
 
   <!-- iine Open Source Appreciation / Like Button -->
   <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -383,10 +392,9 @@ function createLayoutRenderer({ allTools, categories }) {
     </div>
   </div>
 
-  ${miniHeroHtml}
+  ${miniHeroHtml || breadcrumbFallbackHtml}
 
   <main class="site-main container">
-    ${breadcrumbFallbackHtml}
     ${content}
   </main>
 

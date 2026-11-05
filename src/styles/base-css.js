@@ -834,6 +834,11 @@ const BASE_CSS = `
     box-shadow: none;
   }
 
+  .mini-hero-breadcrumbs-only {
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+  }
+
   .mini-hero-inner {
     display: flex;
     flex-direction: column;
@@ -2810,7 +2815,7 @@ const BASE_CSS = `
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 3.5rem 1rem 4.5rem;
+    padding: 2rem 1rem 4rem;
     margin: 0 auto;
     max-width: 680px;
     width: 100%;
@@ -2821,20 +2826,22 @@ const BASE_CSS = `
     font-size: clamp(5rem, 14vw, 7.5rem);
     font-weight: 900;
     line-height: 1;
-    margin: 0 0 1rem;
+    margin: 0 auto 1rem;
     background: linear-gradient(135deg, var(--accent), #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.04em;
     user-select: none;
+    text-align: center;
   }
 
   .not-found-title {
     font-size: clamp(1.75rem, 4vw, 2.35rem);
     font-weight: 800;
-    margin: 0 0 0.85rem;
+    margin: 0 auto 0.85rem;
     color: var(--text-main);
     line-height: 1.25;
+    text-align: center;
   }
 
   .not-found-desc {

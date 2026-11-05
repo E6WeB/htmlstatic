@@ -1779,10 +1779,12 @@ fs.writeFileSync(path.join(ROOT_DIR, '404.html'), renderLayout({
   currentNav: '',
   rootPath: '/',
   canonicalUrl: 'https://www.staticstack.app/404',
-  breadcrumbs: [
-    { label: 'Home', url: '/' },
-    { label: '404 Not Found', url: '#' }
-  ],
+  miniHero: {
+    breadcrumbs: [
+      { label: 'Home', url: '/' },
+      { label: '404 Not Found', url: '#' }
+    ]
+  },
   content: notFoundContent
 }));
 
