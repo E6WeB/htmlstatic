@@ -1302,5 +1302,6 @@ module.exports = {
   handleApi,
   handleOAuth,
   recordToolView,
-  getClientIp
+  getClientIp,
+  getAllToolViews: () => allToolViewsCache
 };

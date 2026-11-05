@@ -23,9 +23,9 @@
   "htmlstatic-authentication-users-supabase-auth": 0,
   "htmlstatic-authentication-users-outseta": 1,
   "htmlstatic-booking-scheduling-cal-com": 3,
-  "htmlstatic-browser-extensions-fireshot": 0,
+  "htmlstatic-browser-extensions-fireshot": 1,
   "htmlstatic-analytics-privacy-plausible": 2,
-  "htmlstatic-comments-community-disqus": 0,
+  "htmlstatic-comments-community-disqus": 1,
   "htmlstatic-browser-extensions-send-url": 1,
   "htmlstatic-booking-scheduling-calendly": 0,
   "htmlstatic-comments-community-flarum": 2,
@@ -50,7 +50,7 @@
   "htmlstatic-development-tools-brickstatic": 1,
   "htmlstatic-database-storage-firebase-firestore": 2,
   "htmlstatic-development-tools-eslint": 1,
-  "htmlstatic-development-tools-effectcraft": 2,
+  "htmlstatic-development-tools-effectcraft": 3,
   "htmlstatic-development-tools-antigravity-ide": 0,
   "htmlstatic-development-tools-github-desktop": 1,
   "htmlstatic-development-tools-designcraft": 3,
@@ -132,5 +132,6 @@
   "htmlstatic-tutorials-ai-built-static-sites-wp-easy": 1,
   "htmlstatic-static-site-generators-nextjs": 2,
   "htmlstatic-static-site-generators-zola": 3,
-  "htmlstatic-tutorials-static-html-advantage-seo": 1
+  "htmlstatic-tutorials-static-html-advantage-seo": 1,
+  "test-tool-dedup-check": 2
 }

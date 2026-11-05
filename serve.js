@@ -235,6 +235,28 @@ const server = http.createServer((req, res) => {
     return forum.handleApi(req, res, pathname, { ...query, action });
   }
 
+  // Handle Total Views / Stats Count direct API (/api/stats-count, /api/total-views)
+  if (pathname === '/api/stats-count' || pathname === '/api/total-views') {
+    const views = (forum.getAllToolViews && forum.getAllToolViews()) || {};
+    let total = Object.values(views).reduce((a, b) => a + (Number(b) || 0), 0);
+    if (!total) {
+      try {
+        const p = path.join(ASSET_DIR, 'json', 'tool-views-cache.json');
+        if (fs.existsSync(p)) {
+          const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+          total = Object.values(raw).reduce((a, b) => a + (Number(b) || 0), 0);
+        }
+      } catch {}
+    }
+    res.writeHead(200, {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'no-store, no-cache, must-revalidate'
+    });
+    res.end(JSON.stringify({ totalViews: total, formatted: total.toLocaleString() }));
+    return;
+  }
+
   // Handle Community Forum API (/community/api or /community/api.php)
   if (pathname === '/community/api' || pathname === '/community/api.php') {
     return forum.handleApi(req, res, pathname, query);

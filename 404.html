@@ -307,6 +307,44 @@ Search
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Live Footer Stat Counter updater
+(function() {
+const el = document.getElementById('footer-stat-count');
+if (!el) return;
+function updateCount(val) {
+if (typeof val === 'number' && !isNaN(val) && val > 0) {
+el.textContent = val.toLocaleString();
+}
+}
+try {
+const cached = sessionStorage.getItem('staticstack_total_views');
+if (cached) updateCount(Number(cached));
+} catch (e) {}
+
+fetch('/community/api?action=tool-views')
+.then(r => r.json())
+.then(d => {
+if (d && d.views) {
+const sum = Object.values(d.views).reduce((a, b) => a + (Number(b) || 0), 0);
+if (sum > 0) {
+updateCount(sum);
+try { sessionStorage.setItem('staticstack_total_views', String(sum)); } catch(e){}
+}
+}
+})
+.catch(() => {
+fetch('/asset/json/tool-views-cache.json')
+.then(r => r.json())
+.then(d => {
+if (d) {
+const sum = Object.values(d).reduce((a, b) => a + (Number(b) || 0), 0);
+if (sum > 0) updateCount(sum);
+}
+})
+.catch(() => {});
+});
+})();
+
 // Strip hyperlinks from statcounter so only plain counter displays
 const scWrap = document.querySelector('.footer-statcounter');
 if (scWrap) {
