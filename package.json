@@ -12,6 +12,7 @@
     "fetch:youtube": "node scripts/fetch-youtube.js"
   },
   "dependencies": {
+    "geoip-lite": "^2.0.3",
     "marked": "^15.0.7",
     "pg": "^8.23.1"
   },

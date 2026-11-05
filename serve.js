@@ -11,6 +11,7 @@ const zlib = require('zlib');
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 8080;
 const SERVE_DIR = path.resolve(__dirname);
 const forum = require('./community/forum.js');
+const stats = require('./src/stats.js');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -203,6 +204,11 @@ const server = http.createServer((req, res) => {
   }
 
   const query = Object.fromEntries(reqUrl.searchParams.entries());
+
+  // Handle Admin Stats & Analytics Dashboard (/stats, /stats/login, /stats/logout, /stats/api/*)
+  if (pathname === '/stats' || pathname.startsWith('/stats/')) {
+    return stats.handleStats(req, res, pathname, query);
+  }
 
   // Handle Tool View Counter API (/api/view or /api/tool-view)
   if (pathname === '/api/view' || pathname === '/api/tool-view') {
