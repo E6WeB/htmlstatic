@@ -29,6 +29,7 @@ const { loadCatalog } = require('./src/data/parse-readme');
 const { getMinifiedBaseCss } = require('./src/styles/base-css');
 const { createLayoutRenderer } = require('./src/templates/layout');
 const { renderToolPage } = require('./src/templates/tool-page');
+const { renderCategoryPage } = require('./src/templates/category-page');
 
 marked.setOptions({
   gfm: true,
@@ -285,14 +286,14 @@ const homeContent = `
           cat.tools.map(t => t.name + ' ' + (t.tags || []).slice(0, 3).join(' ').replace(/-/g, ' ')).join(' ').toLowerCase().split(/\s+/).filter(w => w && !visibleWords.has(w))
         )).join(' ');
         return `
-        <a href="archive#${cat.slug}" class="category-card" data-search="${escapeHtml(extraWords)}">
+        <a href="/category/${cat.slug}/" class="category-card" data-search="${escapeHtml(extraWords)}">
           <div class="category-card-head">
             <div class="category-card-icon">${icon}</div>
             <h3 class="category-card-title">${escapeHtml(cat.title)}</h3>
           </div>
           <p class="category-card-desc">${escapeHtml(cat.description)}</p>
           <div class="category-card-foot">
-            <span>Browse Section</span>
+            <span>Explore Category &rarr;</span>
             <span class="category-card-count">Tools: <strong>${cat.tools.length}</strong></span>
           </div>
         </a>`;
@@ -964,6 +965,7 @@ const archiveContent = `
                 <span class="archive-cat-ico"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#ci-${cat.slug}"/></svg></span>
                 <h2 class="archive-cat-title">${escapeHtml(cat.title)}</h2>
                 <span class="archive-cat-pill">${cat.tools.length} tools</span>
+                <a href="/category/${cat.slug}/" class="archive-cat-hub-link" title="Open dedicated ${escapeHtml(cat.title)} landing page" onclick="event.stopPropagation()">Hub &rarr;</a>
               </div>
               <p class="archive-cat-desc">${escapeHtml(cat.description)}</p>
             </div>
@@ -1753,6 +1755,25 @@ allTools.forEach(tool => {
 });
 
 // ==========================================================================
+// 7. Generate Dedicated Category Landing Hub Pages (/category/<slug>/index.html)
+// ==========================================================================
+console.log(`🌐 Generating Dedicated Category Landing Hub Pages for all ${categories.length} categories...`);
+categories.forEach(cat => {
+  const renderedCatHtml = renderCategoryPage({
+    category: cat,
+    allCategories: categories,
+    rootDir: ROOT_DIR,
+    renderLayout,
+    getToolSiteIcon,
+    cachedViewsMap
+  });
+
+  const catDir = path.join(ROOT_DIR, 'category', cat.slug);
+  ensureDir(catDir);
+  fs.writeFileSync(path.join(catDir, 'index.html'), renderedCatHtml);
+});
+
+// ==========================================================================
 // 8. Generate XML Sitemap (sitemap.xml) & Custom Tool Feed (tools.xml) & robots.txt
 // ==========================================================================
 const today = new Date().toISOString().split('T')[0];
@@ -1780,7 +1801,7 @@ const sitemapUrls = [
 
 categories.forEach(cat => {
   sitemapUrls.push({
-    loc: `https://www.staticstack.app/archive#${cat.slug}`,
+    loc: `https://www.staticstack.app/category/${cat.slug}/`,
     priority: '0.85',
     changefreq: 'weekly'
   });
@@ -1856,7 +1877,7 @@ categories.forEach(cat => {
     title: cat.title,
     description: cat.description,
     category: 'Category',
-    url: `/archive#${cat.slug}`
+    url: `/category/${cat.slug}/`
   });
 });
 

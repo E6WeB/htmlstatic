@@ -13,13 +13,13 @@ This document outlines high-impact, practical suggestions and feature enhancemen
 | **0. Archive Description on Collapse** | ✅ **Done** | ⚡ Medium | 🟢 Low | Header Flex Restructure | Master Archive Discovery |
 | **0. Markdown TOC Anchor Link Slugs** | ✅ **Done** | ⚡ Medium | 🟢 Low | Custom `marked` Heading Renderer | Docs & Contributing Guide |
 | **0. Automated Link Health Checker (`check_links.js`)** | ✅ **Done** | 🛡️ High | 🟢 Low | Standalone Node Script (`http/https`) | Catalog Health & QA |
+| **7. Dedicated Category Landing Pages (`/category/<slug>/`)** | ✅ **Done** | 🚀 High | 🟡 Medium | Static compilation pipeline | SEO & Search Impressions |
 | **1. Command Palette (`Ctrl+K` / `Cmd+K`)** | 🚀 **Next** | ⚡ High | 🟢 Low | Vanilla JS + `<dialog>` | Global Navigation / UX |
 | **2. Interactive "My Static Stack" Builder** | 📋 Planned | 🚀 High | 🟡 Medium | Client-Side `localStorage` | Tool Discovery & Engagement |
 | **3. Side-by-Side Tool Comparison (`/compare`)** | 📋 Planned | 🚀 High | 🟡 Medium | Pre-rendered static pages | SEO & Decision Making |
 | **4. PWA & Offline Developer Reference** | 📋 Planned | ⚡ High | 🟢 Low | Cache-First Service Worker | Performance & Offline Utility |
 | **5. "Recently Added" & "Trending" Badges** | 📋 Planned | ⚡ Medium | 🟢 Low | `generate-pages.js` build step | Home & Archive Discovery |
 | **6. "Solved" Answer Marker in Support Forum** | 📋 Planned | 💬 High | 🟡 Medium | Postgres flag + Community UI | StaticStack Support Channel |
-| **7. Dedicated Category Landing Pages** | 📋 Planned | 🚀 High | 🟡 Medium | Static compilation pipeline | SEO & Search Impressions |
 
 ---
 
@@ -42,6 +42,15 @@ This document outlines high-impact, practical suggestions and feature enhancemen
 ### ✅ Automated Link & SSL Health Checker (`check_links.js`)
 - Standalone Node utility pinging all 130 tool external links.
 - Verified 126 online tools and logged results to `asset/json/link-health.json`.
+
+### ✅ Dedicated Category Landing Hub Pages (`/category/<slug>/index.html`)
+- **Complete Catalog Coverage**: Pre-rendered dedicated static landing pages for all 27 categories across StaticStack (`/category/<slug>/index.html`) with zero backend dependencies.
+- **Rich Mini-Hero Header**: Displays the custom category SVG icon, breadcrumb navigation, tool count, open-source/free-tier stats, and quick actions ("Submit Tool", "View in Archive", "Community Discuss").
+- **Top 3 Featured Picks Showcase**: Prominently highlights standout tools (e.g. "Top Choice", "Open Source Pick", "Free Tier Available") with cover preview screenshots, badges, view metrics, and direct links.
+- **Interactive Directory & Live Filter**: Real-time keyword filter across tool names, descriptions, tags, and pricing badges (`All`, `Open Source`, `Free`, `Freemium`, `Paid`) with dynamic counters and empty-state handling.
+- **Category Developer FAQ**: Tailored questions and answers addressing static site integration, zero-backend architecture, and API security, accompanied by Schema.org `FAQPage` + `CollectionPage` JSON-LD for rich search engine snippets.
+- **Related Categories Strip**: Suggests adjacent static categories (e.g., Contact Forms recommending Email, Auth, and Surveys) to encourage natural exploration.
+- **Site-Wide Cross-Linking**: Homepage category cards, tool detail breadcrumbs and badges, Archive table headers (`Hub →`), `sitemap.xml` (0.85 priority), and `search-data.json` now link directly to canonical category pages.
 
 ---
 
@@ -188,6 +197,7 @@ flowchart TD
     A3["Archive Persistent Category Descriptions"]
     A4["Markdown TOC Anchor Slugs"]
     A5["Automated check_links.js Health Script"]
+    A6["Dedicated Category Landing Hub Pages"]
     end
 
     subgraph "Phase 2: Discovery & UX"
@@ -200,7 +210,6 @@ flowchart TD
     subgraph "Phase 3: Scale & Content"
     C1["Solved Answer Marker in Forum"]
     C2["Side-by-Side Comparison Pages"]
-    C3["Category Hub Landing Pages"]
     end
 ```
 

@@ -189,7 +189,7 @@ function renderToolPage({
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.staticstack.app/' },
           { '@type': 'ListItem', position: 2, name: 'Archive', item: 'https://www.staticstack.app/archive' },
-          { '@type': 'ListItem', position: 3, name: tool.categoryTitle, item: `https://www.staticstack.app/archive#${tool.categorySlug}` },
+          { '@type': 'ListItem', position: 3, name: tool.categoryTitle, item: `https://www.staticstack.app/category/${tool.categorySlug}/` },
           { '@type': 'ListItem', position: 4, name: tool.name, item: toolCanonical }
         ]
       }
@@ -212,7 +212,7 @@ function renderToolPage({
       breadcrumbs: [
         { label: 'Home', url: '../../' },
         { label: 'Archive', url: '../../archive' },
-        { label: tool.categoryTitle, url: `../../archive#${tool.categorySlug}` },
+        { label: tool.categoryTitle, url: `../../category/${tool.categorySlug}/` },
         { label: tool.name, url: '#' }
       ],
       badgeRow: `
@@ -238,7 +238,7 @@ function renderToolPage({
           }
           return `<span class="badge ${bClass}">${bIcon} ${escapeHtml(b)}</span>`;
         }).join('\n        ')}
-        <a href="../../archive#${tool.categorySlug}" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">
+        <a href="../../category/${tool.categorySlug}/" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;" title="Explore all ${escapeHtml(tool.categoryTitle)} tools">
           <span style="display:inline-flex; align-items:center;">${CATEGORY_ICONS[tool.categorySlug] || ICONS.zap}</span>
           ${escapeHtml(tool.categoryTitle)}
         </a>
