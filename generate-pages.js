@@ -1785,6 +1785,7 @@ fs.writeFileSync(path.join(ROOT_DIR, '404.html'), renderLayout({
       { label: '404 Not Found', url: '#' }
     ]
   },
+  showFooter: false,
   content: notFoundContent
 }));
 

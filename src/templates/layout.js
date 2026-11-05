@@ -76,7 +76,9 @@ function createLayoutRenderer({ allTools, categories }) {
     ogImageHeight = 630,
     canonicalUrl = '',
     keywords = '',
-    jsonLd = null
+    jsonLd = null,
+    showFooter = true,
+    showPreFooter = true
   }) {
     const rawDesc = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
     const cleanDescription = rawDesc.length > 160 ? rawDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...' : rawDesc;
@@ -398,7 +400,7 @@ function createLayoutRenderer({ allTools, categories }) {
     ${content}
   </main>
 
-  <!-- Pre-Footer Call to Action -->
+  ${showPreFooter ? `<!-- Pre-Footer Call to Action -->
   <section class="pre-footer-cta">
     <div class="container">
       <div class="pre-footer-card">
@@ -422,9 +424,9 @@ function createLayoutRenderer({ allTools, categories }) {
         </div>
       </div>
     </div>
-  </section>
+  </section>` : ''}
 
-  <!-- Site Footer -->
+  ${showFooter ? `<!-- Site Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
@@ -492,7 +494,7 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
 </script><noscript><span class="statcounter"><img class="statcounter" src="https://c.statcounter.com/13364370/0/cae7fdd5/0/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></span></noscript><!-- End of Statcounter Code --></span></p>
       </div>
     </div>
-  </footer>
+  </footer>` : ''}
 
   <!-- Floating Back to Top Button -->
   <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()">
