@@ -49,3 +49,4 @@ A focused utility that generates the foundational `globals.css` utilized across 
 1. Web designers and agencies wanting visual layout controls that directly produce clean, standard HTML and tokenized CSS.
 2. Static site developers looking for a local desktop design workflow without the recurring overhead of Webflow or Figma subscriptions.
 3. Marketers and developers who prefer on-demand desktop SEO audits with zero cloud crawler lock-in.
+
