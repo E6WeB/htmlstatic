@@ -335,8 +335,9 @@ function renderLoginHtml(errorMsg = '') {
     .brand-logo {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
       text-decoration: none;
       color: inherit;
     }
@@ -355,12 +356,35 @@ function renderLoginHtml(errorMsg = '') {
       font-weight: 700;
       margin: 0 0 0.4rem;
       letter-spacing: -0.02em;
+      text-align: center;
     }
     .login-subtitle {
       font-size: 0.88rem;
       color: var(--text-muted, #94a3b8);
       margin: 0 0 1.75rem;
       line-height: 1.45;
+      text-align: center;
+    }
+    .login-extra-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted, #94a3b8);
+    }
+    .login-link {
+      color: var(--text-muted, #94a3b8);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .login-link:hover {
+      color: #0284c7;
+      text-decoration: underline;
+    }
+    .link-divider {
+      color: var(--border-color, #334155);
     }
     .form-group {
       margin-bottom: 1.25rem;
@@ -423,13 +447,12 @@ function renderLoginHtml(errorMsg = '') {
 </head>
 <body>
   <div class="login-card">
-    <div class="brand-logo">
+    <a href="/" class="brand-logo" title="Back to StaticStack Homepage">
       <span class="brand-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
       </span>
-      <span style="font-weight:700; font-size:1.15rem;">StaticStack</span>
-      <span style="font-size:0.75rem; background:#0284c7; color:#fff; padding:0.1rem 0.4rem; border-radius:4px; font-weight:700;">STATS</span>
-    </div>
+      <span style="font-weight:700; font-size:1.25rem; letter-spacing:-0.02em;">StaticStack</span>
+    </a>
 
     <h1 class="login-title">Admin Dashboard</h1>
     <p class="login-subtitle">Sign in to view real-time traffic, country analytics, and manage verified tool metrics.</p>
@@ -446,6 +469,12 @@ function renderLoginHtml(errorMsg = '') {
         <input type="password" name="password" class="form-input" placeholder="••••••••" required autocomplete="current-password">
       </div>
       <button type="submit" class="btn-submit">Sign In to Dashboard</button>
+
+      <div class="login-extra-links">
+        <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="login-link">Lost password?</a>
+        <span class="link-divider">&middot;</span>
+        <a href="/" class="login-link">&larr; Back to Homepage</a>
+      </div>
     </form>
   </div>
 </body>
