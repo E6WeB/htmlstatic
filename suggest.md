@@ -4,28 +4,54 @@ This document outlines high-impact, practical suggestions and feature enhancemen
 
 ---
 
-## 🧭 Executive Summary & Opportunity Matrix
+## 🧭 Executive Summary & Status Matrix
 
-| Initiative | Impact | Effort | Architecture / Tech | Target Area |
-| :--- | :---: | :---: | :--- | :--- |
-| **1. Command Palette (`Ctrl+K` / `Cmd+K`)** | ⚡ High | 🟢 Low | Vanilla JS + `<dialog>` | Global Navigation / UX |
-| **2. Interactive "My Static Stack" Builder** | 🚀 High | 🟡 Medium | Client-Side `localStorage` | Tool Discovery & Engagement |
-| **3. Side-by-Side Tool Comparison (`/compare`)** | 🚀 High | 🟡 Medium | Pre-rendered static pages | SEO & Decision Making |
-| **4. PWA & Offline Developer Reference** | ⚡ High | 🟢 Low | Cache-First Service Worker | Performance & Offline Utility |
-| **5. "Recently Added" & "Trending" Badges** | ⚡ Medium | 🟢 Low | `generate-pages.js` build step | Home & Archive Discovery |
-| **6. Automated Dead-Link & SSL Health Checker** | 🛡️ High | 🟢 Low | Standalone Python / Node script | Catalog Maintenance & Quality |
-| **7. "Solved" Answer Marker in Support Forum** | 💬 High | 🟡 Medium | Postgres flag + Community UI | StaticStack Support Channel |
-| **8. Dedicated Category Landing Pages** | 🚀 High | 🟡 Medium | Static compilation pipeline | SEO & Search Impressions |
+| Initiative | Status | Impact | Effort | Architecture / Tech | Target Area |
+| :--- | :---: | :---: | :---: | :--- | :--- |
+| **0. App Shell Redesign (Left Rail + Bottom Bar)** | ✅ **Done** | ⚡ High | 🟡 Medium | Fixed 68px Rail + Mobile Bottom Bar | Global Shell & Navigation |
+| **0. Seamless / Borderless Page Headers** | ✅ **Done** | ⚡ High | 🟢 Low | Native Body Canvas + Breathing Room | Sub-Pages & Tool Details |
+| **0. Archive Description on Collapse** | ✅ **Done** | ⚡ Medium | 🟢 Low | Header Flex Restructure | Master Archive Discovery |
+| **0. Markdown TOC Anchor Link Slugs** | ✅ **Done** | ⚡ Medium | 🟢 Low | Custom `marked` Heading Renderer | Docs & Contributing Guide |
+| **0. Automated Link Health Checker (`check_links.js`)** | ✅ **Done** | 🛡️ High | 🟢 Low | Standalone Node Script (`http/https`) | Catalog Health & QA |
+| **1. Command Palette (`Ctrl+K` / `Cmd+K`)** | 🚀 **Next** | ⚡ High | 🟢 Low | Vanilla JS + `<dialog>` | Global Navigation / UX |
+| **2. Interactive "My Static Stack" Builder** | 📋 Planned | 🚀 High | 🟡 Medium | Client-Side `localStorage` | Tool Discovery & Engagement |
+| **3. Side-by-Side Tool Comparison (`/compare`)** | 📋 Planned | 🚀 High | 🟡 Medium | Pre-rendered static pages | SEO & Decision Making |
+| **4. PWA & Offline Developer Reference** | 📋 Planned | ⚡ High | 🟢 Low | Cache-First Service Worker | Performance & Offline Utility |
+| **5. "Recently Added" & "Trending" Badges** | 📋 Planned | ⚡ Medium | 🟢 Low | `generate-pages.js` build step | Home & Archive Discovery |
+| **6. "Solved" Answer Marker in Support Forum** | 📋 Planned | 💬 High | 🟡 Medium | Postgres flag + Community UI | StaticStack Support Channel |
+| **7. Dedicated Category Landing Pages** | 📋 Planned | 🚀 High | 🟡 Medium | Static compilation pipeline | SEO & Search Impressions |
 
 ---
 
-## 1. 🔍 Global Quick-Jump Command Palette (`Ctrl+K` / `Cmd+K`)
+## 🎯 Recently Completed Implementations
+
+### ✅ Modern App Shell: Left Icon Rail + Mobile Bottom Bar
+- **Desktop (≥ 768px)**: 68px fixed vertical icon rail with clean flat SVG icons, active indicator pills, and animated slide-out tooltips on hover (`translateX(6px)`).
+- **Mobile (< 768px)**: Converts automatically to a sticky bottom navigation bar with thumb-friendly tab access and floating `+` action button.
+- **Seamless Canvas**: Eliminated heavy boxed header strips on desktop; page headings and breadcrumbs now sit directly on the body background.
+
+### ✅ Persistent Category Descriptions on Archive Collapse
+- Relocated `<p class="archive-cat-desc">` inside `.archive-cat-header-main`.
+- When users click to collapse category tables, the icon, title, tool count pill, and descriptive summary remain visible.
+
+### ✅ Automatic Heading Slugs & Smooth Scroll Anchors
+- Added a GitHub-compatible heading renderer to `marked` in `generate-pages.js`.
+- Automatically assigns clean IDs and handles dual-slug aliases (e.g., `#entry-format--template`, `#how-to-submit-via-an-issue`).
+- Added `scroll-margin-top` for smooth in-page navigation.
+
+### ✅ Automated Link & SSL Health Checker (`check_links.js`)
+- Standalone Node utility pinging all 130 tool external links.
+- Verified 126 online tools and logged results to `asset/json/link-health.json`.
+
+---
+
+## 1. 🔍 Global Quick-Jump Command Palette (`Ctrl+K` / `Cmd+K`) — *Recommended Next*
 
 ### The Vision
 Developers love keyboard-first workflows. Adding a lightweight, instant command palette allows visitors to jump to any of the 130+ tools, 27 categories, or community channels from anywhere on the site with zero latency.
 
 ### Key Capabilities
-- **Universal Shortcut**: Triggered via `Cmd+K` (macOS), `Ctrl+K` (Windows/Linux), or by clicking a search shortcut pill in the top header.
+- **Universal Shortcut**: Triggered via `Cmd+K` (macOS), `Ctrl+K` (Windows/Linux), or by clicking the search button on the desktop left rail / hero.
 - **Instant Client-Side Filtering**: Searches across tool names, categories, tags, and pricing models using the existing lightweight `search-data.json` or `tools-data.json`.
 - **Keyboard Navigation**: Full arrow key selection (`↑` / `↓`), `Enter` to navigate, and `Esc` to dismiss.
 - **Zero Dependencies**: Implemented using HTML5 `<dialog>` and vanilla JavaScript (~4 KB uncompressed), avoiding heavy external libraries like Algolia DocSearch or Ninja Keys.
@@ -51,7 +77,7 @@ Developers love keyboard-first workflows. Adding a lightweight, instant command 
 Turn StaticStack from a static directory into an active developer workbench. Let users curate their preferred static stack (e.g. SSG + Hosting + Contact Form + Comments + Analytics + Auth), see an instant architecture preview, and export a ready-to-run project blueprint.
 
 ### Key Capabilities
-- **One-Click Bookmark / Star**: Add a small star/bookmark toggle icon on every tool card and tool detail page.
+- **One-Click Bookmark / Star**: Add a small bookmark/plus toggle icon on every tool card and tool detail page.
 - **Local Persistence**: Saves selected tools in the browser's `localStorage` (100% private, no account or database required).
 - **Architecture Drawer**: A slide-out panel showing the visitor's currently assembled stack:
   - *Generator*: Astro
@@ -95,7 +121,7 @@ Static web developers often code on airplanes, trains, or in coffee shops with s
 
 ### Key Capabilities
 - **Lightweight Service Worker (`sw.js`)**:
-  - Cache the pre-compressed core assets (`index.html`, `archive/index.html`, `asset/css/style.css`, and `asset/json/tools-data.json`).
+  - Cache core pre-compressed assets (`index.html`, `archive/index.html`, `asset/css/style.css`, and `asset/json/tools-data.json`).
   - Cache visited tool pages using a **Stale-While-Revalidate** strategy.
 - **Native Install Experience**:
   - Uses the existing `site.webmanifest` and crisp favicon icons to prompt mobile and desktop users to "Add to Home Screen / Install App".
@@ -109,7 +135,7 @@ Static web developers often code on airplanes, trains, or in coffee shops with s
 Keep the catalog feeling fresh and active by highlighting indie additions and newly released developer tools.
 
 ### Key Capabilities
-- **`New` Badge**: Tools added within the last 30 days (e.g., SMTP2GO, Emdash, DesignCraft) automatically display a subtle glowing green badge:
+- **`New` Badge**: Tools added within the last 30 days automatically display a subtle green badge:
   ```html
   <span class="badge badge-new" style="background:#ecfdf5; color:#059669; border:1px solid #a7f3d0;">New</span>
   ```
@@ -119,23 +145,7 @@ Keep the catalog feeling fresh and active by highlighting indie additions and ne
 
 ---
 
-## 6. 🛡️ Automated Dead-Link & SSL Health Checker (`check_links.py`)
-
-### The Vision
-Third-party SaaS tools and open-source landing pages change domains, rebrand, or shut down. An automated health check ensures StaticStack's 130+ external links never return 404s or expired SSL certificates.
-
-### Key Capabilities
-- **Headless HTTP Ping**: Sends asynchronous `HEAD` / `GET` requests to each tool's `websiteUrl` with standard user-agent headers.
-- **Failure Classification**:
-  - `200 OK`: Healthy.
-  - `301 / 302`: Permanent or temporary redirect (detects rebrands or domain migrations).
-  - `404 / 500`: Dead link / server downtime.
-  - `SSL Error`: Expired or misconfigured TLS certificate.
-- **Execution Mode**: Run locally via `python check_links.py` or as a weekly scheduled GitHub Action that outputs a concise markdown health report.
-
----
-
-## 7. 💬 "Solved" Marker & FAQ Workflow for the Community Forum
+## 6. 💬 "Solved" Marker & FAQ Workflow for the Community Forum
 
 ### The Vision
 With the newly launched **StaticStack Support** and **Help & Questions** channels, users will frequently ask how to integrate tools, resolve CORS issues, or configure deployment workflows.
@@ -153,7 +163,7 @@ With the newly launched **StaticStack Support** and **Help & Questions** channel
 
 ---
 
-## 8. 🌐 Category Landing Hub Pages (`/category/<slug>/`)
+## 7. 🌐 Category Landing Hub Pages (`/category/<slug>/`)
 
 ### The Vision
 Currently, clicking a category jumps to an anchor on `/archive#category`. Creating dedicated indexable category pages provides dedicated landing pages with tailored metadata, OpenGraph cards, and introductory guides.
@@ -169,29 +179,31 @@ Currently, clicking a category jumps to an anchor on `/archive#category`. Creati
 
 ```mermaid
 flowchart TD
-    A["Phase 1: Quick Wins (1-2 Days)"] --> B["Phase 2: Discovery & UX (3-5 Days)"]
-    B --> C["Phase 3: Community & Scale (Next)"]
+    A["Phase 1: Foundation & Shell (Completed)"] --> B["Phase 2: Quick-Jump & Discovery (Next)"]
+    B --> C["Phase 3: Community & Tool Comparison"]
 
-    subgraph "Phase 1: Quick Wins"
-    A1["Global Cmd+K Palette"]
-    A2["Recently Added Badges"]
-    A3["check_links.py Health Script"]
+    subgraph "Phase 1: Foundation (Done)"
+    A1["Left Navigation Rail + Mobile Bottom Bar"]
+    A2["Seamless Mini-Hero Headers"]
+    A3["Archive Persistent Category Descriptions"]
+    A4["Markdown TOC Anchor Slugs"]
+    A5["Automated check_links.js Health Script"]
     end
 
     subgraph "Phase 2: Discovery & UX"
-    B1["'My Static Stack' Builder"]
-    B2["Offline Service Worker (PWA)"]
-    B3["Category Hub Landing Pages"]
+    B1["Global Cmd+K Command Palette"]
+    B2["'My Static Stack' Builder & Exporter"]
+    B3["Recently Added & Trending Badges"]
+    B4["Offline Service Worker (PWA)"]
     end
 
-    subgraph "Phase 3: Community & Scale"
-    C1["Solved Answer Marker"]
+    subgraph "Phase 3: Scale & Content"
+    C1["Solved Answer Marker in Forum"]
     C2["Side-by-Side Comparison Pages"]
-    C3["Tool of the Week Spotlight"]
+    C3["Category Hub Landing Pages"]
     end
 ```
 
 ---
 
 *Authored for the StaticStack Open-Source Project. Suggestions are modular and can be implemented independently without breaking existing catalog architecture.*
-
