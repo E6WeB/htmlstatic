@@ -608,6 +608,15 @@
     <lastmod>2026-11-05</lastmod>
   </tool>
   <tool>
+    <title>GetBoosh</title>
+    <category>Development Tools</category>
+    <url>https://www.staticstack.app/tools/development-tools/getboosh</url>
+    <description>
+      Desktop app suite for token-bound web design, real CSS generation, and local-first SEO audits
+    </description>
+    <lastmod>2026-11-05</lastmod>
+  </tool>
+  <tool>
     <title>GitHub Desktop</title>
     <category>Development Tools</category>
     <url>https://www.staticstack.app/tools/development-tools/github-desktop</url>

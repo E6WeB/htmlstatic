@@ -655,6 +655,12 @@ Tools that make building, testing, and maintaining static websites easier.
     <td><a href="https://getartcraft.com/apps/figcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/figcraft</a></td>
   </tr>
   <tr>
+    <td><a href="tools/development-tools/getboosh.md">GetBoosh</a></td>
+    <td>Desktop app suite for token-bound web design, real CSS generation, and local-first SEO audits</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://getboosh.com/" target="_blank" rel="noopener noreferrer">getboosh.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/development-tools/github-desktop.md">GitHub Desktop</a></td>
     <td>Visual Git GUI client to stage changes, manage branches, and sync repositories</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
