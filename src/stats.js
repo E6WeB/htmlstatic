@@ -900,10 +900,25 @@ async function handleStats(req, res, pathname, query) {
       viewsCache[key] = views;
       fs.writeFileSync(VIEWS_CACHE_FILE, JSON.stringify(viewsCache, null, 2), 'utf8');
 
-      // Update in-memory forum cache if running
+      // Update in-memory forum cache & top tools immediately if running
       if (global.__staticstack_all_tool_views) {
         global.__staticstack_all_tool_views[key] = views;
       }
+      try {
+        const forum = require(path.join(ROOT_DIR, 'community', 'forum.js'));
+        if (forum.updateToolView) {
+          forum.updateToolView(key, views);
+        }
+      } catch (fe) {}
+
+      // Recompile static pages (index.html, tool pages, etc.) so static files match live data
+      try {
+        const { fork } = require('child_process');
+        const child = fork(path.join(ROOT_DIR, 'generate-pages.js'), [], {
+          stdio: 'ignore'
+        });
+        child.unref();
+      } catch (ge) {}
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ success: true, key, views }));

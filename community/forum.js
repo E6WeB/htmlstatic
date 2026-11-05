@@ -238,12 +238,21 @@ async function refreshTopToolsCache() {
 }
 
 async function getTopTools() {
-  if (!topToolsCache || !topToolsCache.length) {
-    topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
-    refreshTopToolsCache().catch(() => {});
-  } else if (Date.now() - topToolsLastFetch > TOP_TOOLS_CACHE_TTL) {
-    refreshTopToolsCache().catch(() => {});
+  topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
+  global.__staticstack_top_tools_cache = topToolsCache;
+  return topToolsCache;
+}
+
+function updateToolView(key, views) {
+  if (!key) return;
+  const num = Number(views) || 0;
+  allToolViewsCache[key] = num;
+  if (global.__staticstack_all_tool_views) {
+    global.__staticstack_all_tool_views[key] = num;
   }
+  topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
+  global.__staticstack_top_tools_cache = topToolsCache;
+  persistViewsCacheAsync();
   return topToolsCache;
 }
 
@@ -1303,5 +1312,8 @@ module.exports = {
   handleOAuth,
   recordToolView,
   getClientIp,
-  getAllToolViews: () => allToolViewsCache
+  getAllToolViews: () => allToolViewsCache,
+  getTopTools,
+  updateToolView,
+  buildTopToolsList
 };
