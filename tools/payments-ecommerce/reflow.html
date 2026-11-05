@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/payments-ecommerce/reflow-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Reflow","description":"Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites","url":"https://www.staticstack.app/tools/payments-ecommerce/reflow","sameAs":"https://reflowhq.com/","image":"https://www.staticstack.app/tools/payments-ecommerce/reflow-cover.webp","applicationCategory":"Payments & E-commerce","operatingSystem":"Web, Static HTML, Jamstack","keywords":"Reflow, Payments & E-commerce, reflow hq, static site shopping cart, html data attribute store, stripe paypal static cart, jamstack ecommerce, static ecommerce, digital downloads, stripe checkout, no backend store, sell digital products, reflow-hq, static-site-shopping-cart, html-data-attribute-store, stripe-paypal-static-cart, jamstack-ecommerce, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products, Reflow static website, Reflow alternative, Reflow integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Freemium"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Payments & E-commerce","item":"https://www.staticstack.app/archive#payments-ecommerce"},{"@type":"ListItem","position":4,"name":"Reflow","item":"https://www.staticstack.app/tools/payments-ecommerce/reflow"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -333,7 +333,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>Reflow</h1>
+<h1 id="reflow">Reflow</h1>
 <blockquote>
 <p>Add complete e-commerce stores, shopping carts, subscriptions, and user authentication to static websites.</p>
 </blockquote>
@@ -344,11 +344,11 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Freemium</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <p>Reflow is an e-commerce, subscriptions, and authentication platform built specifically for static websites, Jamstack frontends, and client-side web applications. Developed by Zine EOOD (the creators of Bootstrap Studio), Reflow allows developers and designers to add product catalogs, shopping carts, customer accounts, and recurring billing to any static HTML site without configuring a backend server or database.</p>
 <p>Connecting directly to your existing Stripe, PayPal, or Paddle account, Reflow charges zero transaction fees on top of standard payment processing. Integration can be done entirely through drop-in HTML Web Components, vanilla JavaScript, or official React hooks.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Drop-In Static Integration</strong>: Embed product listings, shopping carts, checkout buttons, and user login modals with simple HTML <code>data-reflow-type</code> tags.</li>
 <li><strong>Zero Transaction Fees</strong>: Reflow charges 0% commission on sales. Keep 100% of your revenue (minus standard payment gateway fees).</li>
@@ -359,12 +359,12 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Bootstrap Studio Integration</strong>: Native drag-and-drop e-commerce and auth components inside Bootstrap Studio.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
-<h3>1. Drop-In HTML Toolkit (No Build Step Required)</h3>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
+<h3 id="1-drop-in-html-toolkit-no-build-step-required"><span id="1-drop-in-html-toolkit" class="heading-anchor-target"></span>1. Drop-In HTML Toolkit (No Build Step Required)</h3>
 <p>Include the Reflow JavaScript toolkit in your static HTML <code>&lt;head&gt;</code> or before <code>&lt;/body&gt;</code>:</p>
 <pre><code class="language-html">&lt;script src=&quot;https://api.reflowhq.com/v2/toolkit.min.js&quot; data-reflow-store=&quot;YOUR_STORE_ID&quot; defer&gt;&lt;/script&gt;
 </code></pre>
-<h3>2. Embed a Product List &amp; Shopping Cart</h3>
+<h3 id="2-embed-a-product-list-shopping-cart"><span id="2-embed-a-product-list--shopping-cart" class="heading-anchor-target"></span>2. Embed a Product List &amp; Shopping Cart</h3>
 <p>Place pre-built Web Components anywhere in your markup:</p>
 <pre><code class="language-html">&lt;!-- Slide-out Shopping Cart --&gt;
 &lt;div data-reflow-type=&quot;shopping-cart&quot;&gt;&lt;/div&gt;
@@ -375,7 +375,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 &lt;!-- Single Product Card with Buy Button --&gt;
 &lt;div data-reflow-type=&quot;product&quot; data-reflow-product=&quot;PRODUCT_ID&quot;&gt;&lt;/div&gt;
 </code></pre>
-<h3>3. Customer Sign-In &amp; Member Content</h3>
+<h3 id="3-customer-sign-in-member-content"><span id="3-customer-sign-in--member-content" class="heading-anchor-target"></span>3. Customer Sign-In &amp; Member Content</h3>
 <p>Add customer authentication buttons with custom triggers:</p>
 <pre><code class="language-html">&lt;!-- Customer Login / Sign-up Button --&gt;
 &lt;div data-reflow-type=&quot;auth-button&quot;&gt;&lt;/div&gt;
@@ -387,7 +387,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 &lt;div data-reflow-type=&quot;user-profile&quot;&gt;&lt;/div&gt;
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Adding a complete store, shopping cart, or subscription portal to static HTML/CSS/JS websites.</li>
 <li>Projects built with Bootstrap Studio that want plug-and-play e-commerce and customer accounts.</li>

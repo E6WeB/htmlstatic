@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/development-tools/pdfcraft-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"PdfCraft","description":"Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust","url":"https://www.staticstack.app/tools/development-tools/pdfcraft","sameAs":"https://getartcraft.com/apps/pdfcraft","image":"https://www.staticstack.app/tools/development-tools/pdfcraft-cover.webp","applicationCategory":"Development Tools","operatingSystem":"Web, Static HTML, Jamstack","keywords":"PdfCraft, Development Tools, pdf, rust, pdf editor, document tools, split pdf, merge pdf, offline, beta, pdfcraft, open source acrobat, pdf-editor, document-tools, split-pdf, merge-pdf, open-source-acrobat, PdfCraft static website, PdfCraft alternative, PdfCraft integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Development Tools","item":"https://www.staticstack.app/archive#development-tools"},{"@type":"ListItem","position":4,"name":"PdfCraft","item":"https://www.staticstack.app/tools/development-tools/pdfcraft"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -334,7 +334,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>PdfCraft</h1>
+<h1 id="pdfcraft">PdfCraft</h1>
 <blockquote>
 <p>Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust.</p>
 </blockquote>
@@ -345,7 +345,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Free / Open Source</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <blockquote>
 <p>[!NOTE]
 <strong>Beta Release</strong> — PdfCraft is currently in active beta / early alpha development as part of the open-source ArtCraft suite. Official builds and standalone binaries are available on GitHub Releases.</p>
@@ -353,7 +353,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <p><strong>PdfCraft</strong> is a fast, native PDF workbench written entirely in Rust from the ground up. Created as a free, privacy-first alternative to Adobe Acrobat and web-based PDF upload utilities, PdfCraft operates 100% locally on your machine with zero cloud telemetry, no accounts, and no data tracking.</p>
 <p>PdfCraft combines a crisp document viewer with an intuitive card-style visual page organizer. You can effortlessly reorder pages, rotate misaligned scans, extract specific sections, and merge multiple documents into a single cohesive file while maintaining bookmarks, interactive form fields, and internal hyperlinks intact.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Pure Rust Native Engine</strong>: Blazing-fast startup and smooth rendering across complex documents without browser plugins or heavy Electron frameworks.</li>
 <li><strong>Card-Style Page Organizer</strong>: View all pages as a visual grid to drag, drop, rotate, duplicate, delete, and reorder pages with deep multi-level undo.</li>
@@ -364,19 +364,19 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Command Palette &amp; Headless CLI</strong>: Press <code>Cmd/Ctrl+K</code> for instant tool navigation, or use <code>pdfcraft-cli</code> to automate PDF operations in terminal scripts.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
-<h3>1. Preparing Documentation and Downloads</h3>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
+<h3 id="1-preparing-documentation-and-downloads">1. Preparing Documentation and Downloads</h3>
 <p>Prepare whitepapers, cheat sheets, and downloadable user manuals for static sites by merging chapters, optimizing file sizes, and stripping unnecessary private metadata:</p>
 <pre><code class="language-bash"># Merge multiple chapter PDFs into a single unified manual
 pdfcraft-cli merge chapter-1.pdf chapter-2.pdf chapter-3.pdf -o dist/downloads/full-manual.pdf
 </code></pre>
-<h3>2. Automated Build Pipelines</h3>
+<h3 id="2-automated-build-pipelines">2. Automated Build Pipelines</h3>
 <p>Incorporate <code>pdfcraft-cli</code> into your continuous integration or static site build steps to generate clean, distribution-ready PDFs:</p>
 <pre><code class="language-bash"># Extract the first 3 pages as an introductory sample PDF
 pdfcraft-cli extract ebook.pdf --pages 1-3 -o public/samples/ebook-preview.pdf
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Developers, creators, and students who want a fast, offline PDF tool without uploading sensitive documents to third-party web servers.</li>
 <li>Static site projects needing to bundle, split, or optimize downloadable PDF guides and resources.</li>

@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/ai-models/microsoft-phi-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Microsoft Phi","description":"High-efficiency small language models (SLMs) built for edge and browser execution","url":"https://www.staticstack.app/tools/ai-models/microsoft-phi","sameAs":"https://azure.microsoft.com/en-us/products/phi/","image":"https://www.staticstack.app/tools/ai-models/microsoft-phi-cover.webp","applicationCategory":"AI Models","operatingSystem":"Web, Static HTML, Jamstack","keywords":"Microsoft Phi, AI Models, phi 3, small language model, slm, webgpu ai, browser llm, on device ai, onnx runtime, llm api, ai agents, rag, phi-3, small-language-model, webgpu-ai, browser-llm, on-device-ai, onnx-runtime, llm-api, ai-agents, Microsoft Phi static website, Microsoft Phi alternative, Microsoft Phi integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"AI Models","item":"https://www.staticstack.app/archive#ai-models"},{"@type":"ListItem","position":4,"name":"Microsoft Phi","item":"https://www.staticstack.app/tools/ai-models/microsoft-phi"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -333,7 +333,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>Microsoft Phi (Phi-4)</h1>
+<h1 id="microsoft-phi-phi-4"><span id="microsoft-phi" class="heading-anchor-target"></span>Microsoft Phi (Phi-4)</h1>
 <blockquote>
 <p>Small Language Models (SLMs) engineered for maximum efficiency, low memory footprint, and edge execution.</p>
 </blockquote>
@@ -344,10 +344,10 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Open Source</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <p>Microsoft&#39;s Phi model series (including Phi-3 and Phi-4) demonstrates that compact models trained on high-quality synthetic data and curated textbooks can match or exceed models many times their size. Phi models are specifically designed to run efficiently on resource-constrained devices, edge servers, and client-side web browsers.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Compact Footprint</strong>: 3B to 14B parameter sizes optimized for edge servers, mobile devices, and local developer machines.</li>
 <li><strong>High Reasoning Quality</strong>: Outperforms many larger models on coding, reasoning, and mathematics benchmarks.</li>
@@ -355,7 +355,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Zero Cloud Dependency</strong>: Execute offline privacy-preserving search, summarization, and autocomplete in the browser.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
 <p>Static websites can integrate Microsoft Phi (Phi-4) directly via secure client-side fetch calls (with appropriate rate-limiting or serverless edge proxies like Cloudflare Workers), through build-time static generation scripts, or by deploying local open-weight models.</p>
 <pre><code class="language-javascript">// Phi models can be loaded directly in the browser via WebGPU using ONNX Runtime
 // or called via lightweight local server endpoints:
@@ -369,7 +369,7 @@ const res = await fetch(&quot;http://localhost:8080/v1/chat/completions&quot;, {
 });
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Adding intelligent search, summarization, or interactive chat widgets to static websites.</li>
 <li>Pre-rendering dynamic content, translating articles, and generating static markdown at build time.</li>

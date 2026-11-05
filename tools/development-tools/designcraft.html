@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/development-tools/designcraft-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"DesignCraft","description":"Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust","url":"https://www.staticstack.app/tools/development-tools/designcraft","sameAs":"https://getartcraft.com/apps/designcraft","image":"https://www.staticstack.app/tools/development-tools/designcraft-cover.webp","applicationCategory":"Development Tools","operatingSystem":"Web, Static HTML, Jamstack","keywords":"DesignCraft, Development Tools, page layout, rust, indesign alternative, desktop publishing, typography, pdf export, print design, beta, designcraft, open source indesign, page-layout, indesign-alternative, desktop-publishing, pdf-export, print-design, open-source-indesign, DesignCraft static website, DesignCraft alternative, DesignCraft integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Development Tools","item":"https://www.staticstack.app/archive#development-tools"},{"@type":"ListItem","position":4,"name":"DesignCraft","item":"https://www.staticstack.app/tools/development-tools/designcraft"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -334,7 +334,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>DesignCraft</h1>
+<h1 id="designcraft">DesignCraft</h1>
 <blockquote>
 <p>Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust.</p>
 </blockquote>
@@ -345,7 +345,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Free / Open Source</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <blockquote>
 <p>[!NOTE]
 <strong>Beta Release</strong> — DesignCraft is currently in active beta development as part of the open-source ArtCraft suite. Official installers and portable builds are available on GitHub Releases.</p>
@@ -353,7 +353,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <p><strong>DesignCraft</strong> is an open-source desktop page layout and publication design application written entirely in pure Rust. Built as a native alternative to Adobe InDesign and QuarkXPress, DesignCraft provides a professional workspace for creating brochures, magazines, digital zines, manuals, and ebooks with zero subscription licenses, zero phone-home servers, and zero telemetry.</p>
 <p>DesignCraft features multi-page spreads, parent (master) pages, threaded text frames, paragraph and character styles, and text wrapping around complex visual elements. At its core is a world-class Knuth–Plass paragraph composer with hyphenation dictionaries and optical margin alignment, ensuring that typography matches perfectly between on-screen design, web exports, and high-resolution print-ready PDFs.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Native Rust Performance</strong>: Fast, multithreaded layout engine using SIMD acceleration for instant redraws and silky smooth canvas panning.</li>
 <li><strong>Publication Spreads &amp; Parent Pages</strong>: Multi-page facing spreads, master parent pages for headers/footers, and flexible page geometry.</li>
@@ -364,8 +364,8 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Open Data Interchange &amp; MCP</strong>: Clean open document formats with PNG/SVG export, JSON control channel, and an MCP server for programmatic publishing and automated asset generation.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
-<h3>1. Generating Digital Publications &amp; Zines</h3>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
+<h3 id="1-generating-digital-publications-zines"><span id="1-generating-digital-publications--zines" class="heading-anchor-target"></span>1. Generating Digital Publications &amp; Zines</h3>
 <p>Design digital magazines, lookbooks, or product catalogs in DesignCraft and export optimized web-ready PDFs for visitors to browse or download:</p>
 <pre><code class="language-html">&lt;!-- Embed a downloadable digital brochure on a static landing page --&gt;
 &lt;div class=&quot;brochure-download-card&quot; style=&quot;padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px;&quot;&gt;
@@ -376,13 +376,13 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
   &lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<h3>2. Programmatic Layout Automation via CLI</h3>
+<h3 id="2-programmatic-layout-automation-via-cli">2. Programmatic Layout Automation via CLI</h3>
 <p>Integrate <code>designcraft-cli</code> into your documentation builds to compile raw Markdown and images into publication-ready PDF documents:</p>
 <pre><code class="language-bash"># Compile documentation into an official print-quality manual
 designcraft-cli build handbook.designcraft --export pdf -o public/handbook.pdf
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Creators, publishers, and developers designing brochures, magazines, whitepapers, and guides for static sites.</li>
 <li>Teams looking for a private, offline Adobe InDesign alternative without monthly recurring software fees.</li>

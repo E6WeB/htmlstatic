@@ -1766,6 +1766,14 @@ const BASE_CSS = `
     margin-top: 1.75rem;
     margin-bottom: 0.75rem;
     font-weight: 700;
+    scroll-margin-top: 2rem;
+  }
+
+  .heading-anchor-target {
+    display: inline-block;
+    position: relative;
+    top: -2rem;
+    visibility: hidden;
   }
 
   .markdown-body h1 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 0; }

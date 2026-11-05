@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/database-storage/jsonbin-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"JSONbin.io","description":"Cloud JSON document store for saving and fetching data via REST APIs","url":"https://www.staticstack.app/tools/database-storage/jsonbin","sameAs":"https://jsonbin.io/","image":"https://www.staticstack.app/tools/database-storage/jsonbin-cover.webp","applicationCategory":"Database & Backend-as-a-Service","operatingSystem":"Web, Static HTML, Jamstack","keywords":"JSONbin.io, Database & Backend-as-a-Service, jsonbin, json storage api, rest json store, mock backend, serverless key value, prototype db, serverless database, baas, rest api, realtime db, json-storage-api, rest-json-store, mock-backend, serverless-key-value, prototype-db, serverless-database, rest-api, realtime-db, JSONbin.io static website, JSONbin.io alternative, JSONbin.io integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Freemium"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Database & Backend-as-a-Service","item":"https://www.staticstack.app/archive#database-storage"},{"@type":"ListItem","position":4,"name":"JSONbin.io","item":"https://www.staticstack.app/tools/database-storage/jsonbin"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -333,7 +333,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>JSONbin.io</h1>
+<h1 id="jsonbinio">JSONbin.io</h1>
 <blockquote>
 <p>Cloud-based JSON document store for saving and retrieving data via simple HTTP REST requests.</p>
 </blockquote>
@@ -344,11 +344,11 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Freemium</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <p>JSONbin.io is an easy-to-use cloud document storage service that lets developers store, manage, and read JSON records using simple HTTP REST requests.</p>
 <p>It is particularly useful for static websites and prototypes that need to persist small datasets—like site configurations, survey responses, bookmarks, or leaderboards—without setting up a complex database.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Simple REST Endpoints</strong>: Read and write JSON objects using standard <code>fetch()</code> calls.</li>
 <li><strong>Version History</strong>: Keeps track of previous versions of your JSON records.</li>
@@ -356,7 +356,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Schema Validation</strong>: Validate stored JSON objects against strict JSON schemas.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
 <p>Fetch data from JSONbin directly in vanilla JavaScript:</p>
 <pre><code class="language-javascript">async function getStoredData() {
   const res = await fetch(&quot;https://api.jsonbin.io/v3/b/YOUR_BIN_ID/latest&quot;, {
@@ -369,7 +369,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 }
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Prototypes, demos, and lightweight static applications.</li>
 <li>Storing simple site counters, guestbooks, or user-submitted feedback.</li>

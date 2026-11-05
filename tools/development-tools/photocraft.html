@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/development-tools/photocraft-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"PhotoCraft","description":"Open-source image editor with layers, masks, curves, and PSD/PSB round-tripping in pure Rust","url":"https://www.staticstack.app/tools/development-tools/photocraft","sameAs":"https://getartcraft.com/apps/photocraft","image":"https://www.staticstack.app/tools/development-tools/photocraft-cover.webp","applicationCategory":"Development Tools","operatingSystem":"Web, Static HTML, Jamstack","keywords":"PhotoCraft, Development Tools, image editor, rust, photoshop alternative, psd, layers, graphics, offline, beta, photocraft, open source photoshop, image-editor, photoshop-alternative, open-source-photoshop, PhotoCraft static website, PhotoCraft alternative, PhotoCraft integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Development Tools","item":"https://www.staticstack.app/archive#development-tools"},{"@type":"ListItem","position":4,"name":"PhotoCraft","item":"https://www.staticstack.app/tools/development-tools/photocraft"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -334,7 +334,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>PhotoCraft</h1>
+<h1 id="photocraft">PhotoCraft</h1>
 <blockquote>
 <p>Open-source desktop image editor with layers, masks, curves, and PSD/PSB support in pure Rust.</p>
 </blockquote>
@@ -345,7 +345,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Free / Open Source</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <blockquote>
 <p>[!NOTE]
 <strong>Beta Release</strong> — PhotoCraft is currently in active beta / early alpha development as part of the open-source ArtCraft suite. Native installers and standalone portable binaries are available on GitHub Releases.</p>
@@ -353,7 +353,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <p><strong>PhotoCraft</strong> is a native, open-source image editor written entirely in Rust from the ground up. Designed as a free, offline alternative to proprietary image editors like Adobe Photoshop, it delivers the familiar shortcuts, panels, menus, and layer workflows creators already know without subscription fees, mandatory accounts, or invasive telemetry.</p>
 <p>Instead of running inside heavy web frameworks or Electron wrappers, PhotoCraft renders its canvas using a fast, native GPU compositor on Metal, Vulkan, DirectX 12, and WebGPU. It opens and saves real layered PSD and PSB files byte-for-byte, making it an ideal local tool for web designers preparing raster graphics, optimizing promotional banners, and editing photographic assets for static websites.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Native Rust &amp; GPU Acceleration</strong>: Zero Electron or web-view overhead. Renders instantly on Metal (macOS), DirectX 12 (Windows), Vulkan (Linux), and WebGPU.</li>
 <li><strong>Layered PSD &amp; PSB Compatibility</strong>: Seamlessly open, edit, and export layered Photoshop files with full layer hierarchy and blending modes.</li>
@@ -364,13 +364,13 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Headless CLI &amp; Agent Automation</strong>: Includes <code>photocraft-cli</code>, a JSON control socket, and an MCP server for programmatic batch asset generation.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
-<h3>1. Preparing and Exporting Web Graphics</h3>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
+<h3 id="1-preparing-and-exporting-web-graphics">1. Preparing and Exporting Web Graphics</h3>
 <p>Design your website hero banners, social share open graph images (1200×630), or avatars with non-destructive text and curves:</p>
 <pre><code class="language-bash"># Automate image exports with the headless CLI
 photocraft-cli render hero-banner.psd --format webp --quality 85 -o dist/hero.webp
 </code></pre>
-<h3>2. Batch Scripting in Build Pipelines</h3>
+<h3 id="2-batch-scripting-in-build-pipelines">2. Batch Scripting in Build Pipelines</h3>
 <p>Integrate PhotoCraft into static site build pipelines (e.g., Astro, Eleventy, or Vite) to convert layered master graphics into web assets:</p>
 <pre><code class="language-javascript">// package.json script example
 {
@@ -380,7 +380,7 @@ photocraft-cli render hero-banner.psd --format webp --quality 85 -o dist/hero.we
 }
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Designing and exporting responsive raster artwork, banners, and thumbnails for static blogs and landing pages.</li>
 <li>Developers and designers seeking an offline, subscription-free Photoshop replacement with instant launch times.</li>

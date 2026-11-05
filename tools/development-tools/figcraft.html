@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/development-tools/figcraft-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"FigCraft","description":"Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust","url":"https://www.staticstack.app/tools/development-tools/figcraft","sameAs":"https://getartcraft.com/apps/figcraft","image":"https://www.staticstack.app/tools/development-tools/figcraft-cover.webp","applicationCategory":"Development Tools","operatingSystem":"Web, Static HTML, Jamstack","keywords":"FigCraft, Development Tools, ui design, rust, figma alternative, prototyping, auto layout, dev mode, vector, beta, figcraft, open source figma, ui-design, figma-alternative, auto-layout, dev-mode, open-source-figma, FigCraft static website, FigCraft alternative, FigCraft integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Development Tools","item":"https://www.staticstack.app/archive#development-tools"},{"@type":"ListItem","position":4,"name":"FigCraft","item":"https://www.staticstack.app/tools/development-tools/figcraft"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -334,7 +334,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>FigCraft</h1>
+<h1 id="figcraft">FigCraft</h1>
 <blockquote>
 <p>Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust.</p>
 </blockquote>
@@ -345,7 +345,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Free / Open Source</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <blockquote>
 <p>[!NOTE]
 <strong>Beta Release</strong> — FigCraft is currently in active beta / early alpha development as part of the open-source ArtCraft suite. Installers and binaries are available on GitHub Releases.</p>
@@ -353,7 +353,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <p><strong>FigCraft</strong> is a native, open-source interface design and prototyping application rebuilt from scratch in pure Rust. Created as an offline-first alternative to Figma, FigCraft delivers a familiar design workspace—featuring frames, bi-directional auto layout, component variants, design tokens, and vector networks—with zero subscriptions, zero telemetry, and zero mandatory cloud accounts.</p>
 <p>Because FigCraft compiles to native machine code and renders via GPU acceleration, it launches instantly and handles large design systems with thousands of nested components without browser tab crashes or memory lag. It offers built-in peer-to-peer and self-hostable live collaboration, interactive prototyping transitions, and a developer mode that produces production-ready CSS, HTML, React, SwiftUI, and Jetpack Compose code.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Familiar Workspace &amp; Intuitive UX</strong>: Toolbar, layers panel, design inspector, assets drawer, and keyboard shortcuts positioned exactly where designers expect them.</li>
 <li><strong>Bi-Directional Auto Layout</strong>: Full flexbox-style auto layout with horizontal and vertical wrapping, layout grids, auto-padding, gap controls, and Hug/Fill/Fixed sizing rules.</li>
@@ -365,8 +365,8 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>MCP Server &amp; Agent Control</strong>: 400+ discrete commands allowing programmatic design generation through the command line or AI coding agents.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
-<h3>1. Designing and Exporting Static Web Components</h3>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
+<h3 id="1-designing-and-exporting-static-web-components">1. Designing and Exporting Static Web Components</h3>
 <p>Create design tokens, layouts, and SVG assets in FigCraft, then inspect and copy clean CSS or SVG paths directly into your static site:</p>
 <pre><code class="language-html">&lt;!-- Example exported design token classes &amp; SVG markup --&gt;
 &lt;div class=&quot;card-feature&quot; style=&quot;display: flex; gap: 1rem; padding: 1.5rem; border-radius: 12px; background: var(--bg-surface);&quot;&gt;
@@ -376,13 +376,13 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
   &lt;h3&gt;Feature Title&lt;/h3&gt;
 &lt;/div&gt;
 </code></pre>
-<h3>2. Automated Asset Sync via CLI &amp; MCP</h3>
+<h3 id="2-automated-asset-sync-via-cli-mcp"><span id="2-automated-asset-sync-via-cli--mcp" class="heading-anchor-target"></span>2. Automated Asset Sync via CLI &amp; MCP</h3>
 <p>Automate vector icon exports and design token generation into your static site&#39;s repository:</p>
 <pre><code class="language-bash"># Export all component vectors as optimized SVG files
 figcraft-cli export design-system.figcraft --components &quot;Icons/*&quot; --format svg -o src/assets/icons/
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Designing landing pages, application interfaces, and component libraries for static web and Jamstack applications.</li>
 <li>Teams and independent creators seeking a private, offline Figma alternative without monthly subscriptions.</li>

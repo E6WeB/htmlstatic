@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/hosting-deployment/gitlab-pages-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"GitLab Pages","description":"Free static website hosting directly from GitLab repositories with custom domains","url":"https://www.staticstack.app/tools/hosting-deployment/gitlab-pages","sameAs":"https://about.gitlab.com/stages-devops-lifecycle/pages/","image":"https://www.staticstack.app/tools/hosting-deployment/gitlab-pages-cover.webp","applicationCategory":"Hosting & Deployment","operatingSystem":"Web, Static HTML, Jamstack","keywords":"GitLab Pages, Hosting & Deployment, gitlab pages, gitlab ci cd hosting, free static hosting, custom domains, devops static deploy, edge cdn, git deploy, jamstack hosting, serverless deploy, custom domain, gitlab-pages, gitlab-ci-cd-hosting, free-static-hosting, custom-domains, devops-static-deploy, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy, custom-domain, GitLab Pages static website, GitLab Pages alternative, GitLab Pages integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Hosting & Deployment","item":"https://www.staticstack.app/archive#hosting-deployment"},{"@type":"ListItem","position":4,"name":"GitLab Pages","item":"https://www.staticstack.app/tools/hosting-deployment/gitlab-pages"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -334,7 +334,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>GitLab Pages</h1>
+<h1 id="gitlab-pages">GitLab Pages</h1>
 <blockquote>
 <p>Free static website hosting directly from GitLab repositories with custom domains and automated SSL.</p>
 </blockquote>
@@ -345,11 +345,11 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Open Source / Free</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <p>GitLab Pages is a built-in static site hosting feature available on GitLab.com and self-hosted GitLab instances. It enables developers to host static HTML, CSS, JavaScript files, and static site generator outputs directly from any GitLab repository at zero cost.</p>
 <p>GitLab Pages leverages GitLab CI/CD pipelines to build and deploy your site automatically on every push. It supports custom domains, automatic Let&#39;s Encrypt SSL/TLS certificates, redirects, custom 404 pages, and unlimited static sites per account.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>100% Free Static Hosting</strong>: Unlimited static websites and projects on GitLab.com.</li>
 <li><strong>Custom Domains &amp; Free SSL</strong>: Seamless custom domain configuration with automatic Let&#39;s Encrypt certificate renewal.</li>
@@ -358,7 +358,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Redirects &amp; Clean URLs</strong>: Easily configure HTTP redirects and custom routing using a <code>_redirects</code> file.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
 <p>To publish a static site with GitLab Pages, add a <code>.gitlab-ci.yml</code> file to the root of your repository:</p>
 <pre><code class="language-yaml">pages:
   stage: deploy
@@ -374,7 +374,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 </code></pre>
 <p>Any files placed into the <code>public/</code> directory will be published automatically to <code>https://&lt;username&gt;.gitlab.io/&lt;projectname&gt;</code>.</p>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Open-source and private repositories hosted on GitLab.</li>
 <li>Projects requiring sophisticated CI/CD pipelines prior to static asset deployment.</li>

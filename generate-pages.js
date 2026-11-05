@@ -35,6 +35,28 @@ marked.setOptions({
   breaks: false
 });
 
+marked.use({
+  renderer: {
+    heading({ tokens, depth, text }) {
+      const parsedText = this.parser.parseInline(tokens);
+      const cleanText = text.replace(/<[^>]*>/g, '');
+      const slugGfm = cleanText.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+      const slugLiteral = cleanText.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s/g, '-');
+      const slugNoParens = cleanText.toLowerCase().replace(/\s*\([^)]*\)/g, '').replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+
+      let extraAnchors = '';
+      if (slugLiteral && slugLiteral !== slugGfm) {
+        extraAnchors += `<span id="${slugLiteral}" class="heading-anchor-target"></span>`;
+      }
+      if (slugNoParens && slugNoParens !== slugGfm && slugNoParens !== slugLiteral) {
+        extraAnchors += `<span id="${slugNoParens}" class="heading-anchor-target"></span>`;
+      }
+
+      return `<h${depth} id="${slugGfm}">${extraAnchors}${parsedText}</h${depth}>\n`;
+    }
+  }
+});
+
 const ROOT_DIR = __dirname;
 const ASSET_DIR = path.join(ROOT_DIR, 'asset');
 

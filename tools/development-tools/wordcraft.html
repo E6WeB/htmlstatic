@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/development-tools/wordcraft-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"WordCraft","description":"Fast, open-source word processor with native .docx support and clean PDF export in pure Rust","url":"https://www.staticstack.app/tools/development-tools/wordcraft","sameAs":"https://getartcraft.com/apps/wordcraft","image":"https://www.staticstack.app/tools/development-tools/wordcraft-cover.webp","applicationCategory":"Development Tools","operatingSystem":"Web, Static HTML, Jamstack","keywords":"WordCraft, Development Tools, word processor, rust, docx, markdown, documents, offline, mcp, beta, wordcraft, open source word processor, word-processor, open-source-word-processor, WordCraft static website, WordCraft alternative, WordCraft integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Development Tools","item":"https://www.staticstack.app/archive#development-tools"},{"@type":"ListItem","position":4,"name":"WordCraft","item":"https://www.staticstack.app/tools/development-tools/wordcraft"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -334,7 +334,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>WordCraft</h1>
+<h1 id="wordcraft">WordCraft</h1>
 <blockquote>
 <p>Fast, open-source word processor with native .docx support and clean PDF export built in pure Rust.</p>
 </blockquote>
@@ -345,7 +345,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Free / Open Source</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <blockquote>
 <p>[!NOTE]
 <strong>Beta Release</strong> — WordCraft is currently in active beta development as part of the open-source ArtCraft suite. Standalone installers, portable builds, and CLI binaries are available on GitHub Releases.</p>
@@ -353,7 +353,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <p><strong>WordCraft</strong> is a lightweight, high-performance word processor built from the ground up in pure Rust. Designed as an open-source, offline replacement for Microsoft Word, it offers the familiar ribbon layout, styles gallery, formatting shortcuts, and review workflow without account registrations, license servers, or internet dependencies.</p>
 <p>Unlike bloated office suites that take seconds to load and consume gigabytes of memory, WordCraft starts instantaneously and caches paragraph layouts. Even in extensive documents spanning hundreds of pages, edits re-flow in approximately 1.4 milliseconds. It natively reads and writes <code>.docx</code> and <code>.odt</code> files and provides seamless bidirectional interoperability with Markdown, HTML, and print-ready PDF formats.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Native Rust Architecture</strong>: Fast, responsive desktop binary with zero web-engine or Electron bloat.</li>
 <li><strong>Native <code>.docx</code> &amp; Multi-Format Support</strong>: Reads and writes Microsoft Word <code>.docx</code> documents natively; imports and exports <code>.odt</code>, <code>.rtf</code>, <code>.html</code>, <code>.md</code> (Markdown), and plain text.</li>
@@ -364,19 +364,19 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Agent-Ready &amp; MCP Server</strong>: Features 389 discrete commands accessible via keyboard, <code>wordcraft-cli</code>, a JSON control channel, and an MCP server for AI-driven document automation.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
-<h3>1. Authoring Content and Exporting to Markdown or HTML</h3>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
+<h3 id="1-authoring-content-and-exporting-to-markdown-or-html">1. Authoring Content and Exporting to Markdown or HTML</h3>
 <p>Writers and team members can compose long-form documentation, whitepapers, or articles using WordCraft&#39;s familiar GUI and export directly to clean Markdown for static site generators:</p>
 <pre><code class="language-bash"># Convert a WordCraft document to Markdown for static site generators
 wordcraft-cli convert user-manual.docx --to markdown -o content/docs/manual.md
 </code></pre>
-<h3>2. Automated Static Site Document Publishing</h3>
+<h3 id="2-automated-static-site-document-publishing">2. Automated Static Site Document Publishing</h3>
 <p>Integrate <code>wordcraft-cli</code> into your build workflow (e.g. Hugo, Astro, or Next.js) to generate both downloadable PDF versions and web pages from a single <code>.docx</code> source:</p>
 <pre><code class="language-bash"># Generate high-resolution PDF for site visitors
 wordcraft-cli convert report.docx --to pdf --embed-fonts -o public/downloads/report.pdf
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Technical writers and developers authoring guides or blog posts who prefer a visual ribbon processor that exports clean Markdown and HTML.</li>
 <li>Static sites and Jamstack projects offering downloadable, publication-quality PDF resources generated from local documents.</li>

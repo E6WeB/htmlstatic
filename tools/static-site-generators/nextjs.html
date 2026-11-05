@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/static-site-generators/nextjs-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Next.js","description":"React framework supporting pure static HTML exports and file routing","url":"https://www.staticstack.app/tools/static-site-generators/nextjs","sameAs":"https://nextjs.org/","image":"https://www.staticstack.app/tools/static-site-generators/nextjs-cover.webp","applicationCategory":"Static Site Generators","operatingSystem":"Web, Static HTML, Jamstack","keywords":"Next.js, Static Site Generators, nextjs static export, react static site generation, output export, app router ssg, ssg, jamstack, markdown to html, zero js, fast static sites, blog generator, nextjs-static-export, react-static-site-generation, output-export, app-router-ssg, markdown-to-html, zero-js, fast-static-sites, blog-generator, Next.js static website, Next.js alternative, Next.js integration, static site tool, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Open Source"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Static Site Generators","item":"https://www.staticstack.app/archive#static-site-generators"},{"@type":"ListItem","position":4,"name":"Next.js","item":"https://www.staticstack.app/tools/static-site-generators/nextjs"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -333,7 +333,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>Next.js</h1>
+<h1 id="nextjs">Next.js</h1>
 <blockquote>
 <p>Full-featured React framework supporting pure static site exports (<code>output: &#39;export&#39;</code>) alongside modern routing and TypeScript tooling.</p>
 </blockquote>
@@ -344,11 +344,11 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Open Source</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <p>Next.js is the most widely adopted React framework for production web development. While it supports hybrid server rendering, Next.js also includes a dedicated <strong>Static Exports</strong> mode (<code>output: &#39;export&#39;</code>) that pre-renders your entire React application into standalone static HTML, CSS, and JavaScript files inside an <code>out/</code> directory.</p>
 <p>A statically exported Next.js site requires zero Node.js servers at runtime and can be deployed to any static host such as GitHub Pages, Cloudflare Pages, Netlify, or Amazon S3.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Pure Static Export (<code>output: &#39;export&#39;</code>)</strong>: Generates self-contained <code>.html</code> files for every route at build time with zero server runtime required.</li>
 <li><strong>File-System App Router</strong>: Define pages, nested layouts, and dynamic routes (<code>generateStaticParams</code>) naturally using folders and React Server Components.</li>
@@ -356,7 +356,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Automatic Code Splitting &amp; Prefetching</strong>: Only loads the JavaScript needed for the current page and prefetches linked routes in the background.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
 <p>Enable static HTML export in <code>next.config.mjs</code>:</p>
 <pre><code class="language-javascript">/** @type {import(&#39;next&#39;).NextConfig} */
 const nextConfig = {
@@ -378,7 +378,7 @@ npx create-next-app@latest my-static-app
 npm run build
 </code></pre>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>React teams who want to build interactive static websites, dashboards, documentation, or marketing sites using React and TypeScript.</li>
 <li>Projects that start as pure static HTML exports (<code>out/</code>) and want the flexibility to adopt edge or server features in the future.</li>

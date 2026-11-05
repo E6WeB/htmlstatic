@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Deno Deploy","description":"Distributed edge hosting platform serving static assets and edge logic globally","url":"https://www.staticstack.app/tools/hosting-deployment/deno-deploy","sameAs":"https://deno.com/deploy","image":"https://www.staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp","applicationCategory":"Hosting & Deployment","operatingSystem":"Web, Static HTML, Jamstack","keywords":"Deno Deploy, Hosting & Deployment, deno deploy, v8 isolates edge, serverless typescript, global edge hosting, zero cold start, free static hosting, edge cdn, git deploy, jamstack hosting, serverless deploy, deno-deploy, v8-isolates-edge, serverless-typescript, global-edge-hosting, zero-cold-start, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy, Deno Deploy static website, Deno Deploy alternative, Deno Deploy integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Freemium"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Hosting & Deployment","item":"https://www.staticstack.app/archive#hosting-deployment"},{"@type":"ListItem","position":4,"name":"Deno Deploy","item":"https://www.staticstack.app/tools/hosting-deployment/deno-deploy"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=5">
+<link rel="stylesheet" href="/asset/css/style.css?v=6">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -333,7 +333,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <article style="padding: 0 0 2rem;">
 <!-- Rendered Documentation -->
 <div class="markdown-body">
-<h1>Deno Deploy</h1>
+<h1 id="deno-deploy">Deno Deploy</h1>
 <blockquote>
 <p>Distributed, multi-region edge hosting platform serving static assets and edge logic globally.</p>
 </blockquote>
@@ -344,11 +344,11 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Pricing / License</strong>: Freemium</li>
 </ol>
 <hr>
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 <p>Deno Deploy is a globally distributed edge computing and static file hosting system designed by the team behind Deno. It runs your web frontends and APIs across 35+ data centers around the world, placing static HTML, CSS, JavaScript, and media assets within milliseconds of global users.</p>
 <p>Deno Deploy eliminates cold starts and provides generous free tier allowances (100,000 requests per day and 100 GB outbound transfer per month). With zero server maintenance and automatic GitHub synchronization, developers can deploy static sites and edge-enhanced frontends in seconds.</p>
 <hr>
-<h2>Key Highlights &amp; Features</h2>
+<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
 <ol>
 <li><strong>Worldwide Edge Network</strong>: Deploys across 35+ global data centers with sub-millisecond response times.</li>
 <li><strong>Generous Free Tier</strong>: 100,000 requests/day, 100 GB monthly bandwidth, and unlimited projects.</li>
@@ -357,7 +357,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <li><strong>Static &amp; Edge Hybrid</strong>: Host pure static files with standard caching or augment with TypeScript edge functions.</li>
 </ol>
 <hr>
-<h2>How It Works with Static Websites</h2>
+<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
 <p>You can deploy static assets using the <code>deployctl</code> CLI or by connecting your GitHub repository:</p>
 <pre><code class="language-bash"># Install the deployctl CLI tool
 deno install -A -r https://deno.land/x/deploy/deployctl.ts
@@ -367,7 +367,7 @@ deployctl deploy --project=my-static-site --static=./dist
 </code></pre>
 <p>For continuous integration, connect your GitHub repository in the Deno Deploy dashboard and specify your static build output folder (<code>dist</code>, <code>build</code>, or <code>./</code>).</p>
 <hr>
-<h2>When to Use It</h2>
+<h2 id="when-to-use-it">When to Use It</h2>
 <ol>
 <li>Static websites requiring ultra-low global latency and edge delivery.</li>
 <li>Jamstack frontends needing optional edge middleware or geo-routing.</li>
