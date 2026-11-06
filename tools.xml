@@ -384,6 +384,7 @@
     <title>Web3Forms</title>
     <category>Contact Forms</category>
     <url>https://www.staticstack.app/tools/contact-forms/web3forms</url>
+    <image>https://www.staticstack.app/tools/contact-forms/web3forms-cover.webp</image>
     <description>
       Contact form backend for static websites, HTML, and Jamstack
     </description>
@@ -413,6 +414,7 @@
     <title>Instatic</title>
     <category>Content Management</category>
     <url>https://www.staticstack.app/tools/content-management/instatic</url>
+    <image>https://www.staticstack.app/tools/content-management/instatic-cover.webp</image>
     <description>
       Free, browser-based visual website builder created by Core Framework developers
     </description>
@@ -432,6 +434,7 @@
     <title>Phantom Studio</title>
     <category>Content Management</category>
     <url>https://www.staticstack.app/tools/content-management/phantom-studio</url>
+    <image>https://www.staticstack.app/tools/content-management/phantom-studio-cover.webp</image>
     <description>
       Visual website builder with static export and low maintenance for WordPress creators
     </description>
@@ -441,6 +444,7 @@
     <title>Stacki</title>
     <category>Content Management</category>
     <url>https://www.staticstack.app/tools/content-management/stacki</url>
+    <image>https://www.staticstack.app/tools/content-management/stacki-cover.webp</image>
     <description>
       Webflow-familiar visual site builder engineered for local developers and static sites
     </description>
@@ -620,6 +624,7 @@
     <title>GetBoosh</title>
     <category>Development Tools</category>
     <url>https://www.staticstack.app/tools/development-tools/getboosh</url>
+    <image>https://www.staticstack.app/tools/development-tools/getboosh-cover.webp</image>
     <description>
       Desktop app suite for token-bound web design, real CSS generation, and local-first SEO audits
     </description>
