@@ -90,3 +90,4 @@ form.addEventListener('submit', async (e) => {
 2. Client projects where rapid form deployment without database configuration is essential.
 3. Jamstack applications (Hugo, Astro, Eleventy, Next.js, Gatsby, HTML5) requiring clean JSON API form endpoints.
 4. Forms needing bot protection without annoying complex captcha setups.
+
