@@ -448,6 +448,12 @@ Add contact forms to static websites without building your own form-processing b
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://splitforms.com/" target="_blank" rel="noopener noreferrer">splitforms.com</a></td>
   </tr>
+  <tr>
+    <td><a href="tools/contact-forms/web3forms.md">Web3Forms</a></td>
+    <td>Contact form backend for static websites, HTML, and Jamstack</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://web3forms.com/" target="_blank" rel="noopener noreferrer">web3forms.com</a></td>
+  </tr>
 </tbody>
 </table>
 
