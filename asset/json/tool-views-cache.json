@@ -45,6 +45,7 @@
   "htmlstatic-contact-forms-formspree": 1,
   "htmlstatic-contact-forms-web3forms": 0,
   "htmlstatic-content-management-pages-cms": 0,
+  "htmlstatic-content-management-processwire": 0,
   "htmlstatic-database-storage-supabase": 0,
   "htmlstatic-development-tools-bootstrap-studio": 0,
   "htmlstatic-database-storage-jsonbin": 1,

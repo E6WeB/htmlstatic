@@ -502,6 +502,12 @@ Manage content on static websites without adopting a traditional, full-featured 
     <td><a href="https://phantomstudio.app/" target="_blank" rel="noopener noreferrer">phantomstudio.app</a></td>
   </tr>
   <tr>
+    <td><a href="tools/content-management/processwire.md">ProcessWire</a></td>
+    <td>Open-source CMS and CMF with a powerful jQuery-inspired API and headless capabilities</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://processwire.com/" target="_blank" rel="noopener noreferrer">processwire.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/content-management/stacki.md">Stacki</a></td>
     <td>Webflow-familiar visual site builder engineered for local developers and static sites</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
