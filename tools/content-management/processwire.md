@@ -84,3 +84,4 @@ echo json_encode($data);
 2. Headless CMS backends powering static site generators (Astro, 11ty, Next.js, Hugo).
 3. Complex relational content structures (product directories, real estate listings, knowledge bases) needing custom fields.
 4. Developers who appreciate lightweight, readable code and want an alternative to heavy WordPress installations.
+
