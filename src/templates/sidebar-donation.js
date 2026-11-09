@@ -98,3 +98,4 @@ function renderSidebarDonationWidget() {
 module.exports = {
   renderSidebarDonationWidget
 };
+
