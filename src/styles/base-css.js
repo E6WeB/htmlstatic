@@ -2160,9 +2160,9 @@ const BASE_CSS = `
     box-shadow: 0 6px 18px rgba(0, 112, 186, 0.08);
   }
   .sidebar-donate-btn {
-    border: 1px solid var(--border-color);
-    background: var(--bg-body);
-    color: var(--text-main);
+    border: 1px solid var(--border-color) !important;
+    background: var(--bg-body) !important;
+    color: var(--text-main) !important;
     border-radius: 6px;
     padding: 0.35rem 0.2rem;
     font-size: 0.85rem;
@@ -2174,14 +2174,16 @@ const BASE_CSS = `
     user-select: none;
   }
   .sidebar-donate-btn:hover {
-    border-color: #0070ba;
-    background: rgba(0, 112, 186, 0.08);
+    border-color: #0070ba !important;
+    background: rgba(0, 112, 186, 0.15) !important;
+    color: #0070ba !important;
   }
-  .sidebar-donate-btn.active {
+  .sidebar-donate-btn.active,
+  .sidebar-donate-btn.active:hover {
     border-color: #0070ba !important;
     background: #0070ba !important;
     color: #ffffff !important;
-    box-shadow: 0 2px 6px rgba(0, 112, 186, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 112, 186, 0.35) !important;
   }
   .sidebar-donate-custom:focus {
     border-color: #0070ba !important;

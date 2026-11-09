@@ -7,6 +7,53 @@ function renderSidebarDonationWidget() {
   return `
           <!-- PayPal Donation Sidebar Card -->
           <div class="sidebar-widget sidebar-donate-widget">
+            <style>
+              .sidebar-donate-widget {
+                background: var(--bg-surface);
+                border: 1px solid var(--border-color);
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+              }
+              .sidebar-donate-widget:hover {
+                border-color: rgba(0, 112, 186, 0.4);
+                box-shadow: 0 6px 18px rgba(0, 112, 186, 0.08);
+              }
+              .sidebar-donate-btn {
+                border: 1px solid var(--border-color) !important;
+                background: var(--bg-body) !important;
+                color: var(--text-main) !important;
+                border-radius: 6px;
+                padding: 0.35rem 0.2rem;
+                font-size: 0.85rem;
+                font-weight: 700;
+                cursor: pointer !important;
+                transition: all 0.15s ease;
+                font-family: inherit;
+                text-align: center;
+                user-select: none;
+              }
+              .sidebar-donate-btn:hover {
+                border-color: #0070ba !important;
+                background: rgba(0, 112, 186, 0.15) !important;
+                color: #0070ba !important;
+              }
+              .sidebar-donate-btn.active,
+              .sidebar-donate-btn.active:hover {
+                border-color: #0070ba !important;
+                background: #0070ba !important;
+                color: #ffffff !important;
+                box-shadow: 0 2px 8px rgba(0, 112, 186, 0.35) !important;
+              }
+              .sidebar-donate-custom:focus {
+                border-color: #0070ba !important;
+                box-shadow: 0 0 0 2px rgba(0, 112, 186, 0.15) !important;
+              }
+              .sidebar-donate-submit:hover {
+                background: linear-gradient(180deg, #ffd05b 0%, #f7be38 100%) !important;
+                box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35) !important;
+                transform: translateY(-1px);
+                color: #000000 !important;
+              }
+            </style>
             <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.6rem;">
               <div style="display:flex; align-items:center; gap:0.5rem;">
                 <span style="display:inline-flex; align-items:center; color:#0070ba;">
@@ -98,4 +145,3 @@ function renderSidebarDonationWidget() {
 module.exports = {
   renderSidebarDonationWidget
 };
-
