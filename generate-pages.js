@@ -30,6 +30,7 @@ const { getMinifiedBaseCss } = require('./src/styles/base-css');
 const { createLayoutRenderer } = require('./src/templates/layout');
 const { renderToolPage } = require('./src/templates/tool-page');
 const { renderCategoryPage } = require('./src/templates/category-page');
+const { renderSidebarDonationWidget } = require('./src/templates/sidebar-donation');
 
 marked.setOptions({
   gfm: true,
@@ -902,6 +903,8 @@ const archiveContent = `
           ${archiveTopToolsHtml}
         </div>
       </div>
+
+      ${renderSidebarDonationWidget()}
 
       <!-- Submit Alternative Card -->
       <div class="sidebar-widget archive-sidebar-secondary" style="background:var(--bg-muted); border-style:dashed;">

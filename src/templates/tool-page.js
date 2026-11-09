@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 const { ICONS, CATEGORY_ICONS, escapeHtml } = require('../data/icons');
+const { renderSidebarDonationWidget } = require('./sidebar-donation');
 
 let linkHealthCache = null;
 function getLinkHealthMap(rootDir) {
@@ -469,6 +470,8 @@ function renderToolPage({
               ${randomToolsHtml}
             </div>
           </div>
+
+          ${renderSidebarDonationWidget()}
 
           <!-- Submit Alternative Card -->
           <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
