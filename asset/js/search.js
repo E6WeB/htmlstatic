@@ -390,225 +390,30 @@
   };
 
   // ==========================================================================
-  // 2. Global Search Modal (Command+K / "/")
+  // 2. Global Search Shortcut ("/" or Cmd+K -> Dedicated /search Page)
   // ==========================================================================
-  function initGlobalSearchModal() {
-    const modal = document.getElementById('global-search-modal');
-    const input = document.getElementById('global-search-input');
-    const resultsContainer = document.getElementById('global-search-results');
-    const clearBtn = document.getElementById('global-search-clear');
-    const viewAllBtn = document.getElementById('global-search-view-all');
-    if (!modal || !input || !resultsContainer) return;
-
-    let selectedIndex = -1;
-    let currentResults = [];
-
+  function initGlobalSearchShortcut() {
     window.openGlobalSearch = function (initialQuery) {
-      modal.style.display = 'flex';
-      document.body.classList.add('search-modal-open');
-      getSearchIndex();
-      if (typeof initialQuery === 'string') {
-        input.value = initialQuery;
-      }
-      setTimeout(() => {
-        input.focus();
-        if (input.value) {
-          renderModalResults(input.value);
-        } else {
-          renderEmptyModalState();
-        }
-      }, 50);
+      const q = typeof initialQuery === 'string' ? initialQuery.trim() : '';
+      window.location.href = q ? '/search?q=' + encodeURIComponent(q) : '/search';
     };
 
-    window.closeGlobalSearch = function () {
-      modal.style.display = 'none';
-      document.body.classList.remove('search-modal-open');
-      input.value = '';
-      resultsContainer.innerHTML = '';
-      selectedIndex = -1;
-    };
+    window.closeGlobalSearch = function () {};
 
-    modal.addEventListener('click', e => {
-      if (e.target === modal) closeGlobalSearch();
-    });
-
-    if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
-        input.value = '';
-        clearBtn.style.display = 'none';
-        renderEmptyModalState();
-        input.focus();
-      });
-    }
-
-    function renderEmptyModalState() {
-      if (clearBtn) clearBtn.style.display = 'none';
-      if (viewAllBtn) viewAllBtn.style.display = 'none';
-      resultsContainer.innerHTML = `
-        <div class="search-modal-suggestions">
-          <div class="search-modal-sug-title">Popular searches</div>
-          <div class="search-modal-tags">
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('forms')">Forms</button>
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('auth')">Authentication</button>
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('database')">Database &amp; Storage</button>
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('cms')">Headless CMS</button>
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('hosting')">Static Hosting</button>
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('analytics')">Privacy Analytics</button>
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('search')">Client-side Search</button>
-            <button type="button" class="search-modal-tag" onclick="selectModalTag('comments')">Comments</button>
-          </div>
-          <div class="search-modal-quick-links" style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color); display:flex; gap:1rem; justify-content:center; font-size:0.85rem;">
-            <a href="/archive" style="color:var(--accent); font-weight:600; text-decoration:none;">Browse Master Archive &rarr;</a>
-            <a href="/search" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Full Search Page</a>
-          </div>
-        </div>`;
-      currentResults = [];
-      selectedIndex = -1;
-    }
-
-    window.selectModalTag = function (tag) {
-      input.value = tag;
-      renderModalResults(tag);
-      input.focus();
-    };
-
-    function renderModalResults(query) {
-      const tokens = tokenize(query);
-      if (clearBtn) clearBtn.style.display = query ? 'inline-flex' : 'none';
-
-      if (tokens.length === 0) {
-        renderEmptyModalState();
-        return;
-      }
-
-      getSearchIndex(() => {
-        const { categories, tools, total } = performSearch(query);
-
-        if (viewAllBtn) {
-          viewAllBtn.style.display = 'inline-block';
-          viewAllBtn.href = '/search?q=' + encodeURIComponent(query);
-          viewAllBtn.textContent = `View all ${total} results on Search page \u2192`;
-        }
-
-        if (total === 0) {
-          resultsContainer.innerHTML = `
-            <div class="search-modal-empty">
-              <div style="font-size:1.15rem; font-weight:700; margin-bottom:0.35rem;">No tools found</div>
-              <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1rem;">We couldn't find any tools matching &ldquo;<strong>${escapeHtml(query)}</strong>&rdquo;.</p>
-              <div style="font-size:0.85rem; color:var(--text-subtle);">Try broader terms like &ldquo;forms&rdquo;, &ldquo;auth&rdquo;, &ldquo;cms&rdquo;, &ldquo;database&rdquo; or browse the <a href="/archive" style="color:var(--accent); text-decoration:underline;">archive</a>.</div>
-            </div>`;
-          currentResults = [];
-          selectedIndex = -1;
-          return;
-        }
-
-        currentResults = [];
-        let html = '';
-
-        if (categories.length > 0) {
-          html += `<div class="search-modal-section-title">Matching Categories (${categories.length})</div>`;
-          categories.slice(0, 3).forEach(cat => {
-            const idx = currentResults.length;
-            currentResults.push({ type: 'category', url: cat.url });
-            html += `
-              <a href="${cat.url}" class="search-modal-item search-modal-cat-item" data-index="${idx}">
-                <div class="search-modal-cat-ico">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                </div>
-                <div class="search-modal-info">
-                  <div class="search-modal-title">${highlightMatches(cat.title, tokens)} <span class="search-modal-pill">${cat.toolsCount || ''} tools</span></div>
-                  <div class="search-modal-desc">${highlightMatches(cat.description, tokens)}</div>
-                </div>
-                <span class="search-modal-badge-hint">Category &rarr;</span>
-              </a>`;
-          });
-        }
-
-        if (tools.length > 0) {
-          html += `<div class="search-modal-section-title">Matching Tools (${tools.length})</div>`;
-          tools.slice(0, 10).forEach(tool => {
-            const idx = currentResults.length;
-            currentResults.push({ type: 'tool', url: tool.url });
-            const badgeClass = (tool.primaryBadge || '').toLowerCase().includes('open source') ? 'badge-open-source' :
-                              (tool.primaryBadge || '').toLowerCase().includes('free') ? 'badge-free' : 'badge-freemium';
-            const iconHtml = tool.icon
-              ? `<img src="${tool.icon}" width="22" height="22" alt="" class="search-modal-tool-icon" onerror="this.style.display='none';">`
-              : `<span class="search-drop-tool-icon-fallback">⚡</span>`;
-
-            html += `
-              <a href="${tool.url}" class="search-modal-item search-modal-tool-item" data-index="${idx}">
-                <div class="search-modal-tool-icon-wrap">${iconHtml}</div>
-                <div class="search-modal-info">
-                  <div class="search-modal-title">
-                    <span>${highlightMatches(tool.title, tokens)}</span>
-                    <span class="badge ${badgeClass}" style="font-size:0.65rem; padding:0.1rem 0.4rem; margin-left:0.4rem;">${escapeHtml(tool.primaryBadge || 'Free')}</span>
-                    <span class="search-modal-cat-tag">&bull; ${escapeHtml(tool.category)}</span>
-                  </div>
-                  <div class="search-modal-desc">${highlightMatches(tool.description, tokens)}</div>
-                </div>
-                <span class="search-modal-key-hint">&crarr;</span>
-              </a>`;
-          });
-        }
-
-        resultsContainer.innerHTML = html;
-        selectedIndex = -1;
-      });
-    }
-
-    input.addEventListener('input', e => {
-      renderModalResults(e.target.value);
-    });
-
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        closeGlobalSearch();
-        return;
-      }
-
-      const items = resultsContainer.querySelectorAll('.search-modal-item');
-      if (items.length === 0) {
-        if (e.key === 'Enter' && input.value.trim()) {
-          window.location.href = '/search?q=' + encodeURIComponent(input.value.trim());
-        }
-        return;
-      }
-
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        selectedIndex = (selectedIndex + 1) % items.length;
-        updateModalSelection(items);
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
-        updateModalSelection(items);
-      } else if (e.key === 'Enter') {
-        e.preventDefault();
-        if (selectedIndex >= 0 && items[selectedIndex]) {
-          items[selectedIndex].click();
-        } else {
-          window.location.href = '/search?q=' + encodeURIComponent(input.value.trim());
-        }
-      }
-    });
-
-    function updateModalSelection(items) {
-      items.forEach((item, idx) => {
-        if (idx === selectedIndex) {
-          item.classList.add('is-active');
-          item.scrollIntoView({ block: 'nearest' });
-        } else {
-          item.classList.remove('is-active');
-        }
-      });
-    }
-
-    // Keyboard shortcut listeners: "/" or "Cmd+K" / "Ctrl+K"
     document.addEventListener('keydown', e => {
       const isInput = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
       if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && !isInput) {
-        e.preventDefault();
-        openGlobalSearch();
+        const pageSearchInput =
+          document.getElementById('search-page-input') ||
+          document.getElementById('hero-search-input') ||
+          document.getElementById('archive-search-input');
+        if (pageSearchInput) {
+          e.preventDefault();
+          pageSearchInput.focus();
+        } else {
+          e.preventDefault();
+          window.location.href = '/search';
+        }
       }
     });
   }
@@ -619,6 +424,8 @@
   function initSearchPage() {
     const input = document.getElementById('search-page-input');
     const resultsGrid = document.getElementById('search-page-results');
+    const resultsSection = document.getElementById('search-results-section');
+    const suggestionsSection = document.getElementById('search-suggestions-section');
     const counterEl = document.getElementById('search-page-counter');
     const spotlightEl = document.getElementById('search-cat-spotlight');
     const filterPills = document.querySelectorAll('.search-pricing-filter');
@@ -626,6 +433,26 @@
     if (!input || !resultsGrid) return;
 
     let currentPricingFilter = 'all';
+    let forceShowAll = false;
+
+    window.toggleSearchTopics = function () {
+      const drawer = document.getElementById('gs-topics-drawer');
+      const btn = document.getElementById('gs-explore-toggle');
+      const chevron = document.getElementById('gs-explore-chevron');
+      if (!drawer) return;
+      const isHidden = drawer.style.display === 'none' || !drawer.style.display;
+      drawer.style.display = isHidden ? 'block' : 'none';
+      if (btn) btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      if (chevron) chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    };
+
+    window.showAllSearchTools = function () {
+      forceShowAll = true;
+      renderSearchPage();
+      if (resultsSection) {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
 
     function renderSearchPage() {
       const query = input.value.trim();
@@ -633,6 +460,15 @@
 
       if (clearBtn) {
         clearBtn.style.display = query ? 'inline-flex' : 'none';
+      }
+
+      const hasActiveSearch = Boolean(query) || currentPricingFilter !== 'all' || forceShowAll;
+
+      if (suggestionsSection) {
+        suggestionsSection.style.display = hasActiveSearch ? 'none' : 'block';
+      }
+      if (resultsSection) {
+        resultsSection.style.display = hasActiveSearch ? 'block' : 'none';
       }
 
       // Update URL query param without full page reload
@@ -645,8 +481,12 @@
         }
       } catch (e) {}
 
+      if (!hasActiveSearch) {
+        return;
+      }
+
       getSearchIndex(() => {
-        const { categories, tools, total } = performSearch(query);
+        const { categories, tools } = performSearch(query);
 
         // Filter tools by pricing
         const filteredTools = tools.filter(tool => {
@@ -697,6 +537,8 @@
         if (counterEl) {
           if (query) {
             counterEl.innerHTML = `Showing <strong>${filteredTools.length}</strong> ${filteredTools.length === 1 ? 'tool' : 'tools'} matching &ldquo;<strong>${escapeHtml(query)}</strong>&rdquo; ${categories.length > 0 ? `across ${categories.length} category ${categories.length === 1 ? 'hub' : 'hubs'}` : ''}`;
+          } else if (currentPricingFilter !== 'all') {
+            counterEl.innerHTML = `Showing <strong>${filteredTools.length}</strong> <strong>${escapeHtml(currentPricingFilter)}</strong> tools`;
           } else {
             counterEl.innerHTML = `Showing all <strong>${filteredTools.length}</strong> tools`;
           }
@@ -710,7 +552,7 @@
               <h3 class="search-empty-title">No tools found</h3>
               <p class="search-empty-desc">We couldn't find any tools matching &ldquo;<strong>${escapeHtml(query)}</strong>&rdquo; with the selected filters.</p>
               <div class="search-empty-actions">
-                <button type="button" class="btn btn-primary" onclick="window.clearSearchPageQuery()">Clear Search &amp; Filters</button>
+                <button type="button" class="btn btn-primary" onclick="window.clearSearchPageQuery()">Back to Common Topics</button>
                 <a href="/archive" class="btn btn-secondary">Browse Master Archive &rarr;</a>
               </div>
               <div style="margin-top:2rem; font-size:0.9rem; color:var(--text-muted);">
@@ -774,6 +616,7 @@
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
         input.value = '';
+        forceShowAll = false;
         renderSearchPage();
         input.focus();
       });
@@ -791,6 +634,7 @@
     window.clearSearchPageQuery = function () {
       input.value = '';
       currentPricingFilter = 'all';
+      forceShowAll = false;
       filterPills.forEach(p => p.classList.toggle('active', p.getAttribute('data-filter') === 'all'));
       renderSearchPage();
       input.focus();
@@ -800,7 +644,6 @@
       input.value = q;
       renderSearchPage();
       input.focus();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     // Initialize with ?q= query param
@@ -836,7 +679,7 @@
   function init() {
     checkArchiveRedirect();
     initHeroAutocomplete();
-    initGlobalSearchModal();
+    initGlobalSearchShortcut();
     initSearchPage();
   }
 

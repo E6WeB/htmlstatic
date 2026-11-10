@@ -1454,106 +1454,161 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
 console.log('🔍 Generating Dedicated Search Page (search/index.html)...');
 
 const searchPageContent = `
-  <section class="search-page-header">
-    <div class="container">
-      <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.9rem; background:var(--accent-light); color:var(--accent); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.85rem; font-weight:600; margin-bottom:1.25rem;">
-        ${ICONS.search} Instant Toolkit Finder
+  <section class="gs-search-hero">
+    <div class="gs-search-inner">
+      <!-- Google-Support Style Emblem (Multi-Color Ring + Sparkle + Question Mark) -->
+      <div class="gs-emblem" aria-hidden="true">
+        <svg width="52" height="52" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 6C14.0589 6 6 14.0589 6 24" stroke="#EA4335" stroke-width="4" stroke-linecap="round"/>
+          <path d="M6 24C6 30.5 9.4 36.2 14.6 39.4" stroke="#FBBC04" stroke-width="4" stroke-linecap="round"/>
+          <path d="M14.6 39.4C17.3 41.1 20.5 42 24 42" stroke="#34A853" stroke-width="4" stroke-linecap="round"/>
+          <path d="M24 42C32.5 42 39.6 36.1 41.5 28.2" stroke="#4285F4" stroke-width="4" stroke-linecap="round"/>
+          <path d="M38 5L39.9 10.6L45.5 12.5L39.9 14.4L38 20L36.1 14.4L30.5 12.5L36.1 10.6L38 5Z" fill="#4285F4"/>
+          <path d="M20.2 20.2C20.2 18.1 21.9 16.5 24.2 16.5C26.4 16.5 28 18 28 20C28 21.6 27 22.6 25.6 23.4C24.5 24.1 24 25 24 26.5" stroke="#4285F4" stroke-width="3.2" stroke-linecap="round"/>
+          <circle cx="24" cy="31.5" r="2.1" fill="#4285F4"/>
+        </svg>
       </div>
-      <h1 class="search-page-title">
-        Search <span style="background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">StaticStack Tools &amp; APIs</span>
-      </h1>
-      <p class="search-page-subtitle">
-        Instantly search ${uniqueToolsCount}+ curated static web tools, serverless APIs, form endpoints, and frontend services.
-      </p>
 
-      <!-- Search Input & Controls -->
-      <div class="search-page-controls-box">
-        <div class="search-box-pill" style="box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);">
-          <span class="search-icon">${ICONS.search}</span>
-          <input type="text" id="search-page-input" placeholder="Search by name, feature, category, or tag (e.g. form, auth, astro)..." autocomplete="off" spellcheck="false" autofocus>
-          <button id="search-page-clear" style="background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:4px;" title="Clear search" aria-label="Clear search">
+      <div class="gs-greeting">Hi Builder,</div>
+      <h1 class="gs-headline">How can I help you with your static website?</h1>
+
+      <!-- Spacious Elevated Rounded Search Card -->
+      <div class="gs-search-card" onclick="document.getElementById('search-page-input').focus()">
+        <div class="gs-search-input-row">
+          <input
+            type="text"
+            id="search-page-input"
+            class="gs-search-input"
+            placeholder="Ask StaticStack Search (e.g. contact forms, user login, headless CMS, free hosting)..."
+            autocomplete="off"
+            spellcheck="false"
+            autofocus
+          >
+          <button
+            type="button"
+            id="search-page-clear"
+            class="gs-search-clear"
+            style="display:none;"
+            title="Clear search"
+            aria-label="Clear search"
+            onclick="event.stopPropagation();"
+          >
             ${ICONS.close}
-          </button>
-          <span class="search-kbd">/</span>
-          <button type="button" onclick="document.getElementById('search-page-input').focus()" class="btn btn-primary search-btn">
-            Search
           </button>
         </div>
 
-        <!-- Pricing Filter Chips -->
-        <div class="search-pricing-chips">
-          <button type="button" class="search-pricing-filter active" data-filter="all">All Pricing</button>
-          <button type="button" class="search-pricing-filter" data-filter="free">Free</button>
-          <button type="button" class="search-pricing-filter" data-filter="open-source">Open Source</button>
-          <button type="button" class="search-pricing-filter" data-filter="freemium">Freemium</button>
-          <button type="button" class="search-pricing-filter" data-filter="paid">Paid</button>
+        <div class="gs-search-card-footer" onclick="event.stopPropagation();">
+          <div class="search-pricing-chips gs-pricing-chips">
+            <button type="button" class="search-pricing-filter active" data-filter="all">All (${uniqueToolsCount})</button>
+            <button type="button" class="search-pricing-filter" data-filter="free">Free</button>
+            <button type="button" class="search-pricing-filter" data-filter="open-source">Open Source</button>
+            <button type="button" class="search-pricing-filter" data-filter="freemium">Freemium</button>
+            <button type="button" class="search-pricing-filter" data-filter="paid">Paid</button>
+          </div>
+          <span class="gs-search-hint"> Instant results below</span>
+        </div>
+      </div>
+
+      <!-- Common Needs Pills (Google Support Pyramid Layout) -->
+      <div id="search-suggestions-section" class="gs-common-wrap">
+        <div class="gs-common-title">Common things I can help with:</div>
+
+        <div class="gs-pills-pyramid">
+          <div class="gs-pills-row">
+            <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('contact form')">
+              <span class="gs-pill-ico" style="background:#eff6ff; color:#2563eb;">🛠️</span>
+              <span>Add a contact form to a static site</span>
+            </button>
+            <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('hosting')">
+              <span class="gs-pill-ico" style="background:#dcfce7; color:#15803d;">🚀</span>
+              <span>Host &amp; deploy a static site for free</span>
+            </button>
+          </div>
+
+          <div class="gs-pills-row">
+            <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('authentication')">
+              <span class="gs-pill-ico" style="background:#f3e8ff; color:#7e22ce;">⚙️</span>
+              <span>Add user login &amp; authentication</span>
+            </button>
+            <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('cms')">
+              <span class="gs-pill-ico" style="background:#fef3c7; color:#b45309;">📝</span>
+              <span>Manage content with a Headless CMS</span>
+            </button>
+          </div>
+
+          <div class="gs-pills-row">
+            <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('comments')">
+              <span class="gs-pill-ico" style="background:#e0e7ff; color:#4338ca;">💬</span>
+              <span>Add comments, community, or live chat</span>
+            </button>
+            <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('payments')">
+              <span class="gs-pill-ico" style="background:#fce7f3; color:#be185d;">💳</span>
+              <span>Accept payments &amp; e-commerce</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" id="gs-explore-toggle" class="gs-explore-btn" onclick="window.toggleSearchTopics()" aria-expanded="false">
+          <svg id="gs-explore-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s ease;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span>Explore other topics</span>
+        </button>
+
+        <div id="gs-topics-drawer" class="gs-topics-drawer" style="display:none;">
+          <div class="gs-topics-grid">
+            ${categories.map(cat => `
+              <button type="button" class="gs-topic-chip" onclick="window.setSearchPageQuery('${escapeHtml(cat.title)}')">
+                <span>${escapeHtml(cat.title)}</span>
+                <span class="gs-topic-count">${cat.tools.length}</span>
+              </button>
+            `).join('')}
+          </div>
+          <div style="margin-top:1.25rem; display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.showAllSearchTools()">
+              Show all ${uniqueToolsCount} tools below &darr;
+            </button>
+            <a href="/archive" class="btn btn-secondary btn-sm">
+              Open Master Archive &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="container" style="max-width:1160px; margin:0 auto; padding-bottom:4rem;">
-    <!-- Category Spotlight Highlight Banner (Populated dynamically when query matches category) -->
+  <!-- Live Results Container Directly Below Search -->
+  <div id="search-results-section" class="container" style="max-width:1120px; margin:0 auto; padding-bottom:4.5rem; display:none;">
+    <!-- Category Spotlight Highlight Banner -->
     <div id="search-cat-spotlight" style="display:none;"></div>
 
     <!-- Search Results Status & Count -->
-    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin:1.5rem 0 1rem; padding-bottom:0.75rem; border-bottom:1px solid var(--border-color);">
+    <div class="gs-results-bar">
       <div id="search-page-counter" style="font-size:0.95rem; color:var(--text-muted);">
-        Showing all <strong>${uniqueToolsCount}</strong> tools
+        Showing matching tools
       </div>
-      <div style="font-size:0.85rem; color:var(--text-subtle);">
-        Prefer directory tables? <a href="/archive" style="color:var(--accent); font-weight:600; text-decoration:none;">Open Master Archive &rarr;</a>
+      <div style="display:flex; align-items:center; gap:1rem; font-size:0.85rem;">
+        <button type="button" onclick="window.clearSearchPageQuery()" style="background:none; border:none; color:var(--accent); font-weight:600; cursor:pointer; padding:0;">
+          &larr; Back to common topics
+        </button>
+        <span style="color:var(--border-color);">|</span>
+        <a href="/archive" style="color:var(--text-subtle); font-weight:500; text-decoration:none;">Master Archive &rarr;</a>
       </div>
     </div>
 
     <!-- Search Results Cards Grid -->
-    <div id="search-page-results" class="search-results-grid">
-      <!-- Pre-rendered Initial Cards for Fast First Paint & SEO -->
-      ${allTools.map(tool => {
-        const badgeClass = (tool.primaryBadge || '').toLowerCase().includes('open source') ? 'badge-open-source' :
-                          (tool.primaryBadge || '').toLowerCase().includes('free') ? 'badge-free' : 'badge-freemium';
-        const iconHtml = getToolSiteIcon(tool, 26);
-        const tagsHtml = (tool.tags && tool.tags.length > 0)
-          ? `<div class="search-card-tags">
-              ${tool.tags.slice(0, 3).map(t => `<span class="search-card-tag" onclick="window.setSearchPageQuery('${escapeHtml(t)}')">#${escapeHtml(t)}</span>`).join('')}
-            </div>`
-          : '';
-        return `
-          <div class="search-tool-card">
-            <div class="search-card-head">
-              <div class="search-card-title-group">
-                <div class="search-card-icon-box">${iconHtml}</div>
-                <div>
-                  <h3 class="search-card-name"><a href="/tools/${tool.categorySlug}/${tool.slug}">${escapeHtml(tool.name)}</a></h3>
-                  <a href="/category/${tool.categorySlug}/" class="search-card-cat-link">${escapeHtml(tool.categoryTitle)}</a>
-                </div>
-              </div>
-              <span class="badge ${badgeClass}">${escapeHtml(tool.primaryBadge || 'Free')}</span>
-            </div>
-            <p class="search-card-desc">${escapeHtml(tool.description)}</p>
-            ${tagsHtml}
-            <div class="search-card-actions">
-              <a href="/tools/${tool.categorySlug}/${tool.slug}" class="btn btn-secondary btn-sm search-card-details-btn">
-                Explore Tool &rarr;
-              </a>
-              ${tool.websiteUrl ? `
-                <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost search-card-ext-btn" title="Visit official website">
-                  Website <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>` : ''}
-            </div>
-          </div>`;
-      }).join('')}
-    </div>
+    <div id="search-page-results" class="search-results-grid"></div>
   </div>
 `;
 
 ensureDir(path.join(ROOT_DIR, 'search'));
 const renderedSearchPage = renderLayout({
-  title: 'Search Tools & APIs | StaticStack',
-  description: `Instant search across ${uniqueToolsCount}+ curated static web tools, APIs, form backends, auth providers, and Jamstack services.`,
+  title: 'Search & Help | StaticStack',
+  description: `How can we help with your static website? Search ${uniqueToolsCount}+ curated static web tools, APIs, form backends, auth providers, and Jamstack services.`,
   currentNav: 'search',
   rootPath: '/',
   canonicalUrl: 'https://www.staticstack.app/search',
+  showPreFooter: false,
   content: searchPageContent
 });
 
