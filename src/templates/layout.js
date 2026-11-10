@@ -203,7 +203,7 @@ function createLayoutRenderer({ allTools, categories }) {
   <meta name="twitter:image" content="${pageOgImage}">
 
   <script type="application/ld+json">${jsonLdString}</script>
-  <link rel="stylesheet" href="/asset/css/style.css?v=11">
+  <link rel="stylesheet" href="/asset/css/style.css?v=12">
 
   <!-- iine Open Source Appreciation / Like Button -->
   <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
