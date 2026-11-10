@@ -1706,43 +1706,43 @@ const BASE_CSS = `
   .site-footer {
     background: var(--bg-surface);
     border-top: 1px solid var(--border-color);
-    padding: 4rem 0 2rem;
+    padding: 2.25rem 0 1.25rem;
     margin-top: auto;
   }
 
   .footer-inner {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1.15fr 1.15fr;
-    gap: 2.75rem;
-    margin-bottom: 3rem;
+    gap: 2rem;
+    margin-bottom: 1.75rem;
   }
 
   .footer-desc {
     color: var(--text-muted);
-    font-size: 0.925rem;
-    margin-top: 0.85rem;
-    max-width: 420px;
-    line-height: 1.6;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    max-width: 380px;
+    line-height: 1.5;
   }
 
   .footer-pill-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.775rem;
+    gap: 0.45rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-muted);
     background: var(--bg-muted);
     border: 1px solid var(--border-color);
-    padding: 0.35rem 0.75rem;
+    padding: 0.28rem 0.65rem;
     border-radius: var(--radius-full);
-    margin-top: 1.15rem;
+    margin-top: 0.85rem;
   }
 
   .footer-col h4 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-main);
@@ -1755,7 +1755,7 @@ const BASE_CSS = `
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.42rem;
   }
 
   .footer-links li {
@@ -1767,7 +1767,7 @@ const BASE_CSS = `
 
   .footer-links a {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -1790,10 +1790,10 @@ const BASE_CSS = `
 
   .footer-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 2rem;
+    padding-top: 1.15rem;
     text-align: center;
     color: var(--text-subtle);
-    font-size: 0.85rem;
+    font-size: 0.825rem;
   }
 
   .footer-stat-text {

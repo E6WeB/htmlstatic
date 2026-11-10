@@ -32,7 +32,7 @@
 <meta name="twitter:image" content="https://www.staticstack.app/tools/contact-forms/splitform-cover.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Contact Forms Tools & Services for Static Sites","url":"https://www.staticstack.app/category/contact-forms/","description":"Discover 5 curated Contact Forms tools, services, and APIs for static websites with zero backend servers. Compare features, pricing, and live community stats.","isPartOf":{"@type":"WebSite","name":"StaticStack","url":"https://www.staticstack.app/"},"mainEntity":{"@type":"ItemList","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"name":"Basin","url":"https://www.staticstack.app/tools/contact-forms/basin"},{"@type":"ListItem","position":2,"name":"CraftForms","url":"https://www.staticstack.app/tools/contact-forms/craftforms"},{"@type":"ListItem","position":3,"name":"Formspree","url":"https://www.staticstack.app/tools/contact-forms/formspree"},{"@type":"ListItem","position":4,"name":"Splitform","url":"https://www.staticstack.app/tools/contact-forms/splitform"},{"@type":"ListItem","position":5,"name":"Web3Forms","url":"https://www.staticstack.app/tools/contact-forms/web3forms"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Contact Forms","item":"https://www.staticstack.app/category/contact-forms/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I handle contact form submissions on a static website?","acceptedAnswer":{"@type":"Answer","text":"Static websites do not run backend server code (like PHP or Node.js). Instead, you set your standard HTML &lt;form action=\"...\"&gt; endpoint to a static form backend service (such as Formspree, Splitform, or Formcake), or submit form data via JavaScript fetch() to an API. The service handles notification emails, webhook dispatches, and submission spam filtering."}},{"@type":"Question","name":"Can I collect form submissions without running a database?","acceptedAnswer":{"@type":"Answer","text":"Yes! Static form backends automatically store submissions in a cloud dashboard, send email alerts directly to your inbox, and can pipe submissions to Google Sheets, Slack, Discord, or Notion via webhooks—requiring zero database configuration on your part."}},{"@type":"Question","name":"Are there generous free tiers for static contact forms?","acceptedAnswer":{"@type":"Answer","text":"Most static form providers offer permanent free plans (ranging from 50 to 250 free submissions per month), which is plenty for personal portfolios, agency showcase sites, and small business landing pages."}},{"@type":"Question","name":"How do I stop spam on static forms without annoying CAPTCHAs?","acceptedAnswer":{"@type":"Answer","text":"Modern static form providers support transparent honeypot fields (hidden form inputs that bots fill out but human visitors never see) and AI spam analysis. This blocks bots reliably without forcing human visitors to solve difficult visual puzzles."}}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=13">
+<link rel="stylesheet" href="/asset/css/style.css?v=14">
 
 <!-- iine Open Source Appreciation / Like Button -->
 <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -930,12 +930,12 @@ applyFilter();
 <div class="container">
 <div class="footer-inner">
 <div class="footer-col footer-col-brand">
-<a href="../../" class="brand" style="margin-bottom: 0.75rem;">
+<a href="../../" class="brand" style="margin-bottom: 0.5rem;">
 <span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
 <span>StaticStack</span>
 </a>
 <p class="footer-desc">
-A community-curated collection of tools, services, and resources for building and hosting modern static websites with HTML, CSS, and JavaScript.
+Community-curated tools, APIs, and services for building modern static websites with zero backend bloat.
 </p>
 <div class="footer-pill-badge">
 <span class="status-dot"></span>
@@ -944,40 +944,35 @@ A community-curated collection of tools, services, and resources for building an
 </div>
 
 <div class="footer-col">
-<h4>Navigation</h4>
+<h4>Directory</h4>
 <ul class="footer-links">
-<li><a href="../../">Home</a></li>
+<li><a href="../../search">Search Tools</a></li>
 <li><a href="../../archive">Master Archive</a></li>
+<li><a href="../../community">Community Forum</a></li>
 <li><a href="../../submit">Submit a Tool</a></li>
-<li><a href="../../community">Community</a></li>
 <li><a href="../../contribute">Contributing Guide</a></li>
-<li><a href="../../thankyou">Thank You &amp; Credits</a></li>
-<li><a href="../../contact">Contact</a></li>
 </ul>
 </div>
 
 <div class="footer-col">
-<h4>Popular Categories</h4>
+<h4>Top Categories</h4>
 <ul class="footer-links">
-<li><a href="../../archive#hosting-deployment">Hosting &amp; Deployment</a></li>
-<li><a href="../../archive#contact-forms">Contact Forms</a></li>
-<li><a href="../../archive#css-components">CSS &amp; UI Components</a></li>
-<li><a href="../../archive#content-management">Content Management</a></li>
-<li><a href="../../archive#analytics-privacy">Analytics &amp; Privacy</a></li>
-<li><a href="../../archive#browser-extensions">Browser Extensions</a></li>
+<li><a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a></li>
+<li><a href="../../category/contact-forms/">Contact Forms</a></li>
+<li><a href="../../category/authentication-users/">Authentication</a></li>
+<li><a href="../../category/content-management/">Content Management</a></li>
+<li><a href="../../category/analytics-privacy/">Analytics &amp; Privacy</a></li>
 </ul>
 </div>
 
 <div class="footer-col">
-<h4>Community &amp; Project</h4>
+<h4>Community &amp; Info</h4>
 <ul class="footer-links">
-<li><a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
 <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-<li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
 <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
 <li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-<li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-<li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
+<li><a href="../../thankyou">Thank You &amp; Credits</a></li>
+<li><a href="../../contact">Contact</a></li>
 </ul>
 </div>
 </div>

@@ -203,7 +203,7 @@ function createLayoutRenderer({ allTools, categories }) {
   <meta name="twitter:image" content="${pageOgImage}">
 
   <script type="application/ld+json">${jsonLdString}</script>
-  <link rel="stylesheet" href="/asset/css/style.css?v=13">
+  <link rel="stylesheet" href="/asset/css/style.css?v=14">
 
   <!-- iine Open Source Appreciation / Like Button -->
   <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
@@ -463,12 +463,12 @@ function createLayoutRenderer({ allTools, categories }) {
     <div class="container">
       <div class="footer-inner">
         <div class="footer-col footer-col-brand">
-          <a href="${rootPath || './'}" class="brand" style="margin-bottom: 0.75rem;">
+          <a href="${rootPath || './'}" class="brand" style="margin-bottom: 0.5rem;">
             <span class="brand-icon">${ICONS.logo}</span>
             <span>StaticStack</span>
           </a>
           <p class="footer-desc">
-            A community-curated collection of tools, services, and resources for building and hosting modern static websites with HTML, CSS, and JavaScript.
+            Community-curated tools, APIs, and services for building modern static websites with zero backend bloat.
           </p>
           <div class="footer-pill-badge">
             <span class="status-dot"></span>
@@ -477,40 +477,35 @@ function createLayoutRenderer({ allTools, categories }) {
         </div>
 
         <div class="footer-col">
-          <h4>Navigation</h4>
+          <h4>Directory</h4>
           <ul class="footer-links">
-            <li><a href="${rootPath || './'}">Home</a></li>
+            <li><a href="${rootPath}search">Search Tools</a></li>
             <li><a href="${rootPath}archive">Master Archive</a></li>
+            <li><a href="${rootPath}community">Community Forum</a></li>
             <li><a href="${rootPath}submit">Submit a Tool</a></li>
-            <li><a href="${rootPath}community">Community</a></li>
             <li><a href="${rootPath}contribute">Contributing Guide</a></li>
-            <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
-            <li><a href="${rootPath}contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Popular Categories</h4>
+          <h4>Top Categories</h4>
           <ul class="footer-links">
-            <li><a href="${rootPath}archive#hosting-deployment">Hosting &amp; Deployment</a></li>
-            <li><a href="${rootPath}archive#contact-forms">Contact Forms</a></li>
-            <li><a href="${rootPath}archive#css-components">CSS &amp; UI Components</a></li>
-            <li><a href="${rootPath}archive#content-management">Content Management</a></li>
-            <li><a href="${rootPath}archive#analytics-privacy">Analytics &amp; Privacy</a></li>
-            <li><a href="${rootPath}archive#browser-extensions">Browser Extensions</a></li>
+            <li><a href="${rootPath}category/hosting-deployment/">Hosting &amp; Deployment</a></li>
+            <li><a href="${rootPath}category/contact-forms/">Contact Forms</a></li>
+            <li><a href="${rootPath}category/authentication-users/">Authentication</a></li>
+            <li><a href="${rootPath}category/content-management/">Content Management</a></li>
+            <li><a href="${rootPath}category/analytics-privacy/">Analytics &amp; Privacy</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Community &amp; Project</h4>
+          <h4>Community &amp; Info</h4>
           <ul class="footer-links">
-            <li><a href="https://github.com/E6WeB/htmlstatic/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions ${ICONS.external}</a></li>
             <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository ${ICONS.external}</a></li>
-            <li><a href="https://github.com/E6WeB/htmlstatic/issues" target="_blank" rel="noopener noreferrer">Submit an Issue ${ICONS.external}</a></li>
             <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group ${ICONS.external}</a></li>
             <li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group ${ICONS.external}</a></li>
-            <li><a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">Hosted by Wasmer.io ${ICONS.external}</a></li>
-            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Public Domain</a></li>
+            <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
+            <li><a href="${rootPath}contact">Contact</a></li>
           </ul>
         </div>
       </div>

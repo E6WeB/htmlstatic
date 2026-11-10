@@ -1456,21 +1456,20 @@ console.log('🔍 Generating Dedicated Search Page (search/index.html)...');
 const searchPageContent = `
   <section class="gs-search-hero">
     <div class="gs-search-inner">
-      <!-- Google-Support Style Emblem (Multi-Color Ring + Sparkle + Question Mark) -->
+      <!-- Flat SVG Search & Discovery Emblem -->
       <div class="gs-emblem" aria-hidden="true">
-        <svg width="52" height="52" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 6C14.0589 6 6 14.0589 6 24" stroke="#EA4335" stroke-width="4" stroke-linecap="round"/>
-          <path d="M6 24C6 30.5 9.4 36.2 14.6 39.4" stroke="#FBBC04" stroke-width="4" stroke-linecap="round"/>
-          <path d="M14.6 39.4C17.3 41.1 20.5 42 24 42" stroke="#34A853" stroke-width="4" stroke-linecap="round"/>
-          <path d="M24 42C32.5 42 39.6 36.1 41.5 28.2" stroke="#4285F4" stroke-width="4" stroke-linecap="round"/>
-          <path d="M38 5L39.9 10.6L45.5 12.5L39.9 14.4L38 20L36.1 14.4L30.5 12.5L36.1 10.6L38 5Z" fill="#4285F4"/>
-          <path d="M20.2 20.2C20.2 18.1 21.9 16.5 24.2 16.5C26.4 16.5 28 18 28 20C28 21.6 27 22.6 25.6 23.4C24.5 24.1 24 25 24 26.5" stroke="#4285F4" stroke-width="3.2" stroke-linecap="round"/>
-          <circle cx="24" cy="31.5" r="2.1" fill="#4285F4"/>
-        </svg>
+        <div style="width:56px; height:56px; border-radius:16px; background:var(--accent-light); border:1px solid var(--accent-border); color:var(--accent); display:inline-flex; align-items:center; justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="11" y1="8" x2="11" y2="14"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </div>
       </div>
 
-      <div class="gs-greeting">Hi Builder,</div>
-      <h1 class="gs-headline">How can I help you with your static website?</h1>
+      <div class="gs-greeting">StaticStack Directory</div>
+      <h1 class="gs-headline">What tool do you need for your static website?</h1>
 
       <!-- Spacious Elevated Rounded Search Card -->
       <div class="gs-search-card" onclick="document.getElementById('search-page-input').focus()">
@@ -1479,7 +1478,7 @@ const searchPageContent = `
             type="text"
             id="search-page-input"
             class="gs-search-input"
-            placeholder="Ask StaticStack Search (e.g. contact forms, user login, headless CMS, free hosting)..."
+            placeholder="Search ${uniqueToolsCount}+ tools, APIs, forms, auth, hosting..."
             autocomplete="off"
             spellcheck="false"
             autofocus
@@ -1509,40 +1508,52 @@ const searchPageContent = `
         </div>
       </div>
 
-      <!-- Common Needs Pills (Google Support Pyramid Layout) -->
+      <!-- Common Needs Pills (Google Support Pyramid Layout with Flat SVGs) -->
       <div id="search-suggestions-section" class="gs-common-wrap">
-        <div class="gs-common-title">Common things I can help with:</div>
+        <div class="gs-common-title">Popular features to add to your site:</div>
 
         <div class="gs-pills-pyramid">
           <div class="gs-pills-row">
             <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('contact form')">
-              <span class="gs-pill-ico" style="background:#eff6ff; color:#2563eb;">🛠️</span>
+              <span class="gs-pill-ico" style="background:var(--accent-light); color:var(--accent);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </span>
               <span>Add a contact form to a static site</span>
             </button>
             <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('hosting')">
-              <span class="gs-pill-ico" style="background:#dcfce7; color:#15803d;">🚀</span>
+              <span class="gs-pill-ico" style="background:var(--accent-light); color:var(--accent);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              </span>
               <span>Host &amp; deploy a static site for free</span>
             </button>
           </div>
 
           <div class="gs-pills-row">
             <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('authentication')">
-              <span class="gs-pill-ico" style="background:#f3e8ff; color:#7e22ce;">⚙️</span>
+              <span class="gs-pill-ico" style="background:var(--accent-light); color:var(--accent);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </span>
               <span>Add user login &amp; authentication</span>
             </button>
             <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('cms')">
-              <span class="gs-pill-ico" style="background:#fef3c7; color:#b45309;">📝</span>
+              <span class="gs-pill-ico" style="background:var(--accent-light); color:var(--accent);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <span>Manage content with a Headless CMS</span>
             </button>
           </div>
 
           <div class="gs-pills-row">
             <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('comments')">
-              <span class="gs-pill-ico" style="background:#e0e7ff; color:#4338ca;">💬</span>
+              <span class="gs-pill-ico" style="background:var(--accent-light); color:var(--accent);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </span>
               <span>Add comments, community, or live chat</span>
             </button>
             <button type="button" class="gs-pill" onclick="window.setSearchPageQuery('payments')">
-              <span class="gs-pill-ico" style="background:#fce7f3; color:#be185d;">💳</span>
+              <span class="gs-pill-ico" style="background:var(--accent-light); color:var(--accent);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              </span>
               <span>Accept payments &amp; e-commerce</span>
             </button>
           </div>
@@ -1603,12 +1614,12 @@ const searchPageContent = `
 
 ensureDir(path.join(ROOT_DIR, 'search'));
 const renderedSearchPage = renderLayout({
-  title: 'Search & Help | StaticStack',
-  description: `How can we help with your static website? Search ${uniqueToolsCount}+ curated static web tools, APIs, form backends, auth providers, and Jamstack services.`,
+  title: 'Search Tools & APIs | StaticStack',
+  description: `What tool do you need for your static website? Search ${uniqueToolsCount}+ curated static web tools, APIs, form backends, auth providers, and Jamstack services.`,
   currentNav: 'search',
   rootPath: '/',
   canonicalUrl: 'https://www.staticstack.app/search',
-  showPreFooter: false,
+  showPreFooter: true,
   content: searchPageContent
 });
 
