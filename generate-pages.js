@@ -180,7 +180,7 @@ const homeContent = `
     </p>
 
     <!-- Command Hero Search Hub -->
-    <div style="max-width:780px; margin:0 auto 2.5rem;">
+    <div style="max-width:780px; margin:0 auto 2.5rem; position:relative;">
       <div class="search-box-pill hero-search-box">
         <span class="search-icon">${ICONS.search}</span>
         <input type="text" id="hero-search-input" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
@@ -189,14 +189,15 @@ const homeContent = `
           Search
         </button>
       </div>
+      <div id="hero-search-dropdown" class="search-autocomplete-dropdown" style="display:none;"></div>
       <div id="hero-popular-tags" style="display:flex; align-items:center; justify-content:center; gap:0.9rem; flex-wrap:wrap; margin-top:1.1rem; font-size:0.9rem;">
         <span style="color:var(--accent); font-weight:600;">Popular:</span>
-        <a href="tools/payments-ecommerce/reflow" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Reflow</a>
-        <a href="tools/authentication-users/clerk" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Clerk</a>
-        <a href="tools/search/pagefind" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Pagefind</a>
-        <a href="tools/static-site-generators/astro" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Astro</a>
-        <a href="tools/contact-forms/formspree" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Formspree</a>
-        <a href="tools/database-storage/supabase" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Supabase</a>
+        <a href="/search?q=forms" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Forms</a>
+        <a href="/search?q=auth" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Auth</a>
+        <a href="/search?q=database" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Database</a>
+        <a href="/search?q=cms" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Headless CMS</a>
+        <a href="/search?q=hosting" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Hosting</a>
+        <a href="/search?q=analytics" style="color:var(--text-muted); font-weight:500; text-decoration:none;">Analytics</a>
       </div>
     </div>
 
@@ -468,9 +469,9 @@ const homeContent = `
     function submitHeroSearch() {
       const val = heroSearchInput ? heroSearchInput.value.trim() : '';
       if (val) {
-        window.location.href = 'archive?q=' + encodeURIComponent(val);
+        window.location.href = '/search?q=' + encodeURIComponent(val);
       } else {
-        window.location.href = 'archive';
+        window.location.href = '/search';
       }
     }
 
@@ -486,7 +487,7 @@ const homeContent = `
     }
 
     function quickSearchTag(tag) {
-      window.location.href = 'archive?q=' + encodeURIComponent(tag);
+      window.location.href = '/search?q=' + encodeURIComponent(tag);
     }
 
     document.addEventListener('keydown', e => {
@@ -1081,7 +1082,15 @@ const archiveContent = `
           const searchTxt = (row.getAttribute('data-search') || '') + ' ' + row.textContent.toLowerCase();
 
           const matchFilter = currentFilter === 'all' || badge.includes(currentFilter.replace('-', ' '));
-          const matchSearch = qWords.length === 0 || qWords.every(w => searchTxt.includes(w));
+          // Word-boundary matching so "form" does not match "platform" or "performance"!
+          const rowTokens = searchTxt.split(/[\\s\\-_/]+/);
+          const matchSearch = qWords.length === 0 || qWords.every(w => {
+            return rowTokens.some(t => {
+              if (t === w || t === w + 's' || t === w + 'es') return true;
+              if (t.startsWith(w) && (w.length >= 4 ? !t.startsWith(w + 'at') : true)) return true;
+              return false;
+            });
+          });
 
           if (matchFilter && matchSearch) {
             row.style.display = '';
@@ -1116,7 +1125,7 @@ const archiveContent = `
 
       if (archiveCountEl) {
         if (q) {
-          archiveCountEl.innerHTML = 'Showing ' + count + ' of ${uniqueToolsCount} tools matching &ldquo;<strong>' + q.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>&rdquo; &bull; <a href="javascript:void(0)" onclick="clearArchiveSearch()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all ${uniqueToolsCount} tools</a>';
+          archiveCountEl.innerHTML = 'Showing ' + count + ' of ${uniqueToolsCount} tools matching &ldquo;<strong>' + q.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>&rdquo; &bull; <a href="/search?q=' + encodeURIComponent(q) + '" style="color:var(--accent); font-weight:600; text-decoration:none;">Switch to Card View &rarr;</a> &bull; <a href="javascript:void(0)" onclick="clearArchiveSearch()" style="color:var(--text-muted); text-decoration:underline;">Show all ${uniqueToolsCount} tools</a>';
         } else if (currentFilter !== 'all') {
           archiveCountEl.innerHTML = 'Showing ' + count + ' ' + currentFilter + ' tools &bull; <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="color:var(--accent); font-weight:600; text-decoration:underline;">Show all ${uniqueToolsCount} tools</a>';
         } else {
@@ -1160,21 +1169,20 @@ const archiveContent = `
         applyArchiveFilter();
       });
 
-      // Handle ?q= query param
+      archiveSearchInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const val = archiveSearchInput.value.trim();
+          if (val) {
+            window.location.href = '/search?q=' + encodeURIComponent(val);
+          }
+        }
+      });
+
+      // Handle ?q= query param: seamlessly transfer to dedicated card search!
       const urlParams = new URLSearchParams(window.location.search);
       const queryParam = urlParams.get('q');
       if (queryParam) {
-        archiveSearchInput.value = queryParam;
-        currentSearch = queryParam;
-        applyArchiveFilter();
-
-        // Scroll to the first matching category section smoothly
-        setTimeout(() => {
-          const firstVisible = document.querySelector('.archive-cat-section:not([style*="display: none"])');
-          if (firstVisible) {
-            firstVisible.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
+        window.location.replace('/search?q=' + encodeURIComponent(queryParam));
       }
 
       document.addEventListener('keydown', e => {
@@ -1453,6 +1461,118 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
   },
   content: archiveContent
 }));
+
+// ==========================================================================
+// 2b. Generate search/index.html & search.html (Dedicated Search Page)
+// ==========================================================================
+console.log('🔍 Generating Dedicated Search Page (search/index.html)...');
+
+const searchPageContent = `
+  <section class="search-page-header">
+    <div class="container">
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.9rem; background:var(--accent-light); color:var(--accent); border:1px solid var(--border-color); border-radius:var(--radius-full); font-size:0.85rem; font-weight:600; margin-bottom:1.25rem;">
+        ${ICONS.search} Instant Toolkit Finder
+      </div>
+      <h1 class="search-page-title">
+        Search <span style="background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">StaticStack Tools &amp; APIs</span>
+      </h1>
+      <p class="search-page-subtitle">
+        Instantly search ${uniqueToolsCount}+ curated static web tools, serverless APIs, form endpoints, and frontend services.
+      </p>
+
+      <!-- Search Input & Controls -->
+      <div class="search-page-controls-box">
+        <div class="search-box-pill" style="box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);">
+          <span class="search-icon">${ICONS.search}</span>
+          <input type="text" id="search-page-input" placeholder="Search by name, feature, category, or tag (e.g. form, auth, astro)..." autocomplete="off" spellcheck="false" autofocus>
+          <button id="search-page-clear" style="background:none; border:none; cursor:pointer; color:var(--text-subtle); display:none; align-items:center; justify-content:center; padding:4px;" title="Clear search" aria-label="Clear search">
+            ${ICONS.close}
+          </button>
+          <span class="search-kbd">/</span>
+          <button type="button" onclick="document.getElementById('search-page-input').focus()" class="btn btn-primary search-btn">
+            Search
+          </button>
+        </div>
+
+        <!-- Pricing Filter Chips -->
+        <div class="search-pricing-chips">
+          <button type="button" class="search-pricing-filter active" data-filter="all">All Pricing</button>
+          <button type="button" class="search-pricing-filter" data-filter="free">Free</button>
+          <button type="button" class="search-pricing-filter" data-filter="open-source">Open Source</button>
+          <button type="button" class="search-pricing-filter" data-filter="freemium">Freemium</button>
+          <button type="button" class="search-pricing-filter" data-filter="paid">Paid</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" style="max-width:1160px; margin:0 auto; padding-bottom:4rem;">
+    <!-- Category Spotlight Highlight Banner (Populated dynamically when query matches category) -->
+    <div id="search-cat-spotlight" style="display:none;"></div>
+
+    <!-- Search Results Status & Count -->
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin:1.5rem 0 1rem; padding-bottom:0.75rem; border-bottom:1px solid var(--border-color);">
+      <div id="search-page-counter" style="font-size:0.95rem; color:var(--text-muted);">
+        Showing all <strong>${uniqueToolsCount}</strong> tools
+      </div>
+      <div style="font-size:0.85rem; color:var(--text-subtle);">
+        Prefer directory tables? <a href="/archive" style="color:var(--accent); font-weight:600; text-decoration:none;">Open Master Archive &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Search Results Cards Grid -->
+    <div id="search-page-results" class="search-results-grid">
+      <!-- Pre-rendered Initial Cards for Fast First Paint & SEO -->
+      ${allTools.map(tool => {
+        const badgeClass = (tool.primaryBadge || '').toLowerCase().includes('open source') ? 'badge-open-source' :
+                          (tool.primaryBadge || '').toLowerCase().includes('free') ? 'badge-free' : 'badge-freemium';
+        const iconHtml = getToolSiteIcon(tool, 26);
+        const tagsHtml = (tool.tags && tool.tags.length > 0)
+          ? `<div class="search-card-tags">
+              ${tool.tags.slice(0, 3).map(t => `<span class="search-card-tag" onclick="window.setSearchPageQuery('${escapeHtml(t)}')">#${escapeHtml(t)}</span>`).join('')}
+            </div>`
+          : '';
+        return `
+          <div class="search-tool-card">
+            <div class="search-card-head">
+              <div class="search-card-title-group">
+                <div class="search-card-icon-box">${iconHtml}</div>
+                <div>
+                  <h3 class="search-card-name"><a href="/tools/${tool.categorySlug}/${tool.slug}">${escapeHtml(tool.name)}</a></h3>
+                  <a href="/category/${tool.categorySlug}/" class="search-card-cat-link">${escapeHtml(tool.categoryTitle)}</a>
+                </div>
+              </div>
+              <span class="badge ${badgeClass}">${escapeHtml(tool.primaryBadge || 'Free')}</span>
+            </div>
+            <p class="search-card-desc">${escapeHtml(tool.description)}</p>
+            ${tagsHtml}
+            <div class="search-card-actions">
+              <a href="/tools/${tool.categorySlug}/${tool.slug}" class="btn btn-secondary btn-sm search-card-details-btn">
+                Explore Tool &rarr;
+              </a>
+              ${tool.websiteUrl ? `
+                <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost search-card-ext-btn" title="Visit official website">
+                  Website <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>` : ''}
+            </div>
+          </div>`;
+      }).join('')}
+    </div>
+  </div>
+`;
+
+ensureDir(path.join(ROOT_DIR, 'search'));
+const renderedSearchPage = renderLayout({
+  title: 'Search Tools & APIs | StaticStack',
+  description: `Instant search across ${uniqueToolsCount}+ curated static web tools, APIs, form backends, auth providers, and Jamstack services.`,
+  currentNav: 'search',
+  rootPath: '/',
+  canonicalUrl: 'https://www.staticstack.app/search',
+  content: searchPageContent
+});
+
+fs.writeFileSync(path.join(ROOT_DIR, 'search', 'index.html'), renderedSearchPage);
+fs.writeFileSync(path.join(ROOT_DIR, 'search.html'), renderedSearchPage);
 
 // ==========================================================================
 // 3. Generate submit.html (Tool Submission Page)
@@ -1770,7 +1890,7 @@ const notFoundContent = `
 
     <!-- Quick Search on 404 -->
     <div class="not-found-search">
-      <form action="/archive" method="GET" class="search-box-pill" onsubmit="if(!this.q.value.trim()){return false;}">
+      <form action="/search" method="GET" class="search-box-pill" onsubmit="if(!this.q.value.trim()){return false;}">
         <span class="search-icon">${ICONS.search}</span>
         <input type="text" name="q" id="not-found-search-input" placeholder="Search ${uniqueToolsCount}+ static tools, APIs, forms, auth..." autocomplete="off">
         <span class="search-kbd">/</span>
@@ -1870,6 +1990,7 @@ function escapeXml(str) {
 // 1. Search Engine Sitemap (sitemap.xml)
 const sitemapUrls = [
   { loc: 'https://www.staticstack.app/', priority: '1.0', changefreq: 'daily' },
+  { loc: 'https://www.staticstack.app/search', priority: '0.9', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/submit', priority: '0.8', changefreq: 'monthly' },
   { loc: 'https://www.staticstack.app/community', priority: '0.85', changefreq: 'weekly' },
@@ -1954,19 +2075,29 @@ searchIndex.push({
 categories.forEach(cat => {
   searchIndex.push({
     title: cat.title,
+    slug: cat.slug,
     description: cat.description,
     category: 'Category',
+    toolsCount: cat.tools.length,
     url: `/category/${cat.slug}/`
   });
 });
 
 allTools.forEach(tool => {
+  const localIcon = `/tools/${tool.categorySlug}/${tool.slug}-icon.webp`;
   searchIndex.push({
     title: tool.name,
+    slug: tool.slug,
     description: tool.description,
+    tagline: tool.tagline || tool.description,
     category: tool.categoryTitle,
+    categorySlug: tool.categorySlug,
     tags: tool.tags || [],
-    url: `/tools/${tool.categorySlug}/${tool.slug}`
+    badges: tool.badges || [tool.primaryBadge],
+    primaryBadge: tool.primaryBadge,
+    url: `/tools/${tool.categorySlug}/${tool.slug}`,
+    icon: localIcon,
+    websiteUrl: tool.websiteUrl
   });
 });
 

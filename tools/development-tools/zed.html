@@ -56,6 +56,12 @@
 </a>
 </li>
 <li>
+<button type="button" class="rail-item " onclick="openGlobalSearch()" aria-label="Search Tools (/ or Cmd+K)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+<span class="rail-tooltip">Search (/)</span>
+</button>
+</li>
+<li>
 <a href="../../archive" class="rail-item active" aria-label="Master Archive">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
 <span class="rail-tooltip">Archive (139 Tools)</span>
@@ -108,16 +114,16 @@
 <span class="bottom-nav-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
 <span>Home</span>
 </a>
-<a href="../../archive" class="bottom-nav-item active">
-<span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>
-<span>Archive</span>
-</a>
+<button type="button" class="bottom-nav-item " onclick="openGlobalSearch()" aria-label="Search Tools">
+<span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<span>Search</span>
+</button>
 <a href="../../submit" class="bottom-nav-fab" aria-label="Submit a Tool">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
 </a>
-<a href="../../community" class="bottom-nav-item ">
-<span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-<span>Community</span>
+<a href="../../archive" class="bottom-nav-item active">
+<span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>
+<span>Archive</span>
 </a>
 <button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu">
 <span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle></svg></span>
@@ -135,10 +141,18 @@
 <span class="brand-badge">.app</span>
 </a>
 
+<!-- Quick Search Button -->
+<button type="button" class="header-search-btn" onclick="openGlobalSearch()" aria-label="Quick Search Tools">
+<span class="header-search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<span class="header-search-label">Search...</span>
+<kbd class="header-search-kbd">/</kbd>
+</button>
+
 <!-- Desktop Clean Nav Menu -->
 <nav class="nav-drawer" aria-label="Main Navigation">
 <ul id="nav-links" class="nav-links">
 <li><a href="../../" class="nav-link ">Home</a></li>
+<li><a href="../../search" class="nav-link ">Search</a></li>
 <li><a href="../../archive" class="nav-link active">Archive</a></li>
 <li><a href="../../submit" class="nav-link ">Submit</a></li>
 <li><a href="../../community" class="nav-link ">Community</a></li>
@@ -175,6 +189,15 @@
 <span>Home</span>
 </span>
 <span class="mobile-nav-badge">Explore</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../search" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<span>Search Tools</span>
+</span>
+<span class="mobile-nav-badge">Instant</span>
 </a>
 </li>
 <li class="mobile-nav-item">
@@ -372,7 +395,7 @@ style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:blo
 <div class="tool-tags-section">
 <span class="tool-tags-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Tags</span>
 <div class="tool-tags-list">
-<a href="../../archive?q=zed-editor" class="tool-tag-pill" title="Filter tools tagged #zed-editor">#zed-editor</a><a href="../../archive?q=rust-code-editor" class="tool-tag-pill" title="Filter tools tagged #rust-code-editor">#rust-code-editor</a><a href="../../archive?q=gpu-accelerated-ide" class="tool-tag-pill" title="Filter tools tagged #gpu-accelerated-ide">#gpu-accelerated-ide</a><a href="../../archive?q=multiplayer-coding" class="tool-tag-pill" title="Filter tools tagged #multiplayer-coding">#multiplayer-coding</a><a href="../../archive?q=ultra-fast-editor" class="tool-tag-pill" title="Filter tools tagged #ultra-fast-editor">#ultra-fast-editor</a><a href="../../archive?q=ai-inline-assist" class="tool-tag-pill" title="Filter tools tagged #ai-inline-assist">#ai-inline-assist</a><a href="../../archive?q=ai-coding-agent" class="tool-tag-pill" title="Filter tools tagged #ai-coding-agent">#ai-coding-agent</a><a href="../../archive?q=vibe-coding" class="tool-tag-pill" title="Filter tools tagged #vibe-coding">#vibe-coding</a><a href="../../archive?q=code-editor" class="tool-tag-pill" title="Filter tools tagged #code-editor">#code-editor</a><a href="../../archive?q=web-performance" class="tool-tag-pill" title="Filter tools tagged #web-performance">#web-performance</a>
+<a href="/search?q=zed-editor" class="tool-tag-pill" title="Search tools tagged #zed-editor">#zed-editor</a><a href="/search?q=rust-code-editor" class="tool-tag-pill" title="Search tools tagged #rust-code-editor">#rust-code-editor</a><a href="/search?q=gpu-accelerated-ide" class="tool-tag-pill" title="Search tools tagged #gpu-accelerated-ide">#gpu-accelerated-ide</a><a href="/search?q=multiplayer-coding" class="tool-tag-pill" title="Search tools tagged #multiplayer-coding">#multiplayer-coding</a><a href="/search?q=ultra-fast-editor" class="tool-tag-pill" title="Search tools tagged #ultra-fast-editor">#ultra-fast-editor</a><a href="/search?q=ai-inline-assist" class="tool-tag-pill" title="Search tools tagged #ai-inline-assist">#ai-inline-assist</a><a href="/search?q=ai-coding-agent" class="tool-tag-pill" title="Search tools tagged #ai-coding-agent">#ai-coding-agent</a><a href="/search?q=vibe-coding" class="tool-tag-pill" title="Search tools tagged #vibe-coding">#vibe-coding</a><a href="/search?q=code-editor" class="tool-tag-pill" title="Search tools tagged #code-editor">#code-editor</a><a href="/search?q=web-performance" class="tool-tag-pill" title="Search tools tagged #web-performance">#web-performance</a>
 </div>
 </div>
 
@@ -987,5 +1010,29 @@ closeMobileNav();
 }
 });
 </script>
+
+<!-- Global Command-K / Instant Search Modal -->
+<div id="global-search-modal" class="search-modal-backdrop" style="display:none;" role="dialog" aria-modal="true" aria-label="Global Tool Search">
+<div class="search-modal-box" onclick="event.stopPropagation()">
+<div class="search-modal-header">
+<span class="search-modal-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<input type="text" id="global-search-input" placeholder="Search 139+ tools, categories, tags (e.g. form, auth, astro)..." autocomplete="off" spellcheck="false">
+<button type="button" id="global-search-clear" class="search-modal-clear" aria-label="Clear search" style="display:none;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+<kbd class="search-modal-esc" onclick="closeGlobalSearch()">ESC</kbd>
+</div>
+<div id="global-search-results" class="search-modal-body"></div>
+<div class="search-modal-footer">
+<div class="search-modal-hints">
+<span><kbd>&uarr;</kbd><kbd>&darr;</kbd> Navigate</span>
+<span><kbd>&crarr;</kbd> Select</span>
+<span><kbd>ESC</kbd> Close</span>
+</div>
+<a href="../../search" id="global-search-view-all" class="search-modal-all-link">View all results &rarr;</a>
+</div>
+</div>
+</div>
+
+<!-- High-Performance Instant Client-Side Search Engine -->
+<script defer src="../../asset/js/search.js?v=2"></script>
 </body>
 </html>

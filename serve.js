@@ -337,11 +337,14 @@ function prewarmHotFiles() {
   const hotRoutes = [
     ['/', 'index.html'],
     ['/index.html', 'index.html'],
+    ['/search', path.join('search', 'index.html')],
     ['/archive', path.join('archive', 'index.html')],
     ['/submit', path.join('submit', 'index.html')],
     ['/contact', path.join('contact', 'index.html')],
     ['/community/', path.join('community', 'index.html')],
     ['/asset/css/style.css', path.join('asset', 'css', 'style.css')],
+    ['/asset/js/search.js', path.join('asset', 'js', 'search.js')],
+    ['/asset/json/search-data.json', path.join('asset', 'json', 'search-data.json')],
     ['/site.webmanifest', 'site.webmanifest'],
     ['/apple-touch-icon.png', 'apple-touch-icon.png']
   ];

@@ -116,7 +116,7 @@ function renderToolPage({
   if (tool.tags && tool.tags.length > 0) {
     const pills = tool.tags.map(t => {
       const cleanTag = escapeHtml(t);
-      return `<a href="../../archive?q=${encodeURIComponent(t)}" class="tool-tag-pill" title="Filter tools tagged #${cleanTag}">#${cleanTag}</a>`;
+      return `<a href="/search?q=${encodeURIComponent(t)}" class="tool-tag-pill" title="Search tools tagged #${cleanTag}">#${cleanTag}</a>`;
     }).join('');
 
     toolTagsHtml = `

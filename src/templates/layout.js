@@ -143,7 +143,7 @@ function createLayoutRenderer({ allTools, categories }) {
       description: cleanDescription,
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://www.staticstack.app/archive?q={search_term_string}',
+        target: 'https://www.staticstack.app/search?q={search_term_string}',
         'query-input': 'required name=search_term_string'
       }
     } : {
@@ -227,6 +227,12 @@ function createLayoutRenderer({ allTools, categories }) {
             </a>
           </li>
           <li>
+            <button type="button" class="rail-item ${currentNav === 'search' ? 'active' : ''}" onclick="openGlobalSearch()" aria-label="Search Tools (/ or Cmd+K)">
+              ${ICONS.search}
+              <span class="rail-tooltip">Search (/)</span>
+            </button>
+          </li>
+          <li>
             <a href="${rootPath}archive" class="rail-item ${currentNav === 'archive' ? 'active' : ''}" aria-label="Master Archive">
               ${ICONS.compass}
               <span class="rail-tooltip">Archive (${allTools.length} Tools)</span>
@@ -279,16 +285,16 @@ function createLayoutRenderer({ allTools, categories }) {
         <span class="bottom-nav-icon">${ICONS.home}</span>
         <span>Home</span>
       </a>
-      <a href="${rootPath}archive" class="bottom-nav-item ${currentNav === 'archive' ? 'active' : ''}">
-        <span class="bottom-nav-icon">${ICONS.compass}</span>
-        <span>Archive</span>
-      </a>
+      <button type="button" class="bottom-nav-item ${currentNav === 'search' ? 'active' : ''}" onclick="openGlobalSearch()" aria-label="Search Tools">
+        <span class="bottom-nav-icon">${ICONS.search}</span>
+        <span>Search</span>
+      </button>
       <a href="${rootPath}submit" class="bottom-nav-fab" aria-label="Submit a Tool">
         ${ICONS.plus}
       </a>
-      <a href="${rootPath}community" class="bottom-nav-item ${currentNav === 'community' ? 'active' : ''}">
-        <span class="bottom-nav-icon">${ICONS.users}</span>
-        <span>Community</span>
+      <a href="${rootPath}archive" class="bottom-nav-item ${currentNav === 'archive' ? 'active' : ''}">
+        <span class="bottom-nav-icon">${ICONS.compass}</span>
+        <span>Archive</span>
       </a>
       <button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu">
         <span class="bottom-nav-icon">${ICONS.moreHorizontal}</span>
@@ -306,10 +312,18 @@ function createLayoutRenderer({ allTools, categories }) {
         <span class="brand-badge">.app</span>
       </a>
 
+      <!-- Quick Search Button -->
+      <button type="button" class="header-search-btn" onclick="openGlobalSearch()" aria-label="Quick Search Tools">
+        <span class="header-search-icon">${ICONS.search}</span>
+        <span class="header-search-label">Search...</span>
+        <kbd class="header-search-kbd">/</kbd>
+      </button>
+
       <!-- Desktop Clean Nav Menu -->
       <nav class="nav-drawer" aria-label="Main Navigation">
         <ul id="nav-links" class="nav-links">
           <li><a href="${rootPath || './'}" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
+          <li><a href="${rootPath}search" class="nav-link ${currentNav === 'search' ? 'active' : ''}">Search</a></li>
           <li><a href="${rootPath}archive" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
           <li><a href="${rootPath}submit" class="nav-link ${currentNav === 'submit' ? 'active' : ''}">Submit</a></li>
           <li><a href="${rootPath}community" class="nav-link ${currentNav === 'community' ? 'active' : ''}">Community</a></li>
@@ -346,6 +360,15 @@ function createLayoutRenderer({ allTools, categories }) {
               <span>Home</span>
             </span>
             <span class="mobile-nav-badge">${currentNav === 'home' ? 'Current' : 'Explore'}</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="${rootPath}search" class="${currentNav === 'search' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.search}</span>
+              <span>Search Tools</span>
+            </span>
+            <span class="mobile-nav-badge">Instant</span>
           </a>
         </li>
         <li class="mobile-nav-item">
@@ -636,6 +659,30 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
       }
     });
   </script>
+
+  <!-- Global Command-K / Instant Search Modal -->
+  <div id="global-search-modal" class="search-modal-backdrop" style="display:none;" role="dialog" aria-modal="true" aria-label="Global Tool Search">
+    <div class="search-modal-box" onclick="event.stopPropagation()">
+      <div class="search-modal-header">
+        <span class="search-modal-icon">${ICONS.search}</span>
+        <input type="text" id="global-search-input" placeholder="Search ${allTools.length}+ tools, categories, tags (e.g. form, auth, astro)..." autocomplete="off" spellcheck="false">
+        <button type="button" id="global-search-clear" class="search-modal-clear" aria-label="Clear search" style="display:none;">${ICONS.close}</button>
+        <kbd class="search-modal-esc" onclick="closeGlobalSearch()">ESC</kbd>
+      </div>
+      <div id="global-search-results" class="search-modal-body"></div>
+      <div class="search-modal-footer">
+        <div class="search-modal-hints">
+          <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> Navigate</span>
+          <span><kbd>&crarr;</kbd> Select</span>
+          <span><kbd>ESC</kbd> Close</span>
+        </div>
+        <a href="${rootPath}search" id="global-search-view-all" class="search-modal-all-link">View all results &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- High-Performance Instant Client-Side Search Engine -->
+  <script defer src="${rootPath}asset/js/search.js?v=2"></script>
 </body>
 </html>
 `;
