@@ -201,21 +201,6 @@ const homeContent = `
       </div>
     </div>
 
-    <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:3.5rem;">
-      <a href="archive" class="btn btn-primary">
-        Browse Master Archive ${ICONS.arrowRight}
-      </a>
-      <a href="#categories" class="btn btn-secondary">
-        Browse ${categories.length} Categories
-      </a>
-      <a href="community/" class="btn btn-secondary">
-        ${ICONS.comments} Community Forum
-      </a>
-      <a href="submit" class="btn btn-secondary">
-        Submit a Tool
-      </a>
-    </div>
-
     <div class="hero-stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1.25rem; max-width:1040px; margin:0 auto; padding:1.75rem 2rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); text-align:center;">
       <div>
         <div style="font-size:2rem; font-weight:800; color:var(--accent); margin-bottom:0.25rem;">${categories.length}</div>
@@ -755,6 +740,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
   description: `Curated directory of ${uniqueToolsCount}+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.`,
   currentNav: 'home',
   ogImage: 'https://www.staticstack.app/asset/img/og-home.webp',
+  showPreFooter: false,
   content: homeContent
 }));
 

@@ -245,18 +245,6 @@ function createLayoutRenderer({ allTools, categories }) {
             </a>
           </li>
           <li>
-            <a href="${rootPath}contribute" class="rail-item ${currentNav === 'contribute' ? 'active' : ''}" aria-label="Contributing Guide">
-              ${ICONS.gitPullRequest}
-              <span class="rail-tooltip">Contributing</span>
-            </a>
-          </li>
-          <li>
-            <a href="${rootPath}contact" class="rail-item ${currentNav === 'contact' ? 'active' : ''}" aria-label="Contact & Connect">
-              ${ICONS.comments}
-              <span class="rail-tooltip">Contact</span>
-            </a>
-          </li>
-          <li>
             <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="rail-item" aria-label="GitHub Repository">
               ${ICONS.github}
               <span class="rail-tooltip">Star on GitHub</span>
@@ -274,10 +262,6 @@ function createLayoutRenderer({ allTools, categories }) {
       <a href="${rootPath}submit" class="rail-action-btn ${currentNav === 'submit' ? 'active' : ''}" aria-label="Submit a Tool">
         ${ICONS.plus}
         <span class="rail-tooltip">Submit a Tool</span>
-      </a>
-      <a href="${rootPath}thankyou" class="rail-item ${currentNav === 'thankyou' ? 'active' : ''}" aria-label="Credits & Thanks">
-        ${ICONS.heart}
-        <span class="rail-tooltip">Credits & Thanks</span>
       </a>
     </div>
   </aside>
