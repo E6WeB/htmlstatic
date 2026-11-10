@@ -205,8 +205,8 @@ function createLayoutRenderer({ allTools, categories }) {
   <script type="application/ld+json">${jsonLdString}</script>
   <link rel="stylesheet" href="/asset/css/style.css?v=14">
 
-  <!-- iine Open Source Appreciation / Like Button -->
-  <script defer src="https://cdn.jsdelivr.net/gh/welpo/iine@main/iine.mini.js"></script>
+  <!-- Local StaticStack Appreciation / Like Button -->
+  <script defer src="/asset/js/likes.js?v=1"></script>
 </head>
 <body>
 

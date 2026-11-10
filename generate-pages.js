@@ -102,13 +102,26 @@ try {
   }
 } catch (e) {}
 
+// Load current like counts from tool-likes-cache.json
+let cachedLikesMap = {};
+const toolLikesJsonPath = path.join(ASSET_DIR, 'json', 'tool-likes-cache.json');
+try {
+  if (fs.existsSync(toolLikesJsonPath)) {
+    cachedLikesMap = JSON.parse(fs.readFileSync(toolLikesJsonPath, 'utf8'));
+  }
+} catch (e) {}
+const initialTotalLikes = Object.values(cachedLikesMap).reduce((sum, v) => sum + (Number(v) || 0), 0);
+
 const topToolsList = allTools.map(tool => {
   const key = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
+  const slugPath = `/tools/${tool.categorySlug}/${tool.slug}`;
   const views = Number(cachedViewsMap[key]) || 0;
+  const likes = Number(cachedLikesMap[slugPath]) || 0;
   return {
     ...tool,
     key,
-    views
+    views,
+    likes
   };
 }).sort((a, b) => b.views - a.views).slice(0, 4);
 
@@ -157,7 +170,7 @@ const homeTopToolsHtml = topToolsList.map(t => {
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
               </svg>
-              <span class="home-top-tool-likes-val" data-likes-slug="${toolSlugPath}">0</span> likes
+              <span class="home-top-tool-likes-val" data-likes-slug="${toolSlugPath}">${t.likes}</span> likes
             </span>
           </div>
           <span class="home-top-tool-arrow">${ICONS.arrowRight}</span>
@@ -213,7 +226,7 @@ const homeContent = `
       <div title="Total community thumbs-up appreciations across all tools on StaticStack">
         <div style="font-size:2rem; font-weight:800; color:var(--accent); margin-bottom:0.25rem; display:inline-flex; align-items:center; justify-content:center; gap:0.4rem;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--accent); vertical-align:middle;"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-          <span id="hero-total-likes">0</span>
+          <span id="hero-total-likes">${initialTotalLikes}</span>
         </div>
         <div style="font-size:0.85rem; color:var(--text-muted); font-weight:500;">Community Likes</div>
       </div>
@@ -482,7 +495,7 @@ const homeContent = `
       }
     });
 
-    // Fetch and aggregate live iine thumbs-up count across all tools
+    // Fetch and aggregate live local thumbs-up count across all tools
     (function initHeroTotalLikes() {
       const counterEl = document.getElementById('hero-total-likes');
       if (!counterEl) return;
@@ -512,10 +525,7 @@ const homeContent = `
         requestAnimationFrame(step);
       }
 
-      const SUPABASE_URL = 'https://vhiweeypifbwacashxjz.supabase.co';
-      const SUPABASE_KEY = 'sb_publishable_EoB7MFJhCmb6PiAk-GPJ4w_PGhQ44Ru';
       const toolMeta = ${JSON.stringify(allTools.map(t => ({ s: `/tools/${t.categorySlug}/${t.slug}`, n: t.name })))};
-      const slugs = toolMeta.map(t => t.s);
       const defaultPopularNames = ['Reflow', 'Clerk', 'Pagefind', 'Astro', 'Formspree', 'Supabase'];
 
       // Escape helper for client-side rendering
@@ -575,26 +585,21 @@ const homeContent = `
         }
       } catch (e) {}
 
-      const batches = [];
-      for (let i = 0; i < slugs.length; i += 20) {
-        batches.push(slugs.slice(i, i + 20));
+      const likeEndpoints = ['/api/tool-likes', '/community/api?action=tool-likes', '/asset/json/tool-likes-cache.json'];
+      function tryFetchLikes(idx) {
+        if (idx >= likeEndpoints.length) return Promise.reject(new Error('All like endpoints failed'));
+        return fetch(likeEndpoints[idx])
+          .then(r => {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+          })
+          .catch(() => tryFetchLikes(idx + 1));
       }
 
-      Promise.all(batches.map(batch =>
-        fetch(SUPABASE_URL + '/rest/v1/rpc/get_hits', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPABASE_KEY,
-            'Authorization': 'Bearer ' + SUPABASE_KEY
-          },
-          body: JSON.stringify({ page_slugs: batch })
-        }).then(r => r.ok ? r.json() : {})
-      ))
-      .then(results => {
-        let total = 0;
-        window.__staticstack_tool_likes = window.__staticstack_tool_likes || {};
-        results.forEach(res => {
+      tryFetchLikes(0)
+        .then(res => {
+          let total = 0;
+          window.__staticstack_tool_likes = window.__staticstack_tool_likes || {};
           if (res && typeof res === 'object') {
             for (const k in res) {
               const count = Number(res[k]) || 0;
@@ -606,17 +611,16 @@ const homeContent = `
               }
             }
           }
+          animateCounter(counterEl, total);
+          sessionStorage.setItem('staticstack_total_likes', total);
+          try {
+            sessionStorage.setItem('staticstack_tool_likes_map', JSON.stringify(window.__staticstack_tool_likes));
+          } catch (e) {}
+          renderPopularTags(window.__staticstack_tool_likes);
+        })
+        .catch(err => {
+          console.warn('Could not refresh live total likes:', err);
         });
-        animateCounter(counterEl, total);
-        sessionStorage.setItem('staticstack_total_likes', total);
-        try {
-          sessionStorage.setItem('staticstack_tool_likes_map', JSON.stringify(window.__staticstack_tool_likes));
-        } catch (e) {}
-        renderPopularTags(window.__staticstack_tool_likes);
-      })
-      .catch(err => {
-        console.warn('Could not refresh live total likes:', err);
-      });
 
       // Fetch and render Top Viewed Tools dynamically
       function refreshHomeTopTools() {
@@ -1495,17 +1499,6 @@ const searchPageContent = `
             ${ICONS.close}
           </button>
         </div>
-
-        <div class="gs-search-card-footer" onclick="event.stopPropagation();">
-          <div class="search-pricing-chips gs-pricing-chips">
-            <button type="button" class="search-pricing-filter active" data-filter="all">All (${uniqueToolsCount})</button>
-            <button type="button" class="search-pricing-filter" data-filter="free">Free</button>
-            <button type="button" class="search-pricing-filter" data-filter="open-source">Open Source</button>
-            <button type="button" class="search-pricing-filter" data-filter="freemium">Freemium</button>
-            <button type="button" class="search-pricing-filter" data-filter="paid">Paid</button>
-          </div>
-          <span class="gs-search-hint"> Instant results below</span>
-        </div>
       </div>
 
       <!-- Common Needs Pills (Google Support Pyramid Layout with Flat SVGs) -->
@@ -1997,7 +1990,8 @@ allTools.forEach(tool => {
     renderLayout,
     getRandomTools,
     getToolSiteIcon,
-    cachedViewsMap
+    cachedViewsMap,
+    cachedLikesMap
   });
 
   const toolCatDir = path.join(ROOT_DIR, 'tools', tool.categorySlug);

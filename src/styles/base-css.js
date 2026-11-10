@@ -3624,53 +3624,6 @@ const BASE_CSS = `
     color: var(--text-main);
   }
 
-  .gs-search-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-    padding-top: 0.65rem;
-    border-top: 1px solid var(--bg-muted);
-  }
-
-  .gs-pricing-chips {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    margin: 0;
-  }
-
-  .search-pricing-filter {
-    padding: 0.28rem 0.75rem;
-    font-size: 0.78rem;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border-color);
-    background: var(--bg-body);
-    color: var(--text-muted);
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.15s ease;
-  }
-
-  .search-pricing-filter:hover {
-    border-color: var(--accent);
-    color: var(--text-main);
-  }
-
-  .search-pricing-filter.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #ffffff;
-    font-weight: 600;
-  }
-
-  .gs-search-hint {
-    font-size: 0.75rem;
-    color: var(--text-subtle);
-  }
-
   /* Common Issues / Needs Section Below Search Card */
   .gs-common-wrap {
     margin-top: 2.25rem;

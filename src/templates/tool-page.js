@@ -27,11 +27,16 @@ function renderToolPage({
   renderLayout,
   getRandomTools,
   getToolSiteIcon,
-  cachedViewsMap
+  cachedViewsMap,
+  cachedLikesMap
 }) {
   const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
   const initialViews = (cachedViewsMap && cachedViewsMap[toolKey] !== undefined)
     ? Number(cachedViewsMap[toolKey])
+    : 0;
+  const toolSlugPath = `/tools/${tool.categorySlug}/${tool.slug}`;
+  const initialLikes = (cachedLikesMap && cachedLikesMap[toolSlugPath] !== undefined)
+    ? Number(cachedLikesMap[toolSlugPath])
     : 0;
   let cleanMd = tool.rawMd || `# ${tool.name}\n\n> ${tool.description}\n\n- **Website**: ${tool.websiteUrl}`;
   // Strip trailing markdown navigation links
@@ -256,7 +261,7 @@ function renderToolPage({
       actions: `
         <button type="button" class="iine-button" data-icon="thumbs_up" data-slug="/tools/${tool.categorySlug}/${tool.slug}" aria-label="Upvote ${escapeHtml(tool.name)}" title="Send appreciation for ${escapeHtml(tool.name)}">
           <span class="icon">${ICONS.thumbsUp}</span>
-          <span class="counter"></span>
+          <span class="counter">${initialLikes}</span>
         </button>
         <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.95rem; padding:0.6rem 1.15rem;">
           Visit ${escapeHtml(tool.name)} ${ICONS.external}

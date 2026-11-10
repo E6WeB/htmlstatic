@@ -6,10 +6,12 @@ const { Pool } = require('pg');
 
 const ROOT_DIR = path.join(__dirname, '..');
 
-// Top Viewed Tools in-memory cache and background updater
+// Top Viewed Tools & Likes in-memory cache and background updater
 const VIEWS_CACHE_FILE = path.join(ROOT_DIR, 'asset', 'json', 'tool-views-cache.json');
+const LIKES_CACHE_FILE = path.join(ROOT_DIR, 'asset', 'json', 'tool-likes-cache.json');
 let topToolsCache = global.__staticstack_top_tools_cache || null;
 let allToolViewsCache = global.__staticstack_all_tool_views || null;
+let allToolLikesCache = global.__staticstack_all_tool_likes || null;
 let topToolsLastFetch = global.__staticstack_top_tools_last_fetch || 0;
 let isRefreshingTopTools = false;
 const TOP_TOOLS_CACHE_TTL = 60 * 60 * 1000; // 1 hour
@@ -23,6 +25,16 @@ if (!allToolViewsCache) {
   } catch {}
 }
 if (!allToolViewsCache) allToolViewsCache = {};
+
+if (!allToolLikesCache) {
+  try {
+    if (fs.existsSync(LIKES_CACHE_FILE)) {
+      allToolLikesCache = JSON.parse(fs.readFileSync(LIKES_CACHE_FILE, 'utf8'));
+      global.__staticstack_all_tool_likes = allToolLikesCache;
+    }
+  } catch {}
+}
+if (!allToolLikesCache) allToolLikesCache = {};
 
 const CATEGORY_ICONS = {
   'ai-content-creation': `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>`,
@@ -75,6 +87,15 @@ function persistViewsCacheAsync() {
   viewsCacheWriteTimer = setTimeout(() => {
     viewsCacheWriteTimer = null;
     fs.promises.writeFile(VIEWS_CACHE_FILE, JSON.stringify(allToolViewsCache, null, 2)).catch(() => {});
+  }, 500);
+}
+
+let likesCacheWriteTimer = null;
+function persistLikesCacheAsync() {
+  if (likesCacheWriteTimer) clearTimeout(likesCacheWriteTimer);
+  likesCacheWriteTimer = setTimeout(() => {
+    likesCacheWriteTimer = null;
+    fs.promises.writeFile(LIKES_CACHE_FILE, JSON.stringify(allToolLikesCache, null, 2)).catch(() => {});
   }, 500);
 }
 
@@ -290,7 +311,7 @@ global.__staticstack_pg_pool = pool;
 
 if (!global.__staticstack_db_initialized) {
   global.__staticstack_db_initialized = true;
-  // Ensure tool_view_ips table and performance indexes exist
+  // Ensure tool_view_ips, tool_likes, and tool_like_ips tables exist
   pool.query(`
     CREATE TABLE IF NOT EXISTS tool_view_ips (
       ip VARCHAR(64) NOT NULL,
@@ -299,6 +320,17 @@ if (!global.__staticstack_db_initialized) {
       PRIMARY KEY (ip, tool_key)
     );
     CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
+    CREATE TABLE IF NOT EXISTS tool_likes (
+      tool_slug VARCHAR(160) PRIMARY KEY,
+      likes INTEGER NOT NULL DEFAULT 0,
+      updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+    );
+    CREATE TABLE IF NOT EXISTS tool_like_ips (
+      ip VARCHAR(64) NOT NULL,
+      tool_slug VARCHAR(160) NOT NULL,
+      liked_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+      PRIMARY KEY (ip, tool_slug)
+    );
     CREATE INDEX IF NOT EXISTS idx_forum_votes_topic_id ON forum_votes (topic_id) WHERE topic_id IS NOT NULL;
     CREATE INDEX IF NOT EXISTS idx_forum_votes_reply_id ON forum_votes (reply_id) WHERE reply_id IS NOT NULL;
     INSERT INTO forum_categories (slug, name, description) VALUES
@@ -309,7 +341,30 @@ if (!global.__staticstack_db_initialized) {
       ('discussion', 'General Discussion', 'Talk about HTML, CSS, JavaScript, and the static web.'),
       ('support', 'StaticStack Support', 'Question and answer only about the StaticStack website.')
     ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, description = EXCLUDED.description;
-  `).catch(() => {});
+  `).then(async () => {
+    try {
+      const dbLikes = await pool.query('SELECT tool_slug, likes FROM tool_likes');
+      for (const row of dbLikes.rows) {
+        const dbVal = Number(row.likes) || 0;
+        const localVal = Number(allToolLikesCache[row.tool_slug]) || 0;
+        if (dbVal > localVal) {
+          allToolLikesCache[row.tool_slug] = dbVal;
+        }
+      }
+      for (const [slug, count] of Object.entries(allToolLikesCache)) {
+        const num = Number(count) || 0;
+        if (num > 0) {
+          await pool.query(
+            `INSERT INTO tool_likes (tool_slug, likes, updated_at)
+             VALUES ($1, $2, NOW())
+             ON CONFLICT (tool_slug) DO UPDATE SET likes = GREATEST(tool_likes.likes, EXCLUDED.likes)`,
+            [slug, num]
+          );
+        }
+      }
+      persistLikesCacheAsync();
+    } catch {}
+  }).catch(() => {});
 
   // Background warm-up once per process
   setTimeout(() => {
@@ -446,6 +501,61 @@ async function recordToolView(req, key, hitRequested = true) {
       cooldown_remaining_seconds: Math.ceil(timeRemaining / 1000)
     };
   }
+}
+
+async function recordToolLike(req, slug, hitRequested = false) {
+  if (!slug || typeof slug !== 'string') return { error: 'Invalid slug' };
+  const cleanSlug = slug.trim().replace(/\.html$/, '');
+  const ip = getClientIp(req);
+
+  let currentCount = allToolLikesCache[cleanSlug] !== undefined ? Number(allToolLikesCache[cleanSlug]) : 0;
+  let alreadyLiked = false;
+
+  try {
+    const ipRes = await pool.query(
+      'SELECT 1 FROM tool_like_ips WHERE ip = $1 AND tool_slug = $2',
+      [ip, cleanSlug]
+    );
+    if (ipRes.rows.length > 0) {
+      alreadyLiked = true;
+    }
+  } catch (e) {}
+
+  if (hitRequested && !alreadyLiked) {
+    currentCount += 1;
+    allToolLikesCache[cleanSlug] = currentCount;
+    persistLikesCacheAsync();
+    alreadyLiked = true;
+
+    try {
+      await pool.query(
+        `INSERT INTO tool_like_ips (ip, tool_slug, liked_at)
+         VALUES ($1, $2, NOW())
+         ON CONFLICT (ip, tool_slug) DO NOTHING`,
+        [ip, cleanSlug]
+      );
+      await pool.query(
+        `INSERT INTO tool_likes (tool_slug, likes, updated_at)
+         VALUES ($1, $2, NOW())
+         ON CONFLICT (tool_slug) DO UPDATE SET likes = $2, updated_at = NOW()`,
+        [cleanSlug, currentCount]
+      );
+    } catch (e) {}
+
+    return {
+      slug: cleanSlug,
+      likes: currentCount,
+      liked: true,
+      counted: true
+    };
+  }
+
+  return {
+    slug: cleanSlug,
+    likes: currentCount,
+    liked: alreadyLiked,
+    counted: false
+  };
 }
 
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || 'Ov23liDIeZsYUApYQwiD';
@@ -631,6 +741,20 @@ async function handleApi(req, res, pathname, query) {
       const key = query.key || '';
       const hitRequested = query.hit !== '0' && query.hit !== 'false';
       const result = await recordToolView(req, key, hitRequested);
+      sendJson(res, result);
+      return true;
+    }
+
+    if (action === 'tool-likes' || action === 'tool_likes') {
+      const total = Object.values(allToolLikesCache).reduce((a, b) => a + (Number(b) || 0), 0);
+      sendJson(res, { likes: allToolLikesCache, total });
+      return true;
+    }
+
+    if (action === 'tool-like' || action === 'tool_like' || action === 'like') {
+      const slug = query.slug || query.key || '';
+      const hitRequested = query.hit === '1' || query.hit === 'true' || req.method === 'POST';
+      const result = await recordToolLike(req, slug, hitRequested);
       sendJson(res, result);
       return true;
     }
@@ -1345,8 +1469,10 @@ module.exports = {
   handleApi,
   handleOAuth,
   recordToolView,
+  recordToolLike,
   getClientIp,
   getAllToolViews: () => allToolViewsCache,
+  getAllToolLikes: () => allToolLikesCache,
   getTopTools,
   updateToolView,
   buildTopToolsList,

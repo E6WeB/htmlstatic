@@ -229,9 +229,11 @@ const server = http.createServer((req, res) => {
       });
   }
 
-  // Handle Tool Views or Top Tools direct APIs (/api/top-tools, /api/tool-views)
-  if (pathname === '/api/top-tools' || pathname === '/api/tool-views') {
-    const action = pathname === '/api/top-tools' ? 'top-tools' : 'tool-views';
+  // Handle Tool Views, Likes, or Top Tools direct APIs (/api/top-tools, /api/tool-views, /api/tool-likes, /api/tool-like)
+  if (pathname === '/api/top-tools' || pathname === '/api/tool-views' || pathname === '/api/tool-likes' || pathname === '/api/tool-like') {
+    const action = pathname === '/api/top-tools' ? 'top-tools' :
+                   pathname === '/api/tool-views' ? 'tool-views' :
+                   pathname === '/api/tool-likes' ? 'tool-likes' : 'tool-like';
     return forum.handleApi(req, res, pathname, { ...query, action });
   }
 
@@ -344,7 +346,9 @@ function prewarmHotFiles() {
     ['/community/', path.join('community', 'index.html')],
     ['/asset/css/style.css', path.join('asset', 'css', 'style.css')],
     ['/asset/js/search.js', path.join('asset', 'js', 'search.js')],
+    ['/asset/js/likes.js', path.join('asset', 'js', 'likes.js')],
     ['/asset/json/search-data.json', path.join('asset', 'json', 'search-data.json')],
+    ['/asset/json/tool-likes-cache.json', path.join('asset', 'json', 'tool-likes-cache.json')],
     ['/site.webmanifest', 'site.webmanifest'],
     ['/apple-touch-icon.png', 'apple-touch-icon.png']
   ];
