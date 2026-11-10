@@ -267,6 +267,10 @@ function createLayoutRenderer({ allTools, categories }) {
     </div>
 
     <div class="rail-bottom">
+      <button type="button" class="rail-item rail-concierge-btn" onclick="openConciergeModal()" aria-label="Need Help? Chat & Community">
+        ${ICONS.smile}
+        <span class="rail-tooltip">Need Help? Quick Links</span>
+      </button>
       <a href="${rootPath}submit" class="rail-action-btn ${currentNav === 'submit' ? 'active' : ''}" aria-label="Submit a Tool">
         ${ICONS.plus}
         <span class="rail-tooltip">Submit a Tool</span>
@@ -319,6 +323,11 @@ function createLayoutRenderer({ allTools, categories }) {
         <kbd class="header-search-kbd">/</kbd>
       </button>
 
+      <!-- Quick Concierge Smiley Button (Mobile/Desktop Header) -->
+      <button type="button" class="header-concierge-btn" onclick="openConciergeModal()" aria-label="Need Help? Quick Links" title="Need Help? Quick Links">
+        ${ICONS.smile}
+      </button>
+
       <!-- Desktop Clean Nav Menu -->
       <nav class="nav-drawer" aria-label="Main Navigation">
         <ul id="nav-links" class="nav-links">
@@ -369,6 +378,15 @@ function createLayoutRenderer({ allTools, categories }) {
               <span>Search Tools</span>
             </span>
             <span class="mobile-nav-badge">Instant</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="javascript:void(0)" onclick="closeMobileNav(); openConciergeModal();">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.smile}</span>
+              <span>Need Help? Assistant</span>
+            </span>
+            <span class="mobile-nav-badge">Chat &amp; Links</span>
           </a>
         </li>
         <li class="mobile-nav-item">
@@ -680,6 +698,145 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
       </div>
     </div>
   </div>
+
+  <!-- Quick Help & Community Concierge Modal -->
+  <div id="concierge-modal" class="concierge-modal-backdrop" style="display:none;" role="dialog" aria-modal="true" aria-label="StaticStack Quick Help & Community">
+    <div class="concierge-modal-box" onclick="event.stopPropagation()">
+      <!-- Header -->
+      <div class="concierge-header">
+        <div class="concierge-header-left">
+          <span class="concierge-avatar">${ICONS.smile}</span>
+          <div>
+            <h3 class="concierge-title">Need Help or Have Questions?</h3>
+            <p class="concierge-subtitle">StaticStack Assistant &bull; Jamstack Community</p>
+          </div>
+        </div>
+        <button type="button" class="concierge-close" onclick="closeConciergeModal()" aria-label="Close help modal">${ICONS.close}</button>
+      </div>
+
+      <!-- Body -->
+      <div class="concierge-body">
+        <!-- Quick Search Field -->
+        <div class="concierge-search-wrap">
+          <form action="/search" method="GET" class="search-box-pill search-box-pill-compact" onsubmit="if(!this.q.value.trim()){return false;}">
+            <span class="search-icon">${ICONS.search}</span>
+            <input type="text" name="q" id="concierge-search-input" placeholder="Search 139+ tools, APIs, forms, auth..." autocomplete="off">
+            <button type="submit" class="btn btn-primary search-btn" style="padding:0.35rem 0.85rem; font-size:0.8rem;">Search</button>
+          </form>
+        </div>
+
+        <!-- Community & Social Links -->
+        <div class="concierge-section">
+          <div class="concierge-section-title">Community &amp; Social Groups</div>
+          <div class="concierge-links-grid">
+            <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="concierge-link-card">
+              <span class="concierge-link-icon fb-icon">${ICONS.facebook}</span>
+              <div class="concierge-link-text">
+                <strong>Dynamic Websites Group</strong>
+                <span>Join our Facebook group for static &amp; dynamic site builders</span>
+              </div>
+              <span class="concierge-ext-icon">${ICONS.external}</span>
+            </a>
+            <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="concierge-link-card">
+              <span class="concierge-link-icon fb-icon">${ICONS.facebook}</span>
+              <div class="concierge-link-text">
+                <strong>StaticStack Official Group</strong>
+                <span>Connect with fellow static site developers</span>
+              </div>
+              <span class="concierge-ext-icon">${ICONS.external}</span>
+            </a>
+            <a href="${rootPath}community" class="concierge-link-card" onclick="closeConciergeModal()">
+              <span class="concierge-link-icon community-icon">${ICONS.comments}</span>
+              <div class="concierge-link-text">
+                <strong>Community Forum &amp; Discussions</strong>
+                <span>Ask troubleshooting questions, discuss tools, and share projects</span>
+              </div>
+              <span class="concierge-arrow">&rarr;</span>
+            </a>
+            <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="concierge-link-card">
+              <span class="concierge-link-icon github-icon">${ICONS.github}</span>
+              <div class="concierge-link-text">
+                <strong>GitHub Repository &amp; Discussions</strong>
+                <span>Star on GitHub, report an issue, or contribute tools</span>
+              </div>
+              <span class="concierge-ext-icon">${ICONS.external}</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Page Shortcuts -->
+        <div class="concierge-section">
+          <div class="concierge-section-title">Quick Internal Pages</div>
+          <div class="concierge-shortcuts-grid">
+            <a href="${rootPath}search" class="concierge-shortcut-pill" onclick="closeConciergeModal()">
+              ${ICONS.search} Search Hub
+            </a>
+            <a href="${rootPath}archive" class="concierge-shortcut-pill" onclick="closeConciergeModal()">
+              ${ICONS.archive} Master Archive
+            </a>
+            <a href="${rootPath}submit" class="concierge-shortcut-pill" onclick="closeConciergeModal()">
+              ${ICONS.plusCircle} Submit a Tool
+            </a>
+            <a href="${rootPath}contribute" class="concierge-shortcut-pill" onclick="closeConciergeModal()">
+              ${ICONS.gitPullRequest} Contributing
+            </a>
+            <a href="${rootPath}thankyou" class="concierge-shortcut-pill" onclick="closeConciergeModal()">
+              ${ICONS.heart} Credits &amp; Thanks
+            </a>
+            <a href="${rootPath}contact" class="concierge-shortcut-pill" onclick="closeConciergeModal()">
+              ${ICONS.comments} Contact E6WeB
+            </a>
+          </div>
+        </div>
+
+        <!-- Popular Collections -->
+        <div class="concierge-section">
+          <div class="concierge-section-title">Popular Collections</div>
+          <div class="concierge-tags-wrap">
+            <a href="${rootPath}category/contact-forms/" class="concierge-topic-tag" onclick="closeConciergeModal()">Contact Forms</a>
+            <a href="${rootPath}category/authentication-users/" class="concierge-topic-tag" onclick="closeConciergeModal()">Authentication</a>
+            <a href="${rootPath}category/content-management/" class="concierge-topic-tag" onclick="closeConciergeModal()">Headless CMS</a>
+            <a href="${rootPath}category/database-storage/" class="concierge-topic-tag" onclick="closeConciergeModal()">Database &amp; Storage</a>
+            <a href="${rootPath}category/hosting-deployment/" class="concierge-topic-tag" onclick="closeConciergeModal()">Static Hosting</a>
+            <a href="${rootPath}category/analytics-privacy/" class="concierge-topic-tag" onclick="closeConciergeModal()">Privacy Analytics</a>
+            <a href="${rootPath}category/payments-ecommerce/" class="concierge-topic-tag" onclick="closeConciergeModal()">E-Commerce</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="concierge-footer">
+        <span>Need 1-on-1 assistance or custom static dev?</span>
+        <a href="${rootPath}contact" class="concierge-contact-btn">Get in Touch &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const conciergeModal = document.getElementById('concierge-modal');
+    function openConciergeModal() {
+      if (!conciergeModal) return;
+      conciergeModal.style.display = 'flex';
+      document.body.classList.add('concierge-modal-open');
+      const input = document.getElementById('concierge-search-input');
+      if (input) setTimeout(() => input.focus(), 80);
+    }
+    function closeConciergeModal() {
+      if (!conciergeModal) return;
+      conciergeModal.style.display = 'none';
+      document.body.classList.remove('concierge-modal-open');
+    }
+    if (conciergeModal) {
+      conciergeModal.addEventListener('click', e => {
+        if (e.target === conciergeModal) closeConciergeModal();
+      });
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && conciergeModal && conciergeModal.style.display !== 'none') {
+        closeConciergeModal();
+      }
+    });
+  </script>
 
   <!-- High-Performance Instant Client-Side Search Engine -->
   <script defer src="${rootPath}asset/js/search.js?v=2"></script>

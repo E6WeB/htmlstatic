@@ -4147,6 +4147,336 @@ const BASE_CSS = `
     }
   }
 
+  /* ==========================================================================
+     Concierge / Quick Help & Community Modal
+     ========================================================================== */
+  .rail-concierge-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text-muted);
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .rail-concierge-btn:hover {
+    color: var(--accent);
+    transform: scale(1.08);
+  }
+
+  .header-concierge-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .header-concierge-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+    transform: scale(1.05);
+  }
+  .header-concierge-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  body.concierge-modal-open {
+    overflow: hidden;
+  }
+
+  .concierge-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(6px);
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .concierge-modal-box {
+    width: 100%;
+    max-width: 540px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 88vh;
+    animation: modalPop 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes modalPop {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .concierge-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.15rem 1.35rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-surface);
+  }
+
+  .concierge-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .concierge-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .concierge-avatar svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .concierge-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .concierge-subtitle {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    margin: 0.15rem 0 0;
+  }
+
+  .concierge-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-subtle);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.15s ease;
+  }
+  .concierge-close:hover {
+    color: var(--text-main);
+    background: var(--bg-muted);
+  }
+
+  .concierge-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .concierge-search-wrap .search-box-pill {
+    background: var(--bg-muted);
+  }
+
+  .concierge-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .concierge-section-title {
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-subtle);
+    margin-bottom: 0.55rem;
+  }
+
+  .concierge-links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .concierge-link-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.15s ease;
+  }
+  .concierge-link-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-surface);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .concierge-link-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .concierge-link-icon.fb-icon {
+    color: #1877f2;
+    background: rgba(24, 119, 242, 0.12);
+  }
+  .concierge-link-icon.community-icon {
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+  .concierge-link-icon.github-icon {
+    color: var(--text-main);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+  }
+
+  .concierge-link-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .concierge-link-text strong {
+    font-size: 0.875rem;
+    color: var(--text-main);
+  }
+  .concierge-link-text span {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+
+  .concierge-ext-icon,
+  .concierge-arrow {
+    color: var(--text-subtle);
+    flex-shrink: 0;
+  }
+  .concierge-link-card:hover .concierge-arrow {
+    color: var(--accent);
+    transform: translateX(2px);
+  }
+
+  .concierge-shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .concierge-shortcut-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .concierge-shortcut-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+    transform: translateY(-1px);
+  }
+
+  .concierge-tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .concierge-topic-tag {
+    font-size: 0.775rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .concierge-topic-tag:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .concierge-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.35rem;
+    background: var(--bg-muted);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .concierge-contact-btn {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .concierge-contact-btn:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .concierge-modal-backdrop {
+      padding: 0.75rem;
+      align-items: flex-end;
+    }
+    .concierge-modal-box {
+      max-height: 90vh;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .concierge-shortcuts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
 `;
 
 function getMinifiedBaseCss() {
