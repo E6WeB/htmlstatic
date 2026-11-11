@@ -23,6 +23,7 @@ function getLinkHealthMap(rootDir) {
 
 function renderToolPage({
   tool,
+  allCategories = [],
   rootDir,
   renderLayout,
   getRandomTools,
@@ -109,8 +110,32 @@ function renderToolPage({
     `;
   }
 
-  const randomTools = getRandomTools(tool.slug, 4);
-  const randomToolsHtml = randomTools.map(rt => {
+  // Prioritize sibling tools in the same category as relevant alternatives
+  const currentCategory = allCategories.find(c => c.slug === tool.categorySlug);
+  const siblingTools = (currentCategory?.tools || []).filter(t => t.slug !== tool.slug);
+
+  const relatedTools = [...siblingTools.slice(0, 4)];
+  if (relatedTools.length < 4) {
+    const fillers = getRandomTools(tool.slug, 4 - relatedTools.length);
+    fillers.forEach(f => {
+      if (!relatedTools.some(r => r.slug === f.slug)) {
+        relatedTools.push(f);
+      }
+    });
+  }
+
+  const hasCategoryAlternatives = siblingTools.length > 0;
+  const relatedWidgetTitle = hasCategoryAlternatives
+    ? `${escapeHtml(tool.categoryTitle)} Alternatives`
+    : 'Discover Related Tools';
+  const relatedWidgetLink = hasCategoryAlternatives
+    ? `../../category/${tool.categorySlug}/`
+    : '../../archive';
+  const relatedWidgetLinkLabel = hasCategoryAlternatives
+    ? 'View Category &rarr;'
+    : 'View All &rarr;';
+
+  const relatedToolsHtml = relatedTools.map(rt => {
     let rtBadgeClass = 'badge-freemium';
     const rtPBadge = rt.primaryBadge.toLowerCase();
     if (rtPBadge.includes('open source')) {
@@ -124,7 +149,7 @@ function renderToolPage({
     }
 
     return `
-      <a href="../../tools/${rt.categorySlug}/${rt.slug}" class="sidebar-tool-card">
+      <a href="../../tools/${rt.categorySlug}/${rt.slug}" class="sidebar-tool-card" title="${escapeHtml(rt.name)} - ${escapeHtml(rt.categoryTitle || tool.categoryTitle)}">
         <span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
           ${getToolSiteIcon(rt, 20)}
         </span>
@@ -210,11 +235,12 @@ function renderToolPage({
         image: toolOgImg,
         applicationCategory: tool.categoryTitle,
         operatingSystem: 'Web, Static HTML, Jamstack',
+        dateModified: health.checked_at || new Date().toISOString().split('T')[0],
         keywords: toolKeywordsStr,
         offers: {
           '@type': 'Offer',
-          price: isFreeOffer ? '0' : undefined,
-          priceCurrency: isFreeOffer ? 'USD' : undefined,
+          price: isFreeOffer ? '0' : '0',
+          priceCurrency: 'USD',
           category: tool.primaryBadge || 'Free'
         }
       },
@@ -484,17 +510,17 @@ function renderToolPage({
             </div>
           </div>
 
-          <!-- Discover Random Tools Card -->
+          <!-- Related Tools & Category Alternatives Card -->
           <div class="sidebar-widget">
             <div class="sidebar-widget-header" style="justify-content:space-between;">
               <div style="display:flex; align-items:center; gap:0.5rem;">
                 <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.star}</span>
-                <h4 class="sidebar-widget-title">Discover Random Tools</h4>
+                <h4 class="sidebar-widget-title">${relatedWidgetTitle}</h4>
               </div>
-              <a href="../../archive" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View All &rarr;</a>
+              <a href="${relatedWidgetLink}" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">${relatedWidgetLinkLabel}</a>
             </div>
             <div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
-              ${randomToolsHtml}
+              ${relatedToolsHtml}
             </div>
           </div>
 

@@ -104,13 +104,12 @@ function createLayoutRenderer({ allTools, categories }) {
     const rawDesc = description || 'StaticStack - A community-curated collection of tools, services, and resources for static websites with zero backend servers.';
     const cleanDescription = rawDesc.length > 160 ? rawDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...' : rawDesc;
     const cleanKeywords = keywords || 'static websites, jamstack, static site generators, zero backend, serverless apis, html css javascript tools, astro, hugo, 11ty, nextjs, free static hosting, headless cms, static form backend, open source web tools';
-    let pageTitle = title.includes('StaticStack') ? title : `${title} | StaticStack`;
-    if (pageTitle.length > 60 && !title.includes('StaticStack')) {
-      pageTitle = title.length <= 60 ? title : title.slice(0, 57).replace(/\s+\S*$/, '') + '...';
-    } else if (pageTitle.length > 60) {
-      pageTitle = pageTitle.replace(/\s*\|\s*StaticStack$/, '');
-      if (pageTitle.length > 60) {
-        pageTitle = pageTitle.slice(0, 57).replace(/\s+\S*$/, '') + '...';
+    let pageTitle = title.includes('StaticStack') ? title : (title.length > 50 ? title : `${title} | StaticStack`);
+    if (pageTitle.length > 70) {
+      if (title.length <= 70) {
+        pageTitle = title;
+      } else {
+        pageTitle = title.slice(0, 67).replace(/\s+\S*$/, '') + '...';
       }
     }
 

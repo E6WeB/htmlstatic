@@ -186,10 +186,10 @@ const homeContent = `
       ${ICONS.sparkles} 100% Jamstack • Zero Backend Servers Required
     </div>
     <h1 style="font-size:clamp(2.2rem, 5vw, 3.5rem); font-weight:800; line-height:1.15; letter-spacing:-0.03em; margin-bottom:1.25rem;">
-      Empower Static Websites with <span style="background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Zero Backend Servers</span>
+      The Ultimate Directory of Tools for <span style="background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Static Websites</span>
     </h1>
     <p style="font-size:clamp(1.05rem, 2vw, 1.25rem); color:var(--text-muted); max-width:740px; margin:0 auto 2rem; line-height:1.6;">
-      You don't need WordPress, a monolithic CMS, or expensive cloud servers. Discover ${uniqueToolsCount}+ curated tools, services, and APIs for building modern static sites with HTML, CSS, and JavaScript.
+      Discover ${uniqueToolsCount} curated static website tools, HTML templates, CSS components, JavaScript libraries, hosting services, APIs, and zero-backend resources.
     </p>
 
     <!-- Command Hero Search Hub -->
@@ -740,9 +740,10 @@ const homeContent = `
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderLayout({
-  title: 'StaticStack - Modern Tools & APIs for Static Websites',
-  description: `Curated directory of ${uniqueToolsCount}+ tools, services, and APIs for building high-performance static websites with HTML, CSS, and JavaScript—zero backend servers required.`,
+  title: 'Static Website Tools Directory | HTML CSS and JavaScript Resources',
+  description: 'Discover curated static website tools, HTML templates, CSS components, hosting, and APIs for building faster websites without traditional backend servers.',
   currentNav: 'home',
+  canonicalUrl: 'https://www.staticstack.app/',
   ogImage: 'https://www.staticstack.app/asset/img/og-home.webp',
   showPreFooter: false,
   content: homeContent
@@ -1405,6 +1406,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'archive', 'index.html'), renderLayout({
   description: `Explore the complete directory of ${uniqueToolsCount} curated tools across ${categories.length} static website categories with our expanded navigation sidebar.`,
   currentNav: 'archive',
   rootPath: '/',
+  canonicalUrl: 'https://www.staticstack.app/archive',
   ogImage: 'https://www.staticstack.app/archive/og-archive.webp',
   miniHero: {
     breadcrumbs: [
@@ -1733,6 +1735,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'submit', 'index.html'), renderLayout({
   description: 'Propose a new static website tool, API, or service to include in the StaticStack directory.',
   currentNav: 'submit',
   rootPath: '/',
+  canonicalUrl: 'https://www.staticstack.app/submit',
   ogImage: 'https://www.staticstack.app/submit/og-submit.webp',
   miniHero: {
     breadcrumbs: [
@@ -1766,6 +1769,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contribute', 'index.html'), renderLayout({
   description: 'Learn how to contribute new tools, report updates, and submit pull requests to the Static Website Toolkit.',
   currentNav: 'contribute',
   rootPath: '/',
+  canonicalUrl: 'https://www.staticstack.app/contribute',
   miniHero: {
     breadcrumbs: [
       { label: 'Home', url: '/' },
@@ -1807,6 +1811,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou', 'index.html'), renderLayout({
   description: 'Special thanks to the contributors, maintainers, and community behind Static Website Toolkit.',
   currentNav: 'thankyou',
   rootPath: '/',
+  canonicalUrl: 'https://www.staticstack.app/thankyou',
   miniHero: {
     breadcrumbs: [
       { label: 'Home', url: '/' },
@@ -1900,6 +1905,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contact', 'index.html'), renderLayout({
   description: 'Get in touch with StaticStack through our official Facebook Group and GitHub repository—no spammy contact forms required.',
   currentNav: 'contact',
   rootPath: '/',
+  canonicalUrl: 'https://www.staticstack.app/contact',
   miniHero: {
     breadcrumbs: [
       { label: 'Home', url: '/' },
@@ -1964,7 +1970,7 @@ const notFoundContent = `
 
 fs.writeFileSync(path.join(ROOT_DIR, '404.html'), renderLayout({
   title: '404 - Page Not Found | StaticStack',
-  description: 'The requested page could not be found on StaticStack. Explore 130+ curated zero-backend tools and services.',
+  description: `The requested page could not be found on StaticStack. Explore ${uniqueToolsCount}+ curated zero-backend tools and services.`,
   currentNav: '',
   rootPath: '/',
   canonicalUrl: 'https://www.staticstack.app/404',
@@ -1986,6 +1992,7 @@ console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} too
 allTools.forEach(tool => {
   const renderedToolHtml = renderToolPage({
     tool,
+    allCategories: categories,
     rootDir: ROOT_DIR,
     renderLayout,
     getRandomTools,

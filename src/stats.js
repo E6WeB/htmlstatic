@@ -376,6 +376,7 @@ function getStatsSummary(req) {
     toolViewsTotal,
     communityViewsTotal,
     totalTools: catalog.reduce((acc, c) => acc + (c.tools || []).length, 0),
+    totalCategories: catalog.length,
     totalCommunityItems: forumTopics.length + 1,
     hits24h,
     uniqueVisitors24h: uniqueIps24h.size,
@@ -876,7 +877,7 @@ function renderDashboardHtml(data, user) {
       <div class="kpi-card">
         <div class="kpi-label">Catalog Tool Views</div>
         <div class="kpi-value">${data.toolViewsTotal.toLocaleString()}</div>
-        <div class="kpi-sub">${data.totalTools} tools across 27 categories</div>
+        <div class="kpi-sub">${data.totalTools} tools across ${data.totalCategories || 29} categories</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Community Views</div>

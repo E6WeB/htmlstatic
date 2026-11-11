@@ -375,6 +375,7 @@ function renderCategoryPage({
         name: `${category.title} Tools & Services for Static Sites`,
         url: canonicalUrl,
         description: pageDescription,
+        dateModified: new Date().toISOString().split('T')[0],
         isPartOf: {
           '@type': 'WebSite',
           name: 'StaticStack',
@@ -701,7 +702,7 @@ function renderCategoryPage({
             </h2>
             <p class="cat-hub-section-desc">Complementary tools and services to expand your static web architecture.</p>
           </div>
-          <a href="../../archive" class="btn btn-secondary btn-sm" style="font-size:0.8rem;">View All 27 Categories &rarr;</a>
+          <a href="../../archive" class="btn btn-secondary btn-sm" style="font-size:0.8rem;">View All ${allCategories.length} Categories &rarr;</a>
         </div>
         <div class="cat-hub-related-grid">
           ${relatedCategoriesHtml}
