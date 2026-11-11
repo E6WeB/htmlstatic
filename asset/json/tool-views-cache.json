@@ -135,5 +135,10 @@
   "htmlstatic-static-site-generators-nextjs": 2,
   "htmlstatic-static-site-generators-zola": 3,
   "htmlstatic-tutorials-static-html-advantage-seo": 1,
-  "test-tool-dedup-check": 2
+  "test-tool-dedup-check": 2,
+  "htmlstatic-html-templates-free-css": 1,
+  "htmlstatic-html-templates-html5-up": 1,
+  "htmlstatic-html-templates-start-bootstrap": 1,
+  "htmlstatic-html-templates-templatemo": 1,
+  "htmlstatic-html-templates-tooplate": 1
 }

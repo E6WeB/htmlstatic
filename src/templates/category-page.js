@@ -140,6 +140,24 @@ function getCategoryFaqs(category) {
         q: 'Can static websites built with an SSG have dynamic interactive features?',
         a: 'Absolutely! Modern static sites frequently integrate serverless APIs, client-side search, contact forms, user authentication, and interactive widgets (the Jamstack architecture) without sacrificing static speed.'
       }
+    ],
+    'html-templates': [
+      {
+        q: 'How do I customize a downloaded HTML template for my static website?',
+        a: 'Every HTML template downloads as a standard folder containing <code>.html</code>, <code>.css</code>, and <code>.js</code> files. Simply unzip the folder, open it in any code editor (like VS Code or Cursor), and replace the placeholder text, colors, and images with your own brand assets.'
+      },
+      {
+        q: 'Do free HTML templates require a backend server or build step?',
+        a: 'No! Pure HTML5, CSS, and Bootstrap templates run directly in the browser with zero server requirements or Node.js bundlers. You can preview them locally by double-clicking <code>index.html</code> and deploy them straight to GitHub Pages, Cloudflare Pages, Netlify, or Wasmer.'
+      },
+      {
+        q: 'Can I add working contact forms or analytics to a static HTML template?',
+        a: 'Yes. Most HTML templates include pre-styled contact form markup—just point the <code>&lt;form action="..."&gt;</code> attribute to a static form provider like Formspree or Basin, and drop in a lightweight analytics script like Plausible or Umami.'
+      },
+      {
+        q: 'Are free HTML templates allowed for commercial and client websites?',
+        a: 'Yes! Libraries like Start Bootstrap (MIT License), TemplateMo, and Tooplate allow free commercial use, while HTML5 UP templates are free for commercial sites under Creative Commons Attribution (CC BY 3.0).'
+      }
     ]
   };
 

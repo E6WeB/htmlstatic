@@ -936,5 +936,40 @@
     "code": 200,
     "error": null,
     "checked_at": "2026-11-05"
+  },
+  "free-css": {
+    "url": "https://www.free-css.com/free-css-templates",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-10"
+  },
+  "html5-up": {
+    "url": "https://html5up.net/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-10"
+  },
+  "start-bootstrap": {
+    "url": "https://startbootstrap.com/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-10"
+  },
+  "templatemo": {
+    "url": "https://templatemo.com/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-10"
+  },
+  "tooplate": {
+    "url": "https://www.tooplate.com/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "checked_at": "2026-11-10"
   }
 }

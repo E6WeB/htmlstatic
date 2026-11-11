@@ -62,6 +62,7 @@
     'font':'Typography & Web Fonts','fonts':'Typography & Web Fonts','typography':'Typography & Web Fonts',
     'database':'Database & Backend-as-a-Service','backend':'Database & Backend-as-a-Service','db':'Database & Backend-as-a-Service',
     'css':'CSS & UI Component Libraries','icon':'CSS & UI Component Libraries','framework':'CSS & UI Component Libraries',
+    'template':'HTML Templates','templates':'HTML Templates','theme':'HTML Templates','themes':'HTML Templates',
     'code':'Development Tools','editor':'Development Tools','dev':'Development Tools',
     'extension':'Browser Extensions',
   };
@@ -152,33 +153,110 @@
                 <rect x="9" y="16" width="6" height="1.6" rx="0.8" fill="#93c5fd"/>
               </svg>
             </span>
-            <div><strong>StackBot</strong><span>● Online</span></div>
+            <div><strong>StackBot</strong></div>
           </div>
           <button id="stackbot-close" aria-label="Close StackBot">×</button>
         </div>
-        <div class="stackbot-sub"><span id="stackbot-status" style="display:inline-flex;align-items:center;gap:5px;font-weight:500;color:#0f172a;">${ONLINE_STATUS_HTML}</span></div>
-        <div id="stackbot-messages"></div>
-        <div class="stackbot-chips"><button data-q="I need a contact form">I need a form</button><button data-q="Best hosting">Best hosting</button><button data-q="What is Jamstack?">What is Jamstack?</button><button data-q="Add comments to my blog">Comments</button></div>
-        <form id="stackbot-form"><input id="stackbot-input" placeholder="Ask for a tool… e.g. I need a form" autocomplete="off"/><button type="submit">Send</button></form>
+        <div class="stackbot-sub">
+          <span id="stackbot-status" style="display:inline-flex;align-items:center;gap:5px;font-weight:500;color:#0f172a;">${ONLINE_STATUS_HTML}</span>
+          <button type="button" id="stackbot-back-btn" class="stackbot-back-btn" hidden>← Quick Links</button>
+        </div>
+
+        <!-- Initial Quick Links View -->
+        <div id="stackbot-home-view" class="stackbot-home-view">
+          <p class="stackbot-home-intro">Where would you like to go today?</p>
+          <div class="stackbot-links-list">
+            <a href="/archive" class="stackbot-nav-card">
+              <span class="stackbot-nav-ico">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              </span>
+              <span class="stackbot-nav-text">
+                <strong>Master Archive</strong>
+                <span>Browse all 139+ tools &amp; categories</span>
+              </span>
+              <span class="stackbot-nav-arrow">→</span>
+            </a>
+
+            <a href="/community" class="stackbot-nav-card">
+              <span class="stackbot-nav-ico">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </span>
+              <span class="stackbot-nav-text">
+                <strong>Community Forum</strong>
+                <span>Join discussions &amp; share your builds</span>
+              </span>
+              <span class="stackbot-nav-arrow">→</span>
+            </a>
+
+            <a href="/contact" class="stackbot-nav-card">
+              <span class="stackbot-nav-ico">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </span>
+              <span class="stackbot-nav-text">
+                <strong>Contact &amp; Connect</strong>
+                <span>Reach out or join our Facebook group</span>
+              </span>
+              <span class="stackbot-nav-arrow">→</span>
+            </a>
+
+            <button type="button" id="stackbot-start-chat" class="stackbot-ask-cta">
+              <span class="stackbot-ask-cta-left">
+                <span class="stackbot-ask-cta-ico">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </span>
+                <span class="stackbot-ask-cta-text">
+                  <strong>Ask StackBot</strong>
+                  <span>Chat to find the right tool for your site</span>
+                </span>
+              </span>
+              <span class="stackbot-ask-cta-arrow">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat View (Opens when clicking Ask StackBot) -->
+        <div id="stackbot-chat-view" class="stackbot-chat-view" hidden>
+          <div id="stackbot-messages"></div>
+          <form id="stackbot-form"><input id="stackbot-input" placeholder="Ask for a tool… e.g. I need a form" autocomplete="off"/><button type="submit">Send</button></form>
+        </div>
+
         <div class="stackbot-footer">©2026 StackBot V.01</div>
       </div>`;
     document.body.appendChild(wrap);
-    const btn=document.getElementById('stackbot-btn'), panel=document.getElementById('stackbot-panel');
-    function toggleBot(forceOpen){
-      panel.hidden = typeof forceOpen === 'boolean' ? !forceOpen : !panel.hidden;
-      if(!panel.hidden && !wrap.dataset.welcomed){
+    const btn=document.getElementById('stackbot-btn'),
+          panel=document.getElementById('stackbot-panel'),
+          homeView=document.getElementById('stackbot-home-view'),
+          chatView=document.getElementById('stackbot-chat-view'),
+          startChatBtn=document.getElementById('stackbot-start-chat'),
+          backBtn=document.getElementById('stackbot-back-btn');
+
+    function showChatView(){
+      homeView.hidden = true;
+      chatView.hidden = false;
+      backBtn.hidden = false;
+      if(!wrap.dataset.welcomed){
         wrap.dataset.welcomed='1';
         addBot("Hi! I'm StackBot. Ask me for a tool — e.g. 'I need a contact form' or 'best hosting for a static site'.");
       }
-      if(!panel.hidden){
-        const inp=document.getElementById('stackbot-input');
-        if(inp) setTimeout(()=>inp.focus(), 50);
-      }
+      const inp=document.getElementById('stackbot-input');
+      if(inp) setTimeout(()=>inp.focus(), 50);
     }
+
+    function showHomeView(){
+      chatView.hidden = true;
+      homeView.hidden = false;
+      backBtn.hidden = true;
+    }
+
+    function toggleBot(forceOpen){
+      panel.hidden = typeof forceOpen === 'boolean' ? !forceOpen : !panel.hidden;
+    }
+
     window.openStackBot = function(){ toggleBot(true); };
     if(btn) btn.onclick=()=>toggleBot();
+    if(startChatBtn) startChatBtn.onclick=showChatView;
+    if(backBtn) backBtn.onclick=showHomeView;
     document.getElementById('stackbot-close').onclick=()=>panel.hidden=true;
-    wrap.querySelectorAll('.stackbot-chips button').forEach(b=>b.onclick=()=>ask(b.dataset.q));
     document.getElementById('stackbot-form').onsubmit=e=>{e.preventDefault(); const inp=document.getElementById('stackbot-input'); if(inp.value.trim()) ask(inp.value.trim()); inp.value='';};
     loadTools();
   }

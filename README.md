@@ -28,20 +28,21 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 11. [Database & Backend-as-a-Service](#database--backend-as-a-service)
 12. [Development Tools](#development-tools)
 13. [Hosting & Deployment](#hosting--deployment)
-14. [Images & Optimization](#images--optimization)
-15. [Interactive Maps & Geolocation](#interactive-maps--geolocation)
-16. [Interactive Scripts & Animation](#interactive-scripts--animation)
-17. [Live Chat & Support](#live-chat--support)
-18. [Media & Video Players](#media--video-players)
-19. [Monitoring & Error Tracking](#monitoring--error-tracking)
-20. [Newsletters & Email](#newsletters--email)
-21. [Payments & E-commerce](#payments--e-commerce)
-22. [Search](#search)
-23. [Security & Spam Protection](#security--spam-protection)
-24. [Static Site Generators](#static-site-generators)
-25. [Surveys & Feedback](#surveys--feedback)
-26. [Tutorials](#tutorials)
-27. [Typography & Web Fonts](#typography--web-fonts)
+14. [HTML Templates](#html-templates)
+15. [Images & Optimization](#images--optimization)
+16. [Interactive Maps & Geolocation](#interactive-maps--geolocation)
+17. [Interactive Scripts & Animation](#interactive-scripts--animation)
+18. [Live Chat & Support](#live-chat--support)
+19. [Media & Video Players](#media--video-players)
+20. [Monitoring & Error Tracking](#monitoring--error-tracking)
+21. [Newsletters & Email](#newsletters--email)
+22. [Payments & E-commerce](#payments--e-commerce)
+23. [Search](#search)
+24. [Security & Spam Protection](#security--spam-protection)
+25. [Static Site Generators](#static-site-generators)
+26. [Surveys & Feedback](#surveys--feedback)
+27. [Tutorials](#tutorials)
+28. [Typography & Web Fonts](#typography--web-fonts)
 
 ### Contributing & Community
 
@@ -838,6 +839,53 @@ Services for publishing static HTML, CSS, and JavaScript websites online.
     <td>Host and deploy static websites and web applications</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://wasmer.io/" target="_blank" rel="noopener noreferrer">wasmer.io</a></td>
+  </tr>
+</tbody>
+</table>
+
+## HTML Templates
+
+Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstart your static website without starting from a blank canvas.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="tools/html-templates/free-css.md">Free CSS</a></td>
+    <td>Massive archive of 3,500+ free HTML and CSS website templates ready to download and customize</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://www.free-css.com/free-css-templates" target="_blank" rel="noopener noreferrer">free-css.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/html5-up.md">HTML5 UP</a></td>
+    <td>Handcrafted, fully responsive HTML5 and CSS3 site templates released for free under Creative Commons</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://html5up.net/" target="_blank" rel="noopener noreferrer">html5up.net</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/start-bootstrap.md">Start Bootstrap</a></td>
+    <td>Curated library of free, open-source Bootstrap HTML templates, themes, and landing pages</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://startbootstrap.com/" target="_blank" rel="noopener noreferrer">startbootstrap.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/templatemo.md">TemplateMo</a></td>
+    <td>Collection of 600+ free responsive HTML5 and Bootstrap website templates for portfolios and business sites</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://templatemo.com/" target="_blank" rel="noopener noreferrer">templatemo.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/tooplate.md">Tooplate</a></td>
+    <td>Free responsive HTML5 and CSS website templates for personal, commercial, and business static websites</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://www.tooplate.com/" target="_blank" rel="noopener noreferrer">tooplate.com</a></td>
   </tr>
 </tbody>
 </table>
