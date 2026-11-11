@@ -14,6 +14,7 @@
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   padding: 0;
   flex-shrink: 0;
+  overflow: visible !important;
 }
 #stackbot-btn:hover {
   background: #1d4ed8;
@@ -28,8 +29,48 @@
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z'/%3E%3C/svg%3E") center/contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z'/%3E%3C/svg%3E") center/contain no-repeat;
 }
+#stackbot-btn .rail-tooltip,
+#stackbot-btn .stackbot-tooltip {
+  position: absolute;
+  left: 54px;
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%) translateX(-8px);
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+  z-index: 9999;
+}
+#stackbot-btn .rail-tooltip::before,
+#stackbot-btn .stackbot-tooltip::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #0f172a transparent transparent;
+}
+#stackbot-btn .stackbot-tooltip::after {
+  display: none;
+}
 #stackbot-btn:hover .rail-tooltip,
-#stackbot-btn:focus-visible .rail-tooltip {
+#stackbot-btn:focus-visible .rail-tooltip,
+#stackbot-btn:hover .stackbot-tooltip,
+#stackbot-btn:focus-visible .stackbot-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateY(-50%) translateX(6px);
