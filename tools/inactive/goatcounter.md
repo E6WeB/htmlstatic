@@ -3,7 +3,7 @@
 > Lightweight, privacy-friendly web analytics without cookie banners.
 
 1. **Official Website**: <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">goatcounter.com</a>
-2. **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
+2. **Category**: [Inactive](../../README.md#inactive)
 3. **Type**: Privacy-First Web Analytics
 4. **Pricing / License**: Open Source / Freemium
 
@@ -11,6 +11,9 @@
 ---
 
 ## Overview
+
+> [!WARNING]
+> **Website Status: Down / Inaccessible** — The official website (<a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">goatcounter.com</a>) is currently down or not accessible. The open-source code and issue tracker remain available on GitHub at <a href="https://github.com/arp242/goatcounter" target="_blank" rel="noopener noreferrer">github.com/arp242/goatcounter</a>.
 
 GoatCounter is an open-source web analytics platform that provides meaningful visitor insights without tracking personal user data or using persistent cookies. Because it does not track personal identifiers, it is fully GDPR compliant out of the box and requires no cookie consent banners.
 

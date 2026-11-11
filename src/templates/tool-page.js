@@ -56,7 +56,7 @@ function renderToolPage({
   // Inject Option 1: Minimal Glowing Status Dot next to Official Website link
   const healthMap = getLinkHealthMap(rootDir);
   const health = healthMap[tool.slug] || { status: 'online', code: 200, checked_at: new Date().toISOString().split('T')[0] };
-  const isOnline = health.status !== 'offline';
+  const isOnline = tool.categorySlug !== 'inactive' && health.status !== 'offline';
   const statusTitle = isOnline
     ? `Website verified: Live (HTTP ${health.code || 200}) • Checked ${health.checked_at || 'recently'}`
     : `Website status warning: Unreachable (${health.error || health.code || 'Offline'}) • Checked ${health.checked_at || 'recently'}`;
@@ -68,6 +68,15 @@ function renderToolPage({
     `$1 ${statusDotHtml}$2`
   );
 
+  if (tool.categorySlug === 'inactive' && !cleanMd.includes('Website Status')) {
+    const alertHtml = `
+      <div class="alert alert-warning" style="margin-bottom:1.5rem; padding:0.875rem 1.25rem; border-radius:var(--radius-md); background:rgba(239, 68, 68, 0.08); border:1px solid rgba(239, 68, 68, 0.25); color:var(--text-main); font-size:0.9rem; line-height:1.5;">
+        <strong style="color:var(--danger, #ef4444); display:inline-flex; align-items:center; gap:0.35rem;">⚠️ Notice: Inactive / Down</strong> &mdash; The official website for this tool is currently inaccessible or down.
+      </div>
+    `;
+    parsedHtml = alertHtml + parsedHtml;
+  }
+
   const coverRelativeName = `${tool.slug}-cover.webp`;
   const coverDiskPath = path.join(rootDir, 'tools', tool.categorySlug, coverRelativeName);
   let coverImageHtml = '';
@@ -76,6 +85,19 @@ function renderToolPage({
     coverImageHtml = `
           <div class="tool-cover-banner" style="margin-bottom:1.5rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card); background:var(--bg-surface);">
             <img src="${coverRelativeName}" 
+                 alt="${escapeHtml(tool.name)} Screenshot Preview" 
+                 width="1280" 
+                 height="720" 
+                 loading="eager" 
+                 fetchpriority="high" 
+                 decoding="async" 
+                 style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;">
+          </div>
+    `;
+  } else if (tool.categorySlug === 'inactive' && !hasEmbeddedVideo) {
+    coverImageHtml = `
+          <div class="tool-cover-banner" style="margin-bottom:1.5rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card); background:var(--bg-surface);">
+            <img src="/asset/img/404.webp" 
                  alt="${escapeHtml(tool.name)} Screenshot Preview" 
                  width="1280" 
                  height="720" 

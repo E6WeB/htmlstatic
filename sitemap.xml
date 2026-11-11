@@ -217,6 +217,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/category/inactive/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/tools/ai-content-creation/chatgpt</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -319,12 +325,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.staticstack.app/tools/analytics-privacy/goatcounter</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.staticstack.app/tools/analytics-privacy/plausible</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -332,12 +332,6 @@
   </url>
   <url>
     <loc>https://www.staticstack.app/tools/analytics-privacy/statcounter</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.staticstack.app/tools/analytics-privacy/umami</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -673,12 +667,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.staticstack.app/tools/hosting-deployment/codeberg-pages</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.staticstack.app/tools/hosting-deployment/deno-deploy</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -746,12 +734,6 @@
   </url>
   <url>
     <loc>https://www.staticstack.app/tools/hosting-deployment/wasmer</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.staticstack.app/tools/html-templates/free-css</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1076,6 +1058,30 @@
   </url>
   <url>
     <loc>https://www.staticstack.app/tools/typography-fonts/google-fonts</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/inactive/codeberg-pages</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/inactive/free-css</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/inactive/goatcounter</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/inactive/umami</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

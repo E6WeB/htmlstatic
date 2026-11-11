@@ -3,7 +3,7 @@
 > Huge archive of 3,500+ free HTML and CSS website templates ready to download and customize for any static website.
 
 1. **Official Website**: <a href="https://www.free-css.com/free-css-templates" target="_blank" rel="noopener noreferrer">free-css.com/free-css-templates</a>
-2. **Category**: [HTML Templates](../../README.md#html-templates)
+2. **Category**: [Inactive](../../README.md#inactive)
 3. **Type**: HTML & CSS Template Directory
 4. **Pricing / License**: Free
 
@@ -11,6 +11,9 @@
 ---
 
 ## Overview
+
+> [!WARNING]
+> **Website Status: Down / Inaccessible** — The official website (<a href="https://www.free-css.com/free-css-templates" target="_blank" rel="noopener noreferrer">free-css.com/free-css-templates</a>) is currently down or failing to respond to connections.
 
 Free CSS is one of the largest longstanding directories of free website templates on the web, offering over 3,500 downloadable HTML and CSS designs. Each template comes as a self-contained archive containing HTML pages, stylesheets, JavaScript assets, and placeholder imagery.
 

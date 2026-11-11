@@ -158,6 +158,20 @@ function getCategoryFaqs(category) {
         q: 'Are free HTML templates allowed for commercial and client websites?',
         a: 'Yes! Libraries like Start Bootstrap (MIT License), TemplateMo, and Tooplate allow free commercial use, while HTML5 UP templates are free for commercial sites under Creative Commons Attribution (CC BY 3.0).'
       }
+    ],
+    'inactive': [
+      {
+        q: 'Why are these tools listed in the Inactive category?',
+        a: 'Tools in the Inactive category have official websites or endpoints that are currently offline, unreachable, returning connection failures, or experiencing prolonged downtime during our automated health checks.'
+      },
+      {
+        q: 'Will tools in the Inactive category ever be restored?',
+        a: 'Yes! Our automated link health checker periodically scans all tool homepages. When an inactive tool restores its web service and responds reliably to standard requests, it is verified and transitioned back to its primary category.'
+      },
+      {
+        q: 'Can I still use the open-source code or alternatives for inactive tools?',
+        a: 'Many inactive tools (such as open-source projects) maintain archived code repositories or packages on GitHub, npm, or Docker Hub that you can self-host. Alternatively, you can browse related categories on StaticStack to find active, maintained alternatives.'
+      }
     ]
   };
 
@@ -209,7 +223,8 @@ function getRelatedCategories(currentSlug, allCategories) {
     'newsletters-email': ['contact-forms', 'authentication-users', 'surveys-feedback', 'analytics-privacy'],
     'payments-ecommerce': ['authentication-users', 'database-storage', 'contact-forms', 'security-spam-protection'],
     'search': ['analytics-privacy', 'static-site-generators', 'content-management', 'development-tools'],
-    'security-spam-protection': ['contact-forms', 'authentication-users', 'analytics-privacy', 'hosting-deployment']
+    'security-spam-protection': ['contact-forms', 'authentication-users', 'analytics-privacy', 'hosting-deployment'],
+    'inactive': ['analytics-privacy', 'hosting-deployment', 'html-templates', 'monitoring-errors']
   };
 
   const targetSlugs = map[currentSlug] || [];
@@ -442,6 +457,8 @@ function renderCategoryPage({
 
     const coverHtml = t.hasCover ? `
       <img src="${t.coverUrl}" alt="${escapeHtml(t.name)} preview" width="640" height="360" loading="lazy" decoding="async">
+    ` : (t.categorySlug === 'inactive' ? `
+      <img src="../../asset/img/404.webp" alt="${escapeHtml(t.name)} preview" width="640" height="360" loading="lazy" decoding="async">
     ` : `
       <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; color:var(--accent);">
         <div style="width:48px; height:48px; border-radius:var(--radius-md); background:var(--accent-light); display:flex; align-items:center; justify-content:center;">
@@ -449,7 +466,7 @@ function renderCategoryPage({
         </div>
         <span style="font-size:0.85rem; font-weight:600; color:var(--text-main);">${escapeHtml(t.name)}</span>
       </div>
-    `;
+    `);
 
     return `
       <div class="cat-hub-pick-card">

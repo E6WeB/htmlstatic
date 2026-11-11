@@ -3,7 +3,7 @@
 > Simple, privacy-focused open-source alternative to Google Analytics.
 
 1. **Official Website**: <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a>
-2. **Category**: [Analytics & Privacy](../../README.md#analytics--privacy)
+2. **Category**: [Inactive](../../README.md#inactive)
 3. **Type**: Open Source Analytics Platform
 4. **Pricing / License**: Freemium
 
@@ -13,7 +13,7 @@
 ## Overview
 
 > [!WARNING]
-> **Website Status: Down** — The official website (<a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a>) is currently down. The open-source codebase, releases, and documentation remain available on GitHub at <a href="https://github.com/umami-software/umami" target="_blank" rel="noopener noreferrer">github.com/umami-software/umami</a>.
+> **Website Status: Down / Inaccessible** — The official website (<a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a>) is currently down or not accessible. The open-source codebase, releases, and documentation remain available on GitHub at <a href="https://github.com/umami-software/umami" target="_blank" rel="noopener noreferrer">github.com/umami-software/umami</a>.
 
 Umami is a privacy-focused open-source analytics platform designed as an accessible alternative to Google Analytics. It collects only essential non-personal metrics, does not track visitors across websites, and operates without cookies.
 

@@ -171,16 +171,6 @@
     <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
-    <title>GoatCounter</title>
-    <category>Analytics &amp; Privacy</category>
-    <url>https://www.staticstack.app/tools/analytics-privacy/goatcounter</url>
-    <image>https://www.staticstack.app/tools/analytics-privacy/goatcounter-cover.webp</image>
-    <description>
-      Lightweight, privacy-friendly web analytics
-    </description>
-    <lastmod>2026-11-11</lastmod>
-  </tool>
-  <tool>
     <title>Plausible</title>
     <category>Analytics &amp; Privacy</category>
     <url>https://www.staticstack.app/tools/analytics-privacy/plausible</url>
@@ -197,16 +187,6 @@
     <image>https://www.staticstack.app/tools/analytics-privacy/statcounter-cover.webp</image>
     <description>
       Real-time web analytics, visitor paths, and page counters
-    </description>
-    <lastmod>2026-11-11</lastmod>
-  </tool>
-  <tool>
-    <title>Umami</title>
-    <category>Analytics &amp; Privacy</category>
-    <url>https://www.staticstack.app/tools/analytics-privacy/umami</url>
-    <image>https://www.staticstack.app/tools/analytics-privacy/umami-cover.webp</image>
-    <description>
-      Open-source website analytics
     </description>
     <lastmod>2026-11-11</lastmod>
   </tool>
@@ -761,16 +741,6 @@
     <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
-    <title>Codeberg Pages</title>
-    <category>Hosting &amp; Deployment</category>
-    <url>https://www.staticstack.app/tools/hosting-deployment/codeberg-pages</url>
-    <image>https://www.staticstack.app/tools/hosting-deployment/codeberg-pages-cover.webp</image>
-    <description>
-      Community-driven, privacy-respecting, and free static website hosting
-    </description>
-    <lastmod>2026-11-11</lastmod>
-  </tool>
-  <tool>
     <title>Deno Deploy</title>
     <category>Hosting &amp; Deployment</category>
     <url>https://www.staticstack.app/tools/hosting-deployment/deno-deploy</url>
@@ -887,16 +857,6 @@
     <image>https://www.staticstack.app/tools/hosting-deployment/wasmer-cover.webp</image>
     <description>
       Host and deploy static websites and web applications
-    </description>
-    <lastmod>2026-11-11</lastmod>
-  </tool>
-  <tool>
-    <title>Free CSS</title>
-    <category>HTML Templates</category>
-    <url>https://www.staticstack.app/tools/html-templates/free-css</url>
-    <image>https://www.staticstack.app/tools/html-templates/free-css-cover.webp</image>
-    <description>
-      Massive archive of 3,500+ free HTML and CSS website templates ready to download and customize
     </description>
     <lastmod>2026-11-11</lastmod>
   </tool>
@@ -1437,6 +1397,46 @@
     <image>https://www.staticstack.app/tools/typography-fonts/google-fonts-cover.webp</image>
     <description>
       Extensive library of open-source fonts and icons delivered via global CDN
+    </description>
+    <lastmod>2026-11-11</lastmod>
+  </tool>
+  <tool>
+    <title>Codeberg Pages</title>
+    <category>Inactive</category>
+    <url>https://www.staticstack.app/tools/inactive/codeberg-pages</url>
+    <image>https://www.staticstack.app/tools/inactive/codeberg-pages-cover.webp</image>
+    <description>
+      Community-driven, privacy-respecting, and free static website hosting
+    </description>
+    <lastmod>2026-11-11</lastmod>
+  </tool>
+  <tool>
+    <title>Free CSS</title>
+    <category>Inactive</category>
+    <url>https://www.staticstack.app/tools/inactive/free-css</url>
+    <image>https://www.staticstack.app/tools/inactive/free-css-cover.webp</image>
+    <description>
+      Massive archive of 3,500+ free HTML and CSS website templates ready to download and customize
+    </description>
+    <lastmod>2026-11-11</lastmod>
+  </tool>
+  <tool>
+    <title>GoatCounter</title>
+    <category>Inactive</category>
+    <url>https://www.staticstack.app/tools/inactive/goatcounter</url>
+    <image>https://www.staticstack.app/tools/inactive/goatcounter-cover.webp</image>
+    <description>
+      Lightweight, privacy-friendly web analytics without cookie banners
+    </description>
+    <lastmod>2026-11-11</lastmod>
+  </tool>
+  <tool>
+    <title>Umami</title>
+    <category>Inactive</category>
+    <url>https://www.staticstack.app/tools/inactive/umami</url>
+    <image>https://www.staticstack.app/tools/inactive/umami-cover.webp</image>
+    <description>
+      Simple, privacy-focused open-source alternative to Google Analytics
     </description>
     <lastmod>2026-11-11</lastmod>
   </tool>

@@ -3,7 +3,7 @@
 > Community-driven, privacy-respecting, and free static website hosting powered by Codeberg and Forgejo.
 
 1. **Official Website**: <a href="https://pages.codeberg.org/" target="_blank" rel="noopener noreferrer">pages.codeberg.org</a>
-2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
+2. **Category**: [Inactive](../../README.md#inactive)
 3. **Type**: Static Web Hosting & Git Platform
 4. **Pricing / License**: Free / Open Source
 
@@ -11,6 +11,9 @@
 ---
 
 ## Overview
+
+> [!WARNING]
+> **Website Status: Down / Inaccessible** — The official website (<a href="https://pages.codeberg.org/" target="_blank" rel="noopener noreferrer">pages.codeberg.org</a>) is currently down or not accessible. Further information about Codeberg services is available at <a href="https://codeberg.org/" target="_blank" rel="noopener noreferrer">codeberg.org</a>.
 
 Codeberg Pages is a free, non-profit static website hosting service provided by Codeberg e.V., a member-based organization headquartered in Germany. Built on top of the open-source Forgejo Git platform, Codeberg Pages allows creators to publish websites directly from a Git repository with an uncompromising commitment to privacy and freedom.
 

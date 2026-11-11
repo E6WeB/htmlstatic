@@ -43,6 +43,7 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 26. [Surveys & Feedback](#surveys--feedback)
 27. [Tutorials](#tutorials)
 28. [Typography & Web Fonts](#typography--web-fonts)
+29. [Inactive](#inactive)
 
 ### Contributing & Community
 
@@ -239,12 +240,6 @@ Understand website traffic, visitor behavior, and page performance.
     <td><a href="https://countapi.mileshilliard.com/" target="_blank" rel="noopener noreferrer">countapi.mileshilliard.com</a></td>
   </tr>
   <tr>
-    <td><a href="tools/analytics-privacy/goatcounter.md">GoatCounter</a></td>
-    <td>Lightweight, privacy-friendly web analytics</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">goatcounter.com</a></td>
-  </tr>
-  <tr>
     <td><a href="tools/analytics-privacy/plausible.md">Plausible</a></td>
     <td>Privacy-focused website analytics</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
@@ -255,12 +250,6 @@ Understand website traffic, visitor behavior, and page performance.
     <td>Real-time web analytics, visitor paths, and page counters</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">statcounter.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/analytics-privacy/umami.md">Umami</a></td>
-    <td>Open-source website analytics</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a></td>
   </tr>
 </tbody>
 </table>
@@ -763,12 +752,6 @@ Services for publishing static HTML, CSS, and JavaScript websites online.
     <td><a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">pages.cloudflare.com</a></td>
   </tr>
   <tr>
-    <td><a href="tools/hosting-deployment/codeberg-pages.md">Codeberg Pages</a></td>
-    <td>Community-driven, privacy-respecting, and free static website hosting</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
-    <td><a href="https://pages.codeberg.org/" target="_blank" rel="noopener noreferrer">pages.codeberg.org</a></td>
-  </tr>
-  <tr>
     <td><a href="tools/hosting-deployment/deno-deploy.md">Deno Deploy</a></td>
     <td>Distributed edge hosting platform serving static assets and edge logic globally</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
@@ -857,12 +840,6 @@ Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstar
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td><a href="tools/html-templates/free-css.md">Free CSS</a></td>
-    <td>Massive archive of 3,500+ free HTML and CSS website templates ready to download and customize</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
-    <td><a href="https://www.free-css.com/free-css-templates" target="_blank" rel="noopener noreferrer">free-css.com</a></td>
-  </tr>
   <tr>
     <td><a href="tools/html-templates/html5-up.md">HTML5 UP</a></td>
     <td>Handcrafted, fully responsive HTML5 and CSS3 site templates released for free under Creative Commons</td>
@@ -1424,6 +1401,49 @@ Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font se
     <td>Extensive library of open-source fonts and icons delivered via global CDN</td>
     <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"> <img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">fonts.google.com</a></td>
+  </tr>
+</tbody>
+</table>
+
+---
+
+## Inactive
+
+Site is not accessible or site is down
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="tools/inactive/codeberg-pages.md">Codeberg Pages</a></td>
+    <td>Community-driven, privacy-respecting, and free static website hosting</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://pages.codeberg.org/" target="_blank" rel="noopener noreferrer">pages.codeberg.org</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/inactive/free-css.md">Free CSS</a></td>
+    <td>Massive archive of 3,500+ free HTML and CSS website templates ready to download and customize</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://www.free-css.com/free-css-templates" target="_blank" rel="noopener noreferrer">free-css.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/inactive/goatcounter.md">GoatCounter</a></td>
+    <td>Lightweight, privacy-friendly web analytics without cookie banners</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">goatcounter.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/inactive/umami.md">Umami</a></td>
+    <td>Simple, privacy-focused open-source alternative to Google Analytics</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a></td>
   </tr>
 </tbody>
 </table>
