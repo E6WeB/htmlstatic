@@ -30,7 +30,7 @@
   "claude": {
     "url": "https://claude.ai/",
     "status": "online",
-    "code": 403,
+    "code": 302,
     "error": null,
     "checked_at": "2026-11-11"
   },
@@ -50,9 +50,9 @@
   },
   "chatgpt-openai": {
     "url": "https://openai.com/",
-    "status": "offline",
-    "code": 0,
-    "error": "Timeout",
+    "status": "online",
+    "code": 200,
+    "error": null,
     "checked_at": "2026-11-11"
   },
   "google-gemini": {
@@ -941,7 +941,7 @@
     "url": "https://www.free-css.com/free-css-templates",
     "status": "offline",
     "code": 0,
-    "error": "write EPROTO 08430000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:openssl\\ssl\\record\\rec_layer_s3.c:918:SSL alert number 80\n",
+    "error": "write EPROTO 3C4D0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:openssl\\ssl\\record\\rec_layer_s3.c:918:SSL alert number 80\n",
     "checked_at": "2026-11-11"
   },
   "html5-up": {

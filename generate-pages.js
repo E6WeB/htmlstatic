@@ -32,6 +32,8 @@ const { renderToolPage } = require('./src/templates/tool-page');
 const { renderCategoryPage } = require('./src/templates/category-page');
 const { renderSidebarDonationWidget } = require('./src/templates/sidebar-donation');
 const { syncAllCommunityPages } = require('./src/templates/sync-community');
+const { getAllBlogPosts } = require('./src/data/blog-posts');
+const { renderBlogArticlePage, renderBlogIndexPage } = require('./src/templates/blog-page');
 
 marked.setOptions({
   gfm: true,
@@ -1986,6 +1988,48 @@ fs.writeFileSync(path.join(ROOT_DIR, '404.html'), renderLayout({
 }));
 
 // ==========================================================================
+// 5d. Generate Blog Pages (/blog/index.html & /blog/<slug>/index.html)
+// ==========================================================================
+console.log('✍️ Generating Blog Pages (/blog/ & articles)...');
+const blogPosts = getAllBlogPosts();
+
+// 1. Generate each article page inside its own folder (/blog/<slug>/index.html)
+blogPosts.forEach(post => {
+  const articleDir = path.join(ROOT_DIR, 'blog', post.slug);
+  ensureDir(articleDir);
+  const articleMdPath = path.join(articleDir, 'article.md');
+  let articleMd = '';
+  if (fs.existsSync(articleMdPath)) {
+    articleMd = fs.readFileSync(articleMdPath, 'utf8');
+  } else {
+    articleMd = `# ${post.title}\n\n${post.description}`;
+  }
+  const parsedArticleHtml = marked.parse(articleMd);
+
+  const renderedArticleHtml = renderBlogArticlePage({
+    post,
+    parsedHtml: parsedArticleHtml,
+    allTools,
+    categories,
+    renderLayout,
+    getToolSiteIcon
+  });
+
+  fs.writeFileSync(path.join(articleDir, 'index.html'), renderedArticleHtml);
+});
+
+// 2. Generate Blog Index page (/blog/index.html)
+const blogDir = path.join(ROOT_DIR, 'blog');
+ensureDir(blogDir);
+const renderedBlogIndexHtml = renderBlogIndexPage({
+  posts: blogPosts,
+  allTools,
+  categories,
+  renderLayout
+});
+fs.writeFileSync(path.join(blogDir, 'index.html'), renderedBlogIndexHtml);
+
+// ==========================================================================
 // 6. Generate Dedicated HTML Pages for ALL Tools!
 // ==========================================================================
 console.log(`🔧 Generating Dedicated HTML Pages for all ${allTools.length} tools...`);
@@ -2045,12 +2089,21 @@ const sitemapUrls = [
   { loc: 'https://www.staticstack.app/', priority: '1.0', changefreq: 'daily' },
   { loc: 'https://www.staticstack.app/search', priority: '0.9', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
+  { loc: 'https://www.staticstack.app/blog', priority: '0.85', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/submit', priority: '0.8', changefreq: 'monthly' },
   { loc: 'https://www.staticstack.app/community', priority: '0.85', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/contribute', priority: '0.8', changefreq: 'monthly' },
   { loc: 'https://www.staticstack.app/thankyou', priority: '0.7', changefreq: 'monthly' },
   { loc: 'https://www.staticstack.app/contact', priority: '0.7', changefreq: 'monthly' },
 ];
+
+blogPosts.forEach(post => {
+  sitemapUrls.push({
+    loc: `https://www.staticstack.app/blog/${post.slug}/`,
+    priority: '0.8',
+    changefreq: 'monthly'
+  });
+});
 
 categories.forEach(cat => {
   sitemapUrls.push({

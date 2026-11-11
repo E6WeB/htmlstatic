@@ -64,6 +64,7 @@ function renderSiteFooter({ allTools = null, categories = null, rootPath = '', s
           <ul class="footer-links">
             <li><a href="${rootPath}search">Search Tools</a></li>
             <li><a href="${rootPath}archive">Master Archive</a></li>
+            <li><a href="${rootPath}blog">Blog &amp; Guides</a></li>
             <li><a href="${rootPath}community">Community Forum</a></li>
             <li><a href="${rootPath}submit">Submit a Tool</a></li>
             <li><a href="${rootPath}contribute">Contributing Guide</a></li>

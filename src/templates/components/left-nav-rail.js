@@ -42,6 +42,12 @@ function renderNavRail({ currentNav = '', totalToolsCount = null, rootPath = '' 
             </a>
           </li>
           <li>
+            <a href="${rootPath}blog" class="rail-item ${currentNav === 'blog' ? 'active' : ''}" aria-label="Blog & Guides">
+              ${ICONS.bookOpen || ICONS.book}
+              <span class="rail-tooltip">Blog & Guides</span>
+            </a>
+          </li>
+          <li>
             <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="rail-item" aria-label="GitHub Repository">
               ${ICONS.github}
               <span class="rail-tooltip">Star on GitHub</span>

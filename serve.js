@@ -349,6 +349,8 @@ function prewarmHotFiles() {
     ['/index.html', 'index.html'],
     ['/search', path.join('search', 'index.html')],
     ['/archive', path.join('archive', 'index.html')],
+    ['/blog', path.join('blog', 'index.html')],
+    ['/blog/how-to-add-contact-forms-to-static-websites/', path.join('blog', 'how-to-add-contact-forms-to-static-websites', 'index.html')],
     ['/submit', path.join('submit', 'index.html')],
     ['/contact', path.join('contact', 'index.html')],
     ['/community/', path.join('community', 'index.html')],

@@ -90,6 +90,15 @@ function renderMobileNavModal({ currentNav = '', totalToolsCount = null, rootPat
           </a>
         </li>
         <li class="mobile-nav-item">
+          <a href="${rootPath}blog" class="${currentNav === 'blog' ? 'active' : ''}" onclick="closeMobileNav()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-link-icon">${ICONS.bookOpen || ICONS.book}</span>
+              <span>Blog &amp; Guides</span>
+            </span>
+            <span class="mobile-nav-badge">Articles</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
           <a href="${rootPath}community" class="${currentNav === 'community' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
               <span class="mobile-nav-link-icon">${ICONS.users}</span>

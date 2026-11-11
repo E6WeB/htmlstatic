@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>How to Add Contact Forms to Static Websites - StaticStack Blog</title>
+<meta name="description" content="A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.">
+<meta name="keywords" content="contact-forms, html, vanilla-js, serverless, web3forms, formspree, cloudflare-turnstile, jamstack">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://www.staticstack.app/blog/how-to-add-contact-forms-to-static-websites/">
+
+<!-- OpenGraph & Social Cards -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StaticStack">
+<meta property="og:url" content="https://www.staticstack.app/blog/how-to-add-contact-forms-to-static-websites/">
+<meta property="og:title" content="How to Add Contact Forms to Static Websites - StaticStack Blog">
+<meta property="og:description" content="A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.">
+<meta property="og:image" content="https://www.staticstack.app/asset/img/og-image.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="How to Add Contact Forms to Static Websites - StaticStack Blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@staticstack">
+<meta name="twitter:url" content="https://www.staticstack.app/blog/how-to-add-contact-forms-to-static-websites/">
+<meta name="twitter:title" content="How to Add Contact Forms to Static Websites - StaticStack Blog">
+<meta name="twitter:description" content="A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.">
+<meta name="twitter:image" content="https://www.staticstack.app/asset/img/og-image.webp">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Add Contact Forms to Static Websites","description":"A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.","author":{"@type":"Organization","name":"StaticStack Editorial","url":"https://www.staticstack.app/"},"publisher":{"@type":"Organization","name":"StaticStack","url":"https://www.staticstack.app/","logo":{"@type":"ImageObject","url":"https://www.staticstack.app/apple-touch-icon.png"}},"datePublished":"2026-03-15","dateModified":"2026-03-15","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.staticstack.app/blog/how-to-add-contact-forms-to-static-websites/"},"keywords":"contact-forms, html, vanilla-js, serverless, web3forms, formspree, cloudflare-turnstile, jamstack"}</script>
+<link rel="stylesheet" href="/asset/css/style.css?v=14">
+
+<!-- Local StaticStack Appreciation / Like Button -->
+<script defer src="/asset/js/likes.js?v=1"></script>
+</head>
+<body>
+
+<!-- Left Navigation Rail (Desktop & Tablet >= 768px) -->
+<aside class="left-nav-rail" aria-label="Desktop Navigation Rail">
+<div class="rail-top">
+<a href="../../" class="rail-brand" aria-label="StaticStack Home">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+<span class="rail-tooltip">StaticStack.app</span>
+</a>
+
+<nav class="rail-nav" aria-label="Primary Navigation">
+<ul class="rail-list">
+<li>
+<a href="../../" class="rail-item " aria-label="Home">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+<span class="rail-tooltip">Home</span>
+</a>
+</li>
+<li>
+<a href="../../search" class="rail-item " aria-label="Search Tools">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+<span class="rail-tooltip">Search</span>
+</a>
+</li>
+<li>
+<a href="../../archive" class="rail-item " aria-label="Master Archive">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+<span class="rail-tooltip">Archive (144 Tools)</span>
+</a>
+</li>
+<li>
+<a href="../../community" class="rail-item " aria-label="Community">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+<span class="rail-tooltip">Community</span>
+</a>
+</li>
+<li>
+<a href="../../blog" class="rail-item active" aria-label="Blog & Guides">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+<span class="rail-tooltip">Blog & Guides</span>
+</a>
+</li>
+<li>
+<a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="rail-item" aria-label="GitHub Repository">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+<span class="rail-tooltip">Star on GitHub</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+
+<div class="rail-bottom">
+<button type="button" id="stackbot-btn" aria-label="Open StackBot chat">
+<span class="stackbot-icon" aria-hidden="true"></span>
+<span class="rail-tooltip">Ask StackBot</span>
+</button>
+<a href="../../submit" class="rail-action-btn " aria-label="Submit a Tool">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+<span class="rail-tooltip">Submit a Tool</span>
+</a>
+<a href="../../thankyou" class="rail-item " aria-label="Credits & Thanks">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+<span class="rail-tooltip">Credits & Thanks</span>
+</a>
+</div>
+</aside>
+
+<!-- Mobile Bottom Navigation Bar (Phones < 768px) -->
+<nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+<div class="bottom-nav-inner">
+<a href="../../" class="bottom-nav-item ">
+<span class="bottom-nav-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
+<span>Home</span>
+</a>
+<a href="../../search" class="bottom-nav-item " aria-label="Search Tools">
+<span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<span>Search</span>
+</a>
+<a href="../../submit" class="bottom-nav-fab" aria-label="Submit a Tool">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+</a>
+<a href="../../archive" class="bottom-nav-item ">
+<span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>
+<span>Archive</span>
+</a>
+<button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu">
+<span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle></svg></span>
+<span>More</span>
+</button>
+</div>
+</nav>
+
+<!-- Site Header (Mobile Only < 768px) -->
+<header class="site-header">
+<div class="container header-inner">
+<a href="../../" class="brand">
+<span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+<span>StaticStack</span>
+<span class="brand-badge">.app</span>
+</a>
+
+<!-- Quick Search Link -->
+<a href="../../search" class="header-search-btn" aria-label="Search Tools" style="text-decoration:none;">
+<span class="header-search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<span class="header-search-label">Search...</span>
+<kbd class="header-search-kbd">/</kbd>
+</a>
+
+<!-- Desktop Clean Nav Menu -->
+<nav class="nav-drawer" aria-label="Main Navigation">
+<ul id="nav-links" class="nav-links">
+<li><a href="../../" class="nav-link ">Home</a></li>
+<li><a href="../../search" class="nav-link ">Search</a></li>
+<li><a href="../../archive" class="nav-link ">Archive</a></li>
+<li><a href="../../blog" class="nav-link active">Blog</a></li>
+<li><a href="../../community" class="nav-link ">Community</a></li>
+<li><a href="../../submit" class="nav-link ">Submit</a></li>
+<li><a href="../../contact" class="nav-link ">Contact</a></li>
+<li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg> GitHub</a></li>
+</ul>
+</nav>
+
+<!-- Mobile Hamburger Menu Button -->
+<button id="mobile-menu-btn" class="hamburger-btn" type="button" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-modal">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</button>
+</div>
+</header>
+
+<!-- Full-Screen Mobile Navigation Overlay -->
+<div id="mobile-nav-modal" class="mobile-nav-modal" role="dialog" aria-modal="true" aria-label="Navigation Menu" tabindex="-1">
+<div class="mobile-nav-header">
+<a href="../../" class="brand" onclick="closeMobileNav()">
+<span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+<span>StaticStack</span>
+</a>
+<button id="mobile-menu-close" class="mobile-nav-close" type="button" aria-label="Close Navigation Menu" onclick="closeMobileNav()">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+</button>
+</div>
+
+<div class="mobile-nav-body">
+<ul class="mobile-nav-list">
+<li class="mobile-nav-item">
+<a href="../../" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
+<span>Home</span>
+</span>
+<span class="mobile-nav-badge">Explore</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../search" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+<span>Search Tools</span>
+</span>
+<span class="mobile-nav-badge">Instant</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../archive" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span>
+<span>Master Archive</span>
+</span>
+<span class="mobile-nav-badge">144 Tools</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../submit" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
+<span>Submit a Tool</span>
+</span>
+<span class="mobile-nav-badge">Contribute</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../blog" class="active" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
+<span>Blog &amp; Guides</span>
+</span>
+<span class="mobile-nav-badge">Articles</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../community" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+<span>Community</span>
+</span>
+<span class="mobile-nav-badge">Discussions</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../contribute" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg></span>
+<span>Contributing Guide</span>
+</span>
+<span class="mobile-nav-badge">Docs</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../thankyou" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>
+<span>Thank You &amp; Credits</span>
+</span>
+<span class="mobile-nav-badge">Credits</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="../../contact" class="" onclick="closeMobileNav()">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+<span>Contact &amp; Connect</span>
+</span>
+<span class="mobile-nav-badge">Connect</span>
+</a>
+</li>
+<li class="mobile-nav-item">
+<a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">
+<span class="mobile-nav-link-left">
+<span class="mobile-nav-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg></span>
+<span>GitHub Repository</span>
+</span>
+<span class="mobile-nav-badge" style="display:flex;align-items:center;gap:0.25rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Star</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- Mini Hero Section -->
+<section class="mini-hero">
+<div class="container mini-hero-inner">
+
+<nav class="mini-hero-breadcrumbs" aria-label="Breadcrumbs">
+
+<a href="../../"><span style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span> <span>Home</span></a>
+<span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+
+<a href="../../blog"><span>Blog</span></a>
+<span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+<span class="crumb-current" aria-current="page">How to Add Contact Forms to Static Websites</span>
+</nav>
+
+<div class="mini-hero-header">
+<div class="mini-hero-header-main">
+<div class="mini-hero-title-row">
+<div class="mini-hero-icon-box" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+<h1 class="mini-hero-title">How to Add Contact Forms to Static Websites</h1>
+</div>
+<p class="mini-hero-subtext">A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.</p>
+</div>
+<div class="mini-hero-actions">
+<a href="../../category/contact-forms/" class="btn btn-primary btn-sm">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Explore Contact Forms Tools
+</a>
+<a href="../../blog" class="btn btn-secondary btn-sm">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to Blog
+</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<main class="site-main container">
+
+<!-- Blog 2-Column Responsive Layout (Main Content Left + Sidebar Right) -->
+<div class="blog-layout">
+<!-- Main Content (Left Column) -->
+<div class="blog-main">
+<article class="blog-article-card">
+<!-- Article Meta Header -->
+<div class="blog-article-meta">
+<a href="../../category/contact-forms/" class="blog-category-badge">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+<span>Contact Forms</span>
+</a>
+<span>&bull;</span>
+<span class="blog-meta-badge">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+<span>March 15, 2026</span>
+</span>
+<span>&bull;</span>
+<span class="blog-meta-badge">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+<span>8 min read</span>
+</span>
+<span>&bull;</span>
+<span class="blog-meta-badge">
+By <strong>StaticStack Editorial</strong>
+</span>
+</div>
+
+<!-- Article Markdown Body -->
+<div class="markdown-body">
+<h1 id="how-to-add-contact-forms-to-static-websites">How to Add Contact Forms to Static Websites</h1>
+<p>Static websites are renowned for their incredible speed, bulletproof security, and near-zero hosting costs. When you serve pre-rendered HTML, CSS, and client-side JavaScript from a global CDN, there are no databases to breach and no backend runtimes to crash.</p>
+<p>Yet one of the most common myths about static sites is:</p>
+<blockquote>
+<p><em>&quot;If I build a static site, how can visitors send me a message? Doesn&#39;t a contact form require a PHP server, Node.js backend, or MySQL database?&quot;</em></p>
+</blockquote>
+<p>The answer is an emphatic <strong>no</strong>. In fact, handling contact forms on static websites using modern serverless form endpoints is significantly <strong>safer, faster, and more reliable</strong> than writing custom PHP mail scripts or managing WordPress plugins.</p>
+<p>In this guide, you will learn how static form handling works, explore the two primary implementation methods (zero-JS pure HTML vs. asynchronous AJAX/Fetch), discover how to eliminate spam using privacy-first tools like Cloudflare Turnstile, and review the top form backends available today.</p>
+<hr>
+<h2 id="why-static-forms">Why Static Forms Are Better Than Traditional Server Forms</h2>
+
+<p>If you&#39;ve ever configured <code>mail()</code> in PHP or maintained a contact form plugin on a traditional CMS, you probably recall the headaches:</p>
+<ol>
+<li><strong>Email Deliverability Failures</strong>: Unauthenticated server mail often lands directly in user spam folders unless you meticulously configure SPF, DKIM, and DMARC records.</li>
+<li><strong>Security Vulnerabilities</strong>: Custom backend endpoints frequently suffer from SQL injection, cross-site scripting (XSS), or unrestricted file upload exploits.</li>
+<li><strong>Bot &amp; Spam Floods</strong>: Monolithic forms are prime targets for automated bots that spam contact lists and exhaust server memory.</li>
+<li><strong>Server Maintenance</strong>: Keeping PHP, Node.js, or server packages patched just to receive occasional emails creates needless technical debt.</li>
+</ol>
+<p>Modern static form backends solve this by providing a <strong>dedicated, hardened HTTP endpoint</strong> designed solely to receive form data, filter out spam, trigger email notifications, and dispatch webhooks to Slack, Discord, or your CRM.</p>
+<hr>
+<h2 id="how-they-work">How Static Form Handlers Work</h2>
+
+<p>At the HTTP protocol level, submitting a form simply sends an <code>HTTP POST</code> request containing key-value pairs (your input fields) to an endpoint URL.</p>
+<p>When using a static form backend:</p>
+<ol>
+<li>Your static HTML page renders a <code>&lt;form&gt;</code> element whose <code>action</code> attribute points to the endpoint URL provided by your form service (e.g., <code>https://api.web3forms.com/submit</code> or <code>https://formspree.io/f/your-id</code>).</li>
+<li>The user fills out the form and clicks <strong>Submit</strong>.</li>
+<li>The form service processes the payload, performs anti-spam heuristics, and sends an email notification with the message contents directly to your inbox.</li>
+<li>The service either redirects the user to your custom <code>thank-you.html</code> page (in pure HTML mode) or returns a JSON response: <code>{ &quot;success&quot;: true }</code> (in AJAX mode).</li>
+</ol>
+<hr>
+<h2 id="method-1-pure-html">Method 1: Zero-JS Pure HTML Form Submission</h2>
+
+<p>The simplest way to handle contact forms requires <strong>zero lines of JavaScript</strong>. This method works even if the user has disabled JavaScript or is browsing on an older device.</p>
+<h3 id="the-html-code">The HTML Code</h3>
+<p>Here is a standard, accessible HTML form using a hosted endpoint:</p>
+<pre><code class="language-html">&lt;form action=&quot;https://api.web3forms.com/submit&quot; method=&quot;POST&quot;&gt;
+  &lt;!-- Your Service Access Key --&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;access_key&quot; value=&quot;YOUR_ACCESS_KEY_HERE&quot;&gt;
+
+  &lt;!-- Optional: Custom Subject Line --&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;subject&quot; value=&quot;New Contact Form Submission&quot;&gt;
+
+  &lt;!-- Optional: Redirect to Custom Thank You Page --&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;redirect&quot; value=&quot;https://www.yourdomain.com/thank-you.html&quot;&gt;
+
+  &lt;!-- Anti-Spam Honeypot Field (Hidden from humans) --&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;botcheck&quot; class=&quot;hidden&quot; style=&quot;display: none;&quot;&gt;
+
+  &lt;!-- Form Fields --&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Your Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; required placeholder=&quot;Jane Doe&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;
+    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;jane@example.com&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
+    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; required placeholder=&quot;How can we help?&quot;&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Send Message&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="how-it-operates">How It Operates</h3>
+<ul>
+<li>When clicked, the browser natively packages the inputs and POSTs them to the backend endpoint.</li>
+<li>Once validated, the backend redirects the user&#39;s browser to your <code>redirect</code> URL (e.g., <code>/thank-you.html</code>).</li>
+<li><strong>Pros</strong>: 100% resilient, zero dependencies, works in every web browser ever built.</li>
+<li><strong>Cons</strong>: The browser performs a full page reload or navigation to display the confirmation.</li>
+</ul>
+<hr>
+<h2 id="method-2-ajax-fetch">Method 2: Asynchronous AJAX / Fetch Submissions</h2>
+
+<p>If you want a seamless, app-like user experience where the page <strong>never reloads</strong>, you can intercept the submit event with a few lines of lightweight Vanilla JavaScript using the browser&#39;s native <code>fetch()</code> API.</p>
+<h3 id="the-javascript-implementation">The JavaScript Implementation</h3>
+<pre><code class="language-html">&lt;form id=&quot;contact-form&quot; action=&quot;https://api.web3forms.com/submit&quot; method=&quot;POST&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;access_key&quot; value=&quot;YOUR_ACCESS_KEY_HERE&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;botcheck&quot; style=&quot;display: none;&quot;&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;contact-name&quot;&gt;Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;contact-name&quot; name=&quot;name&quot; required&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;contact-email&quot;&gt;Email&lt;/label&gt;
+    &lt;input type=&quot;email&quot; id=&quot;contact-email&quot; name=&quot;email&quot; required&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;contact-message&quot;&gt;Message&lt;/label&gt;
+    &lt;textarea id=&quot;contact-message&quot; name=&quot;message&quot; rows=&quot;4&quot; required&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;button type=&quot;submit&quot; id=&quot;submit-btn&quot;&gt;Send Message&lt;/button&gt;
+  &lt;div id=&quot;form-status&quot; role=&quot;alert&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+  const form = document.getElementById(&#39;contact-form&#39;);
+  const statusEl = document.getElementById(&#39;form-status&#39;);
+  const submitBtn = document.getElementById(&#39;submit-btn&#39;);
+
+  form.addEventListener(&#39;submit&#39;, async function(e) {
+    e.preventDefault();
+
+    // Set loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = &#39;Sending...&#39;;
+    statusEl.textContent = &#39;&#39;;
+    statusEl.className = &#39;status-loading&#39;;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: &#39;POST&#39;,
+        body: formData,
+        headers: {
+          &#39;Accept&#39;: &#39;application/json&#39;
+        }
+      });
+
+      const result = await response.json();
+
+      if (response.ok &amp;&amp; (result.success || result.ok)) {
+        statusEl.className = &#39;status-success&#39;;
+        statusEl.textContent = &#39;Thank you! Your message has been sent successfully.&#39;;
+        form.reset();
+      } else {
+        throw new Error(result.message || &#39;Something went wrong. Please try again.&#39;);
+      }
+    } catch (err) {
+      statusEl.className = &#39;status-error&#39;;
+      statusEl.textContent = err.message || &#39;Unable to send message. Please check your network connection.&#39;;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = &#39;Send Message&#39;;
+    }
+  });
+&lt;/script&gt;
+</code></pre>
+<h3 id="why-this-ux-wins">Why This UX Wins</h3>
+<ul>
+<li>Users receive immediate inline feedback without leaving the page.</li>
+<li>You can style custom loading spinners and success banners.</li>
+<li>If an input error occurs, user text is never lost because the form state remains intact.</li>
+</ul>
+<hr>
+<h2 id="spam-protection">Stopping Spam: Honeypots &amp; Cloudflare Turnstile</h2>
+
+<p>Public contact forms will inevitably attract automated spambots. Fortunately, static forms can achieve near-100% spam deterrence without subjecting real human visitors to frustrating, distorted image puzzles.</p>
+<h3 id="1-the-honeypot-technique-zero-user-friction"><span id="1-the-honeypot-technique" class="heading-anchor-target"></span>1. The Honeypot Technique (Zero User Friction)</h3>
+<p>A honeypot is an input field invisible to human eyes (hidden via CSS or positioned off-screen) but clearly visible in the HTML document to automated crawlers.</p>
+<pre><code class="language-html">&lt;!-- Real humans never fill this out, but bots fill every field they find --&gt;
+&lt;div style=&quot;position: absolute; left: -9999px; opacity: 0; pointer-events: none;&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;_gotcha&quot; tabindex=&quot;-1&quot; autocomplete=&quot;off&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<p>When a bot encounters the form, it eagerly injects text into <code>_gotcha</code>. The form backend inspects this field on receipt—if <code>_gotcha</code> contains any content, the submission is silently discarded.</p>
+<h3 id="2-cloudflare-turnstile-smart-privacy-preserving-captcha"><span id="2-cloudflare-turnstile" class="heading-anchor-target"></span>2. Cloudflare Turnstile (Smart, Privacy-Preserving CAPTCHA)</h3>
+<p><a href="/tools/security-spam-protection/cloudflare-turnstile">Cloudflare Turnstile</a> is a lightweight, non-interactive CAPTCHA replacement that validates real human browser behavior automatically in the background without user puzzles.</p>
+<p>To embed Turnstile in your form:</p>
+<pre><code class="language-html">&lt;!-- 1. Include the Turnstile script --&gt;
+&lt;script src=&quot;https://challenges.cloudflare.com/turnstile/v0/api.js&quot; async defer&gt;&lt;/script&gt;
+
+&lt;!-- 2. Add the widget inside your form --&gt;
+&lt;div class=&quot;cf-turnstile&quot; data-sitekey=&quot;YOUR_TURNSTILE_SITE_KEY&quot; data-theme=&quot;light&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Most top static form services (like Web3Forms and Basin) natively recognize Turnstile tokens and verify them automatically on their servers.</p>
+<hr>
+<h2 id="top-form-backends">The Best Static Form Backends Compared</h2>
+
+<p>Choosing the right backend depends on your monthly submission volume, team requirements, and budget. Here is how the top services on StaticStack stack up:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Service</th>
+<th align="left">Free Tier Allowance</th>
+<th align="left">Key Strengths</th>
+<th align="left">Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><a href="/tools/contact-forms/web3forms">Web3Forms</a></strong></td>
+<td align="left">250 submissions / month</td>
+<td align="left">Zero registration needed to test, Turnstile/hCaptcha support, custom redirect</td>
+<td align="left">Developers wanting instant setup with just an Access Key</td>
+</tr>
+<tr>
+<td align="left"><strong><a href="/tools/contact-forms/formspree">Formspree</a></strong></td>
+<td align="left">50 submissions / month</td>
+<td align="left">Industry pioneer, powerful spam engine, React/HTML libraries, Zapier/Slack webhooks</td>
+<td align="left">Production sites needing rich third-party integrations</td>
+</tr>
+<tr>
+<td align="left"><strong><a href="/tools/contact-forms/basin">Basin</a></strong></td>
+<td align="left">100 submissions / month</td>
+<td align="left">Built specifically for agencies, file uploads, GDPR compliant, clean dashboard</td>
+<td align="left">Agencies and multi-client web projects</td>
+</tr>
+<tr>
+<td align="left"><strong><a href="/tools/contact-forms/splitform">Splitform</a></strong></td>
+<td align="left">Free tier available</td>
+<td align="left">Focused on static websites, fast endpoints, straightforward configuration</td>
+<td align="left">Minimalist static sites and portfolio landing pages</td>
+</tr>
+<tr>
+<td align="left"><strong><a href="/tools/contact-forms/craftforms">CraftForms</a></strong></td>
+<td align="left">Freemium</td>
+<td align="left">Payment forms (Stripe), quote calculators, multi-step embeds</td>
+<td align="left">Static ecommerce and service booking sites</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="step-by-step-example">Complete Production-Ready Code</h2>
+
+<p>Here is a full, drop-in template incorporating semantic HTML5, accessible labeling, CSS styling, honeypot protection, and AJAX submission:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Contact Us - StaticStack Guide&lt;/title&gt;
+  &lt;style&gt;
+    .contact-card {
+      max-width: 540px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      font-family: system-ui, -apple-system, sans-serif;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 0.35rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+    .btn-submit:hover:not(:disabled) {
+      background: #1d4ed8;
+    }
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    .form-alert {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: none;
+    }
+    .form-alert.success {
+      display: block;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .form-alert.error {
+      display: block;
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .honeypot {
+      display: none !important;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class=&quot;contact-card&quot;&gt;
+    &lt;h2&gt;Get in Touch&lt;/h2&gt;
+    &lt;p style=&quot;color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;&quot;&gt;
+      Have a question or suggestion? Drop us a note below.
+    &lt;/p&gt;
+
+    &lt;form id=&quot;contact-form&quot; action=&quot;https://api.web3forms.com/submit&quot; method=&quot;POST&quot;&gt;
+      &lt;!-- Replace with your actual Web3Forms Access Key --&gt;
+      &lt;input type=&quot;hidden&quot; name=&quot;access_key&quot; value=&quot;YOUR_ACCESS_KEY_HERE&quot;&gt;
+      
+      &lt;!-- Anti-Spam Honeypot --&gt;
+      &lt;input type=&quot;checkbox&quot; name=&quot;botcheck&quot; class=&quot;honeypot&quot;&gt;
+
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;name&quot;&gt;Full Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; required placeholder=&quot;Jane Doe&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;
+        &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;jane@example.com&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;message&quot;&gt;Your Message&lt;/label&gt;
+        &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; required placeholder=&quot;Write your message here...&quot;&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+
+      &lt;button type=&quot;submit&quot; id=&quot;submit-btn&quot; class=&quot;btn-submit&quot;&gt;Send Message&lt;/button&gt;
+      &lt;div id=&quot;form-alert&quot; class=&quot;form-alert&quot; role=&quot;alert&quot;&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    const contactForm = document.getElementById(&#39;contact-form&#39;);
+    const alertBox = document.getElementById(&#39;form-alert&#39;);
+    const submitBtn = document.getElementById(&#39;submit-btn&#39;);
+
+    contactForm.addEventListener(&#39;submit&#39;, async function(e) {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = &#39;Sending...&#39;;
+      alertBox.className = &#39;form-alert&#39;;
+      alertBox.style.display = &#39;none&#39;;
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: &#39;POST&#39;,
+          body: formData,
+          headers: { &#39;Accept&#39;: &#39;application/json&#39; }
+        });
+        const data = await res.json();
+
+        if (res.ok &amp;&amp; data.success) {
+          alertBox.className = &#39;form-alert success&#39;;
+          alertBox.textContent = &#39;Your message has been sent successfully! We will get back to you shortly.&#39;;
+          alertBox.style.display = &#39;block&#39;;
+          contactForm.reset();
+        } else {
+          throw new Error(data.message || &#39;Submission failed. Please try again.&#39;);
+        }
+      } catch (err) {
+        alertBox.className = &#39;form-alert error&#39;;
+        alertBox.textContent = err.message || &#39;An error occurred. Please try again later.&#39;;
+        alertBox.style.display = &#39;block&#39;;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = &#39;Send Message&#39;;
+      }
+    });
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="best-practices">Best Practices &amp; Accessibility Checklist</h2>
+
+<p>Before pushing your contact form to production, verify each of these key items:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>Always Use Explicit Labels</strong>: Match each <code>&lt;label for=&quot;field-id&quot;&gt;</code> to <code>&lt;input id=&quot;field-id&quot;&gt;</code> so screen readers and voice assistants can identify inputs.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Enforce Semantic Input Types</strong>: Use <code>type=&quot;email&quot;</code>, <code>type=&quot;tel&quot;</code>, and <code>type=&quot;url&quot;</code>. Mobile keyboards will adapt automatically, showing the <code>@</code> symbol or numeric keypad.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Implement Native Validation</strong>: Add the <code>required</code> attribute to mandatory fields to catch missing values on the client before making a network request.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Include ARIA Attributes on Dynamic Alerts</strong>: Use <code>role=&quot;alert&quot;</code> and <code>aria-live=&quot;polite&quot;</code> on status messages so screen readers announce submission confirmations.</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Restrict Allowed Domains</strong>: In your form backend provider&#39;s dashboard, enable domain origin whitelisting (e.g., allow submissions only from <code>https://www.yourdomain.com</code>).</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Provide Alternative Contact Info</strong>: Always display a direct contact email, Twitter handle, or community link on your contact page so visitors have a secondary path to reach you.</li>
+</ul>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Building static websites does not mean sacrificing interactive features. With modern serverless form endpoints, static contact forms are faster to build, safer to host, and dramatically less prone to deliverability issues than traditional CMS forms.</p>
+<p>Ready to add a form to your static website? Explore our curated directory of <a href="/category/contact-forms/">Contact Forms Tools &amp; Services</a> to find the ideal match for your next project.</p>
+
+</div>
+
+<!-- Topics / Tags -->
+
+<section class="tool-tags-section" aria-label="Article Topics">
+<span class="tool-tags-label">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+<span>Topics:</span>
+</span>
+<div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+<a href="../../search?q=contact-forms" class="tool-tag-pill">#contact-forms</a> <a href="../../search?q=html" class="tool-tag-pill">#html</a> <a href="../../search?q=vanilla-js" class="tool-tag-pill">#vanilla-js</a> <a href="../../search?q=serverless" class="tool-tag-pill">#serverless</a> <a href="../../search?q=web3forms" class="tool-tag-pill">#web3forms</a> <a href="../../search?q=formspree" class="tool-tag-pill">#formspree</a> <a href="../../search?q=cloudflare-turnstile" class="tool-tag-pill">#cloudflare-turnstile</a> <a href="../../search?q=jamstack" class="tool-tag-pill">#jamstack</a>
+</div>
+</section>
+
+<!-- Discussion Section via Giscus -->
+<section class="tool-comments-section" style="margin-top:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+<div style="margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
+<div style="display:flex; align-items:center; gap:0.55rem;">
+<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+<h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Community Discussion</h3>
+</div>
+<p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">Questions, thoughts, or form tips? Join the conversation below.</p>
+</div>
+<div class="giscus"></div>
+<script src="https://giscus.app/client.js"
+data-repo="E6WeB/static-comment"
+data-repo-id="R_kgDOVYc0DQ"
+data-category="General"
+data-category-id="DIC_kwDOVYc0Dc4DJsXu"
+data-mapping="pathname"
+data-strict="0"
+data-reactions-enabled="1"
+data-emit-metadata="0"
+data-input-position="bottom"
+data-theme="light"
+data-lang="en"
+crossorigin="anonymous"
+async>
+</script>
+</section>
+
+<!-- Bottom Navigation Bar -->
+<div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; margin-top:2rem; border-top:1px solid var(--border-color);">
+<a href="../../blog" class="btn btn-secondary">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to All Articles
+</a>
+<a href="../../category/contact-forms/" class="btn btn-secondary">
+Browse Contact Forms Tools
+</a>
+<a href="../../submit" class="btn btn-primary">
+Submit a Tool &rarr;
+</a>
+</div>
+</article>
+</div>
+
+<!-- Right Sidebar (Table of Contents + Related Tools + Tips + Support) -->
+<aside class="blog-sidebar">
+<!-- Table of Contents Widget -->
+
+<div class="sidebar-widget" style="position:sticky; top:5.5rem;">
+<div class="sidebar-widget-header">
+<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+<h4 class="sidebar-widget-title">In This Article</h4>
+</div>
+<div class="sidebar-widget-body">
+<ul class="blog-toc-list">
+
+<li>
+<a href="#why-static-forms" class="blog-toc-link">
+<span>Why Static Forms Are Better</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+<li>
+<a href="#how-they-work" class="blog-toc-link">
+<span>How Static Form Handlers Work</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+<li>
+<a href="#method-1-pure-html" class="blog-toc-link">
+<span>Method 1: Zero-JS Pure HTML Form</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+<li>
+<a href="#method-2-ajax-fetch" class="blog-toc-link">
+<span>Method 2: Asynchronous AJAX / Fetch</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+<li>
+<a href="#spam-protection" class="blog-toc-link">
+<span>Stopping Spam (Turnstile &amp; Honeypot)</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+<li>
+<a href="#top-form-backends" class="blog-toc-link">
+<span>The Best Form Backends Compared</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+<li>
+<a href="#step-by-step-example" class="blog-toc-link">
+<span>Complete Production-Ready Code</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+<li>
+<a href="#best-practices" class="blog-toc-link">
+<span>Best Practices &amp; Accessibility</span>
+<span style="color:var(--text-subtle);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+</a>
+</li>
+
+</ul>
+</div>
+</div>
+
+<!-- Related Catalog Tools Widget -->
+
+<div class="sidebar-widget">
+<div class="sidebar-widget-header" style="justify-content:space-between;">
+<div style="display:flex; align-items:center; gap:0.5rem;">
+<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+<h4 class="sidebar-widget-title">Featured Tools</h4>
+</div>
+<a href="../../category/contact-forms/" style="font-size:0.75rem; font-weight:700; color:var(--accent); text-decoration:none;">
+View All &rarr;
+</a>
+</div>
+<div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
+
+<a href="../../tools/contact-forms/web3forms" class="sidebar-tool-card" title="Web3Forms - Contact Forms">
+<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
+<img src="/tools/contact-forms/web3forms-icon.webp" width="20" height="20" class="tool-siteicon" alt="" loading="lazy" decoding="async">
+</span>
+<div class="sidebar-tool-info">
+<div class="sidebar-tool-name">
+<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Web3Forms</span>
+<span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
+</div>
+<div class="sidebar-tool-desc">Contact form backend for static websites, HTML, React, Next.js, and Jamstack.</div>
+</div>
+</a>
+
+<a href="../../tools/contact-forms/formspree" class="sidebar-tool-card" title="Formspree - Contact Forms">
+<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
+<img src="/tools/contact-forms/formspree-icon.webp" width="20" height="20" class="tool-siteicon" alt="" loading="lazy" decoding="async">
+</span>
+<div class="sidebar-tool-info">
+<div class="sidebar-tool-name">
+<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Formspree</span>
+<span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
+</div>
+<div class="sidebar-tool-desc">Reliable form submissions and email notifications for static sites.</div>
+</div>
+</a>
+
+<a href="../../tools/contact-forms/basin" class="sidebar-tool-card" title="Basin - Contact Forms">
+<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
+<img src="/tools/contact-forms/basin-icon.webp" width="20" height="20" class="tool-siteicon" alt="" loading="lazy" decoding="async">
+</span>
+<div class="sidebar-tool-info">
+<div class="sidebar-tool-name">
+<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Basin</span>
+<span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
+</div>
+<div class="sidebar-tool-desc">Hosted form backend built for static websites, developers, and agencies.</div>
+</div>
+</a>
+
+<a href="../../tools/contact-forms/splitform" class="sidebar-tool-card" title="Splitform - Contact Forms">
+<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
+<img src="/tools/contact-forms/splitform-icon.webp" width="20" height="20" class="tool-siteicon" alt="" loading="lazy" decoding="async">
+</span>
+<div class="sidebar-tool-info">
+<div class="sidebar-tool-name">
+<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Splitform</span>
+<span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
+</div>
+<div class="sidebar-tool-desc">Contact forms and form handling designed for static websites.</div>
+</div>
+</a>
+
+<a href="../../tools/security-spam-protection/cloudflare-turnstile" class="sidebar-tool-card" title="Cloudflare Turnstile - Security &amp; Spam Protection">
+<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
+<img src="/tools/security-spam-protection/cloudflare-turnstile-icon.webp" width="20" height="20" class="tool-siteicon" alt="" loading="lazy" decoding="async">
+</span>
+<div class="sidebar-tool-info">
+<div class="sidebar-tool-name">
+<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Cloudflare Turnstile</span>
+<span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Free</span>
+</div>
+<div class="sidebar-tool-desc">Privacy-friendly, frustration-free CAPTCHA alternative.</div>
+</div>
+</a>
+
+</div>
+</div>
+
+<!-- Static Site Tips Widget -->
+<div class="sidebar-widget">
+<div class="sidebar-widget-header">
+<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .5 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg></span>
+<h4 class="sidebar-widget-title">Static Site Pro Tip</h4>
+</div>
+<div class="sidebar-widget-body">
+<div class="sidebar-tip-item">
+<span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+<div>
+<strong style="color:var(--text-main); font-size:0.85rem; display:block;">Always Add a Honeypot</strong>
+<p style="font-size:0.8rem; margin:0.25rem 0 0; color:var(--text-muted); line-height:1.45;">
+A hidden honeypot input filters out over 90% of automated spam submissions with zero human friction.
+</p>
+</div>
+</div>
+<div class="sidebar-tip-item">
+<span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+<div>
+<strong style="color:var(--text-main); font-size:0.85rem; display:block;">Progressive Enhancement</strong>
+<p style="font-size:0.8rem; margin:0.25rem 0 0; color:var(--text-muted); line-height:1.45;">
+Start with a valid HTML POST action, then layer on JavaScript <code>fetch()</code> for instantaneous inline confirmation.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Sidebar PayPal Donation Widget -->
+
+<!-- PayPal Donation Sidebar Card -->
+<div class="sidebar-widget sidebar-donate-widget">
+<style>
+.sidebar-donate-widget {
+background: var(--bg-surface);
+border: 1px solid var(--border-color);
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sidebar-donate-widget:hover {
+border-color: rgba(0, 112, 186, 0.4);
+box-shadow: 0 6px 18px rgba(0, 112, 186, 0.08);
+}
+.sidebar-donate-btn {
+border: 1px solid var(--border-color) !important;
+background: var(--bg-body) !important;
+color: var(--text-main) !important;
+border-radius: 6px;
+padding: 0.35rem 0.2rem;
+font-size: 0.85rem;
+font-weight: 700;
+cursor: pointer !important;
+transition: all 0.15s ease;
+font-family: inherit;
+text-align: center;
+user-select: none;
+}
+.sidebar-donate-btn:hover {
+border-color: #0070ba !important;
+background: rgba(0, 112, 186, 0.15) !important;
+color: #0070ba !important;
+}
+.sidebar-donate-btn.active,
+.sidebar-donate-btn.active:hover {
+border-color: #0070ba !important;
+background: #0070ba !important;
+color: #ffffff !important;
+box-shadow: 0 2px 8px rgba(0, 112, 186, 0.35) !important;
+}
+.sidebar-donate-custom:focus {
+border-color: #0070ba !important;
+box-shadow: 0 0 0 2px rgba(0, 112, 186, 0.15) !important;
+}
+.sidebar-donate-submit:hover {
+background: linear-gradient(180deg, #ffd05b 0%, #f7be38 100%) !important;
+box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35) !important;
+transform: translateY(-1px);
+color: #000000 !important;
+}
+</style>
+<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.6rem;">
+<div style="display:flex; align-items:center; gap:0.5rem;">
+<span style="display:inline-flex; align-items:center; color:#0070ba;">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+<path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z" fill="#003087"/>
+<path d="M9.13 15.688l1.196-7.575a.8.8 0 0 1 .79-.675h5.176c2.81 0 4.887 1.405 4.51 4.27-.373 2.825-2.327 4.33-4.896 4.33H11.75l-.946 5.682a.8.8 0 0 1-.79.674H6.386a.64.64 0 0 1-.632-.74l1.378-8.291L9.13 15.688z" fill="#0079C1"/>
+</svg>
+</span>
+<strong style="font-size:0.875rem; color:var(--text-main);">Support StaticStack</strong>
+</div>
+<span style="font-size:0.65rem; font-weight:700; color:#0070ba; background:rgba(0,112,186,0.1); padding:2px 6px; border-radius:10px; letter-spacing:0.03em;">DONATE</span>
+</div>
+<p style="font-size:0.8rem; color:var(--text-muted); line-height:1.45; margin-bottom:0.75rem;">
+Help keep this catalog free, independent, and actively maintained.
+</p>
+
+<div class="sidebar-donate-amounts" style="display:grid; grid-template-columns: repeat(3, 1fr) 1.25fr; gap:0.4rem; margin-bottom:0.75rem;">
+<button type="button" class="sidebar-donate-btn" data-amt="5" onclick="setSidebarDonation(this, 5)">$5</button>
+<button type="button" class="sidebar-donate-btn active" data-amt="10" onclick="setSidebarDonation(this, 10)">$10</button>
+<button type="button" class="sidebar-donate-btn" data-amt="20" onclick="setSidebarDonation(this, 20)">$20</button>
+<div style="position:relative; display:flex; align-items:center;">
+<span style="position:absolute; left:0.45rem; font-size:0.75rem; color:var(--text-muted); font-weight:700; pointer-events:none;">$</span>
+<input type="number" class="sidebar-donate-custom" placeholder="Other" min="1" step="1" oninput="setSidebarDonationCustom(this)" style="width:100%; height:100%; min-height:34px; padding:0.25rem 0.35rem 0.25rem 1.15rem; font-size:0.8rem; font-weight:600; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-body); color:var(--text-main); outline:none;">
+</div>
+</div>
+
+<a class="sidebar-donate-submit" href="https://paypal.me/scotbirchfield/10" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; gap:0.45rem; width:100%; padding:0.55rem 0.85rem; background:linear-gradient(180deg, #ffc439 0%, #f4b628 100%); color:#111827; border:1px solid #e0a316; border-radius:8px; font-size:0.85rem; font-weight:700; text-decoration:none; cursor:pointer; box-shadow:0 2px 8px rgba(245,158,11,0.2); transition:all 0.15s ease;">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+<path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z"/>
+</svg>
+<span class="sidebar-donate-btn-label">Donate $10 with PayPal</span>
+</a>
+
+<div style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; justify-content:center; gap:0.3rem; margin-top:0.55rem;">
+<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg>
+<span>Secure checkout on PayPal &bull; Cards accepted</span>
+</div>
+
+<script>
+if (typeof window.setSidebarDonation !== 'function') {
+window.setSidebarDonation = function(btnEl, amt) {
+var widget = btnEl.closest('.sidebar-donate-widget');
+if (!widget) return;
+var customInput = widget.querySelector('.sidebar-donate-custom');
+if (customInput) customInput.value = '';
+var buttons = widget.querySelectorAll('.sidebar-donate-btn');
+for (var i = 0; i < buttons.length; i++) {
+buttons[i].classList.remove('active');
+}
+btnEl.classList.add('active');
+var submitBtn = widget.querySelector('.sidebar-donate-submit');
+var labelEl = widget.querySelector('.sidebar-donate-btn-label');
+var targetUrl = 'https://paypal.me/scotbirchfield/' + amt;
+if (submitBtn) submitBtn.href = targetUrl;
+if (labelEl) labelEl.textContent = 'Donate $' + amt + ' with PayPal';
+};
+}
+
+if (typeof window.setSidebarDonationCustom !== 'function') {
+window.setSidebarDonationCustom = function(inputEl) {
+var widget = inputEl.closest('.sidebar-donate-widget');
+if (!widget) return;
+var buttons = widget.querySelectorAll('.sidebar-donate-btn');
+for (var i = 0; i < buttons.length; i++) {
+buttons[i].classList.remove('active');
+}
+var val = inputEl.value ? parseInt(inputEl.value, 10) : 0;
+var submitBtn = widget.querySelector('.sidebar-donate-submit');
+var labelEl = widget.querySelector('.sidebar-donate-btn-label');
+if (!isNaN(val) && val > 0) {
+var targetUrl = 'https://paypal.me/scotbirchfield/' + val;
+if (submitBtn) submitBtn.href = targetUrl;
+if (labelEl) labelEl.textContent = 'Donate $' + val + ' with PayPal';
+} else {
+var targetUrl = 'https://paypal.me/scotbirchfield/';
+if (submitBtn) submitBtn.href = targetUrl;
+if (labelEl) labelEl.textContent = 'Donate with PayPal';
+}
+};
+}
+</script>
+</div>
+
+<!-- Facebook Community Card -->
+<div class="sidebar-widget">
+<div class="sidebar-widget-header">
+<span style="color:#1877f2; display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
+<h4 class="sidebar-widget-title">Join the Community</h4>
+</div>
+<div class="sidebar-widget-body">
+<p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
+Connect with fellow static site developers, share Jamstack workflows, and get feedback.
+</p>
+<a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center; gap:0.4rem;">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Join Dynamic Websites <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</div>
+</div>
+</aside>
+</div>
+
+</main>
+
+<!-- Pre-Footer Call to Action -->
+<section class="pre-footer-cta">
+<div class="container">
+<div class="pre-footer-card">
+<div class="pre-footer-content">
+<h2 class="pre-footer-title">Have a great static tool to recommend?</h2>
+<p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p>
+</div>
+<div class="pre-footer-actions">
+<a href="../../submit" class="btn btn-primary">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+<span>Submit a Tool</span>
+</a>
+<a href="../../archive" class="btn btn-secondary">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+<span>Browse all Categories</span>
+</a>
+<a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+<span>Star on GitHub</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Site Footer -->
+<footer class="site-footer">
+<div class="container">
+<div class="footer-inner">
+<div class="footer-col footer-col-brand">
+<a href="../../" class="brand" style="margin-bottom: 0.5rem;">
+<span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+<span>StaticStack</span>
+</a>
+<p class="footer-desc">
+Community-curated tools, APIs, and services for building modern static websites with zero backend bloat.
+</p>
+<div class="footer-pill-badge">
+<span class="status-dot"></span>
+<span>144 Tools &bull; 29 Categories</span>
+</div>
+</div>
+
+<div class="footer-col">
+<h4>Directory</h4>
+<ul class="footer-links">
+<li><a href="../../search">Search Tools</a></li>
+<li><a href="../../archive">Master Archive</a></li>
+<li><a href="../../blog">Blog &amp; Guides</a></li>
+<li><a href="../../community">Community Forum</a></li>
+<li><a href="../../submit">Submit a Tool</a></li>
+<li><a href="../../contribute">Contributing Guide</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Top Categories</h4>
+<ul class="footer-links">
+<li><a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a></li>
+<li><a href="../../category/contact-forms/">Contact Forms</a></li>
+<li><a href="../../category/authentication-users/">Authentication</a></li>
+<li><a href="../../category/content-management/">Content Management</a></li>
+<li><a href="../../category/analytics-privacy/">Analytics &amp; Privacy</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Community &amp; Info</h4>
+<ul class="footer-links">
+<li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+<li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+<li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
+<li><a href="../../thankyou">Thank You &amp; Credits</a></li>
+<li><a href="../../contact">Contact</a></li>
+</ul>
+</div>
+</div>
+
+<div class="footer-bottom">
+<p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <a href="/stats" class="footer-stat-text" title="Total Site Views &middot; StaticStack Analytics"><span id="footer-stat-count">223</span> views</a><span class="footer-statcounter" style="display:none;" aria-hidden="true"><!-- Default Statcounter code for StaticStacks https://www.staticstack.app/ --><script type="text/javascript">
+var sc_project=13364370; 
+var sc_invisible=1; 
+var sc_security="cae7fdd5"; 
+var sc_invisible=1; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13364370/0/cae7fdd5/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code --></span></p>
+</div>
+</div>
+</footer>
+
+<!-- Floating Back to Top Button -->
+<button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()">
+<span class="btt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></span>
+<span>Back to Top</span>
+</button>
+
+<script>
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Live Footer Stat Counter updater
+(function() {
+const el = document.getElementById('footer-stat-count');
+if (!el) return;
+function updateCount(val) {
+if (typeof val === 'number' && !isNaN(val) && val > 0) {
+el.textContent = val.toLocaleString();
+}
+}
+try {
+const cached = sessionStorage.getItem('staticstack_total_views');
+if (cached) updateCount(Number(cached));
+} catch (e) {}
+
+fetch('/community/api?action=tool-views')
+.then(r => r.json())
+.then(d => {
+if (d && d.views) {
+const sum = Object.values(d.views).reduce((a, b) => a + (Number(b) || 0), 0);
+if (sum > 0) {
+updateCount(sum);
+try { sessionStorage.setItem('staticstack_total_views', String(sum)); } catch(e){}
+}
+}
+})
+.catch(() => {
+fetch('/asset/json/tool-views-cache.json')
+.then(r => r.json())
+.then(d => {
+if (d) {
+const sum = Object.values(d).reduce((a, b) => a + (Number(b) || 0), 0);
+if (sum > 0) updateCount(sum);
+}
+})
+.catch(() => {});
+});
+})();
+
+// Strip hyperlinks from statcounter so only plain counter displays
+const scWrap = document.querySelector('.footer-statcounter');
+if (scWrap) {
+const cleanSc = () => {
+scWrap.querySelectorAll('a').forEach(a => {
+a.removeAttribute('href');
+a.removeAttribute('target');
+a.removeAttribute('title');
+a.style.pointerEvents = 'none';
+a.style.cursor = 'default';
+});
+};
+cleanSc();
+new MutationObserver(cleanSc).observe(scWrap, { childList: true, subtree: true });
+}
+
+// Floating Back to Top
+const backToTopBtn = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 350) {
+backToTopBtn.classList.add('visible');
+} else {
+backToTopBtn.classList.remove('visible');
+}
+}, { passive: true });
+
+function scrollToTop() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Full-Screen Mobile Navigation Logic
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileNavModal = document.getElementById('mobile-nav-modal');
+const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
+
+function openMobileNav() {
+if (!mobileNavModal) return;
+mobileNavModal.classList.add('is-open');
+document.body.classList.add('mobile-nav-open');
+if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+if (mobileMenuCloseBtn) mobileMenuCloseBtn.focus();
+}
+
+function closeMobileNav() {
+if (!mobileNavModal) return;
+mobileNavModal.classList.remove('is-open');
+document.body.classList.remove('mobile-nav-open');
+if (mobileMenuBtn) {
+mobileMenuBtn.setAttribute('aria-expanded', 'false');
+mobileMenuBtn.focus();
+}
+}
+
+if (mobileMenuBtn) {
+mobileMenuBtn.addEventListener('click', openMobileNav);
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape' && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
+closeMobileNav();
+}
+});
+
+// Close on desktop resize
+window.addEventListener('resize', () => {
+if (window.innerWidth > 768 && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
+closeMobileNav();
+}
+});
+</script>
+
+<!-- High-Performance Instant Client-Side Search Engine -->
+<script defer src="../../asset/js/search.js?v=3"></script>
+
+<!-- StaticStack StackBot -->
+<link rel="stylesheet" href="/asset/css/stackbot.css?v=5">
+<script src="/asset/js/stackbot.js?v=8" defer></script>
+
+</body>
+</html>
