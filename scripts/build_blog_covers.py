@@ -26,6 +26,14 @@ if os.path.exists(logo_path):
 
 ARTICLES = [
     {
+        'slug': 'why-people-are-leaving-wordpress-for-static-html',
+        'category': 'Migration & Architecture',
+        'eyebrow': 'The Great CMS Shift',
+        'title': 'Why People Are Leaving WordPress for <span class="accent-text">Static HTML</span>',
+        'desc': 'Discover why developers and agencies are abandoning bloated plugins, slow databases, and security patches for unhackable static HTML.',
+        'pills': ['Zero Security Holes', '100/100 Lighthouse', 'Zero Hosting Costs', 'Git Versioning']
+    },
+    {
         'slug': 'how-to-add-contact-forms-to-static-websites',
         'category': 'Contact Forms',
         'eyebrow': 'Zero Backend Forms & Spam Prevention',

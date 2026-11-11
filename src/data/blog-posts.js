@@ -5,6 +5,48 @@
 
 const BLOG_POSTS = [
   {
+    slug: 'why-people-are-leaving-wordpress-for-static-html',
+    title: 'Why People Are Leaving WordPress for Static HTML Websites',
+    description: 'Explore why developers, agencies, and businesses are ditching bloated WordPress sites for fast, unhackable, zero-maintenance static HTML websites.',
+    excerpt: 'WordPress powered the early web, but plugin bloat, constant security vulnerabilities, and slow database queries are driving creators to modern static HTML. Here is why the static migration is accelerating in 2026.',
+    category: 'Tutorials & Guides',
+    categorySlug: 'tutorials',
+    date: '2026-03-19',
+    dateFormatted: 'March 19, 2026',
+    readTime: '10 min read',
+    author: 'StaticStack Editorial',
+    authorRole: 'Static Web Architecture',
+    tags: [
+      'wordpress',
+      'static-html',
+      'web-performance',
+      'security',
+      'jamstack',
+      'hosting',
+      'migration',
+      'core-web-vitals'
+    ],
+    featuredToolSlugs: [
+      'cloudflare-pages',
+      'decap-cms',
+      'astro',
+      'formspree',
+      'pagefind',
+      'giscus'
+    ],
+    toc: [
+      { id: 'the-wordpress-tax', title: 'The "WordPress Tax": How We Got Here' },
+      { id: 'security-vulnerabilities', title: '1. Eliminating the Attack Surface' },
+      { id: 'blistering-speed', title: '2. Speed & 100/100 Core Web Vitals' },
+      { id: 'maintenance-fatigue', title: '3. Ending Maintenance & Update Anxiety' },
+      { id: 'hosting-economics', title: '4. Drastic Reduction in Hosting Costs' },
+      { id: 'git-developer-experience', title: '5. Modern Git Workflows & Versioning' },
+      { id: 'missing-pieces-solved', title: '6. The Dynamic Excuses Are Gone' },
+      { id: 'who-should-switch', title: 'Who Should (and Shouldn\'t) Switch?' },
+      { id: 'how-to-migrate', title: 'How to Migrate from WordPress to Static' }
+    ]
+  },
+  {
     slug: '25-best-free-tools-for-building-static-html-websites',
     title: '25 Best Free Tools for Building Static HTML Websites',
     description: 'The ultimate curated guide to the 25 best free tools, services, and libraries for building fast, secure static HTML websites in 2026.',
