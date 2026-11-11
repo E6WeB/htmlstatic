@@ -128,7 +128,7 @@ function renderMobileNavModal({ currentNav = '', totalToolsCount = null, rootPat
         <li class="mobile-nav-item">
           <a href="${rootPath}contact" class="${currentNav === 'contact' ? 'active' : ''}" onclick="closeMobileNav()">
             <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.comments}</span>
+              <span class="mobile-nav-link-icon">${ICONS.mail}</span>
               <span>Contact &amp; Connect</span>
             </span>
             <span class="mobile-nav-badge">Connect</span>

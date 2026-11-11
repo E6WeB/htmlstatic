@@ -1913,7 +1913,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contact', 'index.html'), renderLayout({
       { label: 'Home', url: '/' },
       { label: 'Contact & Connect', url: '/contact' }
     ],
-    icon: ICONS.comments,
+    icon: ICONS.mail,
     title: 'Contact & Connect',
     subtext: 'No contact forms or private ticket queues—connect with us directly in our official Facebook Group or on GitHub.',
     actions: `

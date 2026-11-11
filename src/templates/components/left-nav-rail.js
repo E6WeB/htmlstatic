@@ -66,6 +66,10 @@ function renderNavRail({ currentNav = '', totalToolsCount = null, rootPath = '' 
         ${ICONS.plus}
         <span class="rail-tooltip">Submit a Tool</span>
       </a>
+      <a href="${rootPath}contact" class="rail-item ${currentNav === 'contact' ? 'active' : ''}" aria-label="Contact & Connect">
+        ${ICONS.mail}
+        <span class="rail-tooltip">Contact & Connect</span>
+      </a>
       <a href="${rootPath}thankyou" class="rail-item ${currentNav === 'thankyou' ? 'active' : ''}" aria-label="Credits & Thanks">
         ${ICONS.heart}
         <span class="rail-tooltip">Credits & Thanks</span>
