@@ -651,8 +651,8 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
   <script defer src="${rootPath}asset/js/search.js?v=3"></script>
 
   <!-- StaticStack StackBot -->
-  <link rel="stylesheet" href="/stackbot.css?v=2">
-  <script src="/stackbot.js?v=2" defer></script>
+  <link rel="stylesheet" href="/stackbot.css?v=3">
+  <script src="/stackbot.js?v=6" defer></script>
 </body>
 </html>
 `;

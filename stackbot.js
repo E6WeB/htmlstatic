@@ -128,7 +128,9 @@
     return scored.slice(0,5).map(x=>x.t);
   }
 
-  function updateStatus(){ const el=document.getElementById('stackbot-status'); if(el) el.textContent = DATA_SOURCE+' • '+TOOLS.length+' tools'+(LAST_SYNCED?' • Synced '+LAST_SYNCED.toLocaleTimeString():''); }
+  const ONLINE_STATUS_HTML = `Online: StackBot <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:middle;"><circle cx="12" cy="12" r="10" fill="#dcfce7"/><circle cx="12" cy="12" r="6" fill="#16a34a"/></svg>`;
+
+  function updateStatus(){ const el=document.getElementById('stackbot-status'); if(el) el.innerHTML = ONLINE_STATUS_HTML; }
 
   function render(){
     const wrap=document.createElement('div'); wrap.id='stackbot-root';
@@ -136,12 +138,29 @@
     wrap.innerHTML=
       (existingBtn ? '' : '<button id="stackbot-btn" aria-label="Open StackBot chat"><span class="stackbot-icon"></span><span class="rail-tooltip">Ask StackBot</span></button>') +
       `<div id="stackbot-panel" hidden>
-        <div class="stackbot-header"><div><strong>StackBot</strong><span>● Online</span></div><button id="stackbot-close" aria-label="Close StackBot">×</button></div>
-        <div class="stackbot-sub"><span id="stackbot-status">Loading tools…</span> <button id="stackbot-refresh">Refresh from tools.xml</button></div>
+        <div class="stackbot-header">
+          <div class="stackbot-header-brand">
+            <span class="stackbot-bot-avatar" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3v4" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="12" cy="2.5" r="1.6" fill="#2563eb"/>
+                <rect x="2" y="11" width="2" height="5" rx="1" fill="#60a5fa"/>
+                <rect x="20" y="11" width="2" height="5" rx="1" fill="#60a5fa"/>
+                <rect x="4" y="7" width="16" height="13" rx="4" fill="#2563eb"/>
+                <circle cx="9" cy="12.5" r="1.5" fill="#ffffff"/>
+                <circle cx="15" cy="12.5" r="1.5" fill="#ffffff"/>
+                <rect x="9" y="16" width="6" height="1.6" rx="0.8" fill="#93c5fd"/>
+              </svg>
+            </span>
+            <div><strong>StackBot</strong><span>● Online</span></div>
+          </div>
+          <button id="stackbot-close" aria-label="Close StackBot">×</button>
+        </div>
+        <div class="stackbot-sub"><span id="stackbot-status" style="display:inline-flex;align-items:center;gap:5px;font-weight:500;color:#0f172a;">${ONLINE_STATUS_HTML}</span></div>
         <div id="stackbot-messages"></div>
         <div class="stackbot-chips"><button data-q="I need a contact form">I need a form</button><button data-q="Best hosting">Best hosting</button><button data-q="What is Jamstack?">What is Jamstack?</button><button data-q="Add comments to my blog">Comments</button></div>
         <form id="stackbot-form"><input id="stackbot-input" placeholder="Ask for a tool… e.g. I need a form" autocomplete="off"/><button type="submit">Send</button></form>
-        <div class="stackbot-footer">Data from tools.xml • Links go to staticstack.app tool pages</div>
+        <div class="stackbot-footer">©2026 StackBot V.01</div>
       </div>`;
     document.body.appendChild(wrap);
     const btn=document.getElementById('stackbot-btn'), panel=document.getElementById('stackbot-panel');
@@ -159,7 +178,6 @@
     window.openStackBot = function(){ toggleBot(true); };
     if(btn) btn.onclick=()=>toggleBot();
     document.getElementById('stackbot-close').onclick=()=>panel.hidden=true;
-    document.getElementById('stackbot-refresh').onclick=async()=>{ addBot('Refreshing from tools.xml…'); await loadTools(); addBot('Synced! Now using '+DATA_SOURCE+' with '+TOOLS.length+' tools.'); };
     wrap.querySelectorAll('.stackbot-chips button').forEach(b=>b.onclick=()=>ask(b.dataset.q));
     document.getElementById('stackbot-form').onsubmit=e=>{e.preventDefault(); const inp=document.getElementById('stackbot-input'); if(inp.value.trim()) ask(inp.value.trim()); inp.value='';};
     loadTools();
