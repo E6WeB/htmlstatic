@@ -55,7 +55,49 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/blog/25-best-free-tools-for-building-static-html-websites/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/blog/how-to-build-a-website-without-wordpress/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/blog/best-free-hosting-services-for-static-html-websites/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/blog/how-to-add-contact-forms-to-static-websites/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/blog/best-open-source-javascript-libraries-for-websites/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/blog/how-to-add-comments-to-a-static-html-blog/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/blog/how-to-add-search-functionality-to-a-static-website/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/blog/how-to-build-a-website-without-a-database-or-backend/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -144,6 +144,11 @@ function renderBlogArticlePage({
             </span>
           </div>
 
+          <!-- Article Cover Banner -->
+          <div class="blog-cover-wrapper" style="margin-bottom:2rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
+            <img src="cover.webp" alt="${escapeHtml(post.title)}" width="1200" height="630" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
+          </div>
+
           <!-- Article Markdown Body -->
           <div class="markdown-body">
             ${parsedHtml}
@@ -284,6 +289,7 @@ function renderBlogArticlePage({
     description: post.description,
     keywords: post.tags.join(', '),
     canonicalUrl: pageCanonical,
+    ogImage: `${pageCanonical}cover.webp`,
     currentNav: 'blog',
     rootPath,
     jsonLd: articleJsonLd,
@@ -325,6 +331,10 @@ function renderBlogIndexPage({
     return `
       <article class="blog-card">
         <div>
+          <a href="/blog/${post.slug}/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
+            <img src="/blog/${post.slug}/cover.webp" alt="${escapeHtml(post.title)}" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
+          </a>
+
           <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; margin-bottom:0.75rem;">
             <span class="blog-category-badge" style="font-size:0.75rem; padding:0.2rem 0.6rem;">
               ${CATEGORY_ICONS[post.categorySlug] || ICONS.tag}
