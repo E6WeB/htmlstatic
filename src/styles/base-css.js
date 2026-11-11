@@ -1868,6 +1868,18 @@ const BASE_CSS = `
   .markdown-body ol > li { list-style-type: decimal; }
   .markdown-body li { margin-bottom: 0.4rem; color: var(--text-main); line-height: 1.6; }
 
+  /* Thank You page: Clean list without bullet discs since items have leading SVG icons */
+  .thankyou-markdown ul,
+  .thankyou-markdown li {
+    list-style: none;
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .thankyou-markdown li {
+    margin-bottom: 0.65rem;
+    line-height: 1.6;
+  }
+
   /* Tool Official Website Link Status Indicator Dot */
   .link-status-dot {
     display: inline-block;

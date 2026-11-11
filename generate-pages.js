@@ -25,12 +25,13 @@ const {
   CATEGORY_ICONS,
   escapeHtml
 } = require('./src/data/icons');
-const { loadCatalog } = require('./src/data/parse-readme');
+const { getCatalogStats } = require('./src/data/catalog-stats');
 const { getMinifiedBaseCss } = require('./src/styles/base-css');
 const { createLayoutRenderer } = require('./src/templates/layout');
 const { renderToolPage } = require('./src/templates/tool-page');
 const { renderCategoryPage } = require('./src/templates/category-page');
 const { renderSidebarDonationWidget } = require('./src/templates/sidebar-donation');
+const { syncAllCommunityPages } = require('./src/templates/sync-community');
 
 marked.setOptions({
   gfm: true,
@@ -76,7 +77,7 @@ const {
   getToolSiteIcon,
   getRandomTools,
   toolsData
-} = loadCatalog(ROOT_DIR);
+} = getCatalogStats(ROOT_DIR);
 
 console.log(`Parsed ${categories.length} categories and ${allTools.length} tools.`);
 
@@ -1619,7 +1620,6 @@ const renderedSearchPage = renderLayout({
 });
 
 fs.writeFileSync(path.join(ROOT_DIR, 'search', 'index.html'), renderedSearchPage);
-fs.writeFileSync(path.join(ROOT_DIR, 'search.html'), renderedSearchPage);
 
 // ==========================================================================
 // 3. Generate submit.html (Tool Submission Page)
@@ -1800,7 +1800,7 @@ const thankYouMd = fs.readFileSync(path.join(ROOT_DIR, 'thankyou', 'THANKYOU.md'
 const renderedThankYou = marked.parse(thankYouMd);
 
 const thankYouContent = `
-  <div class="markdown-body">
+  <div class="markdown-body thankyou-markdown">
     ${renderedThankYou}
   </div>
 `;
@@ -2159,5 +2159,15 @@ fs.writeFileSync(
   path.join(ASSET_DIR, 'json', 'search-data.json'),
   JSON.stringify(searchIndex)
 );
+
+// ==========================================================================
+// 10. Sync Community Pages (Left nav rail, header, footer, modal)
+// ==========================================================================
+console.log('💬 Synchronizing shared layout to Community Pages (community/index.html & topic.html)...');
+syncAllCommunityPages({
+  allTools,
+  categories,
+  rootDir: ROOT_DIR
+});
 
 console.log(`🎉 Complete! Generated all main pages with wider 320px archive sidebar + dedicated HTML pages for all ${allTools.length} tools!`);

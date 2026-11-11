@@ -7,7 +7,8 @@ import urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-TOOLS_DATA_PATH = os.path.join(SCRIPT_DIR, 'asset', 'json', 'tools-data.json')
+ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+TOOLS_DATA_PATH = os.path.join(ROOT_DIR, 'asset', 'json', 'tools-data.json')
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'

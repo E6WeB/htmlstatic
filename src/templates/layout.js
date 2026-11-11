@@ -5,6 +5,10 @@
 const fs = require('fs');
 const path = require('path');
 const { ICONS, escapeHtml } = require('../data/icons');
+const { renderNavRail } = require('./components/left-nav-rail');
+const { renderSiteHeader } = require('./components/site-header');
+const { renderMobileBottomNav, renderMobileNavModal } = require('./components/mobile-nav');
+const { renderPreFooterCta, renderSiteFooter } = require('./components/site-footer');
 
 let _cachedTotalViews = null;
 function getTotalToolViews() {
@@ -97,7 +101,9 @@ function createLayoutRenderer({ allTools, categories }) {
     jsonLd = null,
     showFooter = true,
     showPreFooter = true,
-    totalViews
+    totalViews,
+    extraHeadHtml = '',
+    extraBodyBottomHtml = ''
   }) {
     const siteViews = totalViews !== undefined ? Number(totalViews) : getTotalToolViews();
     const siteViewsFormatted = Number(siteViews || 0).toLocaleString();
@@ -203,231 +209,20 @@ function createLayoutRenderer({ allTools, categories }) {
 
   <script type="application/ld+json">${jsonLdString}</script>
   <link rel="stylesheet" href="/asset/css/style.css?v=14">
+  ${extraHeadHtml}
 
   <!-- Local StaticStack Appreciation / Like Button -->
   <script defer src="/asset/js/likes.js?v=1"></script>
 </head>
 <body>
 
-  <!-- Left Navigation Rail (Desktop & Tablet >= 768px) -->
-  <aside class="left-nav-rail" aria-label="Desktop Navigation Rail">
-    <div class="rail-top">
-      <a href="${rootPath || './'}" class="rail-brand" aria-label="StaticStack Home">
-        ${ICONS.logo}
-        <span class="rail-tooltip">StaticStack.app</span>
-      </a>
+  ${renderNavRail({ currentNav, totalToolsCount: allTools.length, rootPath })}
 
-      <nav class="rail-nav" aria-label="Primary Navigation">
-        <ul class="rail-list">
-          <li>
-            <a href="${rootPath || './'}" class="rail-item ${currentNav === 'home' ? 'active' : ''}" aria-label="Home">
-              ${ICONS.home}
-              <span class="rail-tooltip">Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="${rootPath}search" class="rail-item ${currentNav === 'search' ? 'active' : ''}" aria-label="Search Tools">
-              ${ICONS.search}
-              <span class="rail-tooltip">Search</span>
-            </a>
-          </li>
-          <li>
-            <a href="${rootPath}archive" class="rail-item ${currentNav === 'archive' ? 'active' : ''}" aria-label="Master Archive">
-              ${ICONS.compass}
-              <span class="rail-tooltip">Archive (${allTools.length} Tools)</span>
-            </a>
-          </li>
-          <li>
-            <a href="${rootPath}community" class="rail-item ${currentNav === 'community' ? 'active' : ''}" aria-label="Community">
-              ${ICONS.users}
-              <span class="rail-tooltip">Community</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="rail-item" aria-label="GitHub Repository">
-              ${ICONS.github}
-              <span class="rail-tooltip">Star on GitHub</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+  ${renderMobileBottomNav({ currentNav, rootPath })}
 
-    <div class="rail-bottom">
-      <button type="button" id="stackbot-btn" aria-label="Open StackBot chat">
-        <span class="stackbot-icon" aria-hidden="true"></span>
-        <span class="rail-tooltip">Ask StackBot</span>
-      </button>
-      <a href="${rootPath}submit" class="rail-action-btn ${currentNav === 'submit' ? 'active' : ''}" aria-label="Submit a Tool">
-        ${ICONS.plus}
-        <span class="rail-tooltip">Submit a Tool</span>
-      </a>
-      <a href="${rootPath}thankyou" class="rail-item ${currentNav === 'thankyou' ? 'active' : ''}" aria-label="Credits & Thanks">
-        ${ICONS.heart}
-        <span class="rail-tooltip">Credits & Thanks</span>
-      </a>
-    </div>
-  </aside>
+  ${renderSiteHeader({ currentNav, rootPath })}
 
-  <!-- Mobile Bottom Navigation Bar (Phones < 768px) -->
-  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
-    <div class="bottom-nav-inner">
-      <a href="${rootPath || './'}" class="bottom-nav-item ${currentNav === 'home' ? 'active' : ''}">
-        <span class="bottom-nav-icon">${ICONS.home}</span>
-        <span>Home</span>
-      </a>
-      <a href="${rootPath}search" class="bottom-nav-item ${currentNav === 'search' ? 'active' : ''}" aria-label="Search Tools">
-        <span class="bottom-nav-icon">${ICONS.search}</span>
-        <span>Search</span>
-      </a>
-      <a href="${rootPath}submit" class="bottom-nav-fab" aria-label="Submit a Tool">
-        ${ICONS.plus}
-      </a>
-      <a href="${rootPath}archive" class="bottom-nav-item ${currentNav === 'archive' ? 'active' : ''}">
-        <span class="bottom-nav-icon">${ICONS.compass}</span>
-        <span>Archive</span>
-      </a>
-      <button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu">
-        <span class="bottom-nav-icon">${ICONS.moreHorizontal}</span>
-        <span>More</span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Site Header (Mobile Only < 768px) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="${rootPath || './'}" class="brand">
-        <span class="brand-icon">${ICONS.logo}</span>
-        <span>StaticStack</span>
-        <span class="brand-badge">.app</span>
-      </a>
-
-      <!-- Quick Search Link -->
-      <a href="${rootPath}search" class="header-search-btn" aria-label="Search Tools" style="text-decoration:none;">
-        <span class="header-search-icon">${ICONS.search}</span>
-        <span class="header-search-label">Search...</span>
-        <kbd class="header-search-kbd">/</kbd>
-      </a>
-
-      <!-- Desktop Clean Nav Menu -->
-      <nav class="nav-drawer" aria-label="Main Navigation">
-        <ul id="nav-links" class="nav-links">
-          <li><a href="${rootPath || './'}" class="nav-link ${currentNav === 'home' ? 'active' : ''}">Home</a></li>
-          <li><a href="${rootPath}search" class="nav-link ${currentNav === 'search' ? 'active' : ''}">Search</a></li>
-          <li><a href="${rootPath}archive" class="nav-link ${currentNav === 'archive' ? 'active' : ''}">Archive</a></li>
-          <li><a href="${rootPath}submit" class="nav-link ${currentNav === 'submit' ? 'active' : ''}">Submit</a></li>
-          <li><a href="${rootPath}community" class="nav-link ${currentNav === 'community' ? 'active' : ''}">Community</a></li>
-          <li><a href="${rootPath}contact" class="nav-link ${currentNav === 'contact' ? 'active' : ''}">Contact</a></li>
-          <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;">${ICONS.github} GitHub</a></li>
-        </ul>
-      </nav>
-
-      <!-- Mobile Hamburger Menu Button -->
-      <button id="mobile-menu-btn" class="hamburger-btn" type="button" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-modal">
-        ${ICONS.menu}
-      </button>
-    </div>
-  </header>
-
-  <!-- Full-Screen Mobile Navigation Overlay -->
-  <div id="mobile-nav-modal" class="mobile-nav-modal" role="dialog" aria-modal="true" aria-label="Navigation Menu" tabindex="-1">
-    <div class="mobile-nav-header">
-      <a href="${rootPath || './'}" class="brand" onclick="closeMobileNav()">
-        <span class="brand-icon">${ICONS.logo}</span>
-        <span>StaticStack</span>
-      </a>
-      <button id="mobile-menu-close" class="mobile-nav-close" type="button" aria-label="Close Navigation Menu" onclick="closeMobileNav()">
-        ${ICONS.close}
-      </button>
-    </div>
-
-    <div class="mobile-nav-body">
-      <ul class="mobile-nav-list">
-        <li class="mobile-nav-item">
-          <a href="${rootPath || './'}" class="${currentNav === 'home' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.home}</span>
-              <span>Home</span>
-            </span>
-            <span class="mobile-nav-badge">${currentNav === 'home' ? 'Current' : 'Explore'}</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="${rootPath}search" class="${currentNav === 'search' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.search}</span>
-              <span>Search Tools</span>
-            </span>
-            <span class="mobile-nav-badge">Instant</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="${rootPath}archive" class="${currentNav === 'archive' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.archive}</span>
-              <span>Master Archive</span>
-            </span>
-            <span class="mobile-nav-badge">${allTools.length} Tools</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="${rootPath}submit" class="${currentNav === 'submit' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.plusCircle}</span>
-              <span>Submit a Tool</span>
-            </span>
-            <span class="mobile-nav-badge">Contribute</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="${rootPath}community" class="${currentNav === 'community' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.users}</span>
-              <span>Community</span>
-            </span>
-            <span class="mobile-nav-badge">Discussions</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="${rootPath}contribute" class="${currentNav === 'contribute' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.gitPullRequest}</span>
-              <span>Contributing Guide</span>
-            </span>
-            <span class="mobile-nav-badge">Docs</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="${rootPath}thankyou" class="${currentNav === 'thankyou' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.heart}</span>
-              <span>Thank You &amp; Credits</span>
-            </span>
-            <span class="mobile-nav-badge">Credits</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="${rootPath}contact" class="${currentNav === 'contact' ? 'active' : ''}" onclick="closeMobileNav()">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.comments}</span>
-              <span>Contact &amp; Connect</span>
-            </span>
-            <span class="mobile-nav-badge">Connect</span>
-          </a>
-        </li>
-        <li class="mobile-nav-item">
-          <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">
-            <span class="mobile-nav-link-left">
-              <span class="mobile-nav-link-icon">${ICONS.github}</span>
-              <span>GitHub Repository</span>
-            </span>
-            <span class="mobile-nav-badge" style="display:flex;align-items:center;gap:0.25rem;">${ICONS.external} Star</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  ${renderMobileNavModal({ currentNav, totalToolsCount: allTools.length, rootPath })}
 
   ${miniHeroHtml || breadcrumbFallbackHtml}
 
@@ -435,96 +230,9 @@ function createLayoutRenderer({ allTools, categories }) {
     ${content}
   </main>
 
-  ${showPreFooter ? `<!-- Pre-Footer Call to Action -->
-  <section class="pre-footer-cta">
-    <div class="container">
-      <div class="pre-footer-card">
-        <div class="pre-footer-content">
-          <h2 class="pre-footer-title">Have a great static tool to recommend?</h2>
-          <p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p>
-        </div>
-        <div class="pre-footer-actions">
-          <a href="${rootPath}submit" class="btn btn-primary">
-            ${ICONS.plusCircle}
-            <span>Submit a Tool</span>
-          </a>
-          <a href="${rootPath}archive" class="btn btn-secondary">
-            ${ICONS.archive}
-            <span>Browse all Categories</span>
-          </a>
-          <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub">
-            ${ICONS.github}
-            <span>Star on GitHub</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>` : ''}
+  ${showPreFooter ? renderPreFooterCta({ rootPath }) : ''}
 
-  ${showFooter ? `<!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-col footer-col-brand">
-          <a href="${rootPath || './'}" class="brand" style="margin-bottom: 0.5rem;">
-            <span class="brand-icon">${ICONS.logo}</span>
-            <span>StaticStack</span>
-          </a>
-          <p class="footer-desc">
-            Community-curated tools, APIs, and services for building modern static websites with zero backend bloat.
-          </p>
-          <div class="footer-pill-badge">
-            <span class="status-dot"></span>
-            <span>${allTools.length} Tools &bull; ${categories.length} Categories</span>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Directory</h4>
-          <ul class="footer-links">
-            <li><a href="${rootPath}search">Search Tools</a></li>
-            <li><a href="${rootPath}archive">Master Archive</a></li>
-            <li><a href="${rootPath}community">Community Forum</a></li>
-            <li><a href="${rootPath}submit">Submit a Tool</a></li>
-            <li><a href="${rootPath}contribute">Contributing Guide</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Top Categories</h4>
-          <ul class="footer-links">
-            <li><a href="${rootPath}category/hosting-deployment/">Hosting &amp; Deployment</a></li>
-            <li><a href="${rootPath}category/contact-forms/">Contact Forms</a></li>
-            <li><a href="${rootPath}category/authentication-users/">Authentication</a></li>
-            <li><a href="${rootPath}category/content-management/">Content Management</a></li>
-            <li><a href="${rootPath}category/analytics-privacy/">Analytics &amp; Privacy</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Community &amp; Info</h4>
-          <ul class="footer-links">
-            <li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository ${ICONS.external}</a></li>
-            <li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group ${ICONS.external}</a></li>
-            <li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group ${ICONS.external}</a></li>
-            <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
-            <li><a href="${rootPath}contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <a href="/stats" class="footer-stat-text" title="Total Site Views &middot; StaticStack Analytics"><span id="footer-stat-count">${siteViewsFormatted}</span> views</a><span class="footer-statcounter" style="display:none;" aria-hidden="true"><!-- Default Statcounter code for StaticStacks https://www.staticstack.app/ --><script type="text/javascript">
-var sc_project=13364370; 
-var sc_invisible=1; 
-var sc_security="cae7fdd5"; 
-var scJsHost = "https://";
-document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script><noscript><span class="statcounter"><img class="statcounter" src="https://c.statcounter.com/13364370/0/cae7fdd5/0/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></span></noscript><!-- End of Statcounter Code --></span></p>
-      </div>
-    </div>
-  </footer>` : ''}
+  ${showFooter ? renderSiteFooter({ allTools, categories, rootPath, siteViewsFormatted }) : ''}
 
   <!-- Floating Back to Top Button -->
   <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()">
@@ -652,6 +360,7 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
   <!-- StaticStack StackBot -->
   <link rel="stylesheet" href="/asset/css/stackbot.css?v=5">
   <script src="/asset/js/stackbot.js?v=8" defer></script>
+  ${extraBodyBottomHtml}
 </body>
 </html>
 `;
@@ -670,6 +379,12 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
 module.exports = {
   renderBreadcrumbs,
   renderMiniHero,
-  createLayoutRenderer
+  createLayoutRenderer,
+  renderNavRail,
+  renderSiteHeader,
+  renderMobileBottomNav,
+  renderMobileNavModal,
+  renderPreFooterCta,
+  renderSiteFooter
 };
 

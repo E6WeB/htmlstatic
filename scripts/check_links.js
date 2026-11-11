@@ -8,9 +8,9 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const http = require('http');
-const { loadCatalog } = require('./src/data/parse-readme');
+const { loadCatalog } = require('../src/data/parse-readme');
 
-const ROOT_DIR = __dirname;
+const ROOT_DIR = path.resolve(__dirname, '..');
 const ASSET_DIR = path.join(ROOT_DIR, 'asset', 'json');
 const HEALTH_FILE = path.join(ASSET_DIR, 'link-health.json');
 const CONCURRENCY = 10;

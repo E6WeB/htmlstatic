@@ -267,7 +267,12 @@
     const res=search(q);
     if(!res.length){ addBot(`I don't have that in the directory yet. Try: forms, hosting, CMS, comments, analytics, search, or <a href="/archive" target="_blank">View Master Archive →</a>`); return; }
     if(res[0]._jamstack){ addBot(`<b>Jamstack</b> = pre-rendered HTML/CSS/JS + APIs, no server needed. Fast, secure, cheap. That's the whole StaticStack philosophy — 100% Jamstack, 0% server maintenance.`); return; }
-    if(res[0]._about){ addBot(`<b>StaticStack</b> is a curated directory of 144+ hand-picked tools for static sites across 29 categories. Free & open source, community votes, forum with GitHub OAuth.`); return; }
+    if(res[0]._about){
+      const tCount = TOOLS.length || 144;
+      const cCount = (new Set(TOOLS.map(t=>t.category).filter(Boolean)).size) || 29;
+      addBot(`<b>StaticStack</b> is a curated directory of ${tCount}+ hand-picked tools for static sites across ${cCount} categories. Free & open source, community votes, forum with GitHub OAuth.`);
+      return;
+    }
     let html=`<b>Found ${res.length} tool${res.length>1?'s':''}:</b><br/>`;
     res.forEach(t=>{ html+=`<div class="tool-card"><b><a href="${t.url}" target="_blank" rel="noopener">${t.name}</a></b> <span>• ${t.category}</span><p>${t.desc}</p><a href="${t.url}" target="_blank" rel="noopener">View Tool →</a></div>`; });
     addBot(html);

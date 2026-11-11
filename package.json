@@ -9,6 +9,7 @@
     "serve": "node serve.js",
     "start": "node serve.js",
     "dev": "node generate-pages.js && node serve.js",
+    "check:links": "node scripts/check_links.js",
     "fetch:youtube": "node scripts/fetch-youtube.js"
   },
   "dependencies": {

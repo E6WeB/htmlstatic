@@ -8,8 +8,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from PIL import Image
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-TOOLS_DIR = os.path.join(SCRIPT_DIR, 'tools')
-DATA_PATH = os.path.join(SCRIPT_DIR, 'asset', 'json', 'tools-data.json')
+ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+TOOLS_DIR = os.path.join(ROOT_DIR, 'tools')
+DATA_PATH = os.path.join(ROOT_DIR, 'asset', 'json', 'tools-data.json')
 
 
 def detect_chrome_path():

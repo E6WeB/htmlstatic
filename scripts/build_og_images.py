@@ -6,7 +6,8 @@ import base64
 from PIL import Image
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ASSET_IMG_DIR = os.path.join(SCRIPT_DIR, 'asset', 'img')
+ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+ASSET_IMG_DIR = os.path.join(ROOT_DIR, 'asset', 'img')
 
 
 def detect_chrome_path():

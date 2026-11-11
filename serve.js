@@ -306,6 +306,14 @@ const server = http.createServer((req, res) => {
       return serve404(req, res);
     }
 
+    // Support both /asset/ and /assets/ seamlessly
+    if (pathname.startsWith('/assets/')) {
+      const altCandidate = path.resolve(SERVE_DIR, '.' + pathname.replace('/assets/', '/asset/'));
+      if (fs.existsSync(altCandidate)) {
+        candidatePath = altCandidate;
+      }
+    }
+
     // If directory, check for index.html
     if (fs.existsSync(candidatePath) && fs.statSync(candidatePath).isDirectory()) {
       candidatePath = path.join(candidatePath, 'index.html');
