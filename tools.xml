@@ -8,7 +8,7 @@
     <description>
       Conversational AI model for drafting blog posts, website copy, and HTML/markdown content
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Claude</title>
@@ -18,7 +18,7 @@
     <description>
       Advanced AI assistant with large context windows for writing long-form articles and documentation
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Google Gemini</title>
@@ -28,7 +28,7 @@
     <description>
       Multimodal AI assistant for research, drafting website copy, and generating structured content
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>imgmov</title>
@@ -38,7 +38,7 @@
     <description>
       AI generator for creating commercial product videos, images, and visual assets from photos and prompts
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Perplexity</title>
@@ -48,7 +48,7 @@
     <description>
       AI-powered research and citation engine for writing factual, accurate blog posts and documentation
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Recraft</title>
@@ -58,7 +58,7 @@
     <description>
       AI design tool for generating vector SVGs, 3D graphics, and icons for web pages
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>ChatGPT (OpenAI)</title>
@@ -68,7 +68,7 @@
     <description>
       OpenAI&apos;s flagship multimodal foundation model family (GPT-4o / o-series)
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Claude (Anthropic)</title>
@@ -78,7 +78,7 @@
     <description>
       Frontier reasoning and coding models with 200k+ token context windows
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Cohere Command</title>
@@ -88,7 +88,7 @@
     <description>
       Enterprise foundation model optimized for search, RAG, and document grounding
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>DeepSeek</title>
@@ -98,7 +98,7 @@
     <description>
       High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Google Gemini</title>
@@ -108,7 +108,7 @@
     <description>
       Multimodal frontier model family with up to 2M token context windows
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Grok (xAI)</title>
@@ -118,7 +118,7 @@
     <description>
       Frontier reasoning and coding model with real-time web knowledge integration
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Meta Llama</title>
@@ -128,7 +128,7 @@
     <description>
       Leading open-weights foundation model family for local and cloud deployment
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Microsoft Phi</title>
@@ -138,7 +138,7 @@
     <description>
       High-efficiency small language models (SLMs) built for edge and browser execution
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Mistral AI</title>
@@ -148,7 +148,7 @@
     <description>
       High-speed open and commercial models including Codestral and Mistral Large
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Qwen</title>
@@ -158,7 +158,7 @@
     <description>
       Alibaba Cloud&apos;s open-weights model family (Qwen 2.5) with advanced coding mastery
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>CountAPI</title>
@@ -168,7 +168,7 @@
     <description>
       Free, key-based hit counter and view tracking API with no signup or keys required
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>GoatCounter</title>
@@ -178,7 +178,7 @@
     <description>
       Lightweight, privacy-friendly web analytics
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Plausible</title>
@@ -188,7 +188,7 @@
     <description>
       Privacy-focused website analytics
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Statcounter</title>
@@ -198,7 +198,7 @@
     <description>
       Real-time web analytics, visitor paths, and page counters
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Umami</title>
@@ -208,7 +208,7 @@
     <description>
       Open-source website analytics
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Clerk</title>
@@ -218,7 +218,7 @@
     <description>
       User management and auth with drop-in UI and vanilla JS SDK
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Outseta</title>
@@ -228,7 +228,7 @@
     <description>
       All-in-one membership, authentication, payments, and CRM
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Supabase Auth</title>
@@ -238,7 +238,7 @@
     <description>
       Open-source auth supporting passwordless logins, OAuth, and JWTs
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Cal.com</title>
@@ -248,7 +248,7 @@
     <description>
       Open-source, embeddable meeting scheduling infrastructure
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Calendly</title>
@@ -258,7 +258,7 @@
     <description>
       Industry-standard appointment scheduling with embeddable widgets
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>FireShot</title>
@@ -268,7 +268,7 @@
     <description>
       Capture full webpage screenshots, edit annotations, and export to PDF, PNG, or JPEG
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Send URL</title>
@@ -278,7 +278,7 @@
     <description>
       One-click browser button to quickly send page URL and title via email
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Disqus</title>
@@ -288,7 +288,7 @@
     <description>
       Hosted commenting system for websites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Flarum</title>
@@ -298,7 +298,7 @@
     <description>
       Modern, lightweight open-source community forum platform
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>GitHub Discussions</title>
@@ -308,7 +308,7 @@
     <description>
       Collaborative community forums and Q&amp;amp;A hosted on GitHub
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Giscus</title>
@@ -318,7 +318,7 @@
     <description>
       GitHub Discussions-powered comments using GitHub Discussions
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>iine</title>
@@ -328,7 +328,7 @@
     <description>
       Lightweight, privacy-first appreciation and like button widget without tracking
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Utterances</title>
@@ -338,7 +338,7 @@
     <description>
       Lightweight commenting powered by GitHub issues
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Basin</title>
@@ -348,7 +348,7 @@
     <description>
       Hosted form backend for static websites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>CraftForms</title>
@@ -358,7 +358,7 @@
     <description>
       Booking, quote, and contact form builder with payment support
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Formspree</title>
@@ -368,7 +368,7 @@
     <description>
       Form submissions and email notifications
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Splitform</title>
@@ -378,7 +378,7 @@
     <description>
       Contact forms and form handling for websites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Web3Forms</title>
@@ -388,7 +388,7 @@
     <description>
       Contact form backend for static websites, HTML, and Jamstack
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>CraftPages</title>
@@ -398,7 +398,7 @@
     <description>
       Open-source desktop CMS for plain-HTML websites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Decap CMS</title>
@@ -408,7 +408,7 @@
     <description>
       Open-source content management for Git-based websites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Instatic</title>
@@ -418,7 +418,7 @@
     <description>
       Free, browser-based visual website builder created by Core Framework developers
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Pages CMS</title>
@@ -428,7 +428,7 @@
     <description>
       Git-based content management with a browser interface
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Phantom Studio</title>
@@ -438,7 +438,7 @@
     <description>
       Visual website builder with static export and low maintenance for WordPress creators
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>ProcessWire</title>
@@ -448,7 +448,7 @@
     <description>
       Open-source CMS and CMF with a powerful jQuery-inspired API and headless capabilities
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Stacki</title>
@@ -458,7 +458,7 @@
     <description>
       Webflow-familiar visual site builder engineered for local developers and static sites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Bulma</title>
@@ -468,7 +468,7 @@
     <description>
       Modern Flexbox CSS framework with zero JavaScript dependencies
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Lucide Icons</title>
@@ -478,7 +478,7 @@
     <description>
       Clean, customizable open-source icon set with vanilla JS &amp; SVG support
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Pico CSS</title>
@@ -488,7 +488,7 @@
     <description>
       Minimal, semantic classless CSS framework styling pure HTML
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Shoelace</title>
@@ -498,7 +498,7 @@
     <description>
       Professional library of framework-agnostic web components
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Firebase Firestore</title>
@@ -508,7 +508,7 @@
     <description>
       Real-time cloud NoSQL database that static frontends can query directly
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>JSONbin.io</title>
@@ -518,7 +518,7 @@
     <description>
       Cloud JSON document store for saving and fetching data via REST APIs
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Supabase</title>
@@ -528,7 +528,7 @@
     <description>
       Open-source Firebase alternative with real-time Postgres and REST APIs
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Antigravity CLI</title>
@@ -538,7 +538,7 @@
     <description>
       Terminal-native AI coding agent with slash commands and workflow automation
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Antigravity IDE</title>
@@ -548,7 +548,7 @@
     <description>
       AI-first development environment with pair programming and browser automation
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Bootstrap Studio</title>
@@ -558,7 +558,7 @@
     <description>
       Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Brickstatic</title>
@@ -568,7 +568,7 @@
     <description>
       Export and publish WordPress Bricks sites as static HTML to GitHub or any host
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Cursor</title>
@@ -578,7 +578,7 @@
     <description>
       AI-powered code editor with multi-file Composer and predictive completions
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>DesignCraft</title>
@@ -588,7 +588,7 @@
     <description>
       Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>EffectCraft</title>
@@ -598,7 +598,7 @@
     <description>
       Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Emdash</title>
@@ -608,7 +608,7 @@
     <description>
       Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>ESLint</title>
@@ -618,7 +618,7 @@
     <description>
       Find and fix problems in JavaScript code
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>FigCraft</title>
@@ -628,7 +628,7 @@
     <description>
       Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>GetBoosh</title>
@@ -638,7 +638,7 @@
     <description>
       Desktop app suite for token-bound web design, real CSS generation, and local-first SEO audits
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>GitHub Desktop</title>
@@ -648,7 +648,7 @@
     <description>
       Visual Git GUI client to stage changes, manage branches, and sync repositories
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Google Lighthouse</title>
@@ -658,7 +658,7 @@
     <description>
       Audit performance, accessibility, SEO, and best practices
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>OpenCode</title>
@@ -668,7 +668,7 @@
     <description>
       Open-source AI coding agent with a terminal TUI and editor extensions
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>PdfCraft</title>
@@ -678,7 +678,7 @@
     <description>
       Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>PhotoCraft</title>
@@ -688,7 +688,7 @@
     <description>
       Open-source image editor with layers, masks, curves, and PSD/PSB round-tripping in pure Rust
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Prettier</title>
@@ -698,7 +698,7 @@
     <description>
       Code formatter for HTML, CSS, JavaScript, and more
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>sitereal</title>
@@ -708,7 +708,7 @@
     <description>
       Visual builder for Astro writing real components into your repo with full code access
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>StaticSEO</title>
@@ -718,7 +718,7 @@
     <description>
       Open-source SEO tool that bakes meta tags, Open Graph cards, JSON-LD schema, and XML sitemaps into static HTML
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Visual Studio Code</title>
@@ -728,7 +728,7 @@
     <description>
       Code editor with extensions for web development
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>WordCraft</title>
@@ -738,7 +738,7 @@
     <description>
       Fast, open-source word processor with native .docx support and clean PDF export in pure Rust
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Zed</title>
@@ -748,7 +748,7 @@
     <description>
       High-performance, GPU-accelerated code editor with built-in multiplayer and AI
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Cloudflare Pages</title>
@@ -758,7 +758,7 @@
     <description>
       Deploy static sites with Git integration and edge services
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Codeberg Pages</title>
@@ -768,7 +768,7 @@
     <description>
       Community-driven, privacy-respecting, and free static website hosting
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Deno Deploy</title>
@@ -778,7 +778,7 @@
     <description>
       Distributed edge hosting platform serving static assets and edge logic globally
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Firebase Hosting</title>
@@ -788,7 +788,7 @@
     <description>
       Fast, secure static and dynamic web hosting backed by Google global SSD CDN
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Fleek</title>
@@ -798,7 +798,7 @@
     <description>
       Edge-optimized web hosting for static frontends with automated Git deployment
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>GitHub Pages</title>
@@ -808,7 +808,7 @@
     <description>
       Host websites directly from GitHub repositories
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>GitLab Pages</title>
@@ -818,7 +818,7 @@
     <description>
       Free static website hosting directly from GitLab repositories with custom domains
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Kinsta Static Site Hosting</title>
@@ -828,7 +828,7 @@
     <description>
       Free static site hosting deployed across Cloudflare global edge locations
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Netlify</title>
@@ -838,7 +838,7 @@
     <description>
       Static hosting with deployment automation and additional services
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Render</title>
@@ -848,7 +848,7 @@
     <description>
       Modern cloud platform offering free static site hosting with global CDN
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Stormkit</title>
@@ -858,7 +858,7 @@
     <description>
       Dedicated Jamstack and static web hosting platform with multi-environment staging
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Surge.sh</title>
@@ -868,7 +868,7 @@
     <description>
       Single-command CLI web publishing for static sites with custom domain support
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Vercel</title>
@@ -878,7 +878,7 @@
     <description>
       Deploy static websites and frontend applications
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Wasmer</title>
@@ -888,7 +888,7 @@
     <description>
       Host and deploy static websites and web applications
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>File Converter</title>
@@ -898,7 +898,7 @@
     <description>
       Windows context-menu tool to convert and compress images (Windows 11 supported)
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Pic2SVG</title>
@@ -908,7 +908,7 @@
     <description>
       Convert raster images into scalable, editable SVG vector paths with free browser-based tracing
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Site-Shot</title>
@@ -918,7 +918,7 @@
     <description>
       Website screenshot generator and REST API for full-page web captures and thumbnails
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Squoosh</title>
@@ -928,7 +928,7 @@
     <description>
       Compress and convert images in your browser
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>SVG Repo</title>
@@ -938,7 +938,7 @@
     <description>
       Browse and download SVG icons and illustrations
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>TinyPNG</title>
@@ -948,7 +948,7 @@
     <description>
       Compress PNG, JPEG, WebP, and other supported image formats
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Unsplash</title>
@@ -958,7 +958,7 @@
     <description>
       High-resolution, royalty-free stock photography library for website assets
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Leaflet.js</title>
@@ -968,7 +968,7 @@
     <description>
       Lightweight open-source JavaScript library for mobile-friendly interactive maps
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Mapbox GL JS</title>
@@ -978,7 +978,7 @@
     <description>
       Interactive WebGL vector maps with custom styles and smooth rendering
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>AOS (Animate On Scroll)</title>
@@ -988,7 +988,7 @@
     <description>
       Animate elements on scroll using simple HTML data attributes
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>PhotoSwipe</title>
@@ -998,7 +998,7 @@
     <description>
       Lightweight JavaScript image gallery and lightbox with smooth zoom
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Swiper.js</title>
@@ -1008,7 +1008,7 @@
     <description>
       Mobile touch slider with hardware-accelerated transitions
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Crisp</title>
@@ -1018,7 +1018,7 @@
     <description>
       Multichannel customer messaging and live chat widget
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Tawk.to</title>
@@ -1028,7 +1028,7 @@
     <description>
       100% free live chat application to monitor and chat with visitors
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Mux Player</title>
@@ -1038,7 +1038,7 @@
     <description>
       Responsive, high-performance web video player with automatic HLS streaming
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Plyr</title>
@@ -1048,7 +1048,7 @@
     <description>
       Simple, lightweight, accessible HTML5 media player for video, audio, and YouTube
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Wavesurfer.js</title>
@@ -1058,7 +1058,7 @@
     <description>
       Customizable interactive audio waveform visualizer and player in vanilla JS
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>LogRocket</title>
@@ -1068,7 +1068,7 @@
     <description>
       Session replay and frontend telemetry to reproduce user-facing issues
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Sentry</title>
@@ -1078,7 +1078,7 @@
     <description>
       Frontend JavaScript error monitoring and performance tracing
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Brevo</title>
@@ -1088,7 +1088,7 @@
     <description>
       Email marketing and transactional email services
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Buttondown</title>
@@ -1098,7 +1098,7 @@
     <description>
       Newsletter publishing and subscriber management
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Emailit</title>
@@ -1108,7 +1108,7 @@
     <description>
       Email API for sending messages from applications and websites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>SMTP2GO</title>
@@ -1118,7 +1118,7 @@
     <description>
       Scalable transactional email service and REST API with real-time analytics
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Lemon Squeezy</title>
@@ -1128,7 +1128,7 @@
     <description>
       Sell digital products and manage online payments
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Payhip</title>
@@ -1138,7 +1138,7 @@
     <description>
       Sell digital downloads, memberships, and other products
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>PaymentForm</title>
@@ -1148,7 +1148,7 @@
     <description>
       Create custom checkout forms to accept payments, tickets, and donations
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Reflow</title>
@@ -1158,7 +1158,7 @@
     <description>
       Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Stripe Payment Links</title>
@@ -1168,7 +1168,7 @@
     <description>
       Accept payments through hosted checkout links
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Algolia</title>
@@ -1178,7 +1178,7 @@
     <description>
       Hosted search service with frontend integrations
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Pagefind</title>
@@ -1188,7 +1188,7 @@
     <description>
       Static search indexing designed for static websites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Cloudflare Turnstile</title>
@@ -1198,7 +1198,7 @@
     <description>
       Privacy-friendly CAPTCHA alternative
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Google reCAPTCHA</title>
@@ -1208,7 +1208,7 @@
     <description>
       Bot detection and abuse prevention
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>hCaptcha</title>
@@ -1218,7 +1218,7 @@
     <description>
       Challenge-based bot and abuse protection
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Astro</title>
@@ -1228,7 +1228,7 @@
     <description>
       Content-driven static web framework that ships zero JS by default
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Eleventy (11ty)</title>
@@ -1238,7 +1238,7 @@
     <description>
       Simple, flexible static generator converting templates to fast HTML
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Gatsby</title>
@@ -1248,7 +1248,7 @@
     <description>
       React-based static site framework with a unified GraphQL data layer
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Hugo</title>
@@ -1258,7 +1258,7 @@
     <description>
       Extremely fast static site generator rendering pages in milliseconds
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Jekyll</title>
@@ -1268,7 +1268,7 @@
     <description>
       Ruby static site generator transforming Markdown and Liquid into HTML
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Next.js</title>
@@ -1278,7 +1278,7 @@
     <description>
       React framework supporting pure static HTML exports and file routing
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Pelican</title>
@@ -1288,7 +1288,7 @@
     <description>
       Python static site generator using Markdown, reStructuredText, and Jinja2
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Zola</title>
@@ -1298,7 +1298,7 @@
     <description>
       Single-binary Rust static site generator with built-in Sass and search
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Sleekplan</title>
@@ -1308,7 +1308,7 @@
     <description>
       All-in-one user feedback board, public roadmap, and changelog widget
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Tally</title>
@@ -1318,7 +1318,7 @@
     <description>
       Intuitive form and survey builder with unlimited free forms and embeds
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>AI-Built Static Sites (WP Easy)</title>
@@ -1328,7 +1328,7 @@
     <description>
       Client brief to Cloudflare walkthrough using AI agents, Alpine.js, and zero-compile static architecture
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Cold Compile</title>
@@ -1338,7 +1338,7 @@
     <description>
       In-depth tutorials, video walkthroughs, and production guides for EmDash CMS, Breakdance, and Astro static sites
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>The Static HTML Advantage (AskSEOCoach)</title>
@@ -1348,7 +1348,7 @@
     <description>
       Why lightweight static HTML websites consistently outperform complex CMS stacks in search rankings and speed
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>The Web Design Shift (WPTuts)</title>
@@ -1358,7 +1358,7 @@
     <description>
       Architectural breakdown exploring why creators are leaving WordPress maintenance for static-first visual builders
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Bunny Fonts</title>
@@ -1368,7 +1368,7 @@
     <description>
       Privacy-first, GDPR-compliant drop-in alternative to Google Fonts
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Fontsource</title>
@@ -1378,7 +1378,7 @@
     <description>
       Self-host open-source fonts locally with zero external network requests
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
   <tool>
     <title>Google Fonts</title>
@@ -1388,6 +1388,6 @@
     <description>
       Extensive library of open-source fonts and icons delivered via global CDN
     </description>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </tool>
 </tools>

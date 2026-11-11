@@ -1,0 +1,221 @@
+/* StackBot embed styles - integrated in left rail above Submit a Tool + light theme panel */
+#stackbot-btn {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+#stackbot-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
+}
+#stackbot-btn .stackbot-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  background: #fff;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+#stackbot-btn:hover .rail-tooltip,
+#stackbot-btn:focus-visible .rail-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(6px);
+}
+#stackbot-panel {
+  position: fixed;
+  left: 82px;
+  bottom: 20px;
+  width: 370px;
+  max-width: calc(100vw - 100px);
+  height: 520px;
+  max-height: 75vh;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Inter, system-ui, sans-serif;
+}
+#stackbot-panel[hidden] {
+  display: none !important;
+}
+.stackbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.stackbot-header strong {
+  display: block;
+  font-size: 15px;
+  color: #0f172a;
+}
+.stackbot-header span {
+  font-size: 12px;
+  color: #16a34a;
+}
+#stackbot-close {
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #64748b;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+#stackbot-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+.stackbot-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  font-size: 11px;
+  color: #64748b;
+}
+#stackbot-refresh {
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #334155;
+}
+#stackbot-refresh:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+#stackbot-messages {
+  flex: 1;
+  overflow: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.msg {
+  max-width: 88%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.msg.bot {
+  background: #f1f5f9;
+  color: #0f172a;
+  align-self: flex-start;
+}
+.msg.user {
+  background: #2563eb;
+  color: #fff;
+  align-self: flex-end;
+}
+.tool-card {
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+}
+.tool-card a {
+  color: #2563eb;
+  text-decoration: none;
+}
+.tool-card a:hover {
+  text-decoration: underline;
+}
+.tool-card p {
+  margin: 4px 0;
+  color: #475569;
+  font-size: 13px;
+}
+.tool-card span {
+  font-size: 12px;
+  color: #64748b;
+}
+.stackbot-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 12px 10px;
+}
+.stackbot-chips button {
+  border: 1px solid #c7d2fe;
+  background: #fff;
+  color: #4338ca;
+  border-radius: 999px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.stackbot-chips button:hover {
+  background: #eef2ff;
+}
+#stackbot-form {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid #e2e8f0;
+}
+#stackbot-input {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  outline: none;
+  font-size: 13.5px;
+}
+#stackbot-input:focus {
+  border-color: #2563eb;
+}
+#stackbot-form button {
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+#stackbot-form button:hover {
+  background: #1e293b;
+}
+.stackbot-footer {
+  padding: 6px 12px;
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  #stackbot-panel {
+    left: 16px;
+    right: 16px;
+    bottom: 76px;
+    width: auto;
+    max-width: none;
+  }
+}
+

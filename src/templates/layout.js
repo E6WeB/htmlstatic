@@ -255,6 +255,10 @@ function createLayoutRenderer({ allTools, categories }) {
     </div>
 
     <div class="rail-bottom">
+      <button type="button" id="stackbot-btn" aria-label="Open StackBot chat">
+        <span class="stackbot-icon" aria-hidden="true"></span>
+        <span class="rail-tooltip">Ask StackBot</span>
+      </button>
       <a href="${rootPath}submit" class="rail-action-btn ${currentNav === 'submit' ? 'active' : ''}" aria-label="Submit a Tool">
         ${ICONS.plus}
         <span class="rail-tooltip">Submit a Tool</span>
@@ -645,6 +649,10 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
 
   <!-- High-Performance Instant Client-Side Search Engine -->
   <script defer src="${rootPath}asset/js/search.js?v=3"></script>
+
+  <!-- StaticStack StackBot -->
+  <link rel="stylesheet" href="/stackbot.css">
+  <script src="/stackbot.js" defer></script>
 </body>
 </html>
 `;
