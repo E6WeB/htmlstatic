@@ -660,7 +660,7 @@ const homeContent = `
               const viewsFormatted = viewsNum.toLocaleString();
               const coverUrl = 'tools/' + t.categorySlug + '/' + t.slug + '-cover.webp';
               const iconUrl = t.faviconUrl || ('/tools/' + t.categorySlug + '/' + t.slug + '-icon.webp');
-              const iconImg = '<img src=\"' + iconUrl + '\" width=\"22\" height=\"22\" class=\"tool-siteicon\" alt=\"\" loading=\"lazy\" decoding=\"async\" aria-hidden=\"true\" style=\"border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain;\">';
+              const iconImg = '<img src=\"' + iconUrl + '\" width=\"22\" height=\"22\" class=\"tool-siteicon\" alt=\"' + escapeClientHtml(t.name) + ' icon\" loading=\"lazy\" decoding=\"async\" style=\"border-radius:4px; vertical-align:middle; flex-shrink:0; object-fit:contain;\">';
 
               const desc = t.desc || t.description || '';
 
@@ -1757,7 +1757,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'submit', 'index.html'), renderLayout({
 console.log('🤝 Generating Contribute Page (contribute/index.html)...');
 
 const contributingMd = fs.readFileSync(path.join(ROOT_DIR, 'contribute', 'CONTRIBUTING.md'), 'utf8');
-const renderedContributing = marked.parse(contributingMd);
+const renderedContributing = marked.parse(contributingMd).replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
 
 const contributeContent = `
   <div class="markdown-body">
@@ -1799,7 +1799,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'contribute', 'index.html'), renderLayout({
 console.log('💖 Generating Thank You Page (thankyou/index.html)...');
 
 const thankYouMd = fs.readFileSync(path.join(ROOT_DIR, 'thankyou', 'THANKYOU.md'), 'utf8');
-const renderedThankYou = marked.parse(thankYouMd);
+const renderedThankYou = marked.parse(thankYouMd).replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
 
 const thankYouContent = `
   <div class="markdown-body thankyou-markdown">
@@ -1837,7 +1837,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'thankyou', 'index.html'), renderLayout({
 console.log('💬 Generating Contact Page (contact/index.html)...');
 
 const contactMd = fs.readFileSync(path.join(ROOT_DIR, 'contact', 'CONTACT.md'), 'utf8');
-const renderedContactMd = marked.parse(contactMd);
+const renderedContactMd = marked.parse(contactMd).replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
 
 const contactContent = `
   <section style="padding: 0 0 2.5rem;">
@@ -2004,7 +2004,7 @@ blogPosts.forEach(post => {
   } else {
     articleMd = `# ${post.title}\n\n${post.description}`;
   }
-  const parsedArticleHtml = marked.parse(articleMd);
+  const parsedArticleHtml = marked.parse(articleMd).replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
 
   const renderedArticleHtml = renderBlogArticlePage({
     post,

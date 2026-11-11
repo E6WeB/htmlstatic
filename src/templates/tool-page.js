@@ -48,6 +48,8 @@ function renderToolPage({
 
   // Render markdown with relative link rewriting
   let parsedHtml = marked.parse(cleanMd);
+  // Strip redundant duplicate H1 from top of markdown body (miniHero provides the primary H1)
+  parsedHtml = parsedHtml.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
   parsedHtml = parsedHtml
     .replace(/href="(?:\.\.\/)+README\.md#([^"]+)"/g, 'href="../../archive#$1"')
     .replace(/href="(?:\.\.\/)+README\.md"/g, 'href="../../archive"')

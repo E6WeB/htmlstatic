@@ -8,7 +8,8 @@ const {
   parseBadges,
   getDomainFromUrl,
   getBlackWhiteFallbackSvg,
-  extractToolTags
+  extractToolTags,
+  escapeHtml
 } = require('./icons');
 
 function loadCatalog(rootDir) {
@@ -124,20 +125,22 @@ function loadCatalog(rootDir) {
       if (fs.existsSync(localIconDiskPath)) {
         const localIconUrl = `/tools/${categorySlug}/${slug}-icon.webp`;
         const styleAttr = extraStyle ? ` style="${extraStyle.trim()}"` : '';
-        return `<img src="${localIconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" decoding="async"${styleAttr}>`;
+        const toolNameAlt = escapeHtml(tool.name || 'Tool');
+        return `<img src="${localIconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="${toolNameAlt} icon" loading="lazy" decoding="async"${styleAttr}>`;
       }
     }
 
     const domain = getDomainFromUrl(websiteUrl);
     const bwFallback = getBlackWhiteFallbackSvg(tool.name, size);
     const styleAttr = extraStyle ? ` style="${extraStyle.trim()}"` : '';
+    const toolNameAlt = escapeHtml(tool.name || 'Tool');
 
     if (!domain) {
-      return `<img src="${bwFallback}" width="${size}" height="${size}" class="tool-siteicon" alt="" decoding="async"${styleAttr}>`;
+      return `<img src="${bwFallback}" width="${size}" height="${size}" class="tool-siteicon" alt="${toolNameAlt} icon" decoding="async"${styleAttr}>`;
     }
 
     const faviconUrl = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
-    return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${bwFallback}';"${styleAttr}>`;
+    return `<img src="${faviconUrl}" width="${size}" height="${size}" class="tool-siteicon" alt="${toolNameAlt} icon" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${bwFallback}';"${styleAttr}>`;
   }
 
   function getRandomTools(currentSlug, count = 4) {
