@@ -2130,6 +2130,52 @@ const BASE_CSS = `
     color: var(--text-muted);
   }
 
+  .blog-article-meta-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .blog-meta-item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .blog-meta-pipe {
+    color: var(--border-color);
+    margin: 0 0.5rem;
+    opacity: 0.85;
+    user-select: none;
+  }
+
+  .blog-meta-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+
+  .blog-meta-link:hover {
+    color: var(--accent);
+  }
+
+  .blog-meta-num {
+    color: #ef4444;
+    font-weight: 700;
+    margin-left: 0.15rem;
+  }
+
   .blog-category-badge {
     display: inline-flex;
     align-items: center;

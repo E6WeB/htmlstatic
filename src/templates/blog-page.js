@@ -116,37 +116,46 @@ function renderBlogArticlePage({
     keywords: post.tags.join(', ')
   };
 
+  // Format date as MM.DD.YY (e.g. 03.19.26)
+  const dotDateParts = (post.date || '').split('-');
+  const dotDate = dotDateParts.length === 3 ? `${dotDateParts[1]}.${dotDateParts[2]}.${dotDateParts[0].slice(-2)}` : (post.dateFormatted || '');
+  const authorDisplay = post.author === 'StaticStack Editorial' ? 'Creator' : escapeHtml(post.author);
+  const categoryDisplay = escapeHtml(post.category || '');
+  const readMinutes = escapeHtml((post.readTime || '').replace(/\s*read\s*/i, ''));
+
+  const metaUserIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+  const metaFolderIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`;
+  const metaCalendarIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`;
+  const metaEyeIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+
   const articleContent = `
     <!-- Blog 2-Column Responsive Layout (Main Content Left + Sidebar Right) -->
     <div class="blog-layout">
       <!-- Main Content (Left Column) -->
       <div class="blog-main">
         <article class="blog-article-card">
-          <!-- Article Meta Header -->
-          <div class="blog-article-meta">
-            <a href="${rootPath}category/${post.categorySlug}/" class="blog-category-badge">
-              ${CATEGORY_ICONS[post.categorySlug] || ICONS.tag}
-              <span>${escapeHtml(post.category)}</span>
-            </a>
-            <span>&bull;</span>
-            <span class="blog-meta-badge">
-              ${ICONS.sparkles}
-              <span>${escapeHtml(post.dateFormatted)}</span>
-            </span>
-            <span>&bull;</span>
-            <span class="blog-meta-badge">
-              ${ICONS.eye}
-              <span>${escapeHtml(post.readTime)}</span>
-            </span>
-            <span>&bull;</span>
-            <span class="blog-meta-badge">
-              By <strong>${escapeHtml(post.author)}</strong>
-            </span>
+          <!-- Article Cover Banner -->
+          <div class="blog-cover-wrapper" style="margin-bottom:1.25rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
+            <img src="cover.webp" alt="${escapeHtml(post.title)}" width="1200" height="630" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
           </div>
 
-          <!-- Article Cover Banner -->
-          <div class="blog-cover-wrapper" style="margin-bottom:2rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
-            <img src="cover.webp" alt="${escapeHtml(post.title)}" width="1200" height="630" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
+          <!-- Developer-Style Meta Bar (Below Cover Image) -->
+          <div class="blog-article-meta-bar" aria-label="Article Details">
+            <span class="blog-meta-item">
+              ${metaUserIcon}<span>${authorDisplay}</span>
+            </span>
+            <span class="blog-meta-pipe">|</span>
+            <span class="blog-meta-item">
+              ${metaFolderIcon}<a href="${rootPath}category/${post.categorySlug}/" class="blog-meta-link">${categoryDisplay}</a>
+            </span>
+            <span class="blog-meta-pipe">|</span>
+            <span class="blog-meta-item">
+              ${metaCalendarIcon}<span>${dotDate}</span>
+            </span>
+            <span class="blog-meta-pipe">|</span>
+            <span class="blog-meta-item">
+              ${metaEyeIcon}<span>view:<span class="blog-meta-num">${readMinutes}</span></span>
+            </span>
           </div>
 
           <!-- Article Markdown Body -->
