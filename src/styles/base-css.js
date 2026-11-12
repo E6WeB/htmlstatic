@@ -1837,7 +1837,7 @@ const BASE_CSS = `
   /* Markdown Body Rendering */
   .markdown-body {
     background: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: var(--radius-lg);
     padding: 2.5rem;
     margin-bottom: 3rem;
@@ -2117,6 +2117,15 @@ const BASE_CSS = `
     border-radius: var(--radius-lg);
     padding: 2.25rem;
     box-shadow: var(--shadow-card);
+    margin-bottom: 2rem;
+  }
+
+  .blog-article-card .markdown-body {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
     margin-bottom: 2rem;
   }
 
