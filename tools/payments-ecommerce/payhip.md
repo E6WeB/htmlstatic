@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a>
 2. **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 3. **Type**: Digital Product E-Commerce Platform
-4. **Pricing / License**: Free
+4. **Pricing / License**: Freemium
 
 - **Tags**: `payhip`, `sell-ebooks-courses`, `no-monthly-fee-ecommerce`, `embed-buy-button`, `instant-digital-delivery`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
 ---
@@ -50,3 +50,12 @@ Embed Payhip checkout onto your static site:
 1. Selling ebooks, design assets, icon packs, and templates directly from a portfolio.
 2. Websites needing instant secure file delivery to buyers.
 3. Creators seeking a simple checkout overlay with low transaction fees.
+
+---
+
+## Pricing & Transaction Fees
+
+- **Free Forever Plan**: $0/month + **5% transaction fee** per sale
+- **Plus Plan**: $29/month + **2% transaction fee** per sale
+- **Pro Plan**: $99/month + **0% Payhip transaction fee**
+- **Payment Processor Fees**: Standard Stripe or PayPal processing fees still apply on all plans

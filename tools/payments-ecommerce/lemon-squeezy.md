@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a>
 2. **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 3. **Type**: Merchant of Record E-Commerce
-4. **Pricing / License**: Free
+4. **Pricing / License**: Freemium
 
 - **Tags**: `lemon-squeezy`, `merchant-of-record`, `global-vat-tax-compliance`, `sell-saas-and-downloads`, `overlay-checkout-embed`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
 ---
@@ -49,3 +49,12 @@ Add Lemon.js to your static HTML page for an overlay checkout modal:
 1. Selling digital downloads, software licenses, presets, and courses.
 2. Sellers who want someone else to handle worldwide VAT and sales tax compliance.
 3. Static product landing pages needing a smooth popup checkout experience.
+
+---
+
+## Pricing & Transaction Fees
+
+- **Monthly Fee**: $0/month (pay-as-you-go)
+- **Base Transaction Fee**: 5% + $0.50 per transaction
+- **Additional Surcharges**: +1.5% for international cards, +1.5% for PayPal payments, +0.5% for subscription renewals
+- **Email Marketing**: Free up to 500 subscribers, with paid tiers for larger lists

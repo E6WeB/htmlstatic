@@ -200,9 +200,10 @@ function escapeJs(str) {
     .replace(/"/g, '\\"');
 }
 
-function getStatsSummary(req) {
+async function getStatsSummary(req) {
   let viewsCache = {};
   let ipTimestamps = {};
+  let dbEventRows = null;
   try {
     if (fs.existsSync(VIEWS_CACHE_FILE)) {
       viewsCache = JSON.parse(fs.readFileSync(VIEWS_CACHE_FILE, 'utf8'));
@@ -211,6 +212,38 @@ function getStatsSummary(req) {
   try {
     if (fs.existsSync(IP_VIEWS_FILE)) {
       ipTimestamps = JSON.parse(fs.readFileSync(IP_VIEWS_FILE, 'utf8'));
+    }
+  } catch {}
+
+  try {
+    const forum = require(path.join(ROOT_DIR, 'community', 'forum.js'));
+    if (forum && forum.pool) {
+      const viewsRes = await forum.pool.query('SELECT tool_key, views FROM tool_views');
+      for (const row of viewsRes.rows) {
+        if (row.tool_key) {
+          viewsCache[row.tool_key] = Number(row.views) || 0;
+        }
+      }
+      const eventsRes = await forum.pool.query(
+        `SELECT ip, tool_key, (EXTRACT(EPOCH FROM viewed_at) * 1000)::bigint AS ts
+         FROM tool_view_events
+         WHERE viewed_at > NOW() - INTERVAL '14 days'
+         ORDER BY viewed_at DESC`
+      );
+      if (eventsRes.rows.length > 0) {
+        dbEventRows = eventsRes.rows;
+      } else {
+        // Fallback to tool_view_ips in Postgres if tool_view_events is empty
+        const ipRes = await forum.pool.query(
+          `SELECT ip, tool_key, (EXTRACT(EPOCH FROM viewed_at) * 1000)::bigint AS ts
+           FROM tool_view_ips
+           WHERE viewed_at > NOW() - INTERVAL '14 days'
+           ORDER BY viewed_at DESC`
+        );
+        if (ipRes.rows.length > 0) {
+          dbEventRows = ipRes.rows;
+        }
+      }
     }
   } catch {}
 
@@ -352,45 +385,54 @@ function getStatsSummary(req) {
   // 7 days (0=Sun..6=Sat) x 6 4-hour slots
   const heatmap = Array.from({ length: 7 }, () => new Array(6).fill(0));
 
-  for (const [toolKey, ipDict] of Object.entries(ipTimestamps)) {
-    const toolInfo = itemMap.get(toolKey) || { name: toolKey.replace(/^htmlstatic-/, ''), url: '#' };
-    for (const [ip, ts] of Object.entries(ipDict || {})) {
-      const timeNum = Number(ts) || 0;
-      if (timeNum > past24h) {
-        hits24h++;
-        uniqueIps24h.add(ip);
-        if (!active24hMap[toolKey]) {
-          active24hMap[toolKey] = { name: toolInfo.name, url: toolInfo.url || '#', count: 0 };
-        }
-        active24hMap[toolKey].count++;
-        const hourIdx = Math.min(23, Math.max(0, 23 - Math.floor((now - timeNum) / 3600000)));
-        hourly24h[hourIdx]++;
+  const eventRows = dbEventRows || [];
+  if (!dbEventRows) {
+    for (const [toolKey, ipDict] of Object.entries(ipTimestamps)) {
+      for (const [ip, ts] of Object.entries(ipDict || {})) {
+        eventRows.push({ tool_key: toolKey, ip, ts });
       }
-      if (timeNum > 0) {
-        const dt = new Date(timeNum);
-        const dayKey = dt.toISOString().slice(0, 10);
-        if (dayBuckets[dayKey] !== undefined) {
-          dayBuckets[dayKey]++;
-        }
-        const dow = dt.getDay();
-        const slot = Math.floor(dt.getHours() / 4);
-        if (heatmap[dow] && heatmap[dow][slot] !== undefined) {
-          heatmap[dow][slot]++;
-        }
-      }
-      const loc = resolveIpLocation(ip, req);
-      const cCode = loc.country || 'Other';
-      countryCounts[cCode] = (countryCounts[cCode] || 0) + 1;
-
-      recentEvents.push({
-        time: timeNum,
-        toolName: toolInfo.name,
-        toolUrl: toolInfo.url || '#',
-        toolKey: toolKey,
-        ip: ip,
-        loc: loc
-      });
     }
+  }
+
+  for (const row of eventRows) {
+    const toolKey = row.tool_key;
+    const ip = row.ip;
+    const timeNum = Number(row.ts) || 0;
+    const toolInfo = itemMap.get(toolKey) || { name: toolKey.replace(/^htmlstatic-/, ''), url: '#' };
+    if (timeNum > past24h) {
+      hits24h++;
+      uniqueIps24h.add(ip);
+      if (!active24hMap[toolKey]) {
+        active24hMap[toolKey] = { name: toolInfo.name, url: toolInfo.url || '#', count: 0 };
+      }
+      active24hMap[toolKey].count++;
+      const hourIdx = Math.min(23, Math.max(0, 23 - Math.floor((now - timeNum) / 3600000)));
+      hourly24h[hourIdx]++;
+    }
+    if (timeNum > 0) {
+      const dt = new Date(timeNum);
+      const dayKey = dt.toISOString().slice(0, 10);
+      if (dayBuckets[dayKey] !== undefined) {
+        dayBuckets[dayKey]++;
+      }
+      const dow = dt.getDay();
+      const slot = Math.floor(dt.getHours() / 4);
+      if (heatmap[dow] && heatmap[dow][slot] !== undefined) {
+        heatmap[dow][slot]++;
+      }
+    }
+    const loc = resolveIpLocation(ip, req);
+    const cCode = loc.country || 'Other';
+    countryCounts[cCode] = (countryCounts[cCode] || 0) + 1;
+
+    recentEvents.push({
+      time: timeNum,
+      toolName: toolInfo.name,
+      toolUrl: toolInfo.url || '#',
+      toolKey: toolKey,
+      ip: ip,
+      loc: loc
+    });
   }
 
   const dailySeries = dayOrder.map(d => ({ label: d.label, count: dayBuckets[d.key] || 0 }));
@@ -1691,14 +1733,14 @@ async function handleStats(req, res, pathname, query) {
 
   // 4. API: Live Data JSON
   if (pathname === '/stats/api/data') {
-    const summary = getStatsSummary(req);
+    const summary = await getStatsSummary(req);
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(summary));
     return true;
   }
 
   // 5. Render Main Dashboard
-  const summary = getStatsSummary(req);
+  const summary = await getStatsSummary(req);
   res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
   res.end(renderDashboardHtml(summary, auth.user));
   return true;

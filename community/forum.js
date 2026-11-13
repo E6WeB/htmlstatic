@@ -225,12 +225,12 @@ async function refreshTopToolsCache() {
   if (isRefreshingTopTools) return;
   isRefreshingTopTools = true;
   try {
-    // 1. Sync recorded views with PostgreSQL tool_view_ips table
+    // 1. Sync recorded views with PostgreSQL tool_views table
     try {
-      const dbRes = await pool.query('SELECT tool_key, count(*) as count FROM tool_view_ips GROUP BY tool_key');
+      const dbRes = await pool.query('SELECT tool_key, views FROM tool_views');
       if (dbRes && dbRes.rows) {
         dbRes.rows.forEach(r => {
-          const cnt = parseInt(r.count, 10) || 0;
+          const cnt = parseInt(r.views, 10) || 0;
           if (r.tool_key) {
             allToolViewsCache[r.tool_key] = Math.max(allToolViewsCache[r.tool_key] || 0, cnt);
           }
@@ -274,6 +274,12 @@ function updateToolView(key, views) {
   topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
   global.__staticstack_top_tools_cache = topToolsCache;
   persistViewsCacheAsync();
+  pool.query(
+    `INSERT INTO tool_views (tool_key, views, updated_at)
+     VALUES ($1, $2, NOW())
+     ON CONFLICT (tool_key) DO UPDATE SET views = EXCLUDED.views, updated_at = NOW()`,
+    [key, num]
+  ).catch(() => {});
   return topToolsCache;
 }
 
@@ -321,6 +327,19 @@ if (!global.__staticstack_db_initialized) {
     );
     CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
     CREATE INDEX IF NOT EXISTS idx_tool_view_ips_key ON tool_view_ips (tool_key);
+    CREATE TABLE IF NOT EXISTS tool_views (
+      tool_key VARCHAR(128) PRIMARY KEY,
+      views INTEGER NOT NULL DEFAULT 0,
+      updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+    );
+    CREATE TABLE IF NOT EXISTS tool_view_events (
+      id SERIAL PRIMARY KEY,
+      ip VARCHAR(64) NOT NULL,
+      tool_key VARCHAR(128) NOT NULL,
+      viewed_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS idx_tool_view_events_time ON tool_view_events (viewed_at);
+    CREATE INDEX IF NOT EXISTS idx_tool_view_events_key ON tool_view_events (tool_key);
     CREATE INDEX IF NOT EXISTS forum_topics_visible_updated_idx ON forum_topics (updated_at DESC) WHERE is_hidden = FALSE;
     CREATE INDEX IF NOT EXISTS forum_replies_visible_topic_idx ON forum_replies (topic_id, created_at ASC) WHERE is_hidden = FALSE;
     CREATE TABLE IF NOT EXISTS tool_likes (
@@ -390,6 +409,50 @@ if (!global.__staticstack_db_initialized) {
         );
       }
       persistLikesCacheAsync();
+    } catch {}
+    try {
+      // Prune rolling 14-day view events and 48-hour IP cooldown rows
+      await pool.query("DELETE FROM tool_view_events WHERE viewed_at < NOW() - INTERVAL '14 days'");
+      await pool.query("DELETE FROM tool_view_ips WHERE viewed_at < NOW() - INTERVAL '48 hours'");
+
+      // One-time backfill of recent tool_view_ips into tool_view_events if empty
+      await pool.query(`
+        INSERT INTO tool_view_events (ip, tool_key, viewed_at)
+        SELECT ip, tool_key, viewed_at FROM tool_view_ips
+        WHERE viewed_at > NOW() - INTERVAL '14 days'
+          AND NOT EXISTS (SELECT 1 FROM tool_view_events LIMIT 1)
+      `);
+
+      // Sync persistent tool_views counts with local cache
+      const dbViews = await pool.query('SELECT tool_key, views FROM tool_views');
+      for (const row of dbViews.rows) {
+        const dbVal = Number(row.views) || 0;
+        const localVal = Number(allToolViewsCache[row.tool_key]) || 0;
+        if (dbVal > localVal) {
+          allToolViewsCache[row.tool_key] = dbVal;
+        }
+      }
+      const viewKeys = [];
+      const viewCounts = [];
+      for (const [k, count] of Object.entries(allToolViewsCache)) {
+        const num = Number(count) || 0;
+        if (num > 0) {
+          viewKeys.push(k);
+          viewCounts.push(num);
+        }
+      }
+      if (viewKeys.length > 0) {
+        await pool.query(
+          `INSERT INTO tool_views (tool_key, views, updated_at)
+           SELECT k, v, NOW()
+           FROM UNNEST($1::text[], $2::int[]) AS t(k, v)
+           ON CONFLICT (tool_key) DO UPDATE SET views = GREATEST(tool_views.views, EXCLUDED.views)`,
+          [viewKeys, viewCounts]
+        );
+      }
+      topToolsCache = buildTopToolsList(allToolViewsCache).slice(0, 4);
+      global.__staticstack_top_tools_cache = topToolsCache;
+      persistViewsCacheAsync();
     } catch {}
   }).catch(() => {});
 
@@ -509,6 +572,30 @@ async function recordToolView(req, key, hitRequested = true) {
          DO UPDATE SET viewed_at = NOW()`,
         [ip, cleanKey]
       );
+      const countRes = await pool.query(
+        `INSERT INTO tool_views (tool_key, views, updated_at)
+         VALUES ($1, $2, NOW())
+         ON CONFLICT (tool_key)
+         DO UPDATE SET views = GREATEST(tool_views.views + 1, EXCLUDED.views), updated_at = NOW()
+         RETURNING views`,
+        [cleanKey, currentCount]
+      );
+      if (countRes.rows.length > 0) {
+        currentCount = Number(countRes.rows[0].views) || currentCount;
+        allToolViewsCache[cleanKey] = currentCount;
+      }
+      await pool.query(
+        `INSERT INTO tool_view_events (ip, tool_key, viewed_at) VALUES ($1, $2, NOW())`,
+        [ip, cleanKey]
+      );
+
+      // Throttled cleanup (at most once per hour) to keep rolling 14-day window bounded
+      const lastPrune = global.__staticstack_last_view_prune || 0;
+      if (now - lastPrune > 60 * 60 * 1000) {
+        global.__staticstack_last_view_prune = now;
+        pool.query("DELETE FROM tool_view_events WHERE viewed_at < NOW() - INTERVAL '14 days'").catch(() => {});
+        pool.query("DELETE FROM tool_view_ips WHERE viewed_at < NOW() - INTERVAL '48 hours'").catch(() => {});
+      }
     } catch (e) {}
 
     return {
