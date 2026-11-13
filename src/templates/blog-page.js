@@ -5,8 +5,20 @@
  * 2. Blog Index / Directory Page (/blog/index.html)
  */
 
+const fs = require('fs');
+const path = require('path');
 const { ICONS, CATEGORY_ICONS, escapeHtml } = require('../data/icons');
 const { renderSidebarDonationWidget } = require('./sidebar-donation');
+
+function loadBlogViewsMap() {
+  try {
+    const p = path.resolve(__dirname, '..', '..', 'asset', 'json', 'tool-views-cache.json');
+    if (fs.existsSync(p)) {
+      return JSON.parse(fs.readFileSync(p, 'utf8')) || {};
+    }
+  } catch (e) {}
+  return {};
+}
 
 /**
  * Render a single blog article page
@@ -122,7 +134,9 @@ function renderBlogArticlePage({
   const dotDate = dotDateParts.length === 3 ? `${dotDateParts[1]}.${dotDateParts[2]}.${dotDateParts[0].slice(-2)}` : (post.dateFormatted || '');
   const authorDisplay = escapeHtml(post.author || 'StaticStack');
   const categoryDisplay = escapeHtml(post.category || '');
-  const readMinutes = escapeHtml((post.readTime || '').replace(/\s*read\s*/i, ''));
+  const blogViewKey = `blog-${post.slug}`;
+  const viewsMap = loadBlogViewsMap();
+  const initialViews = Number(viewsMap[blogViewKey]) || 0;
 
   const metaUserIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
   const metaFolderIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`;
@@ -155,7 +169,7 @@ function renderBlogArticlePage({
             </span>
             <span class="blog-meta-pipe">|</span>
             <span class="blog-meta-item">
-              ${metaEyeIcon}<span>view:<span class="blog-meta-num">${readMinutes}</span></span>
+              ${metaEyeIcon}<span>view:<span id="blog-view-count" class="blog-meta-num" data-key="${escapeHtml(blogViewKey)}">${initialViews.toLocaleString()}</span></span>
             </span>
           </div>
 
@@ -255,6 +269,58 @@ function renderBlogArticlePage({
             </a>
           </div>
         </article>
+
+        <!-- Blog Article View Counter: Only counts new unique visitors -->
+        <script>
+          (function() {
+            const countEl = document.getElementById('blog-view-count');
+            if (!countEl) return;
+            const key = countEl.getAttribute('data-key');
+            if (!key) return;
+
+            const viewedKey = 'hs_viewed_' + key;
+            let alreadyViewed = false;
+            try {
+              alreadyViewed = !!localStorage.getItem(viewedKey) || (document.cookie.indexOf(viewedKey + '=1') !== -1);
+            } catch (e) {}
+
+            if (!alreadyViewed) {
+              try {
+                localStorage.setItem(viewedKey, '1');
+                document.cookie = viewedKey + '=1; path=/; max-age=315360000; SameSite=Lax';
+              } catch (e) {}
+            }
+
+            function updateDisplay(val) {
+              const num = Number(val);
+              if (!isNaN(num) && num >= 0) {
+                countEl.textContent = num.toLocaleString();
+              }
+            }
+
+            const apiParam = alreadyViewed ? '&hit=0' : '&hit=1';
+            fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + apiParam)
+              .then(function(res) {
+                if (!res.ok) throw new Error('API error');
+                return res.json();
+              })
+              .then(function(data) {
+                if (data && data.value !== undefined) {
+                  updateDisplay(data.value);
+                }
+              })
+              .catch(function() {
+                fetch('/asset/json/tool-views-cache.json')
+                  .then(function(res) { return res.ok ? res.json() : null; })
+                  .then(function(data) {
+                    if (data && data[key] !== undefined) {
+                      updateDisplay(data[key]);
+                    }
+                  })
+                  .catch(function() {});
+              });
+          })();
+        </script>
       </div>
 
       <!-- Right Sidebar (Table of Contents + Related Tools + Tips + Support) -->
@@ -385,17 +451,19 @@ function renderBlogIndexPage({
   const rootPath = '../';
   const pageCanonical = 'https://www.staticstack.app/blog/';
 
-  const metaUserIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
-  const metaFolderIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`;
-  const metaCalendarIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`;
-  const metaEyeIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+  const metaUserIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.2rem;flex-shrink:0;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+  const metaFolderIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.2rem;flex-shrink:0;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`;
+  const metaCalendarIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.2rem;flex-shrink:0;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`;
+  const metaEyeIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.2rem;flex-shrink:0;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+  const viewsMap = loadBlogViewsMap();
 
   const cardsHtml = posts.map(post => {
     const dotDateParts = (post.date || '').split('-');
     const dotDate = dotDateParts.length === 3 ? `${dotDateParts[1]}.${dotDateParts[2]}.${dotDateParts[0].slice(-2)}` : (post.dateFormatted || '');
     const authorDisplay = escapeHtml(post.author || 'StaticStack');
     const categoryDisplay = escapeHtml(post.category || '');
-    const readMinutes = escapeHtml((post.readTime || '').replace(/\s*read\s*/i, ''));
+    const blogViewKey = `blog-${post.slug}`;
+    const initialViews = Number(viewsMap[blogViewKey]) || 0;
 
     return `
       <article class="blog-card">
@@ -424,21 +492,21 @@ function renderBlogIndexPage({
         </div>
 
         <div>
-          <div class="blog-article-meta-bar" aria-label="Article Details" style="font-size:0.78rem; margin-bottom:0.85rem;">
-            <span class="blog-meta-item">
+          <div class="blog-article-meta-bar" aria-label="Article Details" style="display:flex; align-items:center; flex-wrap:nowrap; gap:0.2rem; font-size:0.7rem; white-space:nowrap; overflow:hidden; margin-bottom:0.85rem;">
+            <span class="blog-meta-item" style="flex-shrink:0;">
               ${metaUserIcon}<span>${authorDisplay}</span>
             </span>
-            <span class="blog-meta-pipe">|</span>
-            <span class="blog-meta-item">
-              ${metaFolderIcon}<a href="/category/${escapeHtml(post.categorySlug)}/" class="blog-meta-link">${categoryDisplay}</a>
+            <span class="blog-meta-pipe" style="flex-shrink:0;">|</span>
+            <span class="blog-meta-item" style="min-width:0; overflow:hidden; text-overflow:ellipsis;">
+              ${metaFolderIcon}<a href="/category/${escapeHtml(post.categorySlug)}/" class="blog-meta-link" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${categoryDisplay}</a>
             </span>
-            <span class="blog-meta-pipe">|</span>
-            <span class="blog-meta-item">
+            <span class="blog-meta-pipe" style="flex-shrink:0;">|</span>
+            <span class="blog-meta-item" style="flex-shrink:0;">
               ${metaCalendarIcon}<span>${dotDate}</span>
             </span>
-            <span class="blog-meta-pipe">|</span>
-            <span class="blog-meta-item">
-              ${metaEyeIcon}<span>view:<span class="blog-meta-num">${readMinutes}</span></span>
+            <span class="blog-meta-pipe" style="flex-shrink:0;">|</span>
+            <span class="blog-meta-item" style="flex-shrink:0;">
+              ${metaEyeIcon}<span>view:<span class="blog-meta-num blog-card-view-count" data-key="${escapeHtml(blogViewKey)}">${initialViews.toLocaleString()}</span></span>
             </span>
           </div>
           <div class="blog-card-footer" style="justify-content:flex-end;">
@@ -504,6 +572,38 @@ function renderBlogIndexPage({
           </a>
         </div>
       </div>
+
+      <!-- Blog Cards Batch View Counter Loader -->
+      <script>
+        (function() {
+          var els = document.querySelectorAll('.blog-card-view-count[data-key]');
+          if (!els.length) return;
+          function applyViews(views) {
+            if (!views || typeof views !== 'object') return;
+            els.forEach(function(el) {
+              var k = el.getAttribute('data-key');
+              if (k && views[k] !== undefined) {
+                var n = Number(views[k]);
+                if (!isNaN(n) && n >= 0) el.textContent = n.toLocaleString();
+              }
+            });
+          }
+          fetch('/community/api?action=tool-views')
+            .then(function(res) { return res.ok ? res.json() : null; })
+            .then(function(data) {
+              if (data && data.views) applyViews(data.views);
+              else throw new Error('no views');
+            })
+            .catch(function() {
+              fetch('/asset/json/tool-views-cache.json')
+                .then(function(res) { return res.ok ? res.json() : null; })
+                .then(function(data) {
+                  if (data) applyViews(data.views || data);
+                })
+                .catch(function() {});
+            });
+        })();
+      </script>
     </div>
   `;
 

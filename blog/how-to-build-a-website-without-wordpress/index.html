@@ -354,7 +354,7 @@
 </span>
 <span class="blog-meta-pipe">|</span>
 <span class="blog-meta-item">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg><span>view:<span class="blog-meta-num">9 min</span></span>
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.35rem;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg><span>view:<span id="blog-view-count" class="blog-meta-num" data-key="blog-how-to-build-a-website-without-wordpress">0</span></span>
 </span>
 </div>
 
@@ -611,6 +611,58 @@ Submit a Tool &rarr;
 </a>
 </div>
 </article>
+
+<!-- Blog Article View Counter: Only counts new unique visitors -->
+<script>
+(function() {
+const countEl = document.getElementById('blog-view-count');
+if (!countEl) return;
+const key = countEl.getAttribute('data-key');
+if (!key) return;
+
+const viewedKey = 'hs_viewed_' + key;
+let alreadyViewed = false;
+try {
+alreadyViewed = !!localStorage.getItem(viewedKey) || (document.cookie.indexOf(viewedKey + '=1') !== -1);
+} catch (e) {}
+
+if (!alreadyViewed) {
+try {
+localStorage.setItem(viewedKey, '1');
+document.cookie = viewedKey + '=1; path=/; max-age=315360000; SameSite=Lax';
+} catch (e) {}
+}
+
+function updateDisplay(val) {
+const num = Number(val);
+if (!isNaN(num) && num >= 0) {
+countEl.textContent = num.toLocaleString();
+}
+}
+
+const apiParam = alreadyViewed ? '&hit=0' : '&hit=1';
+fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + apiParam)
+.then(function(res) {
+if (!res.ok) throw new Error('API error');
+return res.json();
+})
+.then(function(data) {
+if (data && data.value !== undefined) {
+updateDisplay(data.value);
+}
+})
+.catch(function() {
+fetch('/asset/json/tool-views-cache.json')
+.then(function(res) { return res.ok ? res.json() : null; })
+.then(function(data) {
+if (data && data[key] !== undefined) {
+updateDisplay(data[key]);
+}
+})
+.catch(function() {});
+});
+})();
+</script>
 </div>
 
 <!-- Right Sidebar (Table of Contents + Related Tools + Tips + Support) -->
