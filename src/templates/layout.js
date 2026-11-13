@@ -211,6 +211,7 @@ function createLayoutRenderer({ allTools, categories }) {
 
   <script type="application/ld+json">${jsonLdString}</script>
   <link rel="stylesheet" href="/asset/css/style.css?v=14">
+  <link rel="stylesheet" href="/asset/css/stackbot.css?v=5">
   ${extraHeadHtml}
 
   <!-- Local StaticStack Appreciation / Like Button -->
@@ -361,8 +362,7 @@ function createLayoutRenderer({ allTools, categories }) {
   <script defer src="${rootPath}asset/js/search.js?v=3"></script>
 
   <!-- StaticStack StackBot -->
-  <link rel="stylesheet" href="/asset/css/stackbot.css?v=5">
-  <script src="/asset/js/stackbot.js?v=8" defer></script>
+  <script src="/asset/js/stackbot.js?v=9" defer></script>
   ${extraBodyBottomHtml}
 </body>
 </html>

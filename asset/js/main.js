@@ -73,12 +73,17 @@ function initSearch() {
   const loadIndex = async () => {
     if (isLoaded) return;
     try {
-      const res = await fetch('/asset/json/search-data.json');
-      if (res.ok) {
-        searchIndex = await res.json();
-        isLoaded = true;
+      if (!window.__staticstackSearchDataPromise) {
+        window.__staticstackSearchDataPromise = fetch('/asset/json/search-data.json')
+          .then(res => {
+            if (!res.ok) throw new Error('Failed to load search-data.json: ' + res.status);
+            return res.json();
+          });
       }
+      searchIndex = await window.__staticstackSearchDataPromise;
+      isLoaded = true;
     } catch (e) {
+      window.__staticstackSearchDataPromise = null;
       console.warn('Could not load search index', e);
     }
   };

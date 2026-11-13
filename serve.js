@@ -61,8 +61,8 @@ function isBlockedPath(pathname) {
 const resolvedPathCache = new Map();
 const staticBufferCache = new Map();
 const MAX_CACHEABLE_TEXT_BYTES = 512 * 1024; // 512 KB (covers index.html, archive/index.html, style.css, search-data.json)
-const MAX_CACHEABLE_ICON_BYTES = 32 * 1024;  // 32 KB (covers all 124 -icon.webp files)
-const MAX_CACHE_ENTRIES = 300;
+const MAX_CACHEABLE_ICON_BYTES = 128 * 1024; // 128 KB (covers all -icon.webp, -cover.webp, and OG images)
+const MAX_CACHE_ENTRIES = 350;
 
 function getCachedEntry(filePath, ext) {
   try {
@@ -96,10 +96,12 @@ function serveFile(req, res, filePath, statusCode = 200) {
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
   const cacheControl = IMMUTABLE_CACHE_EXTS.has(ext)
-    ? 'public, max-age=86400'
+    ? 'public, max-age=604800'
     : (ext === '.css' || ext === '.js')
-      ? 'public, max-age=300, must-revalidate'
-      : 'no-cache';
+      ? 'public, max-age=3600, must-revalidate'
+      : ext === '.json'
+        ? 'public, max-age=300, stale-while-revalidate=3600'
+        : 'no-cache';
 
   const headers = {
     'Content-Type': contentType,

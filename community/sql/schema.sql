@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS forum_topics (
 CREATE INDEX IF NOT EXISTS forum_topics_category_created_idx ON forum_topics(category_id, created_at DESC);
 CREATE INDEX IF NOT EXISTS forum_topics_created_idx ON forum_topics(created_at DESC);
 CREATE INDEX IF NOT EXISTS forum_topics_pinned_updated_idx ON forum_topics(is_pinned DESC, updated_at DESC);
+CREATE INDEX IF NOT EXISTS forum_topics_visible_updated_idx ON forum_topics(updated_at DESC) WHERE is_hidden = FALSE;
 
 CREATE TABLE IF NOT EXISTS forum_replies (
   id BIGSERIAL PRIMARY KEY,
@@ -44,6 +45,8 @@ CREATE TABLE IF NOT EXISTS forum_replies (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 CREATE INDEX IF NOT EXISTS forum_replies_topic_created_idx ON forum_replies(topic_id, created_at ASC);
+CREATE INDEX IF NOT EXISTS forum_replies_visible_topic_idx ON forum_replies(topic_id, created_at ASC) WHERE is_hidden = FALSE;
+ALTER TABLE forum_topics ADD COLUMN IF NOT EXISTS accepted_reply_id INTEGER REFERENCES forum_replies(id) ON DELETE SET NULL;
 
 CREATE TABLE IF NOT EXISTS forum_votes (
   id BIGSERIAL PRIMARY KEY,
@@ -81,3 +84,42 @@ INSERT INTO forum_categories (slug, name, description) VALUES
  ('discussion', 'General Discussion', 'Talk about HTML, CSS, JavaScript, and the static web.'),
  ('support', 'StaticStack Support', 'Question and answer only about the StaticStack website.')
 ON CONFLICT (slug) DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS tool_view_ips (
+  ip VARCHAR(64) NOT NULL,
+  tool_key VARCHAR(128) NOT NULL,
+  viewed_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (ip, tool_key)
+);
+CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
+CREATE INDEX IF NOT EXISTS idx_tool_view_ips_key ON tool_view_ips (tool_key);
+
+CREATE TABLE IF NOT EXISTS tool_likes (
+  tool_slug VARCHAR(160) PRIMARY KEY,
+  likes INTEGER NOT NULL DEFAULT 0,
+  updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS tool_like_ips (
+  ip VARCHAR(64) NOT NULL,
+  tool_slug VARCHAR(160) NOT NULL,
+  liked_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (ip, tool_slug)
+);
+
+CREATE TABLE IF NOT EXISTS user_stack_bookmarks (
+  user_id INTEGER NOT NULL,
+  tool_slug VARCHAR(160) NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (user_id, tool_slug)
+);
+
+CREATE TABLE IF NOT EXISTS tool_comments (
+  id SERIAL PRIMARY KEY,
+  tool_slug VARCHAR(160) NOT NULL,
+  user_id INTEGER NOT NULL REFERENCES forum_users(id) ON DELETE CASCADE,
+  body TEXT NOT NULL,
+  is_hidden BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_tool_comments_slug ON tool_comments (tool_slug, created_at DESC);

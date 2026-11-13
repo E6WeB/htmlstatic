@@ -31,11 +31,14 @@
     if (isLoading) return;
 
     isLoading = true;
-    fetch('/asset/json/search-data.json')
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load search-data.json: ' + r.status);
-        return r.json();
-      })
+    if (!window.__staticstackSearchDataPromise) {
+      window.__staticstackSearchDataPromise = fetch('/asset/json/search-data.json')
+        .then(r => {
+          if (!r.ok) throw new Error('Failed to load search-data.json: ' + r.status);
+          return r.json();
+        });
+    }
+    window.__staticstackSearchDataPromise
       .then(data => {
         searchIndex = data;
         isLoading = false;
@@ -46,6 +49,7 @@
       })
       .catch(err => {
         isLoading = false;
+        window.__staticstackSearchDataPromise = null;
         console.error('StaticStack search index load error:', err);
       });
   }

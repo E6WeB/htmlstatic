@@ -155,8 +155,14 @@
       return;
     }
 
-    fetch('/asset/json/search-data.json')
-      .then(function (r) { return r.json(); })
+    if (!window.__staticstackSearchDataPromise) {
+      window.__staticstackSearchDataPromise = fetch('/asset/json/search-data.json')
+        .then(function (r) {
+          if (!r.ok) throw new Error('Failed to load search-data.json: ' + r.status);
+          return r.json();
+        });
+    }
+    window.__staticstackSearchDataPromise
       .then(function (indexItems) {
         var toolBySlug = {};
         for (var i = 0; i < indexItems.length; i++) {

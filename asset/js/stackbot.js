@@ -259,17 +259,24 @@
       backBtn.hidden = true;
     }
 
+    let toolsLoaded = false;
+    function ensureToolsLoaded(){
+      if(toolsLoaded) return;
+      toolsLoaded = true;
+      loadTools();
+    }
+
     function toggleBot(forceOpen){
       panel.hidden = typeof forceOpen === 'boolean' ? !forceOpen : !panel.hidden;
+      if(!panel.hidden) ensureToolsLoaded();
     }
 
     window.openStackBot = function(){ toggleBot(true); };
     if(btn) btn.onclick=()=>toggleBot();
-    if(startChatBtn) startChatBtn.onclick=showChatView;
+    if(startChatBtn) startChatBtn.onclick=()=>{ ensureToolsLoaded(); showChatView(); };
     if(backBtn) backBtn.onclick=showHomeView;
     document.getElementById('stackbot-close').onclick=()=>panel.hidden=true;
-    document.getElementById('stackbot-form').onsubmit=e=>{e.preventDefault(); const inp=document.getElementById('stackbot-input'); if(inp.value.trim()) ask(inp.value.trim()); inp.value='';};
-    loadTools();
+    document.getElementById('stackbot-form').onsubmit=e=>{e.preventDefault(); ensureToolsLoaded(); const inp=document.getElementById('stackbot-input'); if(inp.value.trim()) ask(inp.value.trim()); inp.value='';};
   }
   function addBot(html){ const m=document.getElementById('stackbot-messages'); const d=document.createElement('div'); d.className='msg bot'; d.innerHTML=html; m.appendChild(d); m.scrollTop=m.scrollHeight; }
   function addUser(t){ const m=document.getElementById('stackbot-messages'); const d=document.createElement('div'); d.className='msg user'; d.textContent=t; m.appendChild(d); m.scrollTop=m.scrollHeight; }

@@ -320,6 +320,9 @@ if (!global.__staticstack_db_initialized) {
       PRIMARY KEY (ip, tool_key)
     );
     CREATE INDEX IF NOT EXISTS idx_tool_view_ips_time ON tool_view_ips (viewed_at);
+    CREATE INDEX IF NOT EXISTS idx_tool_view_ips_key ON tool_view_ips (tool_key);
+    CREATE INDEX IF NOT EXISTS forum_topics_visible_updated_idx ON forum_topics (updated_at DESC) WHERE is_hidden = FALSE;
+    CREATE INDEX IF NOT EXISTS forum_replies_visible_topic_idx ON forum_replies (topic_id, created_at ASC) WHERE is_hidden = FALSE;
     CREATE TABLE IF NOT EXISTS tool_likes (
       tool_slug VARCHAR(160) PRIMARY KEY,
       likes INTEGER NOT NULL DEFAULT 0,
@@ -368,16 +371,23 @@ if (!global.__staticstack_db_initialized) {
           allToolLikesCache[row.tool_slug] = dbVal;
         }
       }
+      const syncSlugs = [];
+      const syncCounts = [];
       for (const [slug, count] of Object.entries(allToolLikesCache)) {
         const num = Number(count) || 0;
         if (num > 0) {
-          await pool.query(
-            `INSERT INTO tool_likes (tool_slug, likes, updated_at)
-             VALUES ($1, $2, NOW())
-             ON CONFLICT (tool_slug) DO UPDATE SET likes = GREATEST(tool_likes.likes, EXCLUDED.likes)`,
-            [slug, num]
-          );
+          syncSlugs.push(slug);
+          syncCounts.push(num);
         }
+      }
+      if (syncSlugs.length > 0) {
+        await pool.query(
+          `INSERT INTO tool_likes (tool_slug, likes, updated_at)
+           SELECT s, c, NOW()
+           FROM UNNEST($1::text[], $2::int[]) AS t(s, c)
+           ON CONFLICT (tool_slug) DO UPDATE SET likes = GREATEST(tool_likes.likes, EXCLUDED.likes)`,
+          [syncSlugs, syncCounts]
+        );
       }
       persistLikesCacheAsync();
     } catch {}
@@ -693,26 +703,52 @@ async function handleApi(req, res, pathname, query) {
   const action = query.action || 'bootstrap';
   const user = getCurrentUser(req);
 
+const BOOTSTRAP_STATS_TTL = 30 * 1000;
+let bootstrapStatsCache = global.__staticstack_bootstrap_stats_cache || null;
+let bootstrapStatsLastFetch = global.__staticstack_bootstrap_stats_last_fetch || 0;
+
+function invalidateBootstrapStatsCache() {
+  bootstrapStatsCache = null;
+  bootstrapStatsLastFetch = 0;
+  global.__staticstack_bootstrap_stats_cache = null;
+  global.__staticstack_bootstrap_stats_last_fetch = 0;
+}
+
   try {
     if (action === 'bootstrap') {
       recordToolView(req, 'htmlstatic-community-hub', true).catch(() => {});
-      const [catsResult, statsRes, topTools] = await Promise.all([
-        pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC"),
-        pool.query(`
-          SELECT
-            (SELECT COUNT(*)::int FROM forum_topics WHERE is_hidden = FALSE) AS topics_count,
-            (SELECT COUNT(*)::int FROM forum_replies WHERE is_hidden = FALSE) AS replies_count,
-            (SELECT COUNT(*)::int FROM forum_users) AS users_count,
-            (SELECT COUNT(*)::int FROM forum_votes) AS votes_count,
-            (SELECT login FROM forum_users ORDER BY id DESC LIMIT 1) AS newest_login,
-            (SELECT display_name FROM forum_users ORDER BY id DESC LIMIT 1) AS newest_display_name,
-            (SELECT id FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1) AS latest_topic_id,
-            (SELECT title FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1) AS latest_topic_title
-        `),
-        getTopTools()
-      ]);
+      const now = Date.now();
+      let catsRows;
+      let st;
+      let topTools;
 
-      const st = statsRes.rows[0] || {};
+      if (bootstrapStatsCache && (now - bootstrapStatsLastFetch) < BOOTSTRAP_STATS_TTL) {
+        ({ catsRows, st } = bootstrapStatsCache);
+        topTools = await getTopTools();
+      } else {
+        const [catsResult, statsRes, fetchedTopTools] = await Promise.all([
+          pool.query("SELECT id, slug, name, description FROM forum_categories ORDER BY (slug = 'announcements') DESC, name ASC"),
+          pool.query(`
+            SELECT
+              (SELECT COUNT(*)::int FROM forum_topics WHERE is_hidden = FALSE) AS topics_count,
+              (SELECT COUNT(*)::int FROM forum_replies WHERE is_hidden = FALSE) AS replies_count,
+              (SELECT COUNT(*)::int FROM forum_users) AS users_count,
+              (SELECT COUNT(*)::int FROM forum_votes) AS votes_count,
+              (SELECT login FROM forum_users ORDER BY id DESC LIMIT 1) AS newest_login,
+              (SELECT display_name FROM forum_users ORDER BY id DESC LIMIT 1) AS newest_display_name,
+              (SELECT id FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1) AS latest_topic_id,
+              (SELECT title FROM forum_topics WHERE is_hidden = FALSE ORDER BY updated_at DESC LIMIT 1) AS latest_topic_title
+          `),
+          getTopTools()
+        ]);
+        catsRows = catsResult.rows;
+        st = statsRes.rows[0] || {};
+        topTools = fetchedTopTools;
+        bootstrapStatsCache = { catsRows, st };
+        bootstrapStatsLastFetch = now;
+        global.__staticstack_bootstrap_stats_cache = bootstrapStatsCache;
+        global.__staticstack_bootstrap_stats_last_fetch = bootstrapStatsLastFetch;
+      }
 
       sendJson(res, {
         user: user ? {
@@ -722,10 +758,10 @@ async function handleApi(req, res, pathname, query) {
           avatar: user.avatar,
           admin: Boolean(user.admin)
         } : null,
-        categories: catsResult.rows,
+        categories: catsRows,
         top_tools: topTools,
         stats: {
-          channels: catsResult.rows.length,
+          channels: catsRows.length,
           topics: st.topics_count || 0,
           replies: st.replies_count || 0,
           members: st.users_count || 0,
@@ -858,12 +894,23 @@ async function handleApi(req, res, pathname, query) {
       }
 
       const repliesSql = `
+        WITH reply_votes AS (
+          SELECT
+            v.reply_id,
+            COALESCE(SUM(v.value), 0)::int AS score,
+            MAX(CASE WHEN v.user_id = $2 THEN v.value ELSE NULL END) AS my_vote
+          FROM forum_votes v
+          JOIN forum_replies r2 ON r2.id = v.reply_id
+          WHERE r2.topic_id = $1
+          GROUP BY v.reply_id
+        )
         SELECT r.id, r.body, r.created_at, r.is_hidden,
                u.login, u.display_name, u.avatar_url, u.id AS author_id,
-               (SELECT COALESCE(SUM(v.value), 0)::int FROM forum_votes v WHERE v.reply_id = r.id) AS score,
-               (SELECT v.value FROM forum_votes v WHERE v.reply_id = r.id AND v.user_id = $2 LIMIT 1) AS my_vote
+               COALESCE(rv.score, 0)::int AS score,
+               rv.my_vote
         FROM forum_replies r
         JOIN forum_users u ON u.id = r.user_id
+        LEFT JOIN reply_votes rv ON rv.reply_id = r.id
         WHERE r.topic_id = $1 AND (r.is_hidden = FALSE OR $3 = TRUE)
         ORDER BY r.created_at ASC
       `;
@@ -902,6 +949,7 @@ async function handleApi(req, res, pathname, query) {
         'INSERT INTO forum_topics (category_id, user_id, title, body, is_pinned) VALUES ($1, $2, $3, $4, $5) RETURNING id',
         [catId, user.uid, title, body, isPinned]
       );
+      invalidateBootstrapStatsCache();
       sendJson(res, { ok: true, id: parseInt(insertRes.rows[0].id, 10) }, 201);
       return true;
     }
@@ -991,6 +1039,7 @@ async function handleApi(req, res, pathname, query) {
         [topicId, user.uid, body]
       );
       await pool.query('UPDATE forum_topics SET updated_at = NOW() WHERE id = $1', [topicId]);
+      invalidateBootstrapStatsCache();
       sendJson(res, { ok: true, id: parseInt(replyRes.rows[0].id, 10) }, 201);
       return true;
     }
@@ -1035,6 +1084,7 @@ async function handleApi(req, res, pathname, query) {
         }
 
         await client.query('COMMIT');
+        invalidateBootstrapStatsCache();
         sendJson(res, { ok: true, my_vote: newVote });
         return true;
       } catch (err) {
