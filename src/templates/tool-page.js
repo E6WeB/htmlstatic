@@ -163,7 +163,7 @@ function renderToolPage({
   const coverRelativeName = `${tool.slug}-cover.webp`;
   const coverDiskPath = path.join(rootDir, 'tools', tool.categorySlug, coverRelativeName);
   let coverImageHtml = '';
-  const hasEmbeddedVideo = cleanMd.includes('video-container') || cleanMd.includes('<iframe');
+  const hasEmbeddedVideo = cleanMd.includes('video-container');
   if (fs.existsSync(coverDiskPath) && !hasEmbeddedVideo) {
     coverImageHtml = `
           <div class="tool-cover-banner" style="margin-bottom:1.5rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card); background:var(--bg-surface);">
