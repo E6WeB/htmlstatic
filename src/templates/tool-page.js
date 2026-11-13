@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 const { ICONS, CATEGORY_ICONS, escapeHtml, renderStackSaveBtn } = require('../data/icons');
+const { TOOL_PRICING } = require('../data/tool-pricing');
 const { renderSidebarDonationWidget } = require('./sidebar-donation');
 
 let linkHealthCache = null;
@@ -79,14 +80,65 @@ function renderToolSupplementalHtml({ tool, allCategories, cleanMd, isOnline, he
     ? `Popular alternatives in <a href="../../category/${escapeHtml(tool.categorySlug)}/">${escapeHtml(tool.categoryTitle)}</a> include ${altNames}.`
     : `Browse the <a href="../../category/${escapeHtml(tool.categorySlug)}/">${escapeHtml(tool.categoryTitle)}</a> category for related tools.`;
 
+  let pricingPro = 'Free to get started for static site builds';
+  let pricingCon = 'Advanced features or higher usage may require configuration';
+  if (/open source/i.test(pricingLabel)) {
+    pricingPro = 'Open source license—free to inspect, customize, or self-host';
+    pricingCon = 'Self-hosting or custom builds require basic setup';
+  } else if (/^free$/i.test(pricingLabel)) {
+    pricingPro = '100% free to use with no paid-tier lock-in';
+    pricingCon = 'Fewer enterprise SLAs or dedicated support guarantees';
+  } else if (/freemium/i.test(pricingLabel)) {
+    pricingPro = 'Generous free tier for testing and small static sites';
+    pricingCon = 'Higher traffic, seats, or limits require a paid upgrade';
+  } else if (/paid/i.test(pricingLabel)) {
+    pricingPro = 'Dedicated commercial hosting, support, and reliability';
+    pricingCon = 'Paid plans only—no permanent free tier for ongoing use';
+  } else if (/beta/i.test(pricingLabel)) {
+    pricingPro = 'Early access to modern static web capabilities';
+    pricingCon = 'Beta status means features or APIs may still change';
+  }
+
+  const pricingDetails = TOOL_PRICING[tool.slug];
+  const pricingBullets = pricingDetails
+    ? `
+      <li><strong>Free Tier:</strong> ${escapeHtml(pricingDetails.freeTier)}</li>
+      <li><strong>Paid Plans:</strong> ${escapeHtml(pricingDetails.paidFrom)}</li>
+      <li><strong>Key Limits:</strong> ${escapeHtml(pricingDetails.limits)}</li>`
+    : '';
+
   return `
     <hr>
     <h2>Pricing, Privacy &amp; Static Site Fit</h2>
     <ul>
-      <li><strong>Pricing / License:</strong> ${escapeHtml(pricingLabel)}</li>
+      <li><strong>Pricing / License:</strong> ${escapeHtml(pricingLabel)}</li>${pricingBullets}
       <li><strong>Static Site Integration:</strong> Built to work with static HTML, CSS, and Jamstack workflows without maintaining a custom backend server.</li>
       <li><strong>Link Status:</strong> ${isOnline ? 'Verified Online' : 'Currently Offline / Archived'} (checked ${escapeHtml(health.checked_at || 'recently')}).</li>
     </ul>
+    <hr>
+    <h2>Pros &amp; Cons</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pros</th>
+          <th>Cons</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>${escapeHtml(pricingPro)}</td>
+          <td>${escapeHtml(pricingCon)}</td>
+        </tr>
+        <tr>
+          <td>Works cleanly with static HTML &amp; Jamstack sites with zero backend bloat</td>
+          <td>External services or scripts still depend on third-party uptime</td>
+        </tr>
+        <tr>
+          <td>Curated under ${escapeHtml(tool.categoryTitle)} for easy discovery</td>
+          <td>May require comparing ${siblings.length > 0 ? 'sibling tools' : 'alternatives'} to match exact project limits</td>
+        </tr>
+      </tbody>
+    </table>
     ${comparisonHtml}
     <hr>
     <h2>FAQ</h2>
