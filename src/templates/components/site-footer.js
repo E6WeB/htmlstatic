@@ -57,6 +57,12 @@ function renderSiteFooter({ allTools = null, categories = null, rootPath = '', s
             <span class="status-dot"></span>
             <span>${toolCount} Tools &bull; ${catCount} Categories</span>
           </div>
+          <div style="margin-top:0.75rem;">
+            <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.4rem;">
+              ${ICONS.github}
+              <span>Star on GitHub</span>
+            </a>
+          </div>
         </div>
 
         <div class="footer-col">

@@ -363,6 +363,7 @@ function prewarmHotFiles() {
     ['/community/', path.join('community', 'index.html')],
     ['/stack/', path.join('stack', 'index.html')],
     ['/asset/js/stack.js', path.join('asset', 'js', 'stack.js')],
+    ['/asset/js/tool-comments.js', path.join('asset', 'js', 'tool-comments.js')],
     ['/asset/css/style.css', path.join('asset', 'css', 'style.css')],
     ['/asset/css/stackbot.css', path.join('asset', 'css', 'stackbot.css')],
     ['/asset/js/stackbot.js', path.join('asset', 'js', 'stackbot.js')],

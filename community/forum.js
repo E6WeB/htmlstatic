@@ -340,6 +340,15 @@ if (!global.__staticstack_db_initialized) {
       created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
       PRIMARY KEY (user_id, tool_slug)
     );
+    CREATE TABLE IF NOT EXISTS tool_comments (
+      id SERIAL PRIMARY KEY,
+      tool_slug VARCHAR(160) NOT NULL,
+      user_id INTEGER NOT NULL REFERENCES forum_users(id) ON DELETE CASCADE,
+      body TEXT NOT NULL,
+      is_hidden BOOLEAN NOT NULL DEFAULT FALSE,
+      created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS idx_tool_comments_slug ON tool_comments (tool_slug, created_at DESC);
     INSERT INTO forum_categories (slug, name, description) VALUES
       ('announcements', 'Announcements', 'Official news, platform updates, and announcements from StaticStack.'),
       ('help', 'Help and Questions', 'Ask questions about building and maintaining static websites.'),
@@ -1306,6 +1315,75 @@ async function handleApi(req, res, pathname, query) {
         tool_slug: toolSlug,
         bookmarks: resRows.rows
       });
+      return true;
+    }
+
+    if (action === 'tool_comments') {
+      const toolSlug = String(query.slug || '').trim().toLowerCase().replace(/[^a-z0-9-_]/g, '');
+      if (!toolSlug) return sendError(res, 'Valid tool slug is required.');
+      const isAdmin = Boolean(user && user.admin);
+      const cRes = await pool.query(
+        `SELECT c.id, c.tool_slug, c.user_id, c.body, c.created_at,
+                u.login, u.display_name, u.avatar_url, u.is_admin
+         FROM tool_comments c
+         JOIN forum_users u ON u.id = c.user_id
+         WHERE c.tool_slug = $1 AND (c.is_hidden = FALSE OR $2 = TRUE)
+         ORDER BY c.created_at ASC
+         LIMIT 200`,
+        [toolSlug, isAdmin]
+      );
+      sendJson(res, {
+        user: user ? { id: user.uid, login: user.login, name: user.name || user.login, admin: isAdmin } : null,
+        comments: cRes.rows
+      });
+      return true;
+    }
+
+    if (action === 'tool_comment_add') {
+      if (!user) return sendError(res, 'Sign in with GitHub to post a comment.', 401);
+      const data = await readBody(req);
+      const toolSlug = String(data.tool_slug || '').trim().toLowerCase().replace(/[^a-z0-9-_]/g, '');
+      const body = String(data.body || '').trim();
+      if (!toolSlug) return sendError(res, 'Invalid tool slug.');
+      if (body.length < 2 || body.length > 3000) {
+        return sendError(res, 'Comment must be between 2 and 3,000 characters.');
+      }
+
+      const ins = await pool.query(
+        `INSERT INTO tool_comments (tool_slug, user_id, body)
+         VALUES ($1, $2, $3)
+         RETURNING id, tool_slug, user_id, body, created_at`,
+        [toolSlug, user.uid, body]
+      );
+      const row = ins.rows[0];
+      sendJson(res, {
+        ok: true,
+        comment: {
+          ...row,
+          login: user.login,
+          display_name: user.name || user.login,
+          avatar_url: `https://github.com/${encodeURIComponent(user.login)}.png?size=64`,
+          is_admin: Boolean(user.admin)
+        }
+      });
+      return true;
+    }
+
+    if (action === 'tool_comment_delete') {
+      if (!user) return sendError(res, 'Sign in with GitHub to do that.', 401);
+      const data = await readBody(req);
+      const commentId = parseInt(data.id, 10);
+      if (!commentId) return sendError(res, 'Invalid comment ID.');
+
+      const existing = await pool.query('SELECT id, user_id FROM tool_comments WHERE id = $1', [commentId]);
+      if (!existing.rows.length) return sendError(res, 'Comment not found.', 404);
+
+      const isOwner = Number(existing.rows[0].user_id) === Number(user.uid);
+      if (!isOwner && !user.admin) {
+        return sendError(res, 'You can only delete your own comments.', 403);
+      }
+      await pool.query('DELETE FROM tool_comments WHERE id = $1', [commentId]);
+      sendJson(res, { ok: true, id: commentId });
       return true;
     }
 

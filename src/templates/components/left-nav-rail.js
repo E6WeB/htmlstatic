@@ -60,12 +60,6 @@ function renderNavRail({ currentNav = '', totalToolsCount = null, rootPath = '' 
             </a>
           </li>
           <li>
-            <a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="rail-item" aria-label="GitHub Repository">
-              ${ICONS.github}
-              <span class="rail-tooltip">Star on GitHub</span>
-            </a>
-          </li>
-          <li>
             <a href="/community/oauth?action=login" class="rail-item" id="rail-auth-btn" aria-label="Login">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>

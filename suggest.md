@@ -11,7 +11,6 @@
 | :--- | :--- | :---: | :---: | :---: |
 | **1. Global Quick-Jump Command Palette (`Ctrl+K`)** | UX / Navigation | Very High | Low | ⏳ **Next** |
 | **2. Offline PWA Rollout (`sw.js` + `offline.html`)** | Speed / Offline | High | Low | ⏳ **Next** |
-| **3. Unified Single Sign-On (First-Party Tool Comments)** | Auth / Community | Very High | Medium | ⏳ **Next** |
 | **4. Side-by-Side Tool Comparison (`/compare/`)** | SEO / Content | Very High | Medium | ⏳ **Planned** |
 | **5. `/stats` Privacy Telemetry & Core Web Vitals** | Analytics / Perf | High | Medium | ⏳ **Planned** |
 | **6. Static Starter Blueprints (Copy-Paste Recipes)** | Onboarding / UX | High | Medium | ⏳ **Planned** |
@@ -35,13 +34,6 @@
   - **`sw.js`:** Cache-first strategy for static CSS/JS/icons/fonts and stale-while-revalidate for HTML pages and `search-data.json`.
   - **`offline.html`:** Clean fallback page matching StaticStack's light/clean aesthetic when a user visits an uncached route offline.
   - **`asset/js/pwa.js`:** Lightweight registration and non-intrusive update toast when a new build deploys.
-
-### 3. Unified Single Sign-On (Replace Giscus with First-Party Tool Comments)
-* **The Problem:** Signing in with GitHub via the left nav rail (`/community/oauth`) logs users into **Community Topics** and **My Static Stack** (`/stack/`), but **Tool Page Comments** (`src/templates/tool-page.js`) still use third-party **Giscus** (`giscus.app`), forcing users to sign in a second time inside an external iframe.
-* **The Solution:** Replace the Giscus iframe with first-party tool comments powered by your existing `/community/oauth` session and PostgreSQL database (`community/forum.js`):
-  - **One Login Everywhere:** Uses the same `Path=/` GitHub session cookie across the nav rail, `/stack/`, `/community/`, and all 159 tool pages.
-  - **Postgres Storage (`tool_comments`):** Store `tool_slug`, `user_id`, `body`, and `created_at` in `staticstack_forum` alongside `forum_replies`, with full admin moderation.
-  - **Zero Third-Party Iframe:** Removes the external `giscus.app` script load from tool pages for faster rendering and consistent light-theme styling.
 
 ### 4. Side-by-Side Tool Comparison Pages (`/compare/`)
 * **The Problem:** High-intent developer searches are almost always comparative (e.g., *"Formspree vs Basin vs Web3Forms"*, *"Astro vs Hugo vs 11ty"*, *"Cloudflare Pages vs Netlify vs Vercel"*).

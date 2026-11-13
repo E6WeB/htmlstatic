@@ -1328,6 +1328,69 @@ const BASE_CSS = `
     display: block;
   }
 
+  /* First-Party Tool Comments */
+  .tool-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tool-comment-card {
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-body);
+  }
+
+  .tool-comment-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tool-comment-author {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .tool-comment-avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+  }
+
+  .tool-comment-body {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-main);
+    word-break: break-word;
+  }
+
+  .tool-comment-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.92rem;
+    resize: vertical;
+  }
+
+  .tool-comment-auth {
+    padding: 1.1rem;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    text-align: center;
+    background: var(--bg-body);
+  }
+
   /* Home Page Top 4 Viewed Tools Grid */
   .home-top-tool-card {
     background: var(--bg-surface);

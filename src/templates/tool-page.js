@@ -359,7 +359,7 @@ function renderToolPage({
 
             ${toolTagsHtml}
 
-            <!-- Discussion via Giscus -->
+            <!-- First-Party Tool Discussion (Unified GitHub SSO) -->
             <section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
               <div style="margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
                 <div style="display:flex; align-items:center; gap:0.55rem;">
@@ -368,22 +368,10 @@ function renderToolPage({
                 </div>
                 <p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p>
               </div>
-              <div class="giscus"></div>
-              <script src="https://giscus.app/client.js"
-                      data-repo="E6WeB/static-comment"
-                      data-repo-id="R_kgDOVYc0DQ"
-                      data-category="General"
-                      data-category-id="DIC_kwDOVYc0Dc4DJsXu"
-                      data-mapping="pathname"
-                      data-strict="0"
-                      data-reactions-enabled="0"
-                      data-emit-metadata="0"
-                      data-input-position="bottom"
-                      data-theme="light"
-                      data-lang="en"
-                      crossorigin="anonymous"
-                      async>
-              </script>
+              <div id="tool-comments-app" data-tool-slug="${escapeHtml(tool.slug)}">
+                <p style="color:var(--text-muted); font-size:0.9rem; margin:0;">Loading discussion…</p>
+              </div>
+              <script defer src="/asset/js/tool-comments.js?v=1"></script>
             </section>
 
             <!-- Tool View Counter: Only counts new unique visitors -->
