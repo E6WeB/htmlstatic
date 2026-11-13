@@ -4505,6 +4505,11 @@ const BASE_CSS = `
   }
 
   @media print {
+    @page {
+      size: portrait;
+      margin: 16mm;
+    }
+
     .left-nav-rail,
     .site-header,
     .mobile-bottom-nav,
