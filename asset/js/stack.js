@@ -19,6 +19,34 @@
     }
   }
 
+  function updateRailAuth() {
+    var btn = document.getElementById('rail-auth-btn');
+    var popover = document.getElementById('rail-auth-popover');
+    if (!btn || !popover) return;
+
+    var returnPath = encodeURIComponent(window.location.pathname + window.location.search);
+    if (currentUser && currentUser.login) {
+      var avatarSrc = 'https://github.com/' + encodeURIComponent(currentUser.login) + '.png?size=64';
+      btn.setAttribute('aria-label', 'Signed in as @' + currentUser.login);
+      btn.innerHTML = '<img src="' + avatarSrc + '" alt="@' + escapeHtml(currentUser.login) + '" class="rail-auth-avatar">';
+      popover.innerHTML =
+        '<div class="rail-auth-popover-title">@' + escapeHtml(currentUser.login) + '</div>' +
+        '<a href="/stack/" class="btn btn-secondary btn-sm rail-auth-action">My Static Stack</a>' +
+        '<a href="/community/oauth?action=logout&redirect=' + returnPath + '" class="btn btn-secondary btn-sm rail-auth-action">Log out</a>';
+    } else {
+      btn.setAttribute('aria-label', 'Sign in with GitHub');
+      btn.innerHTML =
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>' +
+          '<polyline points="10 17 15 12 10 7"></polyline>' +
+          '<line x1="15" y1="12" x2="3" y2="12"></line>' +
+        '</svg>';
+      popover.innerHTML =
+        '<div class="rail-auth-popover-title">Not signed in</div>' +
+        '<a href="/community/oauth?action=login&redirect=' + returnPath + '" class="btn btn-primary btn-sm rail-auth-action">Log in with GitHub</a>';
+    }
+  }
+
   function fetchStackState() {
     return fetch('/community/api?action=stack', { credentials: 'same-origin' })
       .then(function (r) { return r.ok ? r.json() : { user: null, bookmarks: [] }; })
@@ -28,9 +56,11 @@
           (data.bookmarks || []).map(function (b) { return b.tool_slug; })
         );
         updateButtons();
+        updateRailAuth();
         return data;
       })
       .catch(function () {
+        updateRailAuth();
         return { user: null, bookmarks: [] };
       });
   }
@@ -230,7 +260,15 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
-    var needsStack = document.querySelector('[data-stack-save]') || document.getElementById('stack-page-app');
+    var railBtn = document.getElementById('rail-auth-btn');
+    if (railBtn) {
+      railBtn.addEventListener('click', function () {
+        if (!currentUser) {
+          openGitHubLogin(null);
+        }
+      });
+    }
+    var needsStack = document.querySelector('[data-stack-save]') || document.getElementById('stack-page-app') || document.getElementById('rail-auth-item');
     if (!needsStack) return;
     fetchStackState().then(function () {
       renderStackPage();

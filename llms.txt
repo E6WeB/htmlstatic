@@ -1,13 +1,13 @@
 # StaticStack
 
-> A curated directory of 149 tools, APIs, and services across 29 categories, plus 9 engineering guides for building fast, zero-bloat static websites.
+> A curated directory of 159 tools, APIs, and services across 29 categories, plus 9 engineering guides for building fast, zero-bloat static websites.
 
 StaticStack helps developers replace heavy monolithic backends with composable static-first tooling (SSGs, edge hosting, serverless forms, static search, auth, CMS, and privacy-respecting utilities).
 
 ## Core Pages
 
 - [Home](https://www.staticstack.app/): Main StaticStack directory and category explorer.
-- [Search](https://www.staticstack.app/search): Client-side instant search across all 149 tools and 29 categories.
+- [Search](https://www.staticstack.app/search): Client-side instant search across all 159 tools and 29 categories.
 - [Archive](https://www.staticstack.app/archive): Complete alphabetical & category archive of static web tools.
 - [Blog](https://www.staticstack.app/blog): In-depth guides on static site architecture, migration, and performance.
 - [Community](https://www.staticstack.app/community): Developer discussions, project showcases, and Q&A.
@@ -32,7 +32,7 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 - [HTML Templates](https://www.staticstack.app/category/html-templates/): Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstart your static website without starting from a blank canvas. (9 tools)
 - [Images & Optimization](https://www.staticstack.app/category/images-optimization/): Optimize images and other assets to improve loading speed and user experience. (7 tools)
 - [Interactive Maps & Geolocation](https://www.staticstack.app/category/maps-geolocation/): Add mobile-friendly, interactive vector and raster maps without API billing hurdles. (2 tools)
-- [Interactive Scripts & Animation](https://www.staticstack.app/category/interactive-scripts/): Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS. (3 tools)
+- [Interactive Scripts & Animation](https://www.staticstack.app/category/interactive-scripts/): Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS. (13 tools)
 - [Live Chat & Support](https://www.staticstack.app/category/live-chat/): Engage visitors and answer questions in real time with lightweight chat widgets. (2 tools)
 - [Media & Video Players](https://www.staticstack.app/category/media-players/): Embed audio, video, and streaming media without intrusive third-party ads or trackers. (3 tools)
 - [Monitoring & Error Tracking](https://www.staticstack.app/category/monitoring-errors/): Detect client-side JavaScript crashes and monitor performance in production. (2 tools)
@@ -60,5 +60,5 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 
 ## Full Reference
 
-- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 149 tools, official URLs, tags, badges, and 9 blog guides.
+- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 159 tools, official URLs, tags, badges, and 9 blog guides.
 - [XML Sitemap](https://www.staticstack.app/sitemap.xml): Canonical URL index.

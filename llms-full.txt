@@ -1,6 +1,6 @@
 # StaticStack — Complete Tool & Guide Catalog
 
-> Complete machine-readable Markdown catalog of 149 static web tools across 29 categories and 9 blog guides.
+> Complete machine-readable Markdown catalog of 159 static web tools across 29 categories and 9 blog guides.
 
 Canonical Site: https://www.staticstack.app/
 Concise Index: https://www.staticstack.app/llms.txt
@@ -70,7 +70,7 @@ Concise Index: https://www.staticstack.app/llms.txt
 - Summary: The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.
 - Tags: serverless, no-database, jamstack, static-website, clerk, stripe, supabase, architecture
 
-## Tool Directory by Category (29 Categories, 149 Tools)
+## Tool Directory by Category (29 Categories, 159 Tools)
 
 ### AI & Content Creation (6 tools)
 Category Page: https://www.staticstack.app/category/ai-content-creation/
@@ -672,7 +672,7 @@ Add mobile-friendly, interactive vector and raster maps without API billing hurd
   - Badges: Freemium
   - Tags: mapbox-gl-js, webgl-vector-maps, 3d-terrain-maps, custom-map-studio, smooth-interactive-maps, interactive-maps, webgl-maps, google-maps-alternative, geojson, store-locator
 
-### Interactive Scripts & Animation (3 tools)
+### Interactive Scripts & Animation (13 tools)
 Category Page: https://www.staticstack.app/category/interactive-scripts/
 Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS.
 
@@ -691,6 +691,56 @@ Add carousels, image lightboxes, and scroll animations to static pages with vani
   - Official Website: https://swiperjs.com/
   - Badges: Open Source
   - Tags: swiper-js, mobile-touch-carousel, hardware-accelerated-slider, 3d-coverflow-slider, vanilla-js-carousel, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **LottieFiles** — Discover, customize, optimize, and embed lightweight JSON-based Lottie animations on static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/lottiefiles
+  - Official Website: https://lottiefiles.com/
+  - Badges: Freemium
+  - Tags: lottie, json-animations, micro-interactions, svg-animation, static-web, web-player, vanilla-js, scroll-animations, touch-slider, lightbox-gallery
+- **Lordicon** — Animated SVG and Lottie icon library with customizable stroke, colors, and interactive triggers for static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/lordicon
+  - Official Website: https://lordicon.com/
+  - Badges: Freemium
+  - Tags: animated-icons, lottie, svg-icons, micro-interactions, hover-animations, ui-icons, vanilla-js, scroll-animations, touch-slider, lightbox-gallery
+- **IconScout Lottie Animations** — Curated marketplace of lightweight Lottie JSON animations, animated icons, and vector illustrations.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/iconscout-lottie
+  - Official Website: https://iconscout.com/lottie-animations
+  - Badges: Freemium
+  - Tags: lottie, animated-illustrations, json-animations, web-graphics, ui-animation, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **Icons8 Animated Icons** — Smooth animated UI icons in Lottie JSON, GIF, and After Effects formats for web interfaces.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/icons8-animated-icons
+  - Official Website: https://icons8.com/animated-icons
+  - Badges: Freemium
+  - Tags: animated-icons, lottie, json-icons, ui-icons, micro-interactions, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **useAnimations** — Free open-source Lottie micro-animation icons crafted for clean, subtle UI interactions.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/useanimations
+  - Official Website: https://useanimations.com/
+  - Badges: Free
+  - Tags: lottie, micro-animations, free-icons, ui-icons, json-animations, static-web, vanilla-js, scroll-animations, touch-slider, lightbox-gallery
+- **Creattie** — Curated library of customizable Lottie animated icons and vector illustrations for web designers.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/creattie
+  - Official Website: https://creattie.com/
+  - Badges: Freemium
+  - Tags: lottie, animated-illustrations, animated-icons, svg-animation, landing-page, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **Lottielab** — Collaborative browser-based editor for creating, editing, and exporting interactive Lottie animations.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/lottielab
+  - Official Website: https://www.lottielab.com/
+  - Badges: Freemium
+  - Tags: lottie-editor, vector-animation, motion-design, interactive-lottie, svg-to-lottie, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **IconKing** — Animated Lottie and vector icon packs designed for modern websites, apps, and landing pages.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/iconking
+  - Official Website: https://www.iconking.net/
+  - Badges: Freemium
+  - Tags: animated-icons, lottie, vector-icons, ui-design, json-animations, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **Jitter** — Fast browser-based motion design tool for UI animations, product demos, and Lottie exports.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/jitter
+  - Official Website: https://jitter.video/
+  - Badges: Freemium
+  - Tags: motion-design, ui-animation, lottie-export, figma-animation, product-demos, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **MotionElements** — Stock marketplace offering Lottie animations, motion graphics, templates, and royalty-free media.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/motionelements
+  - Official Website: https://www.motionelements.com/
+  - Badges: Freemium
+  - Tags: lottie, motion-graphics, stock-animation, web-media, templates, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
 
 ### Live Chat & Support (2 tools)
 Category Page: https://www.staticstack.app/category/live-chat/

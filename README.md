@@ -1017,6 +1017,66 @@ Add carousels, image lightboxes, and scroll animations to static pages with vani
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://swiperjs.com/" target="_blank" rel="noopener noreferrer">swiperjs.com</a></td>
   </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/lottiefiles.md">LottieFiles</a></td>
+    <td>Discover, customize, and embed lightweight JSON Lottie animations on static sites</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://lottiefiles.com/" target="_blank" rel="noopener noreferrer">lottiefiles.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/lordicon.md">Lordicon</a></td>
+    <td>Animated SVG and Lottie icon library with interactive hover and click triggers</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://lordicon.com/" target="_blank" rel="noopener noreferrer">lordicon.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/iconscout-lottie.md">IconScout Lottie Animations</a></td>
+    <td>Searchable marketplace of customizable Lottie JSON animations and animated icons</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://iconscout.com/lottie-animations" target="_blank" rel="noopener noreferrer">iconscout.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/icons8-animated-icons.md">Icons8 Animated Icons</a></td>
+    <td>Smooth animated UI icons in Lottie JSON, GIF, and vector formats</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://icons8.com/animated-icons" target="_blank" rel="noopener noreferrer">icons8.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/useanimations.md">useAnimations</a></td>
+    <td>Free open-source Lottie micro-animation icons for clean UI interactions</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://useanimations.com/" target="_blank" rel="noopener noreferrer">useanimations.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/creattie.md">Creattie</a></td>
+    <td>Customizable Lottie animated icons and vector illustrations with embed builder</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://creattie.com/" target="_blank" rel="noopener noreferrer">creattie.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/lottielab.md">Lottielab</a></td>
+    <td>Browser-based editor for creating and exporting interactive Lottie animations</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.lottielab.com/" target="_blank" rel="noopener noreferrer">lottielab.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/iconking.md">IconKing</a></td>
+    <td>Animated Lottie and vector icon packs designed for modern landing pages</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.iconking.net/" target="_blank" rel="noopener noreferrer">iconking.net</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/jitter.md">Jitter</a></td>
+    <td>Fast browser-based motion design tool for UI animations and Lottie exports</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://jitter.video/" target="_blank" rel="noopener noreferrer">jitter.video</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/interactive-scripts/motionelements.md">MotionElements</a></td>
+    <td>Stock marketplace offering Lottie JSON animations, motion graphics, and media</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.motionelements.com/" target="_blank" rel="noopener noreferrer">motionelements.com</a></td>
+  </tr>
 </tbody>
 </table>
 
