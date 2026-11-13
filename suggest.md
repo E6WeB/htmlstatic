@@ -1,7 +1,7 @@
 # StaticStack — Website Suggestions & Strategic Roadmap
 
 > **Philosophy:** Zero backend bloat, blazing-fast static pre-rendering, minimal external dependencies, and privacy-respecting architecture.
-> **Current Baseline:** **159 tools** across **29 categories**, **9 blog articles**, **210 compiled HTML pages**, **207 sitemap URLs**, `/llms.txt` & `/llms-full.txt`, automated SEO & dead-link CI/CD gates, GitHub-synced `/stack/` bookmarks, and a light-theme, bot-locked `/stats` analytics dashboard (`src/stats.js`).
+> **Current Baseline:** **159 tools** across **29 categories**, **10 blog articles** (including the 7-part *Static HTML Starter Series*), **211 compiled HTML pages**, **208 sitemap URLs**, `/llms.txt` & `/llms-full.txt`, `/feed.xml` RSS 2.0 feed, per-tool `/badge/<slug>.svg` badges (`badge/featured.webp`), automated SEO & dead-link CI/CD gates, GitHub-synced `/stack/` bookmarks, and a light-theme, bot-locked `/stats` analytics dashboard (`src/stats.js`).
 
 ---
 
@@ -46,11 +46,10 @@
   - **Acquisition & Referrers:** Track top referring domains, UTM/campaign tags, and internal search queries (`search-data.json` misses reveal what tools users want added next).
   - **Real-User Core Web Vitals:** Capture anonymous LCP, INP, and CLS metrics (~1.5 KB `web-vitals` script) to verify every new page stays ultra-fast in the field.
 
-### 7. Embeddable `/badge/<slug>.svg` & `/feed.xml` RSS/Atom Syndication
-* **The Problem:** Listed tool maintainers rarely link back without an easy, attractive asset, and returning developers have no passive way to follow new tools or blog posts.
-* **The Solution:**
-  - **Static SVG Badges:** Pre-generate `/badge/<slug>.svg` (*"Featured on StaticStack"*) and provide a 1-click Markdown snippet on every tool page for organic backlinks.
-  - **RSS / Atom Feed (`/feed.xml`):** Auto-generate an XML feed during `npm run build` covering newly added tools and all blog articles.
+### 7. Embeddable `/badge/<slug>.svg` & `/feed.xml` RSS/Atom Syndication *(✅ Done)*
+* **Implemented:**
+  - **Static SVG & WebP Badges:** `src/templates/badge.js` and `generate-pages.js` pre-generate `/badge/<slug>.svg` for all 159 tools (plus `badge/featured.svg` and 2× `badge/featured.webp`), and `src/templates/tool-page.js` includes a 1-click **Copy Markdown** / **Copy HTML** Embed Badge card on every tool page.
+  - **RSS 2.0 Feed (`/feed.xml`):** Auto-generated during `npm run build` with blog articles and directory tools, plus `<link rel="alternate" type="application/rss+xml">` auto-discovery in `src/templates/layout.js`.
 
 ---
 
@@ -61,21 +60,22 @@ flowchart TD
     classDef phase1 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
     classDef phase2 fill:#fef9c3,stroke:#ca8a04,color:#713f12
     classDef phase3 fill:#f3e8ff,stroke:#9333ea,color:#581c87
+    classDef done fill:#dcfce7,stroke:#16a34a,color:#14532d
 
     subgraph "Phase 1: High-ROI Quick Wins"
         P1A["1. Ctrl+K Command Palette"]:::phase1
         P1B["2. Offline PWA (sw.js + offline.html)"]:::phase1
-        P1C["3. Unified SSO Tool Comments"]:::phase1
+        P1C["3. Unified SSO Tool Comments (Done)"]:::done
     end
 
     subgraph "Phase 2: SEO & Core Utility"
         P2A["4. Side-by-Side /compare/ Pages"]:::phase2
         P2B["5. /stats Referrers + Web Vitals"]:::phase2
-        P2C["6. Static Starter Blueprints"]:::phase2
+        P2C["6. Static Starter Series (Done)"]:::done
     end
 
     subgraph "Phase 3: Growth & Syndication"
-        P3A["7. Embeddable SVG Badges + /feed.xml"]:::phase3
+        P3A["7. Embeddable SVG Badges + /feed.xml (Done)"]:::done
     end
 
     P1A --> P2C
