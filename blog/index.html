@@ -330,25 +330,25 @@
 <!-- Blog Category Pill Filter / Bar -->
 <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
 <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-<span style="font-size:0.85rem; font-weight:700; color:var(--text-main); margin-right:0.25rem;">Browse Topics:</span>
-<a href="/blog" class="badge badge-accent" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">All Articles</a>
-<a href="/category/tutorials/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Tutorials</a>
-<a href="/category/development-tools/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Development Tools</a>
-<a href="/category/hosting-deployment/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Hosting &amp; Deployment</a>
-<a href="/category/contact-forms/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Contact Forms</a>
-<a href="/category/interactive-scripts/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Interactive Scripts &amp; Animation</a>
-<a href="/category/comments-community/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Comments &amp; Community</a>
-<a href="/category/search/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Search</a>
+<span style="font-size:0.85rem; font-weight:700; color:var(--text-main); margin-right:0.25rem;">Browse Category:</span>
+<button type="button" class="badge badge-accent blog-cat-filter-btn" data-category="all" aria-pressed="true" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">All Articles</button>
+<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="tutorials" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">Tutorials</button>
+<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="development-tools" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">Development Tools</button>
+<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="hosting-deployment" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">Hosting &amp; Deployment</button>
+<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="contact-forms" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">Contact Forms</button>
+<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="interactive-scripts" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">Interactive Scripts &amp; Animation</button>
+<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="comments-community" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">Comments &amp; Community</button>
+<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="search" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">Search</button>
 </div>
 <div style="font-size:0.85rem; color:var(--text-muted);">
-<span>10 Articles Published</span>
+<span id="blog-filter-count">10 Articles Published</span>
 </div>
 </div>
 
 <!-- Articles Grid (Matches Container Width) -->
 <div class="blog-grid">
 
-<article class="blog-card">
+<article class="blog-card" data-category="tutorials">
 <div>
 <a href="/blog/a-blueprint-for-beginners-on-static-html-websites/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/a-blueprint-for-beginners-on-static-html-websites/cover.webp" alt="A Blueprint for Beginners on Static HTML Websites" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -399,7 +399,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="tutorials">
 <div>
 <a href="/blog/why-people-are-leaving-wordpress-for-static-html/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/why-people-are-leaving-wordpress-for-static-html/cover.webp" alt="Why People Are Leaving WordPress for Static HTML Websites" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -450,7 +450,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="development-tools">
 <div>
 <a href="/blog/25-best-free-tools-for-building-static-html-websites/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/25-best-free-tools-for-building-static-html-websites/cover.webp" alt="25 Best Free Tools for Building Static HTML Websites" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -501,7 +501,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="tutorials">
 <div>
 <a href="/blog/how-to-build-a-website-without-wordpress/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/how-to-build-a-website-without-wordpress/cover.webp" alt="How to Build a Website Without WordPress" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -552,7 +552,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="hosting-deployment">
 <div>
 <a href="/blog/best-free-hosting-services-for-static-html-websites/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/best-free-hosting-services-for-static-html-websites/cover.webp" alt="Best Free Hosting Services for Static HTML Websites" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -603,7 +603,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="contact-forms">
 <div>
 <a href="/blog/how-to-add-contact-forms-to-static-websites/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/how-to-add-contact-forms-to-static-websites/cover.webp" alt="How to Add Contact Forms to Static Websites" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -654,7 +654,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="interactive-scripts">
 <div>
 <a href="/blog/best-open-source-javascript-libraries-for-websites/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/best-open-source-javascript-libraries-for-websites/cover.webp" alt="Best Open Source JavaScript Libraries for Websites" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -705,7 +705,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="comments-community">
 <div>
 <a href="/blog/how-to-add-comments-to-a-static-html-blog/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/how-to-add-comments-to-a-static-html-blog/cover.webp" alt="How to Add Comments to a Static HTML Blog" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -756,7 +756,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="search">
 <div>
 <a href="/blog/how-to-add-search-functionality-to-a-static-website/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/how-to-add-search-functionality-to-a-static-website/cover.webp" alt="How to Add Search Functionality to a Static Website" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -807,7 +807,7 @@ Read Article &rarr;
 </div>
 </article>
 
-<article class="blog-card">
+<article class="blog-card" data-category="tutorials">
 <div>
 <a href="/blog/how-to-build-a-website-without-a-database-or-backend/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
 <img src="/blog/how-to-build-a-website-without-a-database-or-backend/cover.webp" alt="How to Build a Website Without a Database or Backend" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -880,6 +880,56 @@ StaticStack is open-source and community driven. Propose a guide, contribute cor
 </a>
 </div>
 </div>
+
+<!-- Blog Category Filter -->
+<script>
+(function() {
+var buttons = document.querySelectorAll('.blog-cat-filter-btn');
+var cards = document.querySelectorAll('.blog-card[data-category]');
+var countEl = document.getElementById('blog-filter-count');
+if (!buttons.length || !cards.length) return;
+var total = cards.length;
+
+function applyFilter(cat, updateUrl) {
+var visible = 0;
+cards.forEach(function(card) {
+var match = (cat === 'all' || card.getAttribute('data-category') === cat);
+card.style.display = match ? '' : 'none';
+if (match) visible++;
+});
+buttons.forEach(function(btn) {
+var active = btn.getAttribute('data-category') === cat;
+btn.classList.toggle('badge-accent', active);
+btn.classList.toggle('badge-neutral', !active);
+btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+});
+if (countEl) {
+countEl.textContent = (cat === 'all')
+? total + ' Article' + (total === 1 ? '' : 's') + ' Published'
+: 'Showing ' + visible + ' of ' + total + ' Articles';
+}
+if (updateUrl && window.history && window.history.replaceState) {
+var url = new URL(window.location.href);
+if (cat === 'all') url.searchParams.delete('category');
+else url.searchParams.set('category', cat);
+window.history.replaceState({}, '', url.pathname + url.search);
+}
+}
+
+buttons.forEach(function(btn) {
+btn.addEventListener('click', function() {
+applyFilter(btn.getAttribute('data-category') || 'all', true);
+});
+});
+
+try {
+var initialCat = new URLSearchParams(window.location.search).get('category');
+if (initialCat && Array.prototype.some.call(buttons, function(b) { return b.getAttribute('data-category') === initialCat; })) {
+applyFilter(initialCat, false);
+}
+} catch (e) {}
+})();
+</script>
 
 <!-- Blog Cards Batch View Counter Loader -->
 <script>

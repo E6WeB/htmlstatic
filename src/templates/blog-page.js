@@ -466,7 +466,7 @@ function renderBlogIndexPage({
     const initialViews = Number(viewsMap[blogViewKey]) || 0;
 
     return `
-      <article class="blog-card">
+      <article class="blog-card" data-category="${escapeHtml(post.categorySlug)}">
         <div>
           <a href="/blog/${post.slug}/" style="display:block; border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.15rem; border:1px solid var(--border-color); box-shadow:var(--shadow-card);">
             <img src="/blog/${post.slug}/cover.webp" alt="${escapeHtml(post.title)}" width="600" height="315" loading="lazy" style="width:100%; height:auto; display:block; aspect-ratio:1200/630; object-fit:cover;">
@@ -529,7 +529,7 @@ function renderBlogIndexPage({
     .map(post => {
       const matchedCat = categories.find(c => c.slug === post.categorySlug);
       const label = (matchedCat && (matchedCat.title || matchedCat.name)) || post.category || post.categorySlug;
-      return `<a href="/category/${escapeHtml(post.categorySlug)}/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">${escapeHtml(label)}</a>`;
+      return `<button type="button" class="badge badge-neutral blog-cat-filter-btn" data-category="${escapeHtml(post.categorySlug)}" aria-pressed="false" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">${escapeHtml(label)}</button>`;
     })
     .join('\n          ');
 
@@ -538,12 +538,12 @@ function renderBlogIndexPage({
       <!-- Blog Category Pill Filter / Bar -->
       <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
         <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-          <span style="font-size:0.85rem; font-weight:700; color:var(--text-main); margin-right:0.25rem;">Browse Topics:</span>
-          <a href="/blog" class="badge badge-accent" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">All Articles</a>
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-main); margin-right:0.25rem;">Browse Category:</span>
+          <button type="button" class="badge badge-accent blog-cat-filter-btn" data-category="all" aria-pressed="true" style="border:1px solid transparent; cursor:pointer; font-family:inherit; font-size:0.8rem; padding:0.3rem 0.75rem;">All Articles</button>
           ${topicLinksHtml}
         </div>
         <div style="font-size:0.85rem; color:var(--text-muted);">
-          <span>${posts.length} Article${posts.length === 1 ? '' : 's'} Published</span>
+          <span id="blog-filter-count">${posts.length} Article${posts.length === 1 ? '' : 's'} Published</span>
         </div>
       </div>
 
@@ -572,6 +572,56 @@ function renderBlogIndexPage({
           </a>
         </div>
       </div>
+
+      <!-- Blog Category Filter -->
+      <script>
+        (function() {
+          var buttons = document.querySelectorAll('.blog-cat-filter-btn');
+          var cards = document.querySelectorAll('.blog-card[data-category]');
+          var countEl = document.getElementById('blog-filter-count');
+          if (!buttons.length || !cards.length) return;
+          var total = cards.length;
+
+          function applyFilter(cat, updateUrl) {
+            var visible = 0;
+            cards.forEach(function(card) {
+              var match = (cat === 'all' || card.getAttribute('data-category') === cat);
+              card.style.display = match ? '' : 'none';
+              if (match) visible++;
+            });
+            buttons.forEach(function(btn) {
+              var active = btn.getAttribute('data-category') === cat;
+              btn.classList.toggle('badge-accent', active);
+              btn.classList.toggle('badge-neutral', !active);
+              btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+            });
+            if (countEl) {
+              countEl.textContent = (cat === 'all')
+                ? total + ' Article' + (total === 1 ? '' : 's') + ' Published'
+                : 'Showing ' + visible + ' of ' + total + ' Articles';
+            }
+            if (updateUrl && window.history && window.history.replaceState) {
+              var url = new URL(window.location.href);
+              if (cat === 'all') url.searchParams.delete('category');
+              else url.searchParams.set('category', cat);
+              window.history.replaceState({}, '', url.pathname + url.search);
+            }
+          }
+
+          buttons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              applyFilter(btn.getAttribute('data-category') || 'all', true);
+            });
+          });
+
+          try {
+            var initialCat = new URLSearchParams(window.location.search).get('category');
+            if (initialCat && Array.prototype.some.call(buttons, function(b) { return b.getAttribute('data-category') === initialCat; })) {
+              applyFilter(initialCat, false);
+            }
+          } catch (e) {}
+        })();
+      </script>
 
       <!-- Blog Cards Batch View Counter Loader -->
       <script>
