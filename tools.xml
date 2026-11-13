@@ -44,6 +44,7 @@
     <title>Muse.ai</title>
     <category>AI &amp; Content Creation</category>
     <url>https://www.staticstack.app/tools/ai-content-creation/muse-ai</url>
+    <image>https://www.staticstack.app/tools/ai-content-creation/muse-ai-cover.webp</image>
     <description>
       Ad-free video hosting and responsive embeddable player with AI-powered in-video search
     </description>
@@ -1083,6 +1084,7 @@
     <title>LottieFiles</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/lottiefiles</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/lottiefiles-cover.webp</image>
     <description>
       Discover, customize, and embed lightweight JSON Lottie animations on static sites
     </description>
@@ -1092,6 +1094,7 @@
     <title>Lordicon</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/lordicon</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/lordicon-cover.webp</image>
     <description>
       Animated SVG and Lottie icon library with interactive hover and click triggers
     </description>
@@ -1101,6 +1104,7 @@
     <title>IconScout Lottie Animations</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/iconscout-lottie</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/iconscout-lottie-cover.webp</image>
     <description>
       Searchable marketplace of customizable Lottie JSON animations and animated icons
     </description>
@@ -1110,6 +1114,7 @@
     <title>Icons8 Animated Icons</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/icons8-animated-icons</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/icons8-animated-icons-cover.webp</image>
     <description>
       Smooth animated UI icons in Lottie JSON, GIF, and vector formats
     </description>
@@ -1119,6 +1124,7 @@
     <title>useAnimations</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/useanimations</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/useanimations-cover.webp</image>
     <description>
       Free open-source Lottie micro-animation icons for clean UI interactions
     </description>
@@ -1128,6 +1134,7 @@
     <title>Creattie</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/creattie</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/creattie-cover.webp</image>
     <description>
       Customizable Lottie animated icons and vector illustrations with embed builder
     </description>
@@ -1137,6 +1144,7 @@
     <title>Lottielab</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/lottielab</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/lottielab-cover.webp</image>
     <description>
       Browser-based editor for creating and exporting interactive Lottie animations
     </description>
@@ -1146,6 +1154,7 @@
     <title>IconKing</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/iconking</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/iconking-cover.webp</image>
     <description>
       Animated Lottie and vector icon packs designed for modern landing pages
     </description>
@@ -1155,6 +1164,7 @@
     <title>Jitter</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/jitter</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/jitter-cover.webp</image>
     <description>
       Fast browser-based motion design tool for UI animations and Lottie exports
     </description>
@@ -1164,6 +1174,7 @@
     <title>MotionElements</title>
     <category>Interactive Scripts &amp; Animation</category>
     <url>https://www.staticstack.app/tools/interactive-scripts/motionelements</url>
+    <image>https://www.staticstack.app/tools/interactive-scripts/motionelements-cover.webp</image>
     <description>
       Stock marketplace offering Lottie JSON animations, motion graphics, and media
     </description>
