@@ -147,13 +147,18 @@ async function checkAllTools() {
   async function worker() {
     while (index < allTools.length) {
       const tool = allTools[index++];
+      const prev = healthMap[tool.slug];
       const result = await checkUrl(tool.websiteUrl);
+      const prevFailures = prev && typeof prev.consecutive_failures === 'number'
+        ? prev.consecutive_failures
+        : (prev && prev.status === 'offline' ? 1 : 0);
 
       healthMap[tool.slug] = {
         url: tool.websiteUrl,
         status: result.status,
         code: result.code,
         error: result.error || null,
+        consecutive_failures: result.status === 'online' ? 0 : prevFailures + 1,
         checked_at: TODAY
       };
 

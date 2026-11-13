@@ -34,6 +34,7 @@ const { renderSidebarDonationWidget } = require('./src/templates/sidebar-donatio
 const { syncAllCommunityPages } = require('./src/templates/sync-community');
 const { getAllBlogPosts } = require('./src/data/blog-posts');
 const { renderBlogArticlePage, renderBlogIndexPage } = require('./src/templates/blog-page');
+const { generateLlmsFiles } = require('./src/templates/llms-txt');
 
 marked.setOptions({
   gfm: true,
@@ -2161,10 +2162,23 @@ fs.writeFileSync(path.join(ROOT_DIR, 'tools.xml'), toolsXml);
 // 3. robots.txt
 const robotsTxt = `User-agent: *
 Allow: /
+Disallow: /stats
+Disallow: /stats/
 
 Sitemap: https://www.staticstack.app/sitemap.xml
 `;
 fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
+
+// 4. AI-Ready llms.txt & llms-full.txt
+console.log('🤖 Generating AI-ready llms.txt and llms-full.txt...');
+const { llmsTxt, llmsFullTxt } = generateLlmsFiles({
+  categories,
+  allTools,
+  blogPosts,
+  baseUrl: 'https://www.staticstack.app'
+});
+fs.writeFileSync(path.join(ROOT_DIR, 'llms.txt'), llmsTxt);
+fs.writeFileSync(path.join(ROOT_DIR, 'llms-full.txt'), llmsFullTxt);
 
 // ==========================================================================
 // 9. Generate Search Index (search-data.json)

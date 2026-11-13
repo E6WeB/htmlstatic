@@ -1,0 +1,963 @@
+# StaticStack — Complete Tool & Guide Catalog
+
+> Complete machine-readable Markdown catalog of 149 static web tools across 29 categories and 9 blog guides.
+
+Canonical Site: https://www.staticstack.app/
+Concise Index: https://www.staticstack.app/llms.txt
+
+## Blog Guides (9)
+
+### Why People Are Leaving WordPress for Static HTML Websites
+- URL: https://www.staticstack.app/blog/why-people-are-leaving-wordpress-for-static-html/
+- Published: 2026-03-19 (10 min read)
+- Category: Tutorials & Guides
+- Summary: Explore why developers, agencies, and businesses are ditching bloated WordPress sites for fast, unhackable, zero-maintenance static HTML websites.
+- Tags: wordpress, static-html, web-performance, security, jamstack, hosting, migration, core-web-vitals
+
+### 25 Best Free Tools for Building Static HTML Websites
+- URL: https://www.staticstack.app/blog/25-best-free-tools-for-building-static-html-websites/
+- Published: 2026-03-18 (11 min read)
+- Category: Development Tools
+- Summary: The ultimate curated guide to the 25 best free tools, services, and libraries for building fast, secure static HTML websites in 2026.
+- Tags: static-site, html, free-tools, jamstack, web-development, hosting, astro, pagefind
+
+### How to Build a Website Without WordPress
+- URL: https://www.staticstack.app/blog/how-to-build-a-website-without-wordpress/
+- Published: 2026-03-17 (9 min read)
+- Category: Tutorials
+- Summary: Learn how to build, host, and manage high-performance websites without WordPress, PHP, or fragile plugins. Complete architecture blueprint for static HTML.
+- Tags: wordpress-alternative, static-html, jamstack, headless-cms, astro, decap-cms, tutorials
+
+### Best Free Hosting Services for Static HTML Websites
+- URL: https://www.staticstack.app/blog/best-free-hosting-services-for-static-html-websites/
+- Published: 2026-03-16 (8 min read)
+- Category: Hosting & Deployment
+- Summary: Detailed 2026 comparison of the best free hosting providers for static websites: Cloudflare Pages, Vercel, Netlify, GitHub Pages, Render, and Wasmer.
+- Tags: hosting, static-html, cloudflare-pages, vercel, netlify, github-pages, free-hosting, cdn
+
+### How to Add Contact Forms to Static Websites
+- URL: https://www.staticstack.app/blog/how-to-add-contact-forms-to-static-websites/
+- Published: 2026-03-15 (8 min read)
+- Category: Contact Forms
+- Summary: A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.
+- Tags: contact-forms, html, vanilla-js, serverless, web3forms, formspree, cloudflare-turnstile, jamstack
+
+### Best Open Source JavaScript Libraries for Websites
+- URL: https://www.staticstack.app/blog/best-open-source-javascript-libraries-for-websites/
+- Published: 2026-03-14 (7 min read)
+- Category: Interactive Scripts
+- Summary: The best open-source, lightweight Vanilla JavaScript libraries for adding carousels, lightbox galleries, animations, and interactive maps to static HTML sites.
+- Tags: javascript, vanilla-js, open-source, swiper, photoswipe, aos, leaflet, interactive-scripts
+
+### How to Add Comments to a Static HTML Blog
+- URL: https://www.staticstack.app/blog/how-to-add-comments-to-a-static-html-blog/
+- Published: 2026-03-13 (7 min read)
+- Category: Comments & Community
+- Summary: A practical step-by-step guide to adding serverless comments to static HTML and Jamstack blogs using Giscus, Utterances, and GitHub Discussions.
+- Tags: static-blog, comments, giscus, utterances, github-discussions, disqus-alternative, jamstack
+
+### How to Add Search Functionality to a Static Website
+- URL: https://www.staticstack.app/blog/how-to-add-search-functionality-to-a-static-website/
+- Published: 2026-03-12 (8 min read)
+- Category: Search
+- Summary: Complete guide to implementing fast, client-side full-text search on static websites using Pagefind, Algolia, and JSON index search.
+- Tags: static-search, pagefind, algolia, client-side-search, full-text-search, jamstack, javascript
+
+### How to Build a Website Without a Database or Backend
+- URL: https://www.staticstack.app/blog/how-to-build-a-website-without-a-database-or-backend/
+- Published: 2026-03-10 (10 min read)
+- Category: Tutorials
+- Summary: The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.
+- Tags: serverless, no-database, jamstack, static-website, clerk, stripe, supabase, architecture
+
+## Tool Directory by Category (29 Categories, 149 Tools)
+
+### AI & Content Creation (6 tools)
+Category Page: https://www.staticstack.app/category/ai-content-creation/
+AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.
+
+- **ChatGPT** — The leading conversational AI model for drafting blog posts, landing page copy, and structured HTML/Markdown content.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/chatgpt
+  - Official Website: https://chatgpt.com/
+  - Badges: Freemium
+  - Tags: chatgpt, openai, ai-copywriting, markdown-writer, seo-blog-posts, html-generator, content-automation, gpt-4o, seo-content, markdown-generator
+- **Claude** — Advanced AI assistant with large context windows, favored for writing nuanced long-form articles, technical guides, and documentation.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/claude
+  - Official Website: https://claude.ai/
+  - Badges: Freemium
+  - Tags: claude-ai, anthropic, long-context-ai, technical-writing, code-generation, markdown-docs, ai-copywriter, claude-sonnet, ai-copywriting, seo-content
+- **Google Gemini** — Multimodal AI model with real-time web search integration for research, drafting web copy, and multi-language content creation.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/google-gemini
+  - Official Website: https://gemini.google.com/
+  - Badges: Freemium
+  - Tags: google-gemini, multimodal-ai, ai-research, content-drafting, structured-json, seo-writing, gemini-pro, ai-copywriting, seo-content, markdown-generator
+- **imgmov** — AI-powered video and image generation tool that turns product photos and prompts into commercial videos, images, and visual assets for static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/imgmov
+  - Official Website: https://imgmov.com/
+  - Badges: Freemium
+  - Tags: ai-video-generator, product-video-ai, image-to-video, ecommerce-visuals, ai-marketing-assets, commercial-ai-art, ai-copywriting, seo-content, markdown-generator, generative-ai
+- **Perplexity** — AI-powered research and citation engine for writing factual, well-sourced blog posts, guides, and documentation.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/perplexity
+  - Official Website: https://www.perplexity.ai/
+  - Badges: Freemium
+  - Tags: perplexity-ai, ai-search-engine, cited-research, fact-checking, seo-research, content-discovery, answer-engine, ai-copywriting, seo-content, markdown-generator
+- **Recraft** — AI design tool for generating vector SVGs, 3D graphics, and icons tailored for website illustration.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/recraft
+  - Official Website: https://www.recraft.ai/
+  - Badges: Freemium
+  - Tags: ai-svg-generator, vector-ai, icon-generator, 3d-illustrations, brand-graphics, scalable-vectors, web-illustrations, ai-copywriting, seo-content, markdown-generator
+
+### AI Models (10 tools)
+Category Page: https://www.staticstack.app/category/ai-models/
+Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.
+
+- **ChatGPT (OpenAI)** — OpenAI's flagship multimodal foundation model powering conversational web apps and REST APIs.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/chatgpt-openai
+  - Official Website: https://openai.com/
+  - Badges: Freemium
+  - Tags: openai-api, gpt-4o, o1-reasoning, llm-api, structured-outputs, function-calling, ai-embeddings, ai-agents, rag, open-weights
+- **Claude (Anthropic)** — Anthropic's state-of-the-art model family renowned for coding excellence, nuance, and 200k+ context windows.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/claude-anthropic
+  - Official Website: https://anthropic.com/
+  - Badges: Freemium
+  - Tags: anthropic-api, claude-3-7-sonnet, ai-coding-model, 200k-context, agentic-workflows, tool-use-api, llm, llm-api, ai-agents, rag
+- **Cohere Command** — Enterprise-grade foundation model optimized for Retrieval-Augmented Generation (RAG) and document search.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/cohere-command
+  - Official Website: https://cohere.com/
+  - Badges: Freemium
+  - Tags: cohere-api, command-r, enterprise-rag, semantic-search, rerank-api, vector-embeddings, cited-llm, llm-api, ai-agents, rag
+- **DeepSeek** — High-efficiency open-weights foundation and reasoning model engineered with Mixture-of-Experts architecture.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/deepseek
+  - Official Website: https://deepseek.com/
+  - Badges: Open Source, Freemium
+  - Tags: deepseek-r1, deepseek-v3, open-weights-llm, reasoning-model, ai-coding, low-cost-llm, mit-license-ai, llm-api, ai-agents, rag
+- **Google Gemini** — Google's multimodal frontier model family featuring native multimodal reasoning and up to 2M token context.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/google-gemini-model
+  - Official Website: https://ai.google.dev/
+  - Badges: Freemium
+  - Tags: gemini-api, 2m-context-window, multimodal-llm, gemini-flash, vertex-ai, long-context-rag, audio-video-ai, llm-api, ai-agents, rag
+- **Grok (xAI)** — xAI's frontier reasoning and conversational model with real-time access to global live information.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/grok-xai
+  - Official Website: https://x.ai/
+  - Badges: Paid
+  - Tags: grok-api, xai, realtime-knowledge, reasoning-llm, coding-assistant, frontier-model, openai-compatible, llm-api, ai-agents, rag
+- **Meta Llama** — The world's leading open-weights model family, enabling private local hosting and customizable web deployments.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/meta-llama
+  - Official Website: https://llama.meta.com/
+  - Badges: Open Source
+  - Tags: llama-3, meta-ai, open-source-llm, local-ai, ollama, self-hosted-llm, open-weights, llm-api, ai-agents, rag
+- **Microsoft Phi** — Small Language Models (SLMs) engineered for maximum efficiency, low memory footprint, and edge execution.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/microsoft-phi
+  - Official Website: https://azure.microsoft.com/en-us/products/phi/
+  - Badges: Open Source
+  - Tags: phi-3, small-language-model, slm, webgpu-ai, browser-llm, on-device-ai, onnx-runtime, llm-api, ai-agents, rag
+- **Mistral AI** — Leading European open and commercial models celebrated for speed, lightweight efficiency, and specialized code generation.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/mistral-ai
+  - Official Website: https://mistral.ai/
+  - Badges: Open Source, Freemium
+  - Tags: mistral-large, codestral, open-weights-ai, fast-inference, european-ai, code-completion-llm, function-calling, llm-api, ai-agents, rag
+- **Qwen** — Alibaba Cloud's powerhouse open-weights model family (Qwen 2.5) with exceptional coding and multilingual mastery.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/qwen
+  - Official Website: https://qwenlm.github.io/
+  - Badges: Open Source
+  - Tags: qwen-2-5, qwen-coder, open-source-llm, coding-llm, multilingual-ai, local-llm, apache-2-ai, llm-api, ai-agents, rag
+
+### Analytics & Privacy (3 tools)
+Category Page: https://www.staticstack.app/category/analytics-privacy/
+Understand website traffic, visitor behavior, and page performance.
+
+- **CountAPI** — Free, key-based hit counter and view tracking API with zero signup or keys required.
+  - StaticStack Page: https://www.staticstack.app/tools/analytics-privacy/countapi
+  - Official Website: https://countapi.mileshilliard.com/
+  - Badges: Open Source, Free
+  - Tags: hit-counter, view-tracker, api, metrics, analytics, free, page-views-api, no-signup-api, visitor-counter, static-site-metrics
+- **Plausible** — Simple, lightweight, privacy-first web analytics without tracking cookies.
+  - StaticStack Page: https://www.staticstack.app/tools/analytics-privacy/plausible
+  - Official Website: https://plausible.io/
+  - Badges: Open Source, Paid
+  - Tags: plausible-analytics, google-analytics-alternative, privacy-analytics, cookieless, gdpr-compliant, 1kb-script, eu-hosted, cookieless-analytics, privacy-first, lightweight-script
+- **Statcounter** — Real-time web analytics, visitor journey tracking, and configurable page counters.
+  - StaticStack Page: https://www.staticstack.app/tools/analytics-privacy/statcounter
+  - Official Website: https://statcounter.com/
+  - Badges: Freemium
+  - Tags: statcounter, realtime-visitor-tracking, hit-counter, visitor-paths, web-stats, classic-analytics, cookieless-analytics, gdpr-compliant, google-analytics-alternative, privacy-first
+
+### Authentication & User Management (3 tools)
+Category Page: https://www.staticstack.app/category/authentication-users/
+Add user login, member areas, and gated content to static sites without backend code.
+
+- **Clerk** — Complete user management and authentication with drop-in UI and vanilla JavaScript SDK.
+  - StaticStack Page: https://www.staticstack.app/tools/authentication-users/clerk
+  - Official Website: https://clerk.com/
+  - Badges: Freemium
+  - Tags: clerk-auth, drop-in-auth, passkey-login, social-oauth, user-profiles, javascript-auth-sdk, auth0-alternative, passkeys, oauth-login, jwt-auth
+- **Outseta** — All-in-one membership, authentication, payments, and CRM for static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/authentication-users/outseta
+  - Official Website: https://outseta.com/
+  - Badges: Paid
+  - Tags: outseta, membership-platform, saas-starter, stripe-subscriptions, auth-and-crm, gated-content, memberstack-alternative, passkeys, oauth-login, jwt-auth
+- **Supabase Auth** — Open-source authentication supporting passwordless logins, OAuth providers, and JWTs.
+  - StaticStack Page: https://www.staticstack.app/tools/authentication-users/supabase-auth
+  - Official Website: https://supabase.com/auth
+  - Badges: Open Source, Free
+  - Tags: supabase-auth, open-source-auth, magic-links, oauth-providers, jwt-authentication, row-level-security, firebase-auth-alternative, passkeys, oauth-login, jwt-auth
+
+### Booking & Scheduling (2 tools)
+Category Page: https://www.staticstack.app/category/booking-scheduling/
+Allow visitors to book appointments and discovery calls directly from static pages.
+
+- **Cal.com** — Open-source, embeddable meeting scheduling infrastructure for booking calls and appointments.
+  - StaticStack Page: https://www.staticstack.app/tools/booking-scheduling/cal-com
+  - Official Website: https://cal.com/
+  - Badges: Open Source, Freemium
+  - Tags: cal-com, open-source-calendly, scheduling-embed, booking-widget, self-hosted-calendar, meeting-links, appointment-booking, calendar-embed, meeting-scheduler, no-code-widget
+- **Calendly** — Industry-standard appointment scheduling platform with seamless embeddable widgets.
+  - StaticStack Page: https://www.staticstack.app/tools/booking-scheduling/calendly
+  - Official Website: https://calendly.com/
+  - Badges: Freemium
+  - Tags: calendly, appointment-scheduling, popup-booking-widget, calendar-integration, consultation-booking, inline-embed, appointment-booking, calendar-embed, meeting-scheduler, no-code-widget
+
+### Browser Extensions (2 tools)
+Category Page: https://www.staticstack.app/category/browser-extensions/
+Helpful browser extensions for static site development, link sharing, and productivity.
+
+- **FireShot** — Powerful browser extension to capture full-length webpage screenshots, edit annotations, and export directly to PDF, PNG, or JPEG.
+  - StaticStack Page: https://www.staticstack.app/tools/browser-extensions/fireshot
+  - Official Website: https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg
+  - Badges: Freemium
+  - Tags: fireshot, full-page-screenshot, webpage-to-pdf, browser-capture, annotate-screenshots, visual-qa, web-dev-extension, page-capture, productivity-tool, chrome-extension
+- **Send URL** — Chrome browser extension that implements a one-click button to quickly email the active webpage title and URL via mailto protocol.
+  - StaticStack Page: https://www.staticstack.app/tools/browser-extensions/send-url
+  - Official Website: https://chromewebstore.google.com/detail/send-url/fmanefafgomooabofffoidipbfdbjilh
+  - Badges: Free
+  - Tags: share-url-extension, email-link-button, quick-share, browser-utility, clean-url-sharing, web-dev-extension, page-capture, productivity-tool, chrome-extension, developer-workflow
+
+### Comments & Community (6 tools)
+Category Page: https://www.staticstack.app/category/comments-community/
+Let visitors comment on blog posts and interact with your content.
+
+- **Disqus** — Hosted commenting system for websites with social logins and moderation tools.
+  - StaticStack Page: https://www.staticstack.app/tools/comments-community/disqus
+  - Official Website: https://disqus.com/
+  - Badges: Freemium
+  - Tags: disqus-comments, blog-comment-widget, social-comments, moderation-tools, embedded-discussions, static-blog-comments, disqus-alternative, github-comments, no-database, community-widget
+- **Flarum** — Modern, lightweight open-source community forum platform.
+  - StaticStack Page: https://www.staticstack.app/tools/comments-community/flarum
+  - Official Website: https://flarum.org/
+  - Badges: Open Source
+  - Tags: flarum-forum, open-source-forum, discourse-alternative, lightweight-community, embeddable-discussions, static-blog-comments, disqus-alternative, github-comments, no-database, community-widget
+- **GitHub Discussions** — Collaborative community discussion forum and Q&A platform built natively into GitHub.
+  - StaticStack Page: https://www.staticstack.app/tools/comments-community/github-discussions
+  - Official Website: https://docs.github.com/en/discussions
+  - Badges: Free
+  - Tags: github-discussions, open-source-community, developer-qna, repo-forum, zero-cost-community, static-blog-comments, disqus-alternative, github-comments, no-database, community-widget
+- **Giscus** — GitHub Discussions-powered comment widget for static blogs and docs.
+  - StaticStack Page: https://www.staticstack.app/tools/comments-community/giscus
+  - Official Website: https://giscus.app/
+  - Badges: Open Source
+  - Tags: giscus, github-discussions-comments, static-blog-comments, open-source-comments, no-tracking-comments, markdown-comments, disqus-alternative, github-comments, no-database, community-widget
+- **iine** — Lightweight, privacy-first appreciation and like button widget without tracking.
+  - StaticStack Page: https://www.staticstack.app/tools/comments-community/iine
+  - Official Website: https://iine.to/
+  - Badges: Open Source
+  - Tags: like-button, reactions, appreciation, privacy-first, widget, open-source, like-button-widget, clap-button, appreciation-counter, privacy-first-likes
+- **Utterances** — Lightweight commenting system powered by GitHub Issues.
+  - StaticStack Page: https://www.staticstack.app/tools/comments-community/utterances
+  - Official Website: https://utteranc.es/
+  - Badges: Open Source
+  - Tags: utterances, github-issues-comments, lightweight-blog-comments, open-source-widget, markdown-discussions, static-blog-comments, disqus-alternative, github-comments, no-database, community-widget
+
+### Contact Forms (5 tools)
+Category Page: https://www.staticstack.app/category/contact-forms/
+Add contact forms to static websites without building your own form-processing backend.
+
+- **Basin** — Hosted form backend built for static websites, developers, and agencies.
+  - StaticStack Page: https://www.staticstack.app/tools/contact-forms/basin
+  - Official Website: https://usebasin.com/
+  - Badges: Freemium
+  - Tags: basin-forms, static-form-backend, ajax-contact-form, spam-filtering, webhook-forms, custom-redirects, serverless-forms, static-html-form, form-backend, email-notifications
+- **CraftForms** — Hosted booking, quote, and contact form builder with payment support.
+  - StaticStack Page: https://www.staticstack.app/tools/contact-forms/craftforms
+  - Official Website: https://craftforms.app/
+  - Badges: Freemium
+  - Tags: craftforms, payment-forms, booking-form-builder, quote-calculator-form, stripe-forms, embeddable-forms, serverless-forms, static-html-form, form-backend, email-notifications
+- **Formspree** — Reliable form submissions and email notifications for static sites.
+  - StaticStack Page: https://www.staticstack.app/tools/contact-forms/formspree
+  - Official Website: https://formspree.io/
+  - Badges: Freemium
+  - Tags: formspree, html-form-backend, contact-form-api, serverless-email-forms, ajax-submissions, static-site-forms, serverless-forms, static-html-form, form-backend, email-notifications
+- **Splitform** — Contact forms and form handling designed for static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/contact-forms/splitform
+  - Official Website: https://splitforms.com/
+  - Badges: Freemium
+  - Tags: splitform, static-contact-form, form-endpoint, email-forwarding-form, no-backend-contact, serverless-forms, static-html-form, form-backend, email-notifications, no-backend-forms
+- **Web3Forms** — Contact form backend for static websites, HTML, React, Next.js, and Jamstack.
+  - StaticStack Page: https://www.staticstack.app/tools/contact-forms/web3forms
+  - Official Website: https://web3forms.com/
+  - Badges: Freemium
+  - Tags: web3forms, contact-form-backend, static-forms, jamstack-forms, serverless-forms, html-forms, anti-spam, form-api, email-notifications, static-html-form
+
+### Content Management (7 tools)
+Category Page: https://www.staticstack.app/category/content-management/
+Manage content on static websites without adopting a traditional, full-featured CMS.
+
+- **CraftPages** — Open-source desktop CMS for editing and publishing plain-HTML websites.
+  - StaticStack Page: https://www.staticstack.app/tools/content-management/craftpages
+  - Official Website: https://craftpages.app/
+  - Badges: Open Source
+  - Tags: craftpages, offline-html-cms, desktop-site-builder, plain-html-editor, zero-lock-in-cms, static-page-manager, git-based-cms, headless-cms, markdown-cms, wordpress-alternative
+- **Decap CMS** — Open-source, Git-based content management for static site generators.
+  - StaticStack Page: https://www.staticstack.app/tools/content-management/decap-cms
+  - Official Website: https://decapcms.org/
+  - Badges: Open Source
+  - Tags: decap-cms, netlify-cms, git-backed-cms, markdown-editor, open-source-headless-cms, astro-hugo-cms, git-based-cms, headless-cms, markdown-cms, wordpress-alternative
+- **Instatic** — Free, browser-based visual website builder created by the Core Framework developers for building modern static sites.
+  - StaticStack Page: https://www.staticstack.app/tools/content-management/instatic
+  - Official Website: https://instatic.com/
+  - Badges: Free
+  - Tags: instatic, core-framework, visual-builder, free-website-builder, static-site-generator, css-framework, ai-web-design, wordpress-alternative, jamstack-builder, git-based-cms
+- **Pages CMS** — Modern Git-based content management with a sleek, browser-based interface.
+  - StaticStack Page: https://www.staticstack.app/tools/content-management/pages-cms
+  - Official Website: https://pagescms.org/
+  - Badges: Open Source
+  - Tags: pages-cms, github-cms, markdown-frontmatter-editor, collaborative-git-cms, nextjs-astro-cms, git-based-cms, headless-cms, markdown-cms, wordpress-alternative, static-site-cms
+- **Phantom Studio** — Visual website builder providing a familiar workflow for WordPress creators with static export and minimal ongoing maintenance.
+  - StaticStack Page: https://www.staticstack.app/tools/content-management/phantom-studio
+  - Official Website: https://phantomstudio.app/
+  - Badges: Freemium
+  - Tags: phantom-studio, phantom-wp, wordpress-migration, visual-builder, static-site-generator, cms-maintenance-reduction, fast-static-sites, git-based-cms, headless-cms, markdown-cms
+- **ProcessWire** — Free, flexible open-source CMS and content management framework designed for clean markup and developer freedom.
+  - StaticStack Page: https://www.staticstack.app/tools/content-management/processwire
+  - Official Website: https://processwire.com/
+  - Badges: Open Source
+  - Tags: processwire, open-source-cms, headless-cms, php-content-framework, custom-fields-cms, clean-markup, content-management, wordpress-alternative, flexible-api, rest-api-cms
+- **Stacki** — Webflow-familiar visual site builder engineered for local developers and modern static web workflows.
+  - StaticStack Page: https://www.staticstack.app/tools/content-management/stacki
+  - Official Website: https://stacki.build/
+  - Badges: Freemium
+  - Tags: stacki, webflow-alternative, visual-builder, static-site-builder, local-workflows, collaborative-builder, jamstack, clean-code-export, git-based-cms, headless-cms
+
+### CSS & UI Component Libraries (4 tools)
+Category Page: https://www.staticstack.app/category/css-components/
+Build responsive, accessible user interfaces without complex build steps or heavy frameworks.
+
+- **Bulma** — Modern CSS framework based on Flexbox with 100% CSS and zero JavaScript dependencies.
+  - StaticStack Page: https://www.staticstack.app/tools/css-components/bulma
+  - Official Website: https://bulma.io/
+  - Badges: Open Source
+  - Tags: bulma-css, flexbox-framework, pure-css-components, no-js-css, modular-sass, bootstrap-alternative, ui-components, classless-css, lightweight-css, web-components
+- **Lucide Icons** — Clean, customizable open-source icon set with lightweight vanilla JavaScript and SVG support.
+  - StaticStack Page: https://www.staticstack.app/tools/css-components/lucide-icons
+  - Official Website: https://lucide.dev/
+  - Badges: Open Source
+  - Tags: lucide-icons, feather-icons-fork, svg-icon-library, tree-shakable-icons, clean-vector-icons, ui-components, classless-css, lightweight-css, web-components, responsive-design
+- **Pico CSS** — Minimal and semantic classless CSS framework that styles pure HTML automatically.
+  - StaticStack Page: https://www.staticstack.app/tools/css-components/pico-css
+  - Official Website: https://picocss.com/
+  - Badges: Open Source
+  - Tags: pico-css, classless-css, semantic-html-styling, dark-mode-css, minimal-css-framework, zero-classes, ui-components, lightweight-css, web-components, responsive-design
+- **Shoelace** — Forward-thinking library of framework-agnostic web components that work with plain HTML.
+  - StaticStack Page: https://www.staticstack.app/tools/css-components/shoelace
+  - Official Website: https://shoelace.style/
+  - Badges: Open Source
+  - Tags: shoelace-ui, web-components, custom-elements, framework-agnostic-ui, accessible-components, shadow-dom, ui-components, classless-css, lightweight-css, responsive-design
+
+### Database & Backend-as-a-Service (3 tools)
+Category Page: https://www.staticstack.app/category/database-storage/
+Store, query, and synchronize data from static frontends without maintaining servers.
+
+- **Firebase Firestore** — Real-time cloud NoSQL database that static frontend applications can query directly.
+  - StaticStack Page: https://www.staticstack.app/tools/database-storage/firebase-firestore
+  - Official Website: https://firebase.google.com/
+  - Badges: Freemium
+  - Tags: firestore, nosql-cloud-db, realtime-listeners, client-side-database, serverless-storage, google-firebase, serverless-database, baas, rest-api, realtime-db
+- **JSONbin.io** — Cloud-based JSON document store for saving and retrieving data via simple HTTP REST requests.
+  - StaticStack Page: https://www.staticstack.app/tools/database-storage/jsonbin
+  - Official Website: https://jsonbin.io/
+  - Badges: Freemium
+  - Tags: jsonbin, json-storage-api, rest-json-store, mock-backend, serverless-key-value, prototype-db, serverless-database, baas, rest-api, realtime-db
+- **Supabase** — Open-source Firebase alternative with real-time Postgres, storage, and auto-generated APIs.
+  - StaticStack Page: https://www.staticstack.app/tools/database-storage/supabase
+  - Official Website: https://supabase.com/
+  - Badges: Open Source, Freemium
+  - Tags: supabase, open-source-firebase, postgres-rest-api, realtime-subscriptions, edge-functions, pgvector, serverless-database, baas, rest-api, realtime-db
+
+### Development Tools (22 tools)
+Category Page: https://www.staticstack.app/category/development-tools/
+Tools that make building, testing, and maintaining static websites easier.
+
+- **Antigravity CLI** — Command-line AI coding agent that brings autonomous planning, editing, and automation directly into your terminal.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/antigravity-cli
+  - Official Website: https://antigravity.google/docs/cli
+  - Badges: Free
+  - Tags: antigravity-cli, agy-cli, terminal-coding-agent, ai-workflow-automation, slash-commands, agentic-cli, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **Antigravity IDE** — Google's AI-first integrated development environment tailored for agentic pair programming, browser automation, and full-stack web development.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/antigravity-ide
+  - Official Website: https://antigravity.google/
+  - Badges: Free
+  - Tags: antigravity-ide, ai-pair-programming, agentic-ide, browser-automation-ide, multi-agent-coding, google-deepmind, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **Bootstrap Studio** — Visual desktop web design application for creating responsive websites using the Bootstrap framework and exporting clean HTML.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/bootstrap-studio
+  - Official Website: https://bootstrapstudio.io/
+  - Badges: Paid
+  - Tags: bootstrap-studio, drag-and-drop-html, visual-bootstrap-builder, clean-html-export, desktop-web-builder, ai-coding-agent, vibe-coding, code-editor, web-performance, core-web-vitals
+- **Brickstatic** — Export and publish WordPress Bricks Builder sites as static HTML for GitHub or any static host.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/brickstatic
+  - Official Website: https://builtforbricks.com/brickstatic/
+  - Badges: Paid
+  - Tags: brickstatic, wordpress-to-static-html, bricks-builder-export, headless-wordpress, github-pages-wordpress, ai-coding-agent, vibe-coding, code-editor, web-performance, core-web-vitals
+- **Cursor** — AI-first code editor designed for pair programming, multi-file edits, and intelligent codebase chat.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/cursor
+  - Official Website: https://cursor.com/
+  - Badges: Freemium
+  - Tags: cursor-ide, ai-code-editor, cursor-composer, vibe-coding, vscode-fork-ai, multi-file-ai-edits, ai-coding-agent, code-editor, web-performance, core-web-vitals
+- **DesignCraft** — Open-source desktop page layout and publishing app with Knuth-Plass typography in pure Rust.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/designcraft
+  - Official Website: https://getartcraft.com/apps/designcraft
+  - Badges: Open Source, Beta
+  - Tags: page-layout, rust, indesign-alternative, desktop-publishing, typography, pdf-export, print-design, beta, designcraft, open-source-indesign
+- **EffectCraft** — Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/effectcraft
+  - Official Website: https://getartcraft.com/apps/effectcraft
+  - Badges: Open Source, Beta
+  - Tags: motion-graphics, rust, after-effects-alternative, lottie, vfx, animation, video, beta, effectcraft, open-source-after-effects
+- **Emdash** — Free, open-source agentic development environment to run coding agents in parallel, schedule workflows, and review changes.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/emdash
+  - Official Website: https://emdash.com/
+  - Badges: Open Source
+  - Tags: emdash, parallel-coding-agents, agentic-orchestration, git-worktree-agents, autonomous-coding, ai-dev-environment, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **ESLint** — Find and fix problems in your JavaScript code before deploying.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/eslint
+  - Official Website: https://eslint.org/
+  - Badges: Open Source
+  - Tags: eslint, javascript-linter, static-code-analysis, code-quality, ecmascript-rules, bug-prevention, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **FigCraft** — Open-source interface design, auto layout, and prototyping tool rebuilt in pure Rust.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/figcraft
+  - Official Website: https://getartcraft.com/apps/figcraft
+  - Badges: Open Source, Beta
+  - Tags: ui-design, rust, figma-alternative, prototyping, auto-layout, dev-mode, vector, beta, figcraft, open-source-figma
+- **GetBoosh** — Desktop apps for web design, token-bound CSS generation, and local-first SEO audits without SaaS lock-in or seat fees.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/getboosh
+  - Official Website: https://getboosh.com/
+  - Badges: Paid
+  - Tags: getboosh, boosh-design, boosh-seo, fewd-studio, gen-css, desktop-app, local-first, design-tokens, oklch-palette, globals-css
+- **GitHub Desktop** — Visual Git GUI client to stage changes, manage branches, and sync repositories.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/github-desktop
+  - Official Website: https://desktop.github.com/
+  - Badges: Open Source
+  - Tags: github-desktop, visual-git-client, git-gui, branch-management, no-cli-git, pull-requests, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **Google Lighthouse** — Audit website performance, accessibility, SEO, and web development best practices.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/google-lighthouse
+  - Official Website: https://developer.chrome.com/docs/lighthouse/
+  - Badges: Open Source
+  - Tags: google-lighthouse, core-web-vitals, pagespeed-audit, seo-checker, accessibility-audit, lcp-cls-inp, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **OpenCode** — Open-source AI coding agent available as an interactive terminal interface (TUI) and editor extension.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/opencode
+  - Official Website: https://opencode.ai/
+  - Badges: Open Source
+  - Tags: opencode, open-source-claude-code, terminal-ai-agent, tui-coding-assistant, multi-provider-llm, local-coding-agent, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **PdfCraft** — Open-source desktop PDF workbench to read, split, merge, and organize documents offline in pure Rust.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/pdfcraft
+  - Official Website: https://getartcraft.com/apps/pdfcraft
+  - Badges: Open Source, Beta
+  - Tags: pdf, rust, pdf-editor, document-tools, split-pdf, merge-pdf, offline, beta, pdfcraft, open-source-acrobat
+- **PhotoCraft** — Open-source desktop image editor with layers, masks, curves, and PSD/PSB support in pure Rust.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/photocraft
+  - Official Website: https://getartcraft.com/apps/photocraft
+  - Badges: Open Source, Beta
+  - Tags: image-editor, rust, photoshop-alternative, psd, layers, graphics, offline, beta, photocraft, open-source-photoshop
+- **Prettier** — Opinionated code formatter for HTML, CSS, JavaScript, and Markdown.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/prettier
+  - Official Website: https://prettier.io/
+  - Badges: Open Source
+  - Tags: prettier, opinionated-code-formatter, auto-format-html-css-js, clean-code-style, editor-save-format, ai-coding-agent, vibe-coding, code-editor, web-performance, core-web-vitals
+- **sitereal** — Visual builder for Astro that writes real .astro files into your repository with full code access and zero vendor lock-in.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/sitereal
+  - Official Website: https://sitereal.app/
+  - Badges: Paid
+  - Tags: astro, visual-builder, page-builder, desktop-editor, jamstack, sitereal, visual-astro-builder, webflow-for-astro, git-synced-visual-editor, tailwind-visual-builder
+- **StaticSEO** — Open-source SEO tool and plugin for static websites that bakes meta tags, Open Graph cards, JSON-LD structured data, and XML sitemaps directly into static HTML at publish time.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/staticseo
+  - Official Website: https://staticseo.co/
+  - Badges: Open Source, Free
+  - Tags: seo, open-graph, json-ld, sitemap, meta-tags, static-html, staticseo, static-html-seo, open-graph-generator, json-ld-schema-builder
+- **Visual Studio Code** — The leading code editor with rich extension support for web development.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/visual-studio-code
+  - Official Website: https://code.visualstudio.com/
+  - Badges: Open Source
+  - Tags: vscode, microsoft-code-editor, web-dev-extensions, live-server, intellisense, git-integration, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **WordCraft** — Fast, open-source word processor with native .docx support and clean PDF export built in pure Rust.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/wordcraft
+  - Official Website: https://getartcraft.com/apps/wordcraft
+  - Badges: Open Source, Beta
+  - Tags: word-processor, rust, docx, markdown, documents, offline, mcp, beta, wordcraft, open-source-word-processor
+- **Zed** — High-performance, open-source code editor engineered in Rust with built-in multiplayer collaboration and AI assistance.
+  - StaticStack Page: https://www.staticstack.app/tools/development-tools/zed
+  - Official Website: https://zed.dev/
+  - Badges: Open Source
+  - Tags: zed-editor, rust-code-editor, gpu-accelerated-ide, multiplayer-coding, ultra-fast-editor, ai-inline-assist, ai-coding-agent, vibe-coding, code-editor, web-performance
+
+### Hosting & Deployment (13 tools)
+Category Page: https://www.staticstack.app/category/hosting-deployment/
+Services for publishing static HTML, CSS, and JavaScript websites online.
+
+- **Cloudflare Pages** — Fast, secure Jamstack hosting on Cloudflare's global edge network.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/cloudflare-pages
+  - Official Website: https://pages.cloudflare.com/
+  - Badges: Freemium
+  - Tags: cloudflare-pages, unlimited-bandwidth-hosting, edge-static-hosting, cloudflare-workers, git-auto-deploy, fast-global-cdn, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting
+- **Deno Deploy** — Distributed, multi-region edge hosting platform serving static assets and edge logic globally.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/deno-deploy
+  - Official Website: https://deno.com/deploy
+  - Badges: Freemium
+  - Tags: deno-deploy, v8-isolates-edge, serverless-typescript, global-edge-hosting, zero-cold-start, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
+- **Firebase Hosting** — Fast, secure static and dynamic web hosting backed by Google's global SSD CDN.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/firebase-hosting
+  - Official Website: https://firebase.google.com/docs/hosting
+  - Badges: Freemium
+  - Tags: firebase-hosting, google-cloud-cdn, single-command-deploy, free-ssl-hosting, preview-channels, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
+- **Fleek** — Edge-optimized web hosting for static frontends and modern Jamstack sites with automated Git deployment.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/fleek
+  - Official Website: https://fleek.xyz/
+  - Badges: Freemium
+  - Tags: fleek-hosting, ipfs-web-hosting, decentralized-cdn, edge-static-deploy, censorship-resistant-web, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
+- **GitHub Pages** — Host websites directly from GitHub repositories with Git-driven automation.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/github-pages
+  - Official Website: https://pages.github.com/
+  - Badges: Free
+  - Tags: github-pages, gh-pages, free-repo-hosting, jekyll-hosting, custom-domain-ssl, git-push-deploy, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting
+- **GitLab Pages** — Free static website hosting directly from GitLab repositories with custom domains and automated SSL.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/gitlab-pages
+  - Official Website: https://about.gitlab.com/stages-devops-lifecycle/pages/
+  - Badges: Open Source, Free
+  - Tags: gitlab-pages, gitlab-ci-cd-hosting, free-static-hosting, custom-domains, devops-static-deploy, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy, custom-domain
+- **Kinsta Static Site Hosting** — Free static site hosting deployed across Cloudflare's 260+ global edge locations with 100 GB monthly bandwidth.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/kinsta
+  - Official Website: https://kinsta.com/static-site-hosting/
+  - Badges: Free
+  - Tags: kinsta-static-hosting, cloudflare-edge-hosting, free-static-site-host, git-based-deployment, fast-cdn-hosting, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
+- **Netlify** — Static hosting with automated continuous deployment and edge services.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/netlify
+  - Official Website: https://www.netlify.com/
+  - Badges: Freemium
+  - Tags: netlify, jamstack-pioneer, deploy-previews, netlify-forms, edge-functions, instant-rollbacks, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting
+- **Render** — Modern cloud hosting platform offering free static site hosting with global CDN, custom domains, and auto Git deploys.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/render
+  - Official Website: https://render.com/
+  - Badges: Freemium
+  - Tags: render-static-sites, free-global-cdn, heroku-alternative, auto-git-deploys, zero-downtime-hosting, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
+- **Stormkit** — Dedicated Jamstack and static web hosting platform with multi-environment staging and snippet injection.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/stormkit
+  - Official Website: https://www.stormkit.io/
+  - Badges: Freemium
+  - Tags: stormkit, self-hostable-netlify, jamstack-deployment, staged-rollouts, preview-environments, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
+- **Surge.sh** — Single-command CLI web publishing for static sites with custom domain and automated SSL support.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/surge
+  - Official Website: https://surge.sh/
+  - Badges: Freemium
+  - Tags: surge-sh, cli-static-publishing, single-command-deploy, frontend-staging, quick-html-host, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
+- **Vercel** — Frontend deployment platform optimized for speed, preview workflows, and static assets.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/vercel
+  - Official Website: https://vercel.com/
+  - Badges: Freemium
+  - Tags: vercel, frontend-cloud, nextjs-astro-hosting, preview-deployments, vercel-edge-network, zero-config-deploy, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting
+- **Wasmer** — Host and deploy static websites and WebAssembly applications at the edge.
+  - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/wasmer
+  - Official Website: https://wasmer.io/
+  - Badges: Freemium
+  - Tags: wasmer-edge, webassembly-cloud, winterjs, wasm-hosting, ultra-fast-edge-server, static-and-edge-apps, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting
+
+### HTML Templates (9 tools)
+Category Page: https://www.staticstack.app/category/html-templates/
+Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstart your static website without starting from a blank canvas.
+
+- **Colorlib Templates** — Extensive catalog of 1,500+ free responsive HTML5, CSS, and Bootstrap templates for portfolios, agencies, and businesses.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/colorlib-templates
+  - Official Website: https://colorlib.com/wp/templates/
+  - Badges: Free
+  - Tags: colorlib, html5-templates, bootstrap-templates, free-website-templates, responsive-themes, landing-pages, portfolio-themes, responsive-html-css, landing-page-templates, static-site-themes
+- **Cruip** — High-converting Tailwind CSS, HTML, React, and Next.js landing page templates crafted for SaaS and startups.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/cruip
+  - Official Website: https://cruip.com/
+  - Badges: Freemium
+  - Tags: cruip, tailwind-css, html-templates, saas-landing-pages, startup-templates, alpinejs, responsive-ui, html5-templates, free-website-templates, bootstrap-templates
+- **HTML Design** — Library of 800+ free responsive HTML5, CSS, and Bootstrap website templates across business, portfolio, and landing page categories.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/html-design
+  - Official Website: https://html.design/
+  - Badges: Free
+  - Tags: html-design, free-html-templates, bootstrap-templates, responsive-design, static-themes, landing-pages, business-templates, html5-templates, free-website-templates, responsive-html-css
+- **HTML5 UP** — Spiffy, fully responsive HTML5 and CSS3 site templates built on clean semantic markup and released for free under Creative Commons.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/html5-up
+  - Official Website: https://html5up.net/
+  - Badges: Free
+  - Tags: html5-up, html5-templates, responsive-html-templates, creative-commons-templates, portfolio-templates, landing-page-html, static-website-themes, free-website-templates, bootstrap-templates, responsive-html-css
+- **Start Bootstrap** — Curated library of free, open-source Bootstrap HTML templates, admin dashboards, and landing page themes.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/start-bootstrap
+  - Official Website: https://startbootstrap.com/
+  - Badges: Open Source, Freemium
+  - Tags: start-bootstrap, bootstrap-templates, open-source-html-templates, admin-dashboard-template, landing-page-theme, mit-license-templates, static-bootstrap, html5-templates, free-website-templates, responsive-html-css
+- **TemplateMo** — Collection of 600+ free responsive HTML5, CSS, and Bootstrap website templates for portfolios, landing pages, and business sites.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/templatemo
+  - Official Website: https://templatemo.com/
+  - Badges: Free
+  - Tags: templatemo, free-html5-templates, bootstrap-html-themes, responsive-website-templates, one-page-templates, portfolio-html, static-site-templates, html5-templates, free-website-templates, bootstrap-templates
+- **ThemeVault** — Free responsive website templates built with HTML5, CSS3, Bootstrap, Next.js, and Astro for modern static projects.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/themevault
+  - Official Website: https://www.themevault.net/
+  - Badges: Free
+  - Tags: themevault, free-templates, html5-templates, bootstrap-themes, astro-templates, nextjs-templates, responsive-layouts, free-website-templates, bootstrap-templates, responsive-html-css
+- **ThemeWagon** — Curated collection of free and premium responsive Bootstrap, Tailwind CSS, and HTML5 website templates and admin dashboards.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/themewagon
+  - Official Website: https://themewagon.com/
+  - Badges: Freemium
+  - Tags: themewagon, bootstrap-templates, tailwind-templates, html5-templates, admin-dashboards, responsive-themes, landing-pages, free-website-templates, responsive-html-css, landing-page-templates
+- **Tooplate** — Curated collection of free responsive HTML5 and CSS website templates for personal, commercial, and business static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/html-templates/tooplate
+  - Official Website: https://www.tooplate.com/
+  - Badges: Free
+  - Tags: tooplate, free-html-templates, responsive-css-templates, html5-themes, landing-page-templates, static-html-starter, creative-commons-html, html5-templates, free-website-templates, bootstrap-templates
+
+### Images & Optimization (7 tools)
+Category Page: https://www.staticstack.app/category/images-optimization/
+Optimize images and other assets to improve loading speed and user experience.
+
+- **File Converter** — Open-source Windows utility to convert and compress images, audio, and video directly from the Windows Explorer context menu.
+  - StaticStack Page: https://www.staticstack.app/tools/images-optimization/file-converter
+  - Official Website: https://github.com/Tichau/FileConverter
+  - Badges: Open Source
+  - Tags: file-converter, windows-right-click-convert, batch-webp-converter, open-source-media-converter, offline-image-compression, webp-converter, svg-vectorizer, image-compression, core-web-vitals, fast-page-load
+- **Pic2SVG** — Convert raster images into scalable, editable SVG vector paths with free browser-based tracing.
+  - StaticStack Page: https://www.staticstack.app/tools/images-optimization/pic2svg
+  - Official Website: https://pic2svg.com/
+  - Badges: Freemium
+  - Tags: pic2svg, png-to-svg, jpg-to-vector, browser-image-vectorizer, free-svg-tracer, logo-vectorizer, webp-converter, svg-vectorizer, image-compression, core-web-vitals
+- **Site-Shot** — Free online website screenshot generator and REST API for full-page web captures and thumbnails.
+  - StaticStack Page: https://www.staticstack.app/tools/images-optimization/site-shot
+  - Official Website: https://www.site-shot.com/
+  - Badges: Freemium
+  - Tags: site-shot, website-screenshot-api, url-to-image-png, automated-og-images, webpage-thumbnail-generator, webp-converter, svg-vectorizer, image-compression, core-web-vitals, fast-page-load
+- **Squoosh** — Compress and convert images directly in your browser with instant visual comparison.
+  - StaticStack Page: https://www.staticstack.app/tools/images-optimization/squoosh
+  - Official Website: https://squoosh.app/
+  - Badges: Open Source
+  - Tags: squoosh-app, google-image-compressor, avif-webp-converter, browser-wasm-compression, visual-size-comparison, webp-converter, svg-vectorizer, image-compression, core-web-vitals, fast-page-load
+- **SVG Repo** — Browse and download thousands of free SVG icons and vectors for commercial use.
+  - StaticStack Page: https://www.staticstack.app/tools/images-optimization/svg-repo
+  - Official Website: https://svgrepo.com/
+  - Badges: Free
+  - Tags: svg-repo, 500k-free-svgs, cc0-vector-icons, commercial-use-icons, in-browser-svg-color-editor, webp-converter, svg-vectorizer, image-compression, core-web-vitals, fast-page-load
+- **TinyPNG** — Smart lossy compression for WebP, PNG, and JPEG images.
+  - StaticStack Page: https://www.staticstack.app/tools/images-optimization/tinypng
+  - Official Website: https://tinypng.com/
+  - Badges: Freemium
+  - Tags: tinypng, tinyjpg, smart-lossy-compression, shrink-png-webp-avif, faster-page-speed, webp-converter, svg-vectorizer, image-compression, core-web-vitals, fast-page-load
+- **Unsplash** — High-resolution, royalty-free stock photography library for website assets.
+  - StaticStack Page: https://www.staticstack.app/tools/images-optimization/unsplash
+  - Official Website: https://unsplash.com/
+  - Badges: Freemium
+  - Tags: unsplash, royalty-free-photos, hd-stock-images, commercial-free-photography, hero-background-images, webp-converter, svg-vectorizer, image-compression, core-web-vitals, fast-page-load
+
+### Interactive Maps & Geolocation (2 tools)
+Category Page: https://www.staticstack.app/category/maps-geolocation/
+Add mobile-friendly, interactive vector and raster maps without API billing hurdles.
+
+- **Leaflet.js** — Lightweight open-source JavaScript library for mobile-friendly interactive maps.
+  - StaticStack Page: https://www.staticstack.app/tools/maps-geolocation/leaflet
+  - Official Website: https://leafletjs.com/
+  - Badges: Open Source
+  - Tags: leaflet-js, open-source-maps, openstreetmap-js, lightweight-mobile-maps, custom-map-markers, geojson-layers, interactive-maps, webgl-maps, google-maps-alternative, geojson
+- **Mapbox GL JS** — Interactive WebGL vector maps with customizable visual styles and 3D terrain.
+  - StaticStack Page: https://www.staticstack.app/tools/maps-geolocation/mapbox-gl-js
+  - Official Website: https://www.mapbox.com/mapbox-gl-js
+  - Badges: Freemium
+  - Tags: mapbox-gl-js, webgl-vector-maps, 3d-terrain-maps, custom-map-studio, smooth-interactive-maps, interactive-maps, webgl-maps, google-maps-alternative, geojson, store-locator
+
+### Interactive Scripts & Animation (3 tools)
+Category Page: https://www.staticstack.app/category/interactive-scripts/
+Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS.
+
+- **AOS (Animate On Scroll)** — Animate elements on your static web pages as visitors scroll down with simple data attributes.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/aos
+  - Official Website: https://michalsnik.github.io/aos/
+  - Badges: Open Source
+  - Tags: aos-js, animate-on-scroll, scroll-reveal-css, data-aos-attributes, lightweight-scroll-effects, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **PhotoSwipe** — Lightweight, responsive JavaScript image gallery and lightbox with smooth gestures and zoom.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/photoswipe
+  - Official Website: https://photoswipe.com/
+  - Badges: Open Source
+  - Tags: photoswipe, javascript-lightbox, touch-zoom-gallery, responsive-photo-modal, zero-dependency-gallery, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+- **Swiper.js** — Modern mobile touch slider with hardware accelerated transitions and zero framework dependencies.
+  - StaticStack Page: https://www.staticstack.app/tools/interactive-scripts/swiper
+  - Official Website: https://swiperjs.com/
+  - Badges: Open Source
+  - Tags: swiper-js, mobile-touch-carousel, hardware-accelerated-slider, 3d-coverflow-slider, vanilla-js-carousel, vanilla-js, scroll-animations, touch-slider, lightbox-gallery, zero-dependencies
+
+### Live Chat & Support (2 tools)
+Category Page: https://www.staticstack.app/category/live-chat/
+Engage visitors and answer questions in real time with lightweight chat widgets.
+
+- **Crisp** — All-in-one multichannel customer messaging and live chat platform with a lightweight widget.
+  - StaticStack Page: https://www.staticstack.app/tools/live-chat/crisp
+  - Official Website: https://crisp.chat/
+  - Badges: Freemium
+  - Tags: crisp-chat, free-live-chat-widget, shared-inbox, magicbrowse-cobrowsing, chatbot-knowledge-base, customer-support-widget, live-chat-embed, helpdesk-widget, visitor-messaging, no-backend-chat
+- **Tawk.to** — 100% free live chat application to monitor and chat with visitors in real-time.
+  - StaticStack Page: https://www.staticstack.app/tools/live-chat/tawk-to
+  - Official Website: https://www.tawk.to/
+  - Badges: Free
+  - Tags: tawk-to, 100-percent-free-live-chat, unlimited-chat-agents, real-time-visitor-monitoring, support-ticketing, customer-support-widget, live-chat-embed, helpdesk-widget, visitor-messaging, no-backend-chat
+
+### Media & Video Players (3 tools)
+Category Page: https://www.staticstack.app/category/media-players/
+Embed audio, video, and streaming media without intrusive third-party ads or trackers.
+
+- **Mux Player** — Responsive, high-performance web video player with automatic HLS streaming.
+  - StaticStack Page: https://www.staticstack.app/tools/media-players/mux-player
+  - Official Website: https://mux.com/player
+  - Badges: Open Source
+  - Tags: mux-player, hls-video-web-component, adaptive-bitrate-streaming, timeline-hover-previews, video-api, html5-video-player, hls-streaming, audio-waveform, podcast-player, custom-media-player
+- **Plyr** — Simple, lightweight, accessible HTML5 media player for video, audio, and YouTube.
+  - StaticStack Page: https://www.staticstack.app/tools/media-players/plyr
+  - Official Website: https://plyr.io/
+  - Badges: Open Source
+  - Tags: plyr-io, accessible-html5-player, custom-youtube-vimeo-player, stylable-css-video-player, audio-video-controls, html5-video-player, hls-streaming, audio-waveform, podcast-player, custom-media-player
+- **Wavesurfer.js** — Customizable interactive audio waveform visualizer and player in vanilla JavaScript.
+  - StaticStack Page: https://www.staticstack.app/tools/media-players/wavesurfer
+  - Official Website: https://wavesurfer.xyz/
+  - Badges: Open Source
+  - Tags: wavesurfer-js, audio-waveform-visualizer, web-audio-canvas, podcast-waveform-player, interactive-audio-scrubbing, html5-video-player, hls-streaming, audio-waveform, podcast-player, custom-media-player
+
+### Monitoring & Error Tracking (2 tools)
+Category Page: https://www.staticstack.app/category/monitoring-errors/
+Detect client-side JavaScript crashes and monitor performance in production.
+
+- **LogRocket** — Session replay and frontend telemetry to reproduce user-facing issues.
+  - StaticStack Page: https://www.staticstack.app/tools/monitoring-errors/logrocket
+  - Official Website: https://logrocket.com/
+  - Badges: Paid
+  - Tags: logrocket, frontend-session-replay, network-console-recorder, ux-issue-reproduction, performance-telemetry, error-tracking, session-replay, frontend-observability, bug-reporting, rum-monitoring
+- **Sentry** — Frontend JavaScript error monitoring and performance tracing for web applications.
+  - StaticStack Page: https://www.staticstack.app/tools/monitoring-errors/sentry
+  - Official Website: https://sentry.io/
+  - Badges: Open Source, Freemium
+  - Tags: sentry-io, javascript-error-tracking, source-map-stack-traces, crash-reporting, release-health-monitoring, error-tracking, session-replay, frontend-observability, bug-reporting, rum-monitoring
+
+### Newsletters & Email (4 tools)
+Category Page: https://www.staticstack.app/category/newsletters-email/
+Collect subscribers, send newsletters, and handle email delivery from static websites.
+
+- **Brevo** — Comprehensive email marketing and transactional email platform.
+  - StaticStack Page: https://www.staticstack.app/tools/newsletters-email/brevo
+  - Official Website: https://www.brevo.com/
+  - Badges: Freemium
+  - Tags: brevo, sendinblue, free-transactional-email, newsletter-signup-forms, smtp-email-marketing, newsletter-embed, transactional-email, email-api, subscriber-growth, mailchimp-alternative
+- **Buttondown** — Privacy-friendly newsletter publishing and subscriber management for developers.
+  - StaticStack Page: https://www.staticstack.app/tools/newsletters-email/buttondown
+  - Official Website: https://buttondown.com/
+  - Badges: Freemium
+  - Tags: buttondown-email, markdown-newsletter, minimalist-email-list, rss-to-email-automation, indie-newsletter-tool, newsletter-embed, transactional-email, email-api, subscriber-growth, mailchimp-alternative
+- **Emailit** — Modern email API for sending transactional messages from apps and static sites.
+  - StaticStack Page: https://www.staticstack.app/tools/newsletters-email/emailit
+  - Official Website: https://emailit.com/
+  - Badges: Freemium
+  - Tags: emailit, developer-email-api, rest-smtp-sending, serverless-transactional-email, pay-as-you-go-email, newsletter-embed, transactional-email, email-api, subscriber-growth, mailchimp-alternative
+- **SMTP2GO** — Reliable transactional email delivery service and API with real-time analytics, SPF/DKIM authentication, and global infrastructure.
+  - StaticStack Page: https://www.staticstack.app/tools/newsletters-email/smtp2go
+  - Official Website: https://www.smtp2go.com/
+  - Badges: Freemium
+  - Tags: smtp2go, transactional-email-api, smtp-relay, email-deliverability, serverless-email, dkim-spf-automation, email-notifications, transactional-email, email-api, newsletter-embed
+
+### Payments & E-commerce (5 tools)
+Category Page: https://www.staticstack.app/category/payments-ecommerce/
+Sell digital downloads, services, memberships, and other products from static websites.
+
+- **Lemon Squeezy** — Sell digital products and manage online payments with global tax compliance.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/lemon-squeezy
+  - Official Website: https://www.lemonsqueezy.com/
+  - Badges: Free
+  - Tags: lemon-squeezy, merchant-of-record, global-vat-tax-compliance, sell-saas-and-downloads, overlay-checkout-embed, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **Payhip** — Sell digital downloads, memberships, and online courses from static sites.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/payhip
+  - Official Website: https://payhip.com/
+  - Badges: Free
+  - Tags: payhip, sell-ebooks-courses, no-monthly-fee-ecommerce, embed-buy-button, instant-digital-delivery, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **PaymentForm** — Create custom checkout forms to accept payments, tickets, and donations online.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/paymentform
+  - Official Website: https://paymentform.io/
+  - Badges: Freemium
+  - Tags: paymentform, stripe-checkout-builder, no-code-payment-links, event-tickets-donations, hosted-pay-forms, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **Reflow** — Add complete e-commerce stores, shopping carts, subscriptions, and user authentication to static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/reflow
+  - Official Website: https://reflowhq.com/
+  - Badges: Freemium
+  - Tags: reflow-hq, static-site-shopping-cart, html-data-attribute-store, stripe-paypal-static-cart, jamstack-ecommerce, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **Stripe Payment Links** — Accept payments through hosted checkout pages without writing server code.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/stripe-payment-links
+  - Official Website: https://stripe.com/payments/payment-links
+  - Badges: Free
+  - Tags: stripe-payment-links, stripe-buy-button, no-code-stripe-checkout, apple-google-pay-links, recurring-subscriptions, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+
+### Search (2 tools)
+Category Page: https://www.staticstack.app/category/search/
+Add search functionality to static websites, documentation, and blogs.
+
+- **Algolia** — Hosted search API with typo-tolerant search and pre-built frontend widgets.
+  - StaticStack Page: https://www.staticstack.app/tools/search/algolia
+  - Official Website: https://www.algolia.com/
+  - Badges: Freemium
+  - Tags: algolia-search, instantsearch-js, docsearch, typo-tolerant-search, millisecond-search-api, static-site-search, client-side-search, instant-search, wasm-search, zero-server-search
+- **Pagefind** — Static search indexing designed specifically for static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/search/pagefind
+  - Official Website: https://pagefind.app/
+  - Badges: Open Source
+  - Tags: pagefind, rust-wasm-static-search, zero-bandwidth-search-index, astro-hugo-11ty-search, offline-static-search, static-site-search, client-side-search, instant-search, wasm-search, zero-server-search
+
+### Security & Spam Protection (3 tools)
+Category Page: https://www.staticstack.app/category/security-spam-protection/
+Protect forms and websites against automated spam and abuse.
+
+- **Cloudflare Turnstile** — Privacy-friendly, frustration-free CAPTCHA alternative.
+  - StaticStack Page: https://www.staticstack.app/tools/security-spam-protection/cloudflare-turnstile
+  - Official Website: https://developers.cloudflare.com/turnstile/
+  - Badges: Free
+  - Tags: cloudflare-turnstile, invisible-captcha-alternative, no-puzzle-bot-protection, privacy-first-verification, free-recaptcha-replacement, bot-protection, captcha-alternative, form-spam-filter, privacy-captcha, zero-friction-security
+- **Google reCAPTCHA** — Industry-standard bot detection and abuse prevention service.
+  - StaticStack Page: https://www.staticstack.app/tools/security-spam-protection/google-recaptcha
+  - Official Website: https://cloud.google.com/security/products/recaptcha
+  - Badges: Freemium
+  - Tags: google-recaptcha, recaptcha-v3-score, automated-bot-defense, form-abuse-protection, bot-protection, captcha-alternative, form-spam-filter, privacy-captcha, zero-friction-security, freemium
+- **hCaptcha** — Privacy-oriented bot detection and human verification platform.
+  - StaticStack Page: https://www.staticstack.app/tools/security-spam-protection/hcaptcha
+  - Official Website: https://www.hcaptcha.com/
+  - Badges: Freemium
+  - Tags: hcaptcha, privacy-focused-captcha, gdpr-bot-mitigation, recaptcha-drop-in-replacement, bot-protection, captcha-alternative, form-spam-filter, privacy-captcha, zero-friction-security, freemium
+
+### Static Site Generators (8 tools)
+Category Page: https://www.staticstack.app/category/static-site-generators/
+Build fast, pre-rendered static HTML websites from templates and Markdown.
+
+- **Astro** — Web framework designed for content-driven websites that ships zero JavaScript by default.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/astro
+  - Official Website: https://astro.build/
+  - Badges: Open Source
+  - Tags: astro-build, islands-architecture, zero-js-by-default, mdx-content-collections, fastest-static-framework, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites
+- **Eleventy (11ty)** — Simple, flexible static site generator that transforms templates and Markdown into fast static HTML.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/eleventy
+  - Official Website: https://www.11ty.dev/
+  - Badges: Open Source
+  - Tags: eleventy, 11ty, zero-client-js-ssg, liquid-nunjucks-markdown, fast-node-ssg, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites
+- **Gatsby** — React-based static site framework with a unified GraphQL data layer and rich plugin ecosystem.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/gatsby
+  - Official Website: https://www.gatsbyjs.com/
+  - Badges: Open Source
+  - Tags: gatsby-js, react-graphql-ssg, static-image-optimization, headless-cms-react, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites, blog-generator
+- **Hugo** — The world's fastest static site generator, capable of rendering thousands of pages in milliseconds.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/hugo
+  - Official Website: https://gohugo.io/
+  - Badges: Open Source
+  - Tags: gohugo, fastest-go-ssg, millisecond-markdown-builds, single-binary-ssg, multilingual-static-sites, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites
+- **Jekyll** — Battle-tested Ruby static site generator that transforms plain Markdown and Liquid templates into static websites and powers GitHub Pages natively.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/jekyll
+  - Official Website: https://jekyllrb.com/
+  - Badges: Open Source
+  - Tags: jekyll-rb, github-pages-native-ssg, liquid-templates, markdown-blog-engine, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites, blog-generator
+- **Next.js** — Full-featured React framework supporting pure static site exports (`output: 'export'`) alongside modern routing and TypeScript tooling.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/nextjs
+  - Official Website: https://nextjs.org/
+  - Badges: Open Source
+  - Tags: nextjs-static-export, react-static-site-generation, output-export, app-router-ssg, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites, blog-generator
+- **Pelican** — Python-powered static site generator that compiles Markdown and reStructuredText into clean static HTML using Jinja2 templates.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/pelican
+  - Official Website: https://getpelican.com/
+  - Badges: Open Source
+  - Tags: pelican-ssg, python-static-generator, jinja2-templates, restructuredtext-markdown, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites, blog-generator
+- **Zola** — Single-binary static site generator written in Rust with built-in Sass compilation, syntax highlighting, and search indexing.
+  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/zola
+  - Official Website: https://www.getzola.org/
+  - Badges: Open Source
+  - Tags: getzola, rust-single-binary-ssg, tera-templates, built-in-sass-search, zero-dependency-ssg, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites
+
+### Surveys & Feedback (2 tools)
+Category Page: https://www.staticstack.app/category/surveys-feedback/
+Gather visitor responses, run interactive polls, and publish product roadmaps.
+
+- **Sleekplan** — All-in-one user feedback board, public roadmap, and changelog widget.
+  - StaticStack Page: https://www.staticstack.app/tools/surveys-feedback/sleekplan
+  - Official Website: https://sleekplan.com/
+  - Badges: Freemium
+  - Tags: sleekplan, in-app-feedback-board, public-product-roadmap, changelog-popup-widget, feature-voting, feedback-widget, embeddable-surveys, product-roadmap, changelog-widget, typeform-alternative
+- **Tally** — Intuitive form and survey builder with unlimited free forms and embeds.
+  - StaticStack Page: https://www.staticstack.app/tools/surveys-feedback/tally
+  - Official Website: https://tally.so/
+  - Badges: Freemium
+  - Tags: tally-so, notion-style-form-builder, unlimited-free-forms, conditional-logic-surveys, typeform-free-alternative, feedback-widget, embeddable-surveys, product-roadmap, changelog-widget, typeform-alternative
+
+### Tutorials (4 tools)
+Category Page: https://www.staticstack.app/category/tutorials/
+Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites.
+
+- **AI-Built Static Sites (WP Easy)** — Step-by-step production walkthrough showing how to build a data-driven static site from a client brief using an AI coding agent, Alpine.js, JSON collections, and zero-compile deployment to Cloudflare.
+  - StaticStack Page: https://www.staticstack.app/tools/tutorials/ai-built-static-sites-wp-easy
+  - Official Website: https://www.youtube.com/watch?v=C3gS3o--bcI
+  - Badges: Free
+  - Tags: youtube-video, wp-easy, ai-coding-agents, bricks-builder-migration, cloudflare-deployment, alpine-js, static-sites, zero-compile, pagespeed-optimization, static-web-tutorials
+- **Cold Compile** — Real-world tutorials, video walkthroughs, and production guides covering EmDash CMS, Astro, Breakdance, and modern AI development tooling.
+  - StaticStack Page: https://www.staticstack.app/tools/tutorials/coldcompile
+  - Official Website: https://coldcompile.dev/
+  - Badges: Free
+  - Tags: cold-compile, astro-video-tutorials, emdash-cms-guides, breakdance-static-workflows, modern-static-architecture, static-web-tutorials, astro-guides, jamstack-course, web-dev-walkthroughs, zero-backend-guides
+- **The Static HTML Advantage (AskSEOCoach)** — An architectural breakdown explaining why lightweight static HTML websites consistently outperform complex CMS stacks in search rankings, speed, and crawl efficiency.
+  - StaticStack Page: https://www.staticstack.app/tools/tutorials/static-html-advantage-seo
+  - Official Website: https://www.youtube.com/watch?v=XKntRFeaeKA
+  - Badges: Free
+  - Tags: youtube-video, askseocoach, static-html, seo-performance, core-web-vitals, crawl-budget, search-rankings, clean-code, zero-bloat, static-web-tutorials
+- **The Web Design Shift (WPTuts)** — An architectural breakdown exploring why web creators are moving from heavy WordPress maintenance to modern visual, static-first tools powered by Astro.
+  - StaticStack Page: https://www.staticstack.app/tools/tutorials/wptuts-wordpress-shift
+  - Official Website: https://www.youtube.com/watch?v=RGvDeQcmKy0
+  - Badges: Free
+  - Tags: youtube-video, wptuts, wordpress-migration, astro-visual-builders, sitereal, instatic, stacki, phantom-studio, static-web-guide, jamstack-tutorial
+
+### Typography & Web Fonts (3 tools)
+Category Page: https://www.staticstack.app/category/typography-fonts/
+Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services.
+
+- **Bunny Fonts** — Privacy-first, GDPR-compliant drop-in alternative to Google Fonts.
+  - StaticStack Page: https://www.staticstack.app/tools/typography-fonts/bunny-fonts
+  - Official Website: https://fonts.bunny.net/
+  - Badges: Free
+  - Tags: bunny-fonts, gdpr-google-fonts-replacement, zero-logging-font-cdn, eu-privacy-web-fonts, self-hosted-fonts, gdpr-fonts, google-fonts-alternative, variable-fonts, web-typography, zero-layout-shift
+- **Fontsource** — Self-host open-source web fonts locally with zero external network requests.
+  - StaticStack Page: https://www.staticstack.app/tools/typography-fonts/fontsource
+  - Official Website: https://fontsource.org/
+  - Badges: Open Source
+  - Tags: fontsource, npm-self-hosted-fonts, local-woff2-fonts, zero-external-dns-fonts, offline-google-fonts, self-hosted-fonts, gdpr-fonts, google-fonts-alternative, variable-fonts, web-typography
+- **Google Fonts** — Extensive library of open-source web fonts and icons delivered via global CDN.
+  - StaticStack Page: https://www.staticstack.app/tools/typography-fonts/google-fonts
+  - Official Website: https://fonts.google.com/
+  - Badges: Free, Open Source
+  - Tags: google-fonts, free-open-source-typefaces, variable-web-fonts, material-symbols-icons, global-font-cdn, self-hosted-fonts, gdpr-fonts, google-fonts-alternative, variable-fonts, web-typography
+
+### Inactive (4 tools)
+Category Page: https://www.staticstack.app/category/inactive/
+Site is not accessible or site is down
+
+- **Codeberg Pages** — Community-driven, privacy-respecting, and free static website hosting powered by Codeberg and Forgejo.
+  - StaticStack Page: https://www.staticstack.app/tools/inactive/codeberg-pages
+  - Official Website: https://pages.codeberg.org/
+  - Badges: Open Source, Free
+  - Tags: static-hosting, git-pages, forgejo, open-source, privacy, free-hosting, codeberg-pages, eu-nonprofit-hosting, open-source-git-hosting, github-pages-alternative
+- **Free CSS** — Huge archive of 3,500+ free HTML and CSS website templates ready to download and customize for any static website.
+  - StaticStack Page: https://www.staticstack.app/tools/inactive/free-css
+  - Official Website: https://www.free-css.com/free-css-templates
+  - Badges: Free
+  - Tags: free-css, html-templates, css-templates, free-website-templates, static-html-themes, responsive-templates, landing-page-templates, free, static-web, jamstack
+- **GoatCounter** — Lightweight, privacy-friendly web analytics without cookie banners.
+  - StaticStack Page: https://www.staticstack.app/tools/inactive/goatcounter
+  - Official Website: https://www.goatcounter.com/
+  - Badges: Open Source, Freemium
+  - Tags: goatcounter, open-source-analytics, cookieless-tracking, gdpr-analytics, lightweight-analytics, no-banner-analytics, cookieless-analytics, gdpr-compliant, google-analytics-alternative, privacy-first
+- **Umami** — Simple, privacy-focused open-source alternative to Google Analytics.
+  - StaticStack Page: https://www.staticstack.app/tools/inactive/umami
+  - Official Website: https://umami.is/
+  - Badges: Open Source, Freemium
+  - Tags: analytics, privacy, cookieless, gdpr, self-hosted, open-source, umami-analytics, self-hosted-analytics, open-source-ga-alternative, cookieless-metrics

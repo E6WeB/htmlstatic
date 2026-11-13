@@ -1,0 +1,64 @@
+# StaticStack
+
+> A curated directory of 149 tools, APIs, and services across 29 categories, plus 9 engineering guides for building fast, zero-bloat static websites.
+
+StaticStack helps developers replace heavy monolithic backends with composable static-first tooling (SSGs, edge hosting, serverless forms, static search, auth, CMS, and privacy-respecting utilities).
+
+## Core Pages
+
+- [Home](https://www.staticstack.app/): Main StaticStack directory and category explorer.
+- [Search](https://www.staticstack.app/search): Client-side instant search across all 149 tools and 29 categories.
+- [Archive](https://www.staticstack.app/archive): Complete alphabetical & category archive of static web tools.
+- [Blog](https://www.staticstack.app/blog): In-depth guides on static site architecture, migration, and performance.
+- [Community](https://www.staticstack.app/community): Developer discussions, project showcases, and Q&A.
+- [Submit a Tool](https://www.staticstack.app/submit): Suggest a static-friendly tool or service for inclusion.
+- [Contribute](https://www.staticstack.app/contribute): How to contribute to StaticStack on GitHub.
+
+## Categories (29)
+
+- [AI & Content Creation](https://www.staticstack.app/category/ai-content-creation/): AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. (6 tools)
+- [AI Models](https://www.staticstack.app/category/ai-models/): Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference. (10 tools)
+- [Analytics & Privacy](https://www.staticstack.app/category/analytics-privacy/): Understand website traffic, visitor behavior, and page performance. (3 tools)
+- [Authentication & User Management](https://www.staticstack.app/category/authentication-users/): Add user login, member areas, and gated content to static sites without backend code. (3 tools)
+- [Booking & Scheduling](https://www.staticstack.app/category/booking-scheduling/): Allow visitors to book appointments and discovery calls directly from static pages. (2 tools)
+- [Browser Extensions](https://www.staticstack.app/category/browser-extensions/): Helpful browser extensions for static site development, link sharing, and productivity. (2 tools)
+- [Comments & Community](https://www.staticstack.app/category/comments-community/): Let visitors comment on blog posts and interact with your content. (6 tools)
+- [Contact Forms](https://www.staticstack.app/category/contact-forms/): Add contact forms to static websites without building your own form-processing backend. (5 tools)
+- [Content Management](https://www.staticstack.app/category/content-management/): Manage content on static websites without adopting a traditional, full-featured CMS. (7 tools)
+- [CSS & UI Component Libraries](https://www.staticstack.app/category/css-components/): Build responsive, accessible user interfaces without complex build steps or heavy frameworks. (4 tools)
+- [Database & Backend-as-a-Service](https://www.staticstack.app/category/database-storage/): Store, query, and synchronize data from static frontends without maintaining servers. (3 tools)
+- [Development Tools](https://www.staticstack.app/category/development-tools/): Tools that make building, testing, and maintaining static websites easier. (22 tools)
+- [Hosting & Deployment](https://www.staticstack.app/category/hosting-deployment/): Services for publishing static HTML, CSS, and JavaScript websites online. (13 tools)
+- [HTML Templates](https://www.staticstack.app/category/html-templates/): Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstart your static website without starting from a blank canvas. (9 tools)
+- [Images & Optimization](https://www.staticstack.app/category/images-optimization/): Optimize images and other assets to improve loading speed and user experience. (7 tools)
+- [Interactive Maps & Geolocation](https://www.staticstack.app/category/maps-geolocation/): Add mobile-friendly, interactive vector and raster maps without API billing hurdles. (2 tools)
+- [Interactive Scripts & Animation](https://www.staticstack.app/category/interactive-scripts/): Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS. (3 tools)
+- [Live Chat & Support](https://www.staticstack.app/category/live-chat/): Engage visitors and answer questions in real time with lightweight chat widgets. (2 tools)
+- [Media & Video Players](https://www.staticstack.app/category/media-players/): Embed audio, video, and streaming media without intrusive third-party ads or trackers. (3 tools)
+- [Monitoring & Error Tracking](https://www.staticstack.app/category/monitoring-errors/): Detect client-side JavaScript crashes and monitor performance in production. (2 tools)
+- [Newsletters & Email](https://www.staticstack.app/category/newsletters-email/): Collect subscribers, send newsletters, and handle email delivery from static websites. (4 tools)
+- [Payments & E-commerce](https://www.staticstack.app/category/payments-ecommerce/): Sell digital downloads, services, memberships, and other products from static websites. (5 tools)
+- [Search](https://www.staticstack.app/category/search/): Add search functionality to static websites, documentation, and blogs. (2 tools)
+- [Security & Spam Protection](https://www.staticstack.app/category/security-spam-protection/): Protect forms and websites against automated spam and abuse. (3 tools)
+- [Static Site Generators](https://www.staticstack.app/category/static-site-generators/): Build fast, pre-rendered static HTML websites from templates and Markdown. (8 tools)
+- [Surveys & Feedback](https://www.staticstack.app/category/surveys-feedback/): Gather visitor responses, run interactive polls, and publish product roadmaps. (2 tools)
+- [Tutorials](https://www.staticstack.app/category/tutorials/): Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites. (4 tools)
+- [Typography & Web Fonts](https://www.staticstack.app/category/typography-fonts/): Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services. (3 tools)
+- [Inactive](https://www.staticstack.app/category/inactive/): Site is not accessible or site is down (4 tools)
+
+## Blog Guides (9)
+
+- [Why People Are Leaving WordPress for Static HTML Websites](https://www.staticstack.app/blog/why-people-are-leaving-wordpress-for-static-html/): Explore why developers, agencies, and businesses are ditching bloated WordPress sites for fast, unhackable, zero-maintenance static HTML websites.
+- [25 Best Free Tools for Building Static HTML Websites](https://www.staticstack.app/blog/25-best-free-tools-for-building-static-html-websites/): The ultimate curated guide to the 25 best free tools, services, and libraries for building fast, secure static HTML websites in 2026.
+- [How to Build a Website Without WordPress](https://www.staticstack.app/blog/how-to-build-a-website-without-wordpress/): Learn how to build, host, and manage high-performance websites without WordPress, PHP, or fragile plugins. Complete architecture blueprint for static HTML.
+- [Best Free Hosting Services for Static HTML Websites](https://www.staticstack.app/blog/best-free-hosting-services-for-static-html-websites/): Detailed 2026 comparison of the best free hosting providers for static websites: Cloudflare Pages, Vercel, Netlify, GitHub Pages, Render, and Wasmer.
+- [How to Add Contact Forms to Static Websites](https://www.staticstack.app/blog/how-to-add-contact-forms-to-static-websites/): A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.
+- [Best Open Source JavaScript Libraries for Websites](https://www.staticstack.app/blog/best-open-source-javascript-libraries-for-websites/): The best open-source, lightweight Vanilla JavaScript libraries for adding carousels, lightbox galleries, animations, and interactive maps to static HTML sites.
+- [How to Add Comments to a Static HTML Blog](https://www.staticstack.app/blog/how-to-add-comments-to-a-static-html-blog/): A practical step-by-step guide to adding serverless comments to static HTML and Jamstack blogs using Giscus, Utterances, and GitHub Discussions.
+- [How to Add Search Functionality to a Static Website](https://www.staticstack.app/blog/how-to-add-search-functionality-to-a-static-website/): Complete guide to implementing fast, client-side full-text search on static websites using Pagefind, Algolia, and JSON index search.
+- [How to Build a Website Without a Database or Backend](https://www.staticstack.app/blog/how-to-build-a-website-without-a-database-or-backend/): The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.
+
+## Full Reference
+
+- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 149 tools, official URLs, tags, badges, and 9 blog guides.
+- [XML Sitemap](https://www.staticstack.app/sitemap.xml): Canonical URL index.

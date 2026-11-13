@@ -1,0 +1,55 @@
+name: Weekly Link Health Check
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  link-health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check external tool links
+        run: node scripts/check_links.js
+
+      - name: Move dead tools to Inactive (2+ consecutive failures)
+        run: node scripts/move_dead_tools.js --threshold=2
+
+      - name: Rebuild site & run SEO audit
+        run: |
+          npm run build
+          node scripts/seo_audit.js
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore: weekly link health update'
+          branch: chore/weekly-link-health
+          delete-branch: true
+          title: 'chore: weekly link health & dead-tool check'
+          body: |
+            Automated weekly link health check (`scripts/check_links.js`) and dead-tool sweep (`scripts/move_dead_tools.js --threshold=2`).
+
+            - Updates `asset/json/link-health.json` with the latest HTTP check results and `consecutive_failures` counts.
+            - Moves any active tool with **2+ consecutive weekly failures** to `## Inactive` in `README.md` and `tools/inactive/`.
+            - Rebuilds static pages (`npm run build`) and verifies `node scripts/seo_audit.js`.
+
+            Please review before merging.
+          labels: automated, maintenance
+
