@@ -1319,18 +1319,6 @@ const BASE_CSS = `
     flex-wrap: wrap;
   }
 
-  /* Left Nav Rail GitHub Auth Item & Hover Popover */
-  .rail-auth-item {
-    position: relative;
-  }
-
-  .rail-auth-btn {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-  }
-
   .rail-auth-avatar {
     width: 26px;
     height: 26px;
@@ -1338,62 +1326,6 @@ const BASE_CSS = `
     object-fit: cover;
     border: 1.5px solid var(--border-color);
     display: block;
-  }
-
-  .rail-auth-popover {
-    position: absolute;
-    left: calc(100% + 8px);
-    top: 50%;
-    transform: translateY(-50%) translateX(-4px);
-    min-width: 175px;
-    padding: 0.7rem 0.8rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.14);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
-    z-index: 120;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-  }
-
-  .rail-auth-popover::before {
-    content: '';
-    position: absolute;
-    left: -12px;
-    top: 0;
-    bottom: 0;
-    width: 12px;
-  }
-
-  .rail-auth-item:hover .rail-auth-popover,
-  .rail-auth-item:focus-within .rail-auth-popover {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(-50%) translateX(0);
-  }
-
-  .rail-auth-popover-title {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .rail-auth-action {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.78rem;
-    padding: 0.35rem 0.6rem;
-    white-space: nowrap;
   }
 
   /* Home Page Top 4 Viewed Tools Grid */

@@ -1,7 +1,7 @@
 # StaticStack — Website Suggestions & Strategic Roadmap
 
 > **Philosophy:** Zero backend bloat, blazing-fast static pre-rendering, minimal external dependencies, and privacy-respecting architecture.
-> **Current Baseline:** **149 tools** across **29 categories**, **9 blog articles**, **199 compiled HTML pages**, **196 sitemap URLs**, `/llms.txt` & `/llms-full.txt`, automated SEO & dead-link CI/CD gates, and a light-theme, bot-locked `/stats` analytics dashboard (`src/stats.js`).
+> **Current Baseline:** **159 tools** across **29 categories**, **9 blog articles**, **210 compiled HTML pages**, **207 sitemap URLs**, `/llms.txt` & `/llms-full.txt`, automated SEO & dead-link CI/CD gates, GitHub-synced `/stack/` bookmarks, and a light-theme, bot-locked `/stats` analytics dashboard (`src/stats.js`).
 
 ---
 
@@ -11,17 +11,18 @@
 | :--- | :--- | :---: | :---: | :---: |
 | **1. Global Quick-Jump Command Palette (`Ctrl+K`)** | UX / Navigation | Very High | Low | ⏳ **Next** |
 | **2. Offline PWA Rollout (`sw.js` + `offline.html`)** | Speed / Offline | High | Low | ⏳ **Next** |
-| **3. Side-by-Side Tool Comparison (`/compare/`)** | SEO / Content | Very High | Medium | ⏳ **Planned** |
+| **3. Unified Single Sign-On (First-Party Tool Comments)** | Auth / Community | Very High | Medium | ⏳ **Next** |
+| **4. Side-by-Side Tool Comparison (`/compare/`)** | SEO / Content | Very High | Medium | ⏳ **Planned** |
 | **5. `/stats` Privacy Telemetry & Core Web Vitals** | Analytics / Perf | High | Medium | ⏳ **Planned** |
 | **6. Static Starter Blueprints (Copy-Paste Recipes)** | Onboarding / UX | High | Medium | ⏳ **Planned** |
-| **8. Embeddable `/badge/<slug>.svg` & `/feed.xml`** | Growth / Syndication | High | Low | ⏳ **Planned** |
+| **7. Embeddable `/badge/<slug>.svg` & `/feed.xml`** | Growth / Syndication | High | Low | ⏳ **Planned** |
 
 ---
 
 ## 🚀 Strategic Roadmap
 
 ### 1. Global Quick-Jump Command Palette (`Ctrl+K` / `Cmd+K`)
-* **The Problem:** With 149 tools, 29 categories, and 9 blog articles, scrolling or clicking back to the homepage search bar slows down power users.
+* **The Problem:** With 159 tools, 29 categories, and 9 blog articles, scrolling or clicking back to the homepage search bar slows down power users.
 * **The Solution:** Build a zero-dependency `<dialog>`-based Command Palette triggered via `Ctrl+K` / `Cmd+K` or a header pill button.
 * **Key Features:**
   - Instant fuzzy filtering over the pre-built `search-data.json` index (tools, categories, and blog guides).
@@ -35,7 +36,14 @@
   - **`offline.html`:** Clean fallback page matching StaticStack's light/clean aesthetic when a user visits an uncached route offline.
   - **`asset/js/pwa.js`:** Lightweight registration and non-intrusive update toast when a new build deploys.
 
-### 3. Side-by-Side Tool Comparison Pages (`/compare/`)
+### 3. Unified Single Sign-On (Replace Giscus with First-Party Tool Comments)
+* **The Problem:** Signing in with GitHub via the left nav rail (`/community/oauth`) logs users into **Community Topics** and **My Static Stack** (`/stack/`), but **Tool Page Comments** (`src/templates/tool-page.js`) still use third-party **Giscus** (`giscus.app`), forcing users to sign in a second time inside an external iframe.
+* **The Solution:** Replace the Giscus iframe with first-party tool comments powered by your existing `/community/oauth` session and PostgreSQL database (`community/forum.js`):
+  - **One Login Everywhere:** Uses the same `Path=/` GitHub session cookie across the nav rail, `/stack/`, `/community/`, and all 159 tool pages.
+  - **Postgres Storage (`tool_comments`):** Store `tool_slug`, `user_id`, `body`, and `created_at` in `staticstack_forum` alongside `forum_replies`, with full admin moderation.
+  - **Zero Third-Party Iframe:** Removes the external `giscus.app` script load from tool pages for faster rendering and consistent light-theme styling.
+
+### 4. Side-by-Side Tool Comparison Pages (`/compare/`)
 * **The Problem:** High-intent developer searches are almost always comparative (e.g., *"Formspree vs Basin vs Web3Forms"*, *"Astro vs Hugo vs 11ty"*, *"Cloudflare Pages vs Netlify vs Vercel"*).
 * **The Solution:** Pre-render static `/compare/<slug>/` pages from structured tool metadata:
   - Feature matrix: Free tier limits, open-source status, self-hostable flag, build/runtime dependency footprint.
@@ -48,14 +56,14 @@
   - **Real-User Core Web Vitals:** Capture anonymous LCP, INP, and CLS metrics (~1.5 KB `web-vitals` script) to verify every new page stays ultra-fast in the field.
 
 ### 6. Static Starter Blueprints (Copy-Paste Architecture Recipes)
-* **The Problem:** Beginners and indie hackers often want a proven end-to-end combination rather than picking 149 tools one by one.
+* **The Problem:** Beginners and indie hackers often want a proven end-to-end combination rather than picking 159 tools one by one.
 * **The Solution:** Create a `/blueprints/` or `/stacks/` section featuring 5–6 opinionated, zero-cost recipes:
   - *Zero-Cost SaaS Landing Page* (Static HTML/Tailwind + Cloudflare Pages + Web3Forms + Turnstile)
-  - *Developer Docs & Blog* (Astro/Hugo + GitHub Pages + Giscus + Pagefind)
+  - *Developer Docs & Blog* (Astro/Hugo + GitHub Pages + Pagefind)
   - *No-Backend E-Commerce* (11ty + Stripe Payment Links + Snipcart/Lemon Squeezy)
   - Link each blueprint directly to the corresponding tool pages and blog tutorials.
 
-### 8. Embeddable `/badge/<slug>.svg` & `/feed.xml` RSS/Atom Syndication
+### 7. Embeddable `/badge/<slug>.svg` & `/feed.xml` RSS/Atom Syndication
 * **The Problem:** Listed tool maintainers rarely link back without an easy, attractive asset, and returning developers have no passive way to follow new tools or blog posts.
 * **The Solution:**
   - **Static SVG Badges:** Pre-generate `/badge/<slug>.svg` (*"Featured on StaticStack"*) and provide a 1-click Markdown snippet on every tool page for organic backlinks.
@@ -74,26 +82,22 @@ flowchart TD
     subgraph "Phase 1: High-ROI Quick Wins"
         P1A["1. Ctrl+K Command Palette"]:::phase1
         P1B["2. Offline PWA (sw.js + offline.html)"]:::phase1
+        P1C["3. Unified SSO Tool Comments"]:::phase1
     end
 
     subgraph "Phase 2: SEO & Core Utility"
-        P2A["3. Side-by-Side /compare/ Pages"]:::phase2
-        P2B["4. Interactive My Static Stack Builder"]:::phase2
-        P2C["5. /stats Referrers + Web Vitals"]:::phase2
-        P2D["6. Static Starter Blueprints"]:::phase2
+        P2A["4. Side-by-Side /compare/ Pages"]:::phase2
+        P2B["5. /stats Referrers + Web Vitals"]:::phase2
+        P2C["6. Static Starter Blueprints"]:::phase2
     end
 
-    subgraph "Phase 3: Growth & Community"
-        P3A["7. Verified Live & Trending Badges"]:::phase3
-        P3B["8. Embeddable SVG Badges + /feed.xml"]:::phase3
-        P3C["9. Forum Solved Answer Marker"]:::phase3
+    subgraph "Phase 3: Growth & Syndication"
+        P3A["7. Embeddable SVG Badges + /feed.xml"]:::phase3
     end
 
-    P1A --> P2B
+    P1A --> P2C
     P1B --> P2A
-    P2B --> P2D
+    P1C --> P2C
     P2A --> P3A
-    P2B --> P3B
-    P2C --> P3A
-    P3A --> P3C
+    P2B --> P3A
 ```
