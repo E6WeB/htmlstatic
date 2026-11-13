@@ -1,7 +1,7 @@
 # StaticStack — Website Suggestions & Strategic Roadmap
 
 > **Philosophy:** Zero backend bloat, blazing-fast static pre-rendering, minimal external dependencies, and privacy-respecting architecture.
-> **Current Baseline:** **159 tools** across **29 categories**, **10 blog articles** (including the 7-part *Static HTML Starter Series*), **211 compiled HTML pages**, **208 sitemap URLs**, `/llms.txt` & `/llms-full.txt`, `/feed.xml` RSS 2.0 feed, per-tool `/badge/<slug>.svg` badges (`badge/featured.webp`), automated SEO & dead-link CI/CD gates, GitHub-synced `/stack/` bookmarks, and a light-theme, bot-locked `/stats` analytics dashboard (`src/stats.js`).
+> **Current Baseline:** **160 tools** across **29 categories**, **10 blog articles** (including the 7-part *Static HTML Starter Series*), **212 compiled HTML pages**, **209 sitemap URLs**, `/llms.txt` & `/llms-full.txt`, `/feed.xml` RSS 2.0 feed, per-tool `/badge/<slug>.svg` badges (`badge/featured.webp`), automated SEO & dead-link CI/CD gates, GitHub-synced `/stack/` bookmarks, and a Falcon/Cruip-inspired, bot-locked `/stats` analytics dashboard (`src/stats.js`).
 
 ---
 
@@ -13,6 +13,7 @@
 | **2. Offline PWA Rollout (`sw.js` + `offline.html`)** | Speed / Offline | High | Low | ⏳ **Next** |
 | **3. Side-by-Side Tool Comparison (`/compare/`)** | SEO / Content | Very High | Medium | ⏳ **Planned** |
 | **4. `/stats` Privacy Telemetry & Core Web Vitals** | Analytics / Perf | High | Medium | ⏳ **Planned** |
+| **5. Unified GitHub + Facebook Login (Comments, Community & `/stack/`)** | Auth / Community | High | Medium | ⏳ **Planned** |
 
 ---
 
@@ -45,6 +46,13 @@
   - **Acquisition & Referrers:** Track top referring domains, UTM/campaign tags, and internal search queries (`search-data.json` misses reveal what tools users want added next).
   - **Real-User Core Web Vitals:** Capture anonymous LCP, INP, and CLS metrics (~1.5 KB `web-vitals` script) to verify every new page stays ultra-fast in the field.
 
+### 5. Unified GitHub + Facebook Login Across All Site Features
+* **The Problem:** `/stack/`, `/community/`, and tool discussions (`tool-comments.js`) already share the first-party `staticstack_forum_session` cookie, but blog comments still use Giscus (which only accepts GitHub accounts) and `/community/oauth` only supports GitHub.
+* **The Solution:** Unify authentication and comments so one login with either **GitHub** or **Facebook** works everywhere:
+  - **Step 1 — First-Party Blog Comments:** Replace the Giscus iframe in `src/templates/blog-page.js` with the first-party `tool-comments.js` discussion widget keyed by `blog-<slug>`.
+  - **Step 2 — Facebook OAuth in `community/forum.js`:** Add a `provider=facebook` branch in `handleOAuth` (`process.env.FACEBOOK_APP_ID` / `FACEBOOK_APP_SECRET`) and prefix user IDs (`gh_<id>` / `fb_<id>`) in `staticstack_forum_session` so accounts never collide.
+  - **Step 3 — Dual-Provider `/login` UI:** Present **Continue with GitHub** and **Continue with Facebook** on `/login` (with `?next=` redirect back to the originating page).
+
 ---
 
 ## 🗺️ Phased Implementation Roadmap
@@ -62,9 +70,11 @@ flowchart TD
     subgraph "Phase 2: SEO & Core Utility"
         P2A["3. Side-by-Side /compare/ Pages"]:::phase2
         P2B["4. /stats Referrers + Web Vitals"]:::phase2
+        P2C["5. Unified GitHub + Facebook Login"]:::phase2
     end
 
     P1A --> P2A
     P1B --> P2A
     P2A --> P2B
+    P2B --> P2C
 ```
