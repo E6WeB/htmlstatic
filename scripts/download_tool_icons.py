@@ -89,7 +89,7 @@ def process_tool(cat_slug, tool):
     slug = tool['slug']
     name = tool['name']
     domain = get_domain(tool.get('websiteUrl', ''))
-    out_dir = os.path.join(SCRIPT_DIR, 'tools', cat_slug)
+    out_dir = os.path.join(ROOT_DIR, 'tools', cat_slug)
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, f'{slug}-icon.webp')
 

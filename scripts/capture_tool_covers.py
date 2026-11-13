@@ -34,7 +34,7 @@ def detect_chrome_path():
 
 
 CHROME_PATH = detect_chrome_path()
-SCRATCH_DIR = os.path.join(SCRIPT_DIR, 'asset', 'img', 'scratch')
+SCRATCH_DIR = os.path.join(ROOT_DIR, 'asset', 'img', 'scratch')
 os.makedirs(SCRATCH_DIR, exist_ok=True)
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
@@ -129,7 +129,7 @@ def main():
     print(f"Tools needing covers: {len(to_capture)} / {len(all_tools)}")
     if not to_capture:
         print("All tools already have covers! Running generate-pages.js...")
-        subprocess.run(["node", "generate-pages.js"], cwd=SCRIPT_DIR)
+        subprocess.run(["node", "generate-pages.js"], cwd=ROOT_DIR)
         return
 
     success_count = 0
@@ -182,7 +182,7 @@ def main():
 
     # Regenerate all HTML pages with the new covers
     print("\nRegenerating HTML pages with node generate-pages.js...")
-    subprocess.run(["node", "generate-pages.js"], cwd=SCRIPT_DIR)
+    subprocess.run(["node", "generate-pages.js"], cwd=ROOT_DIR)
     print("Done!")
 
 if __name__ == '__main__':

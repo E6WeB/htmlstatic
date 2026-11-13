@@ -90,6 +90,7 @@ function renderSiteFooter({ allTools = null, categories = null, rootPath = '', s
             <li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group ${ICONS.external}</a></li>
             <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
             <li><a href="${rootPath}contact">Contact</a></li>
+            <li><a href="${rootPath}stats">Site Stats</a></li>
           </ul>
         </div>
       </div>

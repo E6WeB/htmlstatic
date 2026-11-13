@@ -320,7 +320,7 @@ for page in pages:
     # Convert PNG to WebP with Pillow
     im = Image.open(temp_png)
     for out_name in page['output_filenames']:
-        out_path = os.path.join(SCRIPT_DIR, out_name)
+        out_path = os.path.join(ROOT_DIR, out_name)
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         im.save(out_path, 'WEBP', quality=82, method=6)
         print(f"  -> Saved {out_path} ({os.path.getsize(out_path)} bytes)")

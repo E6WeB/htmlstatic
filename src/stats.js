@@ -414,8 +414,8 @@ function renderLoginHtml(errorMsg = '') {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg-body, #0a0f1d);
-      color: var(--text-main, #e2e8f0);
+      background: #f8fafc;
+      color: #0f172a;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       padding: 1.5rem;
       margin: 0;
@@ -423,11 +423,11 @@ function renderLoginHtml(errorMsg = '') {
     .login-card {
       width: 100%;
       max-width: 420px;
-      background: var(--bg-surface, #111827);
-      border: 1px solid var(--border-color, #1f2937);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 16px;
       padding: 2.5rem 2rem;
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.1);
     }
     .brand-logo {
       display: flex;
@@ -457,7 +457,7 @@ function renderLoginHtml(errorMsg = '') {
     }
     .login-subtitle {
       font-size: 0.88rem;
-      color: var(--text-muted, #94a3b8);
+      color: #64748b;
       margin: 0 0 1.75rem;
       line-height: 1.45;
       text-align: center;
@@ -469,19 +469,19 @@ function renderLoginHtml(errorMsg = '') {
       gap: 0.75rem;
       margin-top: 1.5rem;
       font-size: 0.85rem;
-      color: var(--text-muted, #94a3b8);
+      color: #64748b;
     }
     .login-link {
-      color: var(--text-muted, #94a3b8);
+      color: #64748b;
       text-decoration: none;
       transition: color 0.15s ease;
     }
     .login-link:hover {
-      color: #0284c7;
+      color: #2563eb;
       text-decoration: underline;
     }
     .link-divider {
-      color: var(--border-color, #334155);
+      color: #cbd5e1;
     }
     .form-group {
       margin-bottom: 1.25rem;
@@ -491,7 +491,7 @@ function renderLoginHtml(errorMsg = '') {
       font-size: 0.82rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
-      color: var(--text-muted, #94a3b8);
+      color: #475569;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -499,17 +499,18 @@ function renderLoginHtml(errorMsg = '') {
       width: 100%;
       box-sizing: border-box;
       padding: 0.75rem 1rem;
-      background: var(--bg-body, #0a0f1d);
-      border: 1px solid var(--border-color, #334155);
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
       border-radius: 8px;
-      color: inherit;
+      color: #0f172a;
       font-size: 0.95rem;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
     .form-input:focus {
       outline: none;
-      border-color: #0284c7;
-      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+      border-color: #2563eb;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
     }
     .btn-submit {
       width: 100%;
@@ -532,9 +533,9 @@ function renderLoginHtml(errorMsg = '') {
       transform: translateY(0);
     }
     .alert-error {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #fca5a5;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
       padding: 0.75rem 1rem;
       border-radius: 8px;
       font-size: 0.86rem;
@@ -580,18 +581,18 @@ function renderLoginHtml(errorMsg = '') {
 
 function renderDashboardHtml(data, user) {
   const allItemRows = (data.allItems || []).map((t, idx) => {
-    let catBadgeStyle = 'background:rgba(255,255,255,0.06); color:var(--text-main);';
+    let catBadgeStyle = 'background:#f1f5f9; color:#334155; border:1px solid #e2e8f0;';
     if (t.type === 'community') {
-      catBadgeStyle = 'background:rgba(37,99,235,0.2); color:#60a5fa; border:1px solid rgba(37,99,235,0.4);';
+      catBadgeStyle = 'background:#eff6ff; color:#2563eb; border:1px solid #bfdbfe;';
     } else if (t.type === 'topic') {
-      catBadgeStyle = 'background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);';
+      catBadgeStyle = 'background:#ecfdf5; color:#059669; border:1px solid #a7f3d0;';
     }
     return `
       <tr class="stats-item-row" data-type="${t.type}" data-search="${escapeHtml((t.name + ' ' + t.categoryTitle + ' ' + t.key).toLowerCase())}">
         <td style="font-weight:700; color:var(--text-muted); width:40px;">#${idx + 1}</td>
         <td>
           <div style="display:flex; align-items:center; gap:0.75rem;">
-            <img src="${t.iconUrl}" width="24" height="24" style="border-radius:5px; background:#111; flex-shrink:0; object-fit:contain;" alt="">
+            <img src="${t.iconUrl}" width="24" height="24" style="border-radius:5px; background:#f8fafc; border:1px solid #e2e8f0; flex-shrink:0; object-fit:contain;" alt="">
             <a href="${t.url}" target="_blank" style="color:var(--text-main); font-weight:600; text-decoration:none;">${escapeHtml(t.name)}</a>
           </div>
         </td>
@@ -610,8 +611,8 @@ function renderDashboardHtml(data, user) {
       <td style="font-weight:600;">${c.name}</td>
       <td style="font-variant-numeric:tabular-nums; font-weight:700; text-align:right;">${c.count}</td>
       <td style="width:120px; padding-left:1rem;">
-        <div style="background:rgba(255,255,255,0.08); height:6px; border-radius:3px; overflow:hidden;">
-          <div style="background:#0284c7; height:100%; width:${c.pct}%;"></div>
+        <div style="background:#e2e8f0; height:6px; border-radius:3px; overflow:hidden;">
+          <div style="background:#2563eb; height:100%; width:${c.pct}%;"></div>
         </div>
       </td>
     </tr>
@@ -636,11 +637,11 @@ function renderDashboardHtml(data, user) {
   <link rel="stylesheet" href="/asset/css/style.css">
   <style>
     :root {
-      --bg-body: #0a0f1d;
-      --bg-surface: #111827;
-      --border-color: #1f2937;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
     }
     body {
       background: var(--bg-body);
@@ -677,6 +678,7 @@ function renderDashboardHtml(data, user) {
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
     }
     .kpi-label {
       font-size: 0.82rem;
@@ -689,12 +691,12 @@ function renderDashboardHtml(data, user) {
     .kpi-value {
       font-size: 2rem;
       font-weight: 800;
-      color: #fff;
+      color: #0f172a;
       font-variant-numeric: tabular-nums;
     }
     .kpi-sub {
       font-size: 0.8rem;
-      color: #10b981;
+      color: #059669;
       margin-top: 0.25rem;
       display: flex;
       align-items: center;
@@ -714,6 +716,7 @@ function renderDashboardHtml(data, user) {
       border: 1px solid var(--border-color);
       border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
     }
     .panel-header {
       padding: 1.15rem 1.5rem;
@@ -736,34 +739,35 @@ function renderDashboardHtml(data, user) {
       padding: 0.75rem 1.5rem;
       font-size: 0.78rem;
       font-weight: 600;
-      color: var(--text-muted);
+      color: #475569;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       border-bottom: 1px solid var(--border-color);
-      background: rgba(0,0,0,0.15);
+      background: #f8fafc;
     }
     .stats-table td {
       padding: 0.85rem 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid #f1f5f9;
       font-size: 0.9rem;
     }
     .stats-table tr:hover td {
-      background: rgba(255,255,255,0.02);
+      background: #f8fafc;
     }
     .btn-sm-action {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
       padding: 0.25rem 0.6rem;
       border-radius: 6px;
       font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s ease;
+      transition: all 0.15s ease;
     }
     .btn-sm-action:hover {
-      background: #0284c7;
-      border-color: #0284c7;
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
     }
     .logout-btn {
       color: var(--text-muted);
@@ -776,14 +780,15 @@ function renderDashboardHtml(data, user) {
       transition: color 0.15s ease, border-color 0.15s ease;
     }
     .logout-btn:hover {
-      color: #ef4444;
-      border-color: rgba(239, 68, 68, 0.4);
+      color: #dc2626;
+      border-color: #fca5a5;
+      background: #fef2f2;
     }
     .badge-ip-rule {
       font-size: 0.75rem;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34d399;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #059669;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
       font-weight: 600;
@@ -799,11 +804,11 @@ function renderDashboardHtml(data, user) {
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
-      background: rgba(0,0,0,0.1);
+      background: #f8fafc;
     }
     .stats-search-input {
-      background: var(--bg-body);
-      border: 1px solid var(--border-color);
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
       color: var(--text-main);
       padding: 0.45rem 0.85rem;
       border-radius: 6px;
@@ -814,19 +819,20 @@ function renderDashboardHtml(data, user) {
     }
     .stats-search-input:focus {
       outline: none;
-      border-color: #0284c7;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
     .stats-tabs {
       display: flex;
       gap: 0.35rem;
-      background: rgba(0,0,0,0.2);
+      background: #e2e8f0;
       padding: 3px;
       border-radius: 8px;
     }
     .stats-tab {
       background: transparent;
       border: none;
-      color: var(--text-muted);
+      color: #475569;
       padding: 0.35rem 0.75rem;
       font-size: 0.8rem;
       font-weight: 600;
@@ -835,10 +841,10 @@ function renderDashboardHtml(data, user) {
       transition: all 0.15s ease;
     }
     .stats-tab:hover {
-      color: #fff;
+      color: #0f172a;
     }
     .stats-tab.active {
-      background: #0284c7;
+      background: #2563eb;
       color: #fff;
     }
   </style>
