@@ -367,15 +367,17 @@ function createLayoutRenderer({ allTools, categories }) {
 </body>
 </html>
 `;
-    const preBlocks = [];
-    const withPlaceholders = rawHtml.replace(/<pre[\s\S]*?<\/pre>/gi, m => {
-      preBlocks.push(m);
-      return `__PRE_BLOCK_${preBlocks.length - 1}__`;
+    const preservedBlocks = [];
+    const withPlaceholders = rawHtml.replace(/<(pre|script|style)\b[\s\S]*?<\/\1>/gi, m => {
+      preservedBlocks.push(m);
+      return `__PRESERVED_BLOCK_${preservedBlocks.length - 1}__`;
     });
     return withPlaceholders
-      .replace(/^[ \t]+/gm, '')
-      .replace(/\n{3,}/g, '\n\n')
-      .replace(/__PRE_BLOCK_(\d+)__/g, (_, i) => preBlocks[Number(i)]);
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .replace(/^[ \t]+|[ \t]+$/gm, '')
+      .replace(/>[ \t]*\r?\n[ \t]*</g, '><')
+      .replace(/\r?\n{2,}/g, '\n')
+      .replace(/__PRESERVED_BLOCK_(\d+)__/g, (_, i) => preservedBlocks[Number(i)]);
   };
 }
 

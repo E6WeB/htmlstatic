@@ -1,1160 +1,401 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Deno Deploy - Hosting &amp; Deployment | StaticStack</title>
-<meta name="description" content="Deno Deploy: Distributed edge hosting platform serving static assets and edge logic globally. Guide, integration examples, and features for static websites.">
-<meta name="keywords" content="Deno Deploy, Hosting &amp; Deployment, deno deploy, v8 isolates edge, serverless typescript, global edge hosting, zero cold start, free static hosting, edge cdn, git deploy, jamstack hosting, serverless deploy, deno-deploy, v8-isolates-edge, serverless-typescript, global-edge-hosting, zero-cold-start, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy, Deno Deploy static website, Deno Deploy alternative, Deno Deploy integration, static site tool, jamstack, zero backend">
-<meta name="theme-color" content="#2563eb">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="alternate" type="application/rss+xml" title="StaticStack RSS Feed" href="https://www.staticstack.app/feed.xml">
-<link rel="canonical" href="https://www.staticstack.app/tools/hosting-deployment/deno-deploy">
-
-<!-- OpenGraph & Social Cards -->
-<meta property="og:locale" content="en_US">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="StaticStack">
-<meta property="og:url" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy">
-<meta property="og:title" content="Deno Deploy - Hosting &amp; Deployment | StaticStack">
-<meta property="og:description" content="Deno Deploy: Distributed edge hosting platform serving static assets and edge logic globally. Guide, integration examples, and features for static websites.">
-<meta property="og:image" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp">
-<meta property="og:image:type" content="image/webp">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="720">
-<meta property="og:image:alt" content="Deno Deploy - Hosting &amp; Deployment | StaticStack">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@staticstack">
-<meta name="twitter:url" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy">
-<meta name="twitter:title" content="Deno Deploy - Hosting &amp; Deployment | StaticStack">
-<meta name="twitter:description" content="Deno Deploy: Distributed edge hosting platform serving static assets and edge logic globally. Guide, integration examples, and features for static websites.">
-<meta name="twitter:image" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp">
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Deno Deploy - Hosting &amp; Deployment | StaticStack</title><meta name="description" content="Deno Deploy: Distributed edge hosting platform serving static assets and edge logic globally. Guide, integration examples, and features for static websites."><meta name="keywords" content="Deno Deploy, Hosting &amp; Deployment, deno deploy, v8 isolates edge, serverless typescript, global edge hosting, zero cold start, free static hosting, edge cdn, git deploy, jamstack hosting, serverless deploy, deno-deploy, v8-isolates-edge, serverless-typescript, global-edge-hosting, zero-cold-start, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy, Deno Deploy static website, Deno Deploy alternative, Deno Deploy integration, static site tool, jamstack, zero backend"><meta name="theme-color" content="#2563eb"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="StaticStack RSS Feed" href="https://www.staticstack.app/feed.xml"><link rel="canonical" href="https://www.staticstack.app/tools/hosting-deployment/deno-deploy">
+<meta property="og:locale" content="en_US"><meta property="og:type" content="website"><meta property="og:site_name" content="StaticStack"><meta property="og:url" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy"><meta property="og:title" content="Deno Deploy - Hosting &amp; Deployment | StaticStack"><meta property="og:description" content="Deno Deploy: Distributed edge hosting platform serving static assets and edge logic globally. Guide, integration examples, and features for static websites."><meta property="og:image" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp"><meta property="og:image:type" content="image/webp"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="720"><meta property="og:image:alt" content="Deno Deploy - Hosting &amp; Deployment | StaticStack"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@staticstack"><meta name="twitter:url" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy"><meta name="twitter:title" content="Deno Deploy - Hosting &amp; Deployment | StaticStack"><meta name="twitter:description" content="Deno Deploy: Distributed edge hosting platform serving static assets and edge logic globally. Guide, integration examples, and features for static websites."><meta name="twitter:image" content="https://www.staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Deno Deploy","description":"Distributed edge hosting platform serving static assets and edge logic globally","url":"https://www.staticstack.app/tools/hosting-deployment/deno-deploy","sameAs":"https://deno.com/deploy","image":"https://www.staticstack.app/tools/hosting-deployment/deno-deploy-cover.webp","applicationCategory":"Hosting & Deployment","operatingSystem":"Web, Static HTML, Jamstack","dateModified":"2026-11-11","keywords":"Deno Deploy, Hosting & Deployment, deno deploy, v8 isolates edge, serverless typescript, global edge hosting, zero cold start, free static hosting, edge cdn, git deploy, jamstack hosting, serverless deploy, deno-deploy, v8-isolates-edge, serverless-typescript, global-edge-hosting, zero-cold-start, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy, Deno Deploy static website, Deno Deploy alternative, Deno Deploy integration, static site tool, jamstack, zero backend","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"Freemium"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.staticstack.app/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://www.staticstack.app/archive"},{"@type":"ListItem","position":3,"name":"Hosting & Deployment","item":"https://www.staticstack.app/category/hosting-deployment/"},{"@type":"ListItem","position":4,"name":"Deno Deploy","item":"https://www.staticstack.app/tools/hosting-deployment/deno-deploy"}]}]}</script>
-<link rel="stylesheet" href="/asset/css/style.css?v=14">
-<link rel="stylesheet" href="/asset/css/stackbot.css?v=5">
-
-<!-- Local StaticStack Appreciation / Like Button -->
+<link rel="stylesheet" href="/asset/css/style.css?v=14"><link rel="stylesheet" href="/asset/css/stackbot.css?v=5">
 <script defer src="/asset/js/likes.js?v=1"></script>
 <script defer src="/asset/js/stack.js?v=1"></script>
-</head>
-<body>
-
-<!-- Left Navigation Rail (Desktop & Tablet >= 768px) -->
-<aside class="left-nav-rail" aria-label="Desktop Navigation Rail">
-<div class="rail-top">
-<a href="../../" class="rail-brand" aria-label="StaticStack Home">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-<span class="rail-tooltip">StaticStack.app</span>
-</a>
-
-<nav class="rail-nav" aria-label="Primary Navigation">
-<ul class="rail-list">
-<li>
-<a href="../../" class="rail-item " aria-label="Home">
-<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-<span class="rail-tooltip">Home</span>
-</a>
-</li>
-<li>
-<a href="../../search" class="rail-item " aria-label="Search Tools">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-<span class="rail-tooltip">Search</span>
-</a>
-</li>
-<li>
-<a href="../../archive" class="rail-item active" aria-label="Master Archive">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-<span class="rail-tooltip">Archive (160 Tools)</span>
-</a>
-</li>
-<li>
-<a href="../../community" class="rail-item " aria-label="Community">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-<span class="rail-tooltip">Community</span>
-</a>
-</li>
-<li>
-<a href="../../blog" class="rail-item " aria-label="Blog & Guides">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-<span class="rail-tooltip">Blog & Guides</span>
-</a>
-</li>
-<li>
-<a href="../../stack/" class="rail-item " aria-label="My Static Stack">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-<span class="rail-tooltip">My Stack</span>
-</a>
-</li>
-<li>
-<a href="../../contact" class="rail-item " aria-label="Contact & Connect">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-<span class="rail-tooltip">Contact & Connect</span>
-</a>
-</li>
-<li>
-<a href="/community/oauth?action=login" class="rail-item" id="rail-auth-btn" aria-label="Login">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-<polyline points="10 17 15 12 10 7"></polyline>
-<line x1="15" y1="12" x2="3" y2="12"></line>
-</svg>
-<span class="rail-tooltip" id="rail-auth-tooltip">Login</span>
-</a>
-</li>
-</ul>
-</nav>
-</div>
-
-<div class="rail-bottom">
-<button type="button" id="stackbot-btn" aria-label="Open StackBot chat">
-<span class="stackbot-icon" aria-hidden="true"></span>
-<span class="rail-tooltip">Ask StackBot</span>
-</button>
-<a href="../../submit" class="rail-action-btn " aria-label="Submit a Tool">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-<span class="rail-tooltip">Submit a Tool</span>
-</a>
-<a href="../../thankyou" class="rail-item " aria-label="Credits & Thanks">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-<span class="rail-tooltip">Credits & Thanks</span>
-</a>
-</div>
-</aside>
-
-<!-- Mobile Bottom Navigation Bar (Phones < 768px) -->
-<nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
-<div class="bottom-nav-inner">
-<a href="../../" class="bottom-nav-item ">
-<span class="bottom-nav-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
-<span>Home</span>
-</a>
-<a href="../../search" class="bottom-nav-item " aria-label="Search Tools">
-<span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-<span>Search</span>
-</a>
-<a href="../../submit" class="bottom-nav-fab" aria-label="Submit a Tool">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-</a>
-<a href="../../archive" class="bottom-nav-item active">
-<span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>
-<span>Archive</span>
-</a>
-<button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu">
-<span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle></svg></span>
-<span>More</span>
-</button>
-</div>
-</nav>
-
-<!-- Site Header (Mobile Only < 768px) -->
-<header class="site-header">
-<div class="container header-inner">
-<a href="../../" class="brand">
-<span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
-<span>StaticStack</span>
-<span class="brand-badge">.app</span>
-</a>
-
-<!-- Quick Search Link -->
-<a href="../../search" class="header-search-btn" aria-label="Search Tools" style="text-decoration:none;">
-<span class="header-search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-<span class="header-search-label">Search...</span>
-<kbd class="header-search-kbd">/</kbd>
-</a>
-
-<!-- Desktop Clean Nav Menu -->
-<nav class="nav-drawer" aria-label="Main Navigation">
-<ul id="nav-links" class="nav-links">
-<li><a href="../../" class="nav-link ">Home</a></li>
-<li><a href="../../search" class="nav-link ">Search</a></li>
-<li><a href="../../archive" class="nav-link active">Archive</a></li>
-<li><a href="../../blog" class="nav-link ">Blog</a></li>
-<li><a href="../../community" class="nav-link ">Community</a></li>
-<li><a href="../../submit" class="nav-link ">Submit</a></li>
-<li><a href="../../contact" class="nav-link ">Contact</a></li>
-<li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg> GitHub</a></li>
-</ul>
-</nav>
-
-<!-- Mobile Hamburger Menu Button -->
-<button id="mobile-menu-btn" class="hamburger-btn" type="button" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-modal">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-</button>
-</div>
-</header>
-
-<!-- Full-Screen Mobile Navigation Overlay -->
-<div id="mobile-nav-modal" class="mobile-nav-modal" role="dialog" aria-modal="true" aria-label="Navigation Menu" tabindex="-1">
-<div class="mobile-nav-header">
-<a href="../../" class="brand" onclick="closeMobileNav()">
-<span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
-<span>StaticStack</span>
-</a>
-<button id="mobile-menu-close" class="mobile-nav-close" type="button" aria-label="Close Navigation Menu" onclick="closeMobileNav()">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-</button>
-</div>
-
-<div class="mobile-nav-body">
-<ul class="mobile-nav-list">
-<li class="mobile-nav-item">
-<a href="../../" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
-<span>Home</span>
-</span>
-<span class="mobile-nav-badge">Explore</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../search" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-<span>Search Tools</span>
-</span>
-<span class="mobile-nav-badge">Instant</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../archive" class="active" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span>
-<span>Master Archive</span>
-</span>
-<span class="mobile-nav-badge">160 Tools</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../submit" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
-<span>Submit a Tool</span>
-</span>
-<span class="mobile-nav-badge">Contribute</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../blog" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
-<span>Blog &amp; Guides</span>
-</span>
-<span class="mobile-nav-badge">Articles</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../community" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-<span>Community</span>
-</span>
-<span class="mobile-nav-badge">Discussions</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../contribute" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg></span>
-<span>Contributing Guide</span>
-</span>
-<span class="mobile-nav-badge">Docs</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../thankyou" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>
-<span>Thank You &amp; Credits</span>
-</span>
-<span class="mobile-nav-badge">Credits</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="../../contact" class="" onclick="closeMobileNav()">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span>
-<span>Contact &amp; Connect</span>
-</span>
-<span class="mobile-nav-badge">Connect</span>
-</a>
-</li>
-<li class="mobile-nav-item">
-<a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">
-<span class="mobile-nav-link-left">
-<span class="mobile-nav-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg></span>
-<span>GitHub Repository</span>
-</span>
-<span class="mobile-nav-badge" style="display:flex;align-items:center;gap:0.25rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Star</span>
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- Mini Hero Section -->
-<section class="mini-hero">
-<div class="container mini-hero-inner">
-
+</head><body>
+<aside class="left-nav-rail" aria-label="Desktop Navigation Rail"><div class="rail-top"><a href="../../" class="rail-brand" aria-label="StaticStack Home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg><span class="rail-tooltip">StaticStack.app</span></a>
+<nav class="rail-nav" aria-label="Primary Navigation"><ul class="rail-list"><li><a href="../../" class="rail-item " aria-label="Home"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span class="rail-tooltip">Home</span></a></li><li><a href="../../search" class="rail-item " aria-label="Search Tools"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><span class="rail-tooltip">Search</span></a></li><li><a href="../../archive" class="rail-item active" aria-label="Master Archive"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg><span class="rail-tooltip">Archive (160 Tools)</span></a></li><li><a href="../../community" class="rail-item " aria-label="Community"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="rail-tooltip">Community</span></a></li><li><a href="../../blog" class="rail-item " aria-label="Blog & Guides"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg><span class="rail-tooltip">Blog & Guides</span></a></li><li><a href="../../stack/" class="rail-item " aria-label="My Static Stack"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg><span class="rail-tooltip">My Stack</span></a></li><li><a href="../../contact" class="rail-item " aria-label="Contact & Connect"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg><span class="rail-tooltip">Contact & Connect</span></a></li><li><a href="/community/oauth?action=login" class="rail-item" id="rail-auth-btn" aria-label="Login"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg><span class="rail-tooltip" id="rail-auth-tooltip">Login</span></a></li></ul></nav></div>
+<div class="rail-bottom"><button type="button" id="stackbot-btn" aria-label="Open StackBot chat"><span class="stackbot-icon" aria-hidden="true"></span><span class="rail-tooltip">Ask StackBot</span></button><a href="../../submit" class="rail-action-btn " aria-label="Submit a Tool"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg><span class="rail-tooltip">Submit a Tool</span></a><a href="../../thankyou" class="rail-item " aria-label="Credits & Thanks"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span class="rail-tooltip">Credits & Thanks</span></a></div></aside>
+<nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation"><div class="bottom-nav-inner"><a href="../../" class="bottom-nav-item "><span class="bottom-nav-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span><span>Home</span></a><a href="../../search" class="bottom-nav-item " aria-label="Search Tools"><span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span><span>Search</span></a><a href="../../submit" class="bottom-nav-fab" aria-label="Submit a Tool"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a><a href="../../archive" class="bottom-nav-item active"><span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span><span>Archive</span></a><button type="button" class="bottom-nav-item" onclick="openMobileNav()" aria-label="Open More Menu"><span class="bottom-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle></svg></span><span>More</span></button></div></nav>
+<header class="site-header"><div class="container header-inner"><a href="../../" class="brand"><span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span><span>StaticStack</span><span class="brand-badge">.app</span></a>
+<a href="../../search" class="header-search-btn" aria-label="Search Tools" style="text-decoration:none;"><span class="header-search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span><span class="header-search-label">Search...</span><kbd class="header-search-kbd">/</kbd></a>
+<nav class="nav-drawer" aria-label="Main Navigation"><ul id="nav-links" class="nav-links"><li><a href="../../" class="nav-link ">Home</a></li><li><a href="../../search" class="nav-link ">Search</a></li><li><a href="../../archive" class="nav-link active">Archive</a></li><li><a href="../../blog" class="nav-link ">Blog</a></li><li><a href="../../community" class="nav-link ">Community</a></li><li><a href="../../submit" class="nav-link ">Submit</a></li><li><a href="../../contact" class="nav-link ">Contact</a></li><li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="nav-link" style="display:flex;align-items:center;gap:0.35rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg> GitHub</a></li></ul></nav>
+<button id="mobile-menu-btn" class="hamburger-btn" type="button" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-modal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div></header>
+<div id="mobile-nav-modal" class="mobile-nav-modal" role="dialog" aria-modal="true" aria-label="Navigation Menu" tabindex="-1"><div class="mobile-nav-header"><a href="../../" class="brand" onclick="closeMobileNav()"><span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span><span>StaticStack</span></a><button id="mobile-menu-close" class="mobile-nav-close" type="button" aria-label="Close Navigation Menu" onclick="closeMobileNav()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div>
+<div class="mobile-nav-body"><ul class="mobile-nav-list"><li class="mobile-nav-item"><a href="../../" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span><span>Home</span></span><span class="mobile-nav-badge">Explore</span></a></li><li class="mobile-nav-item"><a href="../../search" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span><span>Search Tools</span></span><span class="mobile-nav-badge">Instant</span></a></li><li class="mobile-nav-item"><a href="../../archive" class="active" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span><span>Master Archive</span></span><span class="mobile-nav-badge">160 Tools</span></a></li><li class="mobile-nav-item"><a href="../../submit" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span><span>Submit a Tool</span></span><span class="mobile-nav-badge">Contribute</span></a></li><li class="mobile-nav-item"><a href="../../blog" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span><span>Blog &amp; Guides</span></span><span class="mobile-nav-badge">Articles</span></a></li><li class="mobile-nav-item"><a href="../../community" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span>Community</span></span><span class="mobile-nav-badge">Discussions</span></a></li><li class="mobile-nav-item"><a href="../../contribute" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg></span><span>Contributing Guide</span></span><span class="mobile-nav-badge">Docs</span></a></li><li class="mobile-nav-item"><a href="../../thankyou" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span><span>Thank You &amp; Credits</span></span><span class="mobile-nav-badge">Credits</span></a></li><li class="mobile-nav-item"><a href="../../contact" class="" onclick="closeMobileNav()"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span><span>Contact &amp; Connect</span></span><span class="mobile-nav-badge">Connect</span></a></li><li class="mobile-nav-item"><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer"><span class="mobile-nav-link-left"><span class="mobile-nav-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg></span><span>GitHub Repository</span></span><span class="mobile-nav-badge" style="display:flex;align-items:center;gap:0.25rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Star</span></a></li></ul></div></div>
+<section class="mini-hero"><div class="container mini-hero-inner">
 <nav class="mini-hero-breadcrumbs" aria-label="Breadcrumbs">
-
-<a href="../../"><span style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span> <span>Home</span></a>
-<span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-
-<a href="../../archive"><span>Archive</span></a>
-<span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-
-<a href="../../category/hosting-deployment/"><span>Hosting &amp; Deployment</span></a>
-<span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-<span class="crumb-current" aria-current="page">Deno Deploy</span>
-</nav>
-
-<div class="mini-hero-badge-row">
-<span class="badge badge-freemium"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Freemium</span>
-
-<a href="../../category/hosting-deployment/" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;" title="Explore all Hosting &amp; Deployment tools">
-<span style="display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></span>
+<a href="../../"><span style="display:inline-flex;align-items:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span> <span>Home</span></a><span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+<a href="../../archive"><span>Archive</span></a><span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+<a href="../../category/hosting-deployment/"><span>Hosting &amp; Deployment</span></a><span class="crumb-sep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span><span class="crumb-current" aria-current="page">Deno Deploy</span></nav>
+<div class="mini-hero-badge-row"><span class="badge badge-freemium"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Freemium</span>
+<a href="../../category/hosting-deployment/" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;" title="Explore all Hosting &amp; Deployment tools"><span style="display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></span>
 Hosting &amp; Deployment
-</a>
-</div>
-
-<div class="mini-hero-header">
-<div class="mini-hero-header-main">
-<div class="mini-hero-title-row">
-<div class="mini-hero-icon-box" aria-hidden="true"><img src="/tools/hosting-deployment/deno-deploy-icon.webp" width="26" height="26" class="tool-siteicon" alt="Deno Deploy icon" loading="lazy" decoding="async"></div>
-<h1 class="mini-hero-title">Deno Deploy</h1>
-</div>
-<p class="mini-hero-subtext">Distributed, multi-region edge hosting platform serving static assets and edge logic globally.</p>
-</div>
-<div class="mini-hero-actions">
-<button type="button" class="stack-save-btn" data-stack-save="deno-deploy" data-tooltip="Save to Stack" aria-label="Save Deno Deploy to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
-<button type="button" class="iine-button" data-icon="thumbs_up" data-slug="/tools/hosting-deployment/deno-deploy" aria-label="Upvote Deno Deploy" title="Send appreciation for Deno Deploy">
-<span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></span>
-<span class="counter">0</span>
-</button>
-<a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.95rem; padding:0.6rem 1.15rem;">
-Visit Deno Deploy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</div>
-</div>
-
-<div class="mini-hero-extra">
-<div style="display:flex; align-items:center; gap:1.5rem; font-size:0.875rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:1rem; margin-top:0.5rem; flex-wrap:wrap;">
-<div style="display:flex; align-items:center; gap:0.4rem;">
-<span style="color:var(--text-subtle); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
-<strong>Official Website:</strong>
-<a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-</div>
-<div style="display:flex; align-items:center; gap:0.4rem;">
-<span style="color:var(--text-subtle); display:inline-flex;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
-<strong>Category:</strong>
-<a href="../../archive#hosting-deployment">Hosting &amp; Deployment</a>
-</div>
-<div style="display:flex; align-items:center; gap:0.4rem;">
-<span style="color:var(--text-subtle); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
-<strong>Views:</strong>
-<span id="tool-view-count" class="tool-view-count" data-key="htmlstatic-hosting-deployment-deno-deploy" style="font-weight:600; color:var(--text-main); font-variant-numeric:tabular-nums;">0</span>
-</div>
-<div class="mini-hero-extra-edit" style="margin-left:auto;">
-<a href="https://github.com/E6WeB/htmlstatic/blob/main/tools/hosting-deployment/deno-deploy.md" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg> Edit Markdown Guide
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
+</a></div>
+<div class="mini-hero-header"><div class="mini-hero-header-main"><div class="mini-hero-title-row"><div class="mini-hero-icon-box" aria-hidden="true"><img src="/tools/hosting-deployment/deno-deploy-icon.webp" width="26" height="26" class="tool-siteicon" alt="Deno Deploy icon" loading="lazy" decoding="async"></div><h1 class="mini-hero-title">Deno Deploy</h1></div><p class="mini-hero-subtext">Distributed, multi-region edge hosting platform serving static assets and edge logic globally.</p></div><div class="mini-hero-actions"><button type="button" class="stack-save-btn" data-stack-save="deno-deploy" data-tooltip="Save to Stack" aria-label="Save Deno Deploy to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button><button type="button" class="iine-button" data-icon="thumbs_up" data-slug="/tools/hosting-deployment/deno-deploy" aria-label="Upvote Deno Deploy" title="Send appreciation for Deno Deploy"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></span><span class="counter">0</span></button><a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.95rem; padding:0.6rem 1.15rem;">
+Visit Deno Deploy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div></div>
+<div class="mini-hero-extra"><div style="display:flex; align-items:center; gap:1.5rem; font-size:0.875rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:1rem; margin-top:0.5rem; flex-wrap:wrap;"><div style="display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--text-subtle); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span><strong>Official Website:</strong><a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div><div style="display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--text-subtle); display:inline-flex;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span><strong>Category:</strong><a href="../../archive#hosting-deployment">Hosting &amp; Deployment</a></div><div style="display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--text-subtle); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><strong>Views:</strong><span id="tool-view-count" class="tool-view-count" data-key="htmlstatic-hosting-deployment-deno-deploy" style="font-weight:600; color:var(--text-main); font-variant-numeric:tabular-nums;">0</span></div><div class="mini-hero-extra-edit" style="margin-left:auto;"><a href="https://github.com/E6WeB/htmlstatic/blob/main/tools/hosting-deployment/deno-deploy.md" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg> Edit Markdown Guide
+</a></div></div></div></div></section>
 <main class="site-main container">
-
 <div class="tool-page-layout">
-<!-- Main Documentation & Discussion -->
 <div class="tool-page-main">
-
-<div class="tool-cover-banner" style="margin-bottom:1.5rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card); background:var(--bg-surface);">
-<img src="deno-deploy-cover.webp" 
-alt="Deno Deploy Screenshot Preview" 
-width="1280" 
-height="720" 
-loading="eager" 
-fetchpriority="high" 
-decoding="async" 
-style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;">
-</div>
-
+<div class="tool-cover-banner" style="margin-bottom:1.5rem; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-card); background:var(--bg-surface);"><img src="deno-deploy-cover.webp"
+alt="Deno Deploy Screenshot Preview"
+width="1280"
+height="720"
+loading="eager"
+fetchpriority="high"
+decoding="async"
+style="width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;"></div>
 <article style="padding: 0 0 2rem;">
-<!-- Rendered Documentation -->
-<div class="markdown-body">
-<blockquote>
-<p>Distributed, multi-region edge hosting platform serving static assets and edge logic globally.</p>
-</blockquote>
-<ol>
-<li><strong>Official Website</strong>: <a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy</a> <span class="link-status-dot status-online" title="Website verified: Live (HTTP 200) • Checked 2026-11-11" aria-label="Website verified: Live (HTTP 200) • Checked 2026-11-11"></span></li>
-<li><strong>Category</strong>: <a href="../../archive#hosting--deployment">Hosting &amp; Deployment</a></li>
-<li><strong>Type</strong>: Edge Hosting &amp; Serverless Platform</li>
-<li><strong>Pricing / License</strong>: Freemium</li>
-</ol>
-<hr>
-<h2 id="overview">Overview</h2>
-<p>Deno Deploy is a globally distributed edge computing and static file hosting system designed by the team behind Deno. It runs your web frontends and APIs across 35+ data centers around the world, placing static HTML, CSS, JavaScript, and media assets within milliseconds of global users.</p>
-<p>Deno Deploy eliminates cold starts and provides generous free tier allowances (100,000 requests per day and 100 GB outbound transfer per month). With zero server maintenance and automatic GitHub synchronization, developers can deploy static sites and edge-enhanced frontends in seconds.</p>
-<hr>
-<h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2>
-<ol>
-<li><strong>Worldwide Edge Network</strong>: Deploys across 35+ global data centers with sub-millisecond response times.</li>
-<li><strong>Generous Free Tier</strong>: 100,000 requests/day, 100 GB monthly bandwidth, and unlimited projects.</li>
-<li><strong>Automatic SSL &amp; Custom Domains</strong>: Instant HTTPS provisioning with custom domain verification.</li>
-<li><strong>GitHub Integration</strong>: Automatically builds and deploys on every Git push with per-branch preview URLs.</li>
-<li><strong>Static &amp; Edge Hybrid</strong>: Host pure static files with standard caching or augment with TypeScript edge functions.</li>
-</ol>
-<hr>
-<h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2>
-<p>You can deploy static assets using the <code>deployctl</code> CLI or by connecting your GitHub repository:</p>
+<div class="markdown-body"><blockquote><p>Distributed, multi-region edge hosting platform serving static assets and edge logic globally.</p></blockquote><ol><li><strong>Official Website</strong>: <a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer">deno.com/deploy</a> <span class="link-status-dot status-online" title="Website verified: Live (HTTP 200) • Checked 2026-11-11" aria-label="Website verified: Live (HTTP 200) • Checked 2026-11-11"></span></li><li><strong>Category</strong>: <a href="../../archive#hosting--deployment">Hosting &amp; Deployment</a></li><li><strong>Type</strong>: Edge Hosting &amp; Serverless Platform</li><li><strong>Pricing / License</strong>: Freemium</li></ol><hr><h2 id="overview">Overview</h2><p>Deno Deploy is a globally distributed edge computing and static file hosting system designed by the team behind Deno. It runs your web frontends and APIs across 35+ data centers around the world, placing static HTML, CSS, JavaScript, and media assets within milliseconds of global users.</p><p>Deno Deploy eliminates cold starts and provides generous free tier allowances (100,000 requests per day and 100 GB outbound transfer per month). With zero server maintenance and automatic GitHub synchronization, developers can deploy static sites and edge-enhanced frontends in seconds.</p><hr><h2 id="key-highlights-features"><span id="key-highlights--features" class="heading-anchor-target"></span>Key Highlights &amp; Features</h2><ol><li><strong>Worldwide Edge Network</strong>: Deploys across 35+ global data centers with sub-millisecond response times.</li><li><strong>Generous Free Tier</strong>: 100,000 requests/day, 100 GB monthly bandwidth, and unlimited projects.</li><li><strong>Automatic SSL &amp; Custom Domains</strong>: Instant HTTPS provisioning with custom domain verification.</li><li><strong>GitHub Integration</strong>: Automatically builds and deploys on every Git push with per-branch preview URLs.</li><li><strong>Static &amp; Edge Hybrid</strong>: Host pure static files with standard caching or augment with TypeScript edge functions.</li></ol><hr><h2 id="how-it-works-with-static-websites">How It Works with Static Websites</h2><p>You can deploy static assets using the <code>deployctl</code> CLI or by connecting your GitHub repository:</p>
 <pre><code class="language-bash"># Install the deployctl CLI tool
 deno install -A -r https://deno.land/x/deploy/deployctl.ts
 
 # Deploy a static directory to Deno Deploy
 deployctl deploy --project=my-static-site --static=./dist
 </code></pre>
-<p>For continuous integration, connect your GitHub repository in the Deno Deploy dashboard and specify your static build output folder (<code>dist</code>, <code>build</code>, or <code>./</code>).</p>
-<hr>
-<h2 id="when-to-use-it">When to Use It</h2>
-<ol>
-<li>Static websites requiring ultra-low global latency and edge delivery.</li>
-<li>Jamstack frontends needing optional edge middleware or geo-routing.</li>
-<li>Teams looking for a fast, modern alternative to Cloudflare Pages or Vercel.</li>
-</ol>
-
-<hr>
-<h2>Pricing, Privacy &amp; Static Site Fit</h2>
-<ul>
-<li><strong>Pricing / License:</strong> Freemium</li>
-<li><strong>Free Tier:</strong> $0/mo (1M requests/mo, 100 GB bandwidth, 50ms CPU/req, 1 GiB KV, 5 members, 20 deployments)</li>
-<li><strong>Paid Plans:</strong> Pro from $20/mo</li>
-<li><strong>Key Limits:</strong> Free plan caps CPU time per request and monthly invocations</li>
-<li><strong>Static Site Integration:</strong> Built to work with static HTML, CSS, and Jamstack workflows without maintaining a custom backend server.</li>
-<li><strong>Link Status:</strong> Verified Online (checked 2026-11-11).</li>
-</ul>
-<hr>
-<h2>Pros &amp; Cons</h2>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Generous free tier for testing and small static sites</td>
-<td>Higher traffic, seats, or limits require a paid upgrade</td>
-</tr>
-<tr>
-<td>Works cleanly with static HTML &amp; Jamstack sites with zero backend bloat</td>
-<td>External services or scripts still depend on third-party uptime</td>
-</tr>
-<tr>
-<td>Curated under Hosting &amp; Deployment for easy discovery</td>
-<td>May require comparing sibling tools to match exact project limits</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-<h2>Quick Comparison</h2>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Pricing / License</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Deno Deploy</strong></td>
-<td>Freemium</td>
-<td>Distributed edge hosting platform serving static assets and edge logic globally</td>
-</tr><tr>
-<td><a href="../../tools/hosting-deployment/cloudflare-pages"><strong>Cloudflare Pages</strong></a></td>
-<td>Freemium</td>
-<td>Deploy static sites with Git integration and edge services</td>
-</tr><tr>
-<td><a href="../../tools/hosting-deployment/firebase-hosting"><strong>Firebase Hosting</strong></a></td>
-<td>Freemium</td>
-<td>Fast, secure static and dynamic web hosting backed by Google global SSD CDN</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-<h2>FAQ</h2>
-<p><strong>Is Deno Deploy free to use?</strong><br>Deno Deploy offers a free starter tier alongside paid plans for higher limits or team features.</p>
-<p><strong>Does Deno Deploy work with static HTML websites?</strong><br>Yes. Deno Deploy is curated specifically for static HTML and Jamstack builds without server maintenance.</p>
-<p><strong>What category does Deno Deploy belong to?</strong><br>It is listed under <a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a>.</p>
-<p><strong>What are good alternatives to Deno Deploy?</strong><br>Popular alternatives in <a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a> include <a href="../../tools/hosting-deployment/cloudflare-pages">Cloudflare Pages</a> and <a href="../../tools/hosting-deployment/firebase-hosting">Firebase Hosting</a>.</p>
-<hr>
-<h2>Verdict</h2>
-<p><strong>Deno Deploy</strong> is a solid fit for static site builders looking for distributed edge hosting platform serving static assets and edge logic globally under a <strong>Freemium</strong> model. Compare it against other <a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a> options before locking in your stack.</p>
-
+<p>For continuous integration, connect your GitHub repository in the Deno Deploy dashboard and specify your static build output folder (<code>dist</code>, <code>build</code>, or <code>./</code>).</p><hr><h2 id="when-to-use-it">When to Use It</h2><ol><li>Static websites requiring ultra-low global latency and edge delivery.</li><li>Jamstack frontends needing optional edge middleware or geo-routing.</li><li>Teams looking for a fast, modern alternative to Cloudflare Pages or Vercel.</li></ol>
+<hr><h2>Pricing, Privacy &amp; Static Site Fit</h2><ul><li><strong>Pricing / License:</strong> Freemium</li><li><strong>Free Tier:</strong> $0/mo (1M requests/mo, 100 GB bandwidth, 50ms CPU/req, 1 GiB KV, 5 members, 20 deployments)</li><li><strong>Paid Plans:</strong> Pro from $20/mo</li><li><strong>Key Limits:</strong> Free plan caps CPU time per request and monthly invocations</li><li><strong>Static Site Integration:</strong> Built to work with static HTML, CSS, and Jamstack workflows without maintaining a custom backend server.</li><li><strong>Link Status:</strong> Verified Online (checked 2026-11-11).</li></ul><hr><h2>Pros &amp; Cons</h2><table><thead><tr><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td>Generous free tier for testing and small static sites</td><td>Higher traffic, seats, or limits require a paid upgrade</td></tr><tr><td>Works cleanly with static HTML &amp; Jamstack sites with zero backend bloat</td><td>External services or scripts still depend on third-party uptime</td></tr><tr><td>Curated under Hosting &amp; Deployment for easy discovery</td><td>May require comparing sibling tools to match exact project limits</td></tr></tbody></table>
+<hr><h2>Quick Comparison</h2><table><thead><tr><th>Tool</th><th>Pricing / License</th><th>Summary</th></tr></thead><tbody><tr><td><strong>Deno Deploy</strong></td><td>Freemium</td><td>Distributed edge hosting platform serving static assets and edge logic globally</td></tr><tr><td><a href="../../tools/hosting-deployment/cloudflare-pages"><strong>Cloudflare Pages</strong></a></td><td>Freemium</td><td>Deploy static sites with Git integration and edge services</td></tr><tr><td><a href="../../tools/hosting-deployment/firebase-hosting"><strong>Firebase Hosting</strong></a></td><td>Freemium</td><td>Fast, secure static and dynamic web hosting backed by Google global SSD CDN</td></tr></tbody></table>
+<hr><h2>FAQ</h2><p><strong>Is Deno Deploy free to use?</strong><br>Deno Deploy offers a free starter tier alongside paid plans for higher limits or team features.</p><p><strong>Does Deno Deploy work with static HTML websites?</strong><br>Yes. Deno Deploy is curated specifically for static HTML and Jamstack builds without server maintenance.</p><p><strong>What category does Deno Deploy belong to?</strong><br>It is listed under <a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a>.</p><p><strong>What are good alternatives to Deno Deploy?</strong><br>Popular alternatives in <a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a> include <a href="../../tools/hosting-deployment/cloudflare-pages">Cloudflare Pages</a> and <a href="../../tools/hosting-deployment/firebase-hosting">Firebase Hosting</a>.</p><hr><h2>Verdict</h2><p><strong>Deno Deploy</strong> is a solid fit for static site builders looking for distributed edge hosting platform serving static assets and edge logic globally under a <strong>Freemium</strong> model. Compare it against other <a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a> options before locking in your stack.</p>
 </div>
-
-<!-- Tool Tags / Keywords (Above Discussion) -->
-<div class="tool-tags-section">
-<span class="tool-tags-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Tags</span>
-<div class="tool-tags-list">
-<a href="/search?q=deno-deploy" class="tool-tag-pill" title="Search tools tagged #deno-deploy">#deno-deploy</a><a href="/search?q=v8-isolates-edge" class="tool-tag-pill" title="Search tools tagged #v8-isolates-edge">#v8-isolates-edge</a><a href="/search?q=serverless-typescript" class="tool-tag-pill" title="Search tools tagged #serverless-typescript">#serverless-typescript</a><a href="/search?q=global-edge-hosting" class="tool-tag-pill" title="Search tools tagged #global-edge-hosting">#global-edge-hosting</a><a href="/search?q=zero-cold-start" class="tool-tag-pill" title="Search tools tagged #zero-cold-start">#zero-cold-start</a><a href="/search?q=free-static-hosting" class="tool-tag-pill" title="Search tools tagged #free-static-hosting">#free-static-hosting</a><a href="/search?q=edge-cdn" class="tool-tag-pill" title="Search tools tagged #edge-cdn">#edge-cdn</a><a href="/search?q=git-deploy" class="tool-tag-pill" title="Search tools tagged #git-deploy">#git-deploy</a><a href="/search?q=jamstack-hosting" class="tool-tag-pill" title="Search tools tagged #jamstack-hosting">#jamstack-hosting</a><a href="/search?q=serverless-deploy" class="tool-tag-pill" title="Search tools tagged #serverless-deploy">#serverless-deploy</a>
-</div>
-</div>
-
-<!-- First-Party Tool Discussion (Unified GitHub SSO) -->
-<section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
-<div style="margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
-<div style="display:flex; align-items:center; gap:0.55rem;">
-<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3.5C5.36 3.5 2 6.19 2 9.5c0 1.88 1.08 3.56 2.78 4.66L3.8 17.2l3.48-1.46c.7.17 1.45.26 2.22.26 4.14 0 7.5-2.69 7.5-6s-3.36-6.5-7.5-6.5z"></path><circle cx="6.5" cy="9.5" r="0.9"></circle><circle cx="9.5" cy="9.5" r="0.9"></circle><circle cx="12.5" cy="9.5" r="0.9"></circle><path d="M16.9 10.6c2.42.73 4.1 2.47 4.1 4.5 0 1.48-.88 2.8-2.25 3.65l.75 2.45-2.72-1.15c-.68.16-1.4.25-2.15.25-2.63 0-4.9-1.15-5.85-2.8"></path></svg></span>
-<h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Discussion</h3>
-</div>
-<p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p>
-</div>
-<div id="tool-comments-app" data-tool-slug="deno-deploy">
-<p style="color:var(--text-muted); font-size:0.9rem; margin:0;">Loading discussion…</p>
-</div>
+<div class="tool-tags-section"><span class="tool-tags-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Tags</span><div class="tool-tags-list"><a href="/search?q=deno-deploy" class="tool-tag-pill" title="Search tools tagged #deno-deploy">#deno-deploy</a><a href="/search?q=v8-isolates-edge" class="tool-tag-pill" title="Search tools tagged #v8-isolates-edge">#v8-isolates-edge</a><a href="/search?q=serverless-typescript" class="tool-tag-pill" title="Search tools tagged #serverless-typescript">#serverless-typescript</a><a href="/search?q=global-edge-hosting" class="tool-tag-pill" title="Search tools tagged #global-edge-hosting">#global-edge-hosting</a><a href="/search?q=zero-cold-start" class="tool-tag-pill" title="Search tools tagged #zero-cold-start">#zero-cold-start</a><a href="/search?q=free-static-hosting" class="tool-tag-pill" title="Search tools tagged #free-static-hosting">#free-static-hosting</a><a href="/search?q=edge-cdn" class="tool-tag-pill" title="Search tools tagged #edge-cdn">#edge-cdn</a><a href="/search?q=git-deploy" class="tool-tag-pill" title="Search tools tagged #git-deploy">#git-deploy</a><a href="/search?q=jamstack-hosting" class="tool-tag-pill" title="Search tools tagged #jamstack-hosting">#jamstack-hosting</a><a href="/search?q=serverless-deploy" class="tool-tag-pill" title="Search tools tagged #serverless-deploy">#serverless-deploy</a></div></div>
+<section class="tool-comments-section" style="margin-bottom:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);"><div style="margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);"><div style="display:flex; align-items:center; gap:0.55rem;"><span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3.5C5.36 3.5 2 6.19 2 9.5c0 1.88 1.08 3.56 2.78 4.66L3.8 17.2l3.48-1.46c.7.17 1.45.26 2.22.26 4.14 0 7.5-2.69 7.5-6s-3.36-6.5-7.5-6.5z"></path><circle cx="6.5" cy="9.5" r="0.9"></circle><circle cx="9.5" cy="9.5" r="0.9"></circle><circle cx="12.5" cy="9.5" r="0.9"></circle><path d="M16.9 10.6c2.42.73 4.1 2.47 4.1 4.5 0 1.48-.88 2.8-2.25 3.65l.75 2.45-2.72-1.15c-.68.16-1.4.25-2.15.25-2.63 0-4.9-1.15-5.85-2.8"></path></svg></span><h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Discussion</h3></div><p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">Ask questions, share integration tips, or leave feedback.</p></div><div id="tool-comments-app" data-tool-slug="deno-deploy"><p style="color:var(--text-muted); font-size:0.9rem; margin:0;">Loading discussion…</p></div>
 <script defer src="/asset/js/tool-comments.js?v=1"></script>
 </section>
-
-<!-- Tool View Counter: Only counts new unique visitors -->
 <script>
-(function() {
-const countEl = document.getElementById('tool-view-count');
-if (!countEl) return;
-const key = countEl.getAttribute('data-key');
-if (!key) return;
+              (function() {
+                const countEl = document.getElementById('tool-view-count');
+                if (!countEl) return;
+                const key = countEl.getAttribute('data-key');
+                if (!key) return;
 
-const viewedKey = 'hs_viewed_' + key;
-let alreadyViewed = false;
-try {
-alreadyViewed = !!localStorage.getItem(viewedKey) || (document.cookie.indexOf(viewedKey + '=1') !== -1);
-} catch (e) {}
+                const viewedKey = 'hs_viewed_' + key;
+                let alreadyViewed = false;
+                try {
+                  alreadyViewed = !!localStorage.getItem(viewedKey) || (document.cookie.indexOf(viewedKey + '=1') !== -1);
+                } catch (e) {}
 
-// If this is a new viewer, mark immediately in localStorage & cookie so reloads never double-count
-if (!alreadyViewed) {
-try {
-localStorage.setItem(viewedKey, '1');
-document.cookie = viewedKey + '=1; path=/; max-age=315360000; SameSite=Lax';
-} catch (e) {}
-}
+                // If this is a new viewer, mark immediately in localStorage & cookie so reloads never double-count
+                if (!alreadyViewed) {
+                  try {
+                    localStorage.setItem(viewedKey, '1');
+                    document.cookie = viewedKey + '=1; path=/; max-age=315360000; SameSite=Lax';
+                  } catch (e) {}
+                }
 
-function updateDisplay(val) {
-const num = Number(val);
-if (!isNaN(num) && num >= 0) {
-countEl.textContent = num.toLocaleString();
-}
-}
+                function updateDisplay(val) {
+                  const num = Number(val);
+                  if (!isNaN(num) && num >= 0) {
+                    countEl.textContent = num.toLocaleString();
+                  }
+                }
 
-// Call StaticStack API (hit=1 ONLY if this is a brand new user viewing for the first time)
-const apiParam = alreadyViewed ? '&hit=0' : '&hit=1';
-fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + apiParam)
-.then(function(res) {
-if (!res.ok) throw new Error('API error');
-return res.json();
-})
-.then(function(data) {
-if (data && data.value !== undefined) {
-updateDisplay(data.value);
-}
-})
-.catch(function() {
-// Fallback to local views cache if community API is unreachable
-fetch('/asset/json/tool-views-cache.json')
-.then(function(res) { return res.ok ? res.json() : null; })
-.then(function(data) {
-if (data && data[key] !== undefined) {
-updateDisplay(data[key]);
-} else if (countEl.textContent === '--') {
-countEl.textContent = '0';
-}
-})
-.catch(function() {
-if (countEl.textContent === '--') {
-countEl.textContent = '0';
-}
-});
-});
-})();
-</script>
-
-<!-- Bottom Navigation -->
-<div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);">
-<a href="../../archive#hosting-deployment" class="btn btn-secondary">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to Hosting &amp; Deployment
-</a>
-<a href="../../archive" class="btn btn-secondary">
+                // Call StaticStack API (hit=1 ONLY if this is a brand new user viewing for the first time)
+                const apiParam = alreadyViewed ? '&hit=0' : '&hit=1';
+                fetch('/community/api?action=tool-view&key=' + encodeURIComponent(key) + apiParam)
+                  .then(function(res) {
+                    if (!res.ok) throw new Error('API error');
+                    return res.json();
+                  })
+                  .then(function(data) {
+                    if (data && data.value !== undefined) {
+                      updateDisplay(data.value);
+                    }
+                  })
+                  .catch(function() {
+                    // Fallback to local views cache if community API is unreachable
+                    fetch('/asset/json/tool-views-cache.json')
+                      .then(function(res) { return res.ok ? res.json() : null; })
+                      .then(function(data) {
+                        if (data && data[key] !== undefined) {
+                          updateDisplay(data[key]);
+                        } else if (countEl.textContent === '--') {
+                          countEl.textContent = '0';
+                        }
+                      })
+                      .catch(function() {
+                        if (countEl.textContent === '--') {
+                          countEl.textContent = '0';
+                        }
+                      });
+                  });
+              })();
+            </script>
+<div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-top:2rem; border-top:1px solid var(--border-color);"><a href="../../archive#hosting-deployment" class="btn btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to Hosting &amp; Deployment
+</a><a href="../../archive" class="btn btn-secondary">
 Browse Full Archive
-</a>
-<a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-Visit Official Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</div>
-</article>
-</div>
-
-<!-- Right Sidebar -->
+</a><a href="https://deno.com/deploy" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+Visit Official Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div></article></div>
 <aside class="tool-page-sidebar">
-<!-- Static Site Hints & Tips Card -->
-<div class="sidebar-widget">
-<div class="sidebar-widget-header">
-<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
-<h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4>
-</div>
-<div class="sidebar-widget-body">
-<div class="sidebar-tip-item">
-<span class="sidebar-tip-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
-<div>
-<strong style="color:var(--text-main); font-size:0.825rem; display:block;">Pricing &amp; License Structure</strong>
-<div style="font-size:0.8rem; line-height:1.45; margin-top:0.35rem; display:flex; flex-direction:column; gap:0.35rem;">
-<div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free</span> 100% free with no payment required.</div>
-<div><span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Freemium</span> Free tier exists with paid plans/credits.</div>
-<div><span class="badge badge-paid" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Paid</span> Commercial only; no permanent free tier.</div>
-<div><span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Open Source</span> Public code with verified license (MIT, Apache, etc.).</div>
-<div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free / Open Source</span> Free platform with open-source foundation.</div>
-</div>
-</div>
-</div>
-<div class="sidebar-tip-item">
-<span class="sidebar-tip-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-<div>
-<strong style="color:var(--text-main); font-size:0.825rem; display:block;">Zero Backend Required</strong>
+<div class="sidebar-widget"><div class="sidebar-widget-header"><span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h4 class="sidebar-widget-title">Static Site Hints &amp; Tips</h4></div><div class="sidebar-widget-body"><div class="sidebar-tip-item"><span class="sidebar-tip-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span><div><strong style="color:var(--text-main); font-size:0.825rem; display:block;">Pricing &amp; License Structure</strong><div style="font-size:0.8rem; line-height:1.45; margin-top:0.35rem; display:flex; flex-direction:column; gap:0.35rem;"><div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free</span> 100% free with no payment required.</div><div><span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Freemium</span> Free tier exists with paid plans/credits.</div><div><span class="badge badge-paid" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Paid</span> Commercial only; no permanent free tier.</div><div><span class="badge badge-open-source" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Open Source</span> Public code with verified license (MIT, Apache, etc.).</div><div><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.35rem; margin-right:0.3rem;">Free / Open Source</span> Free platform with open-source foundation.</div></div></div></div><div class="sidebar-tip-item"><span class="sidebar-tip-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong style="color:var(--text-main); font-size:0.825rem; display:block;">Zero Backend Required</strong>
 All tools here integrate directly into HTML/CSS/JS without hosting server runtimes or databases.
-</div>
-</div>
-<div class="sidebar-tip-item">
-<span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
-<div>
-<strong style="color:var(--text-main); font-size:0.825rem; display:block;">Async Performance</strong>
+</div></div><div class="sidebar-tip-item"><span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span><div><strong style="color:var(--text-main); font-size:0.825rem; display:block;">Async Performance</strong>
 Always use <code>async</code> or <code>defer</code> on widget scripts to keep page load times fast.
-</div>
-</div>
-<div class="sidebar-tip-item">
-<span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
-<div>
-<strong style="color:var(--text-main); font-size:0.825rem; display:block;">API Key Security</strong>
+</div></div><div class="sidebar-tip-item"><span class="sidebar-tip-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><div><strong style="color:var(--text-main); font-size:0.825rem; display:block;">API Key Security</strong>
 Never commit secret tokens to static repositories. Use public client keys or edge proxies.
-</div>
-</div>
-<div class="sidebar-tip-item">
-<span class="sidebar-tip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
-<div>
-<strong style="color:var(--text-main); font-size:0.825rem; display:block;">Host Anywhere</strong>
+</div></div><div class="sidebar-tip-item"><span class="sidebar-tip-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span><div><strong style="color:var(--text-main); font-size:0.825rem; display:block;">Host Anywhere</strong>
 Compatible with GitHub Pages, Cloudflare Pages, Netlify, Vercel, and Wasmer Edge.
-</div>
-</div>
-</div>
-</div>
-
-<!-- Related Tools & Category Alternatives Card -->
-<div class="sidebar-widget">
-<div class="sidebar-widget-header" style="justify-content:space-between;">
-<div style="display:flex; align-items:center; gap:0.5rem;">
-<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
-<h4 class="sidebar-widget-title">Hosting &amp; Deployment Alternatives</h4>
-</div>
-<a href="../../category/hosting-deployment/" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View Category &rarr;</a>
-</div>
-<div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
-
-<a href="../../tools/hosting-deployment/cloudflare-pages" class="sidebar-tool-card" title="Cloudflare Pages - Hosting &amp; Deployment">
-<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
-<img src="/tools/hosting-deployment/cloudflare-pages-icon.webp" width="20" height="20" class="tool-siteicon" alt="Cloudflare Pages icon" loading="lazy" decoding="async">
-</span>
-<div class="sidebar-tool-info">
-<div class="sidebar-tool-name">
-<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Cloudflare Pages</span>
-<span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
-</div>
-<div class="sidebar-tool-desc">Fast, secure Jamstack hosting on Cloudflare&#39;s global edge network.</div>
-</div>
-</a>
-
-<a href="../../tools/hosting-deployment/firebase-hosting" class="sidebar-tool-card" title="Firebase Hosting - Hosting &amp; Deployment">
-<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
-<img src="/tools/hosting-deployment/firebase-hosting-icon.webp" width="20" height="20" class="tool-siteicon" alt="Firebase Hosting icon" loading="lazy" decoding="async">
-</span>
-<div class="sidebar-tool-info">
-<div class="sidebar-tool-name">
-<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Firebase Hosting</span>
-<span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
-</div>
-<div class="sidebar-tool-desc">Fast, secure static and dynamic web hosting backed by Google&#39;s global SSD CDN.</div>
-</div>
-</a>
-
-<a href="../../tools/hosting-deployment/fleek" class="sidebar-tool-card" title="Fleek - Hosting &amp; Deployment">
-<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
-<img src="/tools/hosting-deployment/fleek-icon.webp" width="20" height="20" class="tool-siteicon" alt="Fleek icon" loading="lazy" decoding="async">
-</span>
-<div class="sidebar-tool-info">
-<div class="sidebar-tool-name">
-<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Fleek</span>
-<span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span>
-</div>
-<div class="sidebar-tool-desc">Edge-optimized web hosting for static frontends and modern Jamstack sites with automated Git deployment.</div>
-</div>
-</a>
-
-<a href="../../tools/hosting-deployment/github-pages" class="sidebar-tool-card" title="GitHub Pages - Hosting &amp; Deployment">
-<span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;">
-<img src="/tools/hosting-deployment/github-pages-icon.webp" width="20" height="20" class="tool-siteicon" alt="GitHub Pages icon" loading="lazy" decoding="async">
-</span>
-<div class="sidebar-tool-info">
-<div class="sidebar-tool-name">
-<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">GitHub Pages</span>
-<span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Free</span>
-</div>
-<div class="sidebar-tool-desc">Host websites directly from GitHub repositories with Git-driven automation.</div>
-</div>
-</a>
-
-</div>
-</div>
-
-<!-- PayPal Donation Sidebar Card -->
+</div></div></div></div>
+<div class="sidebar-widget"><div class="sidebar-widget-header" style="justify-content:space-between;"><div style="display:flex; align-items:center; gap:0.5rem;"><span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h4 class="sidebar-widget-title">Hosting &amp; Deployment Alternatives</h4></div><a href="../../category/hosting-deployment/" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">View Category &rarr;</a></div><div class="sidebar-widget-body" style="display:flex; flex-direction:column; gap:0.4rem;">
+<a href="../../tools/hosting-deployment/cloudflare-pages" class="sidebar-tool-card" title="Cloudflare Pages - Hosting &amp; Deployment"><span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;"><img src="/tools/hosting-deployment/cloudflare-pages-icon.webp" width="20" height="20" class="tool-siteicon" alt="Cloudflare Pages icon" loading="lazy" decoding="async"></span><div class="sidebar-tool-info"><div class="sidebar-tool-name"><span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Cloudflare Pages</span><span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span></div><div class="sidebar-tool-desc">Fast, secure Jamstack hosting on Cloudflare&#39;s global edge network.</div></div></a>
+<a href="../../tools/hosting-deployment/firebase-hosting" class="sidebar-tool-card" title="Firebase Hosting - Hosting &amp; Deployment"><span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;"><img src="/tools/hosting-deployment/firebase-hosting-icon.webp" width="20" height="20" class="tool-siteicon" alt="Firebase Hosting icon" loading="lazy" decoding="async"></span><div class="sidebar-tool-info"><div class="sidebar-tool-name"><span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Firebase Hosting</span><span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span></div><div class="sidebar-tool-desc">Fast, secure static and dynamic web hosting backed by Google&#39;s global SSD CDN.</div></div></a>
+<a href="../../tools/hosting-deployment/fleek" class="sidebar-tool-card" title="Fleek - Hosting &amp; Deployment"><span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;"><img src="/tools/hosting-deployment/fleek-icon.webp" width="20" height="20" class="tool-siteicon" alt="Fleek icon" loading="lazy" decoding="async"></span><div class="sidebar-tool-info"><div class="sidebar-tool-name"><span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Fleek</span><span class="badge badge-freemium" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Freemium</span></div><div class="sidebar-tool-desc">Edge-optimized web hosting for static frontends and modern Jamstack sites with automated Git deployment.</div></div></a>
+<a href="../../tools/hosting-deployment/github-pages" class="sidebar-tool-card" title="GitHub Pages - Hosting &amp; Deployment"><span class="sidebar-tool-icon" style="display:inline-flex; align-items:center; justify-content:center;"><img src="/tools/hosting-deployment/github-pages-icon.webp" width="20" height="20" class="tool-siteicon" alt="GitHub Pages icon" loading="lazy" decoding="async"></span><div class="sidebar-tool-info"><div class="sidebar-tool-name"><span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">GitHub Pages</span><span class="badge badge-free" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Free</span></div><div class="sidebar-tool-desc">Host websites directly from GitHub repositories with Git-driven automation.</div></div></a>
+</div></div>
 <div class="sidebar-widget sidebar-donate-widget">
 <style>
-.sidebar-donate-widget {
-background: var(--bg-surface);
-border: 1px solid var(--border-color);
-transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.sidebar-donate-widget:hover {
-border-color: rgba(0, 112, 186, 0.4);
-box-shadow: 0 6px 18px rgba(0, 112, 186, 0.08);
-}
-.sidebar-donate-btn {
-border: 1px solid var(--border-color) !important;
-background: var(--bg-body) !important;
-color: var(--text-main) !important;
-border-radius: 6px;
-padding: 0.35rem 0.2rem;
-font-size: 0.85rem;
-font-weight: 700;
-cursor: pointer !important;
-transition: all 0.15s ease;
-font-family: inherit;
-text-align: center;
-user-select: none;
-}
-.sidebar-donate-btn:hover {
-border-color: #0070ba !important;
-background: rgba(0, 112, 186, 0.15) !important;
-color: #0070ba !important;
-}
-.sidebar-donate-btn.active,
-.sidebar-donate-btn.active:hover {
-border-color: #0070ba !important;
-background: #0070ba !important;
-color: #ffffff !important;
-box-shadow: 0 2px 8px rgba(0, 112, 186, 0.35) !important;
-}
-.sidebar-donate-custom:focus {
-border-color: #0070ba !important;
-box-shadow: 0 0 0 2px rgba(0, 112, 186, 0.15) !important;
-}
-.sidebar-donate-submit:hover {
-background: linear-gradient(180deg, #ffd05b 0%, #f7be38 100%) !important;
-box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35) !important;
-transform: translateY(-1px);
-color: #000000 !important;
-}
-</style>
-<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.6rem;">
-<div style="display:flex; align-items:center; gap:0.5rem;">
-<span style="display:inline-flex; align-items:center; color:#0070ba;">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-<path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z" fill="#003087"/>
-<path d="M9.13 15.688l1.196-7.575a.8.8 0 0 1 .79-.675h5.176c2.81 0 4.887 1.405 4.51 4.27-.373 2.825-2.327 4.33-4.896 4.33H11.75l-.946 5.682a.8.8 0 0 1-.79.674H6.386a.64.64 0 0 1-.632-.74l1.378-8.291L9.13 15.688z" fill="#0079C1"/>
-</svg>
-</span>
-<strong style="font-size:0.875rem; color:var(--text-main);">Support StaticStack</strong>
-</div>
-<span style="font-size:0.65rem; font-weight:700; color:#0070ba; background:rgba(0,112,186,0.1); padding:2px 6px; border-radius:10px; letter-spacing:0.03em;">DONATE</span>
-</div>
-<p style="font-size:0.8rem; color:var(--text-muted); line-height:1.45; margin-bottom:0.75rem;">
+              .sidebar-donate-widget {
+                background: var(--bg-surface);
+                border: 1px solid var(--border-color);
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+              }
+              .sidebar-donate-widget:hover {
+                border-color: rgba(0, 112, 186, 0.4);
+                box-shadow: 0 6px 18px rgba(0, 112, 186, 0.08);
+              }
+              .sidebar-donate-btn {
+                border: 1px solid var(--border-color) !important;
+                background: var(--bg-body) !important;
+                color: var(--text-main) !important;
+                border-radius: 6px;
+                padding: 0.35rem 0.2rem;
+                font-size: 0.85rem;
+                font-weight: 700;
+                cursor: pointer !important;
+                transition: all 0.15s ease;
+                font-family: inherit;
+                text-align: center;
+                user-select: none;
+              }
+              .sidebar-donate-btn:hover {
+                border-color: #0070ba !important;
+                background: rgba(0, 112, 186, 0.15) !important;
+                color: #0070ba !important;
+              }
+              .sidebar-donate-btn.active,
+              .sidebar-donate-btn.active:hover {
+                border-color: #0070ba !important;
+                background: #0070ba !important;
+                color: #ffffff !important;
+                box-shadow: 0 2px 8px rgba(0, 112, 186, 0.35) !important;
+              }
+              .sidebar-donate-custom:focus {
+                border-color: #0070ba !important;
+                box-shadow: 0 0 0 2px rgba(0, 112, 186, 0.15) !important;
+              }
+              .sidebar-donate-submit:hover {
+                background: linear-gradient(180deg, #ffd05b 0%, #f7be38 100%) !important;
+                box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35) !important;
+                transform: translateY(-1px);
+                color: #000000 !important;
+              }
+            </style>
+<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.6rem;"><div style="display:flex; align-items:center; gap:0.5rem;"><span style="display:inline-flex; align-items:center; color:#0070ba;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z" fill="#003087"/><path d="M9.13 15.688l1.196-7.575a.8.8 0 0 1 .79-.675h5.176c2.81 0 4.887 1.405 4.51 4.27-.373 2.825-2.327 4.33-4.896 4.33H11.75l-.946 5.682a.8.8 0 0 1-.79.674H6.386a.64.64 0 0 1-.632-.74l1.378-8.291L9.13 15.688z" fill="#0079C1"/></svg></span><strong style="font-size:0.875rem; color:var(--text-main);">Support StaticStack</strong></div><span style="font-size:0.65rem; font-weight:700; color:#0070ba; background:rgba(0,112,186,0.1); padding:2px 6px; border-radius:10px; letter-spacing:0.03em;">DONATE</span></div><p style="font-size:0.8rem; color:var(--text-muted); line-height:1.45; margin-bottom:0.75rem;">
 Help keep this catalog free, independent, and actively maintained.
 </p>
-
-<div class="sidebar-donate-amounts" style="display:grid; grid-template-columns: repeat(3, 1fr) 1.25fr; gap:0.4rem; margin-bottom:0.75rem;">
-<button type="button" class="sidebar-donate-btn" data-amt="5" onclick="setSidebarDonation(this, 5)">$5</button>
-<button type="button" class="sidebar-donate-btn active" data-amt="10" onclick="setSidebarDonation(this, 10)">$10</button>
-<button type="button" class="sidebar-donate-btn" data-amt="20" onclick="setSidebarDonation(this, 20)">$20</button>
-<div style="position:relative; display:flex; align-items:center;">
-<span style="position:absolute; left:0.45rem; font-size:0.75rem; color:var(--text-muted); font-weight:700; pointer-events:none;">$</span>
-<input type="number" class="sidebar-donate-custom" placeholder="Other" min="1" step="1" oninput="setSidebarDonationCustom(this)" style="width:100%; height:100%; min-height:34px; padding:0.25rem 0.35rem 0.25rem 1.15rem; font-size:0.8rem; font-weight:600; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-body); color:var(--text-main); outline:none;">
-</div>
-</div>
-
-<a class="sidebar-donate-submit" href="https://paypal.me/scotbirchfield/10" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; gap:0.45rem; width:100%; padding:0.55rem 0.85rem; background:linear-gradient(180deg, #ffc439 0%, #f4b628 100%); color:#111827; border:1px solid #e0a316; border-radius:8px; font-size:0.85rem; font-weight:700; text-decoration:none; cursor:pointer; box-shadow:0 2px 8px rgba(245,158,11,0.2); transition:all 0.15s ease;">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-<path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z"/>
-</svg>
-<span class="sidebar-donate-btn-label">Donate $10 with PayPal</span>
-</a>
-
-<div style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; justify-content:center; gap:0.3rem; margin-top:0.55rem;">
-<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-</svg>
-<span>Secure checkout on PayPal &bull; Cards accepted</span>
-</div>
-
+<div class="sidebar-donate-amounts" style="display:grid; grid-template-columns: repeat(3, 1fr) 1.25fr; gap:0.4rem; margin-bottom:0.75rem;"><button type="button" class="sidebar-donate-btn" data-amt="5" onclick="setSidebarDonation(this, 5)">$5</button><button type="button" class="sidebar-donate-btn active" data-amt="10" onclick="setSidebarDonation(this, 10)">$10</button><button type="button" class="sidebar-donate-btn" data-amt="20" onclick="setSidebarDonation(this, 20)">$20</button><div style="position:relative; display:flex; align-items:center;"><span style="position:absolute; left:0.45rem; font-size:0.75rem; color:var(--text-muted); font-weight:700; pointer-events:none;">$</span><input type="number" class="sidebar-donate-custom" placeholder="Other" min="1" step="1" oninput="setSidebarDonationCustom(this)" style="width:100%; height:100%; min-height:34px; padding:0.25rem 0.35rem 0.25rem 1.15rem; font-size:0.8rem; font-weight:600; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-body); color:var(--text-main); outline:none;"></div></div>
+<a class="sidebar-donate-submit" href="https://paypal.me/scotbirchfield/10" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; gap:0.45rem; width:100%; padding:0.55rem 0.85rem; background:linear-gradient(180deg, #ffc439 0%, #f4b628 100%); color:#111827; border:1px solid #e0a316; border-radius:8px; font-size:0.85rem; font-weight:700; text-decoration:none; cursor:pointer; box-shadow:0 2px 8px rgba(245,158,11,0.2); transition:all 0.15s ease;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z"/></svg><span class="sidebar-donate-btn-label">Donate $10 with PayPal</span></a>
+<div style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; justify-content:center; gap:0.3rem; margin-top:0.55rem;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span>Secure checkout on PayPal &bull; Cards accepted</span></div>
 <script>
-if (typeof window.setSidebarDonation !== 'function') {
-window.setSidebarDonation = function(btnEl, amt) {
-var widget = btnEl.closest('.sidebar-donate-widget');
-if (!widget) return;
-var customInput = widget.querySelector('.sidebar-donate-custom');
-if (customInput) customInput.value = '';
-var buttons = widget.querySelectorAll('.sidebar-donate-btn');
-for (var i = 0; i < buttons.length; i++) {
-buttons[i].classList.remove('active');
-}
-btnEl.classList.add('active');
-var submitBtn = widget.querySelector('.sidebar-donate-submit');
-var labelEl = widget.querySelector('.sidebar-donate-btn-label');
-var targetUrl = 'https://paypal.me/scotbirchfield/' + amt;
-if (submitBtn) submitBtn.href = targetUrl;
-if (labelEl) labelEl.textContent = 'Donate $' + amt + ' with PayPal';
-};
-}
+              if (typeof window.setSidebarDonation !== 'function') {
+                window.setSidebarDonation = function(btnEl, amt) {
+                  var widget = btnEl.closest('.sidebar-donate-widget');
+                  if (!widget) return;
+                  var customInput = widget.querySelector('.sidebar-donate-custom');
+                  if (customInput) customInput.value = '';
+                  var buttons = widget.querySelectorAll('.sidebar-donate-btn');
+                  for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].classList.remove('active');
+                  }
+                  btnEl.classList.add('active');
+                  var submitBtn = widget.querySelector('.sidebar-donate-submit');
+                  var labelEl = widget.querySelector('.sidebar-donate-btn-label');
+                  var targetUrl = 'https://paypal.me/scotbirchfield/' + amt;
+                  if (submitBtn) submitBtn.href = targetUrl;
+                  if (labelEl) labelEl.textContent = 'Donate $' + amt + ' with PayPal';
+                };
+              }
 
-if (typeof window.setSidebarDonationCustom !== 'function') {
-window.setSidebarDonationCustom = function(inputEl) {
-var widget = inputEl.closest('.sidebar-donate-widget');
-if (!widget) return;
-var buttons = widget.querySelectorAll('.sidebar-donate-btn');
-for (var i = 0; i < buttons.length; i++) {
-buttons[i].classList.remove('active');
-}
-var val = inputEl.value ? parseInt(inputEl.value, 10) : 0;
-var submitBtn = widget.querySelector('.sidebar-donate-submit');
-var labelEl = widget.querySelector('.sidebar-donate-btn-label');
-if (!isNaN(val) && val > 0) {
-var targetUrl = 'https://paypal.me/scotbirchfield/' + val;
-if (submitBtn) submitBtn.href = targetUrl;
-if (labelEl) labelEl.textContent = 'Donate $' + val + ' with PayPal';
-} else {
-var targetUrl = 'https://paypal.me/scotbirchfield/';
-if (submitBtn) submitBtn.href = targetUrl;
-if (labelEl) labelEl.textContent = 'Donate with PayPal';
-}
-};
-}
-</script>
+              if (typeof window.setSidebarDonationCustom !== 'function') {
+                window.setSidebarDonationCustom = function(inputEl) {
+                  var widget = inputEl.closest('.sidebar-donate-widget');
+                  if (!widget) return;
+                  var buttons = widget.querySelectorAll('.sidebar-donate-btn');
+                  for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].classList.remove('active');
+                  }
+                  var val = inputEl.value ? parseInt(inputEl.value, 10) : 0;
+                  var submitBtn = widget.querySelector('.sidebar-donate-submit');
+                  var labelEl = widget.querySelector('.sidebar-donate-btn-label');
+                  if (!isNaN(val) && val > 0) {
+                    var targetUrl = 'https://paypal.me/scotbirchfield/' + val;
+                    if (submitBtn) submitBtn.href = targetUrl;
+                    if (labelEl) labelEl.textContent = 'Donate $' + val + ' with PayPal';
+                  } else {
+                    var targetUrl = 'https://paypal.me/scotbirchfield/';
+                    if (submitBtn) submitBtn.href = targetUrl;
+                    if (labelEl) labelEl.textContent = 'Donate with PayPal';
+                  }
+                };
+              }
+            </script>
 </div>
-
-<!-- Embeddable "Featured on StaticStack" Badge -->
-<div class="sidebar-widget">
-<div class="sidebar-widget-header">
-<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
-<h4 class="sidebar-widget-title">Embed Badge</h4>
-</div>
-<p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
+<div class="sidebar-widget"><div class="sidebar-widget-header"><span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span><h4 class="sidebar-widget-title">Embed Badge</h4></div><p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
 Show that Deno Deploy is listed on StaticStack in your README or footer.
-</p>
-<div style="margin-bottom:0.85rem;">
-<img src="/badge/deno-deploy.svg" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto;">
-</div>
-<div style="display:flex; gap:0.5rem;">
-<button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-slug="deno-deploy" data-category="hosting-deployment" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+</p><div style="margin-bottom:0.85rem;"><img src="/badge/deno-deploy.svg" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto;"></div><div style="display:flex; gap:0.5rem;"><button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-slug="deno-deploy" data-category="hosting-deployment" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
 Copy Markdown
-</button>
-<button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-slug="deno-deploy" data-category="hosting-deployment" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+</button><button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-slug="deno-deploy" data-category="hosting-deployment" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
 Copy HTML
-</button>
-</div>
+</button></div>
 <script>
-(function() {
-document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
-btn.addEventListener('click', function() {
-var slug = btn.getAttribute('data-slug');
-var cat = btn.getAttribute('data-category');
-var type = btn.getAttribute('data-copy-type');
-var toolUrl = 'https://www.staticstack.app/tools/' + cat + '/' + slug;
-var badgeUrl = 'https://www.staticstack.app/badge/' + slug + '.svg';
-var snippet = type === 'html'
-? '<a href="' + toolUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
-: '[![Featured on StaticStack](' + badgeUrl + ')](' + toolUrl + ')';
-var orig = btn.textContent;
-if (navigator.clipboard && navigator.clipboard.writeText) {
-navigator.clipboard.writeText(snippet).then(function() {
-btn.textContent = 'Copied!';
-setTimeout(function() { btn.textContent = orig; }, 1800);
-}).catch(function() {});
-}
-});
-});
-})();
-</script>
+              (function() {
+                document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
+                  btn.addEventListener('click', function() {
+                    var slug = btn.getAttribute('data-slug');
+                    var cat = btn.getAttribute('data-category');
+                    var type = btn.getAttribute('data-copy-type');
+                    var toolUrl = 'https://www.staticstack.app/tools/' + cat + '/' + slug;
+                    var badgeUrl = 'https://www.staticstack.app/badge/' + slug + '.svg';
+                    var snippet = type === 'html'
+                      ? '<a href="' + toolUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
+                      : '[![Featured on StaticStack](' + badgeUrl + ')](' + toolUrl + ')';
+                    var orig = btn.textContent;
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                      navigator.clipboard.writeText(snippet).then(function() {
+                        btn.textContent = 'Copied!';
+                        setTimeout(function() { btn.textContent = orig; }, 1800);
+                      }).catch(function() {});
+                    }
+                  });
+                });
+              })();
+            </script>
 </div>
-
-<!-- Submit Alternative Card -->
-<div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
-<div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-<span style="color:var(--accent); display:inline-flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
-<strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
-</div>
-<p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
+<div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;"><div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;"><span style="color:var(--accent); display:inline-flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span><strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong></div><p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
 StaticStack is community curated. Share your favorite static web service or tool with the community.
-</p>
-<a href="../../submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
+</p><a href="../../submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
 Submit a Tool &rarr;
-</a>
-</div>
-
-<!-- Facebook Community Group Card -->
-<div class="sidebar-widget">
-<div class="sidebar-widget-header">
-<span style="color:#1877f2; display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
-<h4 class="sidebar-widget-title">Facebook Community</h4>
-</div>
-<p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
+</a></div>
+<div class="sidebar-widget"><div class="sidebar-widget-header"><span style="color:#1877f2; display:inline-flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span><h4 class="sidebar-widget-title">Facebook Community</h4></div><p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
 Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites and official StaticStack Facebook Groups.
-</p>
-<a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
-<span style="color:#1877f2; display:inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
-<span>Dynamic Websites Group</span>
-<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-<a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
-<span style="color:#1877f2; display:inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
-<span>StaticStack Official Group</span>
-<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</div>
-</aside>
-</div>
-
+</p><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;"><span style="color:#1877f2; display:inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span><span>Dynamic Websites Group</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.5rem;"><span style="color:#1877f2; display:inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span><span>StaticStack Official Group</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div></aside></div>
 </main>
-
-<!-- Pre-Footer Call to Action -->
-<section class="pre-footer-cta">
-<div class="container">
-<div class="pre-footer-card">
-<div class="pre-footer-content">
-<h2 class="pre-footer-title">Have a great static tool to recommend?</h2>
-<p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p>
-</div>
-<div class="pre-footer-actions">
-<a href="../../submit" class="btn btn-primary">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-<span>Submit a Tool</span>
-</a>
-<a href="../../archive" class="btn btn-secondary">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
-<span>Browse all Categories</span>
-</a>
-<a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
-<span>Star on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Site Footer -->
-<footer class="site-footer">
-<div class="container">
-<div class="footer-inner">
-<div class="footer-col footer-col-brand">
-<a href="../../" class="brand" style="margin-bottom: 0.5rem;">
-<span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
-<span>StaticStack</span>
-</a>
-<p class="footer-desc">
+<section class="pre-footer-cta"><div class="container"><div class="pre-footer-card"><div class="pre-footer-content"><h2 class="pre-footer-title">Have a great static tool to recommend?</h2><p class="pre-footer-desc">Help developers build faster, cleaner static sites. Submit new tools or contribute directly to the repository on GitHub.</p></div><div class="pre-footer-actions"><a href="../../submit" class="btn btn-primary"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg><span>Submit a Tool</span></a><a href="../../archive" class="btn btn-secondary"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg><span>Browse all Categories</span></a><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Star on GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg><span>Star on GitHub</span></a></div></div></div></section>
+<footer class="site-footer"><div class="container"><div class="footer-inner"><div class="footer-col footer-col-brand"><a href="../../" class="brand" style="margin-bottom: 0.5rem;"><span class="brand-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span><span>StaticStack</span></a><p class="footer-desc">
 Community-curated tools, APIs, and services for building modern static websites with zero backend bloat.
-</p>
-<div class="footer-pill-badge">
-<span class="status-dot"></span>
-<span>160 Tools &bull; 29 Categories</span>
-</div>
-<div style="margin-top:0.75rem;">
-<a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.4rem;">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
-<span>Star on GitHub</span>
-</a>
-</div>
-</div>
-
-<div class="footer-col">
-<h4>Directory</h4>
-<ul class="footer-links">
-<li><a href="../../search">Search Tools</a></li>
-<li><a href="../../archive">Master Archive</a></li>
-<li><a href="../../blog">Blog &amp; Guides</a></li>
-<li><a href="../../community">Community Forum</a></li>
-<li><a href="../../submit">Submit a Tool</a></li>
-<li><a href="../../contribute">Contributing Guide</a></li>
-</ul>
-</div>
-
-<div class="footer-col">
-<h4>Top Categories</h4>
-<ul class="footer-links">
-<li><a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a></li>
-<li><a href="../../category/contact-forms/">Contact Forms</a></li>
-<li><a href="../../category/authentication-users/">Authentication</a></li>
-<li><a href="../../category/content-management/">Content Management</a></li>
-<li><a href="../../category/analytics-privacy/">Analytics &amp; Privacy</a></li>
-</ul>
-</div>
-
-<div class="footer-col">
-<h4>Community &amp; Info</h4>
-<ul class="footer-links">
-<li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-<li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-<li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li>
-<li><a href="../../thankyou">Thank You &amp; Credits</a></li>
-<li><a href="../../contact">Contact</a></li>
-<li><a href="../../stats" rel="nofollow">Site Stats</a></li>
-</ul>
-</div>
-</div>
-
-<div class="footer-bottom">
-<p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <a href="/stats" rel="nofollow" class="footer-stat-text" title="Total Site Views &middot; StaticStack Analytics"><span id="footer-stat-count">223</span> views</a></p>
-</div>
-</div>
-</footer>
-
-<!-- Floating Back to Top Button -->
-<button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()">
-<span class="btt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></span>
-<span>Back to Top</span>
-</button>
-
+</p><div class="footer-pill-badge"><span class="status-dot"></span><span>160 Tools &bull; 29 Categories</span></div><div style="margin-top:0.75rem;"><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.4rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg><span>Star on GitHub</span></a></div></div>
+<div class="footer-col"><h4>Directory</h4><ul class="footer-links"><li><a href="../../search">Search Tools</a></li><li><a href="../../archive">Master Archive</a></li><li><a href="../../blog">Blog &amp; Guides</a></li><li><a href="../../community">Community Forum</a></li><li><a href="../../submit">Submit a Tool</a></li><li><a href="../../contribute">Contributing Guide</a></li></ul></div>
+<div class="footer-col"><h4>Top Categories</h4><ul class="footer-links"><li><a href="../../category/hosting-deployment/">Hosting &amp; Deployment</a></li><li><a href="../../category/contact-forms/">Contact Forms</a></li><li><a href="../../category/authentication-users/">Authentication</a></li><li><a href="../../category/content-management/">Content Management</a></li><li><a href="../../category/analytics-privacy/">Analytics &amp; Privacy</a></li></ul></div>
+<div class="footer-col"><h4>Community &amp; Info</h4><ul class="footer-links"><li><a href="https://github.com/E6WeB/htmlstatic" target="_blank" rel="noopener noreferrer">GitHub Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li><li><a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer">Dynamic Websites Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li><li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></li><li><a href="../../thankyou">Thank You &amp; Credits</a></li><li><a href="../../contact">Contact</a></li><li><a href="../../stats" rel="nofollow">Site Stats</a></li></ul></div></div>
+<div class="footer-bottom"><p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <a href="/stats" rel="nofollow" class="footer-stat-text" title="Total Site Views &middot; StaticStack Analytics"><span id="footer-stat-count">223</span> views</a></p></div></div></footer>
+<button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top" onclick="scrollToTop()"><span class="btt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></span><span>Back to Top</span></button>
 <script>
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Live Footer Stat Counter updater
-(function() {
-const el = document.getElementById('footer-stat-count');
-if (!el) return;
-function updateCount(val) {
-if (typeof val === 'number' && !isNaN(val) && val > 0) {
-el.textContent = val.toLocaleString();
-}
-}
-try {
-const cached = sessionStorage.getItem('staticstack_total_views');
-if (cached) updateCount(Number(cached));
-} catch (e) {}
+    // Live Footer Stat Counter updater
+    (function() {
+      const el = document.getElementById('footer-stat-count');
+      if (!el) return;
+      function updateCount(val) {
+        if (typeof val === 'number' && !isNaN(val) && val > 0) {
+          el.textContent = val.toLocaleString();
+        }
+      }
+      try {
+        const cached = sessionStorage.getItem('staticstack_total_views');
+        if (cached) updateCount(Number(cached));
+      } catch (e) {}
 
-fetch('/community/api?action=tool-views')
-.then(r => r.json())
-.then(d => {
-if (d && d.views) {
-const sum = Object.values(d.views).reduce((a, b) => a + (Number(b) || 0), 0);
-if (sum > 0) {
-updateCount(sum);
-try { sessionStorage.setItem('staticstack_total_views', String(sum)); } catch(e){}
-}
-}
-})
-.catch(() => {
-fetch('/asset/json/tool-views-cache.json')
-.then(r => r.json())
-.then(d => {
-if (d) {
-const sum = Object.values(d).reduce((a, b) => a + (Number(b) || 0), 0);
-if (sum > 0) updateCount(sum);
-}
-})
-.catch(() => {});
-});
-})();
+      fetch('/community/api?action=tool-views')
+        .then(r => r.json())
+        .then(d => {
+          if (d && d.views) {
+            const sum = Object.values(d.views).reduce((a, b) => a + (Number(b) || 0), 0);
+            if (sum > 0) {
+              updateCount(sum);
+              try { sessionStorage.setItem('staticstack_total_views', String(sum)); } catch(e){}
+            }
+          }
+        })
+        .catch(() => {
+          fetch('/asset/json/tool-views-cache.json')
+            .then(r => r.json())
+            .then(d => {
+              if (d) {
+                const sum = Object.values(d).reduce((a, b) => a + (Number(b) || 0), 0);
+                if (sum > 0) updateCount(sum);
+              }
+            })
+            .catch(() => {});
+        });
+    })();
 
-// Strip hyperlinks from statcounter so only plain counter displays
-const scWrap = document.querySelector('.footer-statcounter');
-if (scWrap) {
-const cleanSc = () => {
-scWrap.querySelectorAll('a').forEach(a => {
-a.removeAttribute('href');
-a.removeAttribute('target');
-a.removeAttribute('title');
-a.style.pointerEvents = 'none';
-a.style.cursor = 'default';
-});
-};
-cleanSc();
-new MutationObserver(cleanSc).observe(scWrap, { childList: true, subtree: true });
-}
+    // Strip hyperlinks from statcounter so only plain counter displays
+    const scWrap = document.querySelector('.footer-statcounter');
+    if (scWrap) {
+      const cleanSc = () => {
+        scWrap.querySelectorAll('a').forEach(a => {
+          a.removeAttribute('href');
+          a.removeAttribute('target');
+          a.removeAttribute('title');
+          a.style.pointerEvents = 'none';
+          a.style.cursor = 'default';
+        });
+      };
+      cleanSc();
+      new MutationObserver(cleanSc).observe(scWrap, { childList: true, subtree: true });
+    }
 
-// Floating Back to Top
-const backToTopBtn = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-if (window.scrollY > 350) {
-backToTopBtn.classList.add('visible');
-} else {
-backToTopBtn.classList.remove('visible');
-}
-}, { passive: true });
+    // Floating Back to Top
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
 
-function scrollToTop() {
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-// Full-Screen Mobile Navigation Logic
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileNavModal = document.getElementById('mobile-nav-modal');
-const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
+    // Full-Screen Mobile Navigation Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNavModal = document.getElementById('mobile-nav-modal');
+    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
 
-function openMobileNav() {
-if (!mobileNavModal) return;
-mobileNavModal.classList.add('is-open');
-document.body.classList.add('mobile-nav-open');
-if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
-if (mobileMenuCloseBtn) mobileMenuCloseBtn.focus();
-}
+    function openMobileNav() {
+      if (!mobileNavModal) return;
+      mobileNavModal.classList.add('is-open');
+      document.body.classList.add('mobile-nav-open');
+      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      if (mobileMenuCloseBtn) mobileMenuCloseBtn.focus();
+    }
 
-function closeMobileNav() {
-if (!mobileNavModal) return;
-mobileNavModal.classList.remove('is-open');
-document.body.classList.remove('mobile-nav-open');
-if (mobileMenuBtn) {
-mobileMenuBtn.setAttribute('aria-expanded', 'false');
-mobileMenuBtn.focus();
-}
-}
+    function closeMobileNav() {
+      if (!mobileNavModal) return;
+      mobileNavModal.classList.remove('is-open');
+      document.body.classList.remove('mobile-nav-open');
+      if (mobileMenuBtn) {
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.focus();
+      }
+    }
 
-if (mobileMenuBtn) {
-mobileMenuBtn.addEventListener('click', openMobileNav);
-}
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', openMobileNav);
+    }
 
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-if (e.key === 'Escape' && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
-closeMobileNav();
-}
-});
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
+        closeMobileNav();
+      }
+    });
 
-// Close on desktop resize
-window.addEventListener('resize', () => {
-if (window.innerWidth > 768 && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
-closeMobileNav();
-}
-});
-</script>
-
-<!-- High-Performance Instant Client-Side Search Engine -->
+    // Close on desktop resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && mobileNavModal && mobileNavModal.classList.contains('is-open')) {
+        closeMobileNav();
+      }
+    });
+  </script>
 <script defer src="../../asset/js/search.js?v=3"></script>
-
-<!-- StaticStack StackBot -->
 <script src="/asset/js/stackbot.js?v=9" defer></script>
-
-</body>
-</html>
+</body></html>
