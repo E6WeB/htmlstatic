@@ -38,6 +38,7 @@ const { renderBlogArticlePage, renderBlogIndexPage } = require('./src/templates/
 const { generateLlmsFiles } = require('./src/templates/llms-txt');
 const { createDiscoveryContext } = require('./src/data/discovery-badges');
 const { renderStackPage } = require('./src/templates/stack-page');
+const { renderToolBadgeSvg } = require('./src/templates/badge');
 
 marked.setOptions({
   gfm: true,
@@ -2191,6 +2192,56 @@ Disallow: /stats/
 Sitemap: https://www.staticstack.app/sitemap.xml
 `;
 fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
+
+// 3.5. Embeddable Tool Badges (/badge/<slug>.svg)
+const badgeDir = path.join(ROOT_DIR, 'badge');
+ensureDir(badgeDir);
+allTools.forEach(tool => {
+  fs.writeFileSync(path.join(badgeDir, `${tool.slug}.svg`), renderToolBadgeSvg(tool));
+});
+
+// 3.6. RSS 2.0 Feed (/feed.xml)
+const rssBlogItems = [...blogPosts]
+  .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+  .map(post => {
+    const pubDate = post.date ? new Date(`${post.date}T12:00:00Z`).toUTCString() : new Date().toUTCString();
+    const link = `https://www.staticstack.app/blog/${post.slug}/`;
+    return `  <item>
+    <title>${escapeXml(post.title)}</title>
+    <link>${link}</link>
+    <guid isPermaLink="true">${link}</guid>
+    <pubDate>${pubDate}</pubDate>
+    <category>${escapeXml(post.category || 'Blog')}</category>
+    <description>${escapeXml(post.description || post.excerpt || '')}</description>
+  </item>`;
+  });
+
+const rssToolItems = allTools.slice(0, 25).map(tool => {
+  const link = `https://www.staticstack.app/tools/${tool.categorySlug}/${tool.slug}`;
+  return `  <item>
+    <title>${escapeXml(tool.name)} — ${escapeXml(tool.categoryTitle)}</title>
+    <link>${link}</link>
+    <guid isPermaLink="true">${link}</guid>
+    <pubDate>${new Date().toUTCString()}</pubDate>
+    <category>${escapeXml(tool.categoryTitle)}</category>
+    <description>${escapeXml(tool.description || '')}</description>
+  </item>`;
+});
+
+const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>StaticStack — Tools, APIs &amp; Tutorials for Static Websites</title>
+  <link>https://www.staticstack.app/</link>
+  <atom:link href="https://www.staticstack.app/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Curated tools, serverless APIs, and step-by-step guides for building modern static HTML websites with zero backend bloat.</description>
+  <language>en-us</language>
+  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${[...rssBlogItems, ...rssToolItems].join('\n')}
+</channel>
+</rss>
+`;
+fs.writeFileSync(path.join(ROOT_DIR, 'feed.xml'), feedXml);
 
 // 4. AI-Ready llms.txt & llms-full.txt
 console.log('🤖 Generating AI-ready llms.txt and llms-full.txt...');

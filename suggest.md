@@ -13,7 +13,7 @@
 | **2. Offline PWA Rollout (`sw.js` + `offline.html`)** | Speed / Offline | High | Low | ⏳ **Next** |
 | **4. Side-by-Side Tool Comparison (`/compare/`)** | SEO / Content | Very High | Medium | ⏳ **Planned** |
 | **5. `/stats` Privacy Telemetry & Core Web Vitals** | Analytics / Perf | High | Medium | ⏳ **Planned** |
-| **7. Embeddable `/badge/<slug>.svg` & `/feed.xml`** | Growth / Syndication | High | Low | ⏳ **Planned** |
+| **7. Embeddable `/badge/<slug>.svg` & `/feed.xml`** | Growth / Syndication | High | Low | ✅ **Done** |
 
 ---
 

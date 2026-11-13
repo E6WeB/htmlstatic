@@ -519,6 +519,51 @@ function renderToolPage({
 
           ${renderSidebarDonationWidget()}
 
+          <!-- Embeddable "Featured on StaticStack" Badge -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-header">
+              <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.tag || ICONS.code}</span>
+              <h4 class="sidebar-widget-title">Embed Badge</h4>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
+              Show that ${escapeHtml(tool.name)} is listed on StaticStack in your README or footer.
+            </p>
+            <div style="margin-bottom:0.85rem;">
+              <img src="/badge/${escapeHtml(tool.slug)}.svg" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto;">
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-slug="${escapeHtml(tool.slug)}" data-category="${escapeHtml(tool.categorySlug)}" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+                Copy Markdown
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-slug="${escapeHtml(tool.slug)}" data-category="${escapeHtml(tool.categorySlug)}" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+                Copy HTML
+              </button>
+            </div>
+            <script>
+              (function() {
+                document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
+                  btn.addEventListener('click', function() {
+                    var slug = btn.getAttribute('data-slug');
+                    var cat = btn.getAttribute('data-category');
+                    var type = btn.getAttribute('data-copy-type');
+                    var toolUrl = 'https://www.staticstack.app/tools/' + cat + '/' + slug;
+                    var badgeUrl = 'https://www.staticstack.app/badge/' + slug + '.svg';
+                    var snippet = type === 'html'
+                      ? '<a href="' + toolUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
+                      : '[![Featured on StaticStack](' + badgeUrl + ')](' + toolUrl + ')';
+                    var orig = btn.textContent;
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                      navigator.clipboard.writeText(snippet).then(function() {
+                        btn.textContent = 'Copied!';
+                        setTimeout(function() { btn.textContent = orig; }, 1800);
+                      }).catch(function() {});
+                    }
+                  });
+                });
+              })();
+            </script>
+          </div>
+
           <!-- Submit Alternative Card -->
           <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
             <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">

@@ -10,6 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="StaticStack RSS Feed" href="https://www.staticstack.app/feed.xml">
 <link rel="canonical" href="https://www.staticstack.app/tools/ai-content-creation/chatgpt">
 
 <!-- OpenGraph & Social Cards -->
@@ -779,6 +780,51 @@ if (labelEl) labelEl.textContent = 'Donate with PayPal';
 }
 };
 }
+</script>
+</div>
+
+<!-- Embeddable "Featured on StaticStack" Badge -->
+<div class="sidebar-widget">
+<div class="sidebar-widget-header">
+<span style="color:var(--accent); display:inline-flex; align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
+<h4 class="sidebar-widget-title">Embed Badge</h4>
+</div>
+<p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
+Show that ChatGPT is listed on StaticStack in your README or footer.
+</p>
+<div style="margin-bottom:0.85rem;">
+<img src="/badge/chatgpt.svg" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto;">
+</div>
+<div style="display:flex; gap:0.5rem;">
+<button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-slug="chatgpt" data-category="ai-content-creation" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+Copy Markdown
+</button>
+<button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-slug="chatgpt" data-category="ai-content-creation" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+Copy HTML
+</button>
+</div>
+<script>
+(function() {
+document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
+btn.addEventListener('click', function() {
+var slug = btn.getAttribute('data-slug');
+var cat = btn.getAttribute('data-category');
+var type = btn.getAttribute('data-copy-type');
+var toolUrl = 'https://www.staticstack.app/tools/' + cat + '/' + slug;
+var badgeUrl = 'https://www.staticstack.app/badge/' + slug + '.svg';
+var snippet = type === 'html'
+? '<a href="' + toolUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
+: '[![Featured on StaticStack](' + badgeUrl + ')](' + toolUrl + ')';
+var orig = btn.textContent;
+if (navigator.clipboard && navigator.clipboard.writeText) {
+navigator.clipboard.writeText(snippet).then(function() {
+btn.textContent = 'Copied!';
+setTimeout(function() { btn.textContent = orig; }, 1800);
+}).catch(function() {});
+}
+});
+});
+})();
 </script>
 </div>
 
