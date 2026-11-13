@@ -326,13 +326,31 @@ function getStatsSummary(req) {
     return a.name.localeCompare(b.name);
   });
 
-  // Calculate 24h hits & Country stats from IP logs
+  // Calculate 24h hits, 14-day trend, hourly sparkline, heatmap & Country stats from IP logs
   const now = Date.now();
   const past24h = now - 24 * 60 * 60 * 1000;
   let hits24h = 0;
   const uniqueIps24h = new Set();
   const countryCounts = {};
   const recentEvents = [];
+  const active24hMap = {};
+
+  // 14-day daily buckets (oldest -> newest)
+  const dayBuckets = {};
+  const dayOrder = [];
+  for (let d = 13; d >= 0; d--) {
+    const dt = new Date(now - d * 86400000);
+    const key = dt.toISOString().slice(0, 10);
+    const label = dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    dayBuckets[key] = 0;
+    dayOrder.push({ key, label });
+  }
+
+  // 24-hour buckets (oldest -> newest)
+  const hourly24h = new Array(24).fill(0);
+
+  // 7 days (0=Sun..6=Sat) x 6 4-hour slots
+  const heatmap = Array.from({ length: 7 }, () => new Array(6).fill(0));
 
   for (const [toolKey, ipDict] of Object.entries(ipTimestamps)) {
     const toolInfo = itemMap.get(toolKey) || { name: toolKey.replace(/^htmlstatic-/, ''), url: '#' };
@@ -341,6 +359,24 @@ function getStatsSummary(req) {
       if (timeNum > past24h) {
         hits24h++;
         uniqueIps24h.add(ip);
+        if (!active24hMap[toolKey]) {
+          active24hMap[toolKey] = { name: toolInfo.name, url: toolInfo.url || '#', count: 0 };
+        }
+        active24hMap[toolKey].count++;
+        const hourIdx = Math.min(23, Math.max(0, 23 - Math.floor((now - timeNum) / 3600000)));
+        hourly24h[hourIdx]++;
+      }
+      if (timeNum > 0) {
+        const dt = new Date(timeNum);
+        const dayKey = dt.toISOString().slice(0, 10);
+        if (dayBuckets[dayKey] !== undefined) {
+          dayBuckets[dayKey]++;
+        }
+        const dow = dt.getDay();
+        const slot = Math.floor(dt.getHours() / 4);
+        if (heatmap[dow] && heatmap[dow][slot] !== undefined) {
+          heatmap[dow][slot]++;
+        }
       }
       const loc = resolveIpLocation(ip, req);
       const cCode = loc.country || 'Other';
@@ -356,6 +392,9 @@ function getStatsSummary(req) {
       });
     }
   }
+
+  const dailySeries = dayOrder.map(d => ({ label: d.label, count: dayBuckets[d.key] || 0 }));
+  const topActive24h = Object.values(active24hMap).sort((a, b) => b.count - a.count).slice(0, 5);
 
   recentEvents.sort((a, b) => b.time - a.time);
 
@@ -380,6 +419,10 @@ function getStatsSummary(req) {
     totalCommunityItems: forumTopics.length + 1,
     hits24h,
     uniqueVisitors24h: uniqueIps24h.size,
+    dailySeries,
+    hourly24h,
+    topActive24h,
+    heatmap,
     countries,
     allItems,
     tools: allItems.filter(i => i.type === 'tool'),
@@ -581,7 +624,203 @@ function renderLoginHtml(errorMsg = '') {
 </html>`;
 }
 
+function renderDonutPieSvg(slices, centerLabel, centerValue) {
+  const size = 148;
+  const cx = 74;
+  const cy = 74;
+  const r = 52;
+  const circ = 2 * Math.PI * r;
+  const total = slices.reduce((sum, s) => sum + (Number(s.value) || 0), 0);
+
+  let segmentsHtml = '';
+  if (total <= 0) {
+    segmentsHtml = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#e2e8f0" stroke-width="20"/>`;
+  } else {
+    let offset = 0;
+    segmentsHtml = slices.filter(s => s.value > 0).map(s => {
+      const len = (s.value / total) * circ;
+      const dash = `${len.toFixed(2)} ${(circ - len).toFixed(2)}`;
+      const seg = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${s.color}" stroke-width="20" stroke-dasharray="${dash}" stroke-dashoffset="${(-offset).toFixed(2)}" transform="rotate(-90 ${cx} ${cy})"><title>${escapeHtml(s.label)}: ${s.value.toLocaleString()} (${Math.round((s.value / total) * 100)}%)</title></circle>`;
+      offset += len;
+      return seg;
+    }).join('');
+  }
+
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="flex-shrink:0;" role="img" aria-label="${escapeHtml(centerLabel)}">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#f0f0f1" stroke-width="20"/>
+    ${segmentsHtml}
+    <text x="${cx}" y="${cy - 3}" text-anchor="middle" fill="#1d2327" font-size="18" font-weight="800">${escapeHtml(String(centerValue))}</text>
+    <text x="${cx}" y="${cy + 14}" text-anchor="middle" fill="#646970" font-size="10.5" font-weight="600">${escapeHtml(centerLabel)}</text>
+  </svg>`;
+}
+
+function renderLegendHtml(slices) {
+  const total = slices.reduce((sum, s) => sum + (Number(s.value) || 0), 0) || 1;
+  return slices.map(s => {
+    const pct = Math.round(((Number(s.value) || 0) / total) * 100);
+    return `<div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; font-size:0.8rem; padding:0.25rem 0;">
+      <span style="display:flex; align-items:center; gap:0.45rem; min-width:0; color:#1d2327;">
+        <span style="width:10px; height:10px; border-radius:2px; background:${s.color}; flex-shrink:0;"></span>
+        <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(s.label)}</span>
+      </span>
+      <span style="font-weight:700; font-variant-numeric:tabular-nums; color:#3c434a; white-space:nowrap;">${(Number(s.value) || 0).toLocaleString()} <span style="color:#646970; font-weight:500;">(${pct}%)</span></span>
+    </div>`;
+  }).join('');
+}
+
+function renderAreaLineChartSvg(series) {
+  const pts = series && series.length ? series : [{ label: 'Today', count: 0 }];
+  const W = 680;
+  const H = 190;
+  const padL = 34;
+  const padR = 14;
+  const padT = 16;
+  const padB = 28;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+  const maxVal = Math.max(4, ...pts.map(p => p.count || 0));
+
+  const coords = pts.map((p, i) => {
+    const x = pts.length === 1 ? padL + innerW / 2 : padL + (i / (pts.length - 1)) * innerW;
+    const y = padT + innerH - ((p.count || 0) / maxVal) * innerH;
+    return { x, y, label: p.label, count: p.count || 0 };
+  });
+
+  const linePath = coords.map((c, i) => `${i === 0 ? 'M' : 'L'} ${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
+  const areaPath = `${linePath} L ${coords[coords.length - 1].x.toFixed(1)} ${(padT + innerH).toFixed(1)} L ${coords[0].x.toFixed(1)} ${(padT + innerH).toFixed(1)} Z`;
+
+  const gridLines = [0, 0.25, 0.5, 0.75, 1].map(f => {
+    const y = padT + innerH - f * innerH;
+    const val = Math.round(f * maxVal);
+    return `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W - padR}" y2="${y.toFixed(1)}" stroke="#e2e8f0" stroke-dasharray="3 3" stroke-width="1"/>
+      <text x="${padL - 6}" y="${(y + 3.5).toFixed(1)}" text-anchor="end" fill="#94a3b8" font-size="10">${val}</text>`;
+  }).join('');
+
+  const xLabels = coords.filter((_, i) => i === 0 || i === coords.length - 1 || i % 3 === 0).map(c =>
+    `<text x="${c.x.toFixed(1)}" y="${H - 6}" text-anchor="middle" fill="#94a3b8" font-size="10">${escapeHtml(c.label)}</text>`
+  ).join('');
+
+  const dots = coords.map(c =>
+    `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="3.5" fill="#ffffff" stroke="#2563eb" stroke-width="2"><title>${escapeHtml(c.label)}: ${c.count} hits</title></circle>`
+  ).join('');
+
+  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%; height:auto; display:block;" role="img" aria-label="14-Day Views Trend">
+    <defs>
+      <linearGradient id="area-blue-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2563eb" stop-opacity="0.24"/>
+        <stop offset="100%" stop-color="#2563eb" stop-opacity="0.01"/>
+      </linearGradient>
+    </defs>
+    ${gridLines}
+    <path d="${areaPath}" fill="url(#area-blue-grad)"/>
+    <path d="${linePath}" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    ${dots}
+    ${xLabels}
+  </svg>`;
+}
+
+function renderHeatmapHtml(heatmap) {
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const slots = ['12a', '4a', '8a', '12p', '4p', '8p'];
+  const grid = Array.isArray(heatmap) && heatmap.length === 7 ? heatmap : Array.from({ length: 7 }, () => new Array(6).fill(0));
+  let maxCell = 1;
+  grid.forEach(row => row.forEach(v => { if (v > maxCell) maxCell = v; }));
+
+  const rowsHtml = slots.map((slotLabel, sIdx) => {
+    const cells = days.map((dLabel, dIdx) => {
+      const val = (grid[dIdx] && grid[dIdx][sIdx]) || 0;
+      const ratio = val / maxCell;
+      let bg = '#eef2ff';
+      if (val > 0) {
+        if (ratio >= 0.75) bg = '#1d4ed8';
+        else if (ratio >= 0.45) bg = '#2563eb';
+        else if (ratio >= 0.2) bg = '#60a5fa';
+        else bg = '#bfdbfe';
+      }
+      return `<div title="${dLabel} ${slotLabel}: ${val} hits" style="background:${bg}; height:22px; border-radius:3px;"></div>`;
+    }).join('');
+    return `<div style="display:grid; grid-template-columns: 32px repeat(7, 1fr); gap:4px; align-items:center; margin-bottom:4px;">
+      <span style="font-size:0.7rem; color:#64748b; text-align:right; padding-right:4px;">${slotLabel}</span>
+      ${cells}
+    </div>`;
+  }).join('');
+
+  const headerRow = `<div style="display:grid; grid-template-columns: 32px repeat(7, 1fr); gap:4px; margin-top:6px;">
+    <span></span>${days.map(d => `<span style="font-size:0.7rem; color:#64748b; text-align:center;">${d}</span>`).join('')}
+  </div>`;
+
+  return `${rowsHtml}${headerRow}`;
+}
+
 function renderDashboardHtml(data, user) {
+  // 1. Traffic Split Pie (Tools vs Community)
+  const splitSlices = [
+    { label: 'Catalog Tools', value: data.toolViewsTotal || 0, color: '#2271b1' },
+    { label: 'Community & Topics', value: data.communityViewsTotal || 0, color: '#00a32a' }
+  ];
+
+  // 2. Category Share Pie (Top 5 categories + Other)
+  const catMap = {};
+  (data.tools || []).forEach(t => {
+    const cat = t.categoryTitle || 'Uncategorized';
+    catMap[cat] = (catMap[cat] || 0) + (Number(t.views) || 0);
+  });
+  const sortedCats = Object.entries(catMap).sort((a, b) => b[1] - a[1]);
+  const catPalette = ['#2271b1', '#3858e9', '#00a32a', '#dba617', '#d63638', '#8c8f94'];
+  const catSlices = sortedCats.slice(0, 5).map(([label, value], i) => ({
+    label,
+    value,
+    color: catPalette[i]
+  }));
+  const otherCatViews = sortedCats.slice(5).reduce((sum, [, v]) => sum + v, 0);
+  if (otherCatViews > 0) {
+    catSlices.push({ label: 'Other Categories', value: otherCatViews, color: catPalette[5] });
+  }
+
+  // 3. Top 8 Tools Horizontal Bar Infographic
+  const topTools = (data.tools || []).slice(0, 8);
+  const maxToolViews = Math.max(1, ...topTools.map(t => Number(t.views) || 0));
+  const topToolsBarsHtml = topTools.map((t, idx) => {
+    const pct = Math.max(3, Math.round(((Number(t.views) || 0) / maxToolViews) * 100));
+    return `<div style="margin-bottom:0.55rem;">
+      <div style="display:flex; justify-content:space-between; font-size:0.78rem; margin-bottom:0.2rem; gap:0.5rem;">
+        <a href="${t.url}" target="_blank" style="color:#1d2327; font-weight:600; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${idx + 1}. ${escapeHtml(t.name)}</a>
+        <span style="font-weight:700; font-variant-numeric:tabular-nums; color:#2271b1; flex-shrink:0;">${(Number(t.views) || 0).toLocaleString()}</span>
+      </div>
+      <div style="background:#f0f0f1; height:8px; border-radius:4px; overflow:hidden;">
+        <div style="background:linear-gradient(90deg, #2271b1 0%, #72aee6 100%); height:100%; width:${pct}%; border-radius:4px;"></div>
+      </div>
+    </div>`;
+  }).join('') || `<div style="color:#646970; font-size:0.85rem;">No tool views recorded yet.</div>`;
+
+  // 4. Country Share Pie (Top 4 + Other)
+  const countryPalette = ['#2271b1', '#00a32a', '#dba617', '#d63638', '#8c8f94'];
+  const countrySlices = (data.countries || []).slice(0, 4).map((c, i) => ({
+    label: c.name,
+    value: c.count,
+    color: countryPalette[i]
+  }));
+  const otherCountries = (data.countries || []).slice(4).reduce((sum, c) => sum + c.count, 0);
+  if (otherCountries > 0) {
+    countrySlices.push({ label: 'Other', value: otherCountries, color: countryPalette[4] });
+  }
+  const totalCountryHits = (data.countries || []).reduce((sum, c) => sum + c.count, 0);
+
+  // 5. Hourly 24h Sparkline & Active Pages for the Blue Live Card
+  const hourlyArr = Array.isArray(data.hourly24h) && data.hourly24h.length === 24 ? data.hourly24h : new Array(24).fill(0);
+  const maxHour = Math.max(1, ...hourlyArr);
+  const hourlySparkHtml = hourlyArr.map((cnt, idx) => {
+    const hPct = Math.max(12, Math.round((cnt / maxHour) * 100));
+    return `<div title="${23 - idx}h ago: ${cnt} hits" style="flex:1; height:${hPct}%; background:rgba(255,255,255,${cnt > 0 ? '0.88' : '0.28'}); border-radius:2px 2px 0 0;"></div>`;
+  }).join('');
+
+  const topActive24hHtml = (data.topActive24h || []).map(item => `
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; padding:0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.14); font-size:0.8rem;">
+      <a href="${item.url}" target="_blank" style="color:#ffffff; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(item.name)}</a>
+      <span style="font-weight:700; font-variant-numeric:tabular-nums; color:#e0f2fe;">${item.count}</span>
+    </div>
+  `).join('') || `<div style="font-size:0.8rem; color:rgba(255,255,255,0.75); padding:0.5rem 0;">No hits recorded in the last 24h.</div>`;
+
   const allItemRows = (data.allItems || []).map((t, idx) => {
     let catBadgeStyle = 'background:#f1f5f9; color:#334155; border:1px solid #e2e8f0;';
     if (t.type === 'community') {
@@ -641,98 +880,238 @@ function renderDashboardHtml(data, user) {
   <link rel="stylesheet" href="/asset/css/style.css">
   <style>
     :root {
-      --bg-body: #f8fafc;
+      --bg-body: #edf2f9;
       --bg-surface: #ffffff;
       --border-color: #e2e8f0;
-      --text-main: #0f172a;
+      --border-soft: #eef2f7;
+      --text-main: #1e293b;
       --text-muted: #64748b;
+      --wp-blue: #2563eb;
+      --wp-blue-hover: #1d4ed8;
     }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--bg-body);
       color: var(--text-main);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       margin: 0;
       padding: 0;
     }
-    .stats-header {
-      background: var(--bg-surface);
-      border-bottom: 1px solid var(--border-color);
-      padding: 1rem 1.5rem;
+    /* Clean Top Bar */
+    .wp-adminbar {
+      background: #ffffff;
+      color: var(--text-main);
+      height: 54px;
+      padding: 0 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 200;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
     }
-    .stats-container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .kpi-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
-    }
-    .kpi-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.35rem;
-    }
-    .kpi-value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #0f172a;
-      font-variant-numeric: tabular-nums;
-    }
-    .kpi-sub {
-      font-size: 0.8rem;
-      color: #059669;
-      margin-top: 0.25rem;
+    .wp-adminbar-left, .wp-adminbar-right {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.9rem;
+    }
+    .wp-adminbar-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .wp-adminbar-link:hover { color: var(--wp-blue); }
+    .wp-shell {
+      display: flex;
+      min-height: calc(100vh - 54px);
+      width: 100%;
+    }
+    /* Falcon/Cruip-Style Light Left-Nav-Rail */
+    .wp-sidenav {
+      width: 224px;
+      flex-shrink: 0;
+      background: #ffffff;
+      border-right: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: sticky;
+      top: 54px;
+      height: calc(100vh - 54px);
+      overflow-y: auto;
+      padding: 1rem 0.75rem;
+    }
+    .wp-nav-group-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      padding: 0.65rem 0.75rem 0.35rem;
+    }
+    .wp-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.58rem 0.75rem;
+      border-radius: 8px;
+      color: #475569;
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .wp-nav-item:hover {
+      background: #f1f5f9;
+      color: var(--wp-blue);
+    }
+    .wp-nav-item.active {
+      background: #eff6ff;
+      color: var(--wp-blue);
+    }
+    .wp-nav-item svg { width: 17px; height: 17px; flex-shrink: 0; }
+    /* Full-Width Airy Dashboard Canvas */
+    .stats-container {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      padding: 1.5rem 1.75rem 3.5rem;
+    }
+    .wp-page-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .wp-page-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--text-main);
+    }
+    .hero-analytics-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding-bottom: 1.15rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .hero-kpi-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .hero-kpi-val {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--text-main);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.15;
+    }
+    .hero-kpi-pill {
+      display: inline-block;
+      margin-top: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #059669;
+    }
+    .blue-live-card {
+      background: linear-gradient(155deg, #1d4ed8 0%, #2563eb 55%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 1.25rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.22);
+    }
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
     }
     .dashboard-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    @media (max-width: 960px) {
-      .dashboard-grid { grid-template-columns: 1fr; }
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
     }
     .panel {
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
     }
     .panel-header {
-      padding: 1.15rem 1.5rem;
-      border-bottom: 1px solid var(--border-color);
+      padding: 0.95rem 1.25rem;
+      border-bottom: 1px solid var(--border-soft);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background: #ffffff;
+    }
+    .panel-body {
+      padding: 1.15rem 1.25rem;
     }
     .panel-title {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-weight: 700;
       margin: 0;
+      color: var(--text-main);
+    }
+    .pie-layout {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      flex-wrap: wrap;
+    }
+    .pie-legend {
+      flex: 1;
+      min-width: 150px;
+    }
+    @media (max-width: 1200px) {
+      .hero-analytics-grid { grid-template-columns: 1fr; }
+      .hero-kpi-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .charts-grid { grid-template-columns: 1fr; }
+      .dashboard-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 820px) {
+      .wp-shell { flex-direction: column; }
+      .wp-sidenav {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0.5rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .wp-nav-group-label, .wp-nav-footer { display: none; }
+      .wp-nav-item { padding: 0.4rem 0.65rem; font-size: 0.8rem; }
+      .stats-container { padding: 1rem; }
     }
     .stats-table {
       width: 100%;
@@ -854,141 +1233,289 @@ function renderDashboardHtml(data, user) {
   </style>
 </head>
 <body>
-  <header class="stats-header">
-    <div style="display:flex; align-items:center; gap:0.75rem;">
-      <a href="/" target="_blank" style="display:flex; align-items:center; gap:0.6rem; text-decoration:none; color:inherit;">
-        <span style="width:32px; height:32px; background:linear-gradient(135deg,#0284c7,#2563eb); border-radius:8px; display:inline-flex; align-items:center; justify-content:center; color:#fff;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+  <!-- Clean Falcon/Cruip-Inspired Admin Top Bar -->
+  <header class="wp-adminbar">
+    <div class="wp-adminbar-left">
+      <a href="/" target="_blank" class="wp-adminbar-link">
+        <span style="width:28px; height:28px; background:linear-gradient(135deg,#2563eb,#06b6d4); border-radius:7px; display:inline-flex; align-items:center; justify-content:center; color:#fff;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
         </span>
-        <span style="font-weight:700; font-size:1.1rem;">StaticStack</span>
+        <span>StaticStack Analytics</span>
       </a>
-      <span style="color:var(--text-muted);">/</span>
-      <span style="font-weight:600; font-size:0.95rem; color:#0284c7;">Stats &amp; Traffic</span>
+      <a href="/" target="_blank" class="wp-adminbar-link" style="color:#64748b; font-weight:500; font-size:0.82rem;">Visit Site &nearr;</a>
       <span class="badge-ip-rule">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
         1 View / Day / IP
       </span>
     </div>
 
-    <div style="display:flex; align-items:center; gap:1rem;">
-      <span style="font-size:0.85rem; color:var(--text-muted);">${user}</span>
-      <a href="/stats/logout" class="logout-btn">Log Out</a>
+    <div class="wp-adminbar-right">
+      <span style="font-size:0.84rem; color:#475569;">Howdy, <strong style="color:#0f172a;">${escapeHtml(user)}</strong></span>
+      <a href="/stats/logout" class="logout-btn" style="padding:0.3rem 0.75rem; font-size:0.8rem;">Log Out</a>
     </div>
   </header>
 
-  <main class="stats-container">
-    <!-- Top KPIs -->
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-label">Total Verified Views</div>
-        <div class="kpi-value" id="kpi-total-views">${data.totalViews.toLocaleString()}</div>
-        <div class="kpi-sub">Tools + Community Hub + Topics</div>
+  <div class="wp-shell">
+    <!-- Light Left-Nav-Rail Sidepanel -->
+    <aside class="wp-sidenav" aria-label="Stats Navigation">
+      <div>
+        <div class="wp-nav-group-label">Analytics</div>
+        <a href="#sec-overview" class="wp-nav-item active" onclick="setWpNavActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          <span>Overview</span>
+        </a>
+        <a href="#sec-charts" class="wp-nav-item" onclick="setWpNavActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+          <span>Charts &amp; Pies</span>
+        </a>
+        <a href="#sec-items" class="wp-nav-item" onclick="setWpNavActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          <span>Tracked Items</span>
+        </a>
+        <a href="#sec-geo" class="wp-nav-item" onclick="setWpNavActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span>Visitor Countries</span>
+        </a>
+        <a href="#sec-activity" class="wp-nav-item" onclick="setWpNavActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span>Activity Log</span>
+        </a>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Catalog Tool Views</div>
-        <div class="kpi-value">${data.toolViewsTotal.toLocaleString()}</div>
-        <div class="kpi-sub">${data.totalTools} tools across ${data.totalCategories || 29} categories</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Community Views</div>
-        <div class="kpi-value">${data.communityViewsTotal.toLocaleString()}</div>
-        <div class="kpi-sub">${data.totalCommunityItems} forum &amp; discussion topics</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">24h Unique Hits</div>
-        <div class="kpi-value">${data.hits24h.toLocaleString()}</div>
-        <div class="kpi-sub">${data.uniqueVisitors24h} unique IPs today</div>
-      </div>
-    </div>
 
-    <!-- Main Grid: Tools/Community Controller + Country Leaderboard -->
-    <div class="dashboard-grid">
-      <!-- All Tracked Items -->
-      <div class="panel">
-        <div class="panel-header">
+      <div class="wp-nav-footer" style="border-top:1px solid var(--border-soft); padding-top:0.5rem;">
+        <div class="wp-nav-group-label">Quick Links</div>
+        <a href="/blog" target="_blank" class="wp-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Blog &amp; Guides</span>
+        </a>
+        <a href="/feed.xml" target="_blank" class="wp-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+          <span>RSS Feed</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Full-Width Dashboard Content -->
+    <main class="stats-container">
+      <div class="wp-page-title-row" id="sec-overview">
+        <h1 class="wp-page-title">Analytics</h1>
+        <span style="font-size:0.82rem; color:var(--text-muted); background:#ffffff; border:1px solid var(--border-color); padding:0.35rem 0.75rem; border-radius:8px;">${data.totalTools} Tools &bull; ${data.totalCategories || 29} Categories &bull; Last 14 Days</span>
+      </div>
+
+      <!-- Hero 2-Column Row (Falcon / Cruip Style): Inline KPIs + Area Chart | Bold Blue 24h Card -->
+      <div class="hero-analytics-grid">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="hero-kpi-strip">
+              <div>
+                <div class="hero-kpi-label">Total Verified Views</div>
+                <div class="hero-kpi-val" id="kpi-total-views">${data.totalViews.toLocaleString()}</div>
+                <span class="hero-kpi-pill">All tracked pages</span>
+              </div>
+              <div>
+                <div class="hero-kpi-label">Catalog Tool Views</div>
+                <div class="hero-kpi-val">${data.toolViewsTotal.toLocaleString()}</div>
+                <span class="hero-kpi-pill" style="color:#2563eb;">${data.totalTools} tools</span>
+              </div>
+              <div>
+                <div class="hero-kpi-label">Community Views</div>
+                <div class="hero-kpi-val">${data.communityViewsTotal.toLocaleString()}</div>
+                <span class="hero-kpi-pill" style="color:#0284c7;">${data.totalCommunityItems} topics</span>
+              </div>
+              <div>
+                <div class="hero-kpi-label">24h Unique Hits</div>
+                <div class="hero-kpi-val">${data.hits24h.toLocaleString()}</div>
+                <span class="hero-kpi-pill">${data.uniqueVisitors24h} unique IPs</span>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
+              <span style="font-size:0.82rem; font-weight:700; color:var(--text-main);">Verified Hits (Last 14 Days)</span>
+              <span style="font-size:0.75rem; color:var(--text-muted);">Daily IP-deduplicated activity</span>
+            </div>
+            ${renderAreaLineChartSvg(data.dailySeries)}
+          </div>
+        </div>
+
+        <!-- Bold Blue Live / 24h Activity Card -->
+        <div class="blue-live-card">
           <div>
-            <h2 class="panel-title">Tracked Catalog &amp; Community Views</h2>
-            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Adjust any tool or community topic view count instantly.</div>
+            <div style="font-size:0.85rem; font-weight:600; color:rgba(255,255,255,0.88);">Hits in Last 24 Hours</div>
+            <div style="font-size:2.75rem; font-weight:800; line-height:1.1; margin:0.35rem 0 0.75rem; font-variant-numeric:tabular-nums;">${data.hits24h.toLocaleString()}</div>
+            <div style="font-size:0.76rem; color:rgba(255,255,255,0.82); margin-bottom:0.5rem;">Hourly hits (last 24h)</div>
+            <div style="display:flex; align-items:flex-end; gap:3px; height:58px; margin-bottom:1rem;">
+              ${hourlySparkHtml}
+            </div>
           </div>
-          <span style="font-size:0.8rem; color:var(--text-muted);">${data.allItems.length} tracked items</span>
-        </div>
-        <div class="stats-filter-bar">
-          <div class="stats-tabs">
-            <button type="button" class="stats-tab active" data-filter="all" onclick="filterStatsType('all', this)">All (${data.allItems.length})</button>
-            <button type="button" class="stats-tab" data-filter="tool" onclick="filterStatsType('tool', this)">Tools (${data.tools.length})</button>
-            <button type="button" class="stats-tab" data-filter="community" onclick="filterStatsType('community', this)">Community &amp; Topics (${data.communityItems.length})</button>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.74rem; font-weight:700; color:rgba(255,255,255,0.8); padding-bottom:0.35rem; border-bottom:1px solid rgba(255,255,255,0.2);">
+              <span>Most Active Pages (24h)</span>
+              <span>Hits</span>
+            </div>
+            ${topActive24hHtml}
           </div>
-          <input type="text" id="stats-search-input" class="stats-search-input" placeholder="Search tool, topic, or category..." oninput="filterStatsItems()">
-        </div>
-        <div style="overflow-x:auto; max-height:680px; overflow-y:auto;">
-          <table class="stats-table">
-            <thead style="position:sticky; top:0; z-index:10;">
-              <tr>
-                <th>Rank</th>
-                <th>Item / Title</th>
-                <th>Category</th>
-                <th>Views</th>
-                <th style="text-align:right;">Action</th>
-              </tr>
-            </thead>
-            <tbody id="stats-items-tbody">
-              ${allItemRows}
-              <tr id="stats-no-match-row" style="display:none;">
-                <td colspan="5" style="text-align:center; color:var(--text-muted); padding:2rem;">No matching tools or topics found.</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
 
-      <!-- Country Breakdown -->
-      <div class="panel">
+      <!-- Infographics, Pies & Heatmap Row -->
+      <div class="charts-grid" id="sec-charts">
+        <!-- Pie 1: Traffic Split -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Traffic Split</h2>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Tools vs Community</span>
+          </div>
+          <div class="panel-body">
+            <div class="pie-layout">
+              ${renderDonutPieSvg(splitSlices, 'Total Views', data.totalViews.toLocaleString())}
+              <div class="pie-legend">
+                ${renderLegendHtml(splitSlices)}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pie 2: Top Categories Share -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Top Categories Share</h2>
+            <span style="font-size:0.75rem; color:var(--text-muted);">By Tool Views</span>
+          </div>
+          <div class="panel-body">
+            <div class="pie-layout">
+              ${renderDonutPieSvg(catSlices, 'Tool Views', data.toolViewsTotal.toLocaleString())}
+              <div class="pie-legend">
+                ${renderLegendHtml(catSlices)}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users at a Time Heatmap -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Users at a Time</h2>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Activity Heatmap</span>
+          </div>
+          <div class="panel-body">
+            ${renderHeatmapHtml(data.heatmap)}
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Tools Leaderboard Infographic -->
+      <div class="panel" style="margin-bottom:1.25rem;">
         <div class="panel-header">
-          <h2 class="panel-title">Visitor Countries</h2>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Local GeoIP</span>
+          <h2 class="panel-title">Top 8 Most-Viewed Tools</h2>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Relative View Volume</span>
+        </div>
+        <div class="panel-body" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem 1.5rem;">
+          ${topToolsBarsHtml}
+        </div>
+      </div>
+
+      <!-- Main Grid: Tools/Community Controller + Country Leaderboard & Pie -->
+      <div class="dashboard-grid">
+        <!-- All Tracked Items -->
+        <div class="panel" id="sec-items">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Tracked Catalog &amp; Community Views</h2>
+              <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Adjust any tool or community topic view count instantly.</div>
+            </div>
+            <span style="font-size:0.8rem; color:var(--text-muted);">${data.allItems.length} tracked items</span>
+          </div>
+          <div class="stats-filter-bar">
+            <div class="stats-tabs">
+              <button type="button" class="stats-tab active" data-filter="all" onclick="filterStatsType('all', this)">All (${data.allItems.length})</button>
+              <button type="button" class="stats-tab" data-filter="tool" onclick="filterStatsType('tool', this)">Tools (${data.tools.length})</button>
+              <button type="button" class="stats-tab" data-filter="community" onclick="filterStatsType('community', this)">Community &amp; Topics (${data.communityItems.length})</button>
+            </div>
+            <input type="text" id="stats-search-input" class="stats-search-input" placeholder="Search tool, topic, or category..." oninput="filterStatsItems()">
+          </div>
+          <div style="overflow-x:auto; max-height:680px; overflow-y:auto;">
+            <table class="stats-table">
+              <thead style="position:sticky; top:0; z-index:10;">
+                <tr>
+                  <th>Rank</th>
+                  <th>Item / Title</th>
+                  <th>Category</th>
+                  <th>Views</th>
+                  <th style="text-align:right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="stats-items-tbody">
+                ${allItemRows}
+                <tr id="stats-no-match-row" style="display:none;">
+                  <td colspan="5" style="text-align:center; color:var(--text-muted); padding:2rem;">No matching tools or topics found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Country Breakdown + Pie -->
+        <div class="panel" id="sec-geo">
+          <div class="panel-header">
+            <h2 class="panel-title">Visitor Countries</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Local GeoIP</span>
+          </div>
+          <div class="panel-body" style="border-bottom:1px solid var(--border-soft);">
+            <div class="pie-layout">
+              ${renderDonutPieSvg(countrySlices, 'Geo Hits', totalCountryHits.toLocaleString())}
+              <div class="pie-legend">
+                ${renderLegendHtml(countrySlices)}
+              </div>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="stats-table">
+              <thead>
+                <tr>
+                  <th colspan="2">Country</th>
+                  <th style="text-align:right;">Hits</th>
+                  <th>Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${countryRows}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity Stream -->
+      <div class="panel" id="sec-activity">
+        <div class="panel-header">
+          <h2 class="panel-title">Recent Visitor Activity</h2>
+          <span style="font-size:0.8rem; color:var(--text-muted);">Strict IP rate-limited logs</span>
         </div>
         <div style="overflow-x:auto;">
           <table class="stats-table">
             <thead>
               <tr>
-                <th colspan="2">Country</th>
-                <th style="text-align:right;">Hits</th>
-                <th>Share</th>
+                <th>Time</th>
+                <th>Tool Viewed</th>
+                <th>Visitor IP</th>
+                <th>Location</th>
               </tr>
             </thead>
             <tbody>
-              ${countryRows}
+              ${recentRows}
             </tbody>
           </table>
         </div>
       </div>
-    </div>
-
-    <!-- Recent Activity Stream -->
-    <div class="panel">
-      <div class="panel-header">
-        <h2 class="panel-title">Recent Visitor Activity</h2>
-        <span style="font-size:0.8rem; color:var(--text-muted);">Strict IP rate-limited logs</span>
-      </div>
-      <div style="overflow-x:auto;">
-        <table class="stats-table">
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>Tool Viewed</th>
-              <th>Visitor IP</th>
-              <th>Location</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${recentRows}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </main>
+    </main>
+  </div>
 
   <script>
+    function setWpNavActive(el) {
+      document.querySelectorAll('.wp-nav-item').forEach(function(item) {
+        item.classList.remove('active');
+      });
+      if (el) el.classList.add('active');
+    }
     let currentTypeFilter = 'all';
 
     function filterStatsType(type, btn) {
