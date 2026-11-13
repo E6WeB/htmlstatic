@@ -90,13 +90,13 @@ function renderSiteFooter({ allTools = null, categories = null, rootPath = '', s
             <li><a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer">StaticStack Official Group ${ICONS.external}</a></li>
             <li><a href="${rootPath}thankyou">Thank You &amp; Credits</a></li>
             <li><a href="${rootPath}contact">Contact</a></li>
-            <li><a href="${rootPath}stats">Site Stats</a></li>
+            <li><a href="${rootPath}stats" rel="nofollow">Site Stats</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <a href="/stats" class="footer-stat-text" title="Total Site Views &middot; StaticStack Analytics"><span id="footer-stat-count">${siteViewsFormatted}</span> views</a></p>
+        <p>&copy; <span id="year">2026</span> StaticStack. Hosted by: <a href="https://wasmer.io" target="_blank" rel="noopener noreferrer">wasmer.io</a> &middot; Created by: <a href="https://www.e6web.com/contact/" target="_blank" rel="noopener">E6WeB</a> &middot; <a href="/stats" rel="nofollow" class="footer-stat-text" title="Total Site Views &middot; StaticStack Analytics"><span id="footer-stat-count">${siteViewsFormatted}</span> views</a></p>
       </div>
     </div>
   </footer>

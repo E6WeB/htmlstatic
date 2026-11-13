@@ -405,6 +405,8 @@ function renderLoginHtml(errorMsg = '') {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
   <title>Admin Login • StaticStack Stats</title>
   <link rel="icon" type="image/svg+xml" href="/asset/img/favicon.svg">
   <link rel="stylesheet" href="/asset/css/style.css">
@@ -632,6 +634,8 @@ function renderDashboardHtml(data, user) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
   <title>Analytics & Traffic • StaticStack</title>
   <link rel="icon" type="image/svg+xml" href="/asset/img/favicon.svg">
   <link rel="stylesheet" href="/asset/css/style.css">
@@ -1048,7 +1052,27 @@ function renderDashboardHtml(data, user) {
 </html>`;
 }
 
+const BOT_UA_REGEX = /\b(bot|crawl|spider|slurp|mediapartners|adsbot|googlebot|bingbot|yandex|baiduspider|duckduckbot|sogou|exabot|facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|telegrambot|slackbot|discordbot|applebot|semrush|ahrefs|mj12bot|dotbot|petalbot|bytespider|gptbot|oai-searchbot|chatgpt-user|claudebot|anthropic-ai|ccbot|perplexitybot|youbot|scrapy|python-requests|python-urllib|curl|wget|httpie|headlesschrome|phantomjs|selenium|puppeteer|playwright|lighthouse)\b/i;
+
+function isBotRequest(req) {
+  const ua = (req && req.headers && req.headers['user-agent']) || '';
+  if (!ua.trim()) return true;
+  return BOT_UA_REGEX.test(ua);
+}
+
 async function handleStats(req, res, pathname, query) {
+  // Enforce non-indexable & no-cache headers on every /stats response
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet');
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  res.setHeader('Pragma', 'no-cache');
+
+  // Block crawlers, search bots, scrapers, and automated clients
+  if (isBotRequest(req)) {
+    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Access denied.');
+    return true;
+  }
+
   // 1. Logout
   if (pathname === '/stats/logout') {
     res.writeHead(302, {
