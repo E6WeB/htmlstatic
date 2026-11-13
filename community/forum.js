@@ -333,6 +333,7 @@ if (!global.__staticstack_db_initialized) {
     );
     CREATE INDEX IF NOT EXISTS idx_forum_votes_topic_id ON forum_votes (topic_id) WHERE topic_id IS NOT NULL;
     CREATE INDEX IF NOT EXISTS idx_forum_votes_reply_id ON forum_votes (reply_id) WHERE reply_id IS NOT NULL;
+    ALTER TABLE forum_topics ADD COLUMN IF NOT EXISTS accepted_reply_id INTEGER REFERENCES forum_replies(id) ON DELETE SET NULL;
     INSERT INTO forum_categories (slug, name, description) VALUES
       ('announcements', 'Announcements', 'Official news, platform updates, and announcements from StaticStack.'),
       ('help', 'Help and Questions', 'Ask questions about building and maintaining static websites.'),
@@ -786,7 +787,7 @@ async function handleApi(req, res, pathname, query) {
       const voterIdx = idx;
 
       const sql = `
-        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_locked,
+        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_locked, t.accepted_reply_id,
                c.slug AS category_slug, c.name AS category_name,
                u.login, u.display_name, u.avatar_url, u.id AS author_id,
                (SELECT COUNT(*)::int FROM forum_replies r WHERE r.topic_id = t.id AND r.is_hidden = FALSE) AS reply_count,
@@ -823,7 +824,7 @@ async function handleApi(req, res, pathname, query) {
       const isAdmin = Boolean(user && user.admin);
 
       const topicSql = `
-        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_locked, t.is_hidden,
+        SELECT t.id, t.title, t.body, t.created_at, t.updated_at, t.is_pinned, t.is_locked, t.accepted_reply_id, t.is_hidden,
                c.slug AS category_slug, c.name AS category_name,
                u.login, u.display_name, u.avatar_url, u.id AS author_id,
                (SELECT COALESCE(SUM(v.value), 0)::int FROM forum_votes v WHERE v.topic_id = t.id) AS score,
@@ -1180,6 +1181,53 @@ async function handleApi(req, res, pathname, query) {
         [newLocked, topicId]
       );
       sendJson(res, { ok: true, id: topicId, is_locked: updateRes.rows[0].is_locked });
+      return true;
+    }
+
+    if (action === 'accept_reply') {
+      if (!user) return sendError(res, 'Sign in with GitHub to do that.', 401);
+      const data = await readBody(req);
+      const topicId = parseInt(data.topic_id, 10);
+      const replyId = data.reply_id ? parseInt(data.reply_id, 10) : null;
+
+      if (!topicId) return sendError(res, 'Invalid discussion ID.');
+
+      const topicRes = await pool.query(
+        'SELECT id, user_id, accepted_reply_id FROM forum_topics WHERE id = $1 AND is_hidden = FALSE',
+        [topicId]
+      );
+      if (!topicRes.rows.length) return sendError(res, 'Discussion not found.', 404);
+
+      const topicRow = topicRes.rows[0];
+      const isAdmin = Boolean(user.admin);
+      const isTopicAuthor = Number(topicRow.user_id) === Number(user.uid);
+      if (!isTopicAuthor && !isAdmin) {
+        return sendError(res, 'Only the topic author or an administrator can mark a solution.', 403);
+      }
+
+      const shouldClear = !replyId || Number(topicRow.accepted_reply_id) === replyId;
+      let nextAcceptedId = null;
+
+      if (!shouldClear) {
+        const replyRes = await pool.query(
+          'SELECT id FROM forum_replies WHERE id = $1 AND topic_id = $2 AND is_hidden = FALSE',
+          [replyId, topicId]
+        );
+        if (!replyRes.rows.length) {
+          return sendError(res, 'Reply not found in this discussion.', 404);
+        }
+        nextAcceptedId = replyId;
+      }
+
+      const updateRes = await pool.query(
+        'UPDATE forum_topics SET accepted_reply_id = $1, updated_at = NOW() WHERE id = $2 RETURNING id, accepted_reply_id',
+        [nextAcceptedId, topicId]
+      );
+      sendJson(res, {
+        ok: true,
+        id: topicId,
+        accepted_reply_id: updateRes.rows[0].accepted_reply_id
+      });
       return true;
     }
 

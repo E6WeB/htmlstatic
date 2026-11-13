@@ -16,7 +16,6 @@
 | **5. `/stats` Privacy Telemetry & Core Web Vitals** | Analytics / Perf | High | Medium | ⏳ **Planned** |
 | **6. Static Starter Blueprints (Copy-Paste Recipes)** | Onboarding / UX | High | Medium | ⏳ **Planned** |
 | **8. Embeddable `/badge/<slug>.svg` & `/feed.xml`** | Growth / Syndication | High | Low | ⏳ **Planned** |
-| **9. Community Forum "Solved" Answer Marker** | Community / UX | Medium | Low | ⏳ **Planned** |
 
 ---
 
@@ -68,10 +67,6 @@
 * **The Solution:**
   - **Static SVG Badges:** Pre-generate `/badge/<slug>.svg` (*"Featured on StaticStack"*) and provide a 1-click Markdown snippet on every tool page for organic backlinks.
   - **RSS / Atom Feed (`/feed.xml`):** Auto-generate an XML feed during `npm run build` covering newly added tools and all blog articles.
-
-### 9. Community Forum "Solved" Answer Marker
-* **The Problem:** Help threads in the community forum require reading through full comment chains to find the working answer.
-* **The Solution:** Allow thread authors or moderators to mark one reply as the **Accepted Solution**, pinning a green `"✓ Solved"` badge to the thread list and surfacing the solution directly beneath the original question.
 
 ---
 

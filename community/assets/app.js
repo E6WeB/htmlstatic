@@ -364,10 +364,16 @@
         const lastTitle = `${lastPrefix}${t.title}`;
         const isPinned = isTrue(t.is_pinned);
         const isLocked = isTrue(t.is_locked);
+        const isSolved = Boolean(t.accepted_reply_id);
 
         return `
         <article class="topic-card ${isPinned ? 'topic-card-pinned' : ''}">
           <div class="topic-title-row">
+            ${
+              isSolved
+                ? `<span class="badge badge-solved" title="Has Accepted Solution">✓ Solved</span>`
+                : ''
+            }
             ${
               isPinned
                 ? `<span class="badge badge-pinned" title="Pinned Announcement">
@@ -482,8 +488,10 @@
       if (heroBadges) {
         const isPinned = isTrue(t.is_pinned);
         const isLocked = isTrue(t.is_locked);
+        const acceptedReplyId = t.accepted_reply_id ? Number(t.accepted_reply_id) : null;
         heroBadges.innerHTML = `
           <a href="/community/?channel=${escapeHtml(t.category_slug)}" class="topic-category-link">${escapeHtml(t.category_name)}</a>
+          ${acceptedReplyId ? `<a href="#reply-${acceptedReplyId}" class="badge badge-solved" style="text-decoration:none;" title="Jump to Accepted Solution">✓ Solved · View Answer</a>` : ''}
           ${isPinned ? '<span class="badge badge-pinned"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3l1 1-3 3 5 5-2 2-5-5-3 3-1-1 4-4-5-5 2-2 5 5 2-2z"/><line x1="12" y1="12" x2="4" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg> Pinned Announcement</span>' : ''}
           ${isLocked ? '<span class="badge badge-locked"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Locked</span>' : ''}
         `;
@@ -607,9 +615,10 @@
           repliesList.innerHTML = replies.map((r, index) => {
             const isOP = r.author_id === t.author_id;
             const isAdmin = Boolean(r.login && r.login.toLowerCase() === 'e6web');
+            const isAccepted = Boolean(t.accepted_reply_id && Number(t.accepted_reply_id) === Number(r.id));
             const avatar = r.avatar_url || `https://github.com/${escapeHtml(r.login)}.png?size=80`;
             return `
-              <article class="thread-reply-card ${isTrue(r.is_hidden) ? 'reply-hidden' : ''}" id="reply-${r.id}">
+              <article class="thread-reply-card ${isTrue(r.is_hidden) ? 'reply-hidden' : ''} ${isAccepted ? 'reply-solved' : ''}" id="reply-${r.id}">
                 <div class="thread-author-row" style="margin-bottom:0.75rem;padding-bottom:0.65rem;">
                   <div class="thread-author-info">
                     <img class="thread-avatar" style="width:36px;height:36px;" src="${avatar}" alt="${escapeHtml(r.display_name || r.login)}">
@@ -618,6 +627,7 @@
                         <strong style="color:var(--text-main);font-size:0.9rem;">${escapeHtml(r.display_name || r.login)}</strong>
                         <span style="color:var(--text-subtle);font-size:0.75rem;">@${escapeHtml(r.login)}</span>
                         ${isAdmin ? '<span class="badge-admin">Admin</span>' : (isOP ? '<span class="badge-op">Author</span>' : '')}
+                        ${isAccepted ? '<span class="badge badge-solved">✓ Accepted Solution</span>' : ''}
                         ${isTrue(r.is_hidden) ? '<span class="badge badge-paid">Hidden</span>' : ''}
                       </div>
                       <time class="muted" title="${escapeHtml(formatDateTime(r.created_at))}" style="font-size:0.72rem;display:block;margin-top:2px;">${escapeHtml(relativeTime(r.created_at))}</time>
@@ -735,6 +745,18 @@
                   <line x1="4" y1="22" x2="4" y2="15"></line>
                 </svg>
               </button>`
+            : ''
+        }
+
+        <!-- Mark as Solution Button: Topic author or admin on replies -->
+        ${
+          !isTopic && isLoggedIn && state.activeTopic && (Number(state.user.id) === Number(state.activeTopic.author_id) || isAdmin)
+            ? (() => {
+                const isSolvedReply = Number(state.activeTopic.accepted_reply_id) === Number(id);
+                return `<button class="action-btn solve-reply-btn ${isSolvedReply ? 'is-solved' : ''}" data-solve-reply="${id}" data-topic-id="${state.activeTopic.id}" title="${isSolvedReply ? 'Unmark as Solution' : 'Mark as Accepted Solution'}">
+                  <span>${isSolvedReply ? '✓ Solved' : 'Mark as Solution'}</span>
+                </button>`;
+              })()
             : ''
         }
 
@@ -1118,6 +1140,27 @@
           state.activeTopic.is_locked = res.is_locked;
           await refreshTopic();
         }
+      } catch (err) {
+        toast(err.message);
+      }
+      return;
+    }
+
+    const solveBtn = e.target.closest('[data-solve-reply]');
+    if (solveBtn) {
+      const replyId = Number(solveBtn.dataset.solveReply);
+      const topicId = Number(solveBtn.dataset.topicId);
+      try {
+        const res = await request('accept_reply', {
+          method: 'POST',
+          body: { topic_id: topicId, reply_id: replyId }
+        });
+        toast(res.accepted_reply_id ? 'Marked as accepted solution.' : 'Solution marker removed.');
+        if (state.activeTopic && state.activeTopic.id == topicId) {
+          state.activeTopic.accepted_reply_id = res.accepted_reply_id;
+          await refreshTopic();
+        }
+        await loadTopics();
       } catch (err) {
         toast(err.message);
       }
