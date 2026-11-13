@@ -2278,7 +2278,14 @@ categories.forEach(cat => {
 });
 
 allTools.forEach(tool => {
-  const localIcon = `/tools/${tool.categorySlug}/${tool.slug}-icon.webp`;
+  const localIconDisk = path.join(ROOT_DIR, 'tools', tool.categorySlug, `${tool.slug}-icon.webp`);
+  let resolvedIcon = `/tools/${tool.categorySlug}/${tool.slug}-icon.webp`;
+  if (!fs.existsSync(localIconDisk) && tool.websiteUrl) {
+    try {
+      const host = new URL(tool.websiteUrl).hostname;
+      if (host) resolvedIcon = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=64`;
+    } catch (e) {}
+  }
   searchIndex.push({
     title: tool.name,
     slug: tool.slug,
@@ -2290,7 +2297,7 @@ allTools.forEach(tool => {
     badges: tool.badges || [tool.primaryBadge],
     primaryBadge: tool.primaryBadge,
     url: `/tools/${tool.categorySlug}/${tool.slug}`,
-    icon: localIcon,
+    icon: resolvedIcon,
     websiteUrl: tool.websiteUrl
   });
 });

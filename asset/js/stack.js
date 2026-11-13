@@ -188,9 +188,19 @@
         var rowsHtml = savedList.map(function (tool) {
           var shareUrl = window.location.origin + tool.url;
           var catUrl = '/category/' + encodeURIComponent(tool.categorySlug) + '/';
-          var iconHtml = tool.icon
-            ? '<img src="' + escapeHtml(tool.icon) + '" alt="" width="20" height="20" style="border-radius:4px; object-fit:contain;" loading="lazy">'
+          var fallbackDomain = '';
+          if (tool.websiteUrl) {
+            try { fallbackDomain = new URL(tool.websiteUrl).hostname; } catch (e) {}
+          }
+          var fallbackFavicon = fallbackDomain
+            ? 'https://www.google.com/s2/favicons?domain=' + encodeURIComponent(fallbackDomain) + '&sz=64'
             : '';
+          var initialLetter = escapeHtml((tool.title || '?').charAt(0).toUpperCase());
+          var fallbackBadge = '<span class="stack-icon-fallback" style="display:none; width:20px; height:20px; border-radius:4px; background:var(--accent-light, #eff6ff); color:var(--accent, #2563eb); font-size:0.72rem; font-weight:700; align-items:center; justify-content:center; flex-shrink:0;">' + initialLetter + '</span>';
+          var iconSrc = tool.icon || fallbackFavicon;
+          var iconHtml = iconSrc
+            ? '<img src="' + escapeHtml(iconSrc) + '" data-fallback="' + escapeHtml(fallbackFavicon) + '" alt="" width="20" height="20" style="border-radius:4px; object-fit:contain; flex-shrink:0;" loading="lazy" onerror="var fb=this.getAttribute(\'data-fallback\'); if(fb && this.src!==fb){this.src=fb; this.removeAttribute(\'data-fallback\');} else {this.style.display=\'none\'; if(this.nextElementSibling) this.nextElementSibling.style.display=\'inline-flex\';}">' + fallbackBadge
+            : fallbackBadge.replace('display:none;', 'display:inline-flex;');
 
           return (
             '<tr data-stack-row="' + escapeHtml(tool.slug) + '">' +
