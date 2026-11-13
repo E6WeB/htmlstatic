@@ -120,7 +120,7 @@ function renderBlogArticlePage({
   // Format date as MM.DD.YY (e.g. 03.19.26)
   const dotDateParts = (post.date || '').split('-');
   const dotDate = dotDateParts.length === 3 ? `${dotDateParts[1]}.${dotDateParts[2]}.${dotDateParts[0].slice(-2)}` : (post.dateFormatted || '');
-  const authorDisplay = post.author === 'StaticStack Editorial' ? 'Creator' : escapeHtml(post.author);
+  const authorDisplay = escapeHtml(post.author || 'StaticStack');
   const categoryDisplay = escapeHtml(post.category || '');
   const readMinutes = escapeHtml((post.readTime || '').replace(/\s*read\s*/i, ''));
 
@@ -385,7 +385,18 @@ function renderBlogIndexPage({
   const rootPath = '../';
   const pageCanonical = 'https://www.staticstack.app/blog/';
 
+  const metaUserIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+  const metaFolderIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>`;
+  const metaCalendarIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`;
+  const metaEyeIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-flex;vertical-align:-2px;margin-right:0.3rem;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+
   const cardsHtml = posts.map(post => {
+    const dotDateParts = (post.date || '').split('-');
+    const dotDate = dotDateParts.length === 3 ? `${dotDateParts[1]}.${dotDateParts[2]}.${dotDateParts[0].slice(-2)}` : (post.dateFormatted || '');
+    const authorDisplay = escapeHtml(post.author || 'StaticStack');
+    const categoryDisplay = escapeHtml(post.category || '');
+    const readMinutes = escapeHtml((post.readTime || '').replace(/\s*read\s*/i, ''));
+
     return `
       <article class="blog-card">
         <div>
@@ -413,8 +424,24 @@ function renderBlogIndexPage({
         </div>
 
         <div>
-          <div class="blog-card-footer">
-            <span>By ${escapeHtml(post.author)} &middot; ${escapeHtml(post.dateFormatted)}</span>
+          <div class="blog-article-meta-bar" aria-label="Article Details" style="font-size:0.78rem; margin-bottom:0.85rem;">
+            <span class="blog-meta-item">
+              ${metaUserIcon}<span>${authorDisplay}</span>
+            </span>
+            <span class="blog-meta-pipe">|</span>
+            <span class="blog-meta-item">
+              ${metaFolderIcon}<a href="/category/${escapeHtml(post.categorySlug)}/" class="blog-meta-link">${categoryDisplay}</a>
+            </span>
+            <span class="blog-meta-pipe">|</span>
+            <span class="blog-meta-item">
+              ${metaCalendarIcon}<span>${dotDate}</span>
+            </span>
+            <span class="blog-meta-pipe">|</span>
+            <span class="blog-meta-item">
+              ${metaEyeIcon}<span>view:<span class="blog-meta-num">${readMinutes}</span></span>
+            </span>
+          </div>
+          <div class="blog-card-footer" style="justify-content:flex-end;">
             <a href="/blog/${post.slug}/" style="font-weight:700; color:var(--accent); text-decoration:none; display:inline-flex; align-items:center; gap:0.25rem;">
               Read Article &rarr;
             </a>
@@ -424,6 +451,20 @@ function renderBlogIndexPage({
     `;
   }).join('');
 
+  const seenTopics = new Set();
+  const topicLinksHtml = posts
+    .filter(post => {
+      if (!post.categorySlug || seenTopics.has(post.categorySlug)) return false;
+      seenTopics.add(post.categorySlug);
+      return true;
+    })
+    .map(post => {
+      const matchedCat = categories.find(c => c.slug === post.categorySlug);
+      const label = (matchedCat && (matchedCat.title || matchedCat.name)) || post.category || post.categorySlug;
+      return `<a href="/category/${escapeHtml(post.categorySlug)}/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">${escapeHtml(label)}</a>`;
+    })
+    .join('\n          ');
+
   const blogIndexContent = `
     <div style="padding: 0 0 3.5rem;">
       <!-- Blog Category Pill Filter / Bar -->
@@ -431,9 +472,7 @@ function renderBlogIndexPage({
         <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
           <span style="font-size:0.85rem; font-weight:700; color:var(--text-main); margin-right:0.25rem;">Browse Topics:</span>
           <a href="/blog" class="badge badge-accent" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">All Articles</a>
-          <a href="/category/contact-forms/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Contact Forms</a>
-          <a href="/category/hosting-deployment/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Hosting</a>
-          <a href="/category/security-spam-protection/" class="badge badge-neutral" style="text-decoration:none; font-size:0.8rem; padding:0.3rem 0.75rem;">Security &amp; Spam</a>
+          ${topicLinksHtml}
         </div>
         <div style="font-size:0.85rem; color:var(--text-muted);">
           <span>${posts.length} Article${posts.length === 1 ? '' : 's'} Published</span>

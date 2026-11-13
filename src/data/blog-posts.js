@@ -15,7 +15,7 @@ const BLOG_POSTS = [
     date: '2026-11-12',
     dateFormatted: 'November 12, 2026',
     readTime: '6 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'beginners',
@@ -51,7 +51,7 @@ const BLOG_POSTS = [
     date: '2026-03-19',
     dateFormatted: 'March 19, 2026',
     readTime: '10 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'wordpress',
@@ -93,7 +93,7 @@ const BLOG_POSTS = [
     date: '2026-03-18',
     dateFormatted: 'March 18, 2026',
     readTime: '11 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'static-site',
@@ -138,7 +138,7 @@ const BLOG_POSTS = [
     date: '2026-03-17',
     dateFormatted: 'March 17, 2026',
     readTime: '9 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'wordpress-alternative',
@@ -178,7 +178,7 @@ const BLOG_POSTS = [
     date: '2026-03-16',
     dateFormatted: 'March 16, 2026',
     readTime: '8 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'hosting',
@@ -219,7 +219,7 @@ const BLOG_POSTS = [
     date: '2026-03-15',
     dateFormatted: 'March 15, 2026',
     readTime: '8 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'contact-forms',
@@ -259,7 +259,7 @@ const BLOG_POSTS = [
     date: '2026-03-14',
     dateFormatted: 'March 14, 2026',
     readTime: '7 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'javascript',
@@ -300,7 +300,7 @@ const BLOG_POSTS = [
     date: '2026-03-13',
     dateFormatted: 'March 13, 2026',
     readTime: '7 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'static-blog',
@@ -337,7 +337,7 @@ const BLOG_POSTS = [
     date: '2026-03-12',
     dateFormatted: 'March 12, 2026',
     readTime: '8 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'static-search',
@@ -374,7 +374,7 @@ const BLOG_POSTS = [
     date: '2026-03-10',
     dateFormatted: 'March 10, 2026',
     readTime: '10 min read',
-    author: 'StaticStack Editorial',
+    author: 'StaticStack',
     authorRole: 'Static Web Architecture',
     tags: [
       'serverless',
