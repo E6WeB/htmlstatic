@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /stats
+Disallow: /stats/
 
 Sitemap: https://www.staticstack.app/sitemap.xml
