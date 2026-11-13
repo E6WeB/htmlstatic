@@ -62,149 +62,6 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 <table width="100%">
 <thead>
   <tr>
-    <th width="30%" align="left">Badge</th>
-    <th width="70%" align="left">Meaning</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
-    <td>Open-source software with publicly available source code</td>
-  </tr>
-  <tr>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
-    <td>Completely free to use with zero billing requirements</td>
-  </tr>
-  <tr>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td>Generous free tier available with optional paid tiers</td>
-  </tr>
-  <tr>
-    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
-    <td>Commercial service or one-time license purchase</td>
-  </tr>
-</tbody>
-</table>
-
-
----
-
-## AI & Content Creation
-
-AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.
-
-<table width="100%">
-<thead>
-  <tr>
-    <th width="20%" align="left">Tool</th>
-    <th width="45%" align="left">Description</th>
-    <th width="20%" align="left">Pricing / License</th>
-    <th width="15%" align="left">Website</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><a href="tools/ai-content-creation/chatgpt.md">ChatGPT</a></td>
-    <td>Conversational AI model for drafting blog posts, website copy, and HTML/markdown content</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">chatgpt.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-content-creation/claude.md">Claude</a></td>
-    <td>Advanced AI assistant with large context windows for writing long-form articles and documentation</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">claude.ai</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-content-creation/google-gemini.md">Google Gemini</a></td>
-    <td>Multimodal AI assistant for research, drafting website copy, and generating structured content</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">gemini.google.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-content-creation/imgmov.md">imgmov</a></td>
-    <td>AI generator for creating commercial product videos, images, and visual assets from photos and prompts</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://imgmov.com/" target="_blank" rel="noopener noreferrer">imgmov.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-content-creation/perplexity.md">Perplexity</a></td>
-    <td>AI-powered research and citation engine for writing factual, accurate blog posts and documentation</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">perplexity.ai</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-content-creation/recraft.md">Recraft</a></td>
-    <td>AI design tool for generating vector SVGs, 3D graphics, and icons for web pages</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://www.recraft.ai/" target="_blank" rel="noopener noreferrer">recraft.ai</a></td>
-  </tr>
-</tbody>
-</table>
-
-## AI Models
-
-Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.
-
-<table width="100%">
-<thead>
-  <tr>
-    <th width="20%" align="left">Tool</th>
-    <th width="45%" align="left">Description</th>
-    <th width="20%" align="left">Pricing / License</th>
-    <th width="15%" align="left">Website</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><a href="tools/ai-models/chatgpt-openai.md">ChatGPT (OpenAI)</a></td>
-    <td>OpenAI's flagship multimodal foundation model family (GPT-4o / o-series)</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://openai.com/" target="_blank" rel="noopener noreferrer">openai.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-models/claude-anthropic.md">Claude (Anthropic)</a></td>
-    <td>Frontier reasoning and coding models with 200k+ token context windows</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://anthropic.com/" target="_blank" rel="noopener noreferrer">anthropic.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-models/cohere-command.md">Cohere Command</a></td>
-    <td>Enterprise foundation model optimized for search, RAG, and document grounding</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://cohere.com/" target="_blank" rel="noopener noreferrer">cohere.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-models/deepseek.md">DeepSeek</a></td>
-    <td>High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-models/google-gemini-model.md">Google Gemini</a></td>
-    <td>Multimodal frontier model family with up to 2M token context windows</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">ai.google.dev</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-models/grok-xai.md">Grok (xAI)</a></td>
-    <td>Frontier reasoning and coding model with real-time web knowledge integration</td>
-    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
-    <td><a href="https://x.ai/" target="_blank" rel="noopener noreferrer">x.ai</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-models/meta-llama.md">Meta Llama</a></td>
-    <td>Leading open-weights foundation model family for local and cloud deployment</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
-    <td><a href="https://llama.meta.com/" target="_blank" rel="noopener noreferrer">llama.meta.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/ai-models/microsoft-phi.md">Microsoft Phi</a></td>
-    <td>High-efficiency small language models (SLMs) built for edge and browser execution</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
-    <td><a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer">azure.microsoft.com/.../phi</a></td>
-  </tr>
-  <tr>
     <td><a href="tools/ai-models/mistral-ai.md">Mistral AI</a></td>
     <td>High-speed open and commercial models including Codestral and Mistral Large</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
@@ -1474,6 +1331,149 @@ Site is not accessible or site is down
     <td>Simple, privacy-focused open-source alternative to Google Analytics</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://umami.is/" target="_blank" rel="noopener noreferrer">umami.is</a></td>
+  </tr>
+  <tr>
+    <th width="30%" align="left">Badge</th>
+    <th width="70%" align="left">Meaning</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td>Open-source software with publicly available source code</td>
+  </tr>
+  <tr>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td>Completely free to use with zero billing requirements</td>
+  </tr>
+  <tr>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td>Generous free tier available with optional paid tiers</td>
+  </tr>
+  <tr>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td>Commercial service or one-time license purchase</td>
+  </tr>
+</tbody>
+</table>
+
+
+---
+
+## AI & Content Creation
+
+AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="tools/ai-content-creation/chatgpt.md">ChatGPT</a></td>
+    <td>Conversational AI model for drafting blog posts, website copy, and HTML/markdown content</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">chatgpt.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-content-creation/claude.md">Claude</a></td>
+    <td>Advanced AI assistant with large context windows for writing long-form articles and documentation</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">claude.ai</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-content-creation/google-gemini.md">Google Gemini</a></td>
+    <td>Multimodal AI assistant for research, drafting website copy, and generating structured content</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">gemini.google.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-content-creation/imgmov.md">imgmov</a></td>
+    <td>AI generator for creating commercial product videos, images, and visual assets from photos and prompts</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://imgmov.com/" target="_blank" rel="noopener noreferrer">imgmov.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-content-creation/perplexity.md">Perplexity</a></td>
+    <td>AI-powered research and citation engine for writing factual, accurate blog posts and documentation</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">perplexity.ai</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-content-creation/recraft.md">Recraft</a></td>
+    <td>AI design tool for generating vector SVGs, 3D graphics, and icons for web pages</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.recraft.ai/" target="_blank" rel="noopener noreferrer">recraft.ai</a></td>
+  </tr>
+</tbody>
+</table>
+
+## AI Models
+
+Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="tools/ai-models/chatgpt-openai.md">ChatGPT (OpenAI)</a></td>
+    <td>OpenAI's flagship multimodal foundation model family (GPT-4o / o-series)</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://openai.com/" target="_blank" rel="noopener noreferrer">openai.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-models/claude-anthropic.md">Claude (Anthropic)</a></td>
+    <td>Frontier reasoning and coding models with 200k+ token context windows</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://anthropic.com/" target="_blank" rel="noopener noreferrer">anthropic.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-models/cohere-command.md">Cohere Command</a></td>
+    <td>Enterprise foundation model optimized for search, RAG, and document grounding</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://cohere.com/" target="_blank" rel="noopener noreferrer">cohere.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-models/deepseek.md">DeepSeek</a></td>
+    <td>High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-models/google-gemini-model.md">Google Gemini</a></td>
+    <td>Multimodal frontier model family with up to 2M token context windows</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">ai.google.dev</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-models/grok-xai.md">Grok (xAI)</a></td>
+    <td>Frontier reasoning and coding model with real-time web knowledge integration</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://x.ai/" target="_blank" rel="noopener noreferrer">x.ai</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/ai-models/meta-llama.md">Meta Llama</a></td>
+    <td>Leading open-weights foundation model family for local and cloud deployment</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://llama.meta.com/" target="_blank" rel="noopener noreferrer">llama.meta.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/inactive/microsoft-phi.md">Microsoft Phi</a></td>
+    <td>High-efficiency small language models (SLMs) built for edge and browser execution</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://azure.microsoft.com/en-us/products/phi/" target="_blank" rel="noopener noreferrer">azure.microsoft.com/.../phi</a></td>
   </tr>
 </tbody>
 </table>
