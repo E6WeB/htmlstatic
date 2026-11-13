@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://getartcraft.com/apps/wordcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/wordcraft</a>
 2. **Category**: [Development Tools](../../README.md#development-tools)
 3. **Type**: Open Source Word Processor & Document Editor
-4. **Pricing / License**: Free / Open Source
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `word-processor`, `rust`, `docx`, `markdown`, `documents`, `offline`, `mcp`, `beta`, `wordcraft`, `open-source-word-processor`
 ---
@@ -60,3 +60,10 @@ wordcraft-cli convert report.docx --to pdf --embed-fonts -o public/downloads/rep
 1. Technical writers and developers authoring guides or blog posts who prefer a visual ribbon processor that exports clean Markdown and HTML.
 2. Static sites and Jamstack projects offering downloadable, publication-quality PDF resources generated from local documents.
 3. Anyone looking for a privacy-respecting, lightweight Word alternative that works completely offline.
+
+---
+
+## Pricing & Limits
+
+- **Open Source / Free Tier**: $0 — free desktop app and open-source code when bringing your own compute or third-party model keys
+- **ArtCraft Cloud AI Credits**: Basic (~$8–$10/mo, ~1,000 credits), Pro (~$28–$35/mo, ~3,750 credits), Max (~$48–$60/mo, ~6,600 credits)

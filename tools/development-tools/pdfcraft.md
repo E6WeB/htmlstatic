@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://getartcraft.com/apps/pdfcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/pdfcraft</a>
 2. **Category**: [Development Tools](../../README.md#development-tools)
 3. **Type**: Open Source PDF Reader, Editor & Workbench
-4. **Pricing / License**: Free / Open Source
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `pdf`, `rust`, `pdf-editor`, `document-tools`, `split-pdf`, `merge-pdf`, `offline`, `beta`, `pdfcraft`, `open-source-acrobat`
 ---
@@ -60,3 +60,10 @@ pdfcraft-cli extract ebook.pdf --pages 1-3 -o public/samples/ebook-preview.pdf
 1. Developers, creators, and students who want a fast, offline PDF tool without uploading sensitive documents to third-party web servers.
 2. Static site projects needing to bundle, split, or optimize downloadable PDF guides and resources.
 3. Anyone looking for a lightweight, ad-free alternative to bloated commercial PDF editors.
+
+---
+
+## Pricing & Limits
+
+- **Open Source / Free Tier**: $0 — free desktop app and open-source code when bringing your own compute or third-party model keys
+- **ArtCraft Cloud AI Credits**: Basic (~$8–$10/mo, ~1,000 credits), Pro (~$28–$35/mo, ~3,750 credits), Max (~$48–$60/mo, ~6,600 credits)

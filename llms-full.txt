@@ -211,7 +211,7 @@ Add user login, member areas, and gated content to static sites without backend 
 - **Supabase Auth** — Open-source authentication supporting passwordless logins, OAuth providers, and JWTs.
   - StaticStack Page: https://www.staticstack.app/tools/authentication-users/supabase-auth
   - Official Website: https://supabase.com/auth
-  - Badges: Open Source, Free
+  - Badges: Open Source, Freemium
   - Tags: supabase-auth, open-source-auth, magic-links, oauth-providers, jwt-authentication, row-level-security, firebase-auth-alternative, passkeys, oauth-login, jwt-auth
 
 ### Booking & Scheduling (2 tools)
@@ -401,12 +401,12 @@ Tools that make building, testing, and maintaining static websites easier.
 - **Antigravity CLI** — Command-line AI coding agent that brings autonomous planning, editing, and automation directly into your terminal.
   - StaticStack Page: https://www.staticstack.app/tools/development-tools/antigravity-cli
   - Official Website: https://antigravity.google/docs/cli
-  - Badges: Free
+  - Badges: Freemium
   - Tags: antigravity-cli, agy-cli, terminal-coding-agent, ai-workflow-automation, slash-commands, agentic-cli, ai-coding-agent, vibe-coding, code-editor, web-performance
 - **Antigravity IDE** — Google's AI-first integrated development environment tailored for agentic pair programming, browser automation, and full-stack web development.
   - StaticStack Page: https://www.staticstack.app/tools/development-tools/antigravity-ide
   - Official Website: https://antigravity.google/
-  - Badges: Free
+  - Badges: Freemium
   - Tags: antigravity-ide, ai-pair-programming, agentic-ide, browser-automation-ide, multi-agent-coding, google-deepmind, ai-coding-agent, vibe-coding, code-editor, web-performance
 - **Bootstrap Studio** — Visual desktop web design application for creating responsive websites using the Bootstrap framework and exporting clean HTML.
   - StaticStack Page: https://www.staticstack.app/tools/development-tools/bootstrap-studio
@@ -541,12 +541,12 @@ Services for publishing static HTML, CSS, and JavaScript websites online.
 - **GitLab Pages** — Free static website hosting directly from GitLab repositories with custom domains and automated SSL.
   - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/gitlab-pages
   - Official Website: https://about.gitlab.com/stages-devops-lifecycle/pages/
-  - Badges: Open Source, Free
+  - Badges: Open Source, Freemium
   - Tags: gitlab-pages, gitlab-ci-cd-hosting, free-static-hosting, custom-domains, devops-static-deploy, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy, custom-domain
 - **Kinsta Static Site Hosting** — Free static site hosting deployed across Cloudflare's 260+ global edge locations with 100 GB monthly bandwidth.
   - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/kinsta
   - Official Website: https://kinsta.com/static-site-hosting/
-  - Badges: Free
+  - Badges: Freemium
   - Tags: kinsta-static-hosting, cloudflare-edge-hosting, free-static-site-host, git-based-deployment, fast-cdn-hosting, free-static-hosting, edge-cdn, git-deploy, jamstack-hosting, serverless-deploy
 - **Netlify** — Static hosting with automated continuous deployment and edge services.
   - StaticStack Page: https://www.staticstack.app/tools/hosting-deployment/netlify
@@ -766,7 +766,7 @@ Engage visitors and answer questions in real time with lightweight chat widgets.
 - **Tawk.to** — 100% free live chat application to monitor and chat with visitors in real-time.
   - StaticStack Page: https://www.staticstack.app/tools/live-chat/tawk-to
   - Official Website: https://www.tawk.to/
-  - Badges: Free
+  - Badges: Freemium
   - Tags: tawk-to, 100-percent-free-live-chat, unlimited-chat-agents, real-time-visitor-monitoring, support-ticketing, customer-support-widget, live-chat-embed, helpdesk-widget, visitor-messaging, no-backend-chat
 
 ### Media & Video Players (3 tools)
@@ -926,7 +926,7 @@ Protect forms and websites against automated spam and abuse.
 - **Cloudflare Turnstile** — Privacy-friendly, frustration-free CAPTCHA alternative.
   - StaticStack Page: https://www.staticstack.app/tools/security-spam-protection/cloudflare-turnstile
   - Official Website: https://developers.cloudflare.com/turnstile/
-  - Badges: Free
+  - Badges: Freemium
   - Tags: cloudflare-turnstile, invisible-captcha-alternative, no-puzzle-bot-protection, privacy-first-verification, free-recaptcha-replacement, bot-protection, captcha-alternative, form-spam-filter, privacy-captcha, zero-friction-security
 - **Google reCAPTCHA** — Industry-standard bot detection and abuse prevention service.
   - StaticStack Page: https://www.staticstack.app/tools/security-spam-protection/google-recaptcha

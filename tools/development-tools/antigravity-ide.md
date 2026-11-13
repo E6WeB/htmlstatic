@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a>
 2. **Category**: [Development Tools](../../README.md#development-tools)
 3. **Type**: AI-First IDE
-4. **Pricing / License**: Free
+4. **Pricing / License**: Freemium
 
 - **Tags**: `antigravity-ide`, `ai-pair-programming`, `agentic-ide`, `browser-automation-ide`, `multi-agent-coding`, `google-deepmind`, `ai-coding-agent`, `vibe-coding`, `code-editor`, `web-performance`
 ---
@@ -46,3 +46,12 @@ The agent will scaffold the markup, generate accessible styling, launch the loca
 1. Building static sites and web applications with AI pair programming.
 2. Automated testing and visual verification of responsive web interfaces.
 3. Rapid prototyping of components, landing pages, and interactive scripts.
+
+---
+
+## Pricing & Limits
+
+- **Free Tier**: $0/month — unlimited Tab completions and core Gemini agent models with weekly rate limits
+- **Google AI Plus / Pro**: $4.99/month (Plus) or $19.99/month (Pro, 5-hour rolling quota refreshes + overage credit eligibility)
+- **Google AI Ultra**: $99.99/month (5x Pro limits) or $199.99/month (20x Pro limits, third-party model access)
+- **Enterprise**: Google Cloud consumption billing or Gemini Enterprise seats (from ~$30/seat/month)

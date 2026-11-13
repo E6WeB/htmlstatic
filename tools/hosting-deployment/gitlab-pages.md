@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://about.gitlab.com/stages-devops-lifecycle/pages/" target="_blank" rel="noopener noreferrer">about.gitlab.com/stages-devops-lifecycle/pages/</a>
 2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 3. **Type**: Static Web Hosting & DevOps Platform
-4. **Pricing / License**: Open Source / Free
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `gitlab-pages`, `gitlab-ci-cd-hosting`, `free-static-hosting`, `custom-domains`, `devops-static-deploy`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`, `custom-domain`
 ---
@@ -55,3 +55,10 @@ Any files placed into the `public/` directory will be published automatically to
 1. Open-source and private repositories hosted on GitLab.
 2. Projects requiring sophisticated CI/CD pipelines prior to static asset deployment.
 3. Teams needing password protection or access-controlled static documentation.
+
+---
+
+## Pricing & Limits
+
+- **Free Plan**: $0/month — includes GitLab Pages with 5 GiB storage, 10 GiB monthly transfer, and 400 CI/CD compute minutes/month
+- **Premium / Ultimate**: $29/user/month (Premium) and custom/enterprise Ultimate tiers with higher storage, transfer, and compute quotas

@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://getartcraft.com/apps/figcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/figcraft</a>
 2. **Category**: [Development Tools](../../README.md#development-tools)
 3. **Type**: Open Source Interface Design & Prototyping Platform
-4. **Pricing / License**: Free / Open Source
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `ui-design`, `rust`, `figma-alternative`, `prototyping`, `auto-layout`, `dev-mode`, `vector`, `beta`, `figcraft`, `open-source-figma`
 ---
@@ -66,3 +66,10 @@ figcraft-cli export design-system.figcraft --components "Icons/*" --format svg -
 1. Designing landing pages, application interfaces, and component libraries for static web and Jamstack applications.
 2. Teams and independent creators seeking a private, offline Figma alternative without monthly subscriptions.
 3. Developers who want instant Dev Mode code generation and automated CLI/MCP design pipeline integration.
+
+---
+
+## Pricing & Limits
+
+- **Open Source / Free Tier**: $0 — free desktop app and open-source code when bringing your own compute or third-party model keys
+- **ArtCraft Cloud AI Credits**: Basic (~$8–$10/mo, ~1,000 credits), Pro (~$28–$35/mo, ~3,750 credits), Max (~$48–$60/mo, ~6,600 credits)

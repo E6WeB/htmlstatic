@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://getartcraft.com/apps/effectcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/effectcraft</a>
 2. **Category**: [Development Tools](../../README.md#development-tools)
 3. **Type**: Open Source Motion Graphics & VFX Compositor
-4. **Pricing / License**: Free / Open Source
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `motion-graphics`, `rust`, `after-effects-alternative`, `lottie`, `vfx`, `animation`, `video`, `beta`, `effectcraft`, `open-source-after-effects`
 ---
@@ -73,3 +73,10 @@ Export hero background loops in H.264 or WebM format with minimal file sizes for
 1. Motion designers and web creators building animated vector assets, hero animations, and Lottie graphics for static websites.
 2. Video editors and developers looking for a lightweight, open-source After Effects replacement written in Rust.
 3. Projects needing programmatic rendering and automated video/Lottie compilation via command line.
+
+---
+
+## Pricing & Limits
+
+- **Open Source / Free Tier**: $0 — free desktop app and open-source code when bringing your own compute or third-party model keys
+- **ArtCraft Cloud AI Credits**: Basic (~$8–$10/mo, ~1,000 credits), Pro (~$28–$35/mo, ~3,750 credits), Max (~$48–$60/mo, ~6,600 credits)

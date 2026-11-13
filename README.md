@@ -289,7 +289,7 @@ Add user login, member areas, and gated content to static sites without backend 
   <tr>
     <td><a href="tools/authentication-users/supabase-auth.md">Supabase Auth</a></td>
     <td>Open-source auth supporting passwordless logins, OAuth, and JWTs</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://supabase.com/auth" target="_blank" rel="noopener noreferrer">supabase.com/auth</a></td>
   </tr>
 </tbody>
@@ -605,13 +605,13 @@ Tools that make building, testing, and maintaining static websites easier.
   <tr>
     <td><a href="tools/development-tools/antigravity-cli.md">Antigravity CLI</a></td>
     <td>Terminal-native AI coding agent with slash commands and workflow automation</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://antigravity.google/docs/cli" target="_blank" rel="noopener noreferrer">antigravity.google/docs/cli</a></td>
   </tr>
   <tr>
     <td><a href="tools/development-tools/antigravity-ide.md">Antigravity IDE</a></td>
     <td>AI-first development environment with pair programming and browser automation</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a></td>
   </tr>
   <tr>
@@ -784,13 +784,13 @@ Services for publishing static HTML, CSS, and JavaScript websites online.
   <tr>
     <td><a href="tools/hosting-deployment/gitlab-pages.md">GitLab Pages</a></td>
     <td>Free static website hosting directly from GitLab repositories with custom domains</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://about.gitlab.com/stages-devops-lifecycle/pages/" target="_blank" rel="noopener noreferrer">about.gitlab.com</a></td>
   </tr>
   <tr>
     <td><a href="tools/hosting-deployment/kinsta.md">Kinsta Static Site Hosting</a></td>
     <td>Free static site hosting deployed across Cloudflare global edge locations</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://kinsta.com/static-site-hosting/" target="_blank" rel="noopener noreferrer">kinsta.com</a></td>
   </tr>
   <tr>
@@ -1109,7 +1109,7 @@ Engage visitors and answer questions in real time with lightweight chat widgets.
   <tr>
     <td><a href="tools/live-chat/tawk-to.md">Tawk.to</a></td>
     <td>100% free live chat application to monitor and chat with visitors</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">tawk.to</a></td>
   </tr>
 </tbody>
@@ -1367,7 +1367,7 @@ Protect forms and websites against automated spam and abuse.
   <tr>
     <td><a href="tools/security-spam-protection/cloudflare-turnstile.md">Cloudflare Turnstile</a></td>
     <td>Privacy-friendly CAPTCHA alternative</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">developers.cloudflare.com/turnstile</a></td>
   </tr>
   <tr>

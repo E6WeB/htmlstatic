@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://getartcraft.com/apps/designcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/designcraft</a>
 2. **Category**: [Development Tools](../../README.md#development-tools)
 3. **Type**: Open Source Page Layout & Desktop Publishing App
-4. **Pricing / License**: Free / Open Source
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `page-layout`, `rust`, `indesign-alternative`, `desktop-publishing`, `typography`, `pdf-export`, `print-design`, `beta`, `designcraft`, `open-source-indesign`
 ---
@@ -66,3 +66,10 @@ designcraft-cli build handbook.designcraft --export pdf -o public/handbook.pdf
 1. Creators, publishers, and developers designing brochures, magazines, whitepapers, and guides for static sites.
 2. Teams looking for a private, offline Adobe InDesign alternative without monthly recurring software fees.
 3. Programmatic publication pipelines requiring a fast, headless CLI and MCP server for automated typesetting.
+
+---
+
+## Pricing & Limits
+
+- **Open Source / Free Tier**: $0 — free desktop app and open-source code when bringing your own compute or third-party model keys
+- **ArtCraft Cloud AI Credits**: Basic (~$8–$10/mo, ~1,000 credits), Pro (~$28–$35/mo, ~3,750 credits), Max (~$48–$60/mo, ~6,600 credits)

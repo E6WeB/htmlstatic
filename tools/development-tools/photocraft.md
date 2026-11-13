@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://getartcraft.com/apps/photocraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/photocraft</a>
 2. **Category**: [Development Tools](../../README.md#development-tools)
 3. **Type**: Open Source Raster Image Editor & Layered Canvas
-4. **Pricing / License**: Free / Open Source
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `image-editor`, `rust`, `photoshop-alternative`, `psd`, `layers`, `graphics`, `offline`, `beta`, `photocraft`, `open-source-photoshop`
 ---
@@ -64,3 +64,10 @@ Integrate PhotoCraft into static site build pipelines (e.g., Astro, Eleventy, or
 1. Designing and exporting responsive raster artwork, banners, and thumbnails for static blogs and landing pages.
 2. Developers and designers seeking an offline, subscription-free Photoshop replacement with instant launch times.
 3. Teams that need programmatic image compositing and format conversion using a headless Rust CLI or MCP server.
+
+---
+
+## Pricing & Limits
+
+- **Open Source / Free Tier**: $0 — free desktop app and open-source code when bringing your own compute or third-party model keys
+- **ArtCraft Cloud AI Credits**: Basic (~$8–$10/mo, ~1,000 credits), Pro (~$28–$35/mo, ~3,750 credits), Max (~$48–$60/mo, ~6,600 credits)

@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://developers.cloudflare.com/turnstile/" target="_blank" rel="noopener noreferrer">developers.cloudflare.com/turnstile</a>
 2. **Category**: [Security & Spam Protection](../../README.md#security--spam-protection)
 3. **Type**: Invisible CAPTCHA Alternative
-4. **Pricing / License**: Free
+4. **Pricing / License**: Freemium
 
 - **Tags**: `cloudflare-turnstile`, `invisible-captcha-alternative`, `no-puzzle-bot-protection`, `privacy-first-verification`, `free-recaptcha-replacement`, `bot-protection`, `captcha-alternative`, `form-spam-filter`, `privacy-captcha`, `zero-friction-security`
 ---
@@ -50,3 +50,10 @@ Add Turnstile to your static HTML form:
 1. Protecting contact forms, comments, and signup forms from spam bots.
 2. Websites that want to ditch frustrating image selection puzzles.
 3. Privacy-conscious projects seeking an ethical anti-abuse solution.
+
+---
+
+## Pricing & Limits
+
+- **Free Plan**: $0/month — unlimited challenges, up to 20 widgets per account, 10 hostnames per widget, 7-day analytics
+- **Enterprise Plan**: Custom pricing — unlimited widgets, up to 200 hostnames per widget (or any hostname), 30-day analytics, and branding removal

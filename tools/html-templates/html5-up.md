@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://html5up.net/" target="_blank" rel="noopener noreferrer">html5up.net</a>
 2. **Category**: [HTML Templates](../../README.md#html-templates)
 3. **Type**: Responsive HTML5 Template Library
-4. **Pricing / License**: Free
+4. **Pricing / License**: Free (CC BY 3.0 / Paid Pixelarity option to remove attribution)
 
 - **Tags**: `html5-up`, `html5-templates`, `responsive-html-templates`, `creative-commons-templates`, `portfolio-templates`, `landing-page-html`, `static-website-themes`
 ---
@@ -60,4 +60,11 @@ Download a template from HTML5 UP, unzip it into your project repository, and de
 1. Developer portfolios, documentation hubs, personal blogs, and product landing pages.
 2. Converting a clean HTML/CSS design into an Astro, Eleventy (11ty),Hugo, or Jekyll theme.
 3. Fast-turnaround static websites that need designer-grade polish with zero dependencies.
+
+---
+
+## Pricing & License
+
+- **Free (CC BY 3.0)**: $0 — free for personal and commercial use as long as the "Design: HTML5 UP" footer credit remains intact
+- **Pixelarity (Paid)**: Paid membership (from ~$19) for attribution-free versions and extended templates by the same creator
 
