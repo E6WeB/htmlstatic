@@ -1,13 +1,13 @@
 # StaticStack
 
-> A curated directory of 160 tools, APIs, and services across 29 categories, plus 10 engineering guides for building fast, zero-bloat static websites.
+> A curated directory of 169 tools, APIs, and services across 29 categories, plus 10 engineering guides for building fast, zero-bloat static websites.
 
 StaticStack helps developers replace heavy monolithic backends with composable static-first tooling (SSGs, edge hosting, serverless forms, static search, auth, CMS, and privacy-respecting utilities).
 
 ## Core Pages
 
 - [Home](https://www.staticstack.app/): Main StaticStack directory and category explorer.
-- [Search](https://www.staticstack.app/search): Client-side instant search across all 160 tools and 29 categories.
+- [Search](https://www.staticstack.app/search): Client-side instant search across all 169 tools and 29 categories.
 - [Archive](https://www.staticstack.app/archive): Complete alphabetical & category archive of static web tools.
 - [Blog](https://www.staticstack.app/blog): In-depth guides on static site architecture, migration, and performance.
 - [Community](https://www.staticstack.app/community): Developer discussions, project showcases, and Q&A.
@@ -37,7 +37,7 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 - [Media & Video Players](https://www.staticstack.app/category/media-players/): Embed audio, video, and streaming media without intrusive third-party ads or trackers. (3 tools)
 - [Monitoring & Error Tracking](https://www.staticstack.app/category/monitoring-errors/): Detect client-side JavaScript crashes and monitor performance in production. (2 tools)
 - [Newsletters & Email](https://www.staticstack.app/category/newsletters-email/): Collect subscribers, send newsletters, and handle email delivery from static websites. (4 tools)
-- [Payments & E-commerce](https://www.staticstack.app/category/payments-ecommerce/): Sell digital downloads, services, memberships, and other products from static websites. (5 tools)
+- [Payments & E-commerce](https://www.staticstack.app/category/payments-ecommerce/): Sell digital downloads, services, memberships, and other products from static websites. (14 tools)
 - [Search](https://www.staticstack.app/category/search/): Add search functionality to static websites, documentation, and blogs. (2 tools)
 - [Security & Spam Protection](https://www.staticstack.app/category/security-spam-protection/): Protect forms and websites against automated spam and abuse. (3 tools)
 - [Static Site Generators](https://www.staticstack.app/category/static-site-generators/): Build fast, pre-rendered static HTML websites from templates and Markdown. (8 tools)
@@ -61,5 +61,5 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 
 ## Full Reference
 
-- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 160 tools, official URLs, tags, badges, and 10 blog guides.
+- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 169 tools, official URLs, tags, badges, and 10 blog guides.
 - [XML Sitemap](https://www.staticstack.app/sitemap.xml): Canonical URL index.

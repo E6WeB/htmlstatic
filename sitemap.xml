@@ -1069,7 +1069,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/fluentcart</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/gumroad</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/ko-fi</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/tools/payments-ecommerce/lemon-squeezy</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/paddle</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1087,13 +1111,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/paypal</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/polar</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/tools/payments-ecommerce/reflow</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/snipcart</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/square</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/tools/payments-ecommerce/stripe-payment-links</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.staticstack.app/tools/payments-ecommerce/surecart</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

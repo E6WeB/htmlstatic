@@ -78,3 +78,11 @@ Add customer authentication buttons with custom triggers:
 2. Projects built with Bootstrap Studio that want plug-and-play e-commerce and customer accounts.
 3. Creators selling physical items or digital downloads without paying high 2%–5% platform commissions.
 4. Membership sites and SaaS apps that need customer authentication and subscription management without backend servers.
+
+---
+
+## Pricing & Transaction Fees
+
+- **Free Tier**: $0/month — core store and checkout functionality with **0% platform transaction fee**
+- **Pro Plan**: $9.99/month — unlocks full commercial features while keeping **0% platform transaction fee**
+- **Payment Processor Fees**: Reflow takes 0% commission; standard Stripe, PayPal, or Paddle processing fees still apply

@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://supabase.com/auth" target="_blank" rel="noopener noreferrer">supabase.com/auth</a>
 2. **Category**: [Authentication & User Management](../../README.md#authentication--user-management)
 3. **Type**: Open Source Authentication Service
-4. **Pricing / License**: Open Source / Free
+4. **Pricing / License**: Open Source / Freemium
 
 - **Tags**: `supabase-auth`, `open-source-auth`, `magic-links`, `oauth-providers`, `jwt-authentication`, `row-level-security`, `firebase-auth-alternative`, `passkeys`, `oauth-login`, `jwt-auth`
 ---
@@ -63,3 +63,11 @@ Integrate Supabase Auth with vanilla JavaScript:
 1. Static applications needing social login and user session persistence.
 2. Projects using Supabase as their backend database for row-level security.
 3. Open-source projects prioritizing privacy and data sovereignty.
+
+---
+
+## Pricing & Limits
+
+- **Free Plan**: $0/month — up to 50,000 Monthly Active Users (MAUs); free projects auto-pause after 7 days of inactivity
+- **Pro Plan**: $25/month — includes 100,000 MAUs ($0.00325 per additional MAU) and removes the inactivity pause
+- **Transaction Fee**: None (self-hosting via open-source stack is also free)

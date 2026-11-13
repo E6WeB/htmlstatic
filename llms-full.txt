@@ -1,6 +1,6 @@
 # StaticStack — Complete Tool & Guide Catalog
 
-> Complete machine-readable Markdown catalog of 160 static web tools across 29 categories and 10 blog guides.
+> Complete machine-readable Markdown catalog of 169 static web tools across 29 categories and 10 blog guides.
 
 Canonical Site: https://www.staticstack.app/
 Concise Index: https://www.staticstack.app/llms.txt
@@ -77,7 +77,7 @@ Concise Index: https://www.staticstack.app/llms.txt
 - Summary: The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.
 - Tags: serverless, no-database, jamstack, static-website, clerk, stripe, supabase, architecture
 
-## Tool Directory by Category (29 Categories, 160 Tools)
+## Tool Directory by Category (29 Categories, 169 Tools)
 
 ### AI & Content Creation (7 tools)
 Category Page: https://www.staticstack.app/category/ai-content-creation/
@@ -829,35 +829,80 @@ Collect subscribers, send newsletters, and handle email delivery from static web
   - Badges: Freemium
   - Tags: smtp2go, transactional-email-api, smtp-relay, email-deliverability, serverless-email, dkim-spf-automation, email-notifications, transactional-email, email-api, newsletter-embed
 
-### Payments & E-commerce (5 tools)
+### Payments & E-commerce (14 tools)
 Category Page: https://www.staticstack.app/category/payments-ecommerce/
 Sell digital downloads, services, memberships, and other products from static websites.
 
+- **FluentCart** — Headless-ready WordPress e-commerce plugin with REST APIs and direct Buy Links for external static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/fluentcart
+  - Official Website: https://fluentcart.com/
+  - Badges: Freemium
+  - Tags: fluentcart, headless-ecommerce, wordpress-rest-api, buy-links, zero-transaction-fee, static-ecommerce, digital-downloads, subscriptions, stripe-checkout, no-backend-store
+- **Gumroad** — Sell digital products, memberships, and courses with embeddable overlay checkouts and buy buttons on static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/gumroad
+  - Official Website: https://gumroad.com/
+  - Badges: Freemium
+  - Tags: gumroad, sell-digital-products, gumroad-overlay, embed-buy-button, merchant-of-record, static-ecommerce, digital-downloads, no-backend-store, stripe-checkout, payment-links
+- **Ko-fi** — Accept tips, donations, memberships, and digital shop sales on static websites with zero platform fees on donations.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/ko-fi
+  - Official Website: https://ko-fi.com/
+  - Badges: Freemium
+  - Tags: ko-fi, tip-jar, donations-widget, creator-memberships, sell-digital-products, static-ecommerce, no-backend-store, digital-downloads, stripe-checkout, payment-links
 - **Lemon Squeezy** — Sell digital products and manage online payments with global tax compliance.
   - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/lemon-squeezy
   - Official Website: https://www.lemonsqueezy.com/
-  - Badges: Free
+  - Badges: Freemium
   - Tags: lemon-squeezy, merchant-of-record, global-vat-tax-compliance, sell-saas-and-downloads, overlay-checkout-embed, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **Paddle** — Merchant of Record billing infrastructure with embeddable overlay checkouts, subscriptions, and global tax compliance.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/paddle
+  - Official Website: https://www.paddle.com/
+  - Badges: Freemium
+  - Tags: paddle, merchant-of-record, paddle-js, saas-billing, global-vat-tax-compliance, overlay-checkout-embed, static-ecommerce, no-backend-store, digital-downloads, stripe-checkout
 - **Payhip** — Sell digital downloads, memberships, and online courses from static sites.
   - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/payhip
   - Official Website: https://payhip.com/
-  - Badges: Free
+  - Badges: Freemium
   - Tags: payhip, sell-ebooks-courses, no-monthly-fee-ecommerce, embed-buy-button, instant-digital-delivery, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
 - **PaymentForm** — Create custom checkout forms to accept payments, tickets, and donations online.
   - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/paymentform
   - Official Website: https://paymentform.io/
   - Badges: Freemium
   - Tags: paymentform, stripe-checkout-builder, no-code-payment-links, event-tickets-donations, hosted-pay-forms, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **PayPal** — Create payment links, buy-now buttons, and checkout modals for static websites with no backend required.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/paypal
+  - Official Website: https://www.paypal.com/
+  - Badges: Freemium
+  - Tags: paypal, paypal-checkout, paypal-buy-button, paypal-payment-links, venmo-checkout, static-ecommerce, digital-downloads, no-backend-store, sell-digital-products, stripe-checkout
+- **Polar** — Open-source Merchant of Record for developers to sell digital products, SaaS subscriptions, and software licenses.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/polar
+  - Official Website: https://polar.sh/
+  - Badges: Open Source / Freemium
+  - Tags: polar, polar-sh, open-source-billing, merchant-of-record, license-keys, saas-billing, static-ecommerce, digital-downloads, no-backend-store, stripe-checkout
 - **Reflow** — Add complete e-commerce stores, shopping carts, subscriptions, and user authentication to static websites.
   - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/reflow
   - Official Website: https://reflowhq.com/
   - Badges: Freemium
   - Tags: reflow-hq, static-site-shopping-cart, html-data-attribute-store, stripe-paypal-static-cart, jamstack-ecommerce, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **Snipcart** — Add a customizable HTML/JavaScript shopping cart and checkout to any static website using simple data attributes.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/snipcart
+  - Official Website: https://snipcart.com/
+  - Badges: Paid
+  - Tags: snipcart, static-site-shopping-cart, html-data-attribute-store, jamstack-ecommerce, static-ecommerce, no-backend-store, digital-downloads, stripe-checkout, sell-digital-products, payment-links
+- **Square** — Accept online payments, donations, and bookings on static websites using Square Payment Links and embeddable buy buttons.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/square
+  - Official Website: https://squareup.com/
+  - Badges: Freemium
+  - Tags: square, square-payment-links, square-checkout, buy-button, afterpay, static-ecommerce, digital-downloads, no-backend-store, sell-digital-products, stripe-checkout
 - **Stripe Payment Links** — Accept payments through hosted checkout pages without writing server code.
   - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/stripe-payment-links
   - Official Website: https://stripe.com/payments/payment-links
-  - Badges: Free
+  - Badges: Freemium
   - Tags: stripe-payment-links, stripe-buy-button, no-code-stripe-checkout, apple-google-pay-links, recurring-subscriptions, static-ecommerce, digital-downloads, stripe-checkout, no-backend-store, sell-digital-products
+- **SureCart** — Headless e-commerce platform with hosted checkout pages and buy links for digital products, subscriptions, and services.
+  - StaticStack Page: https://www.staticstack.app/tools/payments-ecommerce/surecart
+  - Official Website: https://surecart.com/
+  - Badges: Freemium
+  - Tags: surecart, headless-ecommerce, hosted-checkout-links, sell-digital-products, subscriptions, static-ecommerce, stripe-checkout, no-backend-store, digital-downloads, payment-links
 
 ### Search (2 tools)
 Category Page: https://www.staticstack.app/category/search/

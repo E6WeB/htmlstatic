@@ -1291,12 +1291,48 @@
     <lastmod>2026-11-13</lastmod>
   </tool>
   <tool>
+    <title>FluentCart</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/fluentcart</url>
+    <description>
+      WordPress e-commerce plugin with REST API and Buy Links for static frontends
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
+    <title>Gumroad</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/gumroad</url>
+    <description>
+      Sell digital products, courses, and memberships with overlay checkouts
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
+    <title>Ko-fi</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/ko-fi</url>
+    <description>
+      Accept tips, donations, memberships, and digital shop sales on static sites
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
     <title>Lemon Squeezy</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://www.staticstack.app/tools/payments-ecommerce/lemon-squeezy</url>
     <image>https://www.staticstack.app/tools/payments-ecommerce/lemon-squeezy-cover.webp</image>
     <description>
       Sell digital products and manage online payments
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
+    <title>Paddle</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/paddle</url>
+    <description>
+      Merchant of Record billing with overlay checkouts and global tax compliance
     </description>
     <lastmod>2026-11-13</lastmod>
   </tool>
@@ -1321,6 +1357,24 @@
     <lastmod>2026-11-13</lastmod>
   </tool>
   <tool>
+    <title>PayPal</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/paypal</url>
+    <description>
+      Create payment links, buy-now buttons, and checkout modals for static sites
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
+    <title>Polar</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/polar</url>
+    <description>
+      Open-source Merchant of Record for digital products, SaaS, and license keys
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
     <title>Reflow</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://www.staticstack.app/tools/payments-ecommerce/reflow</url>
@@ -1331,12 +1385,39 @@
     <lastmod>2026-11-13</lastmod>
   </tool>
   <tool>
+    <title>Snipcart</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/snipcart</url>
+    <description>
+      Add an HTML/JS shopping cart and checkout to any static website
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
+    <title>Square</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/square</url>
+    <description>
+      Accept online payments, donations, and bookings with no-code payment links
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
     <title>Stripe Payment Links</title>
     <category>Payments &amp; E-commerce</category>
     <url>https://www.staticstack.app/tools/payments-ecommerce/stripe-payment-links</url>
     <image>https://www.staticstack.app/tools/payments-ecommerce/stripe-payment-links-cover.webp</image>
     <description>
       Accept payments through hosted checkout links
+    </description>
+    <lastmod>2026-11-13</lastmod>
+  </tool>
+  <tool>
+    <title>SureCart</title>
+    <category>Payments &amp; E-commerce</category>
+    <url>https://www.staticstack.app/tools/payments-ecommerce/surecart</url>
+    <description>
+      Headless e-commerce platform with hosted checkout links and subscriptions
     </description>
     <lastmod>2026-11-13</lastmod>
   </tool>

@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://kinsta.com/static-site-hosting/" target="_blank" rel="noopener noreferrer">kinsta.com/static-site-hosting/</a>
 2. **Category**: [Hosting & Deployment](../../README.md#hosting--deployment)
 3. **Type**: Static Web Hosting & Edge CDN
-4. **Pricing / License**: Free
+4. **Pricing / License**: Freemium
 
 - **Tags**: `kinsta-static-hosting`, `cloudflare-edge-hosting`, `free-static-site-host`, `git-based-deployment`, `fast-cdn-hosting`, `free-static-hosting`, `edge-cdn`, `git-deploy`, `jamstack-hosting`, `serverless-deploy`
 ---
@@ -46,3 +46,11 @@ Kinsta's free plan allows up to 100 static sites per company, 100 GB of bandwidt
 1. High-performance static websites needing enterprise CDN delivery at zero cost.
 2. Agencies and creators managing up to 100 separate static websites under one unified dashboard.
 3. Static sites that require generous bandwidth limits without risk of sudden billing overages.
+
+---
+
+## Pricing & Limits
+
+- **Free Tier**: $0/month — up to 100 static sites, 100 GB monthly bandwidth, and 600 build minutes/month (transitioned to Kinsta's sister platform, Sevalla)
+- **Paid Overages**: $0.10 per GB for bandwidth beyond 100 GB; $0.05 per minute for build time beyond 600 minutes
+- **Transaction Fee**: None

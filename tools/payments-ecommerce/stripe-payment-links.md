@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a>
 2. **Category**: [Payments & E-commerce](../../README.md#payments--e-commerce)
 3. **Type**: Hosted Payment Checkouts
-4. **Pricing / License**: Free
+4. **Pricing / License**: Freemium
 
 - **Tags**: `stripe-payment-links`, `stripe-buy-button`, `no-code-stripe-checkout`, `apple-google-pay-links`, `recurring-subscriptions`, `static-ecommerce`, `digital-downloads`, `stripe-checkout`, `no-backend-store`, `sell-digital-products`
 ---
@@ -47,3 +47,12 @@ Add a Stripe Payment Link to your static site HTML:
 1. Selling single products, consulting sessions, or digital goods from a static site.
 2. Setting up subscription or membership billing without building a customer portal.
 3. Developers wanting the reliability and security of Stripe with zero backend.
+
+---
+
+## Pricing & Transaction Fees
+
+- **Monthly Fee**: $0/month (pay-as-you-go)
+- **Standard Card Transaction Fee (US)**: 2.9% + $0.30 per successful domestic card charge
+- **Additional Surcharges**: +1.5% for international cards, +1% if currency conversion is required
+- **Post-Payment Invoices (Optional)**: 0.4% per transaction (capped at $2.00) if automatic invoicing is enabled

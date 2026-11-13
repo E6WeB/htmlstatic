@@ -5,7 +5,7 @@
 1. **Official Website**: <a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">tawk.to</a>
 2. **Category**: [Live Chat & Support](../../README.md#live-chat--support)
 3. **Type**: Free Live Chat Software
-4. **Pricing / License**: Free
+4. **Pricing / License**: Freemium
 
 - **Tags**: `tawk-to`, `100-percent-free-live-chat`, `unlimited-chat-agents`, `real-time-visitor-monitoring`, `support-ticketing`, `customer-support-widget`, `live-chat-embed`, `helpdesk-widget`, `visitor-messaging`, `no-backend-chat`
 ---
@@ -53,3 +53,12 @@ s0.parentNode.insertBefore(s1,s0);
 
 1. Small businesses and freelancers who need live chat without ongoing monthly costs.
 2. Static sites wanting to offer instant customer support and gather real-time feedback.
+
+---
+
+## Pricing & Limits
+
+- **Free Plan**: $0/month — unlimited agents, chats, and sites (displays "Powered by tawk.to" branding)
+- **Remove Branding Add-on**: $29/month billed annually ($348/year) or $39/month billed monthly, per property
+- **Other Optional Paid Add-ons**: AI Assist, Video + Voice, and hired chat agents are billed separately
+- **Transaction Fee**: None

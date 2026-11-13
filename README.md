@@ -1235,15 +1235,39 @@ Sell digital downloads, services, memberships, and other products from static we
 </thead>
 <tbody>
   <tr>
+    <td><a href="tools/payments-ecommerce/fluentcart.md">FluentCart</a></td>
+    <td>WordPress e-commerce plugin with REST API and Buy Links for static frontends</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://fluentcart.com/" target="_blank" rel="noopener noreferrer">fluentcart.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/payments-ecommerce/gumroad.md">Gumroad</a></td>
+    <td>Sell digital products, courses, and memberships with overlay checkouts</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://gumroad.com/" target="_blank" rel="noopener noreferrer">gumroad.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/payments-ecommerce/ko-fi.md">Ko-fi</a></td>
+    <td>Accept tips, donations, memberships, and digital shop sales on static sites</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://ko-fi.com/" target="_blank" rel="noopener noreferrer">ko-fi.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/payments-ecommerce/lemon-squeezy.md">Lemon Squeezy</a></td>
     <td>Sell digital products and manage online payments</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/payments-ecommerce/paddle.md">Paddle</a></td>
+    <td>Merchant of Record billing with overlay checkouts and global tax compliance</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.paddle.com/" target="_blank" rel="noopener noreferrer">paddle.com</a></td>
   </tr>
   <tr>
     <td><a href="tools/payments-ecommerce/payhip.md">Payhip</a></td>
     <td>Sell digital downloads, memberships, and other products</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://payhip.com/" target="_blank" rel="noopener noreferrer">payhip.com</a></td>
   </tr>
   <tr>
@@ -1253,16 +1277,46 @@ Sell digital downloads, services, memberships, and other products from static we
     <td><a href="https://paymentform.io/" target="_blank" rel="noopener noreferrer">paymentform.io</a></td>
   </tr>
   <tr>
+    <td><a href="tools/payments-ecommerce/paypal.md">PayPal</a></td>
+    <td>Create payment links, buy-now buttons, and checkout modals for static sites</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://www.paypal.com/" target="_blank" rel="noopener noreferrer">paypal.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/payments-ecommerce/polar.md">Polar</a></td>
+    <td>Open-source Merchant of Record for digital products, SaaS, and license keys</td>
+    <td><img src="https://img.shields.io/badge/Open_Source_%2F_Freemium-0969da?style=flat-square" alt="Open Source / Freemium"></td>
+    <td><a href="https://polar.sh/" target="_blank" rel="noopener noreferrer">polar.sh</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/payments-ecommerce/reflow.md">Reflow</a></td>
     <td>Add e-commerce stores, shopping carts, subscriptions, and user auth to static sites</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://reflowhq.com/" target="_blank" rel="noopener noreferrer">reflowhq.com</a></td>
   </tr>
   <tr>
+    <td><a href="tools/payments-ecommerce/snipcart.md">Snipcart</a></td>
+    <td>Add an HTML/JS shopping cart and checkout to any static website</td>
+    <td><img src="https://img.shields.io/badge/Paid-cf222e?style=flat-square" alt="Paid"></td>
+    <td><a href="https://snipcart.com/" target="_blank" rel="noopener noreferrer">snipcart.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/payments-ecommerce/square.md">Square</a></td>
+    <td>Accept online payments, donations, and bookings with no-code payment links</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://squareup.com/" target="_blank" rel="noopener noreferrer">squareup.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/payments-ecommerce/stripe-payment-links.md">Stripe Payment Links</a></td>
     <td>Accept payments through hosted checkout links</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
     <td><a href="https://stripe.com/payments/payment-links" target="_blank" rel="noopener noreferrer">stripe.com/payments/payment-links</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/payments-ecommerce/surecart.md">SureCart</a></td>
+    <td>Headless e-commerce platform with hosted checkout links and subscriptions</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://surecart.com/" target="_blank" rel="noopener noreferrer">surecart.com</a></td>
   </tr>
 </tbody>
 </table>

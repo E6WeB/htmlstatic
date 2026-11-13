@@ -48,3 +48,11 @@ Create your form on PaymentForm.io and link to it from any button on your static
 1. Selling products, event tickets, or services directly from static landing pages.
 2. Accepting donations for nonprofits or open-source projects without a shopping cart system.
 3. Fast checkout setup connecting directly to Stripe or PayPal.
+
+---
+
+## Pricing & Transaction Fees
+
+- **Free Forever Plan**: $0/month — unlimited payment forms and submissions with **0% platform transaction fee**
+- **Pro Plan**: Starts around $5–$9/month (removes branding and adds analytics, webhooks, and team access)
+- **Payment Processor Fees**: 0% platform fee from PaymentForm.io; standard Stripe, PayPal, or Square processing fees still apply
