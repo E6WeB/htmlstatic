@@ -1,6 +1,6 @@
 # StaticStack — Complete Tool & Guide Catalog
 
-> Complete machine-readable Markdown catalog of 149 static web tools across 29 categories and 9 blog guides.
+> Complete machine-readable Markdown catalog of 147 static web tools across 29 categories and 9 blog guides.
 
 Canonical Site: https://www.staticstack.app/
 Concise Index: https://www.staticstack.app/llms.txt
@@ -70,97 +70,7 @@ Concise Index: https://www.staticstack.app/llms.txt
 - Summary: The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.
 - Tags: serverless, no-database, jamstack, static-website, clerk, stripe, supabase, architecture
 
-## Tool Directory by Category (29 Categories, 149 Tools)
-
-### AI & Content Creation (6 tools)
-Category Page: https://www.staticstack.app/category/ai-content-creation/
-AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.
-
-- **ChatGPT** — The leading conversational AI model for drafting blog posts, landing page copy, and structured HTML/Markdown content.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/chatgpt
-  - Official Website: https://chatgpt.com/
-  - Badges: Freemium
-  - Tags: chatgpt, openai, ai-copywriting, markdown-writer, seo-blog-posts, html-generator, content-automation, gpt-4o, seo-content, markdown-generator
-- **Claude** — Advanced AI assistant with large context windows, favored for writing nuanced long-form articles, technical guides, and documentation.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/claude
-  - Official Website: https://claude.ai/
-  - Badges: Freemium
-  - Tags: claude-ai, anthropic, long-context-ai, technical-writing, code-generation, markdown-docs, ai-copywriter, claude-sonnet, ai-copywriting, seo-content
-- **Google Gemini** — Multimodal AI model with real-time web search integration for research, drafting web copy, and multi-language content creation.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/google-gemini
-  - Official Website: https://gemini.google.com/
-  - Badges: Freemium
-  - Tags: google-gemini, multimodal-ai, ai-research, content-drafting, structured-json, seo-writing, gemini-pro, ai-copywriting, seo-content, markdown-generator
-- **imgmov** — AI-powered video and image generation tool that turns product photos and prompts into commercial videos, images, and visual assets for static websites.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/imgmov
-  - Official Website: https://imgmov.com/
-  - Badges: Freemium
-  - Tags: ai-video-generator, product-video-ai, image-to-video, ecommerce-visuals, ai-marketing-assets, commercial-ai-art, ai-copywriting, seo-content, markdown-generator, generative-ai
-- **Perplexity** — AI-powered research and citation engine for writing factual, well-sourced blog posts, guides, and documentation.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/perplexity
-  - Official Website: https://www.perplexity.ai/
-  - Badges: Freemium
-  - Tags: perplexity-ai, ai-search-engine, cited-research, fact-checking, seo-research, content-discovery, answer-engine, ai-copywriting, seo-content, markdown-generator
-- **Recraft** — AI design tool for generating vector SVGs, 3D graphics, and icons tailored for website illustration.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/recraft
-  - Official Website: https://www.recraft.ai/
-  - Badges: Freemium
-  - Tags: ai-svg-generator, vector-ai, icon-generator, 3d-illustrations, brand-graphics, scalable-vectors, web-illustrations, ai-copywriting, seo-content, markdown-generator
-
-### AI Models (10 tools)
-Category Page: https://www.staticstack.app/category/ai-models/
-Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.
-
-- **ChatGPT (OpenAI)** — OpenAI's flagship multimodal foundation model powering conversational web apps and REST APIs.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/chatgpt-openai
-  - Official Website: https://openai.com/
-  - Badges: Freemium
-  - Tags: openai-api, gpt-4o, o1-reasoning, llm-api, structured-outputs, function-calling, ai-embeddings, ai-agents, rag, open-weights
-- **Claude (Anthropic)** — Anthropic's state-of-the-art model family renowned for coding excellence, nuance, and 200k+ context windows.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/claude-anthropic
-  - Official Website: https://anthropic.com/
-  - Badges: Freemium
-  - Tags: anthropic-api, claude-3-7-sonnet, ai-coding-model, 200k-context, agentic-workflows, tool-use-api, llm, llm-api, ai-agents, rag
-- **Cohere Command** — Enterprise-grade foundation model optimized for Retrieval-Augmented Generation (RAG) and document search.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/cohere-command
-  - Official Website: https://cohere.com/
-  - Badges: Freemium
-  - Tags: cohere-api, command-r, enterprise-rag, semantic-search, rerank-api, vector-embeddings, cited-llm, llm-api, ai-agents, rag
-- **DeepSeek** — High-efficiency open-weights foundation and reasoning model engineered with Mixture-of-Experts architecture.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/deepseek
-  - Official Website: https://deepseek.com/
-  - Badges: Open Source, Freemium
-  - Tags: deepseek-r1, deepseek-v3, open-weights-llm, reasoning-model, ai-coding, low-cost-llm, mit-license-ai, llm-api, ai-agents, rag
-- **Google Gemini** — Google's multimodal frontier model family featuring native multimodal reasoning and up to 2M token context.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/google-gemini-model
-  - Official Website: https://ai.google.dev/
-  - Badges: Freemium
-  - Tags: gemini-api, 2m-context-window, multimodal-llm, gemini-flash, vertex-ai, long-context-rag, audio-video-ai, llm-api, ai-agents, rag
-- **Grok (xAI)** — xAI's frontier reasoning and conversational model with real-time access to global live information.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/grok-xai
-  - Official Website: https://x.ai/
-  - Badges: Paid
-  - Tags: grok-api, xai, realtime-knowledge, reasoning-llm, coding-assistant, frontier-model, openai-compatible, llm-api, ai-agents, rag
-- **Meta Llama** — The world's leading open-weights model family, enabling private local hosting and customizable web deployments.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/meta-llama
-  - Official Website: https://llama.meta.com/
-  - Badges: Open Source
-  - Tags: llama-3, meta-ai, open-source-llm, local-ai, ollama, self-hosted-llm, open-weights, llm-api, ai-agents, rag
-- **Microsoft Phi** — Small Language Models (SLMs) engineered for maximum efficiency, low memory footprint, and edge execution.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/microsoft-phi
-  - Official Website: https://azure.microsoft.com/en-us/products/phi/
-  - Badges: Open Source
-  - Tags: phi-3, small-language-model, slm, webgpu-ai, browser-llm, on-device-ai, onnx-runtime, llm-api, ai-agents, rag
-- **Mistral AI** — Leading European open and commercial models celebrated for speed, lightweight efficiency, and specialized code generation.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/mistral-ai
-  - Official Website: https://mistral.ai/
-  - Badges: Open Source, Freemium
-  - Tags: mistral-large, codestral, open-weights-ai, fast-inference, european-ai, code-completion-llm, function-calling, llm-api, ai-agents, rag
-- **Qwen** — Alibaba Cloud's powerhouse open-weights model family (Qwen 2.5) with exceptional coding and multilingual mastery.
-  - StaticStack Page: https://www.staticstack.app/tools/ai-models/qwen
-  - Official Website: https://qwenlm.github.io/
-  - Badges: Open Source
-  - Tags: qwen-2-5, qwen-coder, open-source-llm, coding-llm, multilingual-ai, local-llm, apache-2-ai, llm-api, ai-agents, rag
+## Tool Directory by Category (29 Categories, 147 Tools)
 
 ### Analytics & Privacy (3 tools)
 Category Page: https://www.staticstack.app/category/analytics-privacy/
@@ -961,3 +871,83 @@ Site is not accessible or site is down
   - Official Website: https://umami.is/
   - Badges: Open Source, Freemium
   - Tags: analytics, privacy, cookieless, gdpr, self-hosted, open-source, umami-analytics, self-hosted-analytics, open-source-ga-alternative, cookieless-metrics
+
+### AI & Content Creation (6 tools)
+Category Page: https://www.staticstack.app/category/ai-content-creation/
+AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.
+
+- **ChatGPT** — The leading conversational AI model for drafting blog posts, landing page copy, and structured HTML/Markdown content.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/chatgpt
+  - Official Website: https://chatgpt.com/
+  - Badges: Freemium
+  - Tags: chatgpt, openai, ai-copywriting, markdown-writer, seo-blog-posts, html-generator, content-automation, gpt-4o, seo-content, markdown-generator
+- **Claude** — Advanced AI assistant with large context windows, favored for writing nuanced long-form articles, technical guides, and documentation.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/claude
+  - Official Website: https://claude.ai/
+  - Badges: Freemium
+  - Tags: claude-ai, anthropic, long-context-ai, technical-writing, code-generation, markdown-docs, ai-copywriter, claude-sonnet, ai-copywriting, seo-content
+- **Google Gemini** — Multimodal AI model with real-time web search integration for research, drafting web copy, and multi-language content creation.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/google-gemini
+  - Official Website: https://gemini.google.com/
+  - Badges: Freemium
+  - Tags: google-gemini, multimodal-ai, ai-research, content-drafting, structured-json, seo-writing, gemini-pro, ai-copywriting, seo-content, markdown-generator
+- **imgmov** — AI-powered video and image generation tool that turns product photos and prompts into commercial videos, images, and visual assets for static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/imgmov
+  - Official Website: https://imgmov.com/
+  - Badges: Freemium
+  - Tags: ai-video-generator, product-video-ai, image-to-video, ecommerce-visuals, ai-marketing-assets, commercial-ai-art, ai-copywriting, seo-content, markdown-generator, generative-ai
+- **Perplexity** — AI-powered research and citation engine for writing factual, well-sourced blog posts, guides, and documentation.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/perplexity
+  - Official Website: https://www.perplexity.ai/
+  - Badges: Freemium
+  - Tags: perplexity-ai, ai-search-engine, cited-research, fact-checking, seo-research, content-discovery, answer-engine, ai-copywriting, seo-content, markdown-generator
+- **Recraft** — AI design tool for generating vector SVGs, 3D graphics, and icons tailored for website illustration.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/recraft
+  - Official Website: https://www.recraft.ai/
+  - Badges: Freemium
+  - Tags: ai-svg-generator, vector-ai, icon-generator, 3d-illustrations, brand-graphics, scalable-vectors, web-illustrations, ai-copywriting, seo-content, markdown-generator
+
+### AI Models (8 tools)
+Category Page: https://www.staticstack.app/category/ai-models/
+Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference.
+
+- **ChatGPT (OpenAI)** — OpenAI's flagship multimodal foundation model powering conversational web apps and REST APIs.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/chatgpt-openai
+  - Official Website: https://openai.com/
+  - Badges: Freemium
+  - Tags: openai-api, gpt-4o, o1-reasoning, llm-api, structured-outputs, function-calling, ai-embeddings, ai-agents, rag, open-weights
+- **Claude (Anthropic)** — Anthropic's state-of-the-art model family renowned for coding excellence, nuance, and 200k+ context windows.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/claude-anthropic
+  - Official Website: https://anthropic.com/
+  - Badges: Freemium
+  - Tags: anthropic-api, claude-3-7-sonnet, ai-coding-model, 200k-context, agentic-workflows, tool-use-api, llm, llm-api, ai-agents, rag
+- **Cohere Command** — Enterprise-grade foundation model optimized for Retrieval-Augmented Generation (RAG) and document search.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/cohere-command
+  - Official Website: https://cohere.com/
+  - Badges: Freemium
+  - Tags: cohere-api, command-r, enterprise-rag, semantic-search, rerank-api, vector-embeddings, cited-llm, llm-api, ai-agents, rag
+- **DeepSeek** — High-efficiency open-weights foundation and reasoning model engineered with Mixture-of-Experts architecture.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/deepseek
+  - Official Website: https://deepseek.com/
+  - Badges: Open Source, Freemium
+  - Tags: deepseek-r1, deepseek-v3, open-weights-llm, reasoning-model, ai-coding, low-cost-llm, mit-license-ai, llm-api, ai-agents, rag
+- **Google Gemini** — Google's multimodal frontier model family featuring native multimodal reasoning and up to 2M token context.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/google-gemini-model
+  - Official Website: https://ai.google.dev/
+  - Badges: Freemium
+  - Tags: gemini-api, 2m-context-window, multimodal-llm, gemini-flash, vertex-ai, long-context-rag, audio-video-ai, llm-api, ai-agents, rag
+- **Grok (xAI)** — xAI's frontier reasoning and conversational model with real-time access to global live information.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/grok-xai
+  - Official Website: https://x.ai/
+  - Badges: Paid
+  - Tags: grok-api, xai, realtime-knowledge, reasoning-llm, coding-assistant, frontier-model, openai-compatible, llm-api, ai-agents, rag
+- **Meta Llama** — The world's leading open-weights model family, enabling private local hosting and customizable web deployments.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/meta-llama
+  - Official Website: https://llama.meta.com/
+  - Badges: Open Source
+  - Tags: llama-3, meta-ai, open-source-llm, local-ai, ollama, self-hosted-llm, open-weights, llm-api, ai-agents, rag
+- **Microsoft Phi** — Small Language Models (SLMs) engineered for maximum efficiency, low memory footprint, and edge execution.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-models/microsoft-phi
+  - Official Website: https://azure.microsoft.com/en-us/products/phi/
+  - Badges: Open Source
+  - Tags: phi-3, small-language-model, slm, webgpu-ai, browser-llm, on-device-ai, onnx-runtime, llm-api, ai-agents, rag

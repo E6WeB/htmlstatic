@@ -1,13 +1,13 @@
 # StaticStack
 
-> A curated directory of 149 tools, APIs, and services across 29 categories, plus 9 engineering guides for building fast, zero-bloat static websites.
+> A curated directory of 147 tools, APIs, and services across 29 categories, plus 9 engineering guides for building fast, zero-bloat static websites.
 
 StaticStack helps developers replace heavy monolithic backends with composable static-first tooling (SSGs, edge hosting, serverless forms, static search, auth, CMS, and privacy-respecting utilities).
 
 ## Core Pages
 
 - [Home](https://www.staticstack.app/): Main StaticStack directory and category explorer.
-- [Search](https://www.staticstack.app/search): Client-side instant search across all 149 tools and 29 categories.
+- [Search](https://www.staticstack.app/search): Client-side instant search across all 147 tools and 29 categories.
 - [Archive](https://www.staticstack.app/archive): Complete alphabetical & category archive of static web tools.
 - [Blog](https://www.staticstack.app/blog): In-depth guides on static site architecture, migration, and performance.
 - [Community](https://www.staticstack.app/community): Developer discussions, project showcases, and Q&A.
@@ -16,8 +16,6 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 
 ## Categories (29)
 
-- [AI & Content Creation](https://www.staticstack.app/category/ai-content-creation/): AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. (6 tools)
-- [AI Models](https://www.staticstack.app/category/ai-models/): Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference. (10 tools)
 - [Analytics & Privacy](https://www.staticstack.app/category/analytics-privacy/): Understand website traffic, visitor behavior, and page performance. (3 tools)
 - [Authentication & User Management](https://www.staticstack.app/category/authentication-users/): Add user login, member areas, and gated content to static sites without backend code. (3 tools)
 - [Booking & Scheduling](https://www.staticstack.app/category/booking-scheduling/): Allow visitors to book appointments and discovery calls directly from static pages. (2 tools)
@@ -45,6 +43,8 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 - [Tutorials](https://www.staticstack.app/category/tutorials/): Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites. (4 tools)
 - [Typography & Web Fonts](https://www.staticstack.app/category/typography-fonts/): Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services. (3 tools)
 - [Inactive](https://www.staticstack.app/category/inactive/): Site is not accessible or site is down (4 tools)
+- [AI & Content Creation](https://www.staticstack.app/category/ai-content-creation/): AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. (6 tools)
+- [AI Models](https://www.staticstack.app/category/ai-models/): Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference. (8 tools)
 
 ## Blog Guides (9)
 
@@ -60,5 +60,5 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 
 ## Full Reference
 
-- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 149 tools, official URLs, tags, badges, and 9 blog guides.
+- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 147 tools, official URLs, tags, badges, and 9 blog guides.
 - [XML Sitemap](https://www.staticstack.app/sitemap.xml): Canonical URL index.

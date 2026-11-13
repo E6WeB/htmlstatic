@@ -4,1007 +4,1191 @@
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "chatgpt": {
     "url": "https://chatgpt.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "claude-anthropic": {
     "url": "https://anthropic.com/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "cohere-command": {
     "url": "https://cohere.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "claude": {
     "url": "https://claude.ai/",
     "status": "online",
-    "code": 302,
+    "code": 403,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "recraft": {
     "url": "https://www.recraft.ai/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "imgmov": {
     "url": "https://imgmov.com/",
     "status": "online",
-    "code": 200,
+    "code": 403,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "chatgpt-openai": {
     "url": "https://openai.com/",
     "status": "online",
-    "code": 200,
+    "code": 403,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "google-gemini": {
     "url": "https://gemini.google.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "meta-llama": {
     "url": "https://llama.meta.com/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "qwen": {
     "url": "https://qwenlm.github.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "google-gemini-model": {
     "url": "https://ai.google.dev/",
     "status": "online",
     "code": 302,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "mistral-ai": {
     "url": "https://mistral.ai/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "goatcounter": {
     "url": "https://www.goatcounter.com/",
-    "status": "offline",
-    "code": 0,
-    "error": "getaddrinfo ENOENT www.goatcounter.com",
-    "checked_at": "2026-11-11"
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "plausible": {
     "url": "https://plausible.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "deepseek": {
     "url": "https://deepseek.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "umami": {
     "url": "https://umami.is/",
-    "status": "offline",
-    "code": 0,
-    "error": "getaddrinfo ENOENT umami.is",
-    "checked_at": "2026-11-11"
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "statcounter": {
     "url": "https://statcounter.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "clerk": {
     "url": "https://clerk.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "grok-xai": {
     "url": "https://x.ai/",
     "status": "online",
-    "code": 200,
+    "code": 403,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "supabase-auth": {
     "url": "https://supabase.com/auth",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "cal-com": {
     "url": "https://cal.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "github-discussions": {
     "url": "https://docs.github.com/en/discussions",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "disqus": {
     "url": "https://disqus.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "outseta": {
     "url": "https://outseta.com/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "calendly": {
     "url": "https://calendly.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "giscus": {
     "url": "https://giscus.app/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "flarum": {
     "url": "https://flarum.org/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "countapi": {
     "url": "https://countapi.mileshilliard.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "utterances": {
     "url": "https://utteranc.es/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "basin": {
     "url": "https://usebasin.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "fireshot": {
     "url": "https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "send-url": {
     "url": "https://chromewebstore.google.com/detail/send-url/fmanefafgomooabofffoidipbfdbjilh",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "iine": {
     "url": "https://iine.to/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "formspree": {
     "url": "https://formspree.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "craftforms": {
     "url": "https://craftforms.app/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "splitform": {
     "url": "https://splitforms.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "pages-cms": {
     "url": "https://pagescms.org/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "craftpages": {
     "url": "https://craftpages.app/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "decap-cms": {
     "url": "https://decapcms.org/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "bulma": {
     "url": "https://bulma.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "lucide-icons": {
     "url": "https://lucide.dev/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "pico-css": {
     "url": "https://picocss.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "supabase": {
     "url": "https://supabase.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "firebase-firestore": {
     "url": "https://firebase.google.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "bootstrap-studio": {
     "url": "https://bootstrapstudio.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "antigravity-cli": {
     "url": "https://antigravity.google/docs/cli",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "shoelace": {
     "url": "https://shoelace.style/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "jsonbin": {
     "url": "https://jsonbin.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "cursor": {
     "url": "https://cursor.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "antigravity-ide": {
     "url": "https://antigravity.google/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "designcraft": {
     "url": "https://getartcraft.com/apps/designcraft",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "github-desktop": {
     "url": "https://desktop.github.com/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "eslint": {
     "url": "https://eslint.org/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "brickstatic": {
     "url": "https://builtforbricks.com/brickstatic/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "figcraft": {
     "url": "https://getartcraft.com/apps/figcraft",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "emdash": {
     "url": "https://emdash.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "opencode": {
     "url": "https://opencode.ai/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "pdfcraft": {
     "url": "https://getartcraft.com/apps/pdfcraft",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "photocraft": {
     "url": "https://getartcraft.com/apps/photocraft",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "effectcraft": {
     "url": "https://getartcraft.com/apps/effectcraft",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "google-lighthouse": {
     "url": "https://developer.chrome.com/docs/lighthouse/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "sitereal": {
     "url": "https://sitereal.app/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "wordcraft": {
     "url": "https://getartcraft.com/apps/wordcraft",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "prettier": {
     "url": "https://prettier.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "cloudflare-pages": {
     "url": "https://pages.cloudflare.com/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "staticseo": {
     "url": "https://staticseo.co/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "fleek": {
     "url": "https://fleek.xyz/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "codeberg-pages": {
     "url": "https://pages.codeberg.org/",
     "status": "offline",
     "code": 0,
     "error": "getaddrinfo ENOTFOUND pages.codeberg.org",
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 2,
+    "checked_at": "2026-11-13"
   },
   "gitlab-pages": {
     "url": "https://about.gitlab.com/stages-devops-lifecycle/pages/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "deno-deploy": {
     "url": "https://deno.com/deploy",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "github-pages": {
     "url": "https://pages.github.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "firebase-hosting": {
     "url": "https://firebase.google.com/docs/hosting",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "visual-studio-code": {
     "url": "https://code.visualstudio.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "netlify": {
     "url": "https://www.netlify.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "kinsta": {
     "url": "https://kinsta.com/static-site-hosting/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "render": {
     "url": "https://render.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "vercel": {
     "url": "https://vercel.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "stormkit": {
     "url": "https://www.stormkit.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "zed": {
     "url": "https://zed.dev/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "wasmer": {
     "url": "https://wasmer.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "surge": {
     "url": "https://surge.sh/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "file-converter": {
     "url": "https://github.com/Tichau/FileConverter",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "pic2svg": {
     "url": "https://pic2svg.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "squoosh": {
     "url": "https://squoosh.app/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "svg-repo": {
     "url": "https://svgrepo.com/",
     "status": "online",
     "code": 429,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "site-shot": {
     "url": "https://www.site-shot.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "unsplash": {
     "url": "https://unsplash.com/",
     "status": "online",
     "code": 307,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "tinypng": {
     "url": "https://tinypng.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "mapbox-gl-js": {
     "url": "https://www.mapbox.com/mapbox-gl-js",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "leaflet": {
     "url": "https://leafletjs.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "aos": {
     "url": "https://michalsnik.github.io/aos/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "photoswipe": {
     "url": "https://photoswipe.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "swiper": {
     "url": "https://swiperjs.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "tawk-to": {
     "url": "https://www.tawk.to/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "crisp": {
     "url": "https://crisp.chat/",
     "status": "online",
     "code": 301,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "mux-player": {
     "url": "https://mux.com/player",
     "status": "online",
     "code": 308,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "plyr": {
     "url": "https://plyr.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "wavesurfer": {
     "url": "https://wavesurfer.xyz/",
     "status": "online",
-    "code": 200,
+    "code": 403,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "logrocket": {
     "url": "https://logrocket.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "sentry": {
     "url": "https://sentry.io/",
     "status": "online",
     "code": 302,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "buttondown": {
     "url": "https://buttondown.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "emailit": {
     "url": "https://emailit.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "smtp2go": {
     "url": "https://www.smtp2go.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "brevo": {
     "url": "https://www.brevo.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "reflow": {
     "url": "https://reflowhq.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "paymentform": {
     "url": "https://paymentform.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "lemon-squeezy": {
     "url": "https://www.lemonsqueezy.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "payhip": {
     "url": "https://payhip.com/",
     "status": "online",
     "code": 403,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "microsoft-phi": {
     "url": "https://azure.microsoft.com/en-us/products/phi/",
     "status": "offline",
     "code": 0,
     "error": "Timeout",
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 2,
+    "checked_at": "2026-11-13"
   },
   "cloudflare-turnstile": {
     "url": "https://developers.cloudflare.com/turnstile/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "pagefind": {
     "url": "https://pagefind.app/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "hcaptcha": {
     "url": "https://www.hcaptcha.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "google-recaptcha": {
     "url": "https://cloud.google.com/security/products/recaptcha",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "astro": {
     "url": "https://astro.build/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "eleventy": {
     "url": "https://www.11ty.dev/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "gatsby": {
     "url": "https://www.gatsbyjs.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "jekyll": {
     "url": "https://jekyllrb.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "hugo": {
     "url": "https://gohugo.io/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "stripe-payment-links": {
     "url": "https://stripe.com/payments/payment-links",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "nextjs": {
     "url": "https://nextjs.org/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "zola": {
     "url": "https://www.getzola.org/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "sleekplan": {
     "url": "https://sleekplan.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "bunny-fonts": {
     "url": "https://fonts.bunny.net/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "coldcompile": {
     "url": "https://coldcompile.dev/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "tally": {
     "url": "https://tally.so/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "fontsource": {
     "url": "https://fontsource.org/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "pelican": {
     "url": "https://getpelican.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "algolia": {
     "url": "https://www.algolia.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "google-fonts": {
     "url": "https://fonts.google.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "instatic": {
     "url": "https://instatic.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "stacki": {
     "url": "https://stacki.build/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "phantom-studio": {
     "url": "https://phantomstudio.app/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "wptuts-wordpress-shift": {
     "url": "https://www.youtube.com/watch?v=RGvDeQcmKy0",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "free-css": {
     "url": "https://www.free-css.com/free-css-templates",
     "status": "offline",
     "code": 0,
-    "error": "write EPROTO 3C4D0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:openssl\\ssl\\record\\rec_layer_s3.c:918:SSL alert number 80\n",
-    "checked_at": "2026-11-11"
+    "error": "write EPROTO C08CF811F8750000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1601:SSL alert number 80\n",
+    "consecutive_failures": 2,
+    "checked_at": "2026-11-13"
   },
   "html5-up": {
     "url": "https://html5up.net/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "start-bootstrap": {
     "url": "https://startbootstrap.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "templatemo": {
     "url": "https://templatemo.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "tooplate": {
     "url": "https://www.tooplate.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "web3forms": {
     "url": "https://web3forms.com/",
     "status": "online",
-    "code": 200,
+    "code": 403,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "processwire": {
     "url": "https://processwire.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "getboosh": {
     "url": "https://getboosh.com/",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "static-html-advantage-seo": {
     "url": "https://www.youtube.com/watch?v=XKntRFeaeKA",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   },
   "ai-built-static-sites-wp-easy": {
     "url": "https://www.youtube.com/watch?v=C3gS3o--bcI",
     "status": "online",
     "code": 200,
     "error": null,
-    "checked_at": "2026-11-11"
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
+  },
+  "colorlib-templates": {
+    "url": "https://colorlib.com/wp/templates/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
+  },
+  "cruip": {
+    "url": "https://cruip.com/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
+  },
+  "html-design": {
+    "url": "https://html.design/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
+  },
+  "themewagon": {
+    "url": "https://themewagon.com/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
+  },
+  "themevault": {
+    "url": "https://www.themevault.net/",
+    "status": "online",
+    "code": 200,
+    "error": null,
+    "consecutive_failures": 0,
+    "checked_at": "2026-11-13"
   }
 }
