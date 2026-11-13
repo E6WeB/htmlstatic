@@ -841,6 +841,24 @@ Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstar
 </thead>
 <tbody>
   <tr>
+    <td><a href="tools/html-templates/colorlib-templates.md">Colorlib Templates</a></td>
+    <td>Extensive catalog of 1,500+ free responsive HTML5, CSS, and Bootstrap templates for portfolios, agencies, and businesses</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://colorlib.com/wp/templates/" target="_blank" rel="noopener noreferrer">colorlib.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/cruip.md">Cruip</a></td>
+    <td>High-converting Tailwind CSS, HTML, React, and Next.js landing page templates crafted for SaaS and startups</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://cruip.com/" target="_blank" rel="noopener noreferrer">cruip.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/html-design.md">HTML Design</a></td>
+    <td>Library of 800+ free responsive HTML5, CSS, and Bootstrap website templates across business, portfolio, and landing page categories</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://html.design/" target="_blank" rel="noopener noreferrer">html.design</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/html-templates/html5-up.md">HTML5 UP</a></td>
     <td>Handcrafted, fully responsive HTML5 and CSS3 site templates released for free under Creative Commons</td>
     <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
@@ -857,6 +875,18 @@ Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstar
     <td>Collection of 600+ free responsive HTML5 and Bootstrap website templates for portfolios and business sites</td>
     <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
     <td><a href="https://templatemo.com/" target="_blank" rel="noopener noreferrer">templatemo.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/themevault.md">ThemeVault</a></td>
+    <td>Free responsive website templates built with HTML5, CSS3, Bootstrap, Next.js, and Astro for modern static projects</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://www.themevault.net/" target="_blank" rel="noopener noreferrer">themevault.net</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/html-templates/themewagon.md">ThemeWagon</a></td>
+    <td>Curated collection of free and premium responsive Bootstrap, Tailwind CSS, and HTML5 website templates and admin dashboards</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://themewagon.com/" target="_blank" rel="noopener noreferrer">themewagon.com</a></td>
   </tr>
   <tr>
     <td><a href="tools/html-templates/tooplate.md">Tooplate</a></td>
