@@ -1,0 +1,72 @@
+Here's a general checklist you can run every overview through — same structure on all of them will make StaticStack feel a lot more consistent, too.
+
+Core facts — fill in every time
+
+What it is in one sentence, and who it's for
+Official website, category, type, and last-updated date
+Pricing: free tier? starting price? per-seat / per-use? free trial? refund policy?
+Any limits that matter: storage, bandwidth, users, projects, API calls
+Platform / requirements: web-only, iOS/Android/Mac/Windows, browser extensions, self-hosted option?
+
+Features, in depth
+
+Don't just list features — say what each one actually does, with a concrete example
+Which features are in the paid plans vs. free?
+Any standout / unique feature vs. competitors?
+Integrations: what it connects to natively, and what needs Zapier / API / webhooks
+
+How it works
+
+Setup steps — how long to get going, account needed?
+A real code snippet, screenshot, or walkthrough where it fits (like that embed code on the Muse.ai page)
+How it fits a static site specifically, since that's your angle
+
+When to use it / when not to
+
+3-4 best use cases, with who benefits
+2-3 cases where it's not the right pick — this builds trust fast
+Best for: beginners / pros / teams / solo, etc.
+
+Pros and cons
+
+Short, honest list — 4-5 each is plenty
+Include real downsides: pricing, learning curve, missing features, vendor lock-in
+
+Comparisons
+
+A small table vs. 2-3 closest alternatives: price, key feature, best for
+One line on why you'd pick this one over each alternative
+
+Performance, security, and privacy
+
+Speed / uptime, if published
+Data handling: tracking, cookies, GDPR, where data is stored
+Domain restrictions, passwords, SSO, 2FA, export / data portability — can you get your stuff out?
+
+Support and community
+
+Docs quality, support channels, response time if known
+Community size: forum, Discord, GitHub, etc.
+How often it's updated — is it actively maintained?
+
+Proof it works
+
+Screenshot or demo video / live example
+Real user quote, review score, or case study if you can find one
+Your own take: have you tried it? A one-paragraph hands-on note goes a long way
+
+FAQ
+
+4-6 questions people actually Google about it: "Is there a free plan?", "Does it work with X?", "Can I cancel anytime?"
+Keep answers to 1-2 sentences
+
+Verdict
+
+One-paragraph summary: who should use it, who should skip it, and the bottom line
+A simple rating, if you want to do that across all pages — just keep the scale consistent
+
+SEO / page hygiene
+
+Disambiguation note if the name collides with another product — like Muse.ai did
+Related tools on StaticStack to link to at the bottom
+Consistent headings and order on every page, so readers know where to look

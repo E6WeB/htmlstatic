@@ -21,6 +21,85 @@ function getLinkHealthMap(rootDir) {
   return linkHealthCache;
 }
 
+function renderToolSupplementalHtml({ tool, allCategories, cleanMd, isOnline, health }) {
+  // Skip auto-generating if the tool's Markdown already includes these sections (e.g., muse-ai.md)
+  if (/^##\s+(?:Quick Comparison|FAQ|Verdict)\b/im.test(cleanMd || '')) {
+    return '';
+  }
+
+  const currentCat = (allCategories || []).find(c => c.slug === tool.categorySlug);
+  const siblings = currentCat && Array.isArray(currentCat.tools)
+    ? currentCat.tools.filter(t => t.slug !== tool.slug).slice(0, 2)
+    : [];
+
+  const pricingLabel = tool.primaryBadge || 'Free';
+  let pricingAnswer = `${escapeHtml(tool.name)} is listed under ${escapeHtml(pricingLabel)}. Check the official website for current plan details.`;
+  if (/open source/i.test(pricingLabel)) {
+    pricingAnswer = `Yes. ${escapeHtml(tool.name)} is open source, so you can inspect the code, customize it, or self-host it for free.`;
+  } else if (/^free$/i.test(pricingLabel)) {
+    pricingAnswer = `Yes. ${escapeHtml(tool.name)} is free to use for static websites.`;
+  } else if (/freemium/i.test(pricingLabel)) {
+    pricingAnswer = `${escapeHtml(tool.name)} offers a free starter tier alongside paid plans for higher limits or team features.`;
+  } else if (/paid/i.test(pricingLabel)) {
+    pricingAnswer = `${escapeHtml(tool.name)} is a paid service without a permanent free tier. Visit the official site for current pricing.`;
+  }
+
+  const comparisonRows = [
+    `<tr>
+      <td><strong>${escapeHtml(tool.name)}</strong></td>
+      <td>${escapeHtml(pricingLabel)}</td>
+      <td>${escapeHtml(tool.description || '')}</td>
+    </tr>`,
+    ...siblings.map(s => `<tr>
+      <td><a href="../../tools/${escapeHtml(s.categorySlug)}/${escapeHtml(s.slug)}"><strong>${escapeHtml(s.name)}</strong></a></td>
+      <td>${escapeHtml(s.primaryBadge || 'Free')}</td>
+      <td>${escapeHtml(s.description || '')}</td>
+    </tr>`)
+  ].join('');
+
+  const comparisonHtml = siblings.length > 0 ? `
+    <hr>
+    <h2>Quick Comparison</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Pricing / License</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${comparisonRows}
+      </tbody>
+    </table>
+  ` : '';
+
+  const altNames = siblings.map(s => `<a href="../../tools/${escapeHtml(s.categorySlug)}/${escapeHtml(s.slug)}">${escapeHtml(s.name)}</a>`).join(' and ');
+  const altAnswer = siblings.length > 0
+    ? `Popular alternatives in <a href="../../category/${escapeHtml(tool.categorySlug)}/">${escapeHtml(tool.categoryTitle)}</a> include ${altNames}.`
+    : `Browse the <a href="../../category/${escapeHtml(tool.categorySlug)}/">${escapeHtml(tool.categoryTitle)}</a> category for related tools.`;
+
+  return `
+    <hr>
+    <h2>Pricing, Privacy &amp; Static Site Fit</h2>
+    <ul>
+      <li><strong>Pricing / License:</strong> ${escapeHtml(pricingLabel)}</li>
+      <li><strong>Static Site Integration:</strong> Built to work with static HTML, CSS, and Jamstack workflows without maintaining a custom backend server.</li>
+      <li><strong>Link Status:</strong> ${isOnline ? 'Verified Online' : 'Currently Offline / Archived'} (checked ${escapeHtml(health.checked_at || 'recently')}).</li>
+    </ul>
+    ${comparisonHtml}
+    <hr>
+    <h2>FAQ</h2>
+    <p><strong>Is ${escapeHtml(tool.name)} free to use?</strong><br>${pricingAnswer}</p>
+    <p><strong>Does ${escapeHtml(tool.name)} work with static HTML websites?</strong><br>Yes. ${escapeHtml(tool.name)} is curated specifically for static HTML and Jamstack builds without server maintenance.</p>
+    <p><strong>What category does ${escapeHtml(tool.name)} belong to?</strong><br>It is listed under <a href="../../category/${escapeHtml(tool.categorySlug)}/">${escapeHtml(tool.categoryTitle)}</a>.</p>
+    <p><strong>What are good alternatives to ${escapeHtml(tool.name)}?</strong><br>${altAnswer}</p>
+    <hr>
+    <h2>Verdict</h2>
+    <p><strong>${escapeHtml(tool.name)}</strong> is a solid fit for static site builders looking for ${escapeHtml((tool.description || 'a lightweight static web tool').replace(/\.$/, '').toLowerCase())} under a <strong>${escapeHtml(pricingLabel)}</strong> model. Compare it against other <a href="../../category/${escapeHtml(tool.categorySlug)}/">${escapeHtml(tool.categoryTitle)}</a> options before locking in your stack.</p>
+  `;
+}
+
 function renderToolPage({
   tool,
   allCategories = [],
@@ -259,6 +338,8 @@ function renderToolPage({
     ]
   };
 
+  const supplementalHtml = renderToolSupplementalHtml({ tool, allCategories, cleanMd, isOnline, health });
+
   return renderLayout({
     title: toolTitle,
     description: toolDesc,
@@ -355,6 +436,7 @@ function renderToolPage({
             <!-- Rendered Documentation -->
             <div class="markdown-body">
               ${parsedHtml}
+              ${supplementalHtml}
             </div>
 
             ${toolTagsHtml}
