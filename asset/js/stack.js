@@ -6,6 +6,7 @@
   var savedSlugs = new Set();
   var currentUser = null;
   var pendingSlugAfterAuth = null;
+  var currentSavedList = [];
 
   function updateButtons() {
     var btns = document.querySelectorAll('[data-stack-save]');
@@ -175,11 +176,19 @@
         var savedList = Array.from(savedSlugs)
           .map(function (slug) { return toolBySlug[slug]; })
           .filter(Boolean);
+        currentSavedList = savedList;
+
+        var actionsHtml = savedList.length
+          ? '<div class="stack-header-actions">' +
+              '<button type="button" class="btn btn-secondary btn-sm" id="stack-copy-md-btn">Copy as Markdown</button>' +
+              '<button type="button" class="btn btn-secondary btn-sm" id="stack-print-btn">Print / Save as PDF</button>' +
+            '</div>'
+          : '';
 
         var headerBar =
           '<div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.75rem; margin-bottom:1.25rem;">' +
             '<div style="font-size:0.9rem; color:var(--text-muted);">Signed in as <strong>@' + escapeHtml(currentUser.login) + '</strong> &middot; ' + savedList.length + ' saved tool' + (savedList.length === 1 ? '' : 's') + '</div>' +
-            '<a href="/archive" class="btn btn-secondary btn-sm">Browse All Tools</a>' +
+            actionsHtml +
           '</div>';
 
         if (!savedList.length) {
@@ -216,11 +225,12 @@
                   iconHtml +
                   '<span>' + escapeHtml(tool.title) + '</span>' +
                 '</a>' +
+                '<span class="stack-print-url">' + escapeHtml(shareUrl) + '</span>' +
               '</td>' +
-              '<td>' +
+              '<td class="stack-col-actions">' +
                 '<button type="button" class="btn btn-secondary btn-sm" data-stack-delete="' + escapeHtml(tool.slug) + '">Delete</button>' +
               '</td>' +
-              '<td style="text-align:right;">' +
+              '<td class="stack-col-actions" style="text-align:right;">' +
                 '<button type="button" class="btn btn-secondary btn-sm" data-stack-copy="' + escapeHtml(shareUrl) + '">Copy Link</button>' +
               '</td>' +
             '</tr>'
@@ -236,8 +246,8 @@
                   '<tr>' +
                     '<th>Category</th>' +
                     '<th>Tool</th>' +
-                    '<th>Delete</th>' +
-                    '<th style="text-align:right;">Share</th>' +
+                    '<th class="stack-col-actions">Delete</th>' +
+                    '<th class="stack-col-actions" style="text-align:right;">Share</th>' +
                   '</tr>' +
                 '</thead>' +
                 '<tbody>' + rowsHtml + '</tbody>' +
@@ -257,6 +267,33 @@
       }).catch(function () {
         delBtn.disabled = false;
       });
+      return;
+    }
+
+    var printBtn = ev.target.closest('#stack-print-btn');
+    if (printBtn) {
+      window.print();
+      return;
+    }
+
+    var copyMdBtn = ev.target.closest('#stack-copy-md-btn');
+    if (copyMdBtn) {
+      var list = currentSavedList || [];
+      if (!list.length) return;
+      var handle = currentUser && currentUser.login ? ' (@' + currentUser.login + ')' : '';
+      var lines = ['# My Static Stack' + handle, ''];
+      for (var i = 0; i < list.length; i++) {
+        var t = list[i];
+        var fullUrl = window.location.origin + t.url;
+        lines.push('- **[' + t.title + '](' + fullUrl + ')** (' + t.category + ')');
+      }
+      var md = lines.join('\n');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(md).then(function () {
+          copyMdBtn.textContent = 'Copied Markdown!';
+          setTimeout(function () { copyMdBtn.textContent = 'Copy as Markdown'; }, 1500);
+        });
+      }
       return;
     }
 

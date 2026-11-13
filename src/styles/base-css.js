@@ -1312,6 +1312,17 @@ const BASE_CSS = `
     text-decoration: underline;
   }
 
+  .stack-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stack-print-url {
+    display: none;
+  }
+
   .stack-share-cell {
     display: inline-flex;
     align-items: center;
@@ -4490,6 +4501,43 @@ const BASE_CSS = `
     }
     .search-modal-box {
       max-height: 85vh;
+    }
+  }
+
+  @media print {
+    .left-nav-rail,
+    .site-header,
+    .mobile-bottom-nav,
+    .mobile-nav-modal,
+    .pre-footer-cta,
+    .site-footer,
+    #stackbot-wrap,
+    .stack-header-actions,
+    .stack-col-actions,
+    .mini-hero-breadcrumbs {
+      display: none !important;
+    }
+
+    body,
+    .main-content,
+    .app-shell {
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #ffffff !important;
+    }
+
+    .stack-page-card {
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+
+    .stack-print-url {
+      display: block;
+      font-size: 0.78rem;
+      color: #475569;
+      font-weight: 400;
+      margin-top: 0.15rem;
     }
   }
 `;
