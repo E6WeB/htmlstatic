@@ -1167,6 +1167,28 @@ const BASE_CSS = `
     border: 1px solid rgba(217, 119, 6, 0.25);
   }
 
+  .badge-new {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid rgba(4, 120, 87, 0.22);
+  }
+
+  .badge-trending {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1px solid rgba(194, 65, 12, 0.22);
+  }
+
+  .verified-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #16a34a;
+    display: inline-block;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.18);
+  }
+
   /* Home Page Top 4 Viewed Tools Grid */
   .home-top-tool-card {
     background: var(--bg-surface);

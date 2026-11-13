@@ -35,6 +35,7 @@ const { syncAllCommunityPages } = require('./src/templates/sync-community');
 const { getAllBlogPosts } = require('./src/data/blog-posts');
 const { renderBlogArticlePage, renderBlogIndexPage } = require('./src/templates/blog-page');
 const { generateLlmsFiles } = require('./src/templates/llms-txt');
+const { createDiscoveryContext } = require('./src/data/discovery-badges');
 
 marked.setOptions({
   gfm: true,
@@ -116,6 +117,12 @@ try {
 } catch (e) {}
 const initialTotalLikes = Object.values(cachedLikesMap).reduce((sum, v) => sum + (Number(v) || 0), 0);
 
+const discovery = createDiscoveryContext({
+  allTools,
+  rootDir: ROOT_DIR,
+  cachedViewsMap
+});
+
 const topToolsList = allTools.map(tool => {
   const key = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
   const slugPath = `/tools/${tool.categorySlug}/${tool.slug}`;
@@ -157,8 +164,12 @@ const homeTopToolsHtml = topToolsList.map(t => {
           <div class="home-top-tool-title-wrap">
             <span class="home-top-tool-icon">${getToolSiteIcon(t, 22)}</span>
             <h3 class="home-top-tool-title">${escapeHtml(t.name)}</h3>
+            ${discovery.renderVerifiedDot(t)}
           </div>
-          <span class="badge ${badgeClass}" style="font-size:0.675rem; padding:0.12rem 0.45rem;">${escapeHtml(t.primaryBadge)}</span>
+          <div style="display:flex; gap:0.25rem; flex-wrap:wrap; justify-content:flex-end;">
+            ${discovery.renderDiscoveryPills(t, { compact: true })}
+            <span class="badge ${badgeClass}" style="font-size:0.675rem; padding:0.12rem 0.45rem;">${escapeHtml(t.primaryBadge)}</span>
+          </div>
         </div>
         <p class="home-top-tool-desc">${escapeHtml(t.tagline || t.description)}</p>
         <div class="home-top-tool-footer">
@@ -1005,10 +1016,10 @@ const archiveContent = `
 
                     return `
                     <tr class="archive-row" data-search="${escapeHtml(extraSearchWords)}">
-                      <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a></td>
+                      <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a> ${discovery.renderVerifiedDot(tool)}</td>
                       <td><span class="tool-archive-views" data-key="${toolKey}">${toolViews ? toolViews.toLocaleString() : '0'}</span></td>
                       <td>${escapeHtml(tool.description)}</td>
-                      <td>${badgesHtml}</td>
+                      <td>${badgesHtml} ${discovery.renderDiscoveryPills(tool, { compact: true })}</td>
                       <td><a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></td>
                     </tr>`;
                   }).join('')}
@@ -2043,7 +2054,8 @@ allTools.forEach(tool => {
     getRandomTools,
     getToolSiteIcon,
     cachedViewsMap,
-    cachedLikesMap
+    cachedLikesMap,
+    discovery
   });
 
   const toolCatDir = path.join(ROOT_DIR, 'tools', tool.categorySlug);
@@ -2062,7 +2074,8 @@ categories.forEach(cat => {
     rootDir: ROOT_DIR,
     renderLayout,
     getToolSiteIcon,
-    cachedViewsMap
+    cachedViewsMap,
+    discovery
   });
 
   const catDir = path.join(ROOT_DIR, 'category', cat.slug);

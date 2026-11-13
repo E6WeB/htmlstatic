@@ -29,7 +29,8 @@ function renderToolPage({
   getRandomTools,
   getToolSiteIcon,
   cachedViewsMap,
-  cachedLikesMap
+  cachedLikesMap,
+  discovery = null
 }) {
   const toolKey = `htmlstatic-${tool.categorySlug}-${tool.slug}`;
   const initialViews = (cachedViewsMap && cachedViewsMap[toolKey] !== undefined)
@@ -300,6 +301,7 @@ function renderToolPage({
           }
           return `<span class="badge ${bClass}">${bIcon} ${escapeHtml(b)}</span>`;
         }).join('\n        ')}
+        ${discovery ? discovery.renderDiscoveryPills(tool) : ''}
         <a href="../../category/${tool.categorySlug}/" class="badge badge-freemium" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;" title="Explore all ${escapeHtml(tool.categoryTitle)} tools">
           <span style="display:inline-flex; align-items:center;">${CATEGORY_ICONS[tool.categorySlug] || ICONS.zap}</span>
           ${escapeHtml(tool.categoryTitle)}

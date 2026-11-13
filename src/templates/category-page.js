@@ -333,7 +333,8 @@ function renderCategoryPage({
   rootDir,
   renderLayout,
   getToolSiteIcon,
-  cachedViewsMap = {}
+  cachedViewsMap = {},
+  discovery = null
 }) {
   const tools = category.tools || [];
   const categoryIconSvg = CATEGORY_ICONS[category.slug] || ICONS.zap;
@@ -480,8 +481,12 @@ function renderCategoryPage({
             <div class="cat-hub-pick-title-wrap">
               <span style="display:inline-flex; align-items:center;">${getToolSiteIcon(t, 22)}</span>
               <h3 class="cat-hub-pick-title">${escapeHtml(t.name)}</h3>
+              ${discovery ? discovery.renderVerifiedDot(t) : ''}
             </div>
-            <span class="badge ${primaryBadgeClass}" style="font-size:0.7rem; padding:0.15rem 0.5rem;">${escapeHtml(t.primaryBadge)}</span>
+            <div style="display:flex; gap:0.25rem; flex-wrap:wrap; justify-content:flex-end;">
+              ${discovery ? discovery.renderDiscoveryPills(t, { compact: true }) : ''}
+              <span class="badge ${primaryBadgeClass}" style="font-size:0.7rem; padding:0.15rem 0.5rem;">${escapeHtml(t.primaryBadge)}</span>
+            </div>
           </div>
           <p class="cat-hub-pick-desc">${escapeHtml(t.tagline || t.description)}</p>
           <div class="cat-hub-pick-footer">
@@ -546,8 +551,10 @@ function renderCategoryPage({
             <h3 class="cat-hub-card-title">
               <a href="../../tools/${t.categorySlug}/${t.slug}">${escapeHtml(t.name)}</a>
             </h3>
+            ${discovery ? discovery.renderVerifiedDot(t) : ''}
           </div>
           <div style="display:flex; gap:0.25rem; flex-wrap:wrap; justify-content:flex-end;">
+            ${discovery ? discovery.renderDiscoveryPills(t, { compact: true }) : ''}
             ${badgesHtml}
           </div>
         </div>
