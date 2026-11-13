@@ -1124,6 +1124,12 @@ Embed audio, video, and streaming media without intrusive third-party ads or tra
 </thead>
 <tbody>
   <tr>
+    <td><a href="tools/media-players/muse-ai.md">Muse.ai</a></td>
+    <td>Ad-free video hosting and responsive embeddable player with AI-powered in-video search</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://muse.ai/" target="_blank" rel="noopener noreferrer">muse.ai</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/media-players/mux-player.md">Mux Player</a></td>
     <td>Responsive, high-performance web video player with automatic HLS streaming</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>

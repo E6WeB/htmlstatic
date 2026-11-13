@@ -1,6 +1,6 @@
 # StaticStack — Complete Tool & Guide Catalog
 
-> Complete machine-readable Markdown catalog of 159 static web tools across 29 categories and 10 blog guides.
+> Complete machine-readable Markdown catalog of 160 static web tools across 29 categories and 10 blog guides.
 
 Canonical Site: https://www.staticstack.app/
 Concise Index: https://www.staticstack.app/llms.txt
@@ -77,7 +77,7 @@ Concise Index: https://www.staticstack.app/llms.txt
 - Summary: The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.
 - Tags: serverless, no-database, jamstack, static-website, clerk, stripe, supabase, architecture
 
-## Tool Directory by Category (29 Categories, 159 Tools)
+## Tool Directory by Category (29 Categories, 160 Tools)
 
 ### AI & Content Creation (6 tools)
 Category Page: https://www.staticstack.app/category/ai-content-creation/
@@ -764,10 +764,15 @@ Engage visitors and answer questions in real time with lightweight chat widgets.
   - Badges: Free
   - Tags: tawk-to, 100-percent-free-live-chat, unlimited-chat-agents, real-time-visitor-monitoring, support-ticketing, customer-support-widget, live-chat-embed, helpdesk-widget, visitor-messaging, no-backend-chat
 
-### Media & Video Players (3 tools)
+### Media & Video Players (4 tools)
 Category Page: https://www.staticstack.app/category/media-players/
 Embed audio, video, and streaming media without intrusive third-party ads or trackers.
 
+- **Muse.ai** — Ad-free, privacy-friendly video hosting and responsive embeddable player with AI-powered in-video search.
+  - StaticStack Page: https://www.staticstack.app/tools/media-players/muse-ai
+  - Official Website: https://muse.ai/
+  - Badges: Paid
+  - Tags: muse-ai, ad-free-video-hosting, video-embed-player, ai-video-search, html5-video-player, adaptive-bitrate-streaming, video-collections, domain-restriction, static-site-video, hls-streaming
 - **Mux Player** — Responsive, high-performance web video player with automatic HLS streaming.
   - StaticStack Page: https://www.staticstack.app/tools/media-players/mux-player
   - Official Website: https://mux.com/player
