@@ -48,6 +48,12 @@ function renderNavRail({ currentNav = '', totalToolsCount = null, rootPath = '' 
             </a>
           </li>
           <li>
+            <a href="${rootPath}stack/" class="rail-item ${currentNav === 'stack' ? 'active' : ''}" aria-label="My Static Stack">
+              ${ICONS.bookmark}
+              <span class="rail-tooltip">My Stack</span>
+            </a>
+          </li>
+          <li>
             <a href="${rootPath}contact" class="rail-item ${currentNav === 'contact' ? 'active' : ''}" aria-label="Contact & Connect">
               ${ICONS.mail}
               <span class="rail-tooltip">Contact & Connect</span>

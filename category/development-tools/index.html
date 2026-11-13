@@ -36,6 +36,7 @@
 
 <!-- Local StaticStack Appreciation / Like Button -->
 <script defer src="/asset/js/likes.js?v=1"></script>
+<script defer src="/asset/js/stack.js?v=1"></script>
 </head>
 <body>
 
@@ -77,6 +78,12 @@
 <a href="../../blog" class="rail-item " aria-label="Blog & Guides">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
 <span class="rail-tooltip">Blog & Guides</span>
+</a>
+</li>
+<li>
+<a href="../../stack/" class="rail-item " aria-label="My Static Stack">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+<span class="rail-tooltip">My Stack</span>
 </a>
 </li>
 <li>
@@ -377,6 +384,7 @@ Featured &amp; Top Picks
 </span>
 </div>
 <div style="display:flex; align-items:center; gap:0.5rem;">
+<button type="button" class="stack-save-btn" data-stack-save="wordcraft" data-tooltip="Save to Stack" aria-label="Save WordCraft to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/wordcraft" class="btn btn-secondary btn-sm" style="font-size:0.8rem; padding:0.4rem 0.75rem;">
 Guide &amp; Docs
 </a>
@@ -419,6 +427,7 @@ Visit Site &rarr;
 </span>
 </div>
 <div style="display:flex; align-items:center; gap:0.5rem;">
+<button type="button" class="stack-save-btn" data-stack-save="staticseo" data-tooltip="Save to Stack" aria-label="Save StaticSEO to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/staticseo" class="btn btn-secondary btn-sm" style="font-size:0.8rem; padding:0.4rem 0.75rem;">
 Guide &amp; Docs
 </a>
@@ -461,6 +470,7 @@ Visit Site &rarr;
 </span>
 </div>
 <div style="display:flex; align-items:center; gap:0.5rem;">
+<button type="button" class="stack-save-btn" data-stack-save="antigravity-cli" data-tooltip="Save to Stack" aria-label="Save Antigravity CLI to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/antigravity-cli" class="btn btn-secondary btn-sm" style="font-size:0.8rem; padding:0.4rem 0.75rem;">
 Guide &amp; Docs
 </a>
@@ -547,6 +557,7 @@ Showing all 22 tools
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-antigravity-cli">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="antigravity-cli" data-tooltip="Save to Stack" aria-label="Save Antigravity CLI to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/antigravity-cli" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -582,6 +593,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-antigravity-ide">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="antigravity-ide" data-tooltip="Save to Stack" aria-label="Save Antigravity IDE to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/antigravity-ide" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -617,6 +629,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-bootstrap-studio">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="bootstrap-studio" data-tooltip="Save to Stack" aria-label="Save Bootstrap Studio to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/bootstrap-studio" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -652,6 +665,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-brickstatic">1</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="brickstatic" data-tooltip="Save to Stack" aria-label="Save Brickstatic to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/brickstatic" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -687,6 +701,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-cursor">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="cursor" data-tooltip="Save to Stack" aria-label="Save Cursor to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/cursor" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -722,6 +737,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-designcraft">3</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="designcraft" data-tooltip="Save to Stack" aria-label="Save DesignCraft to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/designcraft" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -757,6 +773,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-effectcraft">3</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="effectcraft" data-tooltip="Save to Stack" aria-label="Save EffectCraft to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/effectcraft" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -792,6 +809,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-emdash">2</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="emdash" data-tooltip="Save to Stack" aria-label="Save Emdash to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/emdash" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -827,6 +845,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-eslint">1</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="eslint" data-tooltip="Save to Stack" aria-label="Save ESLint to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/eslint" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -862,6 +881,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-figcraft">3</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="figcraft" data-tooltip="Save to Stack" aria-label="Save FigCraft to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/figcraft" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -897,6 +917,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-getboosh">1</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="getboosh" data-tooltip="Save to Stack" aria-label="Save GetBoosh to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/getboosh" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -932,6 +953,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-github-desktop">1</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="github-desktop" data-tooltip="Save to Stack" aria-label="Save GitHub Desktop to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/github-desktop" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -967,6 +989,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-google-lighthouse">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="google-lighthouse" data-tooltip="Save to Stack" aria-label="Save Google Lighthouse to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/google-lighthouse" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1002,6 +1025,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-opencode">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="opencode" data-tooltip="Save to Stack" aria-label="Save OpenCode to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/opencode" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1037,6 +1061,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-pdfcraft">2</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="pdfcraft" data-tooltip="Save to Stack" aria-label="Save PdfCraft to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/pdfcraft" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1072,6 +1097,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-photocraft">2</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="photocraft" data-tooltip="Save to Stack" aria-label="Save PhotoCraft to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/photocraft" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1107,6 +1133,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-prettier">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="prettier" data-tooltip="Save to Stack" aria-label="Save Prettier to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/prettier" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1142,6 +1169,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-sitereal">2</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="sitereal" data-tooltip="Save to Stack" aria-label="Save sitereal to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/sitereal" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1177,6 +1205,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-staticseo">4</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="staticseo" data-tooltip="Save to Stack" aria-label="Save StaticSEO to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/staticseo" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1212,6 +1241,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-visual-studio-code">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="visual-studio-code" data-tooltip="Save to Stack" aria-label="Save Visual Studio Code to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/visual-studio-code" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1247,6 +1277,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-wordcraft">5</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="wordcraft" data-tooltip="Save to Stack" aria-label="Save WordCraft to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/wordcraft" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>
@@ -1282,6 +1313,7 @@ Visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curren
 <span class="cat-tool-views-num" data-key="htmlstatic-development-tools-zed">0</span>
 </span>
 <div style="display:flex; align-items:center; gap:0.4rem;">
+<button type="button" class="stack-save-btn" data-stack-save="zed" data-tooltip="Save to Stack" aria-label="Save Zed to Stack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
 <a href="../../tools/development-tools/zed" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
 Docs
 </a>

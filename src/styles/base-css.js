@@ -1189,6 +1189,126 @@ const BASE_CSS = `
     box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.18);
   }
 
+  /* Flat SVG Bookmark Button + Hover Tooltip */
+  .stack-save-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .stack-save-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .stack-save-btn.is-saved {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .stack-save-btn.is-saved svg {
+    fill: currentColor;
+  }
+
+  .stack-save-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%) translateY(3px);
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0.38rem 0.55rem;
+    border-radius: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 40;
+  }
+
+  .stack-save-btn:hover::after,
+  .stack-save-btn:focus-visible::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Dedicated /stack/ Bookmark Page */
+  .stack-page-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stack-table-wrap {
+    overflow-x: auto;
+  }
+
+  .stack-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .stack-table th {
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    padding: 0.7rem 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .stack-table td {
+    padding: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+  }
+
+  .stack-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .stack-tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+  }
+
+  .stack-tool-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .stack-share-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
   /* Home Page Top 4 Viewed Tools Grid */
   .home-top-tool-card {
     background: var(--bg-surface);

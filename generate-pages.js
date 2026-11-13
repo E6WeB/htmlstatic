@@ -23,7 +23,8 @@ const { marked } = require('marked');
 const {
   ICONS,
   CATEGORY_ICONS,
-  escapeHtml
+  escapeHtml,
+  renderStackSaveBtn
 } = require('./src/data/icons');
 const { getCatalogStats } = require('./src/data/catalog-stats');
 const { getMinifiedBaseCss } = require('./src/styles/base-css');
@@ -36,6 +37,7 @@ const { getAllBlogPosts } = require('./src/data/blog-posts');
 const { renderBlogArticlePage, renderBlogIndexPage } = require('./src/templates/blog-page');
 const { generateLlmsFiles } = require('./src/templates/llms-txt');
 const { createDiscoveryContext } = require('./src/data/discovery-badges');
+const { renderStackPage } = require('./src/templates/stack-page');
 
 marked.setOptions({
   gfm: true,
@@ -188,6 +190,7 @@ const homeTopToolsHtml = topToolsList.map(t => {
               <span class="home-top-tool-likes-val" data-likes-slug="${toolSlugPath}">${t.likes}</span> likes
             </span>
           </div>
+          ${renderStackSaveBtn(t.slug, t.name)}
           <span class="home-top-tool-arrow">${ICONS.arrowRight}</span>
         </div>
       </div>
@@ -1020,7 +1023,7 @@ const archiveContent = `
                       <td><span class="tool-archive-views" data-key="${toolKey}">${toolViews ? toolViews.toLocaleString() : '0'}</span></td>
                       <td>${escapeHtml(tool.description)}</td>
                       <td>${badgesHtml} ${discovery.renderDiscoveryPills(tool, { compact: true })}</td>
-                      <td><a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></td>
+                      <td><div style="display:inline-flex; align-items:center; gap:0.4rem;">${renderStackSaveBtn(tool.slug, tool.name)}<a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></div></td>
                     </tr>`;
                   }).join('')}
                 </tbody>
@@ -2000,7 +2003,12 @@ fs.writeFileSync(path.join(ROOT_DIR, '404.html'), renderLayout({
 }));
 
 // ==========================================================================
-// 5d. Generate Blog Pages (/blog/index.html & /blog/<slug>/index.html)
+// 5d. Generate My Static Stack Bookmark Page (/stack/index.html)
+const stackDir = path.join(ROOT_DIR, 'stack');
+ensureDir(stackDir);
+fs.writeFileSync(path.join(stackDir, 'index.html'), renderStackPage({ renderLayout }));
+
+// 5e. Generate Blog Pages (/blog/index.html & /blog/<slug>/index.html)
 // ==========================================================================
 console.log('✍️ Generating Blog Pages (/blog/ & articles)...');
 const blogPosts = getAllBlogPosts();
@@ -2103,6 +2111,7 @@ const sitemapUrls = [
   { loc: 'https://www.staticstack.app/', priority: '1.0', changefreq: 'daily' },
   { loc: 'https://www.staticstack.app/search', priority: '0.9', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/archive', priority: '0.9', changefreq: 'weekly' },
+  { loc: 'https://www.staticstack.app/stack/', priority: '0.8', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/blog', priority: '0.85', changefreq: 'weekly' },
   { loc: 'https://www.staticstack.app/submit', priority: '0.8', changefreq: 'monthly' },
   { loc: 'https://www.staticstack.app/community', priority: '0.85', changefreq: 'weekly' },

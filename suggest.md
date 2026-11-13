@@ -12,7 +12,6 @@
 | **1. Global Quick-Jump Command Palette (`Ctrl+K`)** | UX / Navigation | Very High | Low | ⏳ **Next** |
 | **2. Offline PWA Rollout (`sw.js` + `offline.html`)** | Speed / Offline | High | Low | ⏳ **Next** |
 | **3. Side-by-Side Tool Comparison (`/compare/`)** | SEO / Content | Very High | Medium | ⏳ **Planned** |
-| **4. Interactive "My Static Stack" Builder** | Core Utility | Very High | Medium | ⏳ **Planned** |
 | **5. `/stats` Privacy Telemetry & Core Web Vitals** | Analytics / Perf | High | Medium | ⏳ **Planned** |
 | **6. Static Starter Blueprints (Copy-Paste Recipes)** | Onboarding / UX | High | Medium | ⏳ **Planned** |
 | **8. Embeddable `/badge/<slug>.svg` & `/feed.xml`** | Growth / Syndication | High | Low | ⏳ **Planned** |
@@ -41,12 +40,6 @@
 * **The Solution:** Pre-render static `/compare/<slug>/` pages from structured tool metadata:
   - Feature matrix: Free tier limits, open-source status, self-hostable flag, build/runtime dependency footprint.
   - Clear *"Best For..."* verdict callouts and direct links back to individual tool pages and relevant blog guides.
-
-### 4. Interactive "My Static Stack" Builder & Starter Export
-* **The Problem:** Visitors browsing 29 categories still have to manually track which hosting, forms, auth, CMS, and analytics tools fit together.
-* **The Solution:** Add a client-side **"+ Add to Stack"** button on tool cards using `localStorage` (zero backend required):
-  - **Shareable URLs:** Encode selected tool slugs in query params (`?stack=cloudflare-pages,astro,decap-cms,web3forms`) so developers can bookmark or share their exact architecture.
-  - **One-Click Export:** Copy as a clean `README.md` badge list, JSON manifest, or starter `package.json` / CLI checklist.
 
 ### 5. Lightweight Privacy Telemetry & Core Web Vitals on `/stats`
 * **The Problem:** The `/stats` dashboard is light-themed, password-protected, and bot-locked, which creates a safe foundation—but static pageviews alone don't show referrer sources, engagement depth, or real-user speed.

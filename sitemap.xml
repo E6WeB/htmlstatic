@@ -19,6 +19,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.staticstack.app/stack/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.staticstack.app/blog</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>

@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { ICONS, CATEGORY_ICONS, escapeHtml } = require('../data/icons');
+const { ICONS, CATEGORY_ICONS, escapeHtml, renderStackSaveBtn } = require('../data/icons');
 
 /**
  * Curated FAQ generator for each category.
@@ -500,6 +500,7 @@ function renderCategoryPage({
               </span>
             </div>
             <div style="display:flex; align-items:center; gap:0.5rem;">
+              ${renderStackSaveBtn(t.slug, t.name)}
               <a href="../../tools/${t.categorySlug}/${t.slug}" class="btn btn-secondary btn-sm" style="font-size:0.8rem; padding:0.4rem 0.75rem;">
                 Guide &amp; Docs
               </a>
@@ -569,6 +570,7 @@ function renderCategoryPage({
             <span class="cat-tool-views-num" data-key="${key}">${views}</span>
           </span>
           <div style="display:flex; align-items:center; gap:0.4rem;">
+            ${renderStackSaveBtn(t.slug, t.name)}
             <a href="../../tools/${t.categorySlug}/${t.slug}" class="btn btn-secondary btn-sm" style="font-size:0.775rem; padding:0.35rem 0.65rem;">
               Docs
             </a>

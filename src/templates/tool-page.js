@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
-const { ICONS, CATEGORY_ICONS, escapeHtml } = require('../data/icons');
+const { ICONS, CATEGORY_ICONS, escapeHtml, renderStackSaveBtn } = require('../data/icons');
 const { renderSidebarDonationWidget } = require('./sidebar-donation');
 
 let linkHealthCache = null;
@@ -311,6 +311,7 @@ function renderToolPage({
       title: escapeHtml(tool.name),
       subtext: escapeHtml(tool.tagline || tool.description),
       actions: `
+        ${renderStackSaveBtn(tool.slug, tool.name)}
         <button type="button" class="iine-button" data-icon="thumbs_up" data-slug="/tools/${tool.categorySlug}/${tool.slug}" aria-label="Upvote ${escapeHtml(tool.name)}" title="Send appreciation for ${escapeHtml(tool.name)}">
           <span class="icon">${ICONS.thumbsUp}</span>
           <span class="counter">${initialLikes}</span>

@@ -334,6 +334,12 @@ if (!global.__staticstack_db_initialized) {
     CREATE INDEX IF NOT EXISTS idx_forum_votes_topic_id ON forum_votes (topic_id) WHERE topic_id IS NOT NULL;
     CREATE INDEX IF NOT EXISTS idx_forum_votes_reply_id ON forum_votes (reply_id) WHERE reply_id IS NOT NULL;
     ALTER TABLE forum_topics ADD COLUMN IF NOT EXISTS accepted_reply_id INTEGER REFERENCES forum_replies(id) ON DELETE SET NULL;
+    CREATE TABLE IF NOT EXISTS user_stack_bookmarks (
+      user_id INTEGER NOT NULL,
+      tool_slug VARCHAR(160) NOT NULL,
+      created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+      PRIMARY KEY (user_id, tool_slug)
+    );
     INSERT INTO forum_categories (slug, name, description) VALUES
       ('announcements', 'Announcements', 'Official news, platform updates, and announcements from StaticStack.'),
       ('help', 'Help and Questions', 'Ask questions about building and maintaining static websites.'),
@@ -343,6 +349,7 @@ if (!global.__staticstack_db_initialized) {
       ('support', 'StaticStack Support', 'Question and answer only about the StaticStack website.')
     ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, description = EXCLUDED.description;
   `).then(async () => {
+    purgeStaleStackBookmarks().catch(() => {});
     try {
       const dbLikes = await pool.query('SELECT tool_slug, likes FROM tool_likes');
       for (const row of dbLikes.rows) {
@@ -1231,6 +1238,77 @@ async function handleApi(req, res, pathname, query) {
       return true;
     }
 
+    if (action === 'stack') {
+      purgeStaleStackBookmarks().catch(() => {});
+      if (!user) {
+        sendJson(res, { user: null, bookmarks: [] });
+        return true;
+      }
+      await pool.query(
+        "UPDATE forum_users SET updated_at = NOW() WHERE id = $1 AND updated_at < NOW() - INTERVAL '1 hour'",
+        [user.uid]
+      ).catch(() => {});
+      const resRows = await pool.query(
+        'SELECT tool_slug, created_at FROM user_stack_bookmarks WHERE user_id = $1 ORDER BY created_at DESC',
+        [user.uid]
+      );
+      sendJson(res, {
+        user: {
+          id: user.uid,
+          login: user.login,
+          name: user.name || user.login,
+          admin: Boolean(user.admin)
+        },
+        bookmarks: resRows.rows
+      });
+      return true;
+    }
+
+    if (action === 'stack_toggle') {
+      if (!user) return sendError(res, 'Sign in with GitHub to save tools to your stack.', 401);
+      await pool.query(
+        "UPDATE forum_users SET updated_at = NOW() WHERE id = $1 AND updated_at < NOW() - INTERVAL '1 hour'",
+        [user.uid]
+      ).catch(() => {});
+      const data = await readBody(req);
+      const toolSlug = String(data.tool_slug || '').trim().toLowerCase().replace(/[^a-z0-9-_]/g, '');
+      const mode = String(data.mode || 'toggle').toLowerCase();
+      if (!toolSlug) return sendError(res, 'Invalid tool slug.');
+
+      const existing = await pool.query(
+        'SELECT 1 FROM user_stack_bookmarks WHERE user_id = $1 AND tool_slug = $2',
+        [user.uid, toolSlug]
+      );
+      const alreadySaved = existing.rows.length > 0;
+      let saved = alreadySaved;
+
+      if (mode === 'remove' || (mode === 'toggle' && alreadySaved)) {
+        await pool.query(
+          'DELETE FROM user_stack_bookmarks WHERE user_id = $1 AND tool_slug = $2',
+          [user.uid, toolSlug]
+        );
+        saved = false;
+      } else if (mode === 'add' || (mode === 'toggle' && !alreadySaved)) {
+        await pool.query(
+          'INSERT INTO user_stack_bookmarks (user_id, tool_slug) VALUES ($1, $2) ON CONFLICT (user_id, tool_slug) DO NOTHING',
+          [user.uid, toolSlug]
+        );
+        saved = true;
+      }
+
+      const resRows = await pool.query(
+        'SELECT tool_slug, created_at FROM user_stack_bookmarks WHERE user_id = $1 ORDER BY created_at DESC',
+        [user.uid]
+      );
+      sendJson(res, {
+        ok: true,
+        saved,
+        tool_slug: toolSlug,
+        bookmarks: resRows.rows
+      });
+      return true;
+    }
+
     sendError(res, 'Unknown action.', 404);
     return true;
   } catch (err) {
@@ -1238,6 +1316,24 @@ async function handleApi(req, res, pathname, query) {
     sendError(res, err.message || 'Internal server error.', 500);
     return true;
   }
+}
+
+// Purge stack bookmarks for users who haven't signed in or been active for 14 days
+async function purgeStaleStackBookmarks() {
+  const now = Date.now();
+  const sixHours = 6 * 60 * 60 * 1000;
+  if (global.__staticstack_last_stack_purge && now - global.__staticstack_last_stack_purge < sixHours) {
+    return;
+  }
+  global.__staticstack_last_stack_purge = now;
+  await pool.query(`
+    DELETE FROM user_stack_bookmarks b
+    WHERE NOT EXISTS (
+      SELECT 1 FROM forum_users u
+      WHERE u.id = b.user_id
+        AND u.updated_at >= NOW() - INTERVAL '14 days'
+    )
+  `);
 }
 
 // GitHub OAuth Handler
@@ -1273,13 +1369,17 @@ async function handleOAuth(req, res, pathname, query) {
 
   if (action === 'login') {
     const state = crypto.randomBytes(24).toString('hex');
+    const safeRedirect = query.redirect && /^\/(?!\/)/.test(query.redirect) ? query.redirect : '/community/';
     const redirectUrl = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${encodeURIComponent(
       callbackUrl
     )}&scope=read:user&state=${state}&allow_signup=true`;
 
     res.writeHead(302, {
       Location: redirectUrl,
-      'Set-Cookie': `staticstack_oauth_state=${state}; Path=/; Max-Age=600; ${cookieFlags}`
+      'Set-Cookie': [
+        `staticstack_oauth_state=${state}; Path=/; Max-Age=600; ${cookieFlags}`,
+        `staticstack_oauth_redirect=${encodeURIComponent(safeRedirect)}; Path=/; Max-Age=600; ${cookieFlags}`
+      ]
     });
     res.end();
     return true;
@@ -1401,11 +1501,14 @@ async function handleOAuth(req, res, pathname, query) {
       };
 
       const signedSession = signSession(session);
+      const rawReturnCookie = cookies.staticstack_oauth_redirect ? decodeURIComponent(cookies.staticstack_oauth_redirect) : '';
+      const postLoginPath = /^\/(?!\/)/.test(rawReturnCookie) ? rawReturnCookie : '/community/?signed_in=1';
       res.writeHead(200, {
         'Content-Type': 'text/html; charset=utf-8',
         'Set-Cookie': [
           `${SESSION_COOKIE_NAME}=${signedSession}; Path=/; Max-Age=${14 * 24 * 60 * 60}; ${cookieFlags}`,
-          `staticstack_oauth_state=; Path=/; Max-Age=0; ${cookieFlags}`
+          `staticstack_oauth_state=; Path=/; Max-Age=0; ${cookieFlags}`,
+          `staticstack_oauth_redirect=; Path=/; Max-Age=0; ${cookieFlags}`
         ]
       });
       res.end(`<!DOCTYPE html>
@@ -1474,7 +1577,7 @@ async function handleOAuth(req, res, pathname, query) {
           return;
         }
       } catch (e) {}
-      window.location.href = '${baseUrl}/community/?signed_in=1';
+      window.location.href = '${baseUrl}' + ${JSON.stringify(postLoginPath)};
     })();
   </script>
 </body>

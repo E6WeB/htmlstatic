@@ -131,6 +131,7 @@ function createLayoutRenderer({ allTools, categories }) {
     if (!pageUrl) {
       if (currentNav === 'home') pageUrl = 'https://www.staticstack.app/';
       else if (currentNav === 'archive') pageUrl = 'https://www.staticstack.app/archive';
+      else if (currentNav === 'stack') pageUrl = 'https://www.staticstack.app/stack/';
       else if (currentNav === 'submit') pageUrl = 'https://www.staticstack.app/submit';
       else if (currentNav === 'contribute') pageUrl = 'https://www.staticstack.app/contribute';
       else if (currentNav === 'thankyou') pageUrl = 'https://www.staticstack.app/thankyou';
@@ -213,6 +214,7 @@ function createLayoutRenderer({ allTools, categories }) {
 
   <!-- Local StaticStack Appreciation / Like Button -->
   <script defer src="/asset/js/likes.js?v=1"></script>
+  <script defer src="/asset/js/stack.js?v=1"></script>
 </head>
 <body>
 
