@@ -219,8 +219,8 @@ function renderBlogArticlePage({
           <section class="tool-comments-section" style="margin-top:2.5rem; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
             <div style="margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
               <div style="display:flex; align-items:center; gap:0.55rem;">
-                <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.comments}</span>
-                <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Community Discussion</h3>
+                <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.chatBubbles}</span>
+                <h3 style="font-size:1.25rem; font-weight:700; margin:0; color:var(--text-main);">Discussion</h3>
               </div>
               <p style="font-size:0.875rem; color:var(--text-muted); margin:0.35rem 0 0 0;">Questions, thoughts, or form tips? Join the conversation below.</p>
             </div>
@@ -232,7 +232,7 @@ function renderBlogArticlePage({
                     data-category-id="DIC_kwDOVYc0Dc4DJsXu"
                     data-mapping="pathname"
                     data-strict="0"
-                    data-reactions-enabled="1"
+                    data-reactions-enabled="0"
                     data-emit-metadata="0"
                     data-input-position="bottom"
                     data-theme="light"
