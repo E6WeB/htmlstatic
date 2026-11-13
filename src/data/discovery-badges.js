@@ -119,9 +119,12 @@ function createDiscoveryContext({
   }
 
   function renderVerifiedDot(tool) {
-    if (!isVerifiedLive(tool)) return '';
     const h = getHealth(tool);
     const checkedLabel = h && h.checked_at ? ` • Checked ${h.checked_at}` : '';
+    if (tool.categorySlug === 'inactive' || (h && h.status === 'offline')) {
+      return `<span class="verified-offline-dot" title="Site inactive or unreachable${escapeHtml(checkedLabel)}" aria-label="Site inactive or unreachable"></span>`;
+    }
+    if (!isVerifiedLive(tool)) return '';
     return `<span class="verified-live-dot" title="Website verified live${escapeHtml(checkedLabel)}" aria-label="Website verified live"></span>`;
   }
 

@@ -1019,11 +1019,11 @@ const archiveContent = `
 
                     return `
                     <tr class="archive-row" data-search="${escapeHtml(extraSearchWords)}">
-                      <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a> ${discovery.renderVerifiedDot(tool)}</td>
+                      <td><a href="/tools/${tool.categorySlug}/${tool.slug}">${getToolSiteIcon(tool, 18)}${escapeHtml(tool.name)}</a></td>
                       <td><span class="tool-archive-views" data-key="${toolKey}">${toolViews ? toolViews.toLocaleString() : '0'}</span></td>
                       <td>${escapeHtml(tool.description)}</td>
                       <td>${badgesHtml} ${discovery.renderDiscoveryPills(tool, { compact: true })}</td>
-                      <td><div style="display:inline-flex; align-items:center; gap:0.4rem;">${renderStackSaveBtn(tool.slug, tool.name)}<a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></div></td>
+                      <td><div style="display:inline-flex; align-items:center; gap:0.4rem;">${renderStackSaveBtn(tool.slug, tool.name)}${discovery.renderVerifiedDot(tool)}<a href="${tool.websiteUrl}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Link <svg width="14" height="14" viewBox="0 0 24 24"><use href="#ico-ext"/></svg></a></div></td>
                     </tr>`;
                   }).join('')}
                 </tbody>

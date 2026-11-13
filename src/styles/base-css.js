@@ -1189,6 +1189,16 @@ const BASE_CSS = `
     box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.18);
   }
 
+  .verified-offline-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #dc2626;
+    display: inline-block;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.18);
+  }
+
   /* Flat SVG Bookmark Button + Hover Tooltip */
   .stack-save-btn {
     position: relative;
