@@ -177,11 +177,8 @@
               '<td>' +
                 '<button type="button" class="btn btn-secondary btn-sm" data-stack-delete="' + escapeHtml(tool.slug) + '">Delete</button>' +
               '</td>' +
-              '<td>' +
-                '<div class="stack-share-cell">' +
-                  '<a href="' + escapeHtml(tool.url) + '" style="font-size:0.85rem; color:var(--accent); text-decoration:none;">' + escapeHtml(shareUrl) + '</a>' +
-                  '<button type="button" class="btn btn-secondary btn-sm" data-stack-copy="' + escapeHtml(shareUrl) + '">Copy</button>' +
-                '</div>' +
+              '<td style="text-align:right;">' +
+                '<button type="button" class="btn btn-secondary btn-sm" data-stack-copy="' + escapeHtml(shareUrl) + '">Copy Link</button>' +
               '</td>' +
             '</tr>'
           );
@@ -197,7 +194,7 @@
                     '<th>Category</th>' +
                     '<th>Tool</th>' +
                     '<th>Delete</th>' +
-                    '<th>Share</th>' +
+                    '<th style="text-align:right;">Share</th>' +
                   '</tr>' +
                 '</thead>' +
                 '<tbody>' + rowsHtml + '</tbody>' +
@@ -226,7 +223,7 @@
       if (navigator.clipboard && url) {
         navigator.clipboard.writeText(url).then(function () {
           copyBtn.textContent = 'Copied!';
-          setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1500);
+          setTimeout(function () { copyBtn.textContent = 'Copy Link'; }, 1500);
         });
       }
     }

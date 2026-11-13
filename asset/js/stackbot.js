@@ -199,6 +199,17 @@
               <span class="stackbot-nav-arrow">→</span>
             </a>
 
+            <a href="/stack/" class="stackbot-nav-card">
+              <span class="stackbot-nav-ico">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </span>
+              <span class="stackbot-nav-text">
+                <strong>My Static Stack</strong>
+                <span>View &amp; manage your saved tool bookmarks</span>
+              </span>
+              <span class="stackbot-nav-arrow">→</span>
+            </a>
+
             <button type="button" id="stackbot-start-chat" class="stackbot-ask-cta">
               <span class="stackbot-ask-cta-left">
                 <span class="stackbot-ask-cta-ico">

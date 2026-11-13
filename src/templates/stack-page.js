@@ -13,8 +13,12 @@ function renderStackPage({ renderLayout }) {
             <span style="display:inline-flex; align-items:center; color:var(--accent);">${ICONS.bookmark}</span>
             <h1 style="margin:0; font-size:1.75rem; font-weight:700; color:var(--text-main);">My Static Stack</h1>
           </div>
-          <p style="margin:0; color:var(--text-muted); font-size:0.95rem;">
+          <p style="margin:0 0 0.75rem; color:var(--text-muted); font-size:0.95rem;">
             Your personal GitHub-synced bookmark list of static website tools.
+          </p>
+          <p style="margin:0; color:var(--text-muted); font-size:0.875rem; display:flex; align-items:center; gap:0.45rem; flex-wrap:wrap;">
+            <span style="display:inline-flex; align-items:center; color:var(--accent);">${ICONS.bookmark}</span>
+            <span><strong>How to add tools:</strong> Sign in with GitHub, then click the bookmark icon on any tool card, archive row, or tool page to save it to your stack.</span>
           </p>
         </div>
         <div id="stack-page-app">
