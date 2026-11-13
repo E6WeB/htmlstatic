@@ -9,7 +9,7 @@ However, modern web development has evolved dramatically. For small businesses, 
 * **Sluggish Performance**: Querying a MySQL database and executing PHP scripts on every page load makes achieving top [Google Lighthouse](/tools/development-tools/google-lighthouse) scores notoriously difficult.
 * **Hosting Overhead**: Traditional PHP/MySQL hosting costs money and crashes under sudden traffic spikes.
 
-In this guide, you will learn the modern **Static &amp; Decoupled Architecture**: how to build, publish, and maintain a website that loads instantly, never gets hacked, costs $0 to host, and requires zero WordPress plugins.
+In this second part of the **Static HTML Starter Series** (building on [Part 1: A Blueprint for Beginners](/blog/a-blueprint-for-beginners-on-static-html-websites/)), you will learn the modern **Static &amp; Decoupled Architecture**: how to choose your site foundation—HTML templates, static site generators, and Git-based CMSs—so your site loads instantly, never gets hacked, costs $0 to host, and requires zero WordPress plugins.
 
 ---
 
@@ -147,4 +147,6 @@ Ready to make the jump? Follow this step-by-step migration roadmap:
 Moving away from WordPress is liberating. Your site will load in the blink of an eye, your security concerns will vanish, and you will never spend another weekend debugging broken plugin updates.
 
 Check out our curated [Content Management Category](/category/content-management/) to find the ideal headless CMS for your next static build.
+
+**Next in Part 3:** See how static sites handle auth, payments, and dynamic data without a server in [How to Build a Website Without a Database or Backend](/blog/how-to-build-a-website-without-a-database-or-backend/).
 

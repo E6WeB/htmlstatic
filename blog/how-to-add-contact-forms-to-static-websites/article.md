@@ -8,7 +8,7 @@ Yet one of the most common myths about static sites is:
 
 The answer is an emphatic **no**. In fact, handling contact forms on static websites using modern serverless form endpoints is significantly **safer, faster, and more reliable** than writing custom PHP mail scripts or managing WordPress plugins.
 
-In this guide, you will learn how static form handling works, explore the two primary implementation methods (zero-JS pure HTML vs. asynchronous AJAX/Fetch), discover how to eliminate spam using privacy-first tools like Cloudflare Turnstile, and review the top form backends available today.
+In this fifth part of the **Static HTML Starter Series** (now that your site is hosted live from [Part 4](/blog/best-free-hosting-services-for-static-html-websites/)), you will learn how static form handling works, explore the two primary implementation methods (zero-JS pure HTML vs. asynchronous AJAX/Fetch), discover how to eliminate spam using privacy-first tools like Cloudflare Turnstile, and review the top form backends available today.
 
 ---
 
@@ -408,4 +408,6 @@ Before pushing your contact form to production, verify each of these key items:
 Building static websites does not mean sacrificing interactive features. With modern serverless form endpoints, static contact forms are faster to build, safer to host, and dramatically less prone to deliverability issues than traditional CMS forms.
 
 Ready to add a form to your static website? Explore our curated directory of [Contact Forms Tools &amp; Services](/category/contact-forms/) to find the ideal match for your next project.
+
+**Next in Part 6:** Help visitors find content across your pages without a database in [How to Add Search Functionality to a Static Website](/blog/how-to-add-search-functionality-to-a-static-website/).
 

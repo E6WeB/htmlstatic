@@ -8,7 +8,7 @@ Today, there is a superior alternative: **The Serverless &amp; Decoupled Static 
 
 By combining pre-rendered static HTML with specialized, managed micro-APIs, you can build websites that handle **user authentication, ecommerce checkout, dynamic databases, contact inquiries, and live search**—all with **zero servers to patch and zero databases to maintain**.
 
-Here is the complete blueprint to build a modern website without a traditional backend.
+Here is the third step in the **Static HTML Starter Series**: after picking your static foundation in [Part 2](/blog/how-to-build-a-website-without-wordpress/), here is the complete blueprint to build a modern website without a traditional backend.
 
 ---
 
@@ -111,4 +111,6 @@ Read our complete tutorial on [How to Add Contact Forms to Static Websites](/blo
 The myth that static websites are limited to simple brochure sites is dead. By uniting the unmatched speed of static HTML with modern serverless micro-APIs, you can build full-featured, dynamic web applications that are faster, safer, and radically cheaper to operate.
 
 Browse our [Database &amp; Storage Tools](/category/database-storage/) and [Authentication Tools](/category/authentication-users/) to start assembling your serverless stack today.
+
+**Next in Part 4:** Ready to put your static site online for free? Continue to [Best Free Hosting Services for Static HTML Websites](/blog/best-free-hosting-services-for-static-html-websites/).
 

@@ -13,7 +13,6 @@
 | **2. Offline PWA Rollout (`sw.js` + `offline.html`)** | Speed / Offline | High | Low | ⏳ **Next** |
 | **4. Side-by-Side Tool Comparison (`/compare/`)** | SEO / Content | Very High | Medium | ⏳ **Planned** |
 | **5. `/stats` Privacy Telemetry & Core Web Vitals** | Analytics / Perf | High | Medium | ⏳ **Planned** |
-| **6. Static Starter Blueprints (Copy-Paste Recipes)** | Onboarding / UX | High | Medium | ⏳ **Planned** |
 | **7. Embeddable `/badge/<slug>.svg` & `/feed.xml`** | Growth / Syndication | High | Low | ⏳ **Planned** |
 
 ---
@@ -46,14 +45,6 @@
 * **The Solution:** Enhance `src/stats.js` with minimal, cookieless `navigator.sendBeacon()` telemetry:
   - **Acquisition & Referrers:** Track top referring domains, UTM/campaign tags, and internal search queries (`search-data.json` misses reveal what tools users want added next).
   - **Real-User Core Web Vitals:** Capture anonymous LCP, INP, and CLS metrics (~1.5 KB `web-vitals` script) to verify every new page stays ultra-fast in the field.
-
-### 6. Static Starter Blueprints (Copy-Paste Architecture Recipes)
-* **The Problem:** Beginners and indie hackers often want a proven end-to-end combination rather than picking 159 tools one by one.
-* **The Solution:** Create a `/blueprints/` or `/stacks/` section featuring 5–6 opinionated, zero-cost recipes:
-  - *Zero-Cost SaaS Landing Page* (Static HTML/Tailwind + Cloudflare Pages + Web3Forms + Turnstile)
-  - *Developer Docs & Blog* (Astro/Hugo + GitHub Pages + Pagefind)
-  - *No-Backend E-Commerce* (11ty + Stripe Payment Links + Snipcart/Lemon Squeezy)
-  - Link each blueprint directly to the corresponding tool pages and blog tutorials.
 
 ### 7. Embeddable `/badge/<slug>.svg` & `/feed.xml` RSS/Atom Syndication
 * **The Problem:** Listed tool maintainers rarely link back without an easy, attractive asset, and returning developers have no passive way to follow new tools or blog posts.

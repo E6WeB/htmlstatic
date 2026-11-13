@@ -2031,6 +2031,7 @@ blogPosts.forEach(post => {
     parsedHtml: parsedArticleHtml,
     allTools,
     categories,
+    allPosts: blogPosts,
     renderLayout,
     getToolSiteIcon
   });

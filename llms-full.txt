@@ -1,11 +1,18 @@
 # StaticStack — Complete Tool & Guide Catalog
 
-> Complete machine-readable Markdown catalog of 159 static web tools across 29 categories and 9 blog guides.
+> Complete machine-readable Markdown catalog of 159 static web tools across 29 categories and 10 blog guides.
 
 Canonical Site: https://www.staticstack.app/
 Concise Index: https://www.staticstack.app/llms.txt
 
-## Blog Guides (9)
+## Blog Guides (10)
+
+### A Blueprint for Beginners on Static HTML Websites
+- URL: https://www.staticstack.app/blog/a-blueprint-for-beginners-on-static-html-websites/
+- Published: 2026-11-12 (6 min read)
+- Category: Tutorials & Guides
+- Summary: A step-by-step beginner blueprint for building, hosting, and managing static HTML websites for free—plus how to save your favorite tools to My Static Stack with GitHub.
+- Tags: beginners, static-html, blueprint, free-hosting, contact-forms, github, my-static-stack
 
 ### Why People Are Leaving WordPress for Static HTML Websites
 - URL: https://www.staticstack.app/blog/why-people-are-leaving-wordpress-for-static-html/

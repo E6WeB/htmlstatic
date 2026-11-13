@@ -6,6 +6,7 @@ Uses Chrome headless screenshot + Pillow WebP compression.
 import os
 import sys
 import base64
+import argparse
 import subprocess
 from PIL import Image
 
@@ -25,6 +26,14 @@ if os.path.exists(logo_path):
         logo_b64 = base64.b64encode(f.read()).decode('utf-8')
 
 ARTICLES = [
+    {
+        'slug': 'a-blueprint-for-beginners-on-static-html-websites',
+        'category': 'Beginner Blueprint',
+        'eyebrow': 'Step-by-Step Starter Guide',
+        'title': 'A Blueprint for Beginners on <span class="accent-text">Static HTML</span>',
+        'desc': 'Pick templates, free edge hosting, and contact forms—and save your favorite tools to My Static Stack with GitHub.',
+        'pills': ['Free Edge Hosting', 'Zero Backend', 'GitHub Stack Sync', '10-Min Launch']
+    },
     {
         'slug': 'why-people-are-leaving-wordpress-for-static-html',
         'category': 'Migration & Architecture',
@@ -284,9 +293,64 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       color: #64748b;
       letter-spacing: -0.01em;
     }}
+
+    /* Light Theme Override */
+    body.theme-light {{
+      background: #f8fafc;
+      color: #0f172a;
+    }}
+    body.theme-light .glow-1 {{
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, rgba(99, 102, 241, 0.06) 45%, transparent 70%);
+    }}
+    body.theme-light .glow-2 {{
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 65%);
+    }}
+    body.theme-light .grid-pattern {{
+      background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+      opacity: 0.7;
+    }}
+    body.theme-light .brand-title,
+    body.theme-light .title {{
+      color: #0f172a;
+    }}
+    body.theme-light .brand-badge {{
+      color: #1d4ed8;
+      background: rgba(37, 99, 235, 0.1);
+      border-color: rgba(37, 99, 235, 0.25);
+    }}
+    body.theme-light .category-badge {{
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+    }}
+    body.theme-light .eyebrow {{
+      color: #0284c7;
+    }}
+    body.theme-light .eyebrow::before {{
+      background: #0284c7;
+    }}
+    body.theme-light .accent-text {{
+      background: linear-gradient(135deg, #2563eb 0%, #0284c7 50%, #4f46e5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }}
+    body.theme-light .desc {{
+      color: #475569;
+    }}
+    body.theme-light .footer {{
+      border-top-color: rgba(15, 23, 42, 0.1);
+    }}
+    body.theme-light .pill {{
+      background: #ffffff;
+      border-color: #cbd5e1;
+      color: #334155;
+    }}
+    body.theme-light .url {{
+      color: #64748b;
+    }}
   </style>
 </head>
-<body>
+<body class="theme-{theme}">
   <div class="glow-1"></div>
   <div class="glow-2"></div>
   <div class="grid-pattern"></div>
@@ -320,20 +384,24 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
-def generate_covers():
+def generate_covers(default_theme='light', only_slug=None):
     temp_html = os.path.join(ROOT_DIR, '_temp_blog_cover.html')
     temp_png = os.path.join(ROOT_DIR, '_temp_blog_cover.png')
 
     for art in ARTICLES:
         slug = art['slug']
+        if only_slug and slug != only_slug:
+            continue
+        theme = art.get('theme', default_theme)
         out_dir = os.path.join(ROOT_DIR, 'blog', slug)
         os.makedirs(out_dir, exist_ok=True)
         out_webp = os.path.join(out_dir, 'cover.webp')
 
-        print(f"Generating cover for: {slug}...")
+        print(f"Generating {theme} cover for: {slug}...")
 
         pills_html = "".join([f'<span class="pill">{p}</span>' for p in art['pills']])
         html_rendered = HTML_TEMPLATE.format(
+            theme=theme,
             category=art['category'],
             eyebrow=art['eyebrow'],
             title=art['title'],
@@ -370,5 +438,9 @@ def generate_covers():
         os.remove(temp_png)
 
 if __name__ == '__main__':
-    generate_covers()
+    parser = argparse.ArgumentParser(description='Generate StaticStack blog cover images.')
+    parser.add_argument('--theme', choices=['light', 'dark'], default='light', help='Cover theme (default: light)')
+    parser.add_argument('--slug', default=None, help='Optional single article slug to regenerate')
+    args = parser.parse_args()
+    generate_covers(default_theme=args.theme, only_slug=args.slug)
 

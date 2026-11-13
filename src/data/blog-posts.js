@@ -5,6 +5,43 @@
 
 const BLOG_POSTS = [
   {
+    slug: 'a-blueprint-for-beginners-on-static-html-websites',
+    series: { name: 'Static HTML Starter Series', part: 1, total: 7 },
+    title: 'A Blueprint for Beginners on Static HTML Websites',
+    description: 'A step-by-step beginner blueprint for building, hosting, and managing static HTML websites for free—plus how to save your favorite tools to My Static Stack with GitHub.',
+    excerpt: 'New to static HTML? Follow this 4-piece beginner blueprint to pick templates, free edge hosting, and contact forms—and save your stack with your GitHub account.',
+    category: 'Tutorials & Guides',
+    categorySlug: 'tutorials',
+    date: '2026-11-12',
+    dateFormatted: 'November 12, 2026',
+    readTime: '6 min read',
+    author: 'StaticStack Editorial',
+    authorRole: 'Static Web Architecture',
+    tags: [
+      'beginners',
+      'static-html',
+      'blueprint',
+      'free-hosting',
+      'contact-forms',
+      'github',
+      'my-static-stack'
+    ],
+    featuredToolSlugs: [
+      'cloudflare-pages',
+      'github-pages',
+      'web3forms',
+      'formspree',
+      'lottiefiles',
+      'pagefind'
+    ],
+    toc: [
+      { id: '1-why-start-with-static-html', title: '1. Why Start with Static HTML?' },
+      { id: '2-the-4-piece-beginner-blueprint', title: '2. The 4-Piece Beginner Blueprint' },
+      { id: '3-save-your-blueprint-with-my-static-stack-github-login', title: '3. Save Your Blueprint with My Static Stack' },
+      { id: '4-your-10-minute-launch-checklist', title: '4. Your 10-Minute Launch Checklist' }
+    ]
+  },
+  {
     slug: 'why-people-are-leaving-wordpress-for-static-html',
     title: 'Why People Are Leaving WordPress for Static HTML Websites',
     description: 'Explore why developers, agencies, and businesses are ditching bloated WordPress sites for fast, unhackable, zero-maintenance static HTML websites.',
@@ -92,6 +129,7 @@ const BLOG_POSTS = [
   },
   {
     slug: 'how-to-build-a-website-without-wordpress',
+    series: { name: 'Static HTML Starter Series', part: 2, total: 7 },
     title: 'How to Build a Website Without WordPress',
     description: 'Learn how to build, host, and manage high-performance websites without WordPress, PHP, or fragile plugins. Complete architecture blueprint for static HTML.',
     excerpt: 'Tired of WordPress plugin updates, database crashes, and slow load times? Here is the step-by-step blueprint to build, host, and manage a fast, secure website without WordPress.',
@@ -131,6 +169,7 @@ const BLOG_POSTS = [
   },
   {
     slug: 'best-free-hosting-services-for-static-html-websites',
+    series: { name: 'Static HTML Starter Series', part: 4, total: 7 },
     title: 'Best Free Hosting Services for Static HTML Websites',
     description: 'Detailed 2026 comparison of the best free hosting providers for static websites: Cloudflare Pages, Vercel, Netlify, GitHub Pages, Render, and Wasmer.',
     excerpt: 'Compare the top free hosting platforms for static HTML sites. We analyze bandwidth allowances, build times, custom domains, edge performance, and deploy previews.',
@@ -171,6 +210,7 @@ const BLOG_POSTS = [
   },
   {
     slug: 'how-to-add-contact-forms-to-static-websites',
+    series: { name: 'Static HTML Starter Series', part: 5, total: 7 },
     title: 'How to Add Contact Forms to Static Websites',
     description: 'A complete, modern guide to capturing form submissions on static HTML, SSG, and Jamstack websites without backend servers, databases, or PHP.',
     excerpt: 'Static websites can easily handle contact forms, file uploads, and spam protection. Learn how modern serverless form backends make contact forms simple, fast, and completely secure.',
@@ -251,6 +291,7 @@ const BLOG_POSTS = [
   },
   {
     slug: 'how-to-add-comments-to-a-static-html-blog',
+    series: { name: 'Static HTML Starter Series', part: 7, total: 7 },
     title: 'How to Add Comments to a Static HTML Blog',
     description: 'A practical step-by-step guide to adding serverless comments to static HTML and Jamstack blogs using Giscus, Utterances, and GitHub Discussions.',
     excerpt: "Static blogs don't need a database to host lively reader discussions. Learn how to embed lightweight, privacy-friendly comments with zero server maintenance.",
@@ -287,6 +328,7 @@ const BLOG_POSTS = [
   },
   {
     slug: 'how-to-add-search-functionality-to-a-static-website',
+    series: { name: 'Static HTML Starter Series', part: 6, total: 7 },
     title: 'How to Add Search Functionality to a Static Website',
     description: 'Complete guide to implementing fast, client-side full-text search on static websites using Pagefind, Algolia, and JSON index search.',
     excerpt: 'Learn how to add lightning-fast, zero-server search to static HTML websites. We cover Pagefind, Algolia, and custom client-side indexing with real code examples.',
@@ -323,6 +365,7 @@ const BLOG_POSTS = [
   },
   {
     slug: 'how-to-build-a-website-without-a-database-or-backend',
+    series: { name: 'Static HTML Starter Series', part: 3, total: 7 },
     title: 'How to Build a Website Without a Database or Backend',
     description: 'The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.',
     excerpt: "Think static sites can't handle user logins, forms, payments, or dynamic storage? Discover the complete blueprint to build modern web apps without a backend server.",

@@ -6,7 +6,7 @@ On static websites, there is no database running on the server. So how can visit
 
 The answer is **Client-Side Static Search**. By indexing your HTML files during the build process, the browser can execute complex, full-text searches in **under 30 milliseconds** directly on the client with zero server roundtrips.
 
-In this guide, you will learn how static search works, compare the leading static search engines, and follow a complete tutorial to integrate **[Pagefind](/tools/search/pagefind)** into your website.
+In this sixth part of the **Static HTML Starter Series** (after wiring up contact forms in [Part 5](/blog/how-to-add-contact-forms-to-static-websites/)), you will learn how static search works, compare the leading static search engines, and follow a complete tutorial to integrate **[Pagefind](/tools/search/pagefind)** into your website.
 
 ---
 
@@ -164,4 +164,6 @@ searchInput.addEventListener('input', (e) => {
 You don't need a heavy database server to provide visitors with a modern search experience. With static indexing tools like **[Pagefind](/tools/search/pagefind)** or client-side JSON search, your search results appear instantaneously.
 
 Explore our curated [Search Category](/category/search/) to discover more static search engines and indexing tools.
+
+**Next in Part 7:** Finish your static site setup by adding zero-database reader discussions in [How to Add Comments to a Static HTML Blog](/blog/how-to-add-comments-to-a-static-html-blog/).
 

@@ -6,7 +6,7 @@ One of the defining benefits of running a static blog is the total absence of da
 
 Fortunately, you do not. Modern static websites use **serverless comment systems** that delegate discussion threads to secure, high-availability backends—most notably **GitHub Discussions**.
 
-In this guide, you will learn why traditional comment plugins like Disqus are obsolete, explore the best open-source alternatives, and follow a step-by-step tutorial to install **[Giscus](/tools/comments-community/giscus)** on any static HTML blog.
+In this seventh and final part of the **Static HTML Starter Series** (after adding site search in [Part 6](/blog/how-to-add-search-functionality-to-a-static-website/)), you will learn why traditional comment plugins like Disqus are obsolete, explore the best open-source alternatives, and follow a step-by-step tutorial to install **[Giscus](/tools/comments-community/giscus)** on any static HTML blog.
 
 ---
 
@@ -142,4 +142,6 @@ If you run a mainstream consumer blog where visitors don't have GitHub accounts,
 You don't have to surrender your static website's speed, privacy, or security just to let readers leave comments. By integrating **[Giscus](/tools/comments-community/giscus)**, your static blog gains high-speed, markdown-capable discussions with zero server upkeep.
 
 Browse our [Comments &amp; Community Directory](/category/comments-community/) for more tools to engage your static website audience.
+
+**Series Complete:** You've reached the end of the **Static HTML Starter Series**! If you want to revisit the full stack or save your favorite tools for future projects, head back to [Part 1: A Blueprint for Beginners](/blog/a-blueprint-for-beginners-on-static-html-websites/) or share your finished site in the [StaticStack Community](/community/).
 

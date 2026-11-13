@@ -16,6 +16,7 @@ function renderBlogArticlePage({
   parsedHtml,
   allTools = [],
   categories = [],
+  allPosts = [],
   renderLayout,
   getToolSiteIcon
 }) {
@@ -159,9 +160,57 @@ function renderBlogArticlePage({
           </div>
 
           <!-- Article Markdown Body -->
+          ${(() => {
+            if (!post.series || !allPosts.length) return '';
+            const seriesPosts = allPosts
+              .filter(p => p.series && p.series.name === post.series.name)
+              .sort((a, b) => a.series.part - b.series.part);
+            if (!seriesPosts.length) return '';
+            const currentIdx = seriesPosts.findIndex(p => p.slug === post.slug);
+            const prevPost = currentIdx > 0 ? seriesPosts[currentIdx - 1] : null;
+            const nextPost = currentIdx >= 0 && currentIdx < seriesPosts.length - 1 ? seriesPosts[currentIdx + 1] : null;
+            return `
+              <div style="margin-bottom:1.5rem; padding:0.9rem 1.1rem; border-radius:var(--radius-md); border:1px solid var(--border-color); background:var(--bg-body); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.65rem;">
+                <div style="font-size:0.875rem; color:var(--text-main);">
+                  <strong>${escapeHtml(post.series.name)}</strong> &middot; <span class="badge badge-free" style="font-size:0.72rem; padding:0.12rem 0.45rem;">Part ${post.series.part} of ${seriesPosts.length}</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  ${prevPost ? `<a href="${rootPath}blog/${prevPost.slug}/" class="btn btn-secondary btn-sm" style="font-size:0.78rem; padding:0.3rem 0.65rem;">&larr; Part ${prevPost.series.part}</a>` : ''}
+                  ${nextPost ? `<a href="${rootPath}blog/${nextPost.slug}/" class="btn btn-primary btn-sm" style="font-size:0.78rem; padding:0.3rem 0.65rem;">Part ${nextPost.series.part} &rarr;</a>` : ''}
+                </div>
+              </div>
+            `;
+          })()}
           <div class="markdown-body">
             ${parsedHtml}
           </div>
+
+          ${(() => {
+            if (!post.series || !allPosts.length) return '';
+            const seriesPosts = allPosts
+              .filter(p => p.series && p.series.name === post.series.name)
+              .sort((a, b) => a.series.part - b.series.part);
+            if (!seriesPosts.length) return '';
+            const itemsHtml = seriesPosts.map(p => {
+              const isCurrent = p.slug === post.slug;
+              return `
+                <li style="margin-bottom:0.4rem;">
+                  ${isCurrent
+                    ? `<strong style="color:var(--accent);">Part ${p.series.part}: ${escapeHtml(p.title)} (Current)</strong>`
+                    : `<a href="${rootPath}blog/${p.slug}/" style="color:var(--text-main); text-decoration:none;">Part ${p.series.part}: ${escapeHtml(p.title)}</a>`
+                  }
+                </li>
+              `;
+            }).join('');
+            return `
+              <nav aria-label="${escapeHtml(post.series.name)} Index" style="margin-top:2rem; padding:1.25rem 1.4rem; border-radius:var(--radius-md); border:1px solid var(--border-color); background:var(--bg-body);">
+                <div style="font-size:0.95rem; font-weight:700; color:var(--text-main); margin-bottom:0.65rem;">${escapeHtml(post.series.name)} (${seriesPosts.length} Parts)</div>
+                <ol style="margin:0; padding-left:1.25rem; font-size:0.9rem; line-height:1.55;">
+                  ${itemsHtml}
+                </ol>
+              </nav>
+            `;
+          })()}
 
           <!-- Topics / Tags -->
           ${tagsHtml}

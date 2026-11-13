@@ -4,7 +4,7 @@ One of the greatest superpowers of static HTML websites is that hosting them cos
 
 As a result, leading infrastructure platforms offer **incredibly generous permanent free tiers** for static websites.
 
-In this guide, we benchmark and compare the **best free hosting services for static HTML websites in 2026**, covering bandwidth limits, build speeds, custom domain SSL, deploy previews, and edge performance.
+In this fourth part of the **Static HTML Starter Series** (now that you know how static sites work without a backend in [Part 3](/blog/how-to-build-a-website-without-a-database-or-backend/)), we benchmark and compare the **best free hosting services for static HTML websites in 2026**, covering bandwidth limits, build speeds, custom domain SSL, deploy previews, and edge performance.
 
 ---
 
@@ -104,4 +104,6 @@ Developed by the creators of Next.js, **[Vercel](/tools/hosting-deployment/verce
 The era of paying for shared hosting just to serve HTML files is officially over. By deploying to modern edge networks like [Cloudflare Pages](/tools/hosting-deployment/cloudflare-pages) or [Vercel](/tools/hosting-deployment/vercel), you get enterprise-level security, automated HTTPS, and global CDN delivery for $0/month.
 
 Explore our full directory of [Hosting &amp; Deployment Tools](/category/hosting-deployment/) to discover more serverless static deployment platforms.
+
+**Next in Part 5:** Once your site is live, learn how to receive messages without a backend in [How to Add Contact Forms to Static Websites](/blog/how-to-add-contact-forms-to-static-websites/).
 
