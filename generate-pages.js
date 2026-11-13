@@ -264,7 +264,7 @@ const homeContent = `
   <section id="top-tools" style="padding: 3.5rem 0 1.25rem;">
     <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:1.75rem; gap:1rem; flex-wrap:wrap;">
       <div>
-        <div style="display:inline-flex; align-items:center; gap:0.45rem; padding:0.25rem 0.75rem; background:rgba(37, 99, 235, 0.08); color:var(--accent); border:1px solid rgba(37, 99, 235, 0.2); border-radius:var(--radius-full); font-size:0.775rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.75rem;">
+        <div style="display:inline-flex; align-items:center; gap:0.45rem; padding:0.25rem 0.75rem; background:rgba(37, 99, 235, 0.08); color:var(--accent-hover, #1d4ed8); border:1px solid rgba(37, 99, 235, 0.2); border-radius:var(--radius-full); font-size:0.775rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.75rem;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>

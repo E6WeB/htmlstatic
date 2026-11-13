@@ -2031,6 +2031,11 @@ const BASE_CSS = `
     font-size: 0.825rem;
   }
 
+  .footer-bottom a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   .footer-stat-text {
     color: inherit;
     text-decoration: none;

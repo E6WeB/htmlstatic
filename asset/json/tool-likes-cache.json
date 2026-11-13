@@ -40,7 +40,7 @@
   "/tools/authentication-users/supabase-auth": 0,
   "/tools/comments-community/github-discussions": 0,
   "/tools/css-components/bulma": 0,
-  "/tools/css-components/pico-css": 0,
+  "/tools/css-components/pico-css": 1,
   "/tools/css-components/shoelace": 0,
   "/tools/database-storage/jsonbin": 0,
   "/tools/development-tools/cursor": 0,
@@ -142,5 +142,6 @@
   "/tools/html-templates/html5-up": 0,
   "/tools/html-templates/start-bootstrap": 0,
   "/tools/html-templates/templatemo": 0,
-  "/tools/html-templates/tooplate": 0
+  "/tools/html-templates/tooplate": 0,
+  "/tools/ai-content-creation/muse-ai": 1
 }
