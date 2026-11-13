@@ -16,7 +16,7 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 
 ## Categories (29)
 
-- [AI & Content Creation](https://www.staticstack.app/category/ai-content-creation/): AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. (6 tools)
+- [AI & Content Creation](https://www.staticstack.app/category/ai-content-creation/): AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. (7 tools)
 - [AI Models](https://www.staticstack.app/category/ai-models/): Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference. (10 tools)
 - [Analytics & Privacy](https://www.staticstack.app/category/analytics-privacy/): Understand website traffic, visitor behavior, and page performance. (3 tools)
 - [Authentication & User Management](https://www.staticstack.app/category/authentication-users/): Add user login, member areas, and gated content to static sites without backend code. (3 tools)
@@ -34,7 +34,7 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 - [Interactive Maps & Geolocation](https://www.staticstack.app/category/maps-geolocation/): Add mobile-friendly, interactive vector and raster maps without API billing hurdles. (2 tools)
 - [Interactive Scripts & Animation](https://www.staticstack.app/category/interactive-scripts/): Add carousels, image lightboxes, and scroll animations to static pages with vanilla JS. (13 tools)
 - [Live Chat & Support](https://www.staticstack.app/category/live-chat/): Engage visitors and answer questions in real time with lightweight chat widgets. (2 tools)
-- [Media & Video Players](https://www.staticstack.app/category/media-players/): Embed audio, video, and streaming media without intrusive third-party ads or trackers. (4 tools)
+- [Media & Video Players](https://www.staticstack.app/category/media-players/): Embed audio, video, and streaming media without intrusive third-party ads or trackers. (3 tools)
 - [Monitoring & Error Tracking](https://www.staticstack.app/category/monitoring-errors/): Detect client-side JavaScript crashes and monitor performance in production. (2 tools)
 - [Newsletters & Email](https://www.staticstack.app/category/newsletters-email/): Collect subscribers, send newsletters, and handle email delivery from static websites. (4 tools)
 - [Payments & E-commerce](https://www.staticstack.app/category/payments-ecommerce/): Sell digital downloads, services, memberships, and other products from static websites. (5 tools)

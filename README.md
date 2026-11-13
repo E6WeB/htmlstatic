@@ -128,6 +128,12 @@ AI-powered tools for writing website copy, drafting blog articles, creating stru
     <td><a href="https://imgmov.com/" target="_blank" rel="noopener noreferrer">imgmov.com</a></td>
   </tr>
   <tr>
+    <td><a href="tools/ai-content-creation/muse-ai.md">Muse.ai</a></td>
+    <td>Ad-free video hosting and responsive embeddable player with AI-powered in-video search</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://muse.ai/" target="_blank" rel="noopener noreferrer">muse.ai</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/ai-content-creation/perplexity.md">Perplexity</a></td>
     <td>AI-powered research and citation engine for writing factual, accurate blog posts and documentation</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
@@ -1123,12 +1129,6 @@ Embed audio, video, and streaming media without intrusive third-party ads or tra
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td><a href="tools/media-players/muse-ai.md">Muse.ai</a></td>
-    <td>Ad-free video hosting and responsive embeddable player with AI-powered in-video search</td>
-    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
-    <td><a href="https://muse.ai/" target="_blank" rel="noopener noreferrer">muse.ai</a></td>
-  </tr>
   <tr>
     <td><a href="tools/media-players/mux-player.md">Mux Player</a></td>
     <td>Responsive, high-performance web video player with automatic HLS streaming</td>

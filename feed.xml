@@ -6,7 +6,7 @@
   <atom:link href="https://www.staticstack.app/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Curated tools, serverless APIs, and step-by-step guides for building modern static HTML websites with zero backend bloat.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 13 Nov 2026 17:28:15 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 13 Nov 2026 17:37:53 GMT</lastBuildDate>
   <item>
     <title>A Blueprint for Beginners on Static HTML Websites</title>
     <link>https://www.staticstack.app/blog/a-blueprint-for-beginners-on-static-html-websites/</link>
@@ -91,7 +91,7 @@
     <title>ChatGPT — AI &amp; Content Creation</title>
     <link>https://www.staticstack.app/tools/ai-content-creation/chatgpt</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-content-creation/chatgpt</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI &amp; Content Creation</category>
     <description>Conversational AI model for drafting blog posts, website copy, and HTML/markdown content</description>
   </item>
@@ -99,7 +99,7 @@
     <title>Claude — AI &amp; Content Creation</title>
     <link>https://www.staticstack.app/tools/ai-content-creation/claude</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-content-creation/claude</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI &amp; Content Creation</category>
     <description>Advanced AI assistant with large context windows for writing long-form articles and documentation</description>
   </item>
@@ -107,7 +107,7 @@
     <title>Google Gemini — AI &amp; Content Creation</title>
     <link>https://www.staticstack.app/tools/ai-content-creation/google-gemini</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-content-creation/google-gemini</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI &amp; Content Creation</category>
     <description>Multimodal AI assistant for research, drafting website copy, and generating structured content</description>
   </item>
@@ -115,15 +115,23 @@
     <title>imgmov — AI &amp; Content Creation</title>
     <link>https://www.staticstack.app/tools/ai-content-creation/imgmov</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-content-creation/imgmov</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI &amp; Content Creation</category>
     <description>AI generator for creating commercial product videos, images, and visual assets from photos and prompts</description>
+  </item>
+  <item>
+    <title>Muse.ai — AI &amp; Content Creation</title>
+    <link>https://www.staticstack.app/tools/ai-content-creation/muse-ai</link>
+    <guid isPermaLink="true">https://www.staticstack.app/tools/ai-content-creation/muse-ai</guid>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
+    <category>AI &amp; Content Creation</category>
+    <description>Ad-free video hosting and responsive embeddable player with AI-powered in-video search</description>
   </item>
   <item>
     <title>Perplexity — AI &amp; Content Creation</title>
     <link>https://www.staticstack.app/tools/ai-content-creation/perplexity</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-content-creation/perplexity</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI &amp; Content Creation</category>
     <description>AI-powered research and citation engine for writing factual, accurate blog posts and documentation</description>
   </item>
@@ -131,7 +139,7 @@
     <title>Recraft — AI &amp; Content Creation</title>
     <link>https://www.staticstack.app/tools/ai-content-creation/recraft</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-content-creation/recraft</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI &amp; Content Creation</category>
     <description>AI design tool for generating vector SVGs, 3D graphics, and icons for web pages</description>
   </item>
@@ -139,7 +147,7 @@
     <title>ChatGPT (OpenAI) — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/chatgpt-openai</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/chatgpt-openai</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>OpenAI&apos;s flagship multimodal foundation model family (GPT-4o / o-series)</description>
   </item>
@@ -147,7 +155,7 @@
     <title>Claude (Anthropic) — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/claude-anthropic</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/claude-anthropic</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>Frontier reasoning and coding models with 200k+ token context windows</description>
   </item>
@@ -155,7 +163,7 @@
     <title>Cohere Command — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/cohere-command</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/cohere-command</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>Enterprise foundation model optimized for search, RAG, and document grounding</description>
   </item>
@@ -163,7 +171,7 @@
     <title>DeepSeek — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/deepseek</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/deepseek</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>High-efficiency open-weights reasoning and coding models (DeepSeek-V3 / R1)</description>
   </item>
@@ -171,7 +179,7 @@
     <title>Google Gemini — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/google-gemini-model</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/google-gemini-model</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>Multimodal frontier model family with up to 2M token context windows</description>
   </item>
@@ -179,7 +187,7 @@
     <title>Grok (xAI) — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/grok-xai</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/grok-xai</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>Frontier reasoning and coding model with real-time web knowledge integration</description>
   </item>
@@ -187,7 +195,7 @@
     <title>Meta Llama — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/meta-llama</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/meta-llama</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>Leading open-weights foundation model family for local and cloud deployment</description>
   </item>
@@ -195,7 +203,7 @@
     <title>Microsoft Phi — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/microsoft-phi</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/microsoft-phi</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>High-efficiency small language models (SLMs) built for edge and browser execution</description>
   </item>
@@ -203,7 +211,7 @@
     <title>Mistral AI — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/mistral-ai</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/mistral-ai</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>High-speed open and commercial models including Codestral and Mistral Large</description>
   </item>
@@ -211,7 +219,7 @@
     <title>Qwen — AI Models</title>
     <link>https://www.staticstack.app/tools/ai-models/qwen</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/ai-models/qwen</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>AI Models</category>
     <description>Alibaba Cloud&apos;s open-weights model family (Qwen 2.5) with advanced coding mastery</description>
   </item>
@@ -219,7 +227,7 @@
     <title>CountAPI — Analytics &amp; Privacy</title>
     <link>https://www.staticstack.app/tools/analytics-privacy/countapi</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/analytics-privacy/countapi</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Analytics &amp; Privacy</category>
     <description>Free, key-based hit counter and view tracking API with no signup or keys required</description>
   </item>
@@ -227,7 +235,7 @@
     <title>Plausible — Analytics &amp; Privacy</title>
     <link>https://www.staticstack.app/tools/analytics-privacy/plausible</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/analytics-privacy/plausible</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Analytics &amp; Privacy</category>
     <description>Privacy-focused website analytics</description>
   </item>
@@ -235,7 +243,7 @@
     <title>Statcounter — Analytics &amp; Privacy</title>
     <link>https://www.staticstack.app/tools/analytics-privacy/statcounter</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/analytics-privacy/statcounter</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Analytics &amp; Privacy</category>
     <description>Real-time web analytics, visitor paths, and page counters</description>
   </item>
@@ -243,7 +251,7 @@
     <title>Clerk — Authentication &amp; User Management</title>
     <link>https://www.staticstack.app/tools/authentication-users/clerk</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/authentication-users/clerk</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Authentication &amp; User Management</category>
     <description>User management and auth with drop-in UI and vanilla JS SDK</description>
   </item>
@@ -251,7 +259,7 @@
     <title>Outseta — Authentication &amp; User Management</title>
     <link>https://www.staticstack.app/tools/authentication-users/outseta</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/authentication-users/outseta</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Authentication &amp; User Management</category>
     <description>All-in-one membership, authentication, payments, and CRM</description>
   </item>
@@ -259,7 +267,7 @@
     <title>Supabase Auth — Authentication &amp; User Management</title>
     <link>https://www.staticstack.app/tools/authentication-users/supabase-auth</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/authentication-users/supabase-auth</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Authentication &amp; User Management</category>
     <description>Open-source auth supporting passwordless logins, OAuth, and JWTs</description>
   </item>
@@ -267,7 +275,7 @@
     <title>Cal.com — Booking &amp; Scheduling</title>
     <link>https://www.staticstack.app/tools/booking-scheduling/cal-com</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/booking-scheduling/cal-com</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Booking &amp; Scheduling</category>
     <description>Open-source, embeddable meeting scheduling infrastructure</description>
   </item>
@@ -275,17 +283,9 @@
     <title>Calendly — Booking &amp; Scheduling</title>
     <link>https://www.staticstack.app/tools/booking-scheduling/calendly</link>
     <guid isPermaLink="true">https://www.staticstack.app/tools/booking-scheduling/calendly</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
+    <pubDate>Fri, 13 Nov 2026 17:37:53 GMT</pubDate>
     <category>Booking &amp; Scheduling</category>
     <description>Industry-standard appointment scheduling with embeddable widgets</description>
-  </item>
-  <item>
-    <title>FireShot — Browser Extensions</title>
-    <link>https://www.staticstack.app/tools/browser-extensions/fireshot</link>
-    <guid isPermaLink="true">https://www.staticstack.app/tools/browser-extensions/fireshot</guid>
-    <pubDate>Fri, 13 Nov 2026 17:28:15 GMT</pubDate>
-    <category>Browser Extensions</category>
-    <description>Capture full webpage screenshots, edit annotations, and export to PDF, PNG, or JPEG</description>
   </item>
 </channel>
 </rss>

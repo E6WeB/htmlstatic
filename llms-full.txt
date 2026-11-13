@@ -79,7 +79,7 @@ Concise Index: https://www.staticstack.app/llms.txt
 
 ## Tool Directory by Category (29 Categories, 160 Tools)
 
-### AI & Content Creation (6 tools)
+### AI & Content Creation (7 tools)
 Category Page: https://www.staticstack.app/category/ai-content-creation/
 AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content.
 
@@ -103,6 +103,11 @@ AI-powered tools for writing website copy, drafting blog articles, creating stru
   - Official Website: https://imgmov.com/
   - Badges: Freemium
   - Tags: ai-video-generator, product-video-ai, image-to-video, ecommerce-visuals, ai-marketing-assets, commercial-ai-art, ai-copywriting, seo-content, markdown-generator, generative-ai
+- **Muse.ai** — Ad-free, privacy-friendly video hosting and responsive embeddable player with AI-powered in-video search.
+  - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/muse-ai
+  - Official Website: https://muse.ai/
+  - Badges: Paid
+  - Tags: muse-ai, ad-free-video-hosting, video-embed-player, ai-video-search, html5-video-player, adaptive-bitrate-streaming, video-collections, domain-restriction, static-site-video, ai-copywriting
 - **Perplexity** — AI-powered research and citation engine for writing factual, well-sourced blog posts, guides, and documentation.
   - StaticStack Page: https://www.staticstack.app/tools/ai-content-creation/perplexity
   - Official Website: https://www.perplexity.ai/
@@ -764,15 +769,10 @@ Engage visitors and answer questions in real time with lightweight chat widgets.
   - Badges: Free
   - Tags: tawk-to, 100-percent-free-live-chat, unlimited-chat-agents, real-time-visitor-monitoring, support-ticketing, customer-support-widget, live-chat-embed, helpdesk-widget, visitor-messaging, no-backend-chat
 
-### Media & Video Players (4 tools)
+### Media & Video Players (3 tools)
 Category Page: https://www.staticstack.app/category/media-players/
 Embed audio, video, and streaming media without intrusive third-party ads or trackers.
 
-- **Muse.ai** — Ad-free, privacy-friendly video hosting and responsive embeddable player with AI-powered in-video search.
-  - StaticStack Page: https://www.staticstack.app/tools/media-players/muse-ai
-  - Official Website: https://muse.ai/
-  - Badges: Paid
-  - Tags: muse-ai, ad-free-video-hosting, video-embed-player, ai-video-search, html5-video-player, adaptive-bitrate-streaming, video-collections, domain-restriction, static-site-video, hls-streaming
 - **Mux Player** — Responsive, high-performance web video player with automatic HLS streaming.
   - StaticStack Page: https://www.staticstack.app/tools/media-players/mux-player
   - Official Website: https://mux.com/player

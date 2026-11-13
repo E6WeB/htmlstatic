@@ -3,7 +3,7 @@
 > Ad-free, privacy-friendly video hosting and responsive embeddable player with AI-powered in-video search.
 
 1. **Official Website**: <a href="https://muse.ai/" target="_blank" rel="noopener noreferrer">muse.ai</a>
-2. **Category**: [Media & Video Players](../../README.md#media--video-players)
+2. **Category**: [AI & Content Creation](../../README.md#ai--content-creation)
 3. **Type**: Video Hosting & Embeddable Player
 4. **Pricing / License**: Paid
 
