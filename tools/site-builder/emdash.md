@@ -3,7 +3,7 @@
 > Free, open-source agentic development environment to run coding agents in parallel, schedule workflows, and review changes.
 
 1. **Official Website**: <a href="https://emdash.com/" target="_blank" rel="noopener noreferrer">emdash.com</a>
-2. **Category**: [Development Tools](../../README.md#development-tools)
+2. **Category**: [Site Builder](../../README.md#site-builder)
 3. **Type**: Agentic Development Environment (Desktop App)
 4. **Pricing / License**: Open Source
 

@@ -3,7 +3,7 @@
 > Visual desktop web design application for creating responsive websites using the Bootstrap framework and exporting clean HTML.
 
 1. **Official Website**: <a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a>
-2. **Category**: [Development Tools](../../README.md#development-tools)
+2. **Category**: [Site Builder](../../README.md#site-builder)
 3. **Type**: Visual Web Design Editor
 4. **Pricing / License**: Paid
 

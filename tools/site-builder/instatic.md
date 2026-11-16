@@ -3,7 +3,7 @@
 > Free, browser-based visual website builder created by the Core Framework developers for building modern static sites.
 
 1. **Official Website**: <a href="https://instatic.com/" target="_blank" rel="noopener noreferrer">instatic.com</a>
-2. **Category**: [Content Management](../../README.md#content-management)
+2. **Category**: [Site Builder](../../README.md#site-builder)
 3. **Type**: Browser-Based Visual Builder & Static Generator
 4. **Pricing / License**: Free
 

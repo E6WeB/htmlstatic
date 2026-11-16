@@ -3,7 +3,7 @@
 > Visual website builder providing a familiar workflow for WordPress creators with static export and minimal ongoing maintenance.
 
 1. **Official Website**: <a href="https://phantomstudio.app/" target="_blank" rel="noopener noreferrer">phantomstudio.app</a>
-2. **Category**: [Content Management](../../README.md#content-management)
+2. **Category**: [Site Builder](../../README.md#site-builder)
 3. **Type**: Visual Website Builder & Static Generator
 4. **Pricing / License**: Freemium
 

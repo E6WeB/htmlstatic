@@ -123,6 +123,24 @@ function getCategoryFaqs(category) {
         a: 'Yes! Most static comment engines feature full Markdown syntax support, syntax-highlighted code blocks, image embeds, and emoji reactions.'
       }
     ],
+    'site-builder': [
+      {
+        q: 'What is a static HTML site builder?',
+        a: 'A static HTML site builder is a visual editor, desktop studio, or static-first framework that lets you design and assemble websites and export clean, production-ready HTML, CSS, and JavaScript with zero server or database dependencies.'
+      },
+      {
+        q: 'How is a site builder different from traditional hosted builders like Wix or Squarespace?',
+        a: 'Static site builders give you full ownership of your generated HTML, CSS, and assets with zero vendor lock-in. You can host the output for free on Cloudflare Pages, GitHub Pages, Netlify, Vercel, or Wasmer.'
+      },
+      {
+        q: 'Can I edit the exported code in a standard code editor?',
+        a: 'Yes! Tools like **Astro**, **sitereal**, **Bootstrap Studio**, and **Stacki** output clean, semantic markup and stylesheets that you can open, version-control in Git, and customize in VS Code, Cursor, or Emdash.'
+      },
+      {
+        q: 'Do websites built with these site builders score well on Core Web Vitals?',
+        a: 'Yes. Because they produce lightweight static HTML and CSS without heavy runtime CMS bloat or database queries, pages load near-instantly from any edge CDN.'
+      }
+    ],
     'static-site-generators': [
       {
         q: 'What is a Static Site Generator (SSG)?',
@@ -208,9 +226,10 @@ function getRelatedCategories(currentSlug, allCategories) {
   const map = {
     'contact-forms': ['newsletters-email', 'authentication-users', 'surveys-feedback', 'security-spam-protection'],
     'authentication-users': ['database-storage', 'payments-ecommerce', 'contact-forms', 'security-spam-protection'],
-    'hosting-deployment': ['static-site-generators', 'content-management', 'monitoring-errors', 'database-storage'],
-    'content-management': ['static-site-generators', 'hosting-deployment', 'ai-content-creation', 'images-optimization'],
-    'static-site-generators': ['hosting-deployment', 'content-management', 'css-components', 'interactive-scripts'],
+    'hosting-deployment': ['site-builder', 'static-site-generators', 'content-management', 'monitoring-errors'],
+    'content-management': ['site-builder', 'static-site-generators', 'hosting-deployment', 'ai-content-creation'],
+    'site-builder': ['static-site-generators', 'html-templates', 'hosting-deployment', 'content-management'],
+    'static-site-generators': ['site-builder', 'hosting-deployment', 'content-management', 'css-components'],
     'analytics-privacy': ['monitoring-errors', 'search', 'security-spam-protection', 'hosting-deployment'],
     'comments-community': ['live-chat', 'authentication-users', 'contact-forms', 'surveys-feedback'],
     'ai-content-creation': ['ai-models', 'content-management', 'images-optimization', 'typography-fonts'],

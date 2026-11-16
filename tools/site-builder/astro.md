@@ -3,7 +3,7 @@
 > Web framework designed for content-driven websites that ships zero JavaScript by default.
 
 1. **Official Website**: <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">astro.build</a>
-2. **Category**: [Static Site Generators](../../README.md#static-site-generators)
+2. **Category**: [Site Builder](../../README.md#site-builder)
 3. **Type**: Modern Static Web Framework
 4. **Pricing / License**: Open Source
 

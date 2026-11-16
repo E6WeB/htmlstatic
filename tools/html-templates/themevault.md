@@ -51,6 +51,6 @@ Choose an HTML5 or Astro template from ThemeVault, download the source archive, 
 ## When to Use It
 
 1. Launching clean portfolios, startup landing pages, or agency showcase websites.
-2. Finding free starter themes that support both plain HTML5 and modern frameworks like [Astro](/tools/static-site-generators/astro).
+2. Finding free starter themes that support both plain HTML5 and modern frameworks like [Astro](/tools/site-builder/astro).
 3. Developers seeking straightforward, well-structured CSS without heavy framework lock-in.
 

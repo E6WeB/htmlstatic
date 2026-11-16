@@ -39,11 +39,12 @@ Know a useful tool or site? **<a href="https://github.com/E6WeB/htmlstatic/issue
 22. [Payments & E-commerce](#payments--e-commerce)
 23. [Search](#search)
 24. [Security & Spam Protection](#security--spam-protection)
-25. [Static Site Generators](#static-site-generators)
-26. [Surveys & Feedback](#surveys--feedback)
-27. [Tutorials](#tutorials)
-28. [Typography & Web Fonts](#typography--web-fonts)
-29. [Inactive](#inactive)
+25. [Site Builder](#site-builder)
+26. [Static Site Generators](#static-site-generators)
+27. [Surveys & Feedback](#surveys--feedback)
+28. [Tutorials](#tutorials)
+29. [Typography & Web Fonts](#typography--web-fonts)
+30. [Inactive](#inactive)
 
 ### Contributing & Community
 
@@ -480,34 +481,16 @@ Manage content on static websites without adopting a traditional, full-featured 
     <td><a href="https://decapcms.org/" target="_blank" rel="noopener noreferrer">decapcms.org</a></td>
   </tr>
   <tr>
-    <td><a href="tools/content-management/instatic.md">Instatic</a></td>
-    <td>Free, browser-based visual website builder created by Core Framework developers</td>
-    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
-    <td><a href="https://instatic.com/" target="_blank" rel="noopener noreferrer">instatic.com</a></td>
-  </tr>
-  <tr>
     <td><a href="tools/content-management/pages-cms.md">Pages CMS</a></td>
     <td>Git-based content management with a browser interface</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://pagescms.org/" target="_blank" rel="noopener noreferrer">pagescms.org</a></td>
   </tr>
   <tr>
-    <td><a href="tools/content-management/phantom-studio.md">Phantom Studio</a></td>
-    <td>Visual website builder with static export and low maintenance for WordPress creators</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://phantomstudio.app/" target="_blank" rel="noopener noreferrer">phantomstudio.app</a></td>
-  </tr>
-  <tr>
     <td><a href="tools/content-management/processwire.md">ProcessWire</a></td>
     <td>Open-source CMS and CMF with a powerful jQuery-inspired API and headless capabilities</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://processwire.com/" target="_blank" rel="noopener noreferrer">processwire.com</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/content-management/stacki.md">Stacki</a></td>
-    <td>Webflow-familiar visual site builder engineered for local developers and static sites</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://stacki.build/" target="_blank" rel="noopener noreferrer">stacki.build</a></td>
   </tr>
 </tbody>
 </table>
@@ -615,12 +598,6 @@ Tools that make building, testing, and maintaining static websites easier.
     <td><a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">antigravity.google</a></td>
   </tr>
   <tr>
-    <td><a href="tools/development-tools/bootstrap-studio.md">Bootstrap Studio</a></td>
-    <td>Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML</td>
-    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
-    <td><a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a></td>
-  </tr>
-  <tr>
     <td><a href="tools/development-tools/brickstatic.md">Brickstatic</a></td>
     <td>Export and publish WordPress Bricks sites as static HTML to GitHub or any host</td>
     <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
@@ -643,12 +620,6 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>Open-source motion graphics and visual effects compositor with 250+ effects and Lottie export in pure Rust</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"> <img src="https://img.shields.io/badge/Beta-d97706?style=flat-square" alt="Beta"></td>
     <td><a href="https://getartcraft.com/apps/effectcraft" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/effectcraft</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/development-tools/emdash.md">Emdash</a></td>
-    <td>Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
-    <td><a href="https://emdash.com/" target="_blank" rel="noopener noreferrer">emdash.com</a></td>
   </tr>
   <tr>
     <td><a href="tools/development-tools/eslint.md">ESLint</a></td>
@@ -703,12 +674,6 @@ Tools that make building, testing, and maintaining static websites easier.
     <td>Code formatter for HTML, CSS, JavaScript, and more</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
     <td><a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">prettier.io</a></td>
-  </tr>
-  <tr>
-    <td><a href="tools/development-tools/sitereal.md">sitereal</a></td>
-    <td>Visual builder for Astro writing real components into your repo with full code access</td>
-    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
-    <td><a href="https://sitereal.app/" target="_blank" rel="noopener noreferrer">sitereal.app</a></td>
   </tr>
   <tr>
     <td><a href="tools/development-tools/staticseo.md">StaticSEO</a></td>
@@ -1385,6 +1350,179 @@ Protect forms and websites against automated spam and abuse.
 </tbody>
 </table>
 
+## Site Builder
+
+Visual website builders, desktop editors, and static-first frameworks for building actual static HTML websites.
+
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20%" align="left">Tool</th>
+    <th width="45%" align="left">Description</th>
+    <th width="20%" align="left">Pricing / License</th>
+    <th width="15%" align="left">Website</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="tools/site-builder/astro.md">Astro</a></td>
+    <td>Content-driven static web framework that ships zero JS by default</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://astro.build/" target="_blank" rel="noopener noreferrer">astro.build</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/blocs.md">Blocs</a></td>
+    <td>Visual website builder for Mac, iPad, and iPhone that exports clean responsive static HTML</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://blocsapp.com/" target="_blank" rel="noopener noreferrer">blocsapp.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/bootstrap-studio.md">Bootstrap Studio</a></td>
+    <td>Visual desktop web design editor for creating responsive Bootstrap sites and exporting clean HTML</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://bootstrapstudio.io/" target="_blank" rel="noopener noreferrer">bootstrapstudio.io</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/carrd.md">Carrd</a></td>
+    <td>Simple, free, and responsive one-page website builder for portfolios and landing pages</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://carrd.co/" target="_blank" rel="noopener noreferrer">carrd.co</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/dorik.md">Dorik</a></td>
+    <td>AI-powered no-code website builder for responsive landing pages and static marketing sites</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://dorik.com/" target="_blank" rel="noopener noreferrer">dorik.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/emdash.md">Emdash</a></td>
+    <td>Open-source agentic development environment for running coding agents in parallel, scheduling workflows, and reviewing changes</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://emdash.com/" target="_blank" rel="noopener noreferrer">emdash.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/emdash-cms.md">EmDash CMS</a></td>
+    <td>Open-source, TypeScript-native CMS and site builder built on Astro for static and edge websites</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://emdashcms.com/" target="_blank" rel="noopener noreferrer">emdashcms.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/grapesjs.md">GrapesJS</a></td>
+    <td>Free, open-source web builder framework for visually designing HTML templates and websites</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://grapesjs.com/" target="_blank" rel="noopener noreferrer">grapesjs.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/instatic.md">Instatic</a></td>
+    <td>Free, browser-based visual website builder created by Core Framework developers</td>
+    <td><img src="https://img.shields.io/badge/Free-1a7f37?style=flat-square" alt="Free"></td>
+    <td><a href="https://instatic.com/" target="_blank" rel="noopener noreferrer">instatic.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/mobirise.md">Mobirise</a></td>
+    <td>Free offline website builder software for Windows, Mac, and Linux with static HTML export</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://mobirise.com/" target="_blank" rel="noopener noreferrer">mobirise.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/nicepage.md">Nicepage</a></td>
+    <td>Visual website builder software for desktop and web that exports clean static HTML5 and CSS</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://nicepage.com/" target="_blank" rel="noopener noreferrer">nicepage.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/phantom-studio.md">Phantom Studio</a></td>
+    <td>Visual website builder with static export and low maintenance for WordPress creators</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://phantomstudio.app/" target="_blank" rel="noopener noreferrer">phantomstudio.app</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/pinegrow.md">Pinegrow</a></td>
+    <td>Desktop visual HTML and CSS editor for building responsive Bootstrap, Tailwind, and plain HTML sites</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://pinegrow.com/" target="_blank" rel="noopener noreferrer">pinegrow.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/primo.md">Primo</a></td>
+    <td>Open-source, Svelte-powered visual site builder and static CMS for deploying static websites</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://primo.build/" target="_blank" rel="noopener noreferrer">primo.build</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/publii.md">Publii</a></td>
+    <td>Free, open-source desktop static site CMS and visual builder for fast HTML websites offline</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://getpublii.com/" target="_blank" rel="noopener noreferrer">getpublii.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/rapidweaver.md">RapidWeaver</a></td>
+    <td>Native macOS website builder for designing and publishing fast static HTML websites</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://www.realmacsoftware.com/rapidweaver/" target="_blank" rel="noopener noreferrer">realmacsoftware.com/rapidweaver</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/silex.md">Silex</a></td>
+    <td>Free, open-source, browser-based static website builder with clean HTML/CSS output and Git integration</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://www.silex.me/" target="_blank" rel="noopener noreferrer">silex.me</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/sitely.md">Sitely</a></td>
+    <td>Visual website builder for Mac and iPad that generates clean static HTML, CSS, and JavaScript offline</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://sitely.app/" target="_blank" rel="noopener noreferrer">sitely.app</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/siter-io.md">Siter.io</a></td>
+    <td>Browser-based no-code and AI website builder with freeform design controls and static HTML export</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://siter.io/" target="_blank" rel="noopener noreferrer">siter.io</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/sitereal.md">sitereal</a></td>
+    <td>Visual builder for Astro writing real components into your repo with full code access</td>
+    <td><img src="https://img.shields.io/badge/Paid-d97706?style=flat-square" alt="Paid"></td>
+    <td><a href="https://sitereal.app/" target="_blank" rel="noopener noreferrer">sitereal.app</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/stacki.md">Stacki</a></td>
+    <td>Webflow-familiar visual site builder engineered for local developers and static sites</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://stacki.build/" target="_blank" rel="noopener noreferrer">stacki.build</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/teleporthq.md">TeleportHQ</a></td>
+    <td>Collaborative low-code visual website builder exporting clean static HTML, CSS, and framework code</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://teleporthq.io/" target="_blank" rel="noopener noreferrer">teleporthq.io</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/tilda.md">Tilda</a></td>
+    <td>Block-based visual website builder for editorial landing pages and static HTML export</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://tilda.cc/" target="_blank" rel="noopener noreferrer">tilda.cc</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/vvveb.md">Vvveb</a></td>
+    <td>Open-source visual website builder and lightweight CMS with drag-and-drop page editing</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://www.vvveb.com/" target="_blank" rel="noopener noreferrer">vvveb.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/webflow.md">Webflow</a></td>
+    <td>Visual web design platform with granular CSS layout control and static HTML/CSS/JS export</td>
+    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
+    <td><a href="https://webflow.com/" target="_blank" rel="noopener noreferrer">webflow.com</a></td>
+  </tr>
+  <tr>
+    <td><a href="tools/site-builder/webstudio.md">Webstudio</a></td>
+    <td>Open-source, Webflow-alternative visual website builder with standards-compliant CSS and static export</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://webstudio.is/" target="_blank" rel="noopener noreferrer">webstudio.is</a></td>
+  </tr>
+</tbody>
+</table>
+
 ## Static Site Generators
 
 Build fast, pre-rendered static HTML websites from templates and Markdown.
@@ -1399,12 +1537,6 @@ Build fast, pre-rendered static HTML websites from templates and Markdown.
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td><a href="tools/static-site-generators/astro.md">Astro</a></td>
-    <td>Content-driven static web framework that ships zero JS by default</td>
-    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
-    <td><a href="https://astro.build/" target="_blank" rel="noopener noreferrer">astro.build</a></td>
-  </tr>
   <tr>
     <td><a href="tools/static-site-generators/eleventy.md">Eleventy (11ty)</a></td>
     <td>Simple, flexible static generator converting templates to fast HTML</td>

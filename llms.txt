@@ -1,20 +1,20 @@
 # StaticStack
 
-> A curated directory of 169 tools, APIs, and services across 29 categories, plus 10 engineering guides for building fast, zero-bloat static websites.
+> A curated directory of 188 tools, APIs, and services across 30 categories, plus 10 engineering guides for building fast, zero-bloat static websites.
 
 StaticStack helps developers replace heavy monolithic backends with composable static-first tooling (SSGs, edge hosting, serverless forms, static search, auth, CMS, and privacy-respecting utilities).
 
 ## Core Pages
 
 - [Home](https://www.staticstack.app/): Main StaticStack directory and category explorer.
-- [Search](https://www.staticstack.app/search): Client-side instant search across all 169 tools and 29 categories.
+- [Search](https://www.staticstack.app/search): Client-side instant search across all 188 tools and 30 categories.
 - [Archive](https://www.staticstack.app/archive): Complete alphabetical & category archive of static web tools.
 - [Blog](https://www.staticstack.app/blog): In-depth guides on static site architecture, migration, and performance.
 - [Community](https://www.staticstack.app/community): Developer discussions, project showcases, and Q&A.
 - [Submit a Tool](https://www.staticstack.app/submit): Suggest a static-friendly tool or service for inclusion.
 - [Contribute](https://www.staticstack.app/contribute): How to contribute to StaticStack on GitHub.
 
-## Categories (29)
+## Categories (30)
 
 - [AI & Content Creation](https://www.staticstack.app/category/ai-content-creation/): AI-powered tools for writing website copy, drafting blog articles, creating structured markdown, and generating visual content. (7 tools)
 - [AI Models](https://www.staticstack.app/category/ai-models/): Leading proprietary and open-weights foundation models powering web APIs, code generation, and client-side inference. (10 tools)
@@ -24,10 +24,10 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 - [Browser Extensions](https://www.staticstack.app/category/browser-extensions/): Helpful browser extensions for static site development, link sharing, and productivity. (2 tools)
 - [Comments & Community](https://www.staticstack.app/category/comments-community/): Let visitors comment on blog posts and interact with your content. (6 tools)
 - [Contact Forms](https://www.staticstack.app/category/contact-forms/): Add contact forms to static websites without building your own form-processing backend. (5 tools)
-- [Content Management](https://www.staticstack.app/category/content-management/): Manage content on static websites without adopting a traditional, full-featured CMS. (7 tools)
+- [Content Management](https://www.staticstack.app/category/content-management/): Manage content on static websites without adopting a traditional, full-featured CMS. (4 tools)
 - [CSS & UI Component Libraries](https://www.staticstack.app/category/css-components/): Build responsive, accessible user interfaces without complex build steps or heavy frameworks. (4 tools)
 - [Database & Backend-as-a-Service](https://www.staticstack.app/category/database-storage/): Store, query, and synchronize data from static frontends without maintaining servers. (3 tools)
-- [Development Tools](https://www.staticstack.app/category/development-tools/): Tools that make building, testing, and maintaining static websites easier. (22 tools)
+- [Development Tools](https://www.staticstack.app/category/development-tools/): Tools that make building, testing, and maintaining static websites easier. (19 tools)
 - [Hosting & Deployment](https://www.staticstack.app/category/hosting-deployment/): Services for publishing static HTML, CSS, and JavaScript websites online. (13 tools)
 - [HTML Templates](https://www.staticstack.app/category/html-templates/): Ready-to-use, responsive HTML5, CSS, and Bootstrap website templates to jumpstart your static website without starting from a blank canvas. (9 tools)
 - [Images & Optimization](https://www.staticstack.app/category/images-optimization/): Optimize images and other assets to improve loading speed and user experience. (7 tools)
@@ -40,7 +40,8 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 - [Payments & E-commerce](https://www.staticstack.app/category/payments-ecommerce/): Sell digital downloads, services, memberships, and other products from static websites. (14 tools)
 - [Search](https://www.staticstack.app/category/search/): Add search functionality to static websites, documentation, and blogs. (2 tools)
 - [Security & Spam Protection](https://www.staticstack.app/category/security-spam-protection/): Protect forms and websites against automated spam and abuse. (3 tools)
-- [Static Site Generators](https://www.staticstack.app/category/static-site-generators/): Build fast, pre-rendered static HTML websites from templates and Markdown. (8 tools)
+- [Site Builder](https://www.staticstack.app/category/site-builder/): Visual website builders, desktop editors, and static-first frameworks for building actual static HTML websites. (26 tools)
+- [Static Site Generators](https://www.staticstack.app/category/static-site-generators/): Build fast, pre-rendered static HTML websites from templates and Markdown. (7 tools)
 - [Surveys & Feedback](https://www.staticstack.app/category/surveys-feedback/): Gather visitor responses, run interactive polls, and publish product roadmaps. (2 tools)
 - [Tutorials](https://www.staticstack.app/category/tutorials/): Guides, video walkthroughs, and step-by-step tutorials for building and maintaining modern websites. (4 tools)
 - [Typography & Web Fonts](https://www.staticstack.app/category/typography-fonts/): Self-host open-source web fonts or use privacy-first, GDPR-compliant CDN font services. (3 tools)
@@ -61,5 +62,5 @@ StaticStack helps developers replace heavy monolithic backends with composable s
 
 ## Full Reference
 
-- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 169 tools, official URLs, tags, badges, and 10 blog guides.
+- [Complete StaticStack Catalog](https://www.staticstack.app/llms-full.txt): Full Markdown reference of all 188 tools, official URLs, tags, badges, and 10 blog guides.
 - [XML Sitemap](https://www.staticstack.app/sitemap.xml): Canonical URL index.

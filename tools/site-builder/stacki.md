@@ -3,7 +3,7 @@
 > Webflow-familiar visual site builder engineered for local developers and modern static web workflows.
 
 1. **Official Website**: <a href="https://stacki.build/" target="_blank" rel="noopener noreferrer">stacki.build</a>
-2. **Category**: [Content Management](../../README.md#content-management)
+2. **Category**: [Site Builder](../../README.md#site-builder)
 3. **Type**: Visual Site Builder & Static Workflow Tool
 4. **Pricing / License**: Freemium
 

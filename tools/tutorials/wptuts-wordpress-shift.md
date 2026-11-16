@@ -30,10 +30,10 @@ The guide breaks down whether it still makes sense to stick 100% with WordPress,
 
 The walkthrough showcases four modern static-first and visual builders:
 
-1. **[Sitereal](../development-tools/sitereal.md)**: An offline desktop app (Mac/Windows) featuring visual drag-and-drop editing, local Markdown/CMS collections, AI component generation, and native Astro code output.
-2. **[Instatic](../content-management/instatic.md)**: A free, browser-based visual builder built by the Core Framework developers, offering clean utility workflows and AI generation.
-3. **[Stacki](../content-management/stacki.md)**: A Webflow-familiar visual site builder offering both local and collaborative static web workflows.
-4. **[Phantom Studio](../content-management/phantom-studio.md)**: A visual builder designed to give WordPress creators a familiar experience while producing fast, secure static sites.
+1. **[Sitereal](../site-builder/sitereal.md)**: An offline desktop app (Mac/Windows) featuring visual drag-and-drop editing, local Markdown/CMS collections, AI component generation, and native Astro code output.
+2. **[Instatic](../site-builder/instatic.md)**: A free, browser-based visual builder built by the Core Framework developers, offering clean utility workflows and AI generation.
+3. **[Stacki](../site-builder/stacki.md)**: A Webflow-familiar visual site builder offering both local and collaborative static web workflows.
+4. **[Phantom Studio](../site-builder/phantom-studio.md)**: A visual builder designed to give WordPress creators a familiar experience while producing fast, secure static sites.
 
 ---
 

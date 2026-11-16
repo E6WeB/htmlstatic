@@ -1,6 +1,6 @@
 # StaticStack — Complete Tool & Guide Catalog
 
-> Complete machine-readable Markdown catalog of 169 static web tools across 29 categories and 10 blog guides.
+> Complete machine-readable Markdown catalog of 188 static web tools across 30 categories and 10 blog guides.
 
 Canonical Site: https://www.staticstack.app/
 Concise Index: https://www.staticstack.app/llms.txt
@@ -77,7 +77,7 @@ Concise Index: https://www.staticstack.app/llms.txt
 - Summary: The complete blueprint for building dynamic-feeling static websites with zero databases, zero server maintenance, and serverless micro-APIs.
 - Tags: serverless, no-database, jamstack, static-website, clerk, stripe, supabase, architecture
 
-## Tool Directory by Category (29 Categories, 169 Tools)
+## Tool Directory by Category (30 Categories, 188 Tools)
 
 ### AI & Content Creation (7 tools)
 Category Page: https://www.staticstack.app/category/ai-content-creation/
@@ -309,7 +309,7 @@ Add contact forms to static websites without building your own form-processing b
   - Badges: Freemium
   - Tags: web3forms, contact-form-backend, static-forms, jamstack-forms, serverless-forms, html-forms, anti-spam, form-api, email-notifications, static-html-form
 
-### Content Management (7 tools)
+### Content Management (4 tools)
 Category Page: https://www.staticstack.app/category/content-management/
 Manage content on static websites without adopting a traditional, full-featured CMS.
 
@@ -323,31 +323,16 @@ Manage content on static websites without adopting a traditional, full-featured 
   - Official Website: https://decapcms.org/
   - Badges: Open Source
   - Tags: decap-cms, netlify-cms, git-backed-cms, markdown-editor, open-source-headless-cms, astro-hugo-cms, git-based-cms, headless-cms, markdown-cms, wordpress-alternative
-- **Instatic** — Free, browser-based visual website builder created by the Core Framework developers for building modern static sites.
-  - StaticStack Page: https://www.staticstack.app/tools/content-management/instatic
-  - Official Website: https://instatic.com/
-  - Badges: Free
-  - Tags: instatic, core-framework, visual-builder, free-website-builder, static-site-generator, css-framework, ai-web-design, wordpress-alternative, jamstack-builder, git-based-cms
 - **Pages CMS** — Modern Git-based content management with a sleek, browser-based interface.
   - StaticStack Page: https://www.staticstack.app/tools/content-management/pages-cms
   - Official Website: https://pagescms.org/
   - Badges: Open Source
   - Tags: pages-cms, github-cms, markdown-frontmatter-editor, collaborative-git-cms, nextjs-astro-cms, git-based-cms, headless-cms, markdown-cms, wordpress-alternative, static-site-cms
-- **Phantom Studio** — Visual website builder providing a familiar workflow for WordPress creators with static export and minimal ongoing maintenance.
-  - StaticStack Page: https://www.staticstack.app/tools/content-management/phantom-studio
-  - Official Website: https://phantomstudio.app/
-  - Badges: Freemium
-  - Tags: phantom-studio, phantom-wp, wordpress-migration, visual-builder, static-site-generator, cms-maintenance-reduction, fast-static-sites, git-based-cms, headless-cms, markdown-cms
 - **ProcessWire** — Free, flexible open-source CMS and content management framework designed for clean markup and developer freedom.
   - StaticStack Page: https://www.staticstack.app/tools/content-management/processwire
   - Official Website: https://processwire.com/
   - Badges: Open Source
   - Tags: processwire, open-source-cms, headless-cms, php-content-framework, custom-fields-cms, clean-markup, content-management, wordpress-alternative, flexible-api, rest-api-cms
-- **Stacki** — Webflow-familiar visual site builder engineered for local developers and modern static web workflows.
-  - StaticStack Page: https://www.staticstack.app/tools/content-management/stacki
-  - Official Website: https://stacki.build/
-  - Badges: Freemium
-  - Tags: stacki, webflow-alternative, visual-builder, static-site-builder, local-workflows, collaborative-builder, jamstack, clean-code-export, git-based-cms, headless-cms
 
 ### CSS & UI Component Libraries (4 tools)
 Category Page: https://www.staticstack.app/category/css-components/
@@ -394,7 +379,7 @@ Store, query, and synchronize data from static frontends without maintaining ser
   - Badges: Open Source, Freemium
   - Tags: supabase, open-source-firebase, postgres-rest-api, realtime-subscriptions, edge-functions, pgvector, serverless-database, baas, rest-api, realtime-db
 
-### Development Tools (22 tools)
+### Development Tools (19 tools)
 Category Page: https://www.staticstack.app/category/development-tools/
 Tools that make building, testing, and maintaining static websites easier.
 
@@ -408,11 +393,6 @@ Tools that make building, testing, and maintaining static websites easier.
   - Official Website: https://antigravity.google/
   - Badges: Freemium
   - Tags: antigravity-ide, ai-pair-programming, agentic-ide, browser-automation-ide, multi-agent-coding, google-deepmind, ai-coding-agent, vibe-coding, code-editor, web-performance
-- **Bootstrap Studio** — Visual desktop web design application for creating responsive websites using the Bootstrap framework and exporting clean HTML.
-  - StaticStack Page: https://www.staticstack.app/tools/development-tools/bootstrap-studio
-  - Official Website: https://bootstrapstudio.io/
-  - Badges: Paid
-  - Tags: bootstrap-studio, drag-and-drop-html, visual-bootstrap-builder, clean-html-export, desktop-web-builder, ai-coding-agent, vibe-coding, code-editor, web-performance, core-web-vitals
 - **Brickstatic** — Export and publish WordPress Bricks Builder sites as static HTML for GitHub or any static host.
   - StaticStack Page: https://www.staticstack.app/tools/development-tools/brickstatic
   - Official Website: https://builtforbricks.com/brickstatic/
@@ -433,11 +413,6 @@ Tools that make building, testing, and maintaining static websites easier.
   - Official Website: https://getartcraft.com/apps/effectcraft
   - Badges: Open Source, Beta
   - Tags: motion-graphics, rust, after-effects-alternative, lottie, vfx, animation, video, beta, effectcraft, open-source-after-effects
-- **Emdash** — Free, open-source agentic development environment to run coding agents in parallel, schedule workflows, and review changes.
-  - StaticStack Page: https://www.staticstack.app/tools/development-tools/emdash
-  - Official Website: https://emdash.com/
-  - Badges: Open Source
-  - Tags: emdash, parallel-coding-agents, agentic-orchestration, git-worktree-agents, autonomous-coding, ai-dev-environment, ai-coding-agent, vibe-coding, code-editor, web-performance
 - **ESLint** — Find and fix problems in your JavaScript code before deploying.
   - StaticStack Page: https://www.staticstack.app/tools/development-tools/eslint
   - Official Website: https://eslint.org/
@@ -483,11 +458,6 @@ Tools that make building, testing, and maintaining static websites easier.
   - Official Website: https://prettier.io/
   - Badges: Open Source
   - Tags: prettier, opinionated-code-formatter, auto-format-html-css-js, clean-code-style, editor-save-format, ai-coding-agent, vibe-coding, code-editor, web-performance, core-web-vitals
-- **sitereal** — Visual builder for Astro that writes real .astro files into your repository with full code access and zero vendor lock-in.
-  - StaticStack Page: https://www.staticstack.app/tools/development-tools/sitereal
-  - Official Website: https://sitereal.app/
-  - Badges: Paid
-  - Tags: astro, visual-builder, page-builder, desktop-editor, jamstack, sitereal, visual-astro-builder, webflow-for-astro, git-synced-visual-editor, tailwind-visual-builder
 - **StaticSEO** — Open-source SEO tool and plugin for static websites that bakes meta tags, Open Graph cards, JSON-LD structured data, and XML sitemaps directly into static HTML at publish time.
   - StaticStack Page: https://www.staticstack.app/tools/development-tools/staticseo
   - Official Website: https://staticseo.co/
@@ -939,15 +909,145 @@ Protect forms and websites against automated spam and abuse.
   - Badges: Freemium
   - Tags: hcaptcha, privacy-focused-captcha, gdpr-bot-mitigation, recaptcha-drop-in-replacement, bot-protection, captcha-alternative, form-spam-filter, privacy-captcha, zero-friction-security, freemium
 
-### Static Site Generators (8 tools)
-Category Page: https://www.staticstack.app/category/static-site-generators/
-Build fast, pre-rendered static HTML websites from templates and Markdown.
+### Site Builder (26 tools)
+Category Page: https://www.staticstack.app/category/site-builder/
+Visual website builders, desktop editors, and static-first frameworks for building actual static HTML websites.
 
 - **Astro** — Web framework designed for content-driven websites that ships zero JavaScript by default.
-  - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/astro
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/astro
   - Official Website: https://astro.build/
   - Badges: Open Source
   - Tags: astro-build, islands-architecture, zero-js-by-default, mdx-content-collections, fastest-static-framework, ssg, jamstack, markdown-to-html, zero-js, fast-static-sites
+- **Blocs** — Visual website builder for Mac, iPad, and iPhone that exports clean, responsive static HTML, CSS, and Bootstrap sites.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/blocs
+  - Official Website: https://blocsapp.com/
+  - Badges: Paid
+  - Tags: blocs, mac-website-builder, bootstrap-builder, static-html-export, visual-web-design, offline-site-builder, site-builder, visual-website-builder, static-html-builder, clean-html-export
+- **Bootstrap Studio** — Visual desktop web design application for creating responsive websites using the Bootstrap framework and exporting clean HTML.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/bootstrap-studio
+  - Official Website: https://bootstrapstudio.io/
+  - Badges: Paid
+  - Tags: bootstrap-studio, drag-and-drop-html, visual-bootstrap-builder, clean-html-export, desktop-web-builder, ai-coding-agent, vibe-coding, code-editor, web-performance, core-web-vitals
+- **Carrd** — Simple, free, and responsive one-page website builder for portfolios, landing pages, and personal profiles.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/carrd
+  - Official Website: https://carrd.co/
+  - Badges: Freemium
+  - Tags: carrd, one-page-site-builder, landing-page-builder, no-code-website, responsive-profiles, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **Dorik** — AI-powered no-code website builder for creating responsive landing pages and static marketing sites.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/dorik
+  - Official Website: https://dorik.com/
+  - Badges: Freemium
+  - Tags: dorik, ai-website-builder, no-code-builder, landing-page-builder, static-export, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **Emdash** — Free, open-source agentic development environment to run coding agents in parallel, schedule workflows, and review changes.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/emdash
+  - Official Website: https://emdash.com/
+  - Badges: Open Source
+  - Tags: emdash, parallel-coding-agents, agentic-orchestration, git-worktree-agents, autonomous-coding, ai-dev-environment, ai-coding-agent, vibe-coding, code-editor, web-performance
+- **EmDash CMS** — Open-source, TypeScript-native CMS and site builder built on Astro for fast static and edge-rendered websites.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/emdash-cms
+  - Official Website: https://emdashcms.com/
+  - Badges: Open Source
+  - Tags: emdash-cms, astro-cms, open-source-cms, typescript-cms, static-site-builder, edge-cms, site-builder, visual-website-builder, static-html-builder, clean-html-export
+- **GrapesJS** — Free, open-source web builder framework for visually designing HTML templates, landing pages, and websites.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/grapesjs
+  - Official Website: https://grapesjs.com/
+  - Badges: Open Source
+  - Tags: grapesjs, open-source-site-builder, html-page-builder, visual-editor, clean-html-export, site-builder, visual-website-builder, static-html-builder, no-code-static, astro-builder
+- **Instatic** — Free, browser-based visual website builder created by the Core Framework developers for building modern static sites.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/instatic
+  - Official Website: https://instatic.com/
+  - Badges: Free
+  - Tags: instatic, core-framework, visual-builder, free-website-builder, static-site-generator, css-framework, ai-web-design, wordpress-alternative, jamstack-builder, site-builder
+- **Mobirise** — Free offline website builder software for Windows, Mac, and Linux that exports pure static HTML, CSS, and JS.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/mobirise
+  - Official Website: https://mobirise.com/
+  - Badges: Freemium
+  - Tags: mobirise, offline-website-builder, static-html-export, bootstrap-builder, no-code-desktop, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **Nicepage** — Visual website builder software for desktop and web that exports clean static HTML5, CSS, and responsive templates.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/nicepage
+  - Official Website: https://nicepage.com/
+  - Badges: Freemium
+  - Tags: nicepage, visual-website-builder, html5-export, responsive-templates, desktop-site-builder, site-builder, static-html-builder, clean-html-export, no-code-static, astro-builder
+- **Phantom Studio** — Visual website builder providing a familiar workflow for WordPress creators with static export and minimal ongoing maintenance.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/phantom-studio
+  - Official Website: https://phantomstudio.app/
+  - Badges: Freemium
+  - Tags: phantom-studio, phantom-wp, wordpress-migration, visual-builder, static-site-generator, cms-maintenance-reduction, fast-static-sites, site-builder, visual-website-builder, static-html-builder
+- **Pinegrow** — Desktop visual HTML and CSS editor for building responsive websites with Bootstrap, Tailwind CSS, and plain HTML.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/pinegrow
+  - Official Website: https://pinegrow.com/
+  - Badges: Paid
+  - Tags: pinegrow, visual-html-editor, css-grid-editor, tailwind-visual-editor, bootstrap-editor, static-html-builder, site-builder, visual-website-builder, clean-html-export, no-code-static
+- **Primo** — Open-source, Svelte-powered visual site builder and static CMS for creating and deploying static websites.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/primo
+  - Official Website: https://primo.build/
+  - Badges: Open Source
+  - Tags: primo, open-source-site-builder, static-cms, svelte-blocks, visual-editor, github-pages, site-builder, visual-website-builder, static-html-builder, clean-html-export
+- **Publii** — Free, open-source desktop static site CMS and visual builder for creating fast, secure HTML websites offline.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/publii
+  - Official Website: https://getpublii.com/
+  - Badges: Open Source
+  - Tags: publii, desktop-static-cms, offline-site-builder, open-source-ssg, static-blog-builder, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **RapidWeaver** — Native macOS website builder for designing and publishing fast, static HTML websites without coding.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/rapidweaver
+  - Official Website: https://www.realmacsoftware.com/rapidweaver/
+  - Badges: Paid
+  - Tags: rapidweaver, mac-website-builder, static-html-export, visual-web-design, realmac, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **Silex** — Free, open-source, browser-based static website builder with clean HTML/CSS output and Git integration.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/silex
+  - Official Website: https://www.silex.me/
+  - Badges: Open Source
+  - Tags: silex, open-source-website-builder, libre-software, no-code-static, html-css-export, git-hosting, site-builder, visual-website-builder, static-html-builder, clean-html-export
+- **Sitely** — Visual website builder for Mac and iPad that generates clean static HTML, CSS, and JavaScript offline.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/sitely
+  - Official Website: https://sitely.app/
+  - Badges: Paid
+  - Tags: sitely, sparkle-app, mac-website-builder, ipad-website-builder, static-html-export, visual-design, site-builder, visual-website-builder, static-html-builder, clean-html-export
+- **Siter.io** — Browser-based no-code and AI website builder with freeform design controls and static HTML export.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/siter-io
+  - Official Website: https://siter.io/
+  - Badges: Freemium
+  - Tags: siter-io, no-code-website-builder, ai-web-design, figma-to-html, static-html-export, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **sitereal** — Visual builder for Astro that writes real .astro files into your repository with full code access and zero vendor lock-in.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/sitereal
+  - Official Website: https://sitereal.app/
+  - Badges: Paid
+  - Tags: astro, visual-builder, page-builder, desktop-editor, jamstack, sitereal, visual-astro-builder, webflow-for-astro, git-synced-visual-editor, tailwind-visual-builder
+- **Stacki** — Webflow-familiar visual site builder engineered for local developers and modern static web workflows.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/stacki
+  - Official Website: https://stacki.build/
+  - Badges: Freemium
+  - Tags: stacki, webflow-alternative, visual-builder, static-site-builder, local-workflows, collaborative-builder, jamstack, clean-code-export, site-builder, visual-website-builder
+- **TeleportHQ** — Collaborative low-code visual website builder that exports clean static HTML, CSS, React, Vue, and Astro code.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/teleporthq
+  - Official Website: https://teleporthq.io/
+  - Badges: Freemium
+  - Tags: teleporthq, low-code-website-builder, html-css-export, figma-to-code, static-site-builder, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **Tilda** — Block-based visual website builder for creating editorial landing pages and publishing static HTML sites.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/tilda
+  - Official Website: https://tilda.cc/
+  - Badges: Freemium
+  - Tags: tilda, visual-site-builder, landing-page-builder, zero-block, html-export, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **Vvveb** — Open-source visual website builder and lightweight CMS with a drag-and-drop page editor and static export.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/vvveb
+  - Official Website: https://www.vvveb.com/
+  - Badges: Open Source
+  - Tags: vvveb, vvvebjs, open-source-site-builder, drag-and-drop-html, static-html-builder, site-builder, visual-website-builder, clean-html-export, no-code-static, astro-builder
+- **Webflow** — Visual web design platform with granular CSS layout control, animations, and static HTML/CSS/JS code export.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/webflow
+  - Official Website: https://webflow.com/
+  - Badges: Freemium
+  - Tags: webflow, visual-css-builder, no-code-web-design, html-css-export, responsive-site-builder, site-builder, visual-website-builder, static-html-builder, clean-html-export, no-code-static
+- **Webstudio** — Open-source, Webflow-alternative visual website builder with standards-compliant CSS and static export.
+  - StaticStack Page: https://www.staticstack.app/tools/site-builder/webstudio
+  - Official Website: https://webstudio.is/
+  - Badges: Open Source
+  - Tags: webstudio, open-source-webflow, visual-site-builder, static-export, css-tokens, zero-lock-in, site-builder, visual-website-builder, static-html-builder, clean-html-export
+
+### Static Site Generators (7 tools)
+Category Page: https://www.staticstack.app/category/static-site-generators/
+Build fast, pre-rendered static HTML websites from templates and Markdown.
+
 - **Eleventy (11ty)** — Simple, flexible static site generator that transforms templates and Markdown into fast static HTML.
   - StaticStack Page: https://www.staticstack.app/tools/static-site-generators/eleventy
   - Official Website: https://www.11ty.dev/

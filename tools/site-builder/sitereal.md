@@ -3,7 +3,7 @@
 > Visual builder for Astro that writes real .astro files into your repository with full code access and zero vendor lock-in.
 
 1. **Official Website**: <a href="https://sitereal.app/" target="_blank" rel="noopener noreferrer">sitereal.app</a>
-2. **Category**: [Development Tools](../../README.md#development-tools)
+2. **Category**: [Site Builder](../../README.md#site-builder)
 3. **Type**: Visual Website Builder & Desktop Editor for Astro
 4. **Pricing / License**: Paid
 
