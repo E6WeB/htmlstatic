@@ -5,7 +5,7 @@
   "main": "serve.js",
   "scripts": {
     "build": "astro build",
-    "generate": "node generate-pages.js",
+    "legacy:generate": "node generate-pages.js",
     "serve": "node serve.js",
     "start": "node serve.js",
     "dev": "astro dev",

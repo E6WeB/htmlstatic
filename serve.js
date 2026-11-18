@@ -8,6 +8,14 @@ const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
 
+const serverModulesDir = path.join(__dirname, '.server', 'node_modules');
+if (fs.existsSync(serverModulesDir)) {
+  process.env.NODE_PATH = process.env.NODE_PATH
+    ? `${serverModulesDir}${path.delimiter}${process.env.NODE_PATH}`
+    : serverModulesDir;
+  require('module').Module._initPaths();
+}
+
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 8080;
 const SERVE_DIR = path.resolve(__dirname, 'dist');
 const ASSET_DIR = path.join(SERVE_DIR, 'asset');

@@ -1,13 +1,39 @@
 kind: wasmer.io/App.v0
 name: staticstack
-owner: e6web
+app_id: da_nZyIPt1U81dj
+owner: scotb1010
 package: .
-description: StaticStack (staticstack.app) - Static Website Toolkit and Community on Wasmer Edge
+locality:
+  regions:
+  - fr-roub1
 env:
-  HOST: "0.0.0.0"
+  HOST: 0.0.0.0
 capabilities:
   database:
     engine: postgres
-locality:
-  regions:
-    - fr-roub1
+description: StaticStack (staticstack.app) - Static Website Toolkit and Community on Wasmer Edge
+annotations:
+  anybuild.run/config:
+    edgejs_enable: true
+    edgejs_precompile: true
+    name: out
+    node_build_command: 'npm run build && npm install --prefix .server pg geoip-lite --no-save'
+    node_framework: astro
+    node_install_inputs:
+    - package.json
+    node_package_manager: npm
+    node_package_name: html-static
+    node_remove_native_binaries: true
+    node_server: node
+    npm_version: '11'
+    static_dir: dist
+    commands:
+      build: 'npm run build && npm install --prefix .server pg geoip-lite --no-save'
+      start: node serve.js
+    services:
+    - engine: postgres
+      name: database
+  anybuild.run/provider: node
+  anybuild.run/version: 0.33.3
+  wasmer.io/version: 7.5.0
+enableDatabase: true
