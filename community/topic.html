@@ -1000,6 +1000,9 @@
                 </a>
               </li>
             </ul>
+            <div style="margin-top:0.75rem; text-align:right;">
+              <a href="/blog/" style="font-size:0.78rem; font-weight:700; color:var(--accent); text-decoration:none;">View Archive &rarr;</a>
+            </div>
           </div>
         </div>
 
@@ -1132,17 +1135,14 @@
               color: #000000 !important;
             }
           </style>
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.6rem;">
-            <div style="display:flex; align-items:center; gap:0.5rem;">
-              <span style="display:inline-flex; align-items:center; color:#0070ba;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z" fill="#003087"/>
-                  <path d="M9.13 15.688l1.196-7.575a.8.8 0 0 1 .79-.675h5.176c2.81 0 4.887 1.405 4.51 4.27-.373 2.825-2.327 4.33-4.896 4.33H11.75l-.946 5.682a.8.8 0 0 1-.79.674H6.386a.64.64 0 0 1-.632-.74l1.378-8.291L9.13 15.688z" fill="#0079C1"/>
-                </svg>
-              </span>
-              <strong style="font-size:0.875rem; color:var(--text-main);">Support StaticStack</strong>
-            </div>
-            <span style="font-size:0.65rem; font-weight:700; color:#0070ba; background:rgba(0,112,186,0.1); padding:2px 6px; border-radius:10px; letter-spacing:0.03em;">DONATE</span>
+          <div class="sidebar-widget-header">
+            <span style="display:inline-flex; align-items:center; color:#0070ba;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z" fill="#003087"/>
+                <path d="M9.13 15.688l1.196-7.575a.8.8 0 0 1 .79-.675h5.176c2.81 0 4.887 1.405 4.51 4.27-.373 2.825-2.327 4.33-4.896 4.33H11.75l-.946 5.682a.8.8 0 0 1-.79.674H6.386a.64.64 0 0 1-.632-.74l1.378-8.291L9.13 15.688z" fill="#0079C1"/>
+              </svg>
+            </span>
+            <h4 class="sidebar-widget-title">Donations</h4>
           </div>
           <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.45; margin-bottom:0.75rem;">
             Help keep this catalog free, independent, and actively maintained.
@@ -1218,10 +1218,57 @@
           </script>
         </div>
 
+        <!-- Embeddable "Featured on StaticStack" Badge -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-header">
+            <span style="color:var(--accent); display:inline-flex; align-items:center;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            </span>
+            <h4 class="sidebar-widget-title">Embed Badge</h4>
+          </div>
+          <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
+            Feature StaticStack in your README or site footer with our official embeddable badge.
+          </p>
+          <div style="margin-bottom:0.85rem; display:flex; justify-content:center;">
+            <img src="/badge/featured.svg" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto; margin:0 auto;">
+          </div>
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-badge-url="https://www.staticstack.app/badge/featured.svg" data-target-url="https://www.staticstack.app/" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+              Copy Markdown
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-badge-url="https://www.staticstack.app/badge/featured.svg" data-target-url="https://www.staticstack.app/" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+              Copy HTML
+            </button>
+          </div>
+          <script>
+            (function() {
+              document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
+                if (btn.dataset.badgeBound) return;
+                btn.dataset.badgeBound = '1';
+                btn.addEventListener('click', function() {
+                  var type = btn.getAttribute('data-copy-type');
+                  var targetUrl = btn.getAttribute('data-target-url');
+                  var badgeUrl = btn.getAttribute('data-badge-url');
+                  var snippet = type === 'html'
+                    ? '<a href="' + targetUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
+                    : '[![Featured on StaticStack](' + badgeUrl + ')](' + targetUrl + ')';
+                  var orig = btn.textContent;
+                  if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(snippet).then(function() {
+                      btn.textContent = 'Copied!';
+                      setTimeout(function() { btn.textContent = orig; }, 1800);
+                    }).catch(function() {});
+                  }
+                });
+              });
+            })();
+          </script>
+        </div>
+
         <!-- Submit Alternative Dashed CTA Card -->
         <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
-          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-            <span style="color:var(--accent); display:inline-flex;">
+          <div class="sidebar-widget-header">
+            <span style="color:var(--accent); display:inline-flex; align-items:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -1229,7 +1276,7 @@
                 <line x1="8" y1="12" x2="16" y2="12"></line>
               </svg>
             </span>
-            <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+            <h4 class="sidebar-widget-title">Know a Great Tool?</h4>
           </div>
           <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
             StaticStack is community curated. Share your favorite static web service or tool with the community.

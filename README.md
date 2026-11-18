@@ -522,6 +522,12 @@ Build responsive, accessible user interfaces without complex build steps or heav
     <td><a href="https://lucide.dev/" target="_blank" rel="noopener noreferrer">lucide.dev</a></td>
   </tr>
   <tr>
+    <td><a href="tools/css-components/lumos-framework.md">Lumos Framework</a></td>
+    <td>Open-source component and styling framework for Astro built around design tokens &amp; accessibility</td>
+    <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>
+    <td><a href="https://lumosframework.com/" target="_blank" rel="noopener noreferrer">lumosframework.com</a></td>
+  </tr>
+  <tr>
     <td><a href="tools/css-components/pico-css.md">Pico CSS</a></td>
     <td>Minimal, semantic classless CSS framework styling pure HTML</td>
     <td><img src="https://img.shields.io/badge/Open_Source-238636?style=flat-square" alt="Open Source"></td>

@@ -1140,7 +1140,7 @@ const BASE_CSS = `
     font-size: 0.75rem;
     font-weight: 600;
     padding: 0.2rem 0.55rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     white-space: nowrap;
   }
 
@@ -1457,7 +1457,7 @@ const BASE_CSS = `
     font-size: 0.7rem;
     font-weight: 600;
     padding: 0.2rem 0.55rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border-color);
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   }
@@ -1531,7 +1531,7 @@ const BASE_CSS = `
     color: var(--text-muted);
     background: var(--bg-muted);
     padding: 0.2rem 0.55rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border-color);
     font-variant-numeric: tabular-nums;
   }
@@ -1747,7 +1747,7 @@ const BASE_CSS = `
     background: var(--accent-light);
     color: var(--accent);
     padding: 0.15rem 0.55rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     font-weight: 700;
     flex-shrink: 0;
   }
@@ -1756,7 +1756,7 @@ const BASE_CSS = `
     font-size: 0.725rem;
     font-weight: 600;
     padding: 0.15rem 0.55rem;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-sm);
     background: var(--bg-surface);
     color: var(--accent);
     text-decoration: none;
@@ -1973,7 +1973,7 @@ const BASE_CSS = `
     background: var(--bg-muted);
     border: 1px solid var(--border-color);
     padding: 0.28rem 0.65rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     margin-top: 0.85rem;
   }
 
@@ -2590,23 +2590,20 @@ const BASE_CSS = `
   .tool-tag-pill {
     display: inline-flex;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.825rem;
     font-weight: 600;
-    padding: 0.25rem 0.65rem;
-    border-radius: var(--radius-full);
-    background: var(--bg-body);
-    border: 1px solid var(--border-color);
+    padding: 0.15rem 0.25rem;
+    border-radius: 0;
+    background: transparent;
+    border: none;
     color: var(--text-muted);
     text-decoration: none;
-    transition: all 0.15s ease;
+    transition: color 0.15s ease;
   }
 
   .tool-tag-pill:hover {
-    border-color: var(--accent);
     color: var(--accent);
-    background: var(--accent-light);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    text-decoration: underline;
   }
 
   .tool-page-sidebar {
@@ -2858,21 +2855,20 @@ const BASE_CSS = `
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.4rem 0.85rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    font-size: 0.825rem;
-    font-weight: 500;
-    color: var(--text-main);
+    padding: 0.2rem 0.35rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: color 0.15s ease;
   }
 
   .community-tag-pill:hover {
-    background: var(--accent-light);
-    border-color: var(--accent);
     color: var(--accent);
+    text-decoration: underline;
   }
 
   .community-channel-card {
@@ -3128,7 +3124,7 @@ const BASE_CSS = `
     font-size: 0.75rem;
     font-weight: 600;
     padding: 0.4rem 0.85rem;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-sm);
     background: var(--bg-body);
     border: 1px solid var(--border-color);
     color: var(--text-muted);
@@ -3216,12 +3212,12 @@ const BASE_CSS = `
   }
 
   .cat-hub-tag-pill {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    padding: 0.15rem 0.5rem;
-    border-radius: var(--radius-sm);
-    background: var(--bg-body);
-    border: 1px solid var(--border-color);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0;
+    background: transparent;
+    border: none;
     color: var(--text-subtle);
   }
 
@@ -3412,7 +3408,7 @@ const BASE_CSS = `
     align-items: center;
     background: var(--bg-surface);
     border: 2px solid var(--border-color);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
     padding: 0.5rem 0.6rem 0.5rem 1.35rem;
     box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.09);
     gap: 0.65rem;
@@ -3474,7 +3470,7 @@ const BASE_CSS = `
   }
 
   .search-box-pill .search-btn {
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     padding: 0.65rem 1.45rem;
     font-size: 0.95rem;
     font-weight: 600;
@@ -4133,7 +4129,7 @@ const BASE_CSS = `
     align-items: center;
     gap: 0.65rem;
     padding: 0.7rem 1.35rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
@@ -4458,18 +4454,19 @@ const BASE_CSS = `
   }
   .search-tag-pill {
     display: inline-block;
-    padding: 0.2rem 0.55rem;
-    margin: 0.2rem;
-    border-radius: var(--radius-full);
-    background: var(--bg-muted);
-    border: 1px solid var(--border-color);
+    padding: 0.15rem 0.25rem;
+    margin: 0.15rem 0.25rem;
+    border-radius: 0;
+    background: transparent;
+    border: none;
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.825rem;
+    font-weight: 600;
     text-decoration: none;
   }
   .search-tag-pill:hover {
     color: var(--accent);
-    border-color: var(--accent);
+    text-decoration: underline;
   }
 
   /* Header Quick Search Button */
@@ -4480,7 +4477,7 @@ const BASE_CSS = `
     padding: 0.4rem 0.75rem;
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     color: var(--text-muted);
     font-size: 0.85rem;
     cursor: pointer;

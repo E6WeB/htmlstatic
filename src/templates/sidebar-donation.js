@@ -54,17 +54,14 @@ function renderSidebarDonationWidget() {
                 color: #000000 !important;
               }
             </style>
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.6rem;">
-              <div style="display:flex; align-items:center; gap:0.5rem;">
-                <span style="display:inline-flex; align-items:center; color:#0070ba;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z" fill="#003087"/>
-                    <path d="M9.13 15.688l1.196-7.575a.8.8 0 0 1 .79-.675h5.176c2.81 0 4.887 1.405 4.51 4.27-.373 2.825-2.327 4.33-4.896 4.33H11.75l-.946 5.682a.8.8 0 0 1-.79.674H6.386a.64.64 0 0 1-.632-.74l1.378-8.291L9.13 15.688z" fill="#0079C1"/>
-                  </svg>
-                </span>
-                <strong style="font-size:0.875rem; color:var(--text-main);">Support StaticStack</strong>
-              </div>
-              <span style="font-size:0.65rem; font-weight:700; color:#0070ba; background:rgba(0,112,186,0.1); padding:2px 6px; border-radius:10px; letter-spacing:0.03em;">DONATE</span>
+            <div class="sidebar-widget-header">
+              <span style="display:inline-flex; align-items:center; color:#0070ba;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.45a.8.8 0 0 1 .79-.675h7.672c3.54 0 6.096 1.768 5.62 5.372-.437 3.32-2.73 5.09-5.748 5.09H9.983l-1.07 6.452a.8.8 0 0 1-.79.674l-1.047-.026z" fill="#003087"/>
+                  <path d="M9.13 15.688l1.196-7.575a.8.8 0 0 1 .79-.675h5.176c2.81 0 4.887 1.405 4.51 4.27-.373 2.825-2.327 4.33-4.896 4.33H11.75l-.946 5.682a.8.8 0 0 1-.79.674H6.386a.64.64 0 0 1-.632-.74l1.378-8.291L9.13 15.688z" fill="#0079C1"/>
+                </svg>
+              </span>
+              <h4 class="sidebar-widget-title">Donations</h4>
             </div>
             <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.45; margin-bottom:0.75rem;">
               Help keep this catalog free, independent, and actively maintained.

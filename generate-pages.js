@@ -39,6 +39,7 @@ const { generateLlmsFiles } = require('./src/templates/llms-txt');
 const { createDiscoveryContext } = require('./src/data/discovery-badges');
 const { renderStackPage } = require('./src/templates/stack-page');
 const { renderToolBadgeSvg } = require('./src/templates/badge');
+const { renderEmbedBadgeWidget } = require('./src/templates/components/sidebar-shared');
 
 marked.setOptions({
   gfm: true,
@@ -829,8 +830,11 @@ const archiveContent = `
     <aside class="archive-sidebar">
       <!-- Category Widget -->
       <div class="sidebar-widget archive-categories-widget">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem; padding:0 0.5rem;">
-          <span style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-subtle);">Categories (${categories.length})</span>
+        <div class="sidebar-widget-header" style="justify-content:space-between;">
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.grid}</span>
+            <h4 class="sidebar-widget-title">Categories (${categories.length})</h4>
+          </div>
           <a href="javascript:void(0)" onclick="resetArchiveFilters()" style="font-size:0.75rem; color:var(--accent); font-weight:600; text-decoration:none;">Show All</a>
         </div>
         <ul id="archive-sidebar-list" class="archive-categories-list" style="list-style:none; display:flex; flex-direction:column; gap:0.25rem;">
@@ -917,11 +921,13 @@ const archiveContent = `
 
       ${renderSidebarDonationWidget()}
 
+      ${renderEmbedBadgeWidget({ extraClass: 'archive-sidebar-secondary' })}
+
       <!-- Submit Alternative Card -->
       <div class="sidebar-widget archive-sidebar-secondary" style="background:var(--bg-muted); border-style:dashed;">
-        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-          <span style="color:var(--accent); display:inline-flex;">${ICONS.plusCircle}</span>
-          <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+        <div class="sidebar-widget-header">
+          <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.plusCircle}</span>
+          <h4 class="sidebar-widget-title">Know a Great Tool?</h4>
         </div>
         <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
           StaticStack is community curated. Share your favorite static web service or tool with the community.
@@ -2196,6 +2202,7 @@ fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
 // 3.5. Embeddable Tool Badges (/badge/<slug>.svg)
 const badgeDir = path.join(ROOT_DIR, 'badge');
 ensureDir(badgeDir);
+fs.writeFileSync(path.join(badgeDir, 'featured.svg'), renderToolBadgeSvg(null));
 allTools.forEach(tool => {
   fs.writeFileSync(path.join(badgeDir, `${tool.slug}.svg`), renderToolBadgeSvg(tool));
 });

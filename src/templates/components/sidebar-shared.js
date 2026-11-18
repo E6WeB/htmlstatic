@@ -3,7 +3,9 @@ const { getAllBlogPosts } = require('../../data/blog-posts');
 const { renderSidebarDonationWidget } = require('../sidebar-donation');
 
 function renderBlogPostsSidebarWidget({ title = 'Blog Post', rootPath = '/' } = {}) {
-  const posts = getAllBlogPosts().slice(0, 4);
+  const posts = [...getAllBlogPosts()]
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+    .slice(0, 4);
   const itemsHtml = posts.map((post, idx) => `
               <li>
                 <a href="${rootPath}blog/${post.slug}/">
@@ -23,7 +25,70 @@ function renderBlogPostsSidebarWidget({ title = 'Blog Post', rootPath = '/' } = 
               <ul class="blog-toc-list">
                 ${itemsHtml}
               </ul>
+              <div style="margin-top:0.75rem; text-align:right;">
+                <a href="${rootPath}blog/" style="font-size:0.78rem; font-weight:700; color:var(--accent); text-decoration:none;">View Archive &rarr;</a>
+              </div>
             </div>
+          </div>
+  `.trim();
+}
+
+function renderEmbedBadgeWidget({ tool = null, extraClass = '' } = {}) {
+  const isTool = Boolean(tool && tool.slug && tool.categorySlug);
+  const badgePath = isTool ? `/badge/${escapeHtml(tool.slug)}.svg` : '/badge/featured.svg';
+  const badgeUrl = `https://www.staticstack.app${badgePath}`;
+  const targetUrl = isTool
+    ? `https://www.staticstack.app/tools/${escapeHtml(tool.categorySlug)}/${escapeHtml(tool.slug)}`
+    : 'https://www.staticstack.app/';
+  const description = isTool
+    ? `Show that ${escapeHtml(tool.name)} is listed on StaticStack in your README or footer.`
+    : 'Feature StaticStack in your README or site footer with our official embeddable badge.';
+  const widgetClass = extraClass ? `sidebar-widget ${extraClass}` : 'sidebar-widget';
+
+  return `
+          <!-- Embeddable "Featured on StaticStack" Badge -->
+          <div class="${widgetClass}">
+            <div class="sidebar-widget-header">
+              <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.tag || ICONS.code}</span>
+              <h4 class="sidebar-widget-title">Embed Badge</h4>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
+              ${description}
+            </p>
+            <div style="margin-bottom:0.85rem; display:flex; justify-content:center;">
+              <img src="${badgePath}" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto; margin:0 auto;">
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-badge-url="${badgeUrl}" data-target-url="${targetUrl}" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+                Copy Markdown
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-badge-url="${badgeUrl}" data-target-url="${targetUrl}" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
+                Copy HTML
+              </button>
+            </div>
+            <script>
+              (function() {
+                document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
+                  if (btn.dataset.badgeBound) return;
+                  btn.dataset.badgeBound = '1';
+                  btn.addEventListener('click', function() {
+                    var type = btn.getAttribute('data-copy-type');
+                    var targetUrl = btn.getAttribute('data-target-url');
+                    var badgeUrl = btn.getAttribute('data-badge-url');
+                    var snippet = type === 'html'
+                      ? '<a href="' + targetUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
+                      : '[![Featured on StaticStack](' + badgeUrl + ')](' + targetUrl + ')';
+                    var orig = btn.textContent;
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                      navigator.clipboard.writeText(snippet).then(function() {
+                        btn.textContent = 'Copied!';
+                        setTimeout(function() { btn.textContent = orig; }, 1800);
+                      }).catch(function() {});
+                    }
+                  });
+                });
+              })();
+            </script>
           </div>
   `.trim();
 }
@@ -32,9 +97,9 @@ function renderKnowGreatToolWidget(submitHref = '/submit') {
   return `
           <!-- Submit Alternative Card -->
           <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
-            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-              <span style="color:var(--accent); display:inline-flex;">${ICONS.plusCircle}</span>
-              <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
+            <div class="sidebar-widget-header">
+              <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.plusCircle}</span>
+              <h4 class="sidebar-widget-title">Know a Great Tool?</h4>
             </div>
             <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
               StaticStack is community curated. Share your favorite static web service or tool with the community.
@@ -134,6 +199,8 @@ function renderPostSidebar({ allTools = [], cachedViewsMap = {}, getToolSiteIcon
 
         ${renderSidebarDonationWidget()}
 
+        ${renderEmbedBadgeWidget()}
+
         ${renderKnowGreatToolWidget(`${rootPath}submit`)}
 
         ${renderFacebookCommunityWidget()}
@@ -143,6 +210,7 @@ function renderPostSidebar({ allTools = [], cachedViewsMap = {}, getToolSiteIcon
 
 module.exports = {
   renderBlogPostsSidebarWidget,
+  renderEmbedBadgeWidget,
   renderKnowGreatToolWidget,
   renderFacebookCommunityWidget,
   renderPostSidebar
