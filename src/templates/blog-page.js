@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { ICONS, CATEGORY_ICONS, escapeHtml } = require('../data/icons');
 const { renderSidebarDonationWidget } = require('./sidebar-donation');
-const { renderKnowGreatToolWidget, renderFacebookCommunityWidget } = require('./components/sidebar-shared');
+const { renderEmbedBadgeWidget, renderKnowGreatToolWidget, renderFacebookCommunityWidget } = require('./components/sidebar-shared');
 
 function loadBlogViewsMap() {
   try {
@@ -361,6 +361,8 @@ function renderBlogArticlePage({
 
         <!-- Sidebar PayPal Donation Widget -->
         ${renderSidebarDonationWidget()}
+
+        ${renderEmbedBadgeWidget()}
 
         ${renderKnowGreatToolWidget(`${rootPath}submit`)}
 

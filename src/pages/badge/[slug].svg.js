@@ -5,10 +5,16 @@ const { getSiteContext } = require('./src/lib/site-context.js');
 
 export function getStaticPaths() {
   const ctx = getSiteContext();
-  return ctx.allTools.map(tool => ({
-    params: { slug: tool.slug },
-    props: { tool }
-  }));
+  return [
+    ...ctx.allTools.map(tool => ({
+      params: { slug: tool.slug },
+      props: { tool }
+    })),
+    {
+      params: { slug: 'featured' },
+      props: { tool: null }
+    }
+  ];
 }
 
 export function GET({ props }) {

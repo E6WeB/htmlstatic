@@ -1,5 +1,5 @@
 const { renderSearchBar } = require('../templates/components/search-bar');
-const { renderPostSidebar } = require('../templates/components/sidebar-shared');
+const { renderPostSidebar, renderEmbedBadgeWidget } = require('../templates/components/sidebar-shared');
 
 function getHomeHtml(ctx) {
   const {
@@ -892,6 +892,8 @@ const archiveContent = `
       </div>
 
       ${renderSidebarDonationWidget()}
+
+      ${renderEmbedBadgeWidget({ extraClass: 'archive-sidebar-secondary' })}
 
       <!-- Submit Alternative Card -->
       <div class="sidebar-widget archive-sidebar-secondary" style="background:var(--bg-muted); border-style:dashed;">
