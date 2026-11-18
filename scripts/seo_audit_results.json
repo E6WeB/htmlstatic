@@ -1,106 +1,106 @@
 {
-  "totalPages": 212,
+  "totalPages": 240,
   "missingTitle": [],
   "duplicateTitles": {},
   "shortTitles": [],
   "longTitles": [
     {
-      "page": "category/ai-content-creation/index.html",
+      "page": "category/ai-content-creation.html",
       "title": "AI &amp; Content Creation Tools &amp; Services for Static Sites | StaticStack",
       "len": 77
     },
     {
-      "page": "category/analytics-privacy/index.html",
+      "page": "category/analytics-privacy.html",
       "title": "Analytics &amp; Privacy Tools &amp; Services for Static Sites | StaticStack",
       "len": 75
     },
     {
-      "page": "category/authentication-users/index.html",
+      "page": "category/authentication-users.html",
       "title": "Authentication &amp; User Management Tools &amp; Services for Static Sites...",
       "len": 77
     },
     {
-      "page": "category/booking-scheduling/index.html",
+      "page": "category/booking-scheduling.html",
       "title": "Booking &amp; Scheduling Tools &amp; Services for Static Sites | StaticStack",
       "len": 76
     },
     {
-      "page": "category/comments-community/index.html",
+      "page": "category/comments-community.html",
       "title": "Comments &amp; Community Tools &amp; Services for Static Sites | StaticStack",
       "len": 76
     },
     {
-      "page": "category/css-components/index.html",
+      "page": "category/css-components.html",
       "title": "CSS &amp; UI Component Libraries Tools &amp; Services for Static Sites |...",
       "len": 75
     },
     {
-      "page": "category/database-storage/index.html",
+      "page": "category/database-storage.html",
       "title": "Database &amp; Backend-as-a-Service Tools &amp; Services for Static Sites...",
       "len": 76
     },
     {
-      "page": "category/hosting-deployment/index.html",
+      "page": "category/hosting-deployment.html",
       "title": "Hosting &amp; Deployment Tools &amp; Services for Static Sites | StaticStack",
       "len": 76
     },
     {
-      "page": "category/images-optimization/index.html",
+      "page": "category/images-optimization.html",
       "title": "Images &amp; Optimization Tools &amp; Services for Static Sites | StaticStack",
       "len": 77
     },
     {
-      "page": "category/interactive-scripts/index.html",
+      "page": "category/interactive-scripts.html",
       "title": "Interactive Scripts &amp; Animation Tools &amp; Services for Static Sites...",
       "len": 76
     },
     {
-      "page": "category/live-chat/index.html",
+      "page": "category/live-chat.html",
       "title": "Live Chat &amp; Support Tools &amp; Services for Static Sites | StaticStack",
       "len": 75
     },
     {
-      "page": "category/maps-geolocation/index.html",
+      "page": "category/maps-geolocation.html",
       "title": "Interactive Maps &amp; Geolocation Tools &amp; Services for Static Sites |...",
       "len": 77
     },
     {
-      "page": "category/media-players/index.html",
+      "page": "category/media-players.html",
       "title": "Media &amp; Video Players Tools &amp; Services for Static Sites | StaticStack",
       "len": 77
     },
     {
-      "page": "category/monitoring-errors/index.html",
+      "page": "category/monitoring-errors.html",
       "title": "Monitoring &amp; Error Tracking Tools &amp; Services for Static Sites |...",
       "len": 74
     },
     {
-      "page": "category/newsletters-email/index.html",
+      "page": "category/newsletters-email.html",
       "title": "Newsletters &amp; Email Tools &amp; Services for Static Sites | StaticStack",
       "len": 75
     },
     {
-      "page": "category/payments-ecommerce/index.html",
+      "page": "category/payments-ecommerce.html",
       "title": "Payments &amp; E-commerce Tools &amp; Services for Static Sites | StaticStack",
       "len": 77
     },
     {
-      "page": "category/security-spam-protection/index.html",
+      "page": "category/security-spam-protection.html",
       "title": "Security &amp; Spam Protection Tools &amp; Services for Static Sites |...",
       "len": 73
     },
     {
-      "page": "category/static-site-generators/index.html",
+      "page": "category/static-site-generators.html",
       "title": "Static Site Generators Tools &amp; Services for Static Sites | StaticStack",
       "len": 74
     },
     {
-      "page": "category/surveys-feedback/index.html",
+      "page": "category/surveys-feedback.html",
       "title": "Surveys &amp; Feedback Tools &amp; Services for Static Sites | StaticStack",
       "len": 74
     },
     {
-      "page": "category/typography-fonts/index.html",
+      "page": "category/typography-fonts.html",
       "title": "Typography &amp; Web Fonts Tools &amp; Services for Static Sites | StaticStack",
       "len": 78
     }

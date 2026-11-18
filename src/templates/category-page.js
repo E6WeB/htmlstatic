@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const { ICONS, CATEGORY_ICONS, escapeHtml, renderStackSaveBtn } = require('../data/icons');
+const { renderSearchBar } = require('./components/search-bar');
 
 /**
  * Curated FAQ generator for each category.
@@ -672,12 +673,11 @@ function renderCategoryPage({
         <!-- Filter & Search Toolbar -->
         <div class="cat-hub-toolbar">
           <div class="cat-hub-search-wrap">
-            <div class="search-box-pill search-box-pill-compact">
-              <span class="search-icon">${ICONS.search}</span>
-              <input type="text" id="cat-search-input" placeholder="Search ${escapeHtml(category.title)} by name, feature, or #tag..." autocomplete="off">
-              <span class="search-kbd">/</span>
-              <button type="button" id="cat-search-btn" class="btn btn-primary search-btn">Search</button>
-            </div>
+            ${renderSearchBar({
+              inputId: 'cat-search-input',
+              buttonId: 'cat-search-btn',
+              placeholder: `Search ${escapeHtml(category.title)} by name, feature, or #tag...`
+            })}
           </div>
           <div class="cat-hub-filter-pills">
             <button type="button" class="cat-hub-filter-pill active" data-pricing-filter="all">All (${tools.length})</button>

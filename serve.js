@@ -9,7 +9,8 @@ const path = require('path');
 const zlib = require('zlib');
 
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 8080;
-const SERVE_DIR = path.resolve(__dirname);
+const SERVE_DIR = path.resolve(__dirname, 'dist');
+const ASSET_DIR = path.join(SERVE_DIR, 'asset');
 const forum = require('./community/forum.js');
 const stats = require('./src/stats.js');
 
@@ -316,19 +317,22 @@ const server = http.createServer((req, res) => {
       }
     }
 
-    // If directory, check for index.html
+    // If directory, check for index.html first; otherwise fall back to <stripped>.html
+    const stripped = pathname.replace(/\/+$/, '');
+    const strippedHtml = stripped ? path.resolve(SERVE_DIR, '.' + stripped + '.html') : '';
     if (fs.existsSync(candidatePath) && fs.statSync(candidatePath).isDirectory()) {
-      candidatePath = path.join(candidatePath, 'index.html');
+      const dirIndex = path.join(candidatePath, 'index.html');
+      if (fs.existsSync(dirIndex)) {
+        candidatePath = dirIndex;
+      } else if (strippedHtml && strippedHtml.startsWith(SERVE_DIR) && fs.existsSync(strippedHtml)) {
+        candidatePath = strippedHtml;
+      } else {
+        candidatePath = dirIndex;
+      }
     } else if (!path.extname(candidatePath) && fs.existsSync(candidatePath + '.html')) {
       candidatePath = candidatePath + '.html';
-    } else {
-      const stripped = pathname.replace(/\/+$/, '');
-      if (stripped) {
-        const candidate = path.resolve(SERVE_DIR, '.' + stripped + '.html');
-        if (candidate.startsWith(SERVE_DIR) && fs.existsSync(candidate)) {
-          candidatePath = candidate;
-        }
-      }
+    } else if (strippedHtml && strippedHtml.startsWith(SERVE_DIR) && fs.existsSync(strippedHtml)) {
+      candidatePath = strippedHtml;
     }
 
     // Check if file exists and is not a directory

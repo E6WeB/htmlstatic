@@ -8,6 +8,7 @@ const { marked } = require('marked');
 const { ICONS, CATEGORY_ICONS, escapeHtml, renderStackSaveBtn } = require('../data/icons');
 const { TOOL_PRICING } = require('../data/tool-pricing');
 const { renderSidebarDonationWidget } = require('./sidebar-donation');
+const { renderBlogPostsSidebarWidget, renderKnowGreatToolWidget, renderFacebookCommunityWidget } = require('./components/sidebar-shared');
 
 let linkHealthCache = null;
 function getLinkHealthMap(rootDir) {
@@ -392,6 +393,35 @@ function renderToolPage({
 
   const supplementalHtml = renderToolSupplementalHtml({ tool, allCategories, cleanMd, isOnline, health });
 
+  // Ensure every <h2> has an id for TOC anchoring, and build In This Article TOC
+  const ensureHeadingIds = (html) => html.replace(/<h2(?![^>]*\bid=)([^>]*)>([\s\S]*?)<\/h2>/gi, (m, attrs, inner) => {
+    const clean = inner.replace(/<[^>]*>/g, '').trim();
+    const slug = clean.toLowerCase().replace(/&amp;/g, 'and').replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+    return `<h2 id="${slug}"${attrs}>${inner}</h2>`;
+  });
+  const parsedHtmlWithIds = ensureHeadingIds(parsedHtml);
+  const supplementalHtmlWithIds = ensureHeadingIds(supplementalHtml);
+  const combinedBodyHtml = `${parsedHtmlWithIds}\n${supplementalHtmlWithIds}`;
+  const tocMatches = [...combinedBodyHtml.matchAll(/<h2[^>]*\bid="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/gi)];
+  const toolTocItems = [];
+  const seenIds = new Set();
+  for (const m of tocMatches) {
+    const id = m[1];
+    const label = m[2].replace(/<[^>]*>/g, '').trim();
+    if (id && label && !seenIds.has(id)) {
+      seenIds.add(id);
+      toolTocItems.push({ id, label });
+    }
+  }
+  const toolTocHtml = toolTocItems.map((item, idx) => `
+    <li>
+      <a href="#${escapeHtml(item.id)}">
+        <span>${idx + 1}. ${item.label}</span>
+        ${ICONS.chevronRight}
+      </a>
+    </li>
+  `).join('');
+
   return renderLayout({
     title: toolTitle,
     description: toolDesc,
@@ -487,8 +517,8 @@ function renderToolPage({
           <article style="padding: 0 0 2rem;">
             <!-- Rendered Documentation -->
             <div class="markdown-body">
-              ${parsedHtml}
-              ${supplementalHtml}
+              ${parsedHtmlWithIds}
+              ${supplementalHtmlWithIds}
             </div>
 
             ${toolTagsHtml}
@@ -637,6 +667,8 @@ function renderToolPage({
             </div>
           </div>
 
+          ${renderBlogPostsSidebarWidget({ title: 'Blog Post', rootPath: '../../' })}
+
           <!-- Related Tools & Category Alternatives Card -->
           <div class="sidebar-widget">
             <div class="sidebar-widget-header" style="justify-content:space-between;">
@@ -653,85 +685,9 @@ function renderToolPage({
 
           ${renderSidebarDonationWidget()}
 
-          <!-- Embeddable "Featured on StaticStack" Badge -->
-          <div class="sidebar-widget">
-            <div class="sidebar-widget-header">
-              <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.tag || ICONS.code}</span>
-              <h4 class="sidebar-widget-title">Embed Badge</h4>
-            </div>
-            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
-              Show that ${escapeHtml(tool.name)} is listed on StaticStack in your README or footer.
-            </p>
-            <div style="margin-bottom:0.85rem;">
-              <img src="/badge/${escapeHtml(tool.slug)}.svg" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto;">
-            </div>
-            <div style="display:flex; gap:0.5rem;">
-              <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-slug="${escapeHtml(tool.slug)}" data-category="${escapeHtml(tool.categorySlug)}" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
-                Copy Markdown
-              </button>
-              <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-slug="${escapeHtml(tool.slug)}" data-category="${escapeHtml(tool.categorySlug)}" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
-                Copy HTML
-              </button>
-            </div>
-            <script>
-              (function() {
-                document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
-                  btn.addEventListener('click', function() {
-                    var slug = btn.getAttribute('data-slug');
-                    var cat = btn.getAttribute('data-category');
-                    var type = btn.getAttribute('data-copy-type');
-                    var toolUrl = 'https://www.staticstack.app/tools/' + cat + '/' + slug;
-                    var badgeUrl = 'https://www.staticstack.app/badge/' + slug + '.svg';
-                    var snippet = type === 'html'
-                      ? '<a href="' + toolUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
-                      : '[![Featured on StaticStack](' + badgeUrl + ')](' + toolUrl + ')';
-                    var orig = btn.textContent;
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                      navigator.clipboard.writeText(snippet).then(function() {
-                        btn.textContent = 'Copied!';
-                        setTimeout(function() { btn.textContent = orig; }, 1800);
-                      }).catch(function() {});
-                    }
-                  });
-                });
-              })();
-            </script>
-          </div>
+          ${renderKnowGreatToolWidget('../../submit')}
 
-          <!-- Submit Alternative Card -->
-          <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
-            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-              <span style="color:var(--accent); display:inline-flex;">${ICONS.plusCircle}</span>
-              <strong style="font-size:0.875rem; color:var(--text-main);">Know a Great Tool?</strong>
-            </div>
-            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
-              StaticStack is community curated. Share your favorite static web service or tool with the community.
-            </p>
-            <a href="../../submit" class="btn btn-secondary" style="width:100%; font-size:0.825rem; padding:0.5rem 0.75rem;">
-              Submit a Tool &rarr;
-            </a>
-          </div>
-
-          <!-- Facebook Community Group Card -->
-          <div class="sidebar-widget">
-            <div class="sidebar-widget-header">
-              <span style="color:#1877f2; display:inline-flex; align-items:center;">${ICONS.facebook}</span>
-              <h4 class="sidebar-widget-title">Facebook Community</h4>
-            </div>
-            <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.9rem;">
-              Connect with fellow static site developers, discuss tools, and share projects in the Dynamic Websites and official StaticStack Facebook Groups.
-            </p>
-            <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;">
-              <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
-              <span>Dynamic Websites Group</span>
-              ${ICONS.external}
-            </a>
-            <a href="https://www.facebook.com/groups/staticshark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%; font-size:0.85rem; padding:0.55rem 0.85rem; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
-              <span style="color:#1877f2; display:inline-flex;">${ICONS.facebook}</span>
-              <span>StaticStack Official Group</span>
-              ${ICONS.external}
-            </a>
-          </div>
+          ${renderFacebookCommunityWidget()}
         </aside>
       </div>
     `

@@ -391,7 +391,7 @@ const BLOG_POSTS = [
       'supabase',
       'jsonbin',
       'stripe-payment-links',
-      'lemon-squeezy',
+      'paddle',
       'web3forms'
     ],
     toc: [

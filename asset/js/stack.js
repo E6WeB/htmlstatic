@@ -180,6 +180,7 @@
 
         var actionsHtml = savedList.length
           ? '<div class="stack-header-actions">' +
+              '<button type="button" class="btn btn-secondary btn-sm" id="stack-export-bookmarks-btn">Download Bookmarks</button>' +
               '<button type="button" class="btn btn-secondary btn-sm" id="stack-copy-md-btn">Copy as Markdown</button>' +
               '<button type="button" class="btn btn-secondary btn-sm" id="stack-print-btn">Print / Save as PDF</button>' +
             '</div>'
@@ -267,6 +268,44 @@
       }).catch(function () {
         delBtn.disabled = false;
       });
+      return;
+    }
+
+    var exportBmBtn = ev.target.closest('#stack-export-bookmarks-btn');
+    if (exportBmBtn) {
+      var list = currentSavedList || [];
+      if (!list.length) return;
+      var nowSec = Math.floor(Date.now() / 1000);
+      var bmLines = [
+        '<!DOCTYPE NETSCAPE-Bookmark-file-1>',
+        '<!-- This is an automatically generated file.',
+        '     It will be read and overwritten.',
+        '     DO NOT EDIT! -->',
+        '<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">',
+        '<TITLE>Bookmarks</TITLE>',
+        '<H1>Bookmarks</H1>',
+        '<DL><p>',
+        '    <DT><H3 ADD_DATE="' + nowSec + '" LAST_MODIFIED="' + nowSec + '">StaticStack Bookmarks</H3>',
+        '    <DL><p>'
+      ];
+      for (var i = 0; i < list.length; i++) {
+        var t = list[i];
+        var fullUrl = window.location.origin + t.url;
+        var label = escapeHtml(t.title + (t.category ? ' — ' + t.category : ''));
+        bmLines.push('        <DT><A HREF="' + escapeHtml(fullUrl) + '" ADD_DATE="' + nowSec + '">' + label + '</A>');
+      }
+      bmLines.push('    </DL><p>');
+      bmLines.push('</DL><p>');
+
+      var blob = new Blob([bmLines.join('\n')], { type: 'text/html;charset=utf-8' });
+      var dlUrl = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = dlUrl;
+      a.download = 'staticstack-bookmarks.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(dlUrl); }, 1000);
       return;
     }
 

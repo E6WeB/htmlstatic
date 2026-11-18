@@ -6,7 +6,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT_DIR = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(__dirname, '..');
+const DIST_DIR = path.join(REPO_ROOT, 'dist');
+const ROOT_DIR = fs.existsSync(DIST_DIR) ? DIST_DIR : REPO_ROOT;
 
 // Helper to recursively find all HTML files
 function getHtmlFiles(dir, fileList = []) {
@@ -176,5 +178,5 @@ console.log(`Robots.txt Issues: ${results.robotsIssues.length}`);
 console.log(`Sitemap Issues: ${results.sitemapIssues.length}`);
 
 // Output details
-fs.writeFileSync(path.join(ROOT_DIR, 'scripts', 'seo_audit_results.json'), JSON.stringify(results, null, 2));
+fs.writeFileSync(path.join(REPO_ROOT, 'scripts', 'seo_audit_results.json'), JSON.stringify(results, null, 2));
 console.log('\nDetailed results written to scripts/seo_audit_results.json');

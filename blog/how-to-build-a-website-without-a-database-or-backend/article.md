@@ -27,7 +27,7 @@ In this modern model, your site's architecture splits into two clean layers:
        ├── (2) Form Submissions ──────────────► [ Web3Forms / Formspree ]
        ├── (3) User Login & Passkeys ─────────► [ Clerk / Supabase Auth ]
        ├── (4) Dynamic JSON Storage ──────────► [ JSONBin / Supabase REST ]
-       └── (5) Payments & Subscriptions ──────► [ Stripe / Lemon Squeezy ]
+       └── (5) Payments & Subscriptions ──────► [ Stripe / Paddle ]
 ```
 
 ---
@@ -69,7 +69,7 @@ You do not need a custom payment processing server or PCI compliance audits to s
 
 ### Modern Solution: Hosted Checkout &amp; Payment Links
 * **[Stripe Payment Links](/tools/payments-ecommerce/stripe-payment-links)**: Generate secure, hosted checkout URLs directly in your Stripe dashboard. Simply link your static `<a href="https://buy.stripe.com/..." class="btn">Buy Now</a>` button! Stripe handles credit card security, taxes, currency conversions, and customer receipts automatically.
-* **[Lemon Squeezy](/tools/payments-ecommerce/lemon-squeezy)**: Acts as a Merchant of Record (handling global sales tax, VAT, and international compliance) with drop-in checkout overlays for static websites.
+* **[Paddle](/tools/payments-ecommerce/paddle)**: Acts as a Merchant of Record (handling global sales tax, VAT, and international compliance) with overlay checkouts for static websites.
 * **[Payhip](/tools/payments-ecommerce/payhip)**: Zero-monthly-fee digital store embed for ebooks, video courses, and design assets.
 
 ---

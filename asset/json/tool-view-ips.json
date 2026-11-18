@@ -1,1 +1,29 @@
-{}
+{
+  "htmlstatic-community-hub": {
+    "127.0.0.1": 1794963255795
+  },
+  "htmlstatic-community-topic-6": {
+    "127.0.0.1": 1794963263290
+  },
+  "blog-a-blueprint-for-beginners-on-static-html-websites": {
+    "127.0.0.1": 1794963500323
+  },
+  "htmlstatic-payments-ecommerce-lemon-squeezy": {
+    "127.0.0.1": 1794964509604
+  },
+  "htmlstatic-ai-content-creation-claude": {
+    "127.0.0.1": 1794965099699
+  },
+  "htmlstatic-hosting-deployment-cloudflare-pages": {
+    "127.0.0.1": 1794965144515
+  },
+  "htmlstatic-community-topic-3": {
+    "127.0.0.1": 1794965226667
+  },
+  "htmlstatic-ai-content-creation-chatgpt": {
+    "127.0.0.1": 1794965599850
+  },
+  "htmlstatic-contact-forms-splitform": {
+    "127.0.0.1": 1794966427338
+  }
+}

@@ -268,7 +268,6 @@ const TOOL_TRENDING_KEYWORDS = {
   'fluentcart': ['fluentcart', 'headless-ecommerce', 'wordpress-rest-api', 'buy-links', 'zero-transaction-fee'],
   'gumroad': ['gumroad', 'sell-digital-products', 'gumroad-overlay', 'embed-buy-button', 'merchant-of-record'],
   'ko-fi': ['ko-fi', 'tip-jar', 'donations-widget', 'creator-memberships', 'sell-digital-products'],
-  'lemon-squeezy': ['lemon-squeezy', 'merchant-of-record', 'global-vat-tax-compliance', 'sell-saas-and-downloads', 'overlay-checkout-embed'],
   'paddle': ['paddle', 'merchant-of-record', 'paddle-js', 'saas-billing', 'global-vat-tax-compliance'],
   'payhip': ['payhip', 'sell-ebooks-courses', 'no-monthly-fee-ecommerce', 'embed-buy-button', 'instant-digital-delivery'],
   'paymentform': ['paymentform', 'stripe-checkout-builder', 'no-code-payment-links', 'event-tickets-donations', 'hosted-pay-forms'],

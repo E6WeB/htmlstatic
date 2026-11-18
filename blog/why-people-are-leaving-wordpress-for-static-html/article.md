@@ -170,7 +170,7 @@ In 2026, **every single one of these capabilities has been solved** by lightweig
 │                               │ [Utterances]) or embeddable widgets    │
 ├───────────────────────────────┼────────────────────────────────────────┤
 │ Payments & Products (WooComm) │ Hosted checkouts ([Stripe Links] /     │
-│                               │ [Lemon Squeezy] / [Reflow])            │
+│                               │ [Paddle] / [Reflow])                   │
 └───────────────────────────────┴────────────────────────────────────────┘
 ```
 

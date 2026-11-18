@@ -1218,12 +1218,6 @@ Sell digital downloads, services, memberships, and other products from static we
     <td><a href="https://ko-fi.com/" target="_blank" rel="noopener noreferrer">ko-fi.com</a></td>
   </tr>
   <tr>
-    <td><a href="tools/payments-ecommerce/lemon-squeezy.md">Lemon Squeezy</a></td>
-    <td>Sell digital products and manage online payments</td>
-    <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>
-    <td><a href="https://www.lemonsqueezy.com/" target="_blank" rel="noopener noreferrer">lemonsqueezy.com</a></td>
-  </tr>
-  <tr>
     <td><a href="tools/payments-ecommerce/paddle.md">Paddle</a></td>
     <td>Merchant of Record billing with overlay checkouts and global tax compliance</td>
     <td><img src="https://img.shields.io/badge/Freemium-0969da?style=flat-square" alt="Freemium"></td>

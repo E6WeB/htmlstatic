@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { ICONS, CATEGORY_ICONS, escapeHtml } = require('../data/icons');
 const { renderSidebarDonationWidget } = require('./sidebar-donation');
+const { renderKnowGreatToolWidget, renderFacebookCommunityWidget } = require('./components/sidebar-shared');
 
 function loadBlogViewsMap() {
   try {
@@ -327,10 +328,10 @@ function renderBlogArticlePage({
       <aside class="blog-sidebar">
         <!-- Table of Contents Widget -->
         ${post.toc && post.toc.length > 0 ? `
-        <div class="sidebar-widget" style="position:sticky; top:5.5rem;">
+        <div class="sidebar-widget">
           <div class="sidebar-widget-header">
             <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.book}</span>
-            <h4 class="sidebar-widget-title">In This Article</h4>
+            <h4 class="sidebar-widget-title">Blog Post</h4>
           </div>
           <div class="sidebar-widget-body">
             <ul class="blog-toc-list">
@@ -358,52 +359,12 @@ function renderBlogArticlePage({
         </div>
         ` : ''}
 
-        <!-- Static Site Tips Widget -->
-        <div class="sidebar-widget">
-          <div class="sidebar-widget-header">
-            <span style="color:var(--accent); display:inline-flex; align-items:center;">${ICONS.lightbulb}</span>
-            <h4 class="sidebar-widget-title">Static Site Pro Tip</h4>
-          </div>
-          <div class="sidebar-widget-body">
-            <div class="sidebar-tip-item">
-              <span class="sidebar-tip-icon">${ICONS.shield}</span>
-              <div>
-                <strong style="color:var(--text-main); font-size:0.85rem; display:block;">Always Add a Honeypot</strong>
-                <p style="font-size:0.8rem; margin:0.25rem 0 0; color:var(--text-muted); line-height:1.45;">
-                  A hidden honeypot input filters out over 90% of automated spam submissions with zero human friction.
-                </p>
-              </div>
-            </div>
-            <div class="sidebar-tip-item">
-              <span class="sidebar-tip-icon">${ICONS.zap}</span>
-              <div>
-                <strong style="color:var(--text-main); font-size:0.85rem; display:block;">Progressive Enhancement</strong>
-                <p style="font-size:0.8rem; margin:0.25rem 0 0; color:var(--text-muted); line-height:1.45;">
-                  Start with a valid HTML POST action, then layer on JavaScript <code>fetch()</code> for instantaneous inline confirmation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Sidebar PayPal Donation Widget -->
         ${renderSidebarDonationWidget()}
 
-        <!-- Facebook Community Card -->
-        <div class="sidebar-widget">
-          <div class="sidebar-widget-header">
-            <span style="color:#1877f2; display:inline-flex; align-items:center;">${ICONS.facebook}</span>
-            <h4 class="sidebar-widget-title">Join the Community</h4>
-          </div>
-          <div class="sidebar-widget-body">
-            <p style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.85rem;">
-              Connect with fellow static site developers, share Jamstack workflows, and get feedback.
-            </p>
-            <a href="https://www.facebook.com/groups/dynamicwebsites" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center; gap:0.4rem;">
-              ${ICONS.facebook} Join Dynamic Websites ${ICONS.external}
-            </a>
-          </div>
-        </div>
+        ${renderKnowGreatToolWidget(`${rootPath}submit`)}
+
+        ${renderFacebookCommunityWidget()}
       </aside>
     </div>
   `;

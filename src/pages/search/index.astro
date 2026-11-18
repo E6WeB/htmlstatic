@@ -1,0 +1,9 @@
+---
+import { createRequire } from 'node:module';
+import path from 'node:path';
+const require = createRequire(path.join(process.cwd(), 'package.json'));
+const { getSiteContext } = require('./src/lib/site-context.js');
+const { getSearchHtml } = require('./src/lib/pages-content.js');
+const html = getSearchHtml(getSiteContext());
+---
+<Fragment set:html={html} />

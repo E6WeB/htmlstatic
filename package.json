@@ -4,16 +4,18 @@
   "description": "Static Website Toolkit - Static website generator for Wasmer Edge",
   "main": "serve.js",
   "scripts": {
-    "build": "node generate-pages.js",
+    "build": "astro build",
     "generate": "node generate-pages.js",
     "serve": "node serve.js",
     "start": "node serve.js",
-    "dev": "node generate-pages.js && node serve.js",
+    "dev": "astro dev",
+    "preview": "astro preview",
     "build:covers": "python scripts/build_blog_covers.py",
     "check:links": "node scripts/check_links.js",
     "fetch:youtube": "node scripts/fetch-youtube.js"
   },
   "dependencies": {
+    "astro": "^7.4.12",
     "geoip-lite": "^2.0.3",
     "marked": "^15.0.7",
     "pg": "^8.23.1"
@@ -31,5 +33,9 @@
     "wasmer"
   ],
   "author": "E6WeB",
-  "license": "CC0-1.0"
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "terser": "^5.51.2"
+  }
 }

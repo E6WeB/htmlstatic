@@ -1,0 +1,20 @@
+---
+import { createRequire } from 'node:module';
+import path from 'node:path';
+const require = createRequire(path.join(process.cwd(), 'package.json'));
+const { getSiteContext } = require('./src/lib/site-context.js');
+const { getBlogArticleHtml } = require('./src/lib/pages-content.js');
+
+export function getStaticPaths() {
+  const req = createRequire(path.join(process.cwd(), 'package.json'));
+  const { getSiteContext: getCtx } = req('./src/lib/site-context.js');
+  return getCtx().blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const html = getBlogArticleHtml(getSiteContext(), post);
+---
+<Fragment set:html={html} />
