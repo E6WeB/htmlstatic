@@ -39,7 +39,6 @@ const { generateLlmsFiles } = require('./src/templates/llms-txt');
 const { createDiscoveryContext } = require('./src/data/discovery-badges');
 const { renderStackPage } = require('./src/templates/stack-page');
 const { renderToolBadgeSvg } = require('./src/templates/badge');
-const { renderEmbedBadgeWidget } = require('./src/templates/components/sidebar-shared');
 
 marked.setOptions({
   gfm: true,
@@ -917,8 +916,6 @@ const archiveContent = `
       </div>
 
       ${renderSidebarDonationWidget()}
-
-      ${renderEmbedBadgeWidget({ extraClass: 'archive-sidebar-secondary' })}
 
       <!-- Submit Alternative Card -->
       <div class="sidebar-widget archive-sidebar-secondary" style="background:var(--bg-muted); border-style:dashed;">
@@ -2199,7 +2196,6 @@ fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt);
 // 3.5. Embeddable Tool Badges (/badge/<slug>.svg)
 const badgeDir = path.join(ROOT_DIR, 'badge');
 ensureDir(badgeDir);
-fs.writeFileSync(path.join(badgeDir, 'featured.svg'), renderToolBadgeSvg(null));
 allTools.forEach(tool => {
   fs.writeFileSync(path.join(badgeDir, `${tool.slug}.svg`), renderToolBadgeSvg(tool));
 });

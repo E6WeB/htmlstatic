@@ -8,7 +8,7 @@ const { marked } = require('marked');
 const { ICONS, CATEGORY_ICONS, escapeHtml, renderStackSaveBtn } = require('../data/icons');
 const { TOOL_PRICING } = require('../data/tool-pricing');
 const { renderSidebarDonationWidget } = require('./sidebar-donation');
-const { renderBlogPostsSidebarWidget, renderEmbedBadgeWidget, renderKnowGreatToolWidget, renderFacebookCommunityWidget } = require('./components/sidebar-shared');
+const { renderBlogPostsSidebarWidget, renderKnowGreatToolWidget, renderFacebookCommunityWidget } = require('./components/sidebar-shared');
 
 let linkHealthCache = null;
 function getLinkHealthMap(rootDir) {
@@ -684,8 +684,6 @@ function renderToolPage({
           </div>
 
           ${renderSidebarDonationWidget()}
-
-          ${renderEmbedBadgeWidget({ tool })}
 
           ${renderKnowGreatToolWidget('../../submit')}
 

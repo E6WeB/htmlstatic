@@ -1218,53 +1218,6 @@
           </script>
         </div>
 
-        <!-- Embeddable "Featured on StaticStack" Badge -->
-        <div class="sidebar-widget">
-          <div class="sidebar-widget-header">
-            <span style="color:var(--accent); display:inline-flex; align-items:center;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-            </span>
-            <h4 class="sidebar-widget-title">Embed Badge</h4>
-          </div>
-          <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
-            Feature StaticStack in your README or site footer with our official embeddable badge.
-          </p>
-          <div style="margin-bottom:0.85rem;">
-            <img src="/badge/featured.svg" alt="Featured on StaticStack" width="214" height="36" loading="lazy" style="display:block; max-width:100%; height:auto;">
-          </div>
-          <div style="display:flex; gap:0.5rem;">
-            <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="markdown" data-badge-url="https://www.staticstack.app/badge/featured.svg" data-target-url="https://www.staticstack.app/" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
-              Copy Markdown
-            </button>
-            <button type="button" class="btn btn-secondary btn-sm badge-copy-btn" data-copy-type="html" data-badge-url="https://www.staticstack.app/badge/featured.svg" data-target-url="https://www.staticstack.app/" style="flex:1; font-size:0.78rem; padding:0.4rem 0.5rem;">
-              Copy HTML
-            </button>
-          </div>
-          <script>
-            (function() {
-              document.querySelectorAll('.badge-copy-btn').forEach(function(btn) {
-                if (btn.dataset.badgeBound) return;
-                btn.dataset.badgeBound = '1';
-                btn.addEventListener('click', function() {
-                  var type = btn.getAttribute('data-copy-type');
-                  var targetUrl = btn.getAttribute('data-target-url');
-                  var badgeUrl = btn.getAttribute('data-badge-url');
-                  var snippet = type === 'html'
-                    ? '<a href="' + targetUrl + '"><img src="' + badgeUrl + '" alt="Featured on StaticStack" width="214" height="36"></a>'
-                    : '[![Featured on StaticStack](' + badgeUrl + ')](' + targetUrl + ')';
-                  var orig = btn.textContent;
-                  if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(snippet).then(function() {
-                      btn.textContent = 'Copied!';
-                      setTimeout(function() { btn.textContent = orig; }, 1800);
-                    }).catch(function() {});
-                  }
-                });
-              });
-            })();
-          </script>
-        </div>
-
         <!-- Submit Alternative Dashed CTA Card -->
         <div class="sidebar-widget" style="background:var(--bg-muted); border-style:dashed;">
           <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
